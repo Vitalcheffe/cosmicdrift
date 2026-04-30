@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+@page { size: 794px 1123px; margin: 0; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+html, body { margin: 0; padding: 0; width: 794px; height: 1123px; overflow: hidden; }
+.cover {
+  position: relative;
+  width: 794px;
+  height: 1123px;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+/* Layer 0: Background */
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(165deg, #f8f9fa 0%, #ffffff 40%, #fef2f2 100%);
+}
+/* Layer 1: Decorative geometric elements */
+.deco-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 380px;
+  height: 380px;
+  border-radius: 0 0 0 100%;
+  background: rgba(216, 47, 75, 0.04);
+}
+.deco-2 {
+  position: absolute;
+  bottom: 80px;
+  left: -40px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(216, 47, 75, 0.03);
+}
+.deco-line-1 {
+  position: absolute;
+  top: 340px;
+  left: 80px;
+  width: 120px;
+  height: 3px;
+  background: #d82f4b;
+}
+.deco-line-2 {
+  position: absolute;
+  top: 860px;
+  left: 80px;
+  width: 634px;
+  height: 1px;
+  background: rgba(216, 47, 75, 0.15);
+}
+/* Layer 3: Text content */
+.content {
+  position: absolute;
+  inset: 0;
+  padding: 80px 80px 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.kicker {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #d82f4b;
+  margin-bottom: 16px;
+}
+.title-block {
+  margin-top: 60px;
+}
+.title-1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #1e1f21;
+  margin-bottom: 8px;
+}
+.title-2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1e1f21;
+}
+.title-accent {
+  color: #d82f4b;
+}
+.subtitle {
+  font-size: 17px;
+  font-weight: 300;
+  color: #7b8187;
+  margin-top: 28px;
+  line-height: 1.6;
+  max-width: 520px;
+}
+.summary-block {
+  margin-top: 40px;
+  padding: 24px 28px;
+  background: rgba(216, 47, 75, 0.04);
+  border-left: 3px solid #d82f4b;
+  max-width: 520px;
+}
+.summary-text {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #1e1f21;
+}
+.meta-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+.meta-left {
+  font-size: 12px;
+  color: #7b8187;
+  line-height: 1.8;
+}
+.meta-right {
+  font-size: 11px;
+  color: #7b8187;
+  text-align: right;
+  line-height: 1.8;
+}
+.meta-label {
+  font-weight: 600;
+  color: #1e1f21;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="bg-layer"></div>
+  <div class="deco-1"></div>
+  <div class="deco-2"></div>
+  <div class="deco-line-1"></div>
+  <div class="deco-line-2"></div>
+  <div class="content">
+    <div>
+      <div class="kicker">Investment Feasibility Report</div>
+    </div>
+    <div class="title-block">
+      <div class="title-1">Hyperscale Green<br><span class="title-accent">Data Center</span></div>
+      <div class="title-2">Sahara Neural Hub</div>
+      <div class="subtitle">Sovereign African Data Storage &amp; Decentralized High-Performance Computing &mdash; Dakhla, Morocco</div>
+      <div class="summary-block">
+        <div class="summary-text">
+          Comprehensive feasibility analysis for a 50 MW AI-ready hyperscale data center powered by 100% renewable energy (wind + solar + BESS), 
+          leveraging Dakhla's world-class wind resources (LCOE $0.022/kWh), operational submarine cable connectivity (20-40 Tbps to Europe &amp; West Africa), 
+          and Dakhla West Africa Free Zone tax advantages. Total estimated CAPEX: $611M - $1.135B. Projected IRR: 12-18%.
+        </div>
+      </div>
+    </div>
+    <div class="meta-block">
+      <div class="meta-left">
+        <div><span class="meta-label">Prepared by:</span> Z.ai Strategic Analysis</div>
+        <div><span class="meta-label">Classification:</span> Confidential - Investor Use Only</div>
+        <div><span class="meta-label">Version:</span> 1.0</div>
+      </div>
+      <div class="meta-right">
+        <div><span class="meta-label">Date:</span> April 2026</div>
+        <div><span class="meta-label">Location:</span> 23.68&deg;N, 15.95&deg;W</div>
+        <div><span class="meta-label">Region:</span> Dakhla-Oued Ed-Dahab</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

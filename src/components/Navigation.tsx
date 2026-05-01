@@ -75,7 +75,7 @@ export function Navigation() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/[0.06]'
+            ? 'bg-white/90 backdrop-blur-md border-b border-[rgba(0,0,0,0.06)] shadow-sm'
             : 'bg-transparent'
         }`}
       >
@@ -83,18 +83,36 @@ export function Navigation() {
           <Link
             href="/"
             onClick={closeAll}
-            className="text-[15px] font-semibold tracking-[0.2em] text-white hover:opacity-80 transition-opacity"
+            className="text-[15px] font-semibold tracking-[0.2em] text-[#101820] hover:opacity-70 transition-opacity"
           >
             HARCH CORP
           </Link>
 
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-8">
+            <Link href="/about" className="text-xs tracking-[0.08em] uppercase text-[#6B7280] hover:text-[#101820] transition-colors">
+              About
+            </Link>
+            <Link href="/strategy" className="text-xs tracking-[0.08em] uppercase text-[#6B7280] hover:text-[#101820] transition-colors">
+              Strategy
+            </Link>
+            <Link href="/investors" className="text-xs tracking-[0.08em] uppercase text-[#6B7280] hover:text-[#101820] transition-colors">
+              Investors
+            </Link>
+            <Link href="/careers" className="text-xs tracking-[0.08em] uppercase text-[#6B7280] hover:text-[#101820] transition-colors">
+              Careers
+            </Link>
+            <Link href="/contact" className="text-xs tracking-[0.08em] uppercase text-[#6B7280] hover:text-[#101820] transition-colors">
+              Contact
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-2">
             <button
               onClick={() => {
                 setMenuOpen(false);
                 setSearchOpen(!searchOpen);
               }}
-              className="p-2 text-white/70 hover:text-white transition-colors"
+              className="p-2 text-[#6B7280] hover:text-[#101820] transition-colors"
               aria-label="Search"
             >
               <Search size={18} strokeWidth={1.5} />
@@ -104,7 +122,7 @@ export function Navigation() {
                 setSearchOpen(false);
                 setMenuOpen(!menuOpen);
               }}
-              className="p-2 text-white/70 hover:text-white transition-colors"
+              className="p-2 text-[#6B7280] hover:text-[#101820] transition-colors md:hidden"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             >
               {menuOpen ? (
@@ -119,7 +137,7 @@ export function Navigation() {
 
       {/* Full-Screen Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-[#0A0A0A] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed inset-0 z-40 bg-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -135,7 +153,7 @@ export function Navigation() {
                       key={item.href}
                       href={item.href}
                       onClick={closeAll}
-                      className="block text-2xl md:text-3xl font-light text-white/70 hover:text-white transition-colors duration-200 group"
+                      className="block text-2xl md:text-3xl font-light text-[#9CA3AF] hover:text-[#101820] transition-colors duration-200 group"
                     >
                       <span className="inline-flex items-center gap-3">
                         {item.name}
@@ -158,7 +176,7 @@ export function Navigation() {
                       key={item.href}
                       href={item.href}
                       onClick={closeAll}
-                      className="block text-2xl md:text-3xl font-light text-white/70 hover:text-white transition-colors duration-200 group"
+                      className="block text-2xl md:text-3xl font-light text-[#9CA3AF] hover:text-[#101820] transition-colors duration-200 group"
                     >
                       <span className="inline-flex items-center gap-3">
                         {item.name}
@@ -178,7 +196,7 @@ export function Navigation() {
               <Link
                 href="/contact"
                 onClick={closeAll}
-                className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-[#101820] text-white px-8 py-3 rounded-md text-sm font-medium hover:bg-[#1f2937] transition-colors"
               >
                 Get Started
                 <ArrowRight size={14} />
@@ -186,9 +204,9 @@ export function Navigation() {
               <Link
                 href="/investors"
                 onClick={closeAll}
-                className="text-white/50 hover:text-white text-sm transition-colors"
+                className="text-[#6B7280] hover:text-[#101820] text-sm transition-colors"
               >
-                Investor Relations →
+                Investor Relations &rarr;
               </Link>
             </div>
           </div>
@@ -197,7 +215,7 @@ export function Navigation() {
 
       {/* Full-Screen Search Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-[#0A0A0A] transition-all duration-500 ${
+        className={`fixed inset-0 z-40 bg-white transition-all duration-500 ${
           searchOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -207,7 +225,7 @@ export function Navigation() {
               <div className="relative">
                 <Search
                   size={20}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 text-white/30"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 text-[#9CA3AF]"
                   strokeWidth={1.5}
                 />
                 <input
@@ -215,7 +233,7 @@ export function Navigation() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search Harch Corp..."
-                  className="w-full bg-transparent border-b border-white/[0.15] pl-10 pr-4 py-4 text-2xl md:text-4xl font-light text-white placeholder:text-white/20 focus:outline-none focus:border-white/40 transition-colors"
+                  className="w-full bg-transparent border-b border-[rgba(0,0,0,0.1)] pl-10 pr-4 py-4 text-2xl md:text-4xl font-light text-[#101820] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#101820] transition-colors"
                   autoFocus={searchOpen}
                 />
               </div>
@@ -230,7 +248,7 @@ export function Navigation() {
                     onClick={() => {
                       setSearchQuery(term);
                     }}
-                    className="px-4 py-2 border border-white/[0.1] rounded-md text-sm text-white/60 hover:text-white hover:border-white/30 transition-colors"
+                    className="px-4 py-2 border border-[rgba(0,0,0,0.08)] rounded-md text-sm text-[#6B7280] hover:text-[#101820] hover:border-[rgba(0,0,0,0.2)] transition-colors"
                   >
                     {term}
                   </button>

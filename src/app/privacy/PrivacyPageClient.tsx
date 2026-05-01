@@ -108,19 +108,19 @@ We may update this Privacy Policy from time to time. We will notify you of any m
 
 export default function PrivacyPageClient() {
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-white">
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <p className="section-label mb-6">Privacy</p>
-          <h1 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-semibold text-[#101820] tracking-tight mb-4">
             Privacy Policy
           </h1>
-          <p className="text-xs text-white/25 mb-12">Last Updated: January 1, 2026</p>
+          <p className="text-xs text-[#9CA3AF] mb-12">Last Updated: January 1, 2026</p>
 
-          <div className="space-y-10 text-sm text-white/50 leading-relaxed">
+          <div className="space-y-10 text-sm text-[#6B7280] leading-relaxed">
             {sections.map((section) => (
               <div key={section.title}>
-                <h2 className="text-lg font-medium text-white mb-4">{section.title}</h2>
+                <h2 className="text-lg font-medium text-[#101820] mb-4">{section.title}</h2>
                 <div className="whitespace-pre-line">{section.content}</div>
               </div>
             ))}

@@ -29,15 +29,15 @@ const calendar = [
 
 export default function InvestorsPageClient() {
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-white">
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-6">Investor Relations</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#101820] tracking-tight mb-8">
             Invest in Africa&apos;s<br/>Industrial Future
           </h1>
-          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+          <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
             Harch Corp offers institutional investors access to a diversified portfolio of critical 
             infrastructure assets across 7 verticals and 5 countries — with a $2.4B+ pipeline and 
             a clear path to continental scale.
@@ -46,14 +46,14 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Investment Thesis */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-8">Investment Thesis</p>
           <div className="max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold text-[#101820] tracking-tight mb-6">
               Africa is the last great infrastructure frontier.
             </h2>
-            <div className="space-y-4 text-base text-white/50 leading-relaxed">
+            <div className="space-y-4 text-base text-[#6B7280] leading-relaxed">
               <p>
                 The continent hosts 18% of the world&apos;s population but generates just 3% of global GDP — 
                 not because of a lack of talent or resources, but because of a fundamental infrastructure deficit. 
@@ -76,16 +76,16 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Financial Highlights */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-12">Financial Highlights</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {financialHighlights.map((stat) => (
               <div key={stat.label}>
-                <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
+                <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#101820] tracking-tight">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-xs tracking-[0.1em] uppercase text-white/40">
+                <p className="mt-2 text-xs tracking-[0.1em] uppercase text-[#9CA3AF]">
                   {stat.label}
                 </p>
               </div>
@@ -95,27 +95,27 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Documents */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-12">Documents</p>
           <div className="space-y-0">
             {documents.map((doc) => (
               <div
                 key={doc.name}
-                className="flex items-center justify-between py-5 border-b border-white/[0.06] group cursor-pointer hover:bg-white/[0.02] transition-colors"
+                className="flex items-center justify-between py-5 border-b border-[rgba(0,0,0,0.06)] group cursor-pointer hover:bg-[rgba(0,0,0,0.02)] transition-colors"
               >
                 <div className="flex items-center gap-4">
-                  <Download size={16} className="text-white/20" />
+                  <Download size={16} className="text-[#9CA3AF]" />
                   <div>
-                    <p className="text-sm text-white/80 group-hover:text-white transition-colors">
+                    <p className="text-sm text-[#101820] group-hover:text-[#101820] transition-colors">
                       {doc.name}
                     </p>
-                    <p className="text-xs text-white/25 mt-0.5">
+                    <p className="text-xs text-[#9CA3AF] mt-0.5">
                       {doc.type} · {doc.size}
                     </p>
                   </div>
                 </div>
-                <ArrowRight size={14} className="text-white/10 group-hover:text-white/40 transition-colors" />
+                <ArrowRight size={14} className="text-[#D1D5DB] group-hover:text-[rgba(0,0,0,0.25)] transition-colors" />
               </div>
             ))}
           </div>
@@ -123,17 +123,17 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Financial Calendar */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-12">Financial Calendar</p>
           <div className="space-y-0">
             {calendar.map((item) => (
-              <div key={item.date + item.event} className="flex gap-8 md:gap-16 py-5 border-b border-white/[0.06] last:border-b-0">
+              <div key={item.date + item.event} className="flex gap-8 md:gap-16 py-5 border-b border-[rgba(0,0,0,0.06)] last:border-b-0">
                 <div className="flex items-center gap-2 shrink-0">
-                  <Calendar size={14} className="text-white/20" />
-                  <span className="text-sm font-mono text-white/30">{item.date}</span>
+                  <Calendar size={14} className="text-[#9CA3AF]" />
+                  <span className="text-sm font-mono text-[#9CA3AF]">{item.date}</span>
                 </div>
-                <p className="text-sm text-white/60">{item.event}</p>
+                <p className="text-sm text-[#6B7280]">{item.event}</p>
               </div>
             ))}
           </div>
@@ -141,19 +141,19 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Investor Contact */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
             <div>
               <p className="section-label mb-6">Investor Contact</p>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-4">
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#101820] tracking-tight mb-4">
                 Get in Touch
               </h2>
-              <p className="text-sm text-white/45 leading-relaxed mb-6">
+              <p className="text-sm text-[#6B7280] leading-relaxed mb-6">
                 For investment inquiries, due diligence requests, or partnership discussions, 
                 please contact our Investor Relations team.
               </p>
-              <div className="space-y-2 text-sm text-white/50">
+              <div className="space-y-2 text-sm text-[#6B7280]">
                 <p>investor.relations@harchcorp.com</p>
                 <p>+212 5 22 00 00 00</p>
                 <p>123 Boulevard Mohammed V, Casablanca, Morocco</p>
@@ -162,7 +162,7 @@ export default function InvestorsPageClient() {
             <div className="flex items-start md:items-end justify-end">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-[#101820] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:bg-[#1f2937] transition-colors"
               >
                 Contact IR Team
                 <ArrowRight size={14} />

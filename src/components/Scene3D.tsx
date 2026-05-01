@@ -1,11 +1,11 @@
 'use client';
 
 import { useRef, useMemo } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Icosahedron } from '@react-three/drei';
 import * as THREE from 'three';
 
-function Particles({ count = 300 }: { count?: number }) {
+function Particles({ count = 400 }: { count?: number }) {
   const mesh = useRef<THREE.Points>(null);
   const velocitiesRef = useRef<Float32Array | null>(null);
 
@@ -13,11 +13,11 @@ function Particles({ count = 300 }: { count?: number }) {
     const pos = new Float32Array(count * 3);
     const vel = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 20;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 12;
+      pos[i * 3] = (Math.random() - 0.5) * 24;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 14;
       pos[i * 3 + 2] = (Math.random() - 0.5) * 10;
-      vel[i * 3] = (Math.random() - 0.5) * 0.005;
-      vel[i * 3 + 1] = (Math.random() - 0.5) * 0.005;
+      vel[i * 3] = (Math.random() - 0.5) * 0.004;
+      vel[i * 3 + 1] = (Math.random() - 0.5) * 0.004;
       vel[i * 3 + 2] = (Math.random() - 0.5) * 0.002;
     }
     velocitiesRef.current = vel;
@@ -37,9 +37,8 @@ function Particles({ count = 300 }: { count?: number }) {
       posArray[i * 3 + 1] += velocities[i * 3 + 1];
       posArray[i * 3 + 2] += velocities[i * 3 + 2];
 
-      // Wrap around boundaries
-      if (Math.abs(posArray[i * 3]) > 10) velocities[i * 3] *= -1;
-      if (Math.abs(posArray[i * 3 + 1]) > 6) velocities[i * 3 + 1] *= -1;
+      if (Math.abs(posArray[i * 3]) > 12) velocities[i * 3] *= -1;
+      if (Math.abs(posArray[i * 3 + 1]) > 7) velocities[i * 3 + 1] *= -1;
       if (Math.abs(posArray[i * 3 + 2]) > 5) velocities[i * 3 + 2] *= -1;
     }
     posAttr.needsUpdate = true;
@@ -56,10 +55,10 @@ function Particles({ count = 300 }: { count?: number }) {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.03}
-        color="#C9A84C"
+        size={0.035}
+        color="#101820"
         transparent
-        opacity={0.6}
+        opacity={0.2}
         sizeAttenuation
         depthWrite={false}
       />
@@ -72,25 +71,53 @@ function CentralGeometry() {
 
   useFrame((state) => {
     if (!meshRef.current) return;
-    meshRef.current.rotation.x += 0.003;
-    meshRef.current.rotation.y += 0.005;
-    // Subtle mouse influence
-    const mx = state.pointer.x * 0.2;
-    const my = state.pointer.y * 0.2;
-    meshRef.current.rotation.x += my * 0.01;
-    meshRef.current.rotation.y += mx * 0.01;
+    meshRef.current.rotation.x += 0.002;
+    meshRef.current.rotation.y += 0.004;
+    const mx = state.pointer.x * 0.15;
+    const my = state.pointer.y * 0.15;
+    meshRef.current.rotation.x += my * 0.008;
+    meshRef.current.rotation.y += mx * 0.008;
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.5}>
-      <Icosahedron ref={meshRef} args={[1.2, 1]}>
+    <Float speed={1.2} rotationIntensity={0.2} floatIntensity={0.4}>
+      <Icosahedron ref={meshRef} args={[1.5, 1]}>
         <meshStandardMaterial
-          color="#4A90D9"
-          emissive="#1a3a5c"
-          emissiveIntensity={0.3}
+          color="#101820"
+          emissive="#101820"
+          emissiveIntensity={0.05}
           wireframe
           transparent
-          opacity={0.4}
+          opacity={0.12}
+        />
+      </Icosahedron>
+    </Float>
+  );
+}
+
+function InnerGeometry() {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    if (!meshRef.current) return;
+    meshRef.current.rotation.x -= 0.001;
+    meshRef.current.rotation.y -= 0.003;
+    const mx = state.pointer.x * 0.1;
+    const my = state.pointer.y * 0.1;
+    meshRef.current.rotation.x -= my * 0.005;
+    meshRef.current.rotation.y -= mx * 0.005;
+  });
+
+  return (
+    <Float speed={0.8} rotationIntensity={0.15} floatIntensity={0.3}>
+      <Icosahedron ref={meshRef} args={[0.8, 2]}>
+        <meshStandardMaterial
+          color="#C9A84C"
+          emissive="#C9A84C"
+          emissiveIntensity={0.1}
+          wireframe
+          transparent
+          opacity={0.08}
         />
       </Icosahedron>
     </Float>
@@ -110,9 +137,9 @@ function MouseLight() {
     <pointLight
       ref={lightRef}
       color="#C9A84C"
-      intensity={2}
-      distance={15}
-      position={[0, 0, 3]}
+      intensity={0.8}
+      distance={20}
+      position={[0, 0, 4]}
     />
   );
 }
@@ -126,11 +153,12 @@ export function Scene3D() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
-        <ambientLight intensity={0.15} color="#4A90D9" />
-        <directionalLight position={[5, 5, 5]} intensity={0.3} color="#C9A84C" />
+        <ambientLight intensity={0.6} color="#FFFFFF" />
+        <directionalLight position={[5, 5, 5]} intensity={0.3} color="#FFFFFF" />
         <MouseLight />
-        <Particles count={300} />
+        <Particles count={400} />
         <CentralGeometry />
+        <InnerGeometry />
       </Canvas>
     </div>
   );

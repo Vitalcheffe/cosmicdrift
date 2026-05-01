@@ -13,40 +13,100 @@ const footerLinks = [
   { name: 'Legal', href: '/legal' },
 ];
 
+const subsidiaryLinks = [
+  { name: 'Intelligence', href: '/subsidiaries/intelligence' },
+  { name: 'Ciment', href: '/subsidiaries/cement' },
+  { name: 'Energy', href: '/subsidiaries/energy' },
+  { name: 'Technology', href: '/subsidiaries/technology' },
+  { name: 'Mining', href: '/subsidiaries/mining' },
+  { name: 'Agri', href: '/subsidiaries/agriculture' },
+  { name: 'Water', href: '/subsidiaries/water' },
+];
+
 export function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] bg-[#0A0A0A]">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            {footerLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-xs tracking-[0.08em] text-white/40 hover:text-white/80 transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-          <Link
-            href="/"
-            className="text-[13px] font-semibold tracking-[0.2em] text-white/60 hover:text-white transition-colors"
-          >
-            HARCH CORP
-          </Link>
+    <footer className="bg-[#101820]">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12">
+          {/* Brand */}
+          <div className="md:col-span-1">
+            <Link
+              href="/"
+              className="text-[15px] font-semibold tracking-[0.2em] text-white"
+            >
+              HARCH CORP
+            </Link>
+            <p className="mt-4 text-xs text-white/30 leading-relaxed max-w-[200px]">
+              Building Africa&apos;s industrial sovereignty across 7 verticals.
+            </p>
+          </div>
+
+          {/* Verticals */}
+          <div>
+            <p className="text-[10px] font-semibold tracking-[0.15em] uppercase text-white/40 mb-4">
+              Verticals
+            </p>
+            <nav className="space-y-2.5">
+              {subsidiaryLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block text-xs text-white/50 hover:text-white/90 transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Company */}
+          <div>
+            <p className="text-[10px] font-semibold tracking-[0.15em] uppercase text-white/40 mb-4">
+              Company
+            </p>
+            <nav className="space-y-2.5">
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block text-xs text-white/50 hover:text-white/90 transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <p className="text-[10px] font-semibold tracking-[0.15em] uppercase text-white/40 mb-4">
+              Headquarters
+            </p>
+            <div className="space-y-2.5">
+              <p className="text-xs text-white/50">Casablanca, Morocco</p>
+              <p className="text-xs text-white/50">Harch Corp S.A.</p>
+              <p className="text-xs text-white/50">Capital: 100M MAD</p>
+              <p className="text-xs text-white/50">RCS Casablanca</p>
+            </div>
+          </div>
         </div>
-        <div className="mt-8 pt-6 border-t border-white/[0.06] text-center">
-          <p className="text-xs text-white/25">
-            © 2026 Harch Corp S.A. All rights reserved.{' '}
-            <Link href="/privacy" className="hover:text-white/50 transition-colors">
+
+        {/* Bottom */}
+        <div className="mt-16 pt-6 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[11px] text-white/25">
+            &copy; 2026 Harch Corp S.A. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="text-[11px] text-white/25 hover:text-white/50 transition-colors">
               Privacy
-            </Link>{' '}
-            ·{' '}
-            <Link href="/terms" className="hover:text-white/50 transition-colors">
+            </Link>
+            <Link href="/terms" className="text-[11px] text-white/25 hover:text-white/50 transition-colors">
               Terms
             </Link>
-          </p>
+            <Link href="/legal" className="text-[11px] text-white/25 hover:text-white/50 transition-colors">
+              Legal
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

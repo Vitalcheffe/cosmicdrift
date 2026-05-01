@@ -167,11 +167,11 @@ export default function SubsidiaryPageClient() {
 
   if (!data) {
     return (
-      <div className="bg-[#0A0A0A] min-h-screen flex items-center justify-center">
+      <div className="bg-white min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-semibold text-white mb-4">Not Found</h1>
-          <p className="text-white/50 mb-8">This subsidiary does not exist.</p>
-          <Link href="/" className="text-sm text-white/60 hover:text-white transition-colors">
+          <h1 className="text-4xl font-semibold text-[#101820] mb-4">Not Found</h1>
+          <p className="text-[#6B7280] mb-8">This subsidiary does not exist.</p>
+          <Link href="/" className="text-sm text-[#6B7280] hover:text-[#101820] transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -184,15 +184,15 @@ export default function SubsidiaryPageClient() {
   const nextData = subsidiaries[nextSlug];
 
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-white">
       {/* Hero */}
       <section className="relative pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-6">{data.label}</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#101820] tracking-tight mb-6">
             {data.name}
           </h1>
-          <p className="text-xl md:text-2xl font-light text-white/50 mb-10">
+          <p className="text-xl md:text-2xl font-light text-[#6B7280] mb-10">
             {data.tagline}
           </p>
         </div>
@@ -206,17 +206,17 @@ export default function SubsidiaryPageClient() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
           </div>
         </div>
       </section>
 
       {/* Overview */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <p className="section-label mb-6">Overview</p>
-            <p className="text-base md:text-lg text-white/50 leading-relaxed">
+            <p className="text-base md:text-lg text-[#6B7280] leading-relaxed">
               {data.overview}
             </p>
           </div>
@@ -224,16 +224,16 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* Key Metrics */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-12">Key Metrics</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {data.metrics.map((metric) => (
               <div key={metric.label}>
-                <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
+                <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#101820] tracking-tight">
                   {metric.value}
                 </p>
-                <p className="mt-2 text-xs tracking-[0.1em] uppercase text-white/40">
+                <p className="mt-2 text-xs tracking-[0.1em] uppercase text-[#9CA3AF]">
                   {metric.label}
                 </p>
               </div>
@@ -243,16 +243,16 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* Strategic Advantages */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-12">Strategic Advantages</p>
           <div className="max-w-3xl space-y-6">
             {data.advantages.map((advantage, i) => (
               <div key={i} className="flex gap-4">
-                <span className="text-sm text-white/20 font-mono mt-0.5 shrink-0">
+                <span className="text-sm text-[#9CA3AF] font-mono mt-0.5 shrink-0">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <p className="text-sm md:text-base text-white/50 leading-relaxed">
+                <p className="text-sm md:text-base text-[#6B7280] leading-relaxed">
                   {advantage}
                 </p>
               </div>
@@ -262,20 +262,20 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-3">
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#101820] tracking-tight mb-3">
                 Invest in {data.name}
               </h2>
-              <p className="text-sm text-white/40">
+              <p className="text-sm text-[#9CA3AF]">
                 Learn about investment opportunities in this vertical.
               </p>
             </div>
             <Link
               href="/investors"
-              className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors shrink-0"
+              className="inline-flex items-center gap-2 bg-[#101820] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:bg-[#1f2937] transition-colors shrink-0"
             >
               Investor Relations
               <ArrowRight size={14} />
@@ -285,7 +285,7 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* Next Subsidiary */}
-      <section className="py-16 border-t border-white/[0.06]">
+      <section className="py-16 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <Link
             href={`/subsidiaries/${nextSlug}`}
@@ -293,11 +293,11 @@ export default function SubsidiaryPageClient() {
           >
             <div>
               <p className="section-label mb-2">Next Vertical</p>
-              <p className="text-2xl md:text-3xl font-light text-white/60 group-hover:text-white transition-colors">
+              <p className="text-2xl md:text-3xl font-light text-[#6B7280] group-hover:text-[#101820] transition-colors">
                 {nextData.name}
               </p>
             </div>
-            <ArrowLeft size={20} className="text-white/30 group-hover:text-white group-hover:-translate-x-1 transition-all rotate-180" />
+            <ArrowLeft size={20} className="text-[#9CA3AF] group-hover:text-[#101820] group-hover:-translate-x-1 transition-all rotate-180" />
           </Link>
         </div>
       </section>

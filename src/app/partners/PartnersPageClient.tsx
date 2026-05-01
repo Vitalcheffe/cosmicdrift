@@ -32,15 +32,15 @@ const partnerCategories = [
 
 export default function PartnersPageClient() {
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-white">
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-6">Partners</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#101820] tracking-tight mb-8">
             Partner<br/>Ecosystem
           </h1>
-          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+          <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
             Harch Corp works with world-class partners across technology, finance, industry, 
             and government to build Africa&apos;s critical infrastructure.
           </p>
@@ -48,25 +48,25 @@ export default function PartnersPageClient() {
       </section>
 
       {/* Partner Categories */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="space-y-20">
             {partnerCategories.map((category) => (
               <div key={category.title}>
                 <div className="flex items-center gap-3 mb-4">
-                  <category.icon size={18} className="text-white/30" strokeWidth={1.5} />
-                  <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
+                  <category.icon size={18} className="text-[#9CA3AF]" strokeWidth={1.5} />
+                  <h2 className="text-2xl md:text-3xl font-semibold text-[#101820] tracking-tight">
                     {category.title}
                   </h2>
                 </div>
-                <p className="text-sm text-white/45 leading-relaxed mb-8 max-w-2xl">
+                <p className="text-sm text-[#6B7280] leading-relaxed mb-8 max-w-2xl">
                   {category.description}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {category.partners.map((partner) => (
                     <span
                       key={partner}
-                      className="px-4 py-2 border border-white/[0.08] rounded-md text-xs text-white/40"
+                      className="px-4 py-2 border border-[rgba(0,0,0,0.08)] rounded-md text-xs text-[#9CA3AF]"
                     >
                       {partner}
                     </span>
@@ -79,18 +79,18 @@ export default function PartnersPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#101820] tracking-tight mb-6">
             Become a Partner
           </h2>
-          <p className="max-w-xl mx-auto text-base text-white/40 mb-10">
+          <p className="max-w-xl mx-auto text-base text-[#9CA3AF] mb-10">
             Join the ecosystem building Africa&apos;s industrial sovereignty. We&apos;re always 
             looking for strategic partners who share our mission.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-[#101820] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:bg-[#1f2937] transition-colors"
           >
             Partner With Us
             <ArrowRight size={14} />

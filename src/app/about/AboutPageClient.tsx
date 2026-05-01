@@ -56,15 +56,15 @@ const leadership = [
 
 export default function AboutPageClient() {
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-white">
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-6">About Harch Corp</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#101820] tracking-tight mb-8">
             Building the<br />Infrastructure<br />Africa Needs
           </h1>
-          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+          <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
             Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate founded in 2023 with a single mission: 
             to build the critical infrastructure that enables Africa&apos;s self-reliance — from AI data centers and 
             cement plants to renewable energy and water desalination.
@@ -73,17 +73,17 @@ export default function AboutPageClient() {
       </section>
 
       {/* Story */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             <div>
               <p className="section-label mb-6">Our Story</p>
-              <p className="text-base text-white/50 leading-relaxed mb-6">
+              <p className="text-base text-[#6B7280] leading-relaxed mb-6">
                 Africa has long been a continent of untapped potential — rich in resources, talent, and ambition, 
                 yet held back by a fundamental infrastructure deficit. While the world debates Africa&apos;s future, 
                 Harch Corp is building it.
               </p>
-              <p className="text-base text-white/50 leading-relaxed">
+              <p className="text-base text-[#6B7280] leading-relaxed">
                 Founded by Amine Harch El Korane in Casablanca, Harch Corp was created with a clear thesis: 
                 Africa does not need aid, it needs infrastructure. It does not need charity, it needs 
                 partnership on equal terms. Across seven verticals spanning AI, energy, mining, agriculture, 
@@ -91,12 +91,12 @@ export default function AboutPageClient() {
               </p>
             </div>
             <div>
-              <p className="text-base text-white/50 leading-relaxed mb-6">
+              <p className="text-base text-[#6B7280] leading-relaxed mb-6">
                 Our approach is vertically integrated — we own the entire value chain from raw materials to 
                 finished infrastructure. This allows us to move faster, control quality, and ensure that the 
                 economic value generated stays on the continent.
               </p>
-              <p className="text-base text-white/50 leading-relaxed">
+              <p className="text-base text-[#6B7280] leading-relaxed">
                 With a $2.4B+ investment pipeline spanning five countries, Harch Corp is not a speculative venture. 
                 It is an industrial movement — one that is already breaking ground, creating jobs, and proving 
                 that world-class infrastructure can be built by Africans, for Africa.
@@ -107,25 +107,25 @@ export default function AboutPageClient() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             <div>
               <p className="section-label mb-6">Mission</p>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#101820] tracking-tight mb-6">
                 To build the critical infrastructure that enables Africa&apos;s industrial sovereignty.
               </h2>
-              <p className="text-base text-white/50 leading-relaxed">
+              <p className="text-base text-[#6B7280] leading-relaxed">
                 Every project we undertake — from a 500MW data center to a regional cement plant — serves one purpose: 
                 ensuring that Africa can produce, process, and power what it needs, on its own terms.
               </p>
             </div>
             <div>
               <p className="section-label mb-6">Vision</p>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#101820] tracking-tight mb-6">
                 An Africa that is self-reliant, industrially sovereign, and globally competitive.
               </h2>
-              <p className="text-base text-white/50 leading-relaxed">
+              <p className="text-base text-[#6B7280] leading-relaxed">
                 We envision a continent where critical infrastructure — energy, compute, materials, food, and water — 
                 is owned and operated by Africans, serving African needs and fueling African innovation.
               </p>
@@ -135,15 +135,15 @@ export default function AboutPageClient() {
       </section>
 
       {/* Values */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-12">Our Values</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-16">
             {values.map((value) => (
               <div key={value.title}>
-                <value.icon size={20} className="text-white/30 mb-4" strokeWidth={1.5} />
-                <h3 className="text-xl font-medium text-white mb-3">{value.title}</h3>
-                <p className="text-sm text-white/45 leading-relaxed">{value.description}</p>
+                <value.icon size={20} className="text-[#9CA3AF] mb-4" strokeWidth={1.5} />
+                <h3 className="text-xl font-medium text-[#101820] mb-3">{value.title}</h3>
+                <p className="text-sm text-[#6B7280] leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -151,13 +151,13 @@ export default function AboutPageClient() {
       </section>
 
       {/* Leadership */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-12">Leadership</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
             {leadership.map((person) => (
               <div key={person.name} className="group">
-                <div className="relative w-full aspect-[3/4] mb-5 overflow-hidden rounded-sm bg-[#111]">
+                <div className="relative w-full aspect-[3/4] mb-5 overflow-hidden rounded-sm bg-[#F7F7F8]">
                   <Image
                     src={person.image}
                     alt={person.name}
@@ -165,9 +165,9 @@ export default function AboutPageClient() {
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
-                <h3 className="text-base font-medium text-white mb-1">{person.name}</h3>
-                <p className="text-xs tracking-[0.05em] text-white/40 mb-3">{person.title}</p>
-                <p className="text-xs text-white/35 leading-relaxed">{person.bio}</p>
+                <h3 className="text-base font-medium text-[#101820] mb-1">{person.name}</h3>
+                <p className="text-xs tracking-[0.05em] text-[#9CA3AF] mb-3">{person.title}</p>
+                <p className="text-xs text-[#9CA3AF] leading-relaxed">{person.bio}</p>
               </div>
             ))}
           </div>
@@ -175,26 +175,26 @@ export default function AboutPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#101820] tracking-tight mb-6">
             Join the Mission
           </h2>
-          <p className="max-w-xl mx-auto text-base text-white/40 mb-10">
+          <p className="max-w-xl mx-auto text-base text-[#9CA3AF] mb-10">
             Whether as an investor, partner, or team member — help us build the infrastructure 
             that Africa needs.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/investors"
-              className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-[#101820] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:bg-[#1f2937] transition-colors"
             >
               Investor Relations
               <ArrowRight size={14} />
             </Link>
             <Link
               href="/careers"
-              className="inline-flex items-center gap-2 border border-white/[0.2] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:border-white/40 transition-colors"
+              className="inline-flex items-center gap-2 border border-[rgba(0,0,0,0.12)] text-[#101820] px-8 py-3.5 rounded-md text-sm font-medium hover:border-[rgba(0,0,0,0.25)] transition-colors"
             >
               View Careers
             </Link>

@@ -86,14 +86,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased bg-[#0A0A0A] text-white min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} font-sans antialiased bg-white text-[#101820] min-h-screen flex flex-col`}>
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

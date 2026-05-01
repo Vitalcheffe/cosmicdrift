@@ -67,15 +67,15 @@ const sustainabilityTargets = [
 
 export default function ESGPageClient() {
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-white">
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-6">ESG</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#101820] tracking-tight mb-8">
             Building<br/>Sustainably
           </h1>
-          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+          <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
             Harch Corp integrates environmental, social, and governance principles into every project — 
             not as an afterthought, but as a foundational design principle.
           </p>
@@ -83,17 +83,17 @@ export default function ESGPageClient() {
       </section>
 
       {/* Environmental */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex items-center gap-3 mb-10">
-            <Leaf size={18} className="text-white/30" strokeWidth={1.5} />
+            <Leaf size={18} className="text-[#9CA3AF]" strokeWidth={1.5} />
             <p className="section-label">Environmental</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             {environmentalCommitments.map((item) => (
               <div key={item.title}>
-                <h3 className="text-xl font-medium text-white mb-3">{item.title}</h3>
-                <p className="text-sm text-white/45 leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-medium text-[#101820] mb-3">{item.title}</h3>
+                <p className="text-sm text-[#6B7280] leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -101,19 +101,19 @@ export default function ESGPageClient() {
       </section>
 
       {/* Social */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex items-center gap-3 mb-10">
-            <Users size={18} className="text-white/30" strokeWidth={1.5} />
+            <Users size={18} className="text-[#9CA3AF]" strokeWidth={1.5} />
             <p className="section-label">Social Impact</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {socialImpact.map((stat) => (
               <div key={stat.label}>
-                <p className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
+                <p className="text-3xl md:text-4xl font-semibold text-[#101820] tracking-tight">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-xs tracking-[0.1em] uppercase text-white/40">
+                <p className="mt-2 text-xs tracking-[0.1em] uppercase text-[#9CA3AF]">
                   {stat.label}
                 </p>
               </div>
@@ -122,8 +122,8 @@ export default function ESGPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             {socialCommitments.map((item) => (
               <div key={item.title}>
-                <h3 className="text-xl font-medium text-white mb-3">{item.title}</h3>
-                <p className="text-sm text-white/45 leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-medium text-[#101820] mb-3">{item.title}</h3>
+                <p className="text-sm text-[#6B7280] leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -131,17 +131,17 @@ export default function ESGPageClient() {
       </section>
 
       {/* Governance */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex items-center gap-3 mb-10">
-            <ShieldCheck size={18} className="text-white/30" strokeWidth={1.5} />
+            <ShieldCheck size={18} className="text-[#9CA3AF]" strokeWidth={1.5} />
             <p className="section-label">Governance</p>
           </div>
           <div className="max-w-2xl space-y-4">
             {governancePractices.map((practice) => (
               <div key={practice} className="flex items-start gap-3">
-                <span className="w-1 h-1 rounded-full bg-white/30 mt-2 shrink-0" />
-                <p className="text-sm text-white/50">{practice}</p>
+                <span className="w-1 h-1 rounded-full bg-[#9CA3AF] mt-2 shrink-0" />
+                <p className="text-sm text-[#6B7280]">{practice}</p>
               </div>
             ))}
           </div>
@@ -149,18 +149,18 @@ export default function ESGPageClient() {
       </section>
 
       {/* Sustainability Targets */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-12">Sustainability Targets</p>
           <div className="space-y-0">
             {sustainabilityTargets.map((item) => (
-              <div key={item.year} className="py-8 border-b border-white/[0.06] last:border-b-0">
+              <div key={item.year} className="py-8 border-b border-[rgba(0,0,0,0.06)] last:border-b-0">
                 <div className="flex gap-8 md:gap-16">
-                  <span className="text-sm font-mono text-white/30 w-16 shrink-0 pt-0.5">{item.year}</span>
+                  <span className="text-sm font-mono text-[#9CA3AF] w-16 shrink-0 pt-0.5">{item.year}</span>
                   <ul className="space-y-2">
                     {item.targets.map((target) => (
-                      <li key={target} className="text-sm text-white/50 flex items-start gap-3">
-                        <span className="w-1 h-1 rounded-full bg-white/30 mt-1.5 shrink-0" />
+                      <li key={target} className="text-sm text-[#6B7280] flex items-start gap-3">
+                        <span className="w-1 h-1 rounded-full bg-[#9CA3AF] mt-1.5 shrink-0" />
                         {target}
                       </li>
                     ))}
@@ -173,17 +173,17 @@ export default function ESGPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#101820] tracking-tight mb-6">
             Read Our ESG Report
           </h2>
-          <p className="max-w-xl mx-auto text-base text-white/40 mb-10">
+          <p className="max-w-xl mx-auto text-base text-[#9CA3AF] mb-10">
             Download our comprehensive ESG report with detailed metrics, targets, and third-party verification.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-[#101820] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:bg-[#1f2937] transition-colors"
           >
             Request Report
             <ArrowRight size={14} />

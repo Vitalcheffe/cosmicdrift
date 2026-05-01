@@ -44,41 +44,41 @@ const articles = [
 
 export default function NewsroomPageClient() {
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-white">
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <p className="section-label mb-6">Newsroom</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#101820] tracking-tight mb-8">
             Latest News
           </h1>
-          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+          <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
             Press releases, media coverage, and announcements from Harch Corp.
           </p>
         </div>
       </section>
 
       {/* Articles */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="space-y-0">
             {articles.map((article) => (
               <div
                 key={article.title}
-                className="py-8 border-b border-white/[0.06] group cursor-pointer hover:bg-white/[0.01] transition-colors"
+                className="py-8 border-b border-[rgba(0,0,0,0.06)] group cursor-pointer hover:bg-[rgba(0,0,0,0.02)] transition-colors"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <Calendar size={12} className="text-white/20" />
-                  <span className="text-xs font-mono text-white/25">{article.date}</span>
-                  <span className="text-xs tracking-[0.08em] uppercase text-white/25">· {article.category}</span>
+                  <Calendar size={12} className="text-[#9CA3AF]" />
+                  <span className="text-xs font-mono text-[#9CA3AF]">{article.date}</span>
+                  <span className="text-xs tracking-[0.08em] uppercase text-[#9CA3AF]">· {article.category}</span>
                 </div>
-                <h3 className="text-lg md:text-xl font-medium text-white group-hover:text-white/90 transition-colors mb-3">
+                <h3 className="text-lg md:text-xl font-medium text-[#101820] group-hover:text-[#101820] transition-colors mb-3">
                   {article.title}
                 </h3>
-                <p className="text-sm text-white/40 leading-relaxed max-w-2xl mb-3">
+                <p className="text-sm text-[#9CA3AF] leading-relaxed max-w-2xl mb-3">
                   {article.excerpt}
                 </p>
-                <span className="inline-flex items-center gap-1 text-xs text-white/30 group-hover:text-white/60 transition-colors">
+                <span className="inline-flex items-center gap-1 text-xs text-[#9CA3AF] group-hover:text-[#6B7280] transition-colors">
                   Read More <ArrowRight size={10} />
                 </span>
               </div>
@@ -88,19 +88,19 @@ export default function NewsroomPageClient() {
       </section>
 
       {/* Media Contact */}
-      <section className="py-24 border-t border-white/[0.06]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
             <div>
               <p className="section-label mb-6">Media Contact</p>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-4">
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#101820] tracking-tight mb-4">
                 Press Inquiries
               </h2>
-              <p className="text-sm text-white/45 leading-relaxed mb-6">
+              <p className="text-sm text-[#6B7280] leading-relaxed mb-6">
                 For press inquiries, interview requests, and media kits, please contact our 
                 communications team.
               </p>
-              <div className="space-y-2 text-sm text-white/50">
+              <div className="space-y-2 text-sm text-[#6B7280]">
                 <p>press@harchcorp.com</p>
                 <p>+212 5 22 00 00 01</p>
               </div>
@@ -108,7 +108,7 @@ export default function NewsroomPageClient() {
             <div className="flex items-start md:items-end justify-end">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-[#101820] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:bg-[#1f2937] transition-colors"
               >
                 Contact Us
                 <ArrowRight size={14} />

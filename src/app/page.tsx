@@ -1,20 +1,26 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { AnimatedCounter, FadeIn } from '@/components/Animations';
+import dynamic from 'next/dynamic';
+
+const Scene3D = dynamic(
+  () => import('@/components/Scene3D').then((mod) => ({ default: mod.Scene3D })),
+  { ssr: false }
+);
 
 const verticals = [
-  { name: 'Harch Intelligence', tagline: '500MW AI Hyperscale Data Center', slug: 'intelligence', image: '/images/verticals/intelligence.jpg' },
-  { name: 'Harch Ciment', tagline: '500,000 Tons/Year Production Capacity', slug: 'cement', image: '/images/verticals/cement.jpg' },
-  { name: 'Harch Energy', tagline: '2GW+ Renewable Energy Portfolio', slug: 'energy', image: '/images/verticals/energy.jpg' },
-  { name: 'Harch Technology', tagline: 'Sovereign Technology Solutions', slug: 'technology', image: '/images/verticals/technology.jpg' },
-  { name: 'Harch Mining', tagline: 'Strategic Mineral Extraction', slug: 'mining', image: '/images/verticals/mining.jpg' },
-  { name: 'Harch Agri', tagline: 'Climate-Resilient Agriculture at Scale', slug: 'agriculture', image: '/images/verticals/agriculture.jpg' },
-  { name: 'Harch Water', tagline: 'Water Security for Africa', slug: 'water', image: '/images/verticals/water.jpg' },
+  { number: '01', name: 'Harch Intelligence', tagline: '500MW AI Hyperscale Data Center', slug: 'intelligence', image: '/images/verticals/intelligence.jpg' },
+  { number: '02', name: 'Harch Ciment', tagline: '500,000 Tons/Year Production Capacity', slug: 'cement', image: '/images/verticals/cement.jpg' },
+  { number: '03', name: 'Harch Energy', tagline: '2GW+ Renewable Energy Portfolio', slug: 'energy', image: '/images/verticals/energy.jpg' },
+  { number: '04', name: 'Harch Technology', tagline: 'Sovereign Technology Solutions', slug: 'technology', image: '/images/verticals/technology.jpg' },
+  { number: '05', name: 'Harch Mining', tagline: 'Strategic Mineral Extraction', slug: 'mining', image: '/images/verticals/mining.jpg' },
+  { number: '06', name: 'Harch Agri', tagline: 'Climate-Resilient Agriculture at Scale', slug: 'agriculture', image: '/images/verticals/agriculture.jpg' },
+  { number: '07', name: 'Harch Water', tagline: 'Water Security for Africa', slug: 'water', image: '/images/verticals/water.jpg' },
 ];
 
 const stats = [
@@ -26,13 +32,15 @@ const stats = [
 
 const milestones = [
   { year: '2023', title: 'Founded', description: 'Harch Corp established in Casablanca with a vision for African industrial sovereignty.' },
-  { year: '2024', title: 'Intelligence Division Launch', description: 'Launch of Harch Intelligence, Africa\'s largest AI-ready data center project in Dakhla.' },
+  { year: '2024', title: 'Intelligence Division Launch', description: "Launch of Harch Intelligence, Africa's largest AI-ready data center project in Dakhla." },
   { year: '2025', title: 'Energy & Mining Expansion', description: 'Major expansion into renewable energy and strategic mining operations across Morocco and West Africa.' },
   { year: '2026', title: 'Pan-African Scale', description: 'Operations spanning 5 countries, 7 verticals, and $2.4B+ in active investment pipeline.' },
 ];
 
 function HeroSection() {
   const ref = useRef(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
@@ -43,22 +51,39 @@ function HeroSection() {
 
   return (
     <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero-bg.jpg"
-          alt="Aerial view of industrial infrastructure"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#05080F]/70" />
+      {/* Video Background */}
+      <motion.div style={{ scale }} className="absolute inset-0">
+        {!videoError && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            onLoadedData={() => setVideoLoaded(true)}
+            onError={() => setVideoError(true)}
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/hero.mp4" type="video/mp4" />
+          </video>
+        )}
+        {/* Fallback Image */}
+        {(!videoLoaded || videoError) && (
+          <Image
+            src="/images/hero-bg.jpg"
+            alt="Aerial view of industrial infrastructure"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        )}
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[#05080F]/60" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#05080F]/50 via-transparent to-[#05080F]" />
-      </div>
+      </motion.div>
 
       <motion.div
-        style={{ opacity, scale, y }}
+        style={{ opacity, y }}
         className="relative z-10 text-center px-4 max-w-5xl mx-auto"
       >
         <motion.div
@@ -105,7 +130,7 @@ function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
@@ -119,8 +144,10 @@ function HeroSection() {
 }
 
 function VerticalsSection() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
-    <section className="py-20 lg:py-32 bg-[#05080F]">
+    <section className="py-20 lg:py-32 bg-[#05080F] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center mb-16">
@@ -131,32 +158,74 @@ function VerticalsSection() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {verticals.map((vertical, index) => (
-            <FadeIn key={vertical.slug} delay={index * 0.08}>
-              <Link href={`/subsidiaries/${vertical.slug}`} className="group block">
-                <div className="relative h-64 rounded-xl overflow-hidden border border-harch-border card-glow">
-                  <Image
-                    src={vertical.image}
-                    alt={vertical.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#05080F] via-[#05080F]/50 to-transparent" />
-                  <div className="absolute inset-0 bg-harch-gold/0 group-hover:bg-harch-gold/10 transition-colors duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="text-base font-semibold text-harch-text tracking-wide uppercase">
-                      {vertical.name}
-                    </h3>
-                    <p className="mt-1 text-xs text-harch-muted">
-                      {vertical.tagline}
-                    </p>
+        <div className="relative">
+          {/* Vertical Rows */}
+          <div className="space-y-0">
+            {verticals.map((vertical, index) => (
+              <FadeIn key={vertical.slug} delay={index * 0.06}>
+                <Link href={`/subsidiaries/${vertical.slug}`} className="block">
+                  <div
+                    className="group relative flex items-center justify-between py-6 lg:py-8 border-b border-harch-border cursor-pointer transition-all duration-300 hover:pl-4"
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                  >
+                    {/* Number + Name */}
+                    <div className="flex items-baseline gap-4 lg:gap-8">
+                      <span className="text-sm font-mono text-harch-muted group-hover:text-harch-gold transition-colors duration-300">
+                        {vertical.number}
+                      </span>
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-harch-text uppercase tracking-wide group-hover:text-harch-gold transition-colors duration-300">
+                          {vertical.name}
+                        </h3>
+                        <p className="mt-1 text-sm text-harch-muted group-hover:text-harch-text/70 transition-colors duration-300">
+                          {vertical.tagline}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Gold underline on hover */}
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-[2px] bg-harch-gold"
+                      initial={{ width: 0 }}
+                      animate={{ width: hoveredIndex === index ? '100%' : 0 }}
+                      transition={{ duration: 0.4, ease: 'easeOut' }}
+                    />
+
+                    {/* Arrow indicator */}
+                    <ArrowRight className="w-5 h-5 text-harch-muted group-hover:text-harch-gold transition-all duration-300 group-hover:translate-x-2 shrink-0 ml-4" />
                   </div>
-                </div>
-              </Link>
-            </FadeIn>
-          ))}
+                </Link>
+
+                {/* Hover Image Panel */}
+                <AnimatePresence>
+                  {hoveredIndex === index && (
+                    <motion.div
+                      initial={{ opacity: 0, x: 40, scale: 0.95 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      exit={{ opacity: 0, x: 40, scale: 0.95 }}
+                      transition={{ duration: 0.35, ease: 'easeOut' }}
+                      className="hidden lg:block fixed right-[8%] top-1/2 -translate-y-1/2 z-30 w-[420px] h-[300px] rounded-xl overflow-hidden border border-harch-border shadow-2xl shadow-black/50 pointer-events-none"
+                    >
+                      <Image
+                        src={vertical.image}
+                        alt={vertical.name}
+                        fill
+                        className="object-cover"
+                        sizes="420px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#05080F]/80 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-5">
+                        <p className="text-xs uppercase tracking-[0.2em] text-harch-gold font-medium">
+                          {vertical.number} — {vertical.name}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -165,8 +234,13 @@ function VerticalsSection() {
 
 function StatsSection() {
   return (
-    <section className="py-20 lg:py-28 bg-[#070B14] border-y border-harch-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-28 bg-[#070B14] border-y border-harch-border relative overflow-hidden">
+      {/* 3D Background */}
+      <div className="absolute inset-0 opacity-30">
+        <Scene3D />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {stats.map((stat, index) => (
             <FadeIn key={stat.label} delay={index * 0.1}>
@@ -240,17 +314,13 @@ function TimelineSection() {
         </FadeIn>
 
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-harch-border lg:-translate-x-px" />
 
           <div className="space-y-12">
             {milestones.map((milestone, index) => (
               <FadeIn key={milestone.year} delay={index * 0.15}>
                 <div className={`relative flex items-start gap-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                  {/* Dot */}
                   <div className="absolute left-4 lg:left-1/2 w-3 h-3 bg-harch-gold rounded-full -translate-x-1.5 mt-2 z-10" />
-
-                  {/* Content */}
                   <div className={`ml-12 lg:ml-0 lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'}`}>
                     <span className="text-sm font-bold text-harch-gold tracking-wider">{milestone.year}</span>
                     <h3 className="mt-1 text-xl font-semibold text-harch-text">{milestone.title}</h3>

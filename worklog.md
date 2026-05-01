@@ -57,3 +57,31 @@ Stage Summary:
 - Real content throughout (no placeholder text)
 - SEO optimized (Schema.org, Open Graph, sitemap.xml, robots.txt)
 - 11 AI-generated images (7 verticals + 4 team portraits + 1 hero)
+
+---
+Task ID: 3
+Agent: Main Agent
+Task: Rebuild exact "Frozen Version" of Harch Corp with video hero, 3D scene, hover image panels
+
+Work Log:
+- Installed @react-three/fiber, @react-three/drei, three, @types/three
+- Generated hero video frame image via AI
+- Created hero.mp4 video (5s, 1920x1080) using ffmpeg
+- Rebuilt complete site with 3 critical features:
+  1. VIDEO HERO: <video autoPlay muted loop playsInline> with /videos/hero.mp4, fallback to /images/hero-bg.jpg, parallax on scroll
+  2. 3D INTERACTIVE SCENE: Scene3D.tsx with 300 gold particles, rotating wireframe icosahedron (blue), mouse-following point light, ambient lighting
+  3. HOVER IMAGE PANELS: Full-width vertical rows (01-07) with 420x300px image panels sliding in from right on hover, gold underline animation
+- All 20+ pages rebuilt with dark cinematic design
+- Legal pages (mentions légales, privacy, terms) included
+- Cookie consent banner RGPD compliant
+- SEO: Schema.org, sitemap.xml, robots.txt, Open Graph
+- Lint passes with zero errors
+- All routes verified HTTP 200
+
+Stage Summary:
+- Exact "Frozen Version" rebuilt with all 3 signature features
+- Video hero with Palantir-style autoplay
+- Three.js 3D scene behind stats section
+- Hover image panels (not small cards) for verticals
+- 20+ pages all HTTP 200
+- Complete multinational-grade legal/privacy/cookie compliance

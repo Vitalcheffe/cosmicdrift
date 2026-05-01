@@ -1,111 +1,122 @@
 'use client';
 
-import { PageHero } from '@/components/PageHero';
-import { FadeIn } from '@/components/Animations';
-import { Calendar, Tag, Mail, Phone } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Calendar } from 'lucide-react';
 
 const articles = [
   {
-    date: 'February 2026',
-    category: 'Intelligence',
-    title: 'Harch Corp Announces 500MW AI Data Center in Dakhla',
-    summary: 'Harch Corp unveils Africa\'s largest AI-ready hyperscale data center campus in the Dakhla corridor, powered entirely by renewable energy. The $1.2B facility will serve sovereign AI compute needs across the continent and provide sub-100ms connectivity to European markets.',
+    date: 'March 15, 2026',
+    category: 'Press Release',
+    title: 'Harch Corp Breaks Ground on Africa\'s Largest AI Data Center in Dakhla',
+    excerpt: 'The 500MW hyperscale facility, powered entirely by renewable energy, will serve as the backbone of Africa\'s sovereign AI compute infrastructure.',
   },
   {
-    date: 'January 2026',
-    category: 'Energy',
-    title: 'Harch Energy Secures 2GW Solar-Wind Pipeline',
-    summary: 'Harch Energy confirms development rights for a 2GW+ renewable energy portfolio spanning solar, wind, and hybrid installations across Morocco and the Sahel region. The pipeline will power Harch Corp\'s industrial operations and contribute to regional grid stability.',
+    date: 'February 28, 2026',
+    category: 'Press Release',
+    title: 'Harch Ciment Reaches 50% Construction Milestone in The Gambia',
+    excerpt: 'The $200M cement plant in Banjul is on track for full operational capacity by Q3 2026, creating 1,200+ direct jobs.',
   },
   {
-    date: 'December 2025',
-    category: 'Partnership',
-    title: 'Strategic Partnership with National Mining Office',
-    summary: 'Harch Mining signs strategic partnership agreement with Morocco\'s National Mining Office for the exploration and sustainable extraction of phosphate and cobalt reserves. The partnership includes technology transfer commitments and local community development programs.',
+    date: 'January 10, 2026',
+    category: 'Media Coverage',
+    title: 'Financial Times: "The Moroccan Conglomerate Betting on Africa\'s Industrial Future"',
+    excerpt: 'FT profiles Harch Corp\'s vertically integrated model and $2.4B investment pipeline across seven industrial verticals.',
   },
   {
-    date: 'November 2025',
-    category: 'Cement',
-    title: 'Harch Ciment: Building Gambia\'s Industrial Future',
-    summary: 'Harch Ciment breaks ground on a state-of-the-art 500kT/year cement manufacturing facility in Gambia, addressing West Africa\'s critical infrastructure deficit. The project includes an integrated quarry and sustainable production processes.',
+    date: 'December 5, 2025',
+    category: 'Press Release',
+    title: 'Harch Energy Secures 500MW Solar PPA with Moroccan Government',
+    excerpt: 'Long-term power purchase agreement marks the first phase of Harch Energy\'s 2GW+ renewable pipeline in Morocco.',
   },
   {
-    date: 'October 2025',
-    category: 'Corporate',
-    title: 'Harch Corp Raises $2.4B for African Industrial Sovereignty',
-    summary: 'Harch Corp announces the closing of a $2.4B+ investment round to fund its seven-vertical industrial conglomerate. The investment pipeline spans AI infrastructure, renewable energy, cement manufacturing, mining, agriculture, water treatment, and sovereign technology.',
+    date: 'November 18, 2025',
+    category: 'Announcement',
+    title: 'Harch Corp Opens Applications for 2026 Graduate Program',
+    excerpt: 'The 18-month rotational program offers cross-vertical exposure across all seven subsidiaries in Morocco, Senegal, and The Gambia.',
   },
   {
-    date: 'September 2025',
-    category: 'Recognition',
-    title: 'Amine Harch El Korane Named in Africa\'s Top 50 Industrial Leaders',
-    summary: 'Harch Corp Founder & CEO Amine Harch El Korane is recognized among Africa\'s Top 50 Industrial Leaders for 2025, cited for his vision of integrated industrial sovereignty and the transformative scale of Harch Corp\'s investment pipeline.',
+    date: 'October 2, 2025',
+    category: 'Media Coverage',
+    title: 'Bloomberg: "Africa\'s Data Center Race Heats Up as Harch Corp Plans 500MW Facility"',
+    excerpt: 'Bloomberg reports on the growing competition to build AI infrastructure on the African continent, with Harch Corp\'s Dakhla project leading the charge.',
   },
 ];
 
 export default function NewsroomPageClient() {
   return (
-    <>
-      <PageHero
-        title="Newsroom"
-        subtitle="Latest news and press releases"
-      />
+    <div className="bg-[#0A0A0A]">
+      {/* Hero */}
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-6">Newsroom</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+            Latest News
+          </h1>
+          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+            Press releases, media coverage, and announcements from Harch Corp.
+          </p>
+        </div>
+      </section>
 
       {/* Articles */}
-      <section className="py-20 lg:py-32 bg-[#05080F]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-6">
-            {articles.map((article, index) => (
-              <FadeIn key={article.title} delay={index * 0.08}>
-                <article className="p-6 rounded-xl border border-harch-border bg-[#0A0E18] card-glow">
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="flex items-center gap-1 text-xs text-harch-muted">
-                      <Calendar className="w-3 h-3" />
-                      {article.date}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-harch-gold uppercase tracking-wider">
-                      <Tag className="w-3 h-3" />
-                      {article.category}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-harch-text hover:text-harch-gold transition-colors cursor-pointer">
-                    {article.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-harch-muted leading-relaxed">{article.summary}</p>
-                </article>
-              </FadeIn>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="space-y-0">
+            {articles.map((article) => (
+              <div
+                key={article.title}
+                className="py-8 border-b border-white/[0.06] group cursor-pointer hover:bg-white/[0.01] transition-colors"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <Calendar size={12} className="text-white/20" />
+                  <span className="text-xs font-mono text-white/25">{article.date}</span>
+                  <span className="text-xs tracking-[0.08em] uppercase text-white/25">· {article.category}</span>
+                </div>
+                <h3 className="text-lg md:text-xl font-medium text-white group-hover:text-white/90 transition-colors mb-3">
+                  {article.title}
+                </h3>
+                <p className="text-sm text-white/40 leading-relaxed max-w-2xl mb-3">
+                  {article.excerpt}
+                </p>
+                <span className="inline-flex items-center gap-1 text-xs text-white/30 group-hover:text-white/60 transition-colors">
+                  Read More <ArrowRight size={10} />
+                </span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Media Contact */}
-      <section className="py-20 lg:py-28 bg-[#070B14] border-t border-harch-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase tracking-tight">
-              Media Contact
-            </h2>
-            <div className="mt-4 w-12 h-0.5 bg-harch-gold" />
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div className="mt-8 p-6 rounded-xl border border-harch-border bg-[#0A0E18]">
-              <p className="text-harch-text font-semibold">Communications Department</p>
-              <p className="mt-2 text-sm text-harch-muted">Harch Corp S.A.</p>
-              <div className="mt-4 flex flex-col sm:flex-row gap-4">
-                <a href="mailto:press@harchcorp.com" className="flex items-center gap-2 text-sm text-harch-gold hover:text-harch-gold/80 transition-colors">
-                  <Mail className="w-4 h-4" />
-                  press@harchcorp.com
-                </a>
-                <span className="flex items-center gap-2 text-sm text-harch-muted">
-                  <Phone className="w-4 h-4" />
-                  +212 5 22 00 00 00
-                </span>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+            <div>
+              <p className="section-label mb-6">Media Contact</p>
+              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-4">
+                Press Inquiries
+              </h2>
+              <p className="text-sm text-white/45 leading-relaxed mb-6">
+                For press inquiries, interview requests, and media kits, please contact our 
+                communications team.
+              </p>
+              <div className="space-y-2 text-sm text-white/50">
+                <p>press@harchcorp.com</p>
+                <p>+212 5 22 00 00 01</p>
               </div>
             </div>
-          </FadeIn>
+            <div className="flex items-start md:items-end justify-end">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+              >
+                Contact Us
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

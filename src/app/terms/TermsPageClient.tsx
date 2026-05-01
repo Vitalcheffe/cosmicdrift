@@ -1,171 +1,80 @@
 'use client';
 
-import { PageHero } from '@/components/PageHero';
-import { FadeIn } from '@/components/Animations';
+const sections = [
+  {
+    title: '1. Acceptance of Terms',
+    content: `By accessing or using the Harch Corp website (harchcorp.com), you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, you must not use our website. These terms apply to all visitors, users, and others who access or use the Website.`,
+  },
+  {
+    title: '2. Use of the Website',
+    content: `You may use our Website only for lawful purposes and in accordance with these Terms. You agree not to:
+
+• Use the Website in any way that violates any applicable national or international law or regulation
+• Attempt to gain unauthorized access to any portion of the Website or any systems or networks connected to the Website
+• Use the Website to transmit any malware, viruses, or other harmful code
+• Interfere with or disrupt the Website or servers or networks connected to the Website
+• Use any automated means (including bots, scrapers, or spiders) to access the Website for any purpose without our express written permission
+• Impersonate any person or entity or misrepresent your affiliation with any person or entity`,
+  },
+  {
+    title: '3. Intellectual Property',
+    content: `The Website and its entire contents, features, and functionality — including but not limited to text, graphics, photos, videos, logos, and software — are owned by Harch Corp S.A., its subsidiaries, or its licensors and are protected by international copyright, trademark, patent, and other intellectual property laws.
+
+You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any materials from the Website without our prior written consent, except as permitted by law.`,
+  },
+  {
+    title: '4. User-Provided Content',
+    content: `By submitting any content to us through the Website (such as contact form submissions or job applications), you grant Harch Corp S.A. a non-exclusive, worldwide, royalty-free license to use, reproduce, modify, and process such content for the purposes of responding to your inquiry or evaluating your application.
+
+You represent and warrant that you own or control all rights to the content you submit and that the content is accurate and not misleading.`,
+  },
+  {
+    title: '5. Disclaimer of Warranties',
+    content: `THE WEBSITE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+Harch Corp S.A. does not warrant that the Website will be uninterrupted, timely, secure, or error-free, that defects will be corrected, or that the Website is free of viruses or other harmful components.`,
+  },
+  {
+    title: '6. Limitation of Liability',
+    content: `IN NO EVENT SHALL HARCH CORP S.A., ITS DIRECTORS, EMPLOYEES, PARTNERS, AGENTS, SUPPLIERS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION LOSS OF PROFITS, DATA, OR OTHER INTANGIBLE LOSSES, RESULTING FROM YOUR ACCESS TO OR USE OF (OR INABILITY TO ACCESS OR USE) THE WEBSITE.`,
+  },
+  {
+    title: '7. Third-Party Links',
+    content: `The Website may contain links to third-party websites or services that are not owned or controlled by Harch Corp S.A. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You access such sites at your own risk.`,
+  },
+  {
+    title: '8. Changes to Terms',
+    content: `We reserve the right to modify or replace these Terms at any time at our sole discretion. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. Your continued use of the Website after any changes constitutes acceptance of the new Terms.`,
+  },
+  {
+    title: '9. Governing Law',
+    content: `These Terms shall be governed and construed in accordance with the laws of the Kingdom of Morocco, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be resolved exclusively in the courts of Casablanca, Morocco.
+
+For questions about these Terms, please contact us at legal@harchcorp.com.`,
+  },
+];
 
 export default function TermsPageClient() {
   return (
-    <>
-      <PageHero title="Terms of Use" subtitle="Conditions governing the use of this website" />
+    <div className="bg-[#0A0A0A]">
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+        <div className="max-w-[900px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-6">Terms</p>
+          <h1 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight mb-4">
+            Terms of Use
+          </h1>
+          <p className="text-xs text-white/25 mb-12">Last Updated: January 1, 2026</p>
 
-      <section className="py-20 lg:py-32 bg-[#05080F]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="space-y-12">
-              <p className="text-sm text-harch-muted">Last updated: February 2026</p>
-
-              {/* 1. Acceptance */}
-              <div>
-                <h2 className="text-xl font-bold text-harch-text uppercase tracking-tight mb-4">
-                  1. Acceptance of Terms
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-sm text-harch-muted leading-relaxed">
-                  By accessing and using the Harch Corp website (harchcorp.com), you accept and agree
-                  to be bound by these Terms of Use. If you do not agree with any part of these terms,
-                  you must not use this website. Your continued use of the website following the posting
-                  of any changes constitutes acceptance of those changes.
-                </p>
+          <div className="space-y-10 text-sm text-white/50 leading-relaxed">
+            {sections.map((section) => (
+              <div key={section.title}>
+                <h2 className="text-lg font-medium text-white mb-4">{section.title}</h2>
+                <div className="whitespace-pre-line">{section.content}</div>
               </div>
-
-              {/* 2. Intellectual Property */}
-              <div>
-                <h2 className="text-xl font-bold text-harch-text uppercase tracking-tight mb-4">
-                  2. Intellectual Property
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-sm text-harch-muted leading-relaxed">
-                  All content on this website, including but not limited to text, graphics, logos,
-                  images, audio clips, digital downloads, data compilations, and software, is the
-                  property of Harch Corp S.A. or its content suppliers and is protected by Moroccan
-                  and international copyright, trademark, and other intellectual property laws. You
-                  may not reproduce, distribute, modify, create derivative works of, publicly display,
-                  publicly perform, republish, download, store, or transmit any of the material on
-                  our website without prior written consent.
-                </p>
-              </div>
-
-              {/* 3. Use Restrictions */}
-              <div>
-                <h2 className="text-xl font-bold text-harch-text uppercase tracking-tight mb-4">
-                  3. Use Restrictions
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-sm text-harch-muted leading-relaxed mb-3">
-                  You agree not to use this website:
-                </p>
-                <div className="space-y-2">
-                  {[
-                    'In any way that violates any applicable national or international law or regulation.',
-                    'To transmit, or procure the sending of, any advertising or promotional material without our prior written consent.',
-                    'To impersonate or attempt to impersonate Harch Corp, a Harch Corp employee, another user, or any other person or entity.',
-                    'To engage in any other conduct that restricts or inhibits anyone\'s use or enjoyment of the website, or which may harm Harch Corp or users of the website.',
-                    'To attempt to gain unauthorized access to, interfere with, damage, or disrupt any parts of the website, the server on which the website is hosted, or any server, computer, or database connected to the website.',
-                    'To use any automated system, including robots, spiders, or scrapers, to access the website for any purpose without our express written permission.',
-                  ].map((item) => (
-                    <div key={item} className="flex items-start gap-2 text-sm text-harch-muted">
-                      <div className="w-1.5 h-1.5 rounded-full bg-harch-gold mt-2 shrink-0" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* 4. Disclaimer */}
-              <div>
-                <h2 className="text-xl font-bold text-harch-text uppercase tracking-tight mb-4">
-                  4. Disclaimer of Warranties
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-sm text-harch-muted leading-relaxed">
-                  This website is provided on an &quot;as is&quot; and &quot;as available&quot; basis. Harch Corp S.A.
-                  makes no representations or warranties of any kind, express or implied, as to the
-                  operation of the website or the information, content, materials, or products included
-                  on the website. To the full extent permissible by applicable law, Harch Corp S.A.
-                  disclaims all warranties, express or implied, including but not limited to implied
-                  warranties of merchantability and fitness for a particular purpose. Harch Corp S.A.
-                  does not warrant that the website, its servers, or email sent from the website are
-                  free of viruses or other harmful components.
-                </p>
-              </div>
-
-              {/* 5. Limitation of Liability */}
-              <div>
-                <h2 className="text-xl font-bold text-harch-text uppercase tracking-tight mb-4">
-                  5. Limitation of Liability
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-sm text-harch-muted leading-relaxed">
-                  In no event shall Harch Corp S.A., its directors, employees, partners, agents,
-                  suppliers, or affiliates be liable for any indirect, incidental, special,
-                  consequential, or punitive damages, including without limitation, loss of profits,
-                  data, use, goodwill, or other intangible losses, resulting from (a) your access to
-                  or use of or inability to access or use the website; (b) any conduct or content of
-                  any third party on the website; (c) any content obtained from the website; or (d)
-                  unauthorized access, use, or alteration of your transmissions or content, whether
-                  based on warranty, contract, tort, or any other legal theory, whether or not we
-                  have been informed of the possibility of such damage.
-                </p>
-              </div>
-
-              {/* 6. Governing Law */}
-              <div>
-                <h2 className="text-xl font-bold text-harch-text uppercase tracking-tight mb-4">
-                  6. Governing Law
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-sm text-harch-muted leading-relaxed">
-                  These Terms of Use shall be governed by and construed in accordance with the laws
-                  of the Kingdom of Morocco, without regard to its conflict of law provisions. Any
-                  disputes arising under or in connection with these terms shall be subject to the
-                  exclusive jurisdiction of the courts of Casablanca, Morocco.
-                </p>
-              </div>
-
-              {/* 7. Modifications */}
-              <div>
-                <h2 className="text-xl font-bold text-harch-text uppercase tracking-tight mb-4">
-                  7. Modifications
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-sm text-harch-muted leading-relaxed">
-                  Harch Corp S.A. reserves the right to revise and update these Terms of Use at any
-                  time. Any changes will be posted on this page with an updated revision date. Your
-                  continued use of the website following the posting of changes constitutes your
-                  acceptance of such changes. We encourage you to review these terms periodically.
-                </p>
-              </div>
-
-              {/* 8. Severability */}
-              <div>
-                <h2 className="text-xl font-bold text-harch-text uppercase tracking-tight mb-4">
-                  8. Severability
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-sm text-harch-muted leading-relaxed">
-                  If any provision of these Terms of Use is held to be unlawful, void, or unenforceable,
-                  such provision shall nonetheless be enforceable to the fullest extent permitted by
-                  applicable law, and the unenforceable portion shall be deemed severed from these
-                  terms. The remaining provisions of these terms shall remain in full force and effect.
-                </p>
-              </div>
-
-              {/* Contact */}
-              <div>
-                <h2 className="text-xl font-bold text-harch-text uppercase tracking-tight mb-4">
-                  9. Contact
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-sm text-harch-muted leading-relaxed">
-                  If you have any questions about these Terms of Use, please contact us at:
-                  legal@harchcorp.com or by post at: Legal Department, Harch Corp S.A., 123 Boulevard
-                  Mohammed V, Casablanca, Morocco.
-                </p>
-              </div>
-            </div>
-          </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

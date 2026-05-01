@@ -1,198 +1,195 @@
 'use client';
 
-import { PageHero } from '@/components/PageHero';
-import { FadeIn } from '@/components/Animations';
-import { Leaf, Users, Building2, Target, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { ArrowRight, Leaf, Users, ShieldCheck } from 'lucide-react';
 
 const environmentalCommitments = [
   {
-    title: 'Carbon Negative by 2030',
-    description: 'Our renewable energy portfolio will generate more clean energy than all Harch Corp operations consume, making us carbon negative across our entire value chain.',
+    title: 'Carbon Neutrality by 2030',
+    description: 'All Harch operations — from data centers to cement plants — are on a path to net-zero carbon emissions. Harch Energy\'s 2GW+ renewable pipeline provides the clean power to make this achievable.',
   },
   {
-    title: '100% Renewable Operations',
-    description: 'Every Harch Corp facility — from data centers to cement plants — will be powered by renewable energy sources, primarily solar and wind.',
+    title: '100% Renewable Energy',
+    description: 'Harch Intelligence\'s data centers and Harch Ciment\'s manufacturing plants are powered exclusively by renewable energy from Harch Energy\'s solar and wind assets.',
   },
   {
-    title: 'Zero Liquid Discharge',
-    description: 'All water treatment facilities will implement zero liquid discharge technology, ensuring no contaminated water returns to the environment.',
+    title: 'Water Stewardship',
+    description: 'Harch Water\'s desalination plants use renewable-powered reverse osmosis to produce clean water without carbon emissions. Smart irrigation in Harch Agri reduces water consumption by 50%.',
   },
   {
-    title: 'Sustainable Mining Practices',
-    description: 'Mining operations follow strict environmental rehabilitation protocols, with concurrent land restoration and biodiversity preservation programs.',
+    title: 'Circular Economy',
+    description: 'Mining waste is processed for construction materials. Data center heat is captured for industrial use. Cement kiln byproducts are repurposed. Every output finds a productive use.',
   },
 ];
 
-const socialMetrics = [
-  { label: 'Direct Jobs Created', value: '3,200+' },
-  { label: 'Indirect Employment', value: '10,000+' },
-  { label: 'Community Investment', value: '$50M+' },
-  { label: 'Training Programs', value: '15+' },
-  { label: 'Local Procurement Target', value: '60%+' },
-  { label: 'Women in Workforce', value: '35%+' },
+const socialImpact = [
+  { value: '3,200+', label: 'Jobs Created by 2027' },
+  { value: '40%', label: 'Local Workforce Target' },
+  { value: '15+', label: 'Community Programs' },
+  { value: '$50M+', label: 'Community Investment' },
 ];
 
-const governancePoints = [
-  'Independent board of directors with majority non-executive members',
-  'Separate Chair and CEO roles for clear governance accountability',
-  'Dedicated ESG Committee at board level with quarterly reporting',
-  'Transparent anti-corruption and ethics policies aligned with UN Global Compact',
-  'External audit by Big Four firm with annual public reporting',
-  'Data Protection Officer ensuring GDPR/CNDP compliance',
+const socialCommitments = [
+  {
+    title: 'Local Employment',
+    description: 'Every Harch project prioritizes local hiring with a target of 40%+ local workforce at each site. Training programs upskill community members for technical and management roles.',
+  },
+  {
+    title: 'Community Development',
+    description: '1% of project revenue is allocated to community development funds — building schools, clinics, and infrastructure in host communities.',
+  },
+  {
+    title: 'Safety First',
+    description: 'Zero-harm workplace culture with international-standard safety protocols. Every site undergoes independent safety audits quarterly.',
+  },
+  {
+    title: 'Smallholder Inclusion',
+    description: 'Harch Agri\'s smallholder farmer programs provide training, technology, and market access to 10,000+ farming families across the Sahel.',
+  },
+];
+
+const governancePractices = [
+  'Independent board directors comprising 40% of board seats',
+  'Quarterly financial reporting with independent audit',
+  'Anti-corruption and bribery policies aligned with UK Bribery Act and US FCPA',
   'Whistleblower protection program with anonymous reporting channel',
   'Executive compensation tied to ESG performance metrics',
+  'Annual ESG report with third-party verification',
+  'Data protection policies compliant with GDPR and Moroccan Law 09-08',
 ];
 
 const sustainabilityTargets = [
-  { target: '2GW+', description: 'Renewable energy capacity by 2030' },
-  { target: 'Net Zero', description: 'Scope 1 & 2 emissions by 2028' },
-  { target: 'Carbon Negative', description: 'Full value chain by 2030' },
-  { target: '95%', description: 'Water recycling rate across operations' },
-  { target: '100%', description: 'Renewable energy powering all facilities' },
-  { target: 'Zero', description: 'Waste to landfill target by 2029' },
+  { year: '2026', targets: ['1GW renewable energy operational', 'First ESG report published', 'Community development funds established at all sites'] },
+  { year: '2027', targets: ['40% local workforce across operations', '100% renewable energy for data centers', 'Zero-harm safety record sustained'] },
+  { year: '2028', targets: ['2GW+ renewable pipeline operational', '50% reduction in water intensity', 'Circular economy programs at all sites'] },
+  { year: '2030', targets: ['Carbon neutrality across all operations', '10,000+ smallholder farmers supported', 'Net positive environmental impact'] },
 ];
 
 export default function ESGPageClient() {
   return (
-    <>
-      <PageHero
-        title="Environmental, Social & Governance"
-        subtitle="Building sustainably for Africa's future"
-      />
+    <div className="bg-[#0A0A0A]">
+      {/* Hero */}
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-6">ESG</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+            Building<br/>Sustainably
+          </h1>
+          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+            Harch Corp integrates environmental, social, and governance principles into every project — 
+            not as an afterthought, but as a foundational design principle.
+          </p>
+        </div>
+      </section>
 
       {/* Environmental */}
-      <section className="py-20 lg:py-32 bg-[#05080F]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="flex items-center gap-3 mb-4">
-              <Leaf className="w-6 h-6 text-harch-gold" />
-              <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase tracking-tight">
-                Environmental Commitments
-              </h2>
-            </div>
-            <div className="w-12 h-0.5 bg-harch-gold" />
-          </FadeIn>
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {environmentalCommitments.map((commitment, index) => (
-              <FadeIn key={commitment.title} delay={index * 0.1}>
-                <div className="p-6 rounded-xl border border-harch-border bg-[#0A0E18] card-glow h-full">
-                  <h3 className="text-base font-semibold text-harch-text mb-2">{commitment.title}</h3>
-                  <p className="text-sm text-harch-muted leading-relaxed">{commitment.description}</p>
-                </div>
-              </FadeIn>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="flex items-center gap-3 mb-10">
+            <Leaf size={18} className="text-white/30" strokeWidth={1.5} />
+            <p className="section-label">Environmental</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            {environmentalCommitments.map((item) => (
+              <div key={item.title}>
+                <h3 className="text-xl font-medium text-white mb-3">{item.title}</h3>
+                <p className="text-sm text-white/45 leading-relaxed">{item.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Social Impact */}
-      <section className="py-20 lg:py-28 bg-[#070B14] border-y border-harch-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="flex items-center gap-3 mb-4">
-              <Users className="w-6 h-6 text-harch-gold" />
-              <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase tracking-tight">
-                Social Impact
-              </h2>
-            </div>
-            <div className="w-12 h-0.5 bg-harch-gold" />
-          </FadeIn>
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {socialMetrics.map((metric, index) => (
-              <FadeIn key={metric.label} delay={index * 0.08}>
-                <div className="text-center p-4 rounded-xl border border-harch-border bg-[#0A0E18]">
-                  <p className="text-xl sm:text-2xl font-bold gradient-text-gold">{metric.value}</p>
-                  <p className="mt-1 text-xs text-harch-muted uppercase tracking-wider">{metric.label}</p>
-                </div>
-              </FadeIn>
+      {/* Social */}
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="flex items-center gap-3 mb-10">
+            <Users size={18} className="text-white/30" strokeWidth={1.5} />
+            <p className="section-label">Social Impact</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            {socialImpact.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-xs tracking-[0.1em] uppercase text-white/40">
+                  {stat.label}
+                </p>
+              </div>
             ))}
           </div>
-          <FadeIn delay={0.3}>
-            <p className="mt-8 text-harch-muted leading-relaxed max-w-3xl">
-              Harch Corp is committed to creating shared value in every community where we operate.
-              Our social investment programs focus on education, healthcare access, vocational training,
-              and local economic development. We prioritize local hiring and procurement, ensuring that
-              the wealth generated by our operations directly benefits the communities that host them.
-            </p>
-          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            {socialCommitments.map((item) => (
+              <div key={item.title}>
+                <h3 className="text-xl font-medium text-white mb-3">{item.title}</h3>
+                <p className="text-sm text-white/45 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Governance */}
-      <section className="py-20 lg:py-32 bg-[#05080F]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="flex items-center gap-3 mb-4">
-              <Building2 className="w-6 h-6 text-harch-gold" />
-              <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase tracking-tight">
-                Governance
-              </h2>
-            </div>
-            <div className="w-12 h-0.5 bg-harch-gold" />
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div className="mt-8 space-y-3">
-              {governancePoints.map((point) => (
-                <div key={point} className="flex items-start gap-3 p-3 rounded-lg border border-harch-border bg-[#0A0E18]">
-                  <div className="w-1.5 h-1.5 rounded-full bg-harch-gold mt-2 shrink-0" />
-                  <p className="text-sm text-harch-muted">{point}</p>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="flex items-center gap-3 mb-10">
+            <ShieldCheck size={18} className="text-white/30" strokeWidth={1.5} />
+            <p className="section-label">Governance</p>
+          </div>
+          <div className="max-w-2xl space-y-4">
+            {governancePractices.map((practice) => (
+              <div key={practice} className="flex items-start gap-3">
+                <span className="w-1 h-1 rounded-full bg-white/30 mt-2 shrink-0" />
+                <p className="text-sm text-white/50">{practice}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Sustainability Targets */}
-      <section className="py-20 lg:py-28 bg-[#070B14] border-t border-harch-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="flex items-center gap-3 mb-4">
-              <Target className="w-6 h-6 text-harch-gold" />
-              <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase tracking-tight">
-                Sustainability Targets
-              </h2>
-            </div>
-            <div className="w-12 h-0.5 bg-harch-gold" />
-          </FadeIn>
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {sustainabilityTargets.map((item, index) => (
-              <FadeIn key={item.target} delay={index * 0.08}>
-                <div className="text-center p-5 rounded-xl border border-harch-border bg-[#0A0E18] card-glow">
-                  <p className="text-2xl font-bold gradient-text-gold">{item.target}</p>
-                  <p className="mt-2 text-xs text-harch-muted">{item.description}</p>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-12">Sustainability Targets</p>
+          <div className="space-y-0">
+            {sustainabilityTargets.map((item) => (
+              <div key={item.year} className="py-8 border-b border-white/[0.06] last:border-b-0">
+                <div className="flex gap-8 md:gap-16">
+                  <span className="text-sm font-mono text-white/30 w-16 shrink-0 pt-0.5">{item.year}</span>
+                  <ul className="space-y-2">
+                    {item.targets.map((target) => (
+                      <li key={target} className="text-sm text-white/50 flex items-start gap-3">
+                        <span className="w-1 h-1 rounded-full bg-white/30 mt-1.5 shrink-0" />
+                        {target}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </FadeIn>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#05080F] border-t border-harch-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FadeIn>
-            <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase">
-              Read Our Full ESG Report
-            </h2>
-            <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-            <p className="mt-6 text-harch-muted max-w-xl mx-auto">
-              Our comprehensive ESG report details our commitments, progress, and targets across
-              environmental stewardship, social impact, and governance excellence.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <Link
-              href="/investors"
-              className="group inline-flex items-center gap-2 mt-8 px-8 py-3.5 bg-harch-gold text-harch-dark text-sm uppercase tracking-[0.2em] font-semibold rounded-lg hover:bg-harch-gold/90 transition-all"
-            >
-              Download ESG Report
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </FadeIn>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
+            Read Our ESG Report
+          </h2>
+          <p className="max-w-xl mx-auto text-base text-white/40 mb-10">
+            Download our comprehensive ESG report with detailed metrics, targets, and third-party verification.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+          >
+            Request Report
+            <ArrowRight size={14} />
+          </Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }

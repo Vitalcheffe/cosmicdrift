@@ -13,11 +13,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Harch Corp - African Industrial Sovereignty",
+    default: "Harch Corp - Infrastructure for the Next Century",
     template: "%s | Harch Corp",
   },
   description:
-    "Harch Corp is a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across data centers, cement, energy, technology, mining, agriculture, and water.",
+    "Harch Corp builds the critical infrastructure that enables Africa's self-reliance — from 500MW AI data centers to 2GW renewable energy across 7 verticals.",
   keywords: [
     "Harch Corp",
     "Africa industrial sovereignty",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Harch Corp - African Industrial Sovereignty",
+    title: "Harch Corp - Infrastructure for the Next Century",
     description:
       "Building Africa's industrial sovereignty across 7 verticals with $2.4B+ investment pipeline. From 500MW AI data centers to 2GW+ renewable energy.",
     url: "https://harchcorp.com",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harch Corp - African Industrial Sovereignty",
+    title: "Harch Corp - Infrastructure for the Next Century",
     description:
       "Building Africa's industrial sovereignty across 7 verticals with $2.4B+ investment pipeline.",
   },
@@ -93,7 +93,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased bg-[#05080F] text-harch-text min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} font-sans antialiased bg-[#0A0A0A] text-white min-h-screen flex flex-col`}>
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

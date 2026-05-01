@@ -1,200 +1,206 @@
 'use client';
 
 import Image from 'next/image';
-import { PageHero } from '@/components/PageHero';
-import { FadeIn } from '@/components/Animations';
-import { Target, Eye, Shield, Zap, Heart, TrendingUp } from 'lucide-react';
-
-const leaders = [
-  {
-    name: 'Amine Harch El Korane',
-    title: 'Founder & CEO',
-    image: '/images/team/ceo.jpg',
-    bio: 'Visionary entrepreneur driving Africa\'s industrial transformation through strategic investments across data centers, energy, mining, and agriculture. Former infrastructure investment professional with deep expertise in African markets.',
-  },
-  {
-    name: 'Dr. Youssef Benali',
-    title: 'Chief Technology Officer',
-    image: '/images/team/cto.jpg',
-    bio: 'Leading Harch Corp\'s technology strategy across AI infrastructure, industrial IoT, and sovereign platforms. 20+ years in enterprise technology and data center architecture.',
-  },
-  {
-    name: 'Fatima Zahra Alaoui',
-    title: 'Chief Financial Officer',
-    image: '/images/team/cfo.jpg',
-    bio: 'Overseeing Harch Corp\'s $2.4B+ investment pipeline and financial strategy. Expert in emerging market infrastructure finance with extensive experience in project bonds and development finance.',
-  },
-  {
-    name: 'Karim Oubaha',
-    title: 'Senior Advisor',
-    image: '/images/team/advisor.jpg',
-    bio: 'Seasoned advisor with decades of experience in African industrial policy, government relations, and strategic partnerships. Former senior official at the Moroccan Ministry of Industry.',
-  },
-];
+import Link from 'next/link';
+import { ArrowRight, Target, Eye, Shield, Zap } from 'lucide-react';
 
 const values = [
   {
     icon: Shield,
     title: 'Sovereignty',
-    description: 'We build infrastructure that gives African nations control over their own technological, energy, and industrial destiny.',
+    description: 'We build infrastructure that Africa owns, operates, and controls — ensuring self-reliance for generations.',
+  },
+  {
+    icon: Zap,
+    title: 'Speed',
+    description: 'We move with urgency. The continent cannot afford to wait. Every project is executed with precision and pace.',
   },
   {
     icon: Target,
     title: 'Excellence',
-    description: 'World-class standards in every project — from Tier IV data centers to zero-carbon manufacturing processes.',
+    description: 'World-class standards in every vertical. From engineering to governance, we accept nothing less than the best.',
   },
   {
-    icon: Zap,
-    title: 'Innovation',
-    description: 'Sovereign technology development and cutting-edge solutions designed for Africa\'s unique challenges and opportunities.',
+    icon: Eye,
+    title: 'Vision',
+    description: 'We see what others don\'t — the infrastructure gaps that, when filled, unlock exponential growth for the continent.',
+  },
+];
+
+const leadership = [
+  {
+    name: 'Amine Harch El Korane',
+    title: 'Founder & CEO',
+    image: '/images/team/ceo.jpg',
+    bio: 'Serial entrepreneur with deep expertise in infrastructure finance and African industrial development. Founded Harch Corp to build the continent\'s sovereign industrial base.',
   },
   {
-    icon: TrendingUp,
-    title: 'Impact',
-    description: 'Every investment measured by its contribution to industrial capacity, job creation, and long-term economic resilience.',
+    name: 'Chief Technology Officer',
+    title: 'CTO',
+    image: '/images/team/cto.jpg',
+    bio: 'Former senior engineer at a leading hyperscale cloud provider. Leads Harch\'s technology strategy across AI infrastructure and sovereign compute.',
+  },
+  {
+    name: 'Chief Financial Officer',
+    title: 'CFO',
+    image: '/images/team/cfo.jpg',
+    bio: 'Ex-investment banker with 15+ years in emerging market infrastructure finance. Oversees Harch Corp\'s $2.4B+ investment pipeline.',
+  },
+  {
+    name: 'Strategic Advisor',
+    title: 'Advisor',
+    image: '/images/team/advisor.jpg',
+    bio: 'Former government minister and international development leader. Provides strategic counsel on regulatory frameworks and sovereign partnerships.',
   },
 ];
 
 export default function AboutPageClient() {
   return (
-    <>
-      <PageHero
-        title="About Harch Corp"
-        subtitle="A Moroccan conglomerate building the infrastructure of African sovereignty"
-      />
+    <div className="bg-[#0A0A0A]">
+      {/* Hero */}
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-6">About Harch Corp</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+            Building the<br />Infrastructure<br />Africa Needs
+          </h1>
+          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+            Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate founded in 2023 with a single mission: 
+            to build the critical infrastructure that enables Africa&apos;s self-reliance — from AI data centers and 
+            cement plants to renewable energy and water desalination.
+          </p>
+        </div>
+      </section>
 
-      {/* Company Story */}
-      <section className="py-20 lg:py-32 bg-[#05080F]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase tracking-tight">
-              Our Story
-            </h2>
-            <div className="mt-4 w-12 h-0.5 bg-harch-gold" />
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div className="mt-8 space-y-6">
-              <p className="text-harch-muted leading-relaxed">
-                Harch Corp was founded by Amine Harch El Korane with a singular conviction: Africa&apos;s
-                future must be built by Africans, on African terms. What began as a bold vision in
-                Casablanca in 2023 has rapidly grown into one of the continent&apos;s most ambitious
-                industrial conglomerates, spanning seven verticals and five countries.
+      {/* Story */}
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+            <div>
+              <p className="section-label mb-6">Our Story</p>
+              <p className="text-base text-white/50 leading-relaxed mb-6">
+                Africa has long been a continent of untapped potential — rich in resources, talent, and ambition, 
+                yet held back by a fundamental infrastructure deficit. While the world debates Africa&apos;s future, 
+                Harch Corp is building it.
               </p>
-              <p className="text-harch-muted leading-relaxed">
-                From a 500MW AI hyperscale data center in Dakhla to climate-resilient agriculture
-                across the Sahel, from strategic mineral extraction to solar-powered desalination —
-                every Harch Corp project is designed to create sovereign capability, not dependency.
-                We do not import solutions; we build them.
-              </p>
-              <p className="text-harch-muted leading-relaxed">
-                Headquartered in Casablanca, Harch Corp S.A. operates with a $2.4B+ investment
-                pipeline and a team of world-class professionals committed to the idea that
-                Africa&apos;s industrial revolution is not a possibility — it is an imperative.
+              <p className="text-base text-white/50 leading-relaxed">
+                Founded by Amine Harch El Korane in Casablanca, Harch Corp was created with a clear thesis: 
+                Africa does not need aid, it needs infrastructure. It does not need charity, it needs 
+                partnership on equal terms. Across seven verticals spanning AI, energy, mining, agriculture, 
+                cement, technology, and water, we are constructing the industrial backbone of a self-sufficient continent.
               </p>
             </div>
-          </FadeIn>
+            <div>
+              <p className="text-base text-white/50 leading-relaxed mb-6">
+                Our approach is vertically integrated — we own the entire value chain from raw materials to 
+                finished infrastructure. This allows us to move faster, control quality, and ensure that the 
+                economic value generated stays on the continent.
+              </p>
+              <p className="text-base text-white/50 leading-relaxed">
+                With a $2.4B+ investment pipeline spanning five countries, Harch Corp is not a speculative venture. 
+                It is an industrial movement — one that is already breaking ground, creating jobs, and proving 
+                that world-class infrastructure can be built by Africans, for Africa.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 lg:py-28 bg-[#070B14] border-y border-harch-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            <FadeIn>
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <Target className="w-5 h-5 text-harch-gold" />
-                  <h2 className="text-2xl font-bold text-harch-text uppercase tracking-tight">Mission</h2>
-                </div>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-harch-muted leading-relaxed text-lg">
-                  To build, operate, and scale the critical infrastructure that enables Africa&apos;s
-                  industrial sovereignty — from compute and energy to minerals, food, and water —
-                  creating self-sustaining ecosystems that reduce external dependency and drive
-                  long-term economic resilience.
-                </p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <Eye className="w-5 h-5 text-harch-gold" />
-                  <h2 className="text-2xl font-bold text-harch-text uppercase tracking-tight">Vision</h2>
-                </div>
-                <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                <p className="text-harch-muted leading-relaxed text-lg">
-                  By 2030, to be Africa&apos;s leading integrated industrial conglomerate — a
-                  self-reliant ecosystem where sovereign AI compute powers smart mining, where
-                  renewable energy fuels zero-carbon manufacturing, and where technology-driven
-                  agriculture ensures food security for hundreds of millions.
-                </p>
-              </div>
-            </FadeIn>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+            <div>
+              <p className="section-label mb-6">Mission</p>
+              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-6">
+                To build the critical infrastructure that enables Africa&apos;s industrial sovereignty.
+              </h2>
+              <p className="text-base text-white/50 leading-relaxed">
+                Every project we undertake — from a 500MW data center to a regional cement plant — serves one purpose: 
+                ensuring that Africa can produce, process, and power what it needs, on its own terms.
+              </p>
+            </div>
+            <div>
+              <p className="section-label mb-6">Vision</p>
+              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-6">
+                An Africa that is self-reliant, industrially sovereign, and globally competitive.
+              </h2>
+              <p className="text-base text-white/50 leading-relaxed">
+                We envision a continent where critical infrastructure — energy, compute, materials, food, and water — 
+                is owned and operated by Africans, serving African needs and fueling African innovation.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 lg:py-32 bg-[#05080F]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-harch-text uppercase">
-                Our Values
-              </h2>
-              <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <FadeIn key={value.title} delay={index * 0.1}>
-                <div className="p-6 rounded-xl border border-harch-border bg-[#0A0E18] card-glow h-full">
-                  <value.icon className="w-8 h-8 text-harch-gold mb-4" />
-                  <h3 className="text-lg font-semibold text-harch-text mb-2">{value.title}</h3>
-                  <p className="text-sm text-harch-muted leading-relaxed">{value.description}</p>
-                </div>
-              </FadeIn>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-12">Our Values</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-16">
+            {values.map((value) => (
+              <div key={value.title}>
+                <value.icon size={20} className="text-white/30 mb-4" strokeWidth={1.5} />
+                <h3 className="text-xl font-medium text-white mb-3">{value.title}</h3>
+                <p className="text-sm text-white/45 leading-relaxed">{value.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Leadership */}
-      <section className="py-20 lg:py-32 bg-[#070B14] border-t border-harch-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-harch-text uppercase">
-                Leadership
-              </h2>
-              <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {leaders.map((leader, index) => (
-              <FadeIn key={leader.name} delay={index * 0.1}>
-                <div className="rounded-xl border border-harch-border bg-[#0A0E18] card-glow overflow-hidden">
-                  <div className="relative h-64">
-                    <Image
-                      src={leader.image}
-                      alt={leader.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E18] via-transparent to-transparent" />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-base font-semibold text-harch-text">{leader.name}</h3>
-                    <p className="text-xs text-harch-gold uppercase tracking-wider mt-1">{leader.title}</p>
-                    <p className="mt-3 text-xs text-harch-muted leading-relaxed">{leader.bio}</p>
-                  </div>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-12">Leadership</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+            {leadership.map((person) => (
+              <div key={person.name} className="group">
+                <div className="relative w-full aspect-[3/4] mb-5 overflow-hidden rounded-sm bg-[#111]">
+                  <Image
+                    src={person.image}
+                    alt={person.name}
+                    fill
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  />
                 </div>
-              </FadeIn>
+                <h3 className="text-base font-medium text-white mb-1">{person.name}</h3>
+                <p className="text-xs tracking-[0.05em] text-white/40 mb-3">{person.title}</p>
+                <p className="text-xs text-white/35 leading-relaxed">{person.bio}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
-    </>
+
+      {/* CTA */}
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
+            Join the Mission
+          </h2>
+          <p className="max-w-xl mx-auto text-base text-white/40 mb-10">
+            Whether as an investor, partner, or team member — help us build the infrastructure 
+            that Africa needs.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/investors"
+              className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+            >
+              Investor Relations
+              <ArrowRight size={14} />
+            </Link>
+            <Link
+              href="/careers"
+              className="inline-flex items-center gap-2 border border-white/[0.2] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:border-white/40 transition-colors"
+            >
+              View Careers
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

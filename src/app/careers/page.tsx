@@ -1,13 +1,9 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import CareersPageClient from './CareersPageClient';
 
 export const metadata: Metadata = {
   title: 'Careers',
-  description: 'Join Harch Corp and help build Africa\'s industrial future. Explore career opportunities across data centers, energy, mining, technology, and more.',
-  openGraph: {
-    title: 'Careers | Harch Corp',
-    description: 'Join Harch Corp and help build Africa\'s industrial future.',
-  },
+  description: 'Join Harch Corp — build Africa\'s industrial future. Explore open positions across AI infrastructure, energy, mining, and more.',
 };
 
 export default function CareersPage() {

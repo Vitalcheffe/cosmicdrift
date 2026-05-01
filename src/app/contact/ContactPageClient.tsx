@@ -1,31 +1,32 @@
 'use client';
 
 import { useState } from 'react';
-import { PageHero } from '@/components/PageHero';
-import { FadeIn } from '@/components/Animations';
-import { MapPin, Mail, Phone, Send } from 'lucide-react';
+import { ArrowRight, MapPin, Mail, Phone } from 'lucide-react';
 
 const offices = [
   {
     city: 'Casablanca',
-    label: 'Headquarters',
-    address: '123 Boulevard Mohammed V, Casablanca, Morocco',
-    phone: '+212 5 22 00 00 00',
+    country: 'Morocco',
+    type: 'Headquarters',
+    address: '123 Boulevard Mohammed V',
     email: 'info@harchcorp.com',
+    phone: '+212 5 22 00 00 00',
   },
   {
-    city: 'Dakhla',
-    label: 'Intelligence & Energy',
-    address: 'Dakhla Technology Park, Dakhla, Morocco',
-    phone: '+212 5 28 00 00 00',
-    email: 'dakhla@harchcorp.com',
+    city: 'Dakar',
+    country: 'Senegal',
+    type: 'Regional Office',
+    address: '45 Rue Carnot, Plateau',
+    email: 'dakar@harchcorp.com',
+    phone: '+221 33 800 00 00',
   },
   {
     city: 'Banjul',
-    label: 'West Africa Operations',
-    address: '5 Marina Parade, Banjul, Gambia',
-    phone: '+220 00 000 0000',
+    country: 'The Gambia',
+    type: 'Operations',
+    address: 'Kairaba Avenue, Serrekunda',
     email: 'gambia@harchcorp.com',
+    phone: '+220 400 0000',
   },
 ];
 
@@ -33,152 +34,147 @@ export default function ContactPageClient() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    company: '',
+    inquiry: 'general',
     message: '',
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setIsSubmitted(false), 4000);
+    setSubmitted(true);
   };
 
   return (
-    <>
-      <PageHero
-        title="Contact Us"
-        subtitle="Get in touch with the Harch Corp team"
-      />
+    <div className="bg-[#0A0A0A]">
+      {/* Hero */}
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-6">Contact</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+            Get in Touch
+          </h1>
+          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+            Whether you&apos;re an investor, partner, or talent — we&apos;d like to hear from you.
+          </p>
+        </div>
+      </section>
 
       {/* Contact Form & Offices */}
-      <section className="py-20 lg:py-32 bg-[#05080F]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
             {/* Form */}
-            <FadeIn>
-              <h2 className="text-2xl font-bold text-harch-text uppercase tracking-tight">
-                Send a Message
-              </h2>
-              <div className="w-12 h-0.5 bg-harch-gold mt-4 mb-8" />
-
-              {isSubmitted && (
-                <div className="mb-6 p-4 rounded-lg border border-harch-gold/30 bg-harch-gold/5 text-sm text-harch-gold">
-                  Thank you for your message. Our team will respond within 24 hours.
+            <div>
+              <p className="section-label mb-8">Send a Message</p>
+              {submitted ? (
+                <div className="py-12">
+                  <h3 className="text-2xl font-semibold text-white mb-3">Message Sent</h3>
+                  <p className="text-sm text-white/45">
+                    Thank you for reaching out. Our team will respond within 48 hours.
+                  </p>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs tracking-[0.05em] text-white/40 mb-2">Name</label>
+                      <input
+                        type="text"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                        className="w-full bg-transparent border-b border-white/[0.1] py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/40 transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs tracking-[0.05em] text-white/40 mb-2">Email</label>
+                      <input
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        required
+                        className="w-full bg-transparent border-b border-white/[0.1] py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/40 transition-colors"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs tracking-[0.05em] text-white/40 mb-2">Company</label>
+                      <input
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        className="w-full bg-transparent border-b border-white/[0.1] py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/40 transition-colors"
+                        placeholder="Company name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs tracking-[0.05em] text-white/40 mb-2">Inquiry Type</label>
+                      <select
+                        value={formData.inquiry}
+                        onChange={(e) => setFormData({ ...formData, inquiry: e.target.value })}
+                        className="w-full bg-transparent border-b border-white/[0.1] py-3 text-sm text-white/60 focus:outline-none focus:border-white/40 transition-colors appearance-none cursor-pointer"
+                      >
+                        <option value="general" className="bg-[#111]">General Inquiry</option>
+                        <option value="investment" className="bg-[#111]">Investment</option>
+                        <option value="partnership" className="bg-[#111]">Partnership</option>
+                        <option value="careers" className="bg-[#111]">Careers</option>
+                        <option value="media" className="bg-[#111]">Media / Press</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs tracking-[0.05em] text-white/40 mb-2">Message</label>
+                    <textarea
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      required
+                      rows={5}
+                      className="w-full bg-transparent border-b border-white/[0.1] py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/40 transition-colors resize-none"
+                      placeholder="Tell us about your inquiry..."
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+                  >
+                    Send Message
+                    <ArrowRight size={14} />
+                  </button>
+                </form>
               )}
-
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label htmlFor="name" className="block text-xs uppercase tracking-wider text-harch-muted mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-lg border border-harch-border bg-[#0A0E18] text-harch-text text-sm placeholder:text-harch-muted/50 focus:outline-none focus:border-harch-gold/50 transition-colors"
-                    placeholder="Your full name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-xs uppercase tracking-wider text-harch-muted mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-lg border border-harch-border bg-[#0A0E18] text-harch-text text-sm placeholder:text-harch-muted/50 focus:outline-none focus:border-harch-gold/50 transition-colors"
-                    placeholder="your@email.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-xs uppercase tracking-wider text-harch-muted mb-2">
-                    Subject
-                  </label>
-                  <input
-                    id="subject"
-                    type="text"
-                    required
-                    value={formData.subject}
-                    onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-lg border border-harch-border bg-[#0A0E18] text-harch-text text-sm placeholder:text-harch-muted/50 focus:outline-none focus:border-harch-gold/50 transition-colors"
-                    placeholder="How can we help?"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-xs uppercase tracking-wider text-harch-muted mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-lg border border-harch-border bg-[#0A0E18] text-harch-text text-sm placeholder:text-harch-muted/50 focus:outline-none focus:border-harch-gold/50 transition-colors resize-none"
-                    placeholder="Tell us more about your inquiry..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="flex items-center gap-2 px-8 py-3.5 bg-harch-gold text-harch-dark text-sm uppercase tracking-[0.2em] font-semibold rounded-lg hover:bg-harch-gold/90 transition-all"
-                >
-                  <Send className="w-4 h-4" />
-                  Send Message
-                </button>
-              </form>
-            </FadeIn>
+            </div>
 
             {/* Offices */}
             <div>
-              <FadeIn delay={0.1}>
-                <h2 className="text-2xl font-bold text-harch-text uppercase tracking-tight">
-                  Our Offices
-                </h2>
-                <div className="w-12 h-0.5 bg-harch-gold mt-4 mb-8" />
-              </FadeIn>
-              <div className="space-y-6">
-                {offices.map((office, index) => (
-                  <FadeIn key={office.city} delay={0.1 + index * 0.1}>
-                    <div className="p-6 rounded-xl border border-harch-border bg-[#0A0E18] card-glow">
-                      <div className="flex items-center gap-2 mb-2">
-                        <MapPin className="w-4 h-4 text-harch-gold" />
-                        <h3 className="text-base font-semibold text-harch-text">{office.city}</h3>
-                        <span className="text-xs text-harch-gold uppercase tracking-wider">— {office.label}</span>
-                      </div>
-                      <p className="text-sm text-harch-muted">{office.address}</p>
-                      <div className="mt-3 flex flex-col sm:flex-row gap-3">
-                        <a href={`mailto:${office.email}`} className="flex items-center gap-1.5 text-xs text-harch-gold hover:text-harch-gold/80 transition-colors">
-                          <Mail className="w-3 h-3" />
-                          {office.email}
-                        </a>
-                        <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="flex items-center gap-1.5 text-xs text-harch-muted hover:text-harch-text transition-colors">
-                          <Phone className="w-3 h-3" />
-                          {office.phone}
-                        </a>
-                      </div>
+              <p className="section-label mb-8">Our Offices</p>
+              <div className="space-y-10">
+                {offices.map((office) => (
+                  <div key={office.city}>
+                    <div className="flex items-center gap-2 mb-3">
+                      <MapPin size={14} className="text-white/30" />
+                      <h3 className="text-lg font-medium text-white">{office.city}</h3>
+                      <span className="text-xs text-white/25">· {office.type}</span>
                     </div>
-                  </FadeIn>
+                    <div className="space-y-1 text-sm text-white/40">
+                      <p>{office.address}, {office.country}</p>
+                      <p className="flex items-center gap-2">
+                        <Mail size={12} /> {office.email}
+                      </p>
+                      <p className="flex items-center gap-2">
+                        <Phone size={12} /> {office.phone}
+                      </p>
+                    </div>
+                  </div>
                 ))}
               </div>
-
-              {/* Map Placeholder */}
-              <FadeIn delay={0.4}>
-                <div className="mt-6 h-48 rounded-xl border border-harch-border bg-[#0A0E18] flex items-center justify-center">
-                  <p className="text-sm text-harch-muted">Interactive Map — Coming Soon</p>
-                </div>
-              </FadeIn>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

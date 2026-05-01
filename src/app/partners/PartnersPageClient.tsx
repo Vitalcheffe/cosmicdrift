@@ -1,98 +1,102 @@
 'use client';
 
-import { PageHero } from '@/components/PageHero';
-import { FadeIn } from '@/components/Animations';
-import { Handshake, Cpu, Building } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Cpu, Landmark, Building, Globe } from 'lucide-react';
 
-const strategicPartners = [
-  { name: 'Office Chérifien des Phosphates', description: 'Strategic partnership for phosphate extraction and value-added mineral processing across Morocco\'s mining corridor.' },
-  { name: 'Office National de l\'Électricité', description: 'Grid integration and power purchase agreements for Harch Energy\'s renewable energy portfolio.' },
-  { name: 'Kingdom of Morocco — Ministry of Industry', description: 'Framework agreement for industrial zone development and investment incentives across strategic sectors.' },
+const partnerCategories = [
+  {
+    icon: Cpu,
+    title: 'Technology Partners',
+    description: 'Leading technology companies providing hardware, software, and AI infrastructure to power Harch Intelligence and Harch Technology operations.',
+    partners: ['GPU & Compute Providers', 'Cloud Platform Partners', 'AI/ML Framework Partners', 'Industrial IoT Providers', 'Cybersecurity Partners'],
+  },
+  {
+    icon: Landmark,
+    title: 'Financial Partners',
+    description: 'International development finance institutions, sovereign wealth funds, and private equity firms providing capital for Harch Corp\'s $2.4B+ investment pipeline.',
+    partners: ['Development Finance Institutions', 'Sovereign Wealth Funds', 'Infrastructure Funds', 'Commercial Banks', 'Export Credit Agencies'],
+  },
+  {
+    icon: Building,
+    title: 'Industrial Partners',
+    description: 'Engineering firms, EPC contractors, and equipment suppliers collaborating on Harch Corp\'s construction and manufacturing projects.',
+    partners: ['EPC Contractors', 'Engineering Consultancies', 'Equipment Manufacturers', 'Mining Services Companies', 'Construction Materials Suppliers'],
+  },
+  {
+    icon: Globe,
+    title: 'Government & Institutional Partners',
+    description: 'National and regional governments, regulatory bodies, and international organizations supporting Harch Corp\'s mission of African industrial sovereignty.',
+    partners: ['National Governments', 'Regional Development Agencies', 'Utility Companies', 'Academic Institutions', 'Industry Associations'],
+  },
 ];
-
-const technologyPartners = [
-  { name: 'NVIDIA', description: 'AI compute infrastructure and GPU cluster design for Harch Intelligence\'s hyperscale data center.' },
-  { name: 'Schneider Electric', description: 'Power distribution, cooling systems, and energy management for data center and industrial operations.' },
-  { name: 'Siemens', description: 'Industrial automation, IoT platforms, and digital twin technology for manufacturing and mining operations.' },
-  { name: 'SAP', description: 'Enterprise resource planning and business intelligence platforms across Harch Corp\'s seven verticals.' },
-];
-
-const financialPartners = [
-  { name: 'Banque Africaine de Développement', description: 'Project finance and development funding for infrastructure investments across the Sahel region.' },
-  { name: 'CDG Capital', description: 'Moroccan investment banking partner for capital markets, bond issuance, and M&A advisory.' },
-  { name: 'International Finance Corporation', description: 'Co-investment and risk-sharing framework for renewable energy and industrial projects.' },
-  { name: 'BNP Paribas', description: 'Structured finance and trade finance solutions for cross-border operations and export credit.' },
-];
-
-function PartnerCategory({ icon: Icon, title, partners }: { icon: React.ComponentType<{ className?: string }>; title: string; partners: { name: string; description: string }[] }) {
-  return (
-    <div>
-      <FadeIn>
-        <div className="flex items-center gap-3 mb-6">
-          <Icon className="w-6 h-6 text-harch-gold" />
-          <h2 className="text-2xl font-bold text-harch-text uppercase tracking-tight">{title}</h2>
-        </div>
-        <div className="w-12 h-0.5 bg-harch-gold" />
-      </FadeIn>
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {partners.map((partner, index) => (
-          <FadeIn key={partner.name} delay={index * 0.08}>
-            <div className="p-6 rounded-xl border border-harch-border bg-[#0A0E18] card-glow h-full">
-              {/* Placeholder Logo */}
-              <div className="flex items-center justify-center h-12 mb-4 rounded-lg bg-[#111627] border border-harch-border">
-                <span className="text-sm font-bold tracking-wider text-harch-muted uppercase">{partner.name.split(' ').map(w => w[0]).join('')}</span>
-              </div>
-              <h3 className="text-base font-semibold text-harch-text">{partner.name}</h3>
-              <p className="mt-2 text-xs text-harch-muted leading-relaxed">{partner.description}</p>
-            </div>
-          </FadeIn>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function PartnersPageClient() {
   return (
-    <>
-      <PageHero
-        title="Our Partners"
-        subtitle="Strategic alliances powering Africa's industrial future"
-      />
+    <div className="bg-[#0A0A0A]">
+      {/* Hero */}
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-6">Partners</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+            Partner<br/>Ecosystem
+          </h1>
+          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+            Harch Corp works with world-class partners across technology, finance, industry, 
+            and government to build Africa&apos;s critical infrastructure.
+          </p>
+        </div>
+      </section>
 
-      <section className="py-20 lg:py-32 bg-[#05080F]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Partner Categories */}
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="space-y-20">
-            <PartnerCategory icon={Handshake} title="Strategic Partners" partners={strategicPartners} />
-            <PartnerCategory icon={Cpu} title="Technology Partners" partners={technologyPartners} />
-            <PartnerCategory icon={Building} title="Financial Partners" partners={financialPartners} />
+            {partnerCategories.map((category) => (
+              <div key={category.title}>
+                <div className="flex items-center gap-3 mb-4">
+                  <category.icon size={18} className="text-white/30" strokeWidth={1.5} />
+                  <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
+                    {category.title}
+                  </h2>
+                </div>
+                <p className="text-sm text-white/45 leading-relaxed mb-8 max-w-2xl">
+                  {category.description}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {category.partners.map((partner) => (
+                    <span
+                      key={partner}
+                      className="px-4 py-2 border border-white/[0.08] rounded-md text-xs text-white/40"
+                    >
+                      {partner}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Partnership Inquiry */}
-      <section className="py-20 lg:py-28 bg-[#070B14] border-t border-harch-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FadeIn>
-            <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase">
-              Become a Partner
-            </h2>
-            <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-            <p className="mt-6 text-harch-muted max-w-xl mx-auto">
-              We are always open to strategic partnerships that advance Africa&apos;s industrial
-              sovereignty. If your organization shares our vision, we would like to hear from you.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <a
-              href="mailto:partnerships@harchcorp.com"
-              className="inline-flex items-center gap-2 mt-8 px-8 py-3.5 bg-harch-gold text-harch-dark text-sm uppercase tracking-[0.2em] font-semibold rounded-lg hover:bg-harch-gold/90 transition-all"
-            >
-              Contact Partnerships Team
-            </a>
-          </FadeIn>
+      {/* CTA */}
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
+            Become a Partner
+          </h2>
+          <p className="max-w-xl mx-auto text-base text-white/40 mb-10">
+            Join the ecosystem building Africa&apos;s industrial sovereignty. We&apos;re always 
+            looking for strategic partners who share our mission.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+          >
+            Partner With Us
+            <ArrowRight size={14} />
+          </Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -1,388 +1,286 @@
 'use client';
 
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useRef, useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronDown, ArrowRight } from 'lucide-react';
-import { AnimatedCounter, FadeIn } from '@/components/Animations';
-import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
-const Scene3D = dynamic(
-  () => import('@/components/Scene3D').then((mod) => ({ default: mod.Scene3D })),
-  { ssr: false }
-);
-
-const verticals = [
-  { number: '01', name: 'Harch Intelligence', tagline: '500MW AI Hyperscale Data Center', slug: 'intelligence', image: '/images/verticals/intelligence.jpg' },
-  { number: '02', name: 'Harch Ciment', tagline: '500,000 Tons/Year Production Capacity', slug: 'cement', image: '/images/verticals/cement.jpg' },
-  { number: '03', name: 'Harch Energy', tagline: '2GW+ Renewable Energy Portfolio', slug: 'energy', image: '/images/verticals/energy.jpg' },
-  { number: '04', name: 'Harch Technology', tagline: 'Sovereign Technology Solutions', slug: 'technology', image: '/images/verticals/technology.jpg' },
-  { number: '05', name: 'Harch Mining', tagline: 'Strategic Mineral Extraction', slug: 'mining', image: '/images/verticals/mining.jpg' },
-  { number: '06', name: 'Harch Agri', tagline: 'Climate-Resilient Agriculture at Scale', slug: 'agriculture', image: '/images/verticals/agriculture.jpg' },
-  { number: '07', name: 'Harch Water', tagline: 'Water Security for Africa', slug: 'water', image: '/images/verticals/water.jpg' },
+const offerings = [
+  { name: 'Harch Intelligence', href: '/subsidiaries/intelligence' },
+  { name: 'Harch Ciment', href: '/subsidiaries/cement' },
+  { name: 'Harch Energy', href: '/subsidiaries/energy' },
+  { name: 'Harch Technology', href: '/subsidiaries/technology' },
+  { name: 'Harch Mining', href: '/subsidiaries/mining' },
+  { name: 'Harch Agri', href: '/subsidiaries/agriculture' },
+  { name: 'Harch Water', href: '/subsidiaries/water' },
 ];
 
-const stats = [
-  { value: 2.4, prefix: '$', suffix: 'B+', label: 'Investment Pipeline' },
-  { value: 7, prefix: '', suffix: '', label: 'Verticals' },
-  { value: 3200, prefix: '', suffix: '+', label: 'Jobs Created' },
-  { value: 5, prefix: '', suffix: '', label: 'Countries' },
+const impactSectors = [
+  { name: 'AI & Data Infrastructure', href: '/subsidiaries/intelligence' },
+  { name: 'Construction & Materials', href: '/subsidiaries/cement' },
+  { name: 'Renewable Energy', href: '/subsidiaries/energy' },
+  { name: 'Sovereign Technology', href: '/subsidiaries/technology' },
+  { name: 'Mining & Critical Minerals', href: '/subsidiaries/mining' },
+  { name: 'Climate-Resilient Agriculture', href: '/subsidiaries/agriculture' },
+  { name: 'Water Security', href: '/subsidiaries/water' },
 ];
 
-const milestones = [
-  { year: '2023', title: 'Founded', description: 'Harch Corp established in Casablanca with a vision for African industrial sovereignty.' },
-  { year: '2024', title: 'Intelligence Division Launch', description: "Launch of Harch Intelligence, Africa's largest AI-ready data center project in Dakhla." },
-  { year: '2025', title: 'Energy & Mining Expansion', description: 'Major expansion into renewable energy and strategic mining operations across Morocco and West Africa.' },
-  { year: '2026', title: 'Pan-African Scale', description: 'Operations spanning 5 countries, 7 verticals, and $2.4B+ in active investment pipeline.' },
-];
-
-function HeroSection() {
-  const ref = useRef(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [videoError, setVideoError] = useState(false);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
-
+export default function HomePage() {
   return (
-    <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
-      <motion.div style={{ scale }} className="absolute inset-0">
-        {!videoError && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            onLoadedData={() => setVideoLoaded(true)}
-            onError={() => setVideoError(true)}
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videos/hero.mp4" type="video/mp4" />
-          </video>
-        )}
-        {/* Fallback Image */}
-        {(!videoLoaded || videoError) && (
+    <div className="bg-[#0A0A0A]">
+      {/* Section 1: Hero */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0">
           <Image
             src="/images/hero-bg.jpg"
-            alt="Aerial view of industrial infrastructure"
+            alt="Harch Corp Infrastructure"
             fill
-            className="object-cover"
+            className="object-cover opacity-30"
             priority
-            sizes="100vw"
           />
-        )}
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[#05080F]/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#05080F]/50 via-transparent to-[#05080F]" />
-      </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/60 via-[#0A0A0A]/40 to-[#0A0A0A]" />
+        </div>
 
-      <motion.div
-        style={{ opacity, y }}
-        className="relative z-10 text-center px-4 max-w-5xl mx-auto"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-[0.15em] text-harch-text uppercase">
-            HARCH <span className="gradient-text-gold">CORP</span>
+        {/* Content */}
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <p className="section-label mb-6 animate-fade-in-up">
+            Building Africa&apos;s Industrial Sovereignty
+          </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-semibold text-white leading-[1.1] tracking-tight mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            Infrastructure for<br />the Next Century
           </h1>
-        </motion.div>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-6 text-lg sm:text-xl lg:text-2xl text-harch-muted tracking-wide max-w-2xl mx-auto"
-        >
-          Building Africa&apos;s Industrial Sovereignty
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Link
-            href="/about"
-            className="group flex items-center gap-2 px-8 py-3.5 bg-harch-gold text-harch-dark text-sm uppercase tracking-[0.2em] font-semibold rounded-lg hover:bg-harch-gold/90 transition-all duration-200"
-          >
-            Discover Our Vision
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            href="/investors"
-            className="flex items-center gap-2 px-8 py-3.5 border border-harch-gold/30 text-harch-gold text-sm uppercase tracking-[0.2em] font-medium rounded-lg hover:border-harch-gold/60 hover:bg-harch-gold/5 transition-all duration-200"
-          >
-            Investor Relations
-          </Link>
-        </motion.div>
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-        >
-          <ChevronDown className="w-6 h-6 text-harch-muted" />
-        </motion.div>
-      </motion.div>
-    </section>
-  );
-}
-
-function VerticalsSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  return (
-    <section className="py-20 lg:py-32 bg-[#05080F] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-harch-text uppercase">
-              Our Verticals
-            </h2>
-            <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-          </div>
-        </FadeIn>
-
-        <div className="relative">
-          {/* Vertical Rows */}
-          <div className="space-y-0">
-            {verticals.map((vertical, index) => (
-              <FadeIn key={vertical.slug} delay={index * 0.06}>
-                <Link href={`/subsidiaries/${vertical.slug}`} className="block">
-                  <div
-                    className="group relative flex items-center justify-between py-6 lg:py-8 border-b border-harch-border cursor-pointer transition-all duration-300 hover:pl-4"
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                  >
-                    {/* Number + Name */}
-                    <div className="flex items-baseline gap-4 lg:gap-8">
-                      <span className="text-sm font-mono text-harch-muted group-hover:text-harch-gold transition-colors duration-300">
-                        {vertical.number}
-                      </span>
-                      <div>
-                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-harch-text uppercase tracking-wide group-hover:text-harch-gold transition-colors duration-300">
-                          {vertical.name}
-                        </h3>
-                        <p className="mt-1 text-sm text-harch-muted group-hover:text-harch-text/70 transition-colors duration-300">
-                          {vertical.tagline}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Gold underline on hover */}
-                    <motion.div
-                      className="absolute bottom-0 left-0 h-[2px] bg-harch-gold"
-                      initial={{ width: 0 }}
-                      animate={{ width: hoveredIndex === index ? '100%' : 0 }}
-                      transition={{ duration: 0.4, ease: 'easeOut' }}
-                    />
-
-                    {/* Arrow indicator */}
-                    <ArrowRight className="w-5 h-5 text-harch-muted group-hover:text-harch-gold transition-all duration-300 group-hover:translate-x-2 shrink-0 ml-4" />
-                  </div>
-                </Link>
-
-                {/* Hover Image Panel */}
-                <AnimatePresence>
-                  {hoveredIndex === index && (
-                    <motion.div
-                      initial={{ opacity: 0, x: 40, scale: 0.95 }}
-                      animate={{ opacity: 1, x: 0, scale: 1 }}
-                      exit={{ opacity: 0, x: 40, scale: 0.95 }}
-                      transition={{ duration: 0.35, ease: 'easeOut' }}
-                      className="hidden lg:block fixed right-[8%] top-1/2 -translate-y-1/2 z-30 w-[420px] h-[300px] rounded-xl overflow-hidden border border-harch-border shadow-2xl shadow-black/50 pointer-events-none"
-                    >
-                      <Image
-                        src={vertical.image}
-                        alt={vertical.name}
-                        fill
-                        className="object-cover"
-                        sizes="420px"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#05080F]/80 via-transparent to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-5">
-                        <p className="text-xs uppercase tracking-[0.2em] text-harch-gold font-medium">
-                          {vertical.number} — {vertical.name}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </FadeIn>
-            ))}
+          <p className="max-w-2xl mx-auto text-base md:text-lg text-white/50 leading-relaxed mb-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            From 500MW AI data centers to 2GW renewable energy — Harch Corp builds the critical infrastructure that enables Africa&apos;s self-reliance.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+            >
+              Get Started
+              <ArrowRight size={14} />
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 border border-white/[0.2] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:border-white/40 transition-colors"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
 
-function StatsSection() {
-  return (
-    <section className="py-20 lg:py-28 bg-[#070B14] border-y border-harch-border relative overflow-hidden">
-      {/* 3D Background */}
-      <div className="absolute inset-0 opacity-30">
-        <Scene3D />
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <span className="text-[10px] tracking-[0.2em] uppercase text-white/30">Scroll to Explore</span>
+          <ChevronDown size={16} className="text-white/30 animate-bounce-slow" />
+        </div>
+      </section>
+
+      {/* Section 2: Offerings - Two Column Layout */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+            {/* Left Column - Offerings */}
+            <div>
+              <p className="section-label mb-10">Offerings</p>
+              <nav className="space-y-5">
+                {offerings.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="nav-link block text-xl md:text-2xl font-light text-white/60"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Vertical Divider - hidden on mobile */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/[0.06]" style={{ position: 'relative', left: '0', top: '0' }} />
+
+            {/* Right Column - Impact Sectors */}
+            <div>
+              <p className="section-label mb-10">Impact Sectors</p>
+              <nav className="space-y-5">
+                {impactSectors.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="nav-link block text-xl md:text-2xl font-light text-white/60"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          </div>
+
+          {/* View All Link */}
+          <div className="mt-16 flex justify-end">
+            <Link
+              href="/strategy"
+              className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/80 transition-colors group"
+            >
+              View All
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="divider" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {stats.map((stat, index) => (
-            <FadeIn key={stat.label} delay={index * 0.1}>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text-gold">
-                  <AnimatedCounter
-                    value={stat.value}
-                    prefix={stat.prefix}
-                    suffix={stat.suffix}
-                  />
-                </div>
-                <p className="mt-2 text-sm text-harch-muted uppercase tracking-wider">
+      {/* Section 3: Stats Bar */}
+      <section className="py-20 md:py-24">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            {[
+              { value: '$2.4B+', label: 'Investment Pipeline' },
+              { value: '7', label: 'Verticals' },
+              { value: '3,200+', label: 'Jobs Created' },
+              { value: '5', label: 'Countries' },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center md:text-left">
+                <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-xs tracking-[0.1em] uppercase text-white/40">
                   {stat.label}
                 </p>
               </div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function PhilosophySection() {
-  return (
-    <section className="py-20 lg:py-32 bg-[#05080F]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-harch-text uppercase">
-              Our Philosophy
-            </h2>
-            <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-          </div>
-        </FadeIn>
-        <FadeIn delay={0.2}>
-          <div className="space-y-6 text-center">
-            <p className="text-lg text-harch-muted leading-relaxed">
-              Africa does not need aid — it needs infrastructure. It does not need pity — it needs
-              partnership on equal terms. At Harch Corp, we believe that true sovereignty begins
-              with economic independence: the ability to build, power, feed, and secure a continent
-              on its own terms.
-            </p>
-            <p className="text-lg text-harch-muted leading-relaxed">
-              Our philosophy is rooted in self-reliance. Every vertical we operate — from the
-              500MW AI data center in Dakhla to the solar-powered desalination plants along the
-              Atlantic coast — is designed to reduce dependency on external systems and create
-              lasting, sovereign capability for African nations.
-            </p>
-            <p className="text-lg text-harch-gold leading-relaxed font-medium">
-              We are not building for the next quarter. We are building for the next century.
-            </p>
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-function TimelineSection() {
-  return (
-    <section className="py-20 lg:py-32 bg-[#070B14]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-harch-text uppercase">
-              Key Milestones
-            </h2>
-            <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-          </div>
-        </FadeIn>
-
-        <div className="relative">
-          <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-harch-border lg:-translate-x-px" />
-
-          <div className="space-y-12">
-            {milestones.map((milestone, index) => (
-              <FadeIn key={milestone.year} delay={index * 0.15}>
-                <div className={`relative flex items-start gap-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                  <div className="absolute left-4 lg:left-1/2 w-3 h-3 bg-harch-gold rounded-full -translate-x-1.5 mt-2 z-10" />
-                  <div className={`ml-12 lg:ml-0 lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'}`}>
-                    <span className="text-sm font-bold text-harch-gold tracking-wider">{milestone.year}</span>
-                    <h3 className="mt-1 text-xl font-semibold text-harch-text">{milestone.title}</h3>
-                    <p className="mt-2 text-sm text-harch-muted leading-relaxed">{milestone.description}</p>
-                  </div>
-                </div>
-              </FadeIn>
             ))}
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function CTASection() {
-  return (
-    <section className="py-20 lg:py-32 bg-[#05080F] relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-50" />
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <FadeIn>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-harch-text uppercase">
-            Join the Movement
+      {/* Divider */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="divider" />
+      </div>
+
+      {/* Section 4: Featured Impact Study */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-8">Impact Study // Harch Intelligence</p>
+          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] mb-10 overflow-hidden rounded-sm">
+            <Image
+              src="/images/verticals/intelligence.jpg"
+              alt="Harch Intelligence AI Data Center"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 via-transparent to-transparent" />
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-6">
+            Africa&apos;s Largest AI Hyperscale Data Center
           </h2>
-          <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-          <p className="mt-6 text-lg text-harch-muted max-w-2xl mx-auto">
-            Whether you are an investor seeking transformative returns, an engineer ready to
-            build the future, or a partner looking to make an impact — Harch Corp is where
-            Africa&apos;s industrial future takes shape.
+          <p className="max-w-2xl text-base text-white/50 leading-relaxed mb-8">
+            Harch Intelligence is building a 500MW AI-ready hyperscale data center in Dakhla, Morocco — 
+            powered entirely by renewable energy and designed to serve as the backbone of Africa&apos;s 
+            sovereign AI compute infrastructure. The facility will host next-generation GPU clusters, 
+            supporting large language model training and inference at continental scale.
           </p>
-        </FadeIn>
-        <FadeIn delay={0.2}>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            href="/subsidiaries/intelligence"
+            className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors group"
+          >
+            Read More
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="divider" />
+      </div>
+
+      {/* Section 5: Second Impact Study */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-8">Impact Study // Harch Energy</p>
+          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] mb-10 overflow-hidden rounded-sm">
+            <Image
+              src="/images/verticals/energy.jpg"
+              alt="Harch Energy Renewable Infrastructure"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 via-transparent to-transparent" />
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-6">
+            2GW+ of Renewable Energy Pipeline
+          </h2>
+          <p className="max-w-2xl text-base text-white/50 leading-relaxed mb-8">
+            Harch Energy is developing over 2 gigawatts of renewable energy capacity across Morocco and 
+            the Sahel region — combining solar, wind, and green hydrogen production to power industrial 
+            operations and data centers with zero-carbon electricity. Our integrated approach ensures 
+            energy sovereignty for the continent.
+          </p>
+          <Link
+            href="/subsidiaries/energy"
+            className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors group"
+          >
+            Read More
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="divider" />
+      </div>
+
+      {/* Section 6: Quote / Testimonial */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[900px] mx-auto px-6 md:px-12">
+          <div className="divider mb-12" />
+          <span className="text-6xl md:text-8xl text-white/[0.06] leading-none font-serif">&ldquo;</span>
+          <blockquote className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 leading-relaxed -mt-6 mb-8">
+            Africa doesn&apos;t need aid — it needs infrastructure. It doesn&apos;t need pity — it needs partnership on equal terms.
+          </blockquote>
+          <div className="flex items-center gap-4">
+            <div className="w-px h-8 bg-white/[0.15]" />
+            <div>
+              <p className="text-sm text-white/80 font-medium">Amine Harch El Korane</p>
+              <p className="text-xs text-white/40 mt-0.5">Founder & CEO, Harch Corp</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7: CTA Section */}
+      <section className="py-24 md:py-32 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-6">
+            Ready to Build the Future?
+          </h2>
+          <p className="max-w-xl mx-auto text-base text-white/40 mb-10">
+            Join the consortium building Africa&apos;s industrial sovereignty. From investment to partnership, 
+            the next century starts now.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/careers"
-              className="group flex items-center gap-2 px-8 py-3.5 bg-harch-gold text-harch-dark text-sm uppercase tracking-[0.2em] font-semibold rounded-lg hover:bg-harch-gold/90 transition-all duration-200"
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
             >
-              View Careers
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Get Started
+              <ArrowRight size={14} />
             </Link>
             <Link
-              href="/investors"
-              className="flex items-center gap-2 px-8 py-3.5 border border-harch-gold/30 text-harch-gold text-sm uppercase tracking-[0.2em] font-medium rounded-lg hover:border-harch-gold/60 hover:bg-harch-gold/5 transition-all duration-200"
+              href="/contact"
+              className="inline-flex items-center gap-2 border border-white/[0.2] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:border-white/40 transition-colors"
             >
-              Investor Relations
+              Contact Us
             </Link>
           </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-export default function Home() {
-  return (
-    <>
-      <HeroSection />
-      <VerticalsSection />
-      <StatsSection />
-      <PhilosophySection />
-      <TimelineSection />
-      <CTASection />
-    </>
+        </div>
+      </section>
+    </div>
   );
 }

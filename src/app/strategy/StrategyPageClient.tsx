@@ -1,237 +1,144 @@
 'use client';
 
-import { PageHero } from '@/components/PageHero';
-import { FadeIn } from '@/components/Animations';
-import { Shield, Link2, TrendingUp, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const pillars = [
   {
-    icon: Shield,
-    title: 'Sovereignty',
-    description: 'Every Harch Corp vertical is designed to reduce external dependency and build indigenous capability. From sovereign AI compute to strategic mineral reserves, we ensure that Africa controls its own critical infrastructure.',
-    points: [
-      'Sovereign AI infrastructure — data stays in Africa, processed in Africa',
-      'Strategic mineral reserves under African control',
-      'Food and water security through domestic production capacity',
-      'Technology platforms designed and maintained locally',
-    ],
+    number: '01',
+    title: 'Vertical Integration',
+    description: 'We own the entire value chain — from raw materials to finished infrastructure. Harch Mining extracts the minerals. Harch Energy powers the operations. Harch Technology provides the software. Harch Ciment produces the building materials. This integration eliminates dependency on external suppliers, reduces costs, and ensures quality control at every stage.',
+    items: ['Raw material extraction to finished product', 'Energy self-sufficiency across operations', 'Technology developed in-house for African needs', 'Cost reduction through elimination of intermediaries'],
   },
   {
-    icon: Link2,
-    title: 'Integration',
-    description: 'Our seven verticals are not isolated businesses — they form a self-reinforcing industrial ecosystem. Renewable energy powers data centers and desalination plants. Mining feeds technology manufacturing. Agriculture benefits from IoT and water infrastructure.',
-    points: [
-      'Cross-divisional energy sharing and optimization',
-      'Technology platforms serving all verticals',
-      'Shared logistics and distribution networks',
-      'Integrated supply chains from raw materials to end products',
-    ],
+    number: '02',
+    title: 'Sovereign Infrastructure',
+    description: 'Every Harch Corp project is designed to be owned, operated, and controlled by Africans. We don\'t build infrastructure for foreign extraction — we build it for continental self-reliance. Data stays on African soil. Energy serves African grids first. Minerals are processed locally. This is sovereignty by design, not by decree.',
+    items: ['African data residency for all compute operations', 'Local processing and beneficiation of raw materials', 'Energy production prioritizing African grid supply', 'Skills transfer and indigenous workforce development'],
   },
   {
-    icon: TrendingUp,
-    title: 'Scale',
-    description: 'We do not pursue small opportunities. Every Harch Corp investment targets market-leading positions with transformative scale — 500MW data centers, 2GW+ energy portfolios, 50,000+ hectare agricultural operations.',
-    points: [
-      'Market-leading positions in every vertical',
-      'Pan-African expansion across 5+ countries by 2026',
-      '$2.4B+ investment pipeline with clear path to deployment',
-      '3,200+ direct jobs and 10,000+ indirect employment target',
-    ],
+    number: '03',
+    title: 'Continental Scale',
+    description: 'Harch Corp operates across five countries and is expanding rapidly. Our infrastructure is designed not for individual markets but for continental connectivity — data centers linked by subsea cables, energy grids spanning borders, mining operations feeding regional supply chains. Africa\'s future is pan-African, and so are we.',
+    items: ['Operations spanning 5+ countries across North and West Africa', 'Cross-border energy and data infrastructure', 'Regional supply chain integration', 'Pan-African market access for Harch products and services'],
   },
 ];
 
-const roadmap = [
-  {
-    year: '2026',
-    title: 'Foundation Year',
-    items: [
-      'Harch Intelligence Phase 1 commissioning (100MW)',
-      'Harch Energy first solar farm grid connection',
-      'Harch Ciment construction begins in Gambia',
-      'Harch Technology AI platform beta launch',
-    ],
-  },
-  {
-    year: '2027',
-    title: 'Acceleration',
-    items: [
-      'Intelligence campus expansion to 300MW',
-      'Mining operations commence at first concession',
-      'Water desalination pilot facility operational',
-      'Agri division scales to 20,000 hectares',
-    ],
-  },
-  {
-    year: '2028',
-    title: 'Integration',
-    items: [
-      'Full vertical integration between Energy and Intelligence',
-      'Technology platform deployed across all divisions',
-      'Cement facility reaches full production capacity',
-      'Second mining concession development begins',
-    ],
-  },
-  {
-    year: '2030',
-    title: 'Pan-African Leadership',
-    items: [
-      '500MW data center campus fully operational',
-      '2GW+ renewable energy portfolio online',
-      'Operations spanning 10+ countries',
-      'Target: $5B+ in aggregate asset value',
-    ],
-  },
+const roadmapItems = [
+  { year: '2023', title: 'Foundation', description: 'Harch Corp S.A. established in Casablanca. Initial investment thesis developed across 7 verticals.' },
+  { year: '2024', title: 'Pipeline Assembly', description: '$2.4B+ investment pipeline secured. Land allocation for Dakhla data center. Cement plant construction begins in The Gambia.' },
+  { year: '2025', title: 'Breaking Ground', description: 'Dakhla hyperscale data center Phase 1 construction. First renewable energy assets operational. Mining operations commence.' },
+  { year: '2026', title: 'Operational Scale', description: 'Data center Phase 1 live. Cement plant at full capacity. 1GW renewable energy operational. Technology platforms deployed.' },
+  { year: '2027', title: 'Vertical Integration', description: 'Full value chain integration across all verticals. Harch Technology platforms managing operations end-to-end.' },
+  { year: '2030', title: 'Continental Leadership', description: 'Africa\'s largest industrial conglomerate. 5GW+ renewable pipeline. Continental AI compute dominance. Full ESG targets met.' },
+];
+
+const advantages = [
+  { title: 'Speed of Execution', description: 'Vertically integrated operations eliminate procurement delays and coordination overhead. We move from concept to groundbreaking in months, not years.' },
+  { title: 'Cost Efficiency', description: 'Own-energy, own-materials, own-technology. By controlling the full stack, we achieve 30-50% cost advantages over competitors dependent on external supply chains.' },
+  { title: 'Sovereign by Design', description: 'Data residency, local processing, indigenous workforce. Every project is architected for African self-reliance from day one.' },
+  { title: 'Risk Mitigation', description: 'Diversified across 7 verticals and 5 countries. Vertical integration reduces single-point-of-failure risks that plague single-vertical operators.' },
 ];
 
 export default function StrategyPageClient() {
   return (
-    <>
-      <PageHero
-        title="Strategic Vision"
-        subtitle="Three pillars driving Africa's industrial sovereignty"
-      />
+    <div className="bg-[#0A0A0A]">
+      {/* Hero */}
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-6">Strategy</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-8">
+            Three Pillars.<br/>One Mission.
+          </h1>
+          <p className="max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+            Harch Corp&apos;s strategy is built on three inseparable pillars — vertical integration, 
+            sovereign infrastructure, and continental scale — each reinforcing the other to create 
+            an industrial ecosystem that is greater than the sum of its parts.
+          </p>
+        </div>
+      </section>
 
       {/* Three Pillars */}
-      <section className="py-20 lg:py-32 bg-[#05080F]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-harch-text uppercase">
-                Three Pillars
-              </h2>
-              <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-            </div>
-          </FadeIn>
-
-          <div className="space-y-16">
-            {pillars.map((pillar, index) => (
-              <FadeIn key={pillar.title} delay={index * 0.1}>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <pillar.icon className="w-7 h-7 text-harch-gold" />
-                      <h3 className="text-2xl font-bold text-harch-text uppercase">{pillar.title}</h3>
-                    </div>
-                    <div className="w-12 h-0.5 bg-harch-gold mb-6" />
-                    <p className="text-harch-muted leading-relaxed">{pillar.description}</p>
-                  </div>
-                  <div className="space-y-3">
-                    {pillar.points.map((point) => (
-                      <div key={point} className="flex items-start gap-3 p-4 rounded-lg border border-harch-border bg-[#0A0E18]">
-                        <div className="w-1.5 h-1.5 rounded-full bg-harch-gold mt-2 shrink-0" />
-                        <p className="text-sm text-harch-text">{point}</p>
-                      </div>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="space-y-24">
+            {pillars.map((pillar) => (
+              <div key={pillar.number} className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 md:gap-16">
+                <span className="text-6xl md:text-7xl font-light text-white/[0.06]">{pillar.number}</span>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight mb-6">
+                    {pillar.title}
+                  </h2>
+                  <p className="text-base text-white/50 leading-relaxed mb-8 max-w-2xl">
+                    {pillar.description}
+                  </p>
+                  <ul className="space-y-3">
+                    {pillar.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="w-1 h-1 rounded-full bg-white/30 mt-2 shrink-0" />
+                        <span className="text-sm text-white/45">{item}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-              </FadeIn>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* 2030 Roadmap */}
-      <section className="py-20 lg:py-32 bg-[#070B14] border-t border-harch-border">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-harch-text uppercase">
-                2030 Roadmap
-              </h2>
-              <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-            </div>
-          </FadeIn>
-
-          <div className="relative">
-            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-harch-border lg:-translate-x-px" />
-            <div className="space-y-12">
-              {roadmap.map((phase, index) => (
-                <FadeIn key={phase.year} delay={index * 0.12}>
-                  <div className="relative flex items-start gap-8">
-                    <div className="absolute left-4 lg:left-1/2 w-3 h-3 bg-harch-gold rounded-full -translate-x-1.5 mt-2 z-10" />
-                    <div className="ml-12 lg:ml-0 lg:w-1/2 lg:pr-16">
-                      <span className="text-sm font-bold text-harch-gold tracking-wider">{phase.year}</span>
-                      <h3 className="mt-1 text-xl font-semibold text-harch-text">{phase.title}</h3>
-                      <ul className="mt-3 space-y-2">
-                        {phase.items.map((item) => (
-                          <li key={item} className="flex items-start gap-2 text-sm text-harch-muted">
-                            <div className="w-1 h-1 rounded-full bg-harch-gold mt-2 shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-12">2030 Roadmap</p>
+          <div className="space-y-0">
+            {roadmapItems.map((item, i) => (
+              <div key={item.year} className="flex gap-8 md:gap-16 py-8 border-b border-white/[0.06] last:border-b-0">
+                <span className="text-sm font-mono text-white/30 w-16 shrink-0 pt-0.5">{item.year}</span>
+                <div className="flex-1">
+                  <h3 className="text-lg font-medium text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-white/45 leading-relaxed">{item.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Competitive Advantages */}
-      <section className="py-20 lg:py-28 bg-[#05080F]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase tracking-tight">
-              Competitive Advantages
-            </h2>
-            <div className="mt-4 w-12 h-0.5 bg-harch-gold" />
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { title: 'First-Mover Position', desc: 'Pioneer in sovereign AI infrastructure and integrated industrial ecosystems in Africa.' },
-                { title: 'Government Partnerships', desc: 'Strategic alliances with national governments ensuring concessional terms and regulatory support.' },
-                { title: 'Renewable Energy Advantage', desc: 'Access to world-class solar and wind resources at among the lowest generation costs globally.' },
-                { title: 'Geographic Positioning', desc: 'Morocco\'s proximity to Europe enables sub-100ms latency for data services and export market access.' },
-                { title: 'Vertical Integration', desc: 'Self-reinforcing ecosystem where each division creates value for the others.' },
-                { title: 'Talent Pipeline', desc: 'Access to Africa\'s fastest-growing engineering and technical talent pool.' },
-              ].map((adv, index) => (
-                <div key={adv.title} className="p-5 rounded-xl border border-harch-border bg-[#0A0E18] card-glow">
-                  <h3 className="font-semibold text-harch-text text-sm">{adv.title}</h3>
-                  <p className="mt-2 text-xs text-harch-muted leading-relaxed">{adv.desc}</p>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="section-label mb-12">Competitive Advantages</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            {advantages.map((adv) => (
+              <div key={adv.title}>
+                <h3 className="text-xl font-medium text-white mb-3">{adv.title}</h3>
+                <p className="text-sm text-white/45 leading-relaxed">{adv.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#070B14] border-t border-harch-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FadeIn>
-            <h2 className="text-2xl sm:text-3xl font-bold text-harch-text uppercase">
-              Partner With Us
-            </h2>
-            <div className="mt-4 w-16 h-0.5 bg-harch-gold mx-auto" />
-            <p className="mt-6 text-harch-muted max-w-2xl mx-auto">
-              Harch Corp&apos;s strategic vision is backed by a $2.4B+ investment pipeline and a team
-              committed to building Africa&apos;s industrial future. We welcome strategic partners who
-              share our conviction.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/investors"
-                className="group flex items-center gap-2 px-8 py-3.5 bg-harch-gold text-harch-dark text-sm uppercase tracking-[0.2em] font-semibold rounded-lg hover:bg-harch-gold/90 transition-all"
-              >
-                Investor Relations
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/contact"
-                className="flex items-center gap-2 px-8 py-3.5 border border-harch-gold/30 text-harch-gold text-sm uppercase tracking-[0.2em] font-medium rounded-lg hover:border-harch-gold/60 hover:bg-harch-gold/5 transition-all"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </FadeIn>
+      <section className="py-24 border-t border-white/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-6">
+            Partner With Us
+          </h2>
+          <p className="max-w-xl mx-auto text-base text-white/40 mb-10">
+            Whether you&apos;re an investor, government, or industrial partner — there&apos;s a role for you 
+            in building Africa&apos;s industrial sovereignty.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-white text-[#0A0A0A] px-8 py-3.5 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+          >
+            Get in Touch
+            <ArrowRight size={14} />
+          </Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,104 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { CookieConsent } from "@/components/CookieConsent";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: {
+    default: "Harch Corp - African Industrial Sovereignty",
+    template: "%s | Harch Corp",
+  },
+  description:
+    "Harch Corp is a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across data centers, cement, energy, technology, mining, agriculture, and water.",
+  keywords: [
+    "Harch Corp",
+    "Africa industrial sovereignty",
+    "Morocco conglomerate",
+    "AI data center Dakhla",
+    "renewable energy Africa",
+    "cement manufacturing Gambia",
+    "strategic mining Morocco",
+    "precision agriculture Sahel",
+    "water desalination Africa",
+    "sovereign technology",
+  ],
+  authors: [{ name: "Harch Corp S.A." }],
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Harch Corp - African Industrial Sovereignty",
+    description:
+      "Building Africa's industrial sovereignty across 7 verticals with $2.4B+ investment pipeline. From 500MW AI data centers to 2GW+ renewable energy.",
+    url: "https://harchcorp.com",
+    siteName: "Harch Corp",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Harch Corp - African Industrial Sovereignty",
+    description:
+      "Building Africa's industrial sovereignty across 7 verticals with $2.4B+ investment pipeline.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const schemaOrg = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Harch Corp S.A.",
+    url: "https://harchcorp.com",
+    logo: "https://harchcorp.com/logo.svg",
+    description:
+      "Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty.",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "123 Boulevard Mohammed V",
+      addressLocality: "Casablanca",
+      addressCountry: "MA",
+    },
+    founder: {
+      "@type": "Person",
+      name: "Amine Harch El Korane",
+    },
+    foundingDate: "2023",
+    sameAs: [
+      "https://linkedin.com/company/harchcorp",
+      "https://twitter.com/harchcorp",
+    ],
+  };
+
+  return (
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
+        />
+      </head>
+      <body className={`${inter.variable} font-sans antialiased bg-[#05080F] text-harch-text min-h-screen flex flex-col`}>
+        <Navigation />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <CookieConsent />
+      </body>
+    </html>
+  );
+}

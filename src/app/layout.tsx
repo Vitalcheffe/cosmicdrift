@@ -40,7 +40,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Harch Corp S.A." }],
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
   },
   openGraph: {
     title: "Harch Corp — Infrastructure for the Next Century",

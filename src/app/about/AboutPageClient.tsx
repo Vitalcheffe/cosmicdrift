@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Building2, Target, Shield, Zap, Users, Globe, Award } from 'lucide-react';
+import { ArrowRight, Building2, Target, Shield, Zap, Users, Globe, Award, User } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { WorldMap } from '@/components/WorldMap';
 
@@ -25,10 +25,7 @@ const values = [
 ];
 
 const leadership = [
-  { name: 'Amine Harch El Korane', title: 'Founder & CEO', image: '/images/team/ceo.jpg', desc: 'Serial entrepreneur with 15+ years in African industrial development. Founded Harch Corp to build the infrastructure the continent deserves.' },
-  { name: 'Sara Benali', title: 'Chief Financial Officer', image: '/images/team/cfo.jpg', desc: 'Former VP at BMCE Bank with expertise in structured finance across African markets. Leads capital strategy for $2.4B+ pipeline.' },
-  { name: 'Karim Oujdi', title: 'Chief Technology Officer', image: '/images/team/cto.jpg', desc: 'Ex-Google DeepMind engineer. Architects Harch\'s sovereign AI infrastructure and technology stack across all verticals.' },
-  { name: 'Fatima Zahra El Mansouri', title: 'Chief Advisor', image: '/images/team/advisor.jpg', desc: 'Former Minister of Energy with deep regulatory expertise across North and West Africa. Guides government partnerships.' },
+  { name: 'Amine Harch El Korane', title: 'Founder & CEO', desc: 'Serial entrepreneur with 15+ years in African industrial development. Founded Harch Corp to build the infrastructure the continent deserves — from 500MW AI data centers to 2GW renewable energy pipelines across 7 verticals and 5 countries. Leading a $2.4B+ investment pipeline to convert Africa\'s potential into industrial power.' },
 ];
 
 const history = [
@@ -78,7 +75,7 @@ export default function AboutPageClient() {
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#1E1E1E]">
-                <Image src="/images/hero-bg.jpg" alt="Harch Corp Operations" fill className="object-cover" />
+                <Image src="/images/hero-bg.jpg" alt="Harch Corp Operations" fill className="object-cover industrial-image" />
               </div>
             </FadeIn>
           </div>
@@ -119,17 +116,20 @@ export default function AboutPageClient() {
               The Team
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="max-w-xl mx-auto">
             {leadership.map((person, i) => (
               <FadeIn key={person.name} delay={i * 0.08}>
                 <div className="card overflow-hidden h-full">
-                  <div className="relative w-full aspect-[3/4] bg-[#1E1E1E]">
-                    <Image src={person.image} alt={person.name} fill className="object-cover" />
+                  <div className="relative w-full aspect-[3/4] bg-[#1E1E1E] flex items-center justify-center">
+                    <div className="w-32 h-32 rounded-full bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
+                      <User size={56} className="text-[rgba(255,255,255,0.2)]" strokeWidth={1} />
+                    </div>
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-[15px] font-bold text-white">{person.name}</h3>
-                    <p className="text-[11px] font-semibold text-white uppercase tracking-[0.08em] mb-2">{person.title}</p>
-                    <p className="text-[12px] text-[#999999] leading-relaxed">{person.desc}</p>
+                  <div className="p-8">
+                    <h3 className="text-xl font-bold text-white mb-1">{person.name}</h3>
+                    <p className="text-[12px] font-semibold text-white uppercase tracking-[0.1em] mb-4">{person.title}</p>
+                    <div className="accent-line mb-4" />
+                    <p className="text-[14px] text-[#999999] leading-[1.7]">{person.desc}</p>
                   </div>
                 </div>
               </FadeIn>

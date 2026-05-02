@@ -227,8 +227,6 @@ export function AfricaMap() {
             {locations.map((loc) => {
               const isHovered = hovered === loc.id;
               const color = getStatusColor(loc.status);
-              const pulsePhase = ((time * 0.02) + locations.indexOf(loc) * 40) % 100;
-              const pulseScale = 1 + Math.sin(pulsePhase * Math.PI / 50) * 0.3;
 
               return (
                 <g
@@ -237,29 +235,58 @@ export function AfricaMap() {
                   onMouseLeave={() => setHovered(null)}
                   className="cursor-pointer"
                 >
-                  {/* Outer pulse ring - animated */}
+                  {/* Outer pulse ring - SVG breathe animation */}
                   <circle
                     cx={loc.cx}
                     cy={loc.cy}
-                    r={isHovered ? 18 : 12 * pulseScale}
+                    r={isHovered ? 18 : 12}
                     fill="none"
                     stroke={color}
                     strokeWidth="0.3"
-                    opacity={isHovered ? 0.3 : 0.1 * pulseScale}
                     className="transition-all duration-300"
-                  />
+                  >
+                    <animate
+                      attributeName="r"
+                      values="8;14;8"
+                      dur="3s"
+                      repeatCount="indefinite"
+                      begin={`${locations.indexOf(loc) * 0.4}s`}
+                    />
+                    <animate
+                      attributeName="opacity"
+                      values="0.3;0;0.3"
+                      dur="3s"
+                      repeatCount="indefinite"
+                      begin={`${locations.indexOf(loc) * 0.4}s`}
+                    />
+                  </circle>
 
-                  {/* Second pulse ring */}
+                  {/* Second pulse ring - SVG breathe animation */}
                   <circle
                     cx={loc.cx}
                     cy={loc.cy}
-                    r={isHovered ? 12 : 8 * pulseScale}
+                    r={isHovered ? 12 : 8}
                     fill="none"
                     stroke={color}
                     strokeWidth="0.5"
                     opacity={isHovered ? 0.2 : 0.08}
                     className="transition-all duration-300"
-                  />
+                  >
+                    <animate
+                      attributeName="r"
+                      values="5;10;5"
+                      dur="3s"
+                      repeatCount="indefinite"
+                      begin={`${locations.indexOf(loc) * 0.4}s`}
+                    />
+                    <animate
+                      attributeName="opacity"
+                      values="0.2;0.02;0.2"
+                      dur="3s"
+                      repeatCount="indefinite"
+                      begin={`${locations.indexOf(loc) * 0.4}s`}
+                    />
+                  </circle>
 
                   {/* Main dot */}
                   <circle

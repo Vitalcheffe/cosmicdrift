@@ -160,7 +160,7 @@ export default function HomePage() {
               src={slide.image}
               alt={slide.title}
               fill
-              className="object-cover"
+              className="object-cover industrial-image"
               priority={i === 0}
             />
           </div>
@@ -294,7 +294,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S3: INTERACTIVE WORLD MAP — Africa with blinking dots
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212] relative overflow-hidden">
+      <section id="global-presence" className="py-28 md:py-36 bg-[#121212] relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <FadeIn>
             <div className="text-center mb-16">
@@ -410,7 +410,7 @@ export default function HomePage() {
           src="/images/hero-energy.jpg"
           alt="Harch Energy Renewable Infrastructure"
           fill
-          className="object-cover"
+          className="object-cover industrial-image"
         />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-32">
           <FadeIn>
@@ -540,7 +540,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#1E1E1E] image-reveal">
-                <Image src="/images/verticals/intelligence.jpg" alt="Harch Intelligence AI Data Center" fill className="object-cover" />
+                <Image src="/images/verticals/intelligence.jpg" alt="Harch Intelligence AI Data Center" fill className="object-cover industrial-image" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#000000]/70 backdrop-blur-md px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)]">
                   <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/80">500MW AI Hyperscale</p>
@@ -587,7 +587,7 @@ export default function HomePage() {
           src="/images/hero-mining.jpg"
           alt="Harch Mining Operations"
           fill
-          className="object-cover"
+          className="object-cover industrial-image"
         />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-32">
           <FadeIn>
@@ -646,7 +646,7 @@ export default function HomePage() {
             </FadeIn>
             <FadeIn className="order-1 lg:order-2">
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#1E1E1E] image-reveal">
-                <Image src="/images/verticals/energy.jpg" alt="Harch Energy Renewable Infrastructure" fill className="object-cover" />
+                <Image src="/images/verticals/energy.jpg" alt="Harch Energy Renewable Infrastructure" fill className="object-cover industrial-image" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#000000]/70 backdrop-blur-md px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)]">
                   <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/80">2GW+ Renewable Pipeline</p>

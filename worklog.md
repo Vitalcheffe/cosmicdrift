@@ -230,3 +230,57 @@ Stage Summary:
 - Stats cards have "LIVE" pulse indicators
 - DataStream adds subtle matrix rain on map section
 - All animations are "très léger" — very subtle but cutting-edge
+
+---
+Task ID: 2-7
+Agent: full-stack-developer
+Task: Implement 6 functional upgrades for Harch Corp website
+
+Work Log:
+- TASK 1 (Newsroom): Created /src/data/articles.ts with 10 full SEO articles (300-500+ words each), featuring slugs, titles, dates, tags, excerpts, HTML body text, and seoKeywords. Created /src/app/newsroom/[slug]/page.tsx (server component with generateMetadata and generateStaticParams) and ArticlePageClient.tsx (client component with full article display, related topics, more articles section). Updated NewsroomPageClient.tsx to import from shared data file and link cards to /newsroom/{slug}. Featured article links to /newsroom/dakhla-500mw-data-center.
+- TASK 2 (Team Cleanup): Removed 3 fake team members (Sara Benali, Karim Oujdi, Fatima Zahra El Mansouri) from AboutPageClient.tsx leadership array. Kept only Amine Harch El Korane. Replaced Image with User icon from lucide-react in a circular silhouette. Changed grid from lg:grid-cols-4 to max-w-xl mx-auto single column. Made card larger with p-8, accent-line, and expanded description.
+- TASK 3 (Favicon): Created /public/favicon.svg with geometric H in black square. Updated layout.tsx icons from favicon.ico to favicon.svg array format with type image/svg+xml. Verified HarchLogo alignment (already good).
+- TASK 4 (Animations): 4a - Sidebar hover glow: Added border-l-2 border-transparent hover:border-white hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] to all nav links (both navLink function and platformItems). 4b - Enhanced map dots: Replaced JS-based pulse with SVG <animate> elements on outer and second pulse rings (breathe animation: scale from 8→14→8, opacity 0.3→0→0.3 over 3s with staggered begin delays). 4c - Counter animation already implemented. 4d - Enhanced cursor trail: Added bright dot (8px, rgba(255,255,255,0.15)) at cursor position, plus 3 trailing dots with progressively slower lerp (0.06, 0.04, 0.03), decreasing size (1.5→1→0.5) and opacity (0.08→0.05→0.03).
+- TASK 5 (Image Filters): Added .industrial-image CSS class to globals.css with filter: brightness(0.7) contrast(1.1) saturate(0.6) and hover variant brightness(0.85). Added class to all Image components: page.tsx (5 hero/photo/impact images), AboutPageClient.tsx (mission section), SubsidiaryPageClient.tsx (2 hero images), ESGPageClient.tsx (1 image), InvestorsPageClient.tsx (1 image). Also added .prose-article p styling for article body text.
+- TASK 6 (Verification): Verified all NewsroomPageClient links point to /newsroom/{slug}. Featured article links to /newsroom/dakhla-500mw-data-center. Added id="global-presence" to map section in page.tsx. Verified subsidiary links use [slug] dynamic routing (already working). Build passes with all 10 article pages generated via generateStaticParams.
+
+Stage Summary:
+- 10 full SEO articles with individual pages at /newsroom/{slug}
+- Team page shows only CEO with prominent card and silhouette
+- Geometric H favicon in SVG format
+- Sidebar links have left-border glow on hover
+- Map dots use SVG breathe animation instead of JS-based pulse
+- Cursor has bright dot + 3 trailing dots
+- All images have industrial dark/blue tint filter
+- All links verified working, build succeeds
+
+---
+Task ID: 2-7
+Agent: Main Agent + full-stack-developer subagent
+Task: Implement 6 functional upgrades for Harch Corp website (Newsroom SEO articles, Team cleanup, Favicon, Animations, Image filters, Link verification)
+
+Work Log:
+- Created /src/data/articles.ts with 10 full SEO articles (300-500+ words each) in Bloomberg Technology style with natural SEO keywords
+- Created /src/app/newsroom/[slug]/page.tsx (server component with generateMetadata, generateStaticParams)
+- Created /src/app/newsroom/[slug]/ArticlePageClient.tsx (full article display with related topics, more articles section)
+- Updated NewsroomPageClient.tsx to import from shared data and link to /newsroom/{slug}
+- Updated AboutPageClient.tsx: removed 3 fake team members, kept only Amine Harch El Korane with User icon silhouette
+- Created /public/favicon.svg with geometric H in black square
+- Updated layout.tsx to reference SVG favicon instead of .ico
+- Enhanced Sidebar.tsx with left border glow on hover (border-l-2 + box-shadow)
+- Enhanced AfricaMap.tsx with SVG animate-based breathing pulse on location dots
+- Enhanced CursorGlow.tsx with bright dot at cursor + 3 trailing dots with progressive lerp delay
+- Added .industrial-image CSS class (brightness 0.7, contrast 1.1, saturate 0.6) with hover variant
+- Applied industrial-image class to all Image components across page.tsx, AboutPageClient.tsx, SubsidiaryPageClient.tsx, ESGPageClient.tsx, InvestorsPageClient.tsx
+- Added .prose-article CSS class for article body styling
+- Added id="global-presence" to homepage map section for sidebar link
+- Verified all newsroom links point to /newsroom/{slug}
+- Verified build passes with all 10 article pages generated as SSG
+
+Stage Summary:
+- 10 full SEO articles with individual pages at /newsroom/{slug}
+- Team section now shows only Amine Harch El Korane with silhouette placeholder
+- Favicon is a geometric H in SVG format
+- Sidebar has glow effect on hover, map dots breathe with animation, cursor has trail effect
+- All images have industrial filter applied (darker, desaturated)
+- All links verified working, build passes clean

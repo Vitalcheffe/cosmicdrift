@@ -55,9 +55,9 @@ export function Sidebar() {
       key={href}
       href={href}
       onClick={closeMobile}
-      className={`flex items-center justify-between text-[12px] font-medium pl-3 py-[7px] rounded-md transition-colors ${
+      className={`flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent hover:border-white hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] rounded-r-md transition-all duration-300 ${
         isActive(href)
-          ? 'text-white bg-[rgba(255,255,255,0.04)]'
+          ? 'text-white bg-[rgba(255,255,255,0.04)] border-white'
           : 'text-[#999999] hover:text-white hover:bg-[rgba(255,255,255,0.02)]'
       }`}
     >
@@ -119,9 +119,9 @@ export function Sidebar() {
                       key={item.href}
                       href={item.href}
                       onClick={closeMobile}
-                      className={`flex items-center justify-between text-[12px] font-medium pl-3 py-[7px] rounded-md transition-colors ${
+                      className={`flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent hover:border-white hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] rounded-r-md transition-all duration-300 ${
                         isActive(item.href)
-                          ? 'text-white bg-[rgba(255,255,255,0.04)]'
+                          ? 'text-white bg-[rgba(255,255,255,0.04)] border-white'
                           : 'text-[#999999] hover:text-white hover:bg-[rgba(255,255,255,0.02)]'
                       }`}
                     >

@@ -238,83 +238,167 @@ export default function HomePageClient() {
       </motion.section>
 
       {/* ═══════════════════════════════════════════
-          S2: VERTICALS — Palantir Feature Carousel
+          S2: VERTICALS — Palantir Visual Grid + Carousel
           ═══════════════════════════════════════════ */}
       <section className="bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-20 md:pt-28">
           <FadeIn>
-            <div className="mb-10">
+            <div className="mb-12">
               <p className="section-label mb-4">Our Verticals</p>
               <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-tight">
                 Infrastructure for<br />the Next Century
               </h2>
             </div>
           </FadeIn>
-          {/* Tab selector */}
-          <div className="flex gap-1 overflow-x-auto pb-4 scrollbar-hide">
-            {verticals.map((v, i) => (
-              <button
-                key={v.version}
-                onClick={() => setActiveVertical(i)}
-                className={`shrink-0 px-4 py-2 text-[11px] font-bold tracking-[0.1em] uppercase rounded-md transition-all duration-300 ${
-                  i === activeVertical
-                    ? 'bg-white text-black'
-                    : 'text-[#666666] hover:text-white hover:bg-[rgba(255,255,255,0.06)]'
-                }`}
-              >
-                {v.name}
-              </button>
-            ))}
+
+          {/* ── Visual Card Grid — All 7 verticals visible at once ── */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-16">
+            {verticals.map((v, i) => {
+              const accentColors = ['#00C8FF', '#F59E0B', '#10B981', '#8B5CF6', '#EF4444', '#22C55E', '#3B82F6'];
+              const sectionImages = [
+                '/images/section-intelligence-1.jpg',
+                '/images/section-cement-1.jpg',
+                '/images/section-energy-1.jpg',
+                '/images/section-technology-1.jpg',
+                '/images/section-mining-1.jpg',
+                '/images/section-agriculture-1.jpg',
+                '/images/section-water-1.jpg',
+              ];
+              const color = accentColors[i];
+              return (
+                <Link key={v.version} href={v.href} className="group block">
+                  <FadeIn delay={i * 0.06}>
+                    <div className="relative overflow-hidden rounded-xl border border-[rgba(255,255,255,0.06)] bg-[#121212] transition-all duration-500 hover:border-[rgba(255,255,255,0.12)] hover:shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+                      {/* Image — 40% of card height */}
+                      <div className="relative h-[180px] md:h-[200px] overflow-hidden">
+                        <Image
+                          src={sectionImages[i]}
+                          alt={v.fullName}
+                          fill
+                          className="object-cover industrial-image group-hover:scale-105 transition-transform duration-700"
+                        />
+                        {/* Color gradient overlay — sector-specific */}
+                        <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, transparent 30%, ${color}15 70%, ${color}30 100%)` }} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent" />
+                        {/* Version + Stat badge */}
+                        <div className="absolute top-3 left-3 flex items-center gap-2">
+                          <span className="px-2 py-1 rounded text-[9px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] backdrop-blur-md" style={{ backgroundColor: `${color}20`, color: color, border: `1px solid ${color}30` }}>
+                            {v.version}
+                          </span>
+                        </div>
+                        <div className="absolute top-3 right-3">
+                          <span className="px-2.5 py-1 rounded text-[10px] font-bold tracking-[0.1em] stat-mono backdrop-blur-md bg-black/40 text-white/80 border border-[rgba(255,255,255,0.1)]">
+                            {v.stat}
+                          </span>
+                        </div>
+                      </div>
+                      {/* Text content */}
+                      <div className="p-5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color, boxShadow: `0 0 6px ${color}60` }} />
+                          <h3 className="text-lg font-bold text-white tracking-[-0.01em] group-hover:tracking-[0.01em] transition-all">
+                            {v.name}
+                          </h3>
+                        </div>
+                        <p className="text-[13px] text-[#999999] leading-[1.6] mb-4 line-clamp-2">
+                          {v.desc}
+                        </p>
+                        {/* Outcomes — color-coded dots */}
+                        <div className="space-y-1.5">
+                          {v.outcomes.map((outcome) => (
+                            <div key={outcome} className="flex items-center gap-2">
+                              <span className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: `${color}80` }} />
+                              <span className="text-[11px] text-[#666666]">{outcome}</span>
+                            </div>
+                          ))}
+                        </div>
+                        {/* CTA */}
+                        <div className="mt-4 pt-3 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
+                          <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]" style={{ color: `${color}90` }}>
+                            Explore
+                          </span>
+                          <ArrowRight size={12} className="text-[#666666] group-hover:translate-x-1 group-hover:text-white transition-all" />
+                        </div>
+                      </div>
+                    </div>
+                  </FadeIn>
+                </Link>
+              );
+            })}
           </div>
         </div>
-        {/* Full-bleed feature image */}
-        <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
-          {verticals.map((v, i) => (
-            <div
-              key={v.version}
-              className={`absolute inset-0 transition-opacity duration-800 ${
-                i === activeVertical ? 'opacity-100 z-10' : 'opacity-0 z-0'
-              }`}
-              style={{ transition: 'opacity 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
-            >
-              <Image src={v.image} alt={v.fullName} fill className="object-cover industrial-image" />
-            </div>
-          ))}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-20" />
-          {/* Text overlay — bottom left */}
-          <div className="relative z-30 max-w-[1400px] mx-auto px-6 md:px-12 h-full flex items-end pb-12 md:pb-16">
-            <motion.div
-              key={activeVertical}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 font-[family-name:var(--font-space-mono)]">{verticals[activeVertical].version}</span>
-                <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/80 stat-mono">{verticals[activeVertical].stat}</span>
+
+        {/* ── Full-bleed carousel — selected vertical deep-dive ── */}
+        <div className="border-t border-[rgba(255,255,255,0.04)]">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-12 pb-4">
+            <div className="flex items-center justify-between mb-4">
+              <p className="section-label">Deep Dive</p>
+              <div className="flex gap-1 overflow-x-auto scrollbar-hide">
+                {verticals.map((v, i) => (
+                  <button
+                    key={v.version}
+                    onClick={() => setActiveVertical(i)}
+                    className={`shrink-0 px-3 py-1.5 text-[10px] font-bold tracking-[0.1em] uppercase rounded transition-all duration-300 ${
+                      i === activeVertical
+                        ? 'bg-white text-black'
+                        : 'text-[#666666] hover:text-white hover:bg-[rgba(255,255,255,0.06)]'
+                    }`}
+                  >
+                    {v.name}
+                  </button>
+                ))}
               </div>
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-[-0.02em] mb-3">
-                {verticals[activeVertical].name}
-              </h3>
-              <p className="max-w-lg text-[14px] text-white/60 leading-relaxed mb-6">
-                {verticals[activeVertical].desc}
-              </p>
-              <Link href={verticals[activeVertical].href} className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/80 transition-colors group">
-                Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
+            </div>
           </div>
-          {/* Navigation arrows */}
-          <div className="absolute right-6 md:right-12 bottom-12 md:bottom-16 z-30 flex items-center gap-3">
-            <button onClick={() => setActiveVertical((prev) => (prev - 1 + verticals.length) % verticals.length)} className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors" aria-label="Previous">
-              <ChevronLeft size={16} />
-            </button>
-            <span className="text-[11px] text-white/40 font-medium tabular-nums font-[family-name:var(--font-space-mono)]">
-              {String(activeVertical + 1).padStart(2, '0')} / {String(verticals.length).padStart(2, '0')}
-            </span>
-            <button onClick={() => setActiveVertical((prev) => (prev + 1) % verticals.length)} className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors" aria-label="Next">
-              <ChevronRight size={16} />
-            </button>
+          {/* Full-bleed feature image */}
+          <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+            {verticals.map((v, i) => (
+              <div
+                key={v.version}
+                className={`absolute inset-0 transition-opacity duration-800 ${
+                  i === activeVertical ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                }`}
+                style={{ transition: 'opacity 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+              >
+                <Image src={v.image} alt={v.fullName} fill className="object-cover industrial-image" />
+              </div>
+            ))}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-20" />
+            {/* Text overlay — bottom left */}
+            <div className="relative z-30 max-w-[1400px] mx-auto px-6 md:px-12 h-full flex items-end pb-12 md:pb-16">
+              <motion.div
+                key={activeVertical}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 font-[family-name:var(--font-space-mono)]">{verticals[activeVertical].version}</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/80 stat-mono">{verticals[activeVertical].stat}</span>
+                </div>
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-[-0.02em] mb-3">
+                  {verticals[activeVertical].name}
+                </h3>
+                <p className="max-w-lg text-[14px] text-white/60 leading-relaxed mb-6">
+                  {verticals[activeVertical].desc}
+                </p>
+                <Link href={verticals[activeVertical].href} className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/80 transition-colors group">
+                  Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+            </div>
+            {/* Navigation arrows */}
+            <div className="absolute right-6 md:right-12 bottom-12 md:bottom-16 z-30 flex items-center gap-3">
+              <button onClick={() => setActiveVertical((prev) => (prev - 1 + verticals.length) % verticals.length)} className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors" aria-label="Previous">
+                <ChevronLeft size={16} />
+              </button>
+              <span className="text-[11px] text-white/40 font-medium tabular-nums font-[family-name:var(--font-space-mono)]">
+                {String(activeVertical + 1).padStart(2, '0')} / {String(verticals.length).padStart(2, '0')}
+              </span>
+              <button onClick={() => setActiveVertical((prev) => (prev + 1) % verticals.length)} className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors" aria-label="Next">
+                <ChevronRight size={16} />
+              </button>
+            </div>
           </div>
         </div>
       </section>

@@ -18,6 +18,7 @@ const platformItems = [
 
 const missionItems = [
   { name: 'Home', href: '/' },
+  { name: 'The Thesis', href: '/thesis' },
   { name: 'About', href: '/about' },
   { name: 'Strategy', href: '/strategy' },
   { name: 'ESG', href: '/esg' },

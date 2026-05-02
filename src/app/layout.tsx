@@ -85,28 +85,79 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // ═══ JSON-LD: Organization Schema ═══
   const schemaOrg = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Harch Corp S.A.",
-    url: "https://harchcorp.com",
-    logo: "https://harchcorp.com/logo.svg",
-    description:
-      "Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty.",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "123 Boulevard Mohammed V",
-      addressLocality: "Casablanca",
-      addressCountry: "MA",
-    },
-    founder: {
-      "@type": "Person",
-      name: "Amine Harch El Korane",
-    },
-    foundingDate: "2023",
-    sameAs: [
-      "https://linkedin.com/company/harchcorp",
-      "https://twitter.com/harchcorp",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://harchcorp.com/#organization",
+        name: "Harch Corp S.A.",
+        legalName: "Harch Corp S.A.",
+        url: "https://harchcorp.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://harchcorp.com/favicon.svg",
+        },
+        description:
+          "Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across 7 verticals: AI data centers, renewable energy, cement, technology, mining, agriculture, and water.",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "123 Boulevard Mohammed V",
+          addressLocality: "Casablanca",
+          addressRegion: "Casablanca-Settat",
+          postalCode: "20000",
+          addressCountry: "MA",
+        },
+        foundingDate: "2024",
+        founder: { "@id": "https://harchcorp.com/#founder" },
+        numberOfEmployees: {
+          "@type": "QuantitativeValue",
+          minValue: 50,
+          maxValue: 200,
+        },
+        sameAs: [
+          "https://linkedin.com/company/harchcorp",
+          "https://twitter.com/harchcorp",
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Industrial Verticals",
+          itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Data Centers — 500MW Hyperscale" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Renewable Energy — 2GW+ Pipeline" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cement Manufacturing — 500kT/yr" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sovereign Technology — 50K+ GPUs" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Strategic Mining — Phosphates, Cobalt, Rare Earths" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Precision Agriculture — IoT & Vertical Farms" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Water Infrastructure — 200M m³/yr Desalination" } },
+          ],
+        },
+      },
+      {
+        "@type": "Person",
+        "@id": "https://harchcorp.com/#founder",
+        name: "Amine Harch El Korane",
+        jobTitle: "Founder & CEO",
+        worksFor: { "@id": "https://harchcorp.com/#organization" },
+        description: "Founder and CEO of Harch Corp S.A., a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty.",
+        url: "https://harchcorp.com",
+        sameAs: [
+          "https://linkedin.com/in/amineharchelkorane",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://harchcorp.com/#website",
+        url: "https://harchcorp.com",
+        name: "Harch Corp",
+        publisher: { "@id": "https://harchcorp.com/#organization" },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://harchcorp.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      },
     ],
   };
 

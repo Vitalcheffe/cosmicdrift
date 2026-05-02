@@ -13,7 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Harch Corp - Infrastructure for the Next Century",
+    default: "Harch Corp — Infrastructure for the Next Century",
     template: "%s | Harch Corp",
   },
   description:
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Harch Corp - Infrastructure for the Next Century",
+    title: "Harch Corp — Infrastructure for the Next Century",
     description:
-      "Building Africa's industrial sovereignty across 7 verticals with $2.4B+ investment pipeline. From 500MW AI data centers to 2GW+ renewable energy.",
+      "Building Africa's industrial sovereignty across 7 verticals with $2.4B+ investment pipeline.",
     url: "https://harchcorp.com",
     siteName: "Harch Corp",
     type: "website",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harch Corp - Infrastructure for the Next Century",
+    title: "Harch Corp — Infrastructure for the Next Century",
     description:
       "Building Africa's industrial sovereignty across 7 verticals with $2.4B+ investment pipeline.",
   },
@@ -93,7 +93,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased bg-white text-[#101820] min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} font-sans antialiased bg-[#FAFAFA] text-[#0A0F1A] min-h-screen flex flex-col`}>
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

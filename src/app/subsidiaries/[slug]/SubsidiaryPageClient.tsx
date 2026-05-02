@@ -1,9 +1,21 @@
 'use client';
 
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
+
+function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
+  return (
+    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
+      {children}
+    </motion.div>
+  );
+}
 
 interface SubsidiaryData {
   name: string;
@@ -167,11 +179,11 @@ export default function SubsidiaryPageClient() {
 
   if (!data) {
     return (
-      <div className="bg-white min-h-screen flex items-center justify-center">
+      <div className="bg-[#FAFAFA] min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-semibold text-[#101820] mb-4">Not Found</h1>
+          <h1 className="text-4xl font-bold text-[#0A0F1A] mb-4">Not Found</h1>
           <p className="text-[#6B7280] mb-8">This subsidiary does not exist.</p>
-          <Link href="/" className="text-sm text-[#6B7280] hover:text-[#101820] transition-colors">
+          <Link href="/" className="text-sm text-[#6B7280] hover:text-[#0A0F1A] transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -184,108 +196,124 @@ export default function SubsidiaryPageClient() {
   const nextData = subsidiaries[nextSlug];
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#FAFAFA]">
       {/* Hero */}
       <section className="relative pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <p className="section-label mb-6">{data.label}</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#101820] tracking-tight mb-6">
-            {data.name}
-          </h1>
-          <p className="text-xl md:text-2xl font-light text-[#6B7280] mb-10">
-            {data.tagline}
-          </p>
+          <FadeIn>
+            <p className="section-label mb-6">{data.label}</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-6">
+              {data.name}
+            </h1>
+            <p className="text-xl md:text-2xl font-light text-[#6B7280] mb-10">
+              {data.tagline}
+            </p>
+          </FadeIn>
         </div>
         {/* Hero Image */}
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm">
-            <Image
-              src={data.image}
-              alt={data.name}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
+        <FadeIn delay={0.15}>
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl shadow-xl shadow-black/[0.03]">
+              <Image
+                src={data.image}
+                alt={data.name}
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA]/60 via-transparent to-transparent" />
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* Overview */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="max-w-3xl">
-            <p className="section-label mb-6">Overview</p>
-            <p className="text-base md:text-lg text-[#6B7280] leading-relaxed">
-              {data.overview}
-            </p>
-          </div>
+          <FadeIn>
+            <div className="max-w-3xl">
+              <p className="section-label mb-6">Overview</p>
+              <p className="text-base md:text-lg text-[#6B7280] leading-relaxed">
+                {data.overview}
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Key Metrics */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <p className="section-label mb-12">Key Metrics</p>
+          <FadeIn>
+            <p className="section-label mb-12">Key Metrics</p>
+          </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {data.metrics.map((metric) => (
-              <div key={metric.label}>
-                <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#101820] tracking-tight">
-                  {metric.value}
-                </p>
-                <p className="mt-2 text-xs tracking-[0.1em] uppercase text-[#9CA3AF]">
-                  {metric.label}
-                </p>
-              </div>
+            {data.metrics.map((metric, i) => (
+              <FadeIn key={metric.label} delay={i * 0.1}>
+                <div>
+                  <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0F1A] tracking-[-0.01em]">
+                    {metric.value}
+                  </p>
+                  <p className="mt-2 text-xs tracking-[0.1em] uppercase text-[#9CA3AF]">
+                    {metric.label}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* Strategic Advantages */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <p className="section-label mb-12">Strategic Advantages</p>
+          <FadeIn>
+            <p className="section-label mb-12">Strategic Advantages</p>
+          </FadeIn>
           <div className="max-w-3xl space-y-6">
             {data.advantages.map((advantage, i) => (
-              <div key={i} className="flex gap-4">
-                <span className="text-sm text-[#9CA3AF] font-mono mt-0.5 shrink-0">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <p className="text-sm md:text-base text-[#6B7280] leading-relaxed">
-                  {advantage}
-                </p>
-              </div>
+              <FadeIn key={i} delay={i * 0.08}>
+                <div className="flex gap-4">
+                  <span className="text-sm text-[#9CA3AF] font-mono mt-0.5 shrink-0">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <p className="text-sm md:text-base text-[#6B7280] leading-relaxed">
+                    {advantage}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#101820] tracking-tight mb-3">
-                Invest in {data.name}
-              </h2>
-              <p className="text-sm text-[#9CA3AF]">
-                Learn about investment opportunities in this vertical.
-              </p>
+          <FadeIn>
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-3">
+                  Invest in {data.name}
+                </h2>
+                <p className="text-sm text-[#9CA3AF]">
+                  Learn about investment opportunities in this vertical.
+                </p>
+              </div>
+              <Link
+                href="/investors"
+                className="inline-flex items-center gap-2 bg-[#0A0F1A] text-white px-8 py-4 rounded-xl text-sm font-medium hover:bg-[#1a1f2e] transition-colors shrink-0"
+              >
+                Investor Relations
+                <ArrowRight size={14} />
+              </Link>
             </div>
-            <Link
-              href="/investors"
-              className="inline-flex items-center gap-2 bg-[#101820] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:bg-[#1f2937] transition-colors shrink-0"
-            >
-              Investor Relations
-              <ArrowRight size={14} />
-            </Link>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Next Subsidiary */}
-      <section className="py-16 border-t border-[rgba(0,0,0,0.06)]">
+      <section className="py-16 border-t border-[rgba(0,0,0,0.04)] bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <Link
             href={`/subsidiaries/${nextSlug}`}
@@ -293,11 +321,11 @@ export default function SubsidiaryPageClient() {
           >
             <div>
               <p className="section-label mb-2">Next Vertical</p>
-              <p className="text-2xl md:text-3xl font-light text-[#6B7280] group-hover:text-[#101820] transition-colors">
+              <p className="text-2xl md:text-3xl font-light text-[#6B7280] group-hover:text-[#0A0F1A] transition-colors">
                 {nextData.name}
               </p>
             </div>
-            <ArrowLeft size={20} className="text-[#9CA3AF] group-hover:text-[#101820] group-hover:-translate-x-1 transition-all rotate-180" />
+            <ArrowLeft size={20} className="text-[#9CA3AF] group-hover:text-[#0A0F1A] group-hover:-translate-x-1 transition-all rotate-180" />
           </Link>
         </div>
       </section>

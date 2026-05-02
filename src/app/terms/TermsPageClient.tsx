@@ -1,5 +1,18 @@
 'use client';
 
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+
+function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
+  return (
+    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
+      {children}
+    </motion.div>
+  );
+}
+
 const sections = [
   {
     title: '1. Acceptance of Terms',
@@ -56,21 +69,25 @@ For questions about these Terms, please contact us at legal@harchcorp.com.`,
 
 export default function TermsPageClient() {
   return (
-    <div className="bg-white">
+    <div className="bg-[#FAFAFA]">
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
-          <p className="section-label mb-6">Terms</p>
-          <h1 className="text-4xl sm:text-5xl font-semibold text-[#101820] tracking-tight mb-4">
-            Terms of Use
-          </h1>
-          <p className="text-xs text-[#9CA3AF] mb-12">Last Updated: January 1, 2026</p>
+          <FadeIn>
+            <p className="section-label mb-6">Terms</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-4">
+              Terms of Use
+            </h1>
+            <p className="text-xs text-[#9CA3AF] mb-12">Last Updated: January 1, 2026</p>
+          </FadeIn>
 
           <div className="space-y-10 text-sm text-[#6B7280] leading-relaxed">
-            {sections.map((section) => (
-              <div key={section.title}>
-                <h2 className="text-lg font-medium text-[#101820] mb-4">{section.title}</h2>
-                <div className="whitespace-pre-line">{section.content}</div>
-              </div>
+            {sections.map((section, i) => (
+              <FadeIn key={section.title} delay={i * 0.05}>
+                <div>
+                  <h2 className="text-lg font-bold text-[#0A0F1A] mb-4">{section.title}</h2>
+                  <div className="whitespace-pre-line">{section.content}</div>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>

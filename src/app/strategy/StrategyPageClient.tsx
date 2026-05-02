@@ -1,7 +1,19 @@
 'use client';
 
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+
+function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
+  return (
+    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
+      {children}
+    </motion.div>
+  );
+}
 
 const pillars = [
   {
@@ -42,101 +54,117 @@ const advantages = [
 
 export default function StrategyPageClient() {
   return (
-    <div className="bg-white">
+    <div className="bg-[#FAFAFA]">
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <p className="section-label mb-6">Strategy</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#101820] tracking-tight mb-8">
-            Three Pillars.<br/>One Mission.
-          </h1>
-          <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
-            Harch Corp&apos;s strategy is built on three inseparable pillars — vertical integration, 
-            sovereign infrastructure, and continental scale — each reinforcing the other to create 
-            an industrial ecosystem that is greater than the sum of its parts.
-          </p>
+          <FadeIn>
+            <p className="section-label mb-6">Strategy</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-8">
+              Three Pillars.<br/>One Mission.
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
+              Harch Corp&apos;s strategy is built on three inseparable pillars — vertical integration, 
+              sovereign infrastructure, and continental scale — each reinforcing the other to create 
+              an industrial ecosystem that is greater than the sum of its parts.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
       {/* Three Pillars */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="space-y-24">
-            {pillars.map((pillar) => (
-              <div key={pillar.number} className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 md:gap-16">
-                <span className="text-6xl md:text-7xl font-light text-[rgba(0,0,0,0.06)]">{pillar.number}</span>
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-semibold text-[#101820] tracking-tight mb-6">
-                    {pillar.title}
-                  </h2>
-                  <p className="text-base text-[#6B7280] leading-relaxed mb-8 max-w-2xl">
-                    {pillar.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {pillar.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span className="w-1 h-1 rounded-full bg-[#9CA3AF] mt-2 shrink-0" />
-                        <span className="text-sm text-[#6B7280]">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+            {pillars.map((pillar, i) => (
+              <FadeIn key={pillar.number} delay={i * 0.15}>
+                <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 md:gap-16">
+                  <span className="text-6xl md:text-7xl font-light text-[rgba(0,0,0,0.04)]">{pillar.number}</span>
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-6">
+                      {pillar.title}
+                    </h2>
+                    <p className="text-base text-[#6B7280] leading-relaxed mb-8 max-w-2xl">
+                      {pillar.description}
+                    </p>
+                    <ul className="space-y-3">
+                      {pillar.items.map((item) => (
+                        <li key={item} className="flex items-start gap-3">
+                          <span className="w-1 h-1 rounded-full bg-[#9CA3AF] mt-2 shrink-0" />
+                          <span className="text-sm text-[#6B7280]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* 2030 Roadmap */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <p className="section-label mb-12">2030 Roadmap</p>
+          <FadeIn>
+            <p className="section-label mb-12">2030 Roadmap</p>
+          </FadeIn>
           <div className="space-y-0">
             {roadmapItems.map((item, i) => (
-              <div key={item.year} className="flex gap-8 md:gap-16 py-8 border-b border-[rgba(0,0,0,0.06)] last:border-b-0">
-                <span className="text-sm font-mono text-[#9CA3AF] w-16 shrink-0 pt-0.5">{item.year}</span>
-                <div className="flex-1">
-                  <h3 className="text-lg font-medium text-[#101820] mb-2">{item.title}</h3>
-                  <p className="text-sm text-[#6B7280] leading-relaxed">{item.description}</p>
+              <FadeIn key={item.year} delay={i * 0.05}>
+                <div className="flex gap-8 md:gap-16 py-8 border-b border-[rgba(0,0,0,0.04)] last:border-b-0">
+                  <span className="text-sm font-mono text-[#9CA3AF] w-16 shrink-0 pt-0.5">{item.year}</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-[#0A0F1A] mb-2">{item.title}</h3>
+                    <p className="text-sm text-[#6B7280] leading-relaxed">{item.description}</p>
+                  </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* Competitive Advantages */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <p className="section-label mb-12">Competitive Advantages</p>
+          <FadeIn>
+            <p className="section-label mb-12">Competitive Advantages</p>
+          </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            {advantages.map((adv) => (
-              <div key={adv.title}>
-                <h3 className="text-xl font-medium text-[#101820] mb-3">{adv.title}</h3>
-                <p className="text-sm text-[#6B7280] leading-relaxed">{adv.description}</p>
-              </div>
+            {advantages.map((adv, i) => (
+              <FadeIn key={adv.title} delay={i * 0.1}>
+                <div>
+                  <h3 className="text-xl font-bold text-[#0A0F1A] mb-3">{adv.title}</h3>
+                  <p className="text-sm text-[#6B7280] leading-relaxed">{adv.description}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.06)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#101820] tracking-tight mb-6">
-            Partner With Us
-          </h2>
-          <p className="max-w-xl mx-auto text-base text-[#9CA3AF] mb-10">
-            Whether you&apos;re an investor, government, or industrial partner — there&apos;s a role for you 
-            in building Africa&apos;s industrial sovereignty.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-[#101820] text-white px-8 py-3.5 rounded-md text-sm font-medium hover:bg-[#1f2937] transition-colors"
-          >
-            Get in Touch
-            <ArrowRight size={14} />
-          </Link>
+          <FadeIn>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-6">
+              Partner With Us
+            </h2>
+            <p className="max-w-xl mx-auto text-base text-[#9CA3AF] mb-10">
+              Whether you&apos;re an investor, government, or industrial partner — there&apos;s a role for you 
+              in building Africa&apos;s industrial sovereignty.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#0A0F1A] text-white px-8 py-4 rounded-xl text-sm font-medium hover:bg-[#1a1f2e] transition-colors"
+            >
+              Get in Touch
+              <ArrowRight size={14} />
+            </Link>
+          </FadeIn>
         </div>
       </section>
     </div>

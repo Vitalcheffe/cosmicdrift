@@ -161,3 +161,47 @@ Stage Summary:
 - Gold accent color retained for stats and decorative lines
 - Dark footer for contrast
 - All 19 pages HTTP 200, lint passes
+
+---
+Task ID: 6
+Agent: Main Agent
+Task: World-class rebuild based on top 12 global holdings benchmark
+
+Work Log:
+- Researched top 12 global holdings websites (Berkshire, SoftBank, LVMH, BlackRock, Saudi Aramco, Tata, Mitsubishi, Reliance, Alphabet, VW Group, Palantir, Samsung)
+- Benchmark findings: avg 10 vh homepage, 7.5 sections, 58% mega-menu, 67% video, 0% 3D (opportunity!)
+- Regenerated ALL 7 vertical images with CINEMATIC ARCHITECTURAL PHOTOGRAPHY prompts (1344x768, Hasselblad/Phase One quality references)
+- Regenerated team portraits (CEO, CTO, CFO, Advisor) with professional executive portrait prompts (864x1152)
+- Recreated logo.svg as HARCH | CORP wordmark with gold separator
+- Rebuilt globals.css with refined design system (#FAFAFA bg, #0A0F1A primary, golden-line animation, mega-menu animation, gradient-gold text)
+- Rebuilt Scene3D.tsx with TRIPLE icosahedron (outer dark, inner gold, core with gold emissive) + 500 particles + mouse light
+- Rebuilt page.tsx homepage with 12 WORLD-CLASS sections:
+  1. Hero with 3D + golden gradient text + parallax scroll
+  2. 7 Verticals grid with icon badges, stat overlays, image hover effects
+  3. Cinematic video banner (21:7 ratio, gradient overlay)
+  4. Stats with animated counters in card layout with descriptions
+  5. Impact Study — Intelligence (image + 3 stat grid + golden line)
+  6. Impact Study — Energy (reversed layout)
+  7. Quote/Philosophy with gold accent bar
+  8. Africa's Potential (30%/60%/1.4B in card layout)
+  9. Roadmap timeline with status indicators (completed/active/upcoming)
+  10. Operator Model differentiator with 4 feature cards
+  11. Newsroom preview (3 articles with tags)
+  12. Dark CTA with dot pattern background
+- Rebuilt Navigation.tsx with MEGA-MENU (like LVMH/VW Group), desktop nav links, search overlay, mobile drawer
+- Rebuilt Footer.tsx with 5-column layout (Brand, Verticals, Company, Legal, bottom bar)
+- Rebuilt CookieConsent.tsx with Shield icon and rounded-xl design
+- Updated layout.tsx with #FAFAFA body, new logo
+- Converted all 12 subpages to new design system via subagent (Framer Motion FadeIn on all sections)
+- Build successful, lint passes, all 19 pages HTTP 200
+
+Stage Summary:
+- Site rebuilt to match/exceed top 12 global holdings benchmark
+- Mega-menu navigation (like VW Group, Tata, LVMH)
+- 12-section homepage (exceeds avg of 7.5 sections)
+- Triple 3D wireframe sphere (unique - no top holding uses 3D)
+- Cinematic video banner
+- Framer Motion scroll animations on ALL pages
+- New cinematic-quality images for all verticals
+- HARCH | CORP logo recreated as SVG
+- All 19 pages HTTP 200, lint passes

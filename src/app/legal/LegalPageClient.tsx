@@ -22,25 +22,25 @@ const legalContent = [
 
 export default function LegalPageClient() {
   return (
-    <div className="bg-white">
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white">
+    <div className="bg-[#1A1A1A]">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Legal</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-[#000000] tracking-[-0.02em] leading-[1.05] mb-6">Legal Notice</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">Legal Notice</h1>
             <div className="accent-line mb-8" />
           </FadeIn>
           <div className="space-y-10">
             {legalContent.map((section, i) => (
               <FadeIn key={section.title} delay={i * 0.05}>
-                <h2 className="text-lg font-bold text-[#000000] mb-3">{section.title}</h2>
-                <p className="text-[14px] text-[#6B7280] leading-[1.8]">{section.text}</p>
+                <h2 className="text-lg font-bold text-white mb-3">{section.title}</h2>
+                <p className="text-[14px] text-[#999999] leading-[1.8]">{section.text}</p>
               </FadeIn>
             ))}
           </div>
           <FadeIn delay={0.3}>
-            <div className="mt-16 pt-8 border-t border-[rgba(0,0,0,0.04)]">
-              <p className="text-[12px] text-[#9CA3AF]">Last updated: January 2026</p>
+            <div className="mt-16 pt-8 border-t border-[rgba(255,255,255,0.06)]">
+              <p className="text-[12px] text-[#666666]">Last updated: January 2026</p>
             </div>
           </FadeIn>
         </div>

@@ -46,7 +46,7 @@ function Particles({ count = 500 }: { count?: number }) {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial size={0.025} color="#0A0F1A" transparent opacity={0.12} sizeAttenuation depthWrite={false} />
+      <pointsMaterial size={0.025} color="#FFFFFF" transparent opacity={0.12} sizeAttenuation depthWrite={false} />
     </points>
   );
 }
@@ -66,7 +66,7 @@ function OuterSphere() {
   return (
     <Float speed={0.8} rotationIntensity={0.15} floatIntensity={0.3}>
       <Icosahedron ref={meshRef} args={[2.0, 1]}>
-        <meshStandardMaterial color="#0A0F1A" emissive="#0A0F1A" emissiveIntensity={0.02} wireframe transparent opacity={0.07} />
+        <meshStandardMaterial color="#FFFFFF" emissive="#FFFFFF" emissiveIntensity={0.02} wireframe transparent opacity={0.07} />
       </Icosahedron>
     </Float>
   );
@@ -87,7 +87,7 @@ function InnerSphere() {
   return (
     <Float speed={1.0} rotationIntensity={0.1} floatIntensity={0.25}>
       <Icosahedron ref={meshRef} args={[1.2, 2]}>
-        <meshStandardMaterial color="#374151" emissive="#374151" emissiveIntensity={0.06} wireframe transparent opacity={0.05} />
+        <meshStandardMaterial color="#999999" emissive="#999999" emissiveIntensity={0.06} wireframe transparent opacity={0.05} />
       </Icosahedron>
     </Float>
   );
@@ -104,7 +104,7 @@ function CoreSphere() {
   return (
     <Float speed={0.5} rotationIntensity={0.05} floatIntensity={0.15}>
       <Icosahedron ref={meshRef} args={[0.5, 0]}>
-        <meshStandardMaterial color="#000000" emissive="#374151" emissiveIntensity={0.15} wireframe transparent opacity={0.15} />
+        <meshStandardMaterial color="#FFFFFF" emissive="#999999" emissiveIntensity={0.15} wireframe transparent opacity={0.15} />
       </Icosahedron>
     </Float>
   );
@@ -117,7 +117,7 @@ function MouseLight() {
     lightRef.current.position.x = state.pointer.x * 4;
     lightRef.current.position.y = state.pointer.y * 3;
   });
-  return <pointLight ref={lightRef} color="#E5E7EB" intensity={0.6} distance={18} position={[0, 0, 4]} />;
+  return <pointLight ref={lightRef} color="#FFFFFF" intensity={0.6} distance={18} position={[0, 0, 4]} />;
 }
 
 export function Scene3D() {

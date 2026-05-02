@@ -37,7 +37,7 @@ export function PageHero({ title, subtitle, version, backgroundImage }: PageHero
             {subtitle}
           </p>
         )}
-        <div className="mt-6 w-16 h-0.5 bg-[#C9A84C] mx-auto" />
+        <div className="mt-6 w-16 h-0.5 bg-white mx-auto" />
       </motion.div>
     </section>
   );

@@ -135,7 +135,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#1A1A1A]">
       {/* ═══════════════════════════════════════════
           S1: HERO CAROUSEL — Full-bleed photo backgrounds
           ═══════════════════════════════════════════ */}
@@ -175,7 +175,7 @@ export default function HomePage() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm mb-6">
               <Globe size={12} className="text-white/60" />
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">Building Africa&apos;s Industrial Sovereignty</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70 font-[family-name:var(--font-space-mono)]">Building Africa&apos;s Industrial Sovereignty</span>
             </span>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[84px] font-extrabold text-white leading-[1.02] tracking-[-0.02em] mb-4">
@@ -235,15 +235,15 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S2: OUR SOFTWARE / VERTICALS — Palantir product listing
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="mb-16">
               <p className="section-label mb-4">Our Verticals</p>
-              <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-[#000000] tracking-[-0.02em] leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-tight">
                 Infrastructure for<br />the Next Century
               </h2>
-              <p className="max-w-xl mt-4 text-[15px] text-[#6B7280] leading-relaxed">
+              <p className="max-w-xl mt-4 text-[15px] text-[#999999] leading-relaxed">
                 Our platforms build the critical infrastructure that enables Africa&apos;s self-reliance across 7 industrial verticals.
               </p>
             </div>
@@ -259,17 +259,17 @@ export default function HomePage() {
                 >
                   <div className="flex-1 min-w-0 pr-4">
                     <div className="flex items-baseline gap-4 mb-2">
-                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#000000] group-hover:text-[#374151] transition-colors tracking-tight">
+                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white group-hover:text-[#CCCCCC] transition-colors tracking-tight">
                         {v.name}
                       </h3>
-                      <span className="text-[11px] font-bold text-[#000000] tracking-wide hidden sm:inline stat-mono">{v.stat}</span>
+                      <span className="text-[11px] font-bold text-white tracking-wide hidden sm:inline stat-mono">{v.stat}</span>
                     </div>
-                    <p className="text-[13px] md:text-[15px] text-[#6B7280] leading-relaxed max-w-xl group-hover:text-[#0A0F1A]/60 transition-colors">
+                    <p className="text-[13px] md:text-[15px] text-[#999999] leading-relaxed max-w-xl group-hover:text-[#CCCCCC] transition-colors">
                       {v.desc}
                     </p>
                     <div className="mt-3 space-y-1">
                       {v.outcomes?.map((outcome, j) => (
-                        <p key={j} className="text-[11px] text-[#9CA3AF] font-[family-name:var(--font-space-mono)] tracking-wide">
+                        <p key={j} className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">
                           &gt; {outcome}
                         </p>
                       ))}
@@ -277,7 +277,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center gap-4 shrink-0">
                     <span className="version-tag hidden md:inline">{v.version}</span>
-                    <ArrowRight size={16} className="vertical-arrow text-[rgba(0,0,0,0.1)] group-hover:text-[#000000] transition-all duration-300" />
+                    <ArrowRight size={16} className="vertical-arrow text-[rgba(255,255,255,0.1)] group-hover:text-white transition-all duration-300" />
                   </div>
                 </Link>
               </FadeIn>
@@ -289,15 +289,15 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S3: INTERACTIVE WORLD MAP — Africa with blinking dots
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="text-center mb-16">
               <p className="section-label mb-4">Global Presence</p>
-              <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-[#000000] tracking-[-0.02em]">
+              <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em]">
                 Operating Across<br />Africa
               </h2>
-              <p className="max-w-xl mx-auto mt-4 text-[15px] text-[#6B7280] leading-relaxed">
+              <p className="max-w-xl mx-auto mt-4 text-[15px] text-[#999999] leading-relaxed">
                 From our Casablanca headquarters to Dakhla, Gambia, and the Sahel — our operations span the continent&apos;s most strategic industrial corridors.
               </p>
             </div>
@@ -315,9 +315,9 @@ export default function HomePage() {
                 { label: 'Mining', value: 'Mauritania' },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#000000]" />
-                  <span className="text-[11px] font-semibold text-[#000000] tracking-wide">{item.label}</span>
-                  <span className="text-[11px] text-[#9CA3AF]">— {item.value}</span>
+                  <div className="w-2 h-2 rounded-full bg-white" />
+                  <span className="text-[11px] font-semibold text-white tracking-wide">{item.label}</span>
+                  <span className="text-[11px] text-[#999999]">— {item.value}</span>
                 </div>
               ))}
             </div>
@@ -328,11 +328,11 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S4: TESTIMONIALS — Palantir partner quotes
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Partners & Endorsements</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               Trusted by Leaders<br />Across Africa
             </h2>
           </FadeIn>
@@ -340,16 +340,16 @@ export default function HomePage() {
             {testimonials.map((t, i) => (
               <FadeIn key={i} delay={i * 0.08}>
                 <div className="card p-8 h-full">
-                  <p className="text-[15px] text-[#6B7280] leading-[1.7] italic mb-6">
+                  <p className="text-[15px] text-[#CCCCCC] leading-[1.7] italic mb-6">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[rgba(0,0,0,0.04)] flex items-center justify-center text-[12px] font-bold text-[#000000]">
+                    <div className="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.06)] flex items-center justify-center text-[12px] font-bold text-white">
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="text-[13px] font-semibold text-[#000000]">{t.name}</p>
-                      <p className="text-[11px] text-[#9CA3AF]">{t.title}, {t.company}</p>
+                      <p className="text-[13px] font-semibold text-white">{t.name}</p>
+                      <p className="text-[11px] text-[#666666]">{t.title}, {t.company}</p>
                     </div>
                   </div>
                 </div>
@@ -372,7 +372,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-32">
           <FadeIn>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm mb-6">
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">Harch Energy /0.3</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70 font-[family-name:var(--font-space-mono)]">Harch Energy /0.3</span>
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-[64px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-6 max-w-2xl">
               2GW+ Renewable<br />Energy Pipeline
@@ -390,11 +390,11 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S6: STATS WITH ANIMATED COUNTERS
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Scale & Impact</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               By the Numbers
             </h2>
           </FadeIn>
@@ -403,20 +403,20 @@ export default function HomePage() {
             {stats.map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div className="card p-6">
-                  <p className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#000000] tracking-tight leading-none mb-2 stat-mono">
+                  <p className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-tight leading-none mb-2 stat-mono">
                     <AnimatedCounter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                   </p>
-                  <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-[#000000] mb-1">
+                  <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-1">
                     {stat.label}
                   </p>
-                  <p className="text-[12px] text-[#9CA3AF] leading-relaxed">{stat.desc}</p>
+                  <p className="text-[12px] text-[#666666] leading-relaxed">{stat.desc}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
 
           <FadeIn delay={0.4}>
-            <p className="mt-8 text-[11px] text-[#9CA3AF] italic">
+            <p className="mt-8 text-[11px] text-[#666666] italic">
               * Projected targets based on current pipeline and regulatory approvals. Updated Q1 2026.
             </p>
           </FadeIn>
@@ -426,20 +426,20 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S7: DATA TABLE — Investment breakdown
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Investment Pipeline</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               Capital Deployment
             </h2>
-            <p className="max-w-xl text-[15px] text-[#6B7280] leading-relaxed mb-12">
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
               $2.4B+ in active capital deployment across 7 industrial verticals, spanning 5 countries and multiple project phases.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <div className="bg-white rounded-2xl border border-[rgba(0,0,0,0.04)] overflow-hidden">
+            <div className="bg-[#1E1E1E] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="data-table">
                   <thead>
@@ -474,8 +474,8 @@ export default function HomePage() {
                   </tbody>
                 </table>
               </div>
-              <div className="px-6 py-4 border-t border-[rgba(0,0,0,0.04)] bg-[rgba(0,0,0,0.01)]">
-                <p className="text-[11px] text-[#9CA3AF]">Total investment pipeline: $2.4B+ across 7 verticals. Data as of Q1 2026.</p>
+              <div className="px-6 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)]">
+                <p className="text-[11px] text-[#666666]">Total investment pipeline: $2.4B+ across 7 verticals. Data as of Q1 2026.</p>
               </div>
             </div>
           </FadeIn>
@@ -485,14 +485,14 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S8: IMPACT STUDY — Intelligence
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-8">Impact Study &mdash; Harch Intelligence /0.1</p>
           </FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#F1F3F5] image-reveal">
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#1E1E1E] image-reveal">
                 <Image src="/images/verticals/intelligence.jpg" alt="Harch Intelligence AI Data Center" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#000000]/70 backdrop-blur-md px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)]">
@@ -501,11 +501,11 @@ export default function HomePage() {
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
                 Africa&apos;s Largest AI<br />Hyperscale Data Center
               </h2>
               <div className="accent-line mb-6" />
-              <p className="text-[15px] text-[#6B7280] leading-[1.7] mb-8">
+              <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
                 Harch Intelligence is building a 500MW AI-ready hyperscale data center in Dakhla,
                 Morocco — powered entirely by renewable energy and designed to serve as the backbone
                 of Africa&apos;s sovereign AI compute infrastructure. The facility will host
@@ -519,12 +519,12 @@ export default function HomePage() {
                   { val: '100%', label: 'Renewable' },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="text-2xl font-bold text-[#000000] stat-mono">{s.val}</p>
-                    <p className="text-[10px] text-[#9CA3AF] uppercase tracking-[0.1em] font-bold">{s.label}</p>
+                    <p className="text-2xl font-bold text-white stat-mono">{s.val}</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold">{s.label}</p>
                   </div>
                 ))}
               </div>
-              <Link href="/subsidiaries/intelligence" className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#000000] transition-colors duration-300 group">
+              <Link href="/subsidiaries/intelligence" className="inline-flex items-center gap-2 text-sm font-semibold text-[#999999] hover:text-white transition-colors duration-300 group">
                 Read More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </FadeIn>
@@ -545,7 +545,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-32">
           <FadeIn>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm mb-6">
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">Harch Mining /0.5</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70 font-[family-name:var(--font-space-mono)]">Harch Mining /0.5</span>
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-[64px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-6 max-w-2xl">
               Capturing the<br />Value Chain
@@ -563,18 +563,18 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S10: IMPACT STUDY — Energy (reversed)
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-8">Impact Study &mdash; Harch Energy /0.3</p>
           </FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn delay={0.15} className="order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
                 2GW+ of Renewable<br />Energy Pipeline
               </h2>
               <div className="accent-line mb-6" />
-              <p className="text-[15px] text-[#6B7280] leading-[1.7] mb-8">
+              <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
                 Harch Energy is developing over 2 gigawatts of renewable energy capacity across
                 Morocco and the Sahel region — combining solar, wind, and green hydrogen production
                 to power industrial operations and data centers with zero-carbon electricity. Our
@@ -588,17 +588,17 @@ export default function HomePage() {
                   { val: 'Zero', label: 'Carbon' },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="text-2xl font-bold text-[#000000] stat-mono">{s.val}</p>
-                    <p className="text-[10px] text-[#9CA3AF] uppercase tracking-[0.1em] font-bold">{s.label}</p>
+                    <p className="text-2xl font-bold text-white stat-mono">{s.val}</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold">{s.label}</p>
                   </div>
                 ))}
               </div>
-              <Link href="/subsidiaries/energy" className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#000000] transition-colors duration-300 group">
+              <Link href="/subsidiaries/energy" className="inline-flex items-center gap-2 text-sm font-semibold text-[#999999] hover:text-white transition-colors duration-300 group">
                 Read More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </FadeIn>
             <FadeIn className="order-1 lg:order-2">
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#F1F3F5] image-reveal">
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#1E1E1E] image-reveal">
                 <Image src="/images/verticals/energy.jpg" alt="Harch Energy Renewable Infrastructure" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#000000]/70 backdrop-blur-md px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)]">
@@ -613,20 +613,20 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S11: CEO QUOTE / PHILOSOPHY
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[960px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <span className="text-7xl md:text-9xl text-[rgba(0,0,0,0.04)] leading-none font-serif block -mb-12">&ldquo;</span>
-            <blockquote className="text-xl md:text-2xl lg:text-[32px] font-light text-[#000000] leading-[1.4] mb-10">
+            <span className="text-7xl md:text-9xl text-[rgba(255,255,255,0.04)] leading-none font-serif block -mb-12">&ldquo;</span>
+            <blockquote className="text-xl md:text-2xl lg:text-[32px] font-light text-white leading-[1.4] mb-10">
               Africa doesn&apos;t need aid — it needs infrastructure. It doesn&apos;t need pity
               — it needs partnership on equal terms. We build the systems that convert
               potential into power.
             </blockquote>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-px bg-[#000000]" />
+              <div className="w-12 h-px bg-white" />
               <div>
-                <p className="text-sm text-[#000000] font-semibold">Amine Harch El Korane</p>
-                <p className="text-[11px] text-[#9CA3AF] mt-0.5">Founder &amp; CEO, Harch Corp</p>
+                <p className="text-sm text-white font-semibold">Amine Harch El Korane</p>
+                <p className="text-[11px] text-[#666666] mt-0.5">Founder &amp; CEO, Harch Corp</p>
               </div>
             </div>
           </FadeIn>
@@ -636,11 +636,11 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S12: AFRICA'S POTENTIAL — 3 stat cards
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">The Opportunity</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               Africa&apos;s Potential,<br />By the Numbers
             </h2>
           </FadeIn>
@@ -648,9 +648,9 @@ export default function HomePage() {
             {africaStats.map((item, i) => (
               <FadeIn key={i} delay={i * 0.12}>
                 <div className="card p-8 h-full">
-                  <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#000000] mb-2 leading-none stat-mono">{item.value}</p>
+                  <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 leading-none stat-mono">{item.value}</p>
                   <div className="accent-line mb-5" />
-                  <p className="text-[13px] text-[#6B7280] leading-[1.7]">{item.desc}</p>
+                  <p className="text-[13px] text-[#999999] leading-[1.7]">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -661,37 +661,37 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S13: TIMELINE/ROADMAP
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Roadmap</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               2024 &mdash; 2030
             </h2>
           </FadeIn>
 
           <div className="relative">
-            <div className="absolute left-5 md:left-10 top-0 bottom-0 w-px bg-[rgba(0,0,0,0.04)]" />
+            <div className="absolute left-5 md:left-10 top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)]" />
             <div className="space-y-10">
               {roadmap.map((item, i) => (
                 <FadeIn key={item.year} delay={i * 0.08}>
                   <div className="flex gap-6 md:gap-12 relative">
                     <div className="relative z-10 shrink-0 w-10 md:w-20 flex justify-center">
                       <div className={`w-3.5 h-3.5 rounded-full border-2 mt-1.5 ${
-                        item.status === 'completed' ? 'bg-[#000000] border-[#000000]' :
-                        item.status === 'active' ? 'bg-[#000000] border-[#000000] shadow-md shadow-[#000000]/20' :
-                        'bg-transparent border-[rgba(0,0,0,0.15)]'
+                        item.status === 'completed' ? 'bg-white border-white' :
+                        item.status === 'active' ? 'bg-white border-white shadow-md shadow-white/20' :
+                        'bg-transparent border-[rgba(255,255,255,0.15)]'
                       }`} />
                     </div>
                     <div className="pb-2">
-                      <span className={`text-[10px] font-bold tracking-[0.2em] uppercase ${
-                        item.status === 'active' ? 'text-[#000000]' : 'text-[#9CA3AF]'
+                      <span className={`text-[10px] font-bold tracking-[0.2em] uppercase font-[family-name:var(--font-space-mono)] ${
+                        item.status === 'active' ? 'text-white' : 'text-[#666666]'
                       }`}>
                         {item.year}
                         {item.status === 'active' && ' — Current'}
                       </span>
-                      <h3 className="text-lg md:text-xl font-bold text-[#000000] mt-1 mb-1">{item.title}</h3>
-                      <p className="text-[13px] text-[#6B7280] leading-relaxed max-w-lg">{item.desc}</p>
+                      <h3 className="text-lg md:text-xl font-bold text-white mt-1 mb-1">{item.title}</h3>
+                      <p className="text-[13px] text-[#999999] leading-relaxed max-w-lg">{item.desc}</p>
                     </div>
                   </div>
                 </FadeIn>
@@ -704,23 +704,23 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S14: OPERATOR MODEL
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <FadeIn>
               <p className="section-label mb-4">Our Model</p>
-              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
                 Not a Service Provider.<br />Not a Consultancy.<br />
                 <span className="gradient-text">An Operator.</span>
               </h2>
               <div className="accent-line mb-6" />
-              <p className="text-[15px] text-[#6B7280] leading-[1.7] mb-8">
+              <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
                 Harch Corp doesn&apos;t advise — we build. We own the entire value chain from raw materials
                 to finished infrastructure. This vertically integrated model creates structural cost
                 advantages of 30-50% versus competitors who rely on external supply chains. We don&apos;t
                 write reports about Africa&apos;s potential — we convert it into industrial power.
               </p>
-              <Link href="/strategy" className="inline-flex items-center gap-2 text-sm font-semibold text-[#6B7280] hover:text-[#000000] transition-colors duration-300 group">
+              <Link href="/strategy" className="inline-flex items-center gap-2 text-sm font-semibold text-[#999999] hover:text-white transition-colors duration-300 group">
                 Our Strategy <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </FadeIn>
@@ -732,9 +732,9 @@ export default function HomePage() {
                   { title: 'Speed at Scale', desc: 'We move with urgency. The continent cannot afford to wait. Every project is executed with precision and pace.' },
                   { title: 'World-Class Standards', desc: 'From engineering to governance, we accept nothing less than the best. International certifications across all verticals.' },
                 ].map((item, i) => (
-                  <div key={i} className="card p-5 hover:border-[rgba(0,0,0,0.08)] transition-colors">
-                    <h4 className="text-sm font-bold text-[#000000] mb-1">{item.title}</h4>
-                    <p className="text-[12px] text-[#6B7280] leading-relaxed">{item.desc}</p>
+                  <div key={i} className="card p-5">
+                    <h4 className="text-sm font-bold text-white mb-1">{item.title}</h4>
+                    <p className="text-[12px] text-[#999999] leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -746,15 +746,15 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S15: NEWSROOM PREVIEW
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="flex items-end justify-between mb-12">
               <div>
                 <p className="section-label mb-4">Latest Updates</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-[#000000] tracking-[-0.01em]">Newsroom</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em]">Newsroom</h2>
               </div>
-              <Link href="/newsroom" className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[#9CA3AF] hover:text-[#000000] transition-colors group">
+              <Link href="/newsroom" className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[#666666] hover:text-white transition-colors group">
                 All Updates <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -766,10 +766,10 @@ export default function HomePage() {
               { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'January 2026', tag: 'Corporate' },
             ].map((article, i) => (
               <FadeIn key={i} delay={i * 0.08}>
-                <Link href="/newsroom" className="group block card p-6 hover:border-[rgba(0,0,0,0.08)] transition-all duration-300">
-                  <span className="inline-block px-2.5 py-1 rounded-md bg-[rgba(0,0,0,0.04)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#000000] mb-3">{article.tag}</span>
-                  <h3 className="text-[15px] font-bold text-[#0A0F1A]/80 leading-snug mb-3 group-hover:text-[#000000] transition-colors">{article.title}</h3>
-                  <p className="text-[11px] text-[#9CA3AF] tracking-wide">{article.date}</p>
+                <Link href="/newsroom" className="group block card p-6 transition-all duration-300">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-[rgba(255,255,255,0.06)] text-[9px] font-bold tracking-[0.12em] uppercase text-white mb-3">{article.tag}</span>
+                  <h3 className="text-[15px] font-bold text-[#CCCCCC] leading-snug mb-3 group-hover:text-white transition-colors">{article.title}</h3>
+                  <p className="text-[11px] text-[#666666] tracking-wide">{article.date}</p>
                 </Link>
               </FadeIn>
             ))}
@@ -780,7 +780,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S16: CTA SECTION — Dark dramatic
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+      <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
         {/* Dot pattern */}
         <div className="absolute inset-0 dot-pattern opacity-100" />
 
@@ -796,7 +796,7 @@ export default function HomePage() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-[#000000] text-white px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:border-white/30 hover:bg-[#0A0F1A] transition-all duration-300">
+              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all duration-300">
                 Get Started <ArrowRight size={14} />
               </Link>
               <Link href="/careers" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all duration-300">

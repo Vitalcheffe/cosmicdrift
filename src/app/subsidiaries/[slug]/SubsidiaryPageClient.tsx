@@ -303,7 +303,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
   if (!data) return <div className="pt-40 pb-20 text-center"><h1 className="text-2xl font-bold">Page not found</h1></div>;
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#1A1A1A]">
       {/* Hero with full-bleed photo */}
       <section className="photo-section relative min-h-[70vh] flex items-end">
         <Image src={data.heroImage} alt={data.name} fill className="object-cover" priority />
@@ -321,25 +321,25 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       </section>
 
       {/* Overview */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn>
               <p className="section-label mb-4">Overview</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#000000] tracking-tight mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
                 {data.name}
               </h2>
               <div className="accent-line mb-6" />
-              <p className="text-[15px] text-[#6B7280] leading-[1.7]">{data.overview}</p>
+              <p className="text-[15px] text-[#999999] leading-[1.7]">{data.overview}</p>
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="grid grid-cols-2 gap-4">
                 {data.metrics.map((m) => (
                   <div key={m.label} className="card p-6 text-center">
-                    <p className="text-3xl md:text-4xl font-bold text-[#000000]">
+                    <p className="text-3xl md:text-4xl font-bold text-white">
                       <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
                     </p>
-                    <p className="text-[10px] text-[#9CA3AF] uppercase tracking-[0.1em] font-bold mt-1">{m.label}</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1">{m.label}</p>
                   </div>
                 ))}
               </div>
@@ -349,11 +349,11 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       </section>
 
       {/* Capabilities */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Capabilities</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               What We Build
             </h2>
           </FadeIn>
@@ -361,11 +361,11 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             {data.capabilities.map((cap, i) => (
               <FadeIn key={cap.title} delay={i * 0.06}>
                 <div className="card p-6 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-[rgba(0,0,0,0.04)] flex items-center justify-center mb-3">
-                    <cap.icon size={18} className="text-[#000000]" strokeWidth={1.5} />
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center mb-3">
+                    <cap.icon size={18} className="text-white" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-[14px] font-bold text-[#000000] mb-2">{cap.title}</h3>
-                  <p className="text-[12px] text-[#6B7280] leading-relaxed">{cap.desc}</p>
+                  <h3 className="text-[14px] font-bold text-white mb-2">{cap.title}</h3>
+                  <p className="text-[12px] text-[#999999] leading-relaxed">{cap.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -374,15 +374,15 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       </section>
 
       {/* Data Table */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Technical Specifications</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#000000] tracking-[-0.01em] mb-4">Key Metrics</h2>
-            <p className="max-w-xl text-[15px] text-[#6B7280] leading-relaxed mb-12">Detailed specifications and performance targets for {data.name}.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">Key Metrics</h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Detailed specifications and performance targets for {data.name}.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="bg-[#FAFAFA] rounded-2xl border border-[rgba(0,0,0,0.04)] overflow-hidden">
+            <div className="bg-[#121212] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="data-table">
                   <thead>
@@ -397,7 +397,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                       <tr key={row.spec}>
                         <td>{row.spec}</td>
                         <td className="font-semibold">{row.value}</td>
-                        <td className="text-[#6B7280]">{row.phase}</td>
+                        <td className="text-[#999999]">{row.phase}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -422,14 +422,14 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       </section>
 
       {/* Milestones */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Timeline</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">Key Milestones</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">Key Milestones</h2>
           </FadeIn>
           <div className="relative">
-            <div className="absolute left-5 md:left-10 top-0 bottom-0 w-px bg-[rgba(0,0,0,0.04)]" />
+            <div className="absolute left-5 md:left-10 top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)]" />
             <div className="space-y-10">
               {data.milestones.map((m, i) => (
                 <FadeIn key={m.year} delay={i * 0.08}>
@@ -438,9 +438,9 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                       <div className="w-3.5 h-3.5 rounded-full bg-[#000000] border-2 border-[#000000] mt-1.5" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#000000]">{m.year}</span>
-                      <h3 className="text-lg font-bold text-[#000000] mt-1 mb-1">{m.title}</h3>
-                      <p className="text-[13px] text-[#6B7280] leading-relaxed max-w-lg">{m.desc}</p>
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">{m.year}</span>
+                      <h3 className="text-lg font-bold text-white mt-1 mb-1">{m.title}</h3>
+                      <p className="text-[13px] text-[#999999] leading-relaxed max-w-lg">{m.desc}</p>
                     </div>
                   </div>
                 </FadeIn>
@@ -451,7 +451,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       </section>
 
       {/* CTA */}
-      <section className="py-28 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+      <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
@@ -460,7 +460,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-[#000000] text-white px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:border-white/30 transition-all">Get Started <ArrowRight size={14} /></Link>
+              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">Get Started <ArrowRight size={14} /></Link>
               <Link href="/investors" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">Investor Details</Link>
             </div>
           </FadeIn>

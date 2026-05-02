@@ -45,37 +45,37 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #FAFAFA;
-  --foreground: #0A0F1A;
-  --card: #FFFFFF;
-  --card-foreground: #0A0F1A;
-  --popover: #FFFFFF;
-  --popover-foreground: #0A0F1A;
-  --primary: #000000;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F1F3F5;
-  --secondary-foreground: #0A0F1A;
-  --muted: #F1F3F5;
-  --muted-foreground: #6B7280;
-  --accent: #000000;
-  --accent-foreground: #FFFFFF;
+  --background: #1A1A1A;
+  --foreground: #FFFFFF;
+  --card: #1E1E1E;
+  --card-foreground: #FFFFFF;
+  --popover: #1E1E1E;
+  --popover-foreground: #FFFFFF;
+  --primary: #FFFFFF;
+  --primary-foreground: #000000;
+  --secondary: #252525;
+  --secondary-foreground: #FFFFFF;
+  --muted: #252525;
+  --muted-foreground: #999999;
+  --accent: #FFFFFF;
+  --accent-foreground: #000000;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(0,0,0,0.06);
-  --input: rgba(0,0,0,0.06);
-  --ring: #000000;
-  --chart-1: #000000;
-  --chart-2: #6B7280;
-  --chart-3: #9CA3AF;
-  --chart-4: #D1D5DB;
-  --chart-5: #E5E7EB;
-  --sidebar: #F1F3F5;
-  --sidebar-foreground: #0A0F1A;
-  --sidebar-primary: #000000;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F1F3F5;
-  --sidebar-accent-foreground: #0A0F1A;
-  --sidebar-border: rgba(0,0,0,0.06);
-  --sidebar-ring: #000000;
+  --border: rgba(255,255,255,0.06);
+  --input: rgba(255,255,255,0.06);
+  --ring: #FFFFFF;
+  --chart-1: #FFFFFF;
+  --chart-2: #999999;
+  --chart-3: #666666;
+  --chart-4: #333333;
+  --chart-5: #1E1E1E;
+  --sidebar: #121212;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #FFFFFF;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: rgba(255,255,255,0.04);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255,255,255,0.06);
+  --sidebar-ring: #FFFFFF;
 }
 
 @layer base {
@@ -89,13 +89,13 @@
     scroll-behavior: smooth;
   }
   ::selection {
-    background: #000000;
-    color: white;
+    background: #FFFFFF;
+    color: #000000;
   }
 }
 
 /* ═══════════════════════════════════════════
-   CUSTOM SCROLLBAR — Palantir White Theme
+   CUSTOM SCROLLBAR — Palantir Dark Theme
    ═══════════════════════════════════════════ */
 ::-webkit-scrollbar {
   width: 5px;
@@ -104,34 +104,34 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* ═══════════════════════════════════════════
-   SECTION LABEL — Palantir editorial
+   SECTION LABEL — Palantir editorial dark
    ═══════════════════════════════════════════ */
 .section-label {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #9CA3AF;
+  color: #666666;
   font-family: var(--font-space-mono), monospace;
 }
 
 /* ═══════════════════════════════════════════
-   LINK STYLES — Palantir white theme
+   LINK STYLES — Palantir dark theme
    ═══════════════════════════════════════════ */
 .nav-link {
   position: relative;
   transition: color 0.25s ease;
 }
 .nav-link:hover {
-  color: #0A0F1A;
+  color: #FFFFFF;
 }
 .nav-link::after {
   content: '';
@@ -140,7 +140,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: #000000;
+  background: #FFFFFF;
   transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .nav-link:hover::after {
@@ -152,7 +152,7 @@
    ═══════════════════════════════════════════ */
 .divider {
   height: 1px;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* ═══════════════════════════════════════════
@@ -180,7 +180,7 @@
 }
 .accent-line {
   height: 2px;
-  background: #000000;
+  background: #FFFFFF;
   animation: expandLine 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
@@ -198,14 +198,14 @@
 }
 
 /* ═══════════════════════════════════════════
-   VERTICAL ROW HOVER — Palantir list style
+   VERTICAL ROW HOVER — Palantir list style dark
    ═══════════════════════════════════════════ */
 .vertical-row {
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 .vertical-row:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(255, 255, 255, 0.02);
 }
 .vertical-row:hover .vertical-arrow {
   transform: translateX(4px);
@@ -241,17 +241,17 @@
 }
 
 /* ═══════════════════════════════════════════
-   GRADIENT TEXT — Black/dark gradient
+   GRADIENT TEXT — White gradient dark theme
    ═══════════════════════════════════════════ */
 .gradient-text {
-  background: linear-gradient(135deg, #000000 0%, #374151 50%, #000000 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #999999 50%, #FFFFFF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 /* ═══════════════════════════════════════════
-   MENU OVERLAY — Full screen white
+   MENU OVERLAY — Full screen dark
    ═══════════════════════════════════════════ */
 .menu-overlay-enter {
   animation: menuOverlayIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -262,35 +262,35 @@
 }
 
 /* ═══════════════════════════════════════════
-   CARD — Standard white card style
+   CARD — Dark card style
    ═══════════════════════════════════════════ */
 .card {
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  background: #1E1E1E;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .card:hover {
-  border-color: rgba(0, 0, 0, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 /* ═══════════════════════════════════════════
-   VERSION TAG — Palantir /0.x style
+   VERSION TAG — Palantir /0.x style dark
    ═══════════════════════════════════════════ */
 .version-tag {
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.2);
   font-variant-numeric: tabular-nums;
   font-family: var(--font-space-mono), monospace;
 }
 
 /* ═══════════════════════════════════════════
-   DOT PATTERN BACKGROUND
+   DOT PATTERN BACKGROUND — Dark theme
    ═══════════════════════════════════════════ */
 .dot-pattern {
-  background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
   background-size: 40px 40px;
 }
 
@@ -318,7 +318,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   PHOTO SECTION — Full-bleed photo with overlay
+   PHOTO SECTION — Full-bleed photo with darker overlay
    ═══════════════════════════════════════════ */
 .photo-section {
   position: relative;
@@ -329,7 +329,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
   pointer-events: none;
 }
 
@@ -368,7 +368,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   DATA TABLE — Clean Palantir-style table
+   DATA TABLE — Dark Palantir-style table
    ═══════════════════════════════════════════ */
 .data-table {
   width: 100%;
@@ -380,21 +380,21 @@
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #9CA3AF;
+  color: #666666;
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .data-table tbody tr {
   transition: background 0.2s ease;
-  border-bottom: 1px solid rgba(0,0,0,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 .data-table tbody tr:hover {
-  background: rgba(0,0,0,0.02);
+  background: rgba(255,255,255,0.02);
 }
 .data-table tbody td {
   padding: 16px;
   font-size: 14px;
-  color: #0A0F1A;
+  color: #FFFFFF;
 }
 .data-table tbody td:first-child {
   font-weight: 600;
@@ -415,11 +415,11 @@
 }
 
 /* ═══════════════════════════════════════════
-   ANNOUNCEMENT BAR — Thin top bar
+   ANNOUNCEMENT BAR — White on dark inverted
    ═══════════════════════════════════════════ */
 .announcement-bar {
-  background: #000000;
-  color: white;
+  background: #FFFFFF;
+  color: #000000;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -432,7 +432,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   STATUS BADGE
+   STATUS BADGE — Dark theme
    ═══════════════════════════════════════════ */
 .status-badge {
   display: inline-flex;
@@ -445,20 +445,20 @@
   letter-spacing: 0.03em;
 }
 .status-badge-active {
-  background: rgba(0,0,0,0.06);
-  color: #000000;
+  background: rgba(255,255,255,0.08);
+  color: #FFFFFF;
 }
 .status-badge-engineering {
-  background: rgba(0,0,0,0.04);
-  color: #6B7280;
+  background: rgba(255,255,255,0.04);
+  color: #999999;
 }
 .status-badge-permitted {
-  background: rgba(0,0,0,0.04);
-  color: #6B7280;
+  background: rgba(255,255,255,0.04);
+  color: #999999;
 }
 .status-badge-design {
-  background: rgba(0,0,0,0.04);
-  color: #9CA3AF;
+  background: rgba(255,255,255,0.04);
+  color: #666666;
 }
 
 /* ═══════════════════════════════════════════

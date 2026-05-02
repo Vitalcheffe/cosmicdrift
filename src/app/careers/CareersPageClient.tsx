@@ -41,17 +41,17 @@ const benefits = [
 
 export default function CareersPageClient() {
   return (
-    <div className="bg-white">
+    <div className="bg-[#1A1A1A]">
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Careers</p>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-[#000000] tracking-[-0.02em] leading-[1.05] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Build the Future<br />of Africa
             </h1>
             <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[16px] text-[#6B7280] leading-[1.7]">
+            <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
               Join the team building Africa&apos;s industrial backbone. 3,200+ positions across 7 verticals and 5 countries. Every role directly contributes to the continent&apos;s sovereignty.
             </p>
           </FadeIn>
@@ -59,11 +59,11 @@ export default function CareersPageClient() {
       </section>
 
       {/* Why Harch */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Why Harch Corp</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               Not Just a Job.<br />A Mission.
             </h2>
           </FadeIn>
@@ -75,10 +75,10 @@ export default function CareersPageClient() {
             ].map((item, i) => (
               <FadeIn key={item.label} delay={i * 0.1}>
                 <div className="card p-8 h-full text-center">
-                  <p className="text-5xl md:text-6xl font-bold text-[#000000] mb-2">{item.value}</p>
+                  <p className="text-5xl md:text-6xl font-bold text-white mb-2">{item.value}</p>
                   <div className="accent-line mx-auto mb-4" />
-                  <p className="text-[14px] font-semibold text-[#000000] mb-2">{item.label}</p>
-                  <p className="text-[13px] text-[#6B7280] leading-relaxed">{item.desc}</p>
+                  <p className="text-[14px] font-semibold text-white mb-2">{item.label}</p>
+                  <p className="text-[13px] text-[#999999] leading-relaxed">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -87,30 +87,30 @@ export default function CareersPageClient() {
       </section>
 
       {/* Open Positions */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Open Positions</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               Current Openings
             </h2>
-            <p className="max-w-xl text-[15px] text-[#6B7280] leading-relaxed mb-12">Join our team and help build Africa&apos;s industrial sovereignty.</p>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Join our team and help build Africa&apos;s industrial sovereignty.</p>
           </FadeIn>
           <div className="space-y-2">
             {positions.map((pos, i) => (
               <FadeIn key={pos.title} delay={i * 0.03}>
                 <div className="vertical-row group flex flex-col md:flex-row md:items-center justify-between py-5 px-4 cursor-pointer">
                   <div className="flex-1 min-w-0 mb-2 md:mb-0">
-                    <h3 className="text-[15px] font-bold text-[#000000] group-hover:text-[#374151] transition-colors">{pos.title}</h3>
+                    <h3 className="text-[15px] font-bold text-white group-hover:text-[#CCCCCC] transition-colors">{pos.title}</h3>
                     <div className="flex items-center gap-4 mt-1">
-                      <span className="text-[11px] text-[#9CA3AF] font-semibold uppercase tracking-wide">{pos.department}</span>
-                      <span className="text-[11px] text-[#9CA3AF] flex items-center gap-1"><MapPin size={10} />{pos.location}</span>
+                      <span className="text-[11px] text-[#666666] font-semibold uppercase tracking-wide">{pos.department}</span>
+                      <span className="text-[11px] text-[#666666] flex items-center gap-1"><MapPin size={10} />{pos.location}</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="px-3 py-1 rounded-md bg-[rgba(0,0,0,0.03)] text-[10px] font-semibold text-[#6B7280] tracking-wide">{pos.type}</span>
-                    <span className="px-3 py-1 rounded-md bg-[rgba(0,0,0,0.03)] text-[10px] font-semibold text-[#6B7280] tracking-wide">{pos.level}</span>
-                    <ArrowRight size={14} className="vertical-arrow text-[rgba(0,0,0,0.1)] group-hover:text-[#000000] transition-all" />
+                    <span className="px-3 py-1 rounded-md bg-[rgba(255,255,255,0.04)] text-[10px] font-semibold text-[#999999] tracking-wide">{pos.type}</span>
+                    <span className="px-3 py-1 rounded-md bg-[rgba(255,255,255,0.04)] text-[10px] font-semibold text-[#999999] tracking-wide">{pos.level}</span>
+                    <ArrowRight size={14} className="vertical-arrow text-[rgba(255,255,255,0.1)] group-hover:text-white transition-all" />
                   </div>
                 </div>
               </FadeIn>
@@ -120,11 +120,11 @@ export default function CareersPageClient() {
       </section>
 
       {/* Culture */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Our Culture</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               How We Work
             </h2>
           </FadeIn>
@@ -137,9 +137,9 @@ export default function CareersPageClient() {
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.08}>
                 <div className="card p-8 h-full">
-                  <h3 className="text-lg font-bold text-[#000000] mb-3">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
                   <div className="accent-line mb-4" />
-                  <p className="text-[14px] text-[#6B7280] leading-[1.7]">{item.desc}</p>
+                  <p className="text-[14px] text-[#999999] leading-[1.7]">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -148,11 +148,11 @@ export default function CareersPageClient() {
       </section>
 
       {/* Benefits */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Benefits</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               What We Offer
             </h2>
           </FadeIn>
@@ -160,11 +160,11 @@ export default function CareersPageClient() {
             {benefits.map((b, i) => (
               <FadeIn key={b.title} delay={i * 0.06}>
                 <div className="card p-6 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-[rgba(0,0,0,0.04)] flex items-center justify-center mb-3">
-                    <b.icon size={18} className="text-[#000000]" strokeWidth={1.5} />
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center mb-3">
+                    <b.icon size={18} className="text-white" strokeWidth={1.5} />
                   </div>
-                  <h4 className="text-sm font-bold text-[#000000] mb-1">{b.title}</h4>
-                  <p className="text-[12px] text-[#6B7280] leading-relaxed">{b.desc}</p>
+                  <h4 className="text-sm font-bold text-white mb-1">{b.title}</h4>
+                  <p className="text-[12px] text-[#999999] leading-relaxed">{b.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -173,7 +173,7 @@ export default function CareersPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+      <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
@@ -182,7 +182,7 @@ export default function CareersPageClient() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-[#000000] text-white px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:border-white/30 transition-all">Apply Now <ArrowRight size={14} /></Link>
+              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">Apply Now <ArrowRight size={14} /></Link>
               <Link href="/about" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">About Harch Corp</Link>
             </div>
           </FadeIn>

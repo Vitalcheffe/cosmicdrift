@@ -35,17 +35,17 @@ const advantages = [
 
 export default function StrategyPageClient() {
   return (
-    <div className="bg-white">
+    <div className="bg-[#1A1A1A]">
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Strategy</p>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-[#000000] tracking-[-0.02em] leading-[1.05] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               The Operator<br />Model
             </h1>
             <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[16px] text-[#6B7280] leading-[1.7]">
+            <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
               Harch Corp doesn&apos;t advise — we build. We own the entire value chain from raw materials to finished infrastructure. This is our strategy for converting Africa&apos;s potential into industrial power.
             </p>
           </FadeIn>
@@ -53,21 +53,21 @@ export default function StrategyPageClient() {
       </section>
 
       {/* Vision */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn>
               <p className="section-label mb-4">Our Vision</p>
-              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
                 Africa Doesn&apos;t Need Aid.<br/>It Needs Infrastructure.
               </h2>
-              <p className="text-[15px] text-[#6B7280] leading-[1.7] mb-6">
+              <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
                 For decades, the prevailing approach to African development has been aid-based — funding that creates dependency without building capacity. Our strategy inverts this model entirely.
               </p>
-              <p className="text-[15px] text-[#6B7280] leading-[1.7] mb-6">
+              <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
                 We deploy capital into infrastructure that generates returns — economic, strategic, and social. Every dollar invested in Harch Corp creates permanent industrial capacity that Africa owns and controls.
               </p>
-              <p className="text-[15px] text-[#6B7280] leading-[1.7]">
+              <p className="text-[15px] text-[#999999] leading-[1.7]">
                 This is not charity. This is industrial sovereignty. And it&apos;s the most profitable, most impactful investment thesis on the continent.
               </p>
             </FadeIn>
@@ -80,8 +80,8 @@ export default function StrategyPageClient() {
                   { value: '3,200+', label: 'Jobs by 2028' },
                 ].map((stat) => (
                   <div key={stat.label} className="card p-6 text-center">
-                    <p className="text-3xl font-bold text-[#000000]">{stat.value}</p>
-                    <p className="text-[10px] text-[#9CA3AF] uppercase tracking-[0.1em] font-bold mt-1">{stat.label}</p>
+                    <p className="text-3xl font-bold text-white">{stat.value}</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -91,14 +91,14 @@ export default function StrategyPageClient() {
       </section>
 
       {/* 7 Verticals Deep Dive */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Seven Pillars</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
               The Vertical Strategy
             </h2>
-            <p className="max-w-xl text-[15px] text-[#6B7280] leading-relaxed mb-16">
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
               Each vertical is designed to reinforce the others — creating a self-reinforcing industrial ecosystem that grows stronger as it scales.
             </p>
           </FadeIn>
@@ -109,26 +109,26 @@ export default function StrategyPageClient() {
                 <Link href={v.href} className="vertical-row group block p-6 md:p-8 cursor-pointer">
                   <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
                     <div className="flex items-center gap-4 shrink-0">
-                      <div className="w-12 h-12 rounded-xl bg-[rgba(0,0,0,0.04)] flex items-center justify-center">
-                        <v.icon size={20} className="text-[#000000]" strokeWidth={1.5} />
+                      <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
+                        <v.icon size={20} className="text-white" strokeWidth={1.5} />
                       </div>
                       <div>
                         <div className="flex items-baseline gap-3">
-                          <h3 className="text-xl md:text-2xl font-bold text-[#000000] group-hover:text-[#374151] transition-colors">{v.name}</h3>
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#CCCCCC] transition-colors">{v.name}</h3>
                           <span className="version-tag">{v.version}</span>
                         </div>
-                        <p className="text-[12px] font-semibold text-[#000000]">{v.investment}</p>
+                        <p className="text-[12px] font-semibold text-white">{v.investment}</p>
                       </div>
                     </div>
                     <div className="flex-1">
-                      <p className="text-[14px] text-[#6B7280] leading-relaxed mb-4">{v.desc}</p>
+                      <p className="text-[14px] text-[#999999] leading-relaxed mb-4">{v.desc}</p>
                       <div className="flex flex-wrap gap-2">
                         {v.keyPoints.map((point) => (
-                          <span key={point} className="px-3 py-1 rounded-md bg-[rgba(0,0,0,0.03)] text-[10px] font-semibold text-[#6B7280] tracking-wide">{point}</span>
+                          <span key={point} className="px-3 py-1 rounded-md bg-[rgba(255,255,255,0.04)] text-[10px] font-semibold text-[#999999] tracking-wide">{point}</span>
                         ))}
                       </div>
                     </div>
-                    <ArrowRight size={16} className="vertical-arrow text-[rgba(0,0,0,0.1)] group-hover:text-[#000000] transition-all shrink-0 mt-2" />
+                    <ArrowRight size={16} className="vertical-arrow text-[rgba(255,255,255,0.1)] group-hover:text-white transition-all shrink-0 mt-2" />
                   </div>
                 </Link>
               </FadeIn>
@@ -138,11 +138,11 @@ export default function StrategyPageClient() {
       </section>
 
       {/* Investment Thesis */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Investment Thesis</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
               Why Africa, Why Now
             </h2>
           </FadeIn>
@@ -154,9 +154,9 @@ export default function StrategyPageClient() {
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.1}>
                 <div className="card p-8 h-full">
-                  <h3 className="text-lg font-bold text-[#000000] mb-3">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
                   <div className="accent-line mb-4" />
-                  <p className="text-[14px] text-[#6B7280] leading-[1.7]">{item.desc}</p>
+                  <p className="text-[14px] text-[#999999] leading-[1.7]">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -165,11 +165,11 @@ export default function StrategyPageClient() {
       </section>
 
       {/* Competitive Advantages */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Competitive Edge</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               Why Harch Wins
             </h2>
           </FadeIn>
@@ -178,11 +178,11 @@ export default function StrategyPageClient() {
               <FadeIn key={adv.title} delay={i * 0.08}>
                 <div className="card p-8 h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-[11px] font-bold text-[rgba(0,0,0,0.2)]">0{i + 1}</span>
-                    <h3 className="text-lg font-bold text-[#000000]">{adv.title}</h3>
+                    <span className="text-[11px] font-bold text-[rgba(255,255,255,0.2)]">0{i + 1}</span>
+                    <h3 className="text-lg font-bold text-white">{adv.title}</h3>
                   </div>
                   <div className="accent-line mb-4" />
-                  <p className="text-[14px] text-[#6B7280] leading-[1.7]">{adv.desc}</p>
+                  <p className="text-[14px] text-[#999999] leading-[1.7]">{adv.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -191,7 +191,7 @@ export default function StrategyPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+      <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
@@ -200,7 +200,7 @@ export default function StrategyPageClient() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/investors" className="inline-flex items-center gap-2.5 bg-[#000000] text-white px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:border-white/30 transition-all">Investment Details <ArrowRight size={14} /></Link>
+              <Link href="/investors" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">Investment Details <ArrowRight size={14} /></Link>
               <Link href="/contact" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">Contact Us</Link>
             </div>
           </FadeIn>

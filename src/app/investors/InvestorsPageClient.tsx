@@ -55,17 +55,17 @@ const pipelinePhases = [
 
 export default function InvestorsPageClient() {
   return (
-    <div className="bg-white">
+    <div className="bg-[#1A1A1A]">
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Investor Relations</p>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-[#000000] tracking-[-0.02em] leading-[1.05] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Invest in Africa&apos;s<br />Industrial Future
             </h1>
             <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[16px] text-[#6B7280] leading-[1.7]">
+            <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
               $2.4B+ in active capital deployment across 7 verticals and 5 countries. Harch Corp offers institutional investors direct access to Africa&apos;s most consequential industrial opportunity.
             </p>
           </FadeIn>
@@ -73,11 +73,11 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Investment Highlights */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Investment Highlights</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               By the Numbers
             </h2>
           </FadeIn>
@@ -85,11 +85,11 @@ export default function InvestorsPageClient() {
             {highlights.map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div className="card p-6">
-                  <p className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#000000] tracking-tight leading-none mb-2">
+                  <p className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-tight leading-none mb-2">
                     <AnimatedCounter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                   </p>
-                  <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-[#000000] mb-1">{stat.label}</p>
-                  <p className="text-[12px] text-[#9CA3AF] leading-relaxed">{stat.desc}</p>
+                  <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-1">{stat.label}</p>
+                  <p className="text-[12px] text-[#666666] leading-relaxed">{stat.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -98,17 +98,17 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Financial Overview Table */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Financial Overview</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               Investment Breakdown
             </h2>
-            <p className="max-w-xl text-[15px] text-[#6B7280] leading-relaxed mb-12">Detailed capital allocation and projected returns across all 7 verticals.</p>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Detailed capital allocation and projected returns across all 7 verticals.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="bg-[#FAFAFA] rounded-2xl border border-[rgba(0,0,0,0.04)] overflow-hidden">
+            <div className="bg-[#121212] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="data-table">
                   <thead>
@@ -139,8 +139,8 @@ export default function InvestorsPageClient() {
                   </tbody>
                 </table>
               </div>
-              <div className="px-6 py-4 border-t border-[rgba(0,0,0,0.04)] bg-white/50">
-                <p className="text-[11px] text-[#9CA3AF]">Total: $2.4B+ | Weighted avg. IRR: 20-25% | Data as of Q1 2026</p>
+              <div className="px-6 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[#1A1A1A]/50">
+                <p className="text-[11px] text-[#666666]">Total: $2.4B+ | Weighted avg. IRR: 20-25% | Data as of Q1 2026</p>
               </div>
             </div>
           </FadeIn>
@@ -148,11 +148,11 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Pipeline Phases */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Deployment Timeline</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               Capital Deployment Phases
             </h2>
           </FadeIn>
@@ -162,12 +162,12 @@ export default function InvestorsPageClient() {
                 <div className="card p-8">
                   <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
                     <div className="shrink-0">
-                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#000000]">{phase.phase}</span>
-                      <p className="text-[12px] text-[#9CA3AF]">{phase.year}</p>
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">{phase.phase}</span>
+                      <p className="text-[12px] text-[#666666]">{phase.year}</p>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-[#000000] mb-2">{phase.desc}</h3>
-                      <p className="text-[14px] text-[#6B7280] leading-relaxed">{phase.detail}</p>
+                      <h3 className="text-lg font-bold text-white mb-2">{phase.desc}</h3>
+                      <p className="text-[14px] text-[#999999] leading-relaxed">{phase.detail}</p>
                     </div>
                   </div>
                 </div>
@@ -178,18 +178,18 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Key Investment Thesis */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn>
               <p className="section-label mb-4">Investment Thesis</p>
-              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
                 Structural Advantages<br />That Compound
               </h2>
-              <p className="text-[15px] text-[#6B7280] leading-[1.7] mb-6">
+              <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
                 Harch Corp&apos;s vertically integrated model creates structural cost advantages of 30-50% versus competitors. Because we own energy, materials, and technology, our operating costs are fundamentally lower.
               </p>
-              <p className="text-[15px] text-[#6B7280] leading-[1.7] mb-6">
+              <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
                 These advantages compound over time. As each vertical scales, it reduces costs for the others — creating a self-reinforcing industrial ecosystem that grows stronger and more profitable with every project delivered.
               </p>
               <div className="grid grid-cols-2 gap-4">
@@ -199,15 +199,15 @@ export default function InvestorsPageClient() {
                   { label: 'Payback Period', value: '5-7 yrs' },
                   { label: 'Capital Efficiency', value: '1.8x' },
                 ].map((item) => (
-                  <div key={item.label} className="bg-[rgba(0,0,0,0.02)] rounded-lg p-4">
-                    <p className="text-xl font-bold text-[#000000]">{item.value}</p>
-                    <p className="text-[10px] text-[#9CA3AF] uppercase tracking-[0.1em] font-bold">{item.label}</p>
+                  <div key={item.label} className="bg-[rgba(255,255,255,0.03)] rounded-lg p-4">
+                    <p className="text-xl font-bold text-white">{item.value}</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold">{item.label}</p>
                   </div>
                 ))}
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#F1F3F5]">
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#1E1E1E]">
                 <Image src="/images/hero-energy.jpg" alt="Harch Corp Investment" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
@@ -217,7 +217,7 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+      <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
@@ -226,7 +226,7 @@ export default function InvestorsPageClient() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-[#000000] text-white px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:border-white/30 transition-all">Request Deck <ArrowRight size={14} /></Link>
+              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">Request Deck <ArrowRight size={14} /></Link>
               <Link href="/strategy" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">View Strategy</Link>
             </div>
           </FadeIn>

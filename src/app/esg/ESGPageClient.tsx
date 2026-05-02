@@ -55,17 +55,17 @@ const governanceTable = [
 
 export default function ESGPageClient() {
   return (
-    <div className="bg-white">
+    <div className="bg-[#1A1A1A]">
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">ESG & Sustainability</p>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-[#000000] tracking-[-0.02em] leading-[1.05] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Building Sustainably,<br />Operating Responsibly
             </h1>
             <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[16px] text-[#6B7280] leading-[1.7]">
+            <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
               Environmental stewardship, social impact, and world-class governance are not add-ons — they are foundational to our operating model and investment thesis.
             </p>
           </FadeIn>
@@ -73,11 +73,11 @@ export default function ESGPageClient() {
       </section>
 
       {/* Environmental Commitments */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Environmental</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               Zero-Carbon by Design
             </h2>
           </FadeIn>
@@ -85,11 +85,11 @@ export default function ESGPageClient() {
             {envCommitments.map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.08}>
                 <div className="card p-8 h-full">
-                  <div className="w-12 h-12 rounded-xl bg-[rgba(0,0,0,0.04)] flex items-center justify-center mb-4">
-                    <item.icon size={20} className="text-[#000000]" strokeWidth={1.5} />
+                  <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.06)] flex items-center justify-center mb-4">
+                    <item.icon size={20} className="text-white" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-lg font-bold text-[#000000] mb-2">{item.title}</h3>
-                  <p className="text-[14px] text-[#6B7280] leading-[1.7]">{item.desc}</p>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-[14px] text-[#999999] leading-[1.7]">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -102,7 +102,7 @@ export default function ESGPageClient() {
         <Image src="/images/hero-energy.jpg" alt="Renewable Energy" fill className="object-cover" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24">
           <FadeIn>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1A1A1A]/10 border border-white/10 backdrop-blur-sm mb-6">
               <Leaf size={12} className="text-white/60" />
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">Environmental Commitment</span>
             </span>
@@ -117,11 +117,11 @@ export default function ESGPageClient() {
       </section>
 
       {/* Social Impact */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Social</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               Impact at Scale
             </h2>
           </FadeIn>
@@ -129,11 +129,11 @@ export default function ESGPageClient() {
             {socialImpact.map((item, i) => (
               <FadeIn key={item.label} delay={i * 0.1}>
                 <div className="card p-6">
-                  <p className="text-3xl md:text-4xl font-bold text-[#000000] tracking-tight leading-none mb-2">
+                  <p className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-none mb-2">
                     <AnimatedCounter target={item.stat} prefix={item.prefix} suffix={item.suffix} />
                   </p>
-                  <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-[#000000] mb-2">{item.label}</p>
-                  <p className="text-[12px] text-[#9CA3AF] leading-relaxed">{item.desc}</p>
+                  <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-2">{item.label}</p>
+                  <p className="text-[12px] text-[#666666] leading-relaxed">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -142,11 +142,11 @@ export default function ESGPageClient() {
       </section>
 
       {/* Social Programs */}
-      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Community Programs</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               Investing in People
             </h2>
           </FadeIn>
@@ -158,9 +158,9 @@ export default function ESGPageClient() {
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.1}>
                 <div className="card p-8 h-full">
-                  <h3 className="text-lg font-bold text-[#000000] mb-3">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
                   <div className="accent-line mb-4" />
-                  <p className="text-[14px] text-[#6B7280] leading-[1.7]">{item.desc}</p>
+                  <p className="text-[14px] text-[#999999] leading-[1.7]">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -169,17 +169,17 @@ export default function ESGPageClient() {
       </section>
 
       {/* Governance */}
-      <section className="py-28 md:py-36 bg-white">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Governance</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               World-Class Standards
             </h2>
-            <p className="max-w-xl text-[15px] text-[#6B7280] leading-relaxed mb-12">International certifications and frameworks adopted across all operations.</p>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">International certifications and frameworks adopted across all operations.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="bg-[#FAFAFA] rounded-2xl border border-[rgba(0,0,0,0.04)] overflow-hidden">
+            <div className="bg-[#121212] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="data-table">
                   <thead>
@@ -212,7 +212,7 @@ export default function ESGPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+      <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
@@ -221,7 +221,7 @@ export default function ESGPageClient() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-[#000000] text-white px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:border-white/30 transition-all">Get Involved <ArrowRight size={14} /></Link>
+              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">Get Involved <ArrowRight size={14} /></Link>
               <Link href="/investors" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">View Investment Details</Link>
             </div>
           </FadeIn>

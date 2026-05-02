@@ -100,7 +100,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#FAFAFA] text-[#0A0F1A] min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#1A1A1A] text-white min-h-screen flex flex-col`}>
         <Sidebar />
         <div className="flex-1 flex flex-col lg:ml-[250px]">
           <main className="flex-1">{children}</main>

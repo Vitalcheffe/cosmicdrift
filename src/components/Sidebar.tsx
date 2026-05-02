@@ -48,16 +48,17 @@ export function Sidebar() {
 
   const closeMobile = () => setMobileOpen(false);
 
-  const sectionLabel = "text-[9px] font-bold tracking-[0.2em] uppercase text-[#9CA3AF] mb-3 px-1 font-[family-name:var(--font-space-mono)]";
+  const sectionLabel = "text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] mb-3 px-1 font-[family-name:var(--font-space-mono)]";
 
   const navLink = (href: string, label: string, extra?: React.ReactNode) => (
     <Link
+      key={href}
       href={href}
       onClick={closeMobile}
       className={`flex items-center justify-between text-[12px] font-medium pl-3 py-[7px] rounded-md transition-colors ${
         isActive(href)
-          ? 'text-[#0A0F1A] bg-[rgba(0,0,0,0.04)]'
-          : 'text-[#6B7280] hover:text-[#0A0F1A] hover:bg-[rgba(0,0,0,0.02)]'
+          ? 'text-white bg-[rgba(255,255,255,0.04)]'
+          : 'text-[#999999] hover:text-white hover:bg-[rgba(255,255,255,0.02)]'
       }`}
     >
       <span>{label}</span>
@@ -70,23 +71,23 @@ export function Sidebar() {
       {/* ═══ HAMBURGER BUTTON — Mobile only ═══ */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden w-10 h-10 flex items-center justify-center bg-[#F5F6F8] border border-[rgba(0,0,0,0.06)] rounded-lg shadow-sm"
+        className="fixed top-4 left-4 z-50 lg:hidden w-10 h-10 flex items-center justify-center bg-[#121212] border border-[rgba(255,255,255,0.06)] rounded-lg shadow-sm"
         aria-label="Toggle menu"
       >
-        {mobileOpen ? <X size={18} strokeWidth={1.5} /> : <Menu size={18} strokeWidth={1.5} />}
+        {mobileOpen ? <X size={18} strokeWidth={1.5} className="text-white" /> : <Menu size={18} strokeWidth={1.5} className="text-white" />}
       </button>
 
       {/* ═══ MOBILE OVERLAY ═══ */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 bg-black/20 z-30 lg:hidden"
+          className="fixed inset-0 bg-black/40 z-30 lg:hidden"
           onClick={closeMobile}
         />
       )}
 
-      {/* ═══ SIDEBAR — Control Panel ═══ */}
+      {/* ═══ SIDEBAR — Control Panel Dark ═══ */}
       <aside
-        className={`fixed top-0 left-0 h-full z-40 w-[250px] bg-[#F5F6F8] border-r border-[rgba(0,0,0,0.06)] overflow-y-auto transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
+        className={`fixed top-0 left-0 h-full z-40 w-[250px] bg-[#121212] border-r border-[rgba(255,255,255,0.06)] overflow-y-auto transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full'
         } lg:translate-x-0`}
       >
@@ -108,7 +109,7 @@ export function Sidebar() {
                 <span>Platforms</span>
                 <ChevronDown
                   size={10}
-                  className={`transition-transform text-[#9CA3AF] ${platformsOpen ? 'rotate-180' : ''}`}
+                  className={`transition-transform text-[#666666] ${platformsOpen ? 'rotate-180' : ''}`}
                 />
               </button>
               {platformsOpen && (
@@ -120,12 +121,12 @@ export function Sidebar() {
                       onClick={closeMobile}
                       className={`flex items-center justify-between text-[12px] font-medium pl-3 py-[7px] rounded-md transition-colors ${
                         isActive(item.href)
-                          ? 'text-[#0A0F1A] bg-[rgba(0,0,0,0.04)]'
-                          : 'text-[#6B7280] hover:text-[#0A0F1A] hover:bg-[rgba(0,0,0,0.02)]'
+                          ? 'text-white bg-[rgba(255,255,255,0.04)]'
+                          : 'text-[#999999] hover:text-white hover:bg-[rgba(255,255,255,0.02)]'
                       }`}
                     >
                       <span>{item.name}</span>
-                      <span className="text-[10px] text-[rgba(0,0,0,0.2)] font-[family-name:var(--font-space-mono)]">{item.version}</span>
+                      <span className="text-[10px] text-[rgba(255,255,255,0.15)] font-[family-name:var(--font-space-mono)]">{item.version}</span>
                     </Link>
                   ))}
                 </div>
@@ -158,15 +159,15 @@ export function Sidebar() {
           </nav>
 
           {/* ═══ Bottom: Get Started ═══ */}
-          <div className="mt-4 pt-5 border-t border-[rgba(0,0,0,0.06)]">
+          <div className="mt-4 pt-5 border-t border-[rgba(255,255,255,0.06)]">
             <Link
               href="/contact"
               onClick={closeMobile}
-              className="block w-full text-center bg-[#000000] text-white text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[#1a1a1a] transition-colors font-[family-name:var(--font-space-mono)]"
+              className="block w-full text-center border border-white/30 bg-transparent text-white text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-white hover:text-black transition-colors font-[family-name:var(--font-space-mono)]"
             >
               Get Started
             </Link>
-            <p className="text-[9px] text-[#9CA3AF] mt-3 text-center font-[family-name:var(--font-space-mono)]">
+            <p className="text-[9px] text-[#666666] mt-3 text-center font-[family-name:var(--font-space-mono)]">
               v0.1.0 — Casablanca
             </p>
           </div>

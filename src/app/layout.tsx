@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
-import { Navigation } from "@/components/Navigation";
+import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -93,10 +100,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased bg-[#FAFAFA] text-[#0A0F1A] min-h-screen flex flex-col`}>
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#FAFAFA] text-[#0A0F1A] min-h-screen flex flex-col`}>
+        <Sidebar />
+        <div className="flex-1 flex flex-col lg:ml-[240px]">
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
         <CookieConsent />
       </body>
     </html>

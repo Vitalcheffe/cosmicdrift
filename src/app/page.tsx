@@ -9,13 +9,13 @@ import { WorldMap } from '@/components/WorldMap';
 
 /* ═══ DATA ═══ */
 const verticals = [
-  { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'AI Data Centers & GPU Clusters — 500MW hyperscale facility in Dakhla, powered by 100% renewable energy. Hosts next-gen GPU clusters for sovereign AI compute.', stat: '500MW+', href: '/subsidiaries/intelligence', image: '/images/verticals/intelligence.jpg' },
-  { version: '/0.2', name: 'Ciment', fullName: 'Harch Ciment', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', image: '/images/verticals/cement.jpg' },
-  { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+', href: '/subsidiaries/energy', image: '/images/verticals/energy.jpg' },
-  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'AI Platforms, Cyber & Satellite — Sovereign tech stack from cybersecurity to satellite communications. 50K+ GPU clusters powering continental AI.', stat: '50K+ GPUs', href: '/subsidiaries/technology', image: '/images/verticals/technology.jpg' },
-  { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', image: '/images/verticals/mining.jpg' },
-  { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', image: '/images/verticals/agriculture.jpg' },
-  { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', image: '/images/verticals/water.jpg' },
+  { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'AI Data Centers & GPU Clusters — 500MW hyperscale facility in Dakhla, powered by 100% renewable energy. Hosts next-gen GPU clusters for sovereign AI compute.', stat: '500MW+', href: '/subsidiaries/intelligence', image: '/images/verticals/intelligence.jpg', outcomes: ['Sovereign AI Compute', '500MW Hyperscale DC', '100% Renewable Powered', 'Submarine Cable Connectivity'] },
+  { version: '/0.2', name: 'Ciment', fullName: 'Harch Ciment', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', image: '/images/verticals/cement.jpg', outcomes: ['500kT/yr Production', 'West Africa Supply Chain', 'Quarry-to-Delivery Integration', 'Industrial-Grade Output'] },
+  { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+', href: '/subsidiaries/energy', image: '/images/verticals/energy.jpg', outcomes: ['2GW+ Renewables', 'Green Hydrogen Export', 'Grid Stabilization', 'Zero-Carbon Industrial Power'] },
+  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'AI Platforms, Cyber & Satellite — Sovereign tech stack from cybersecurity to satellite communications. 50K+ GPU clusters powering continental AI.', stat: '50K+ GPUs', href: '/subsidiaries/technology', image: '/images/verticals/technology.jpg', outcomes: ['50K+ GPU Clusters', 'Cybersecurity Platforms', 'Satellite Communications', 'Continental AI Stack'] },
+  { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', image: '/images/verticals/mining.jpg', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'Rare Earth Extraction', 'In-Country Value Capture'] },
+  { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', image: '/images/verticals/agriculture.jpg', outcomes: ['Precision IoT Farming', 'Drone Crop Monitoring', 'Vertical Farm Networks', '$35B Market Access'] },
+  { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', image: '/images/verticals/water.jpg', outcomes: ['200M m³/yr Desalination', 'AI-Optimized Distribution', 'Smart Pipe Networks', 'Continental Water Security'] },
 ];
 
 const carouselSlides = [
@@ -208,7 +208,7 @@ export default function HomePage() {
           >
             <ChevronLeft size={16} />
           </button>
-          <span className="text-[11px] text-white/40 font-medium tabular-nums">
+          <span className="text-[11px] text-white/40 font-medium tabular-nums font-[family-name:var(--font-space-mono)]">
             {String(activeSlide + 1).padStart(2, '0')} / {String(carouselSlides.length).padStart(2, '0')}
           </span>
           <button
@@ -262,11 +262,18 @@ export default function HomePage() {
                       <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#000000] group-hover:text-[#374151] transition-colors tracking-tight">
                         {v.name}
                       </h3>
-                      <span className="text-[11px] font-bold text-[#000000] tracking-wide hidden sm:inline">{v.stat}</span>
+                      <span className="text-[11px] font-bold text-[#000000] tracking-wide hidden sm:inline stat-mono">{v.stat}</span>
                     </div>
                     <p className="text-[13px] md:text-[15px] text-[#6B7280] leading-relaxed max-w-xl group-hover:text-[#0A0F1A]/60 transition-colors">
                       {v.desc}
                     </p>
+                    <div className="mt-3 space-y-1">
+                      {v.outcomes?.map((outcome, j) => (
+                        <p key={j} className="text-[11px] text-[#9CA3AF] font-[family-name:var(--font-space-mono)] tracking-wide">
+                          &gt; {outcome}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                   <div className="flex items-center gap-4 shrink-0">
                     <span className="version-tag hidden md:inline">{v.version}</span>
@@ -396,7 +403,7 @@ export default function HomePage() {
             {stats.map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div className="card p-6">
-                  <p className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#000000] tracking-tight leading-none mb-2">
+                  <p className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#000000] tracking-tight leading-none mb-2 stat-mono">
                     <AnimatedCounter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                   </p>
                   <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-[#000000] mb-1">
@@ -512,7 +519,7 @@ export default function HomePage() {
                   { val: '100%', label: 'Renewable' },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="text-2xl font-bold text-[#000000]">{s.val}</p>
+                    <p className="text-2xl font-bold text-[#000000] stat-mono">{s.val}</p>
                     <p className="text-[10px] text-[#9CA3AF] uppercase tracking-[0.1em] font-bold">{s.label}</p>
                   </div>
                 ))}
@@ -581,7 +588,7 @@ export default function HomePage() {
                   { val: 'Zero', label: 'Carbon' },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="text-2xl font-bold text-[#000000]">{s.val}</p>
+                    <p className="text-2xl font-bold text-[#000000] stat-mono">{s.val}</p>
                     <p className="text-[10px] text-[#9CA3AF] uppercase tracking-[0.1em] font-bold">{s.label}</p>
                   </div>
                 ))}
@@ -641,7 +648,7 @@ export default function HomePage() {
             {africaStats.map((item, i) => (
               <FadeIn key={i} delay={i * 0.12}>
                 <div className="card p-8 h-full">
-                  <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#000000] mb-2 leading-none">{item.value}</p>
+                  <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#000000] mb-2 leading-none stat-mono">{item.value}</p>
                   <div className="accent-line mb-5" />
                   <p className="text-[13px] text-[#6B7280] leading-[1.7]">{item.desc}</p>
                 </div>

@@ -120,6 +120,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #9CA3AF;
+  font-family: var(--font-space-mono), monospace;
 }
 
 /* ═══════════════════════════════════════════
@@ -282,6 +283,7 @@
   letter-spacing: 0.04em;
   color: rgba(0, 0, 0, 0.2);
   font-variant-numeric: tabular-nums;
+  font-family: var(--font-space-mono), monospace;
 }
 
 /* ═══════════════════════════════════════════
@@ -457,4 +459,19 @@
 .status-badge-design {
   background: rgba(0,0,0,0.04);
   color: #9CA3AF;
+}
+
+/* ═══════════════════════════════════════════
+   FONT MONO TAG — Space Mono utility
+   ═══════════════════════════════════════════ */
+.font-mono-tag {
+  font-family: var(--font-space-mono), monospace;
+}
+
+/* ═══════════════════════════════════════════
+   STAT MONO — Key numbers with tabular nums
+   ═══════════════════════════════════════════ */
+.stat-mono {
+  font-family: var(--font-space-mono), monospace;
+  font-variant-numeric: tabular-nums;
 }

@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import InvestorsPageClient from './InvestorsPageClient';
 
 export const metadata: Metadata = {
-  title: 'Investor Relations — $2.4B+ Pipeline',
-  description: 'Invest in Africa\'s industrial sovereignty. Harch Corp\'s $2.4B+ investment pipeline spans AI Data Centers (500MW), Renewable Energy (2GW+), Cement, Mining, Agriculture, and Water across 5 countries.',
+  title: 'Investor Relations — Harch Corp',
+  description: 'Harch Corp investor relations: $2.4B investment pipeline across 7 verticals. Explore partnership and investment opportunities.',
 };
 
 export default function InvestorsPage() {

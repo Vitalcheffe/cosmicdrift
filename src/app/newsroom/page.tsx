@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import NewsroomPageClient from './NewsroomPageClient';
 
 export const metadata: Metadata = {
-  title: 'Newsroom — Press & Media',
-  description: 'Latest news and press releases from Harch Corp — AI Data Center Dakhla, Renewable Energy Morocco, Sovereign Infrastructure, and Africa\'s industrial transformation.',
+  title: 'Newsroom — Harch Corp',
+  description: "Latest news, announcements, and press releases from Harch Corp — Africa's multi-sector industrial conglomerate.",
 };
 
 export default function NewsroomPage() {

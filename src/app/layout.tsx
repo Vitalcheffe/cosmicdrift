@@ -21,6 +21,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://harch-corp.vercel.app'),
   title: {
     default: "Harch Corp | Africa's Sovereign Infrastructure OS",
     template: "%s | Harch Corp",

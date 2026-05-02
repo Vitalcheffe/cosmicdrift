@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import ESGPageClient from './ESGPageClient';
 
 export const metadata: Metadata = {
-  title: 'ESG — Environmental, Social & Governance',
-  description: 'Harch Corp\'s ESG commitments: 100% renewable energy for data centers, zero-carbon industrial operations, and measurable social impact across 5 African countries.',
+  title: 'ESG — Harch Corp',
+  description: "Harch Corp's Environmental, Social, and Governance commitments: 100% renewable energy, community impact, and sustainable industrialization.",
 };
 
 export default function ESGPage() {

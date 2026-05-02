@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
-  title: 'Contact — Partnership & Inquiries',
-  description: 'Contact Harch Corp for partnership, investment, or general inquiries. Offices in Casablanca, Dakar, and Banjul. Build Africa\'s future with us.',
+  title: 'Contact — Harch Corp',
+  description: 'Get in touch with Harch Corp for partnership, investment, and business development inquiries.',
 };
 
 export default function ContactPage() {

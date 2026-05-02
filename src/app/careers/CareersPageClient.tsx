@@ -1,9 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, MapPin, Building2 } from 'lucide-react';
+import { ArrowRight, Briefcase, MapPin, Clock, Zap, Users, Heart, GraduationCap, Globe, TrendingUp, Building2 } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -15,57 +15,70 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
   );
 }
 
-const benefits = [
-  { title: 'Mission-Driven Work', description: 'Every project you work on directly contributes to Africa\'s industrial sovereignty. This isn\'t just a job — it\'s a movement.' },
-  { title: 'World-Class Projects', description: '500MW data centers, 2GW renewable farms, continental-scale infrastructure. Work on projects that would be ambitious anywhere in the world.' },
-  { title: 'Competitive Compensation', description: 'Market-leading salaries, equity participation, and comprehensive benefits including health, education, and relocation support.' },
-  { title: 'Growth & Development', description: 'Cross-vertical exposure, international assignments, and leadership development programs. Grow as fast as the company grows.' },
+const positions = [
+  { title: 'Senior Data Center Engineer', department: 'Intelligence', location: 'Dakhla, Morocco', type: 'Full-time', level: 'Senior' },
+  { title: 'AI/ML Infrastructure Lead', department: 'Technology', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Lead' },
+  { title: 'Renewable Energy Project Manager', department: 'Energy', location: 'Sahel Region', type: 'Full-time', level: 'Senior' },
+  { title: 'Cement Plant Operations Director', department: 'Ciment', location: 'Gambia', type: 'Full-time', level: 'Director' },
+  { title: 'Mining Geologist', department: 'Mining', location: 'Mauritania', type: 'Full-time', level: 'Mid' },
+  { title: 'Precision Agriculture Specialist', department: 'Agri', location: 'Senegal', type: 'Full-time', level: 'Mid' },
+  { title: 'Water Desalination Engineer', department: 'Water', location: 'Morocco', type: 'Full-time', level: 'Senior' },
+  { title: 'Cybersecurity Architect', department: 'Technology', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Lead' },
+  { title: 'Corporate Finance Analyst', department: 'Corporate', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Mid' },
+  { title: 'ESG & Sustainability Manager', department: 'Corporate', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Senior' },
+  { title: 'Construction Site Manager', department: 'Ciment', location: 'Gambia', type: 'Full-time', level: 'Senior' },
+  { title: 'Satellite Communications Engineer', department: 'Technology', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Mid' },
 ];
 
-const jobs = [
-  { title: 'Senior Data Center Engineer', vertical: 'Harch Intelligence', location: 'Dakhla, Morocco', type: 'Full-time' },
-  { title: 'Renewable Energy Project Manager', vertical: 'Harch Energy', location: 'Casablanca, Morocco', type: 'Full-time' },
-  { title: 'Mining Operations Director', vertical: 'Harch Mining', location: 'Rabat, Morocco', type: 'Full-time' },
-  { title: 'AI/ML Research Scientist', vertical: 'Harch Technology', location: 'Casablanca, Morocco', type: 'Full-time' },
-  { title: 'Cement Plant Operations Manager', vertical: 'Harch Ciment', location: 'Banjul, The Gambia', type: 'Full-time' },
-  { title: 'Agricultural Data Scientist', vertical: 'Harch Agri', location: 'Dakar, Senegal', type: 'Full-time' },
-  { title: 'Water Infrastructure Engineer', vertical: 'Harch Water', location: 'Casablanca, Morocco', type: 'Full-time' },
-  { title: 'ESG & Sustainability Manager', vertical: 'Corporate', location: 'Casablanca, Morocco', type: 'Full-time' },
+const benefits = [
+  { icon: TrendingUp, title: 'Competitive Compensation', desc: 'Market-leading salaries with performance bonuses and equity participation for senior roles.' },
+  { icon: Heart, title: 'Health & Wellness', desc: 'Comprehensive health insurance, mental health support, and wellness programs for all employees.' },
+  { icon: GraduationCap, title: 'Learning & Development', desc: 'Annual training budget, conference attendance, and mentorship from industry leaders.' },
+  { icon: Globe, title: 'Global Mobility', desc: 'Opportunities to work across 5 countries and 7 verticals. Relocation support for international moves.' },
+  { icon: Zap, title: 'Impact-Driven Work', desc: 'Every project directly contributes to Africa\'s industrial sovereignty. Purpose is built into the job.' },
+  { icon: Building2, title: 'World-Class Facilities', desc: 'Modern offices, state-of-the-art equipment, and the best tools for every role.' },
 ];
 
 export default function CareersPageClient() {
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-white">
       {/* Hero */}
-      <section className="pt-32 pb-24 md:pt-40 md:pb-32 bg-white">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6">Careers</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-8">
-              Build Africa&apos;s<br/>Industrial Future
+            <p className="section-label mb-4">Careers</p>
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-[#000000] tracking-[-0.02em] leading-[1.05] mb-6">
+              Build the Future<br />of Africa
             </h1>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
-              Harch Corp is assembling a world-class team of engineers, operators, and strategists 
-              to build the infrastructure Africa needs. If you want your work to matter — this is where you belong.
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[16px] text-[#6B7280] leading-[1.7]">
+              Join the team building Africa&apos;s industrial backbone. 3,200+ positions across 7 verticals and 5 countries. Every role directly contributes to the continent&apos;s sovereignty.
             </p>
           </FadeIn>
         </div>
       </section>
 
       {/* Why Harch */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-[#FAFAFA]">
+      <section className="py-28 md:py-36 bg-[#FAFAFA]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-12">Why Harch</p>
+            <p className="section-label mb-4">Why Harch Corp</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+              Not Just a Job.<br />A Mission.
+            </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            {benefits.map((benefit, i) => (
-              <FadeIn key={benefit.title} delay={i * 0.1}>
-                <div>
-                  <h3 className="text-xl font-bold text-[#0A0F1A] mb-3">{benefit.title}</h3>
-                  <p className="text-sm text-[#6B7280] leading-relaxed">{benefit.description}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { value: '3,200+', label: 'Positions by 2028', desc: 'Direct employment across all verticals with aggressive growth trajectory.' },
+              { value: '7', label: 'Industrial Verticals', desc: 'From AI compute to water security — diverse career paths under one roof.' },
+              { value: '5', label: 'Countries', desc: 'Morocco, Gambia, Senegal, Mauritania, Mali — with expansion to 12+ by 2030.' },
+            ].map((item, i) => (
+              <FadeIn key={item.label} delay={i * 0.1}>
+                <div className="card p-8 h-full text-center">
+                  <p className="text-5xl md:text-6xl font-bold text-[#000000] mb-2">{item.value}</p>
+                  <div className="accent-line mx-auto mb-4" />
+                  <p className="text-[14px] font-semibold text-[#000000] mb-2">{item.label}</p>
+                  <p className="text-[13px] text-[#6B7280] leading-relaxed">{item.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -74,33 +87,31 @@ export default function CareersPageClient() {
       </section>
 
       {/* Open Positions */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
+      <section className="py-28 md:py-36 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-12">Open Positions</p>
+            <p className="section-label mb-4">Open Positions</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-4">
+              Current Openings
+            </h2>
+            <p className="max-w-xl text-[15px] text-[#6B7280] leading-relaxed mb-12">Join our team and help build Africa&apos;s industrial sovereignty.</p>
           </FadeIn>
-          <div className="space-y-0">
-            {jobs.map((job, i) => (
-              <FadeIn key={job.title} delay={i * 0.05}>
-                <div className="flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-[rgba(0,0,0,0.04)] gap-4 group">
-                  <div>
-                    <h3 className="text-base font-bold text-[#0A0F1A] mb-1">{job.title}</h3>
-                    <div className="flex items-center gap-4 text-xs text-[#9CA3AF]">
-                      <span className="flex items-center gap-1">
-                        <Building2 size={12} />
-                        {job.vertical}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin size={12} />
-                        {job.location}
-                      </span>
-                      <span>{job.type}</span>
+          <div className="space-y-2">
+            {positions.map((pos, i) => (
+              <FadeIn key={pos.title} delay={i * 0.03}>
+                <div className="vertical-row group flex flex-col md:flex-row md:items-center justify-between py-5 px-4 cursor-pointer">
+                  <div className="flex-1 min-w-0 mb-2 md:mb-0">
+                    <h3 className="text-[15px] font-bold text-[#000000] group-hover:text-[#374151] transition-colors">{pos.title}</h3>
+                    <div className="flex items-center gap-4 mt-1">
+                      <span className="text-[11px] text-[#9CA3AF] font-semibold uppercase tracking-wide">{pos.department}</span>
+                      <span className="text-[11px] text-[#9CA3AF] flex items-center gap-1"><MapPin size={10} />{pos.location}</span>
                     </div>
                   </div>
-                  <button className="inline-flex items-center gap-2 text-xs text-[#6B7280] hover:text-[#0A0F1A] border border-[rgba(0,0,0,0.06)] hover:border-[rgba(0,0,0,0.15)] px-5 py-2 rounded-xl transition-colors shrink-0 self-start md:self-center">
-                    Apply
-                    <ArrowRight size={12} />
-                  </button>
+                  <div className="flex items-center gap-3">
+                    <span className="px-3 py-1 rounded-md bg-[rgba(0,0,0,0.03)] text-[10px] font-semibold text-[#6B7280] tracking-wide">{pos.type}</span>
+                    <span className="px-3 py-1 rounded-md bg-[rgba(0,0,0,0.03)] text-[10px] font-semibold text-[#6B7280] tracking-wide">{pos.level}</span>
+                    <ArrowRight size={14} className="vertical-arrow text-[rgba(0,0,0,0.1)] group-hover:text-[#000000] transition-all" />
+                  </div>
                 </div>
               </FadeIn>
             ))}
@@ -108,24 +119,72 @@ export default function CareersPageClient() {
         </div>
       </section>
 
-      {/* General Application */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-[#FAFAFA]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+      {/* Culture */}
+      <section className="py-28 md:py-36 bg-[#FAFAFA]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-6">
-              Don&apos;t See Your Role?
+            <p className="section-label mb-4">Our Culture</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+              How We Work
             </h2>
-            <p className="max-w-xl mx-auto text-base text-[#9CA3AF] mb-10">
-              We&apos;re always looking for exceptional people. Submit a general application and tell us 
-              how you can contribute to building Africa&apos;s industrial sovereignty.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-[#0A0F1A] text-white px-8 py-4 rounded-xl text-sm font-medium hover:bg-[#0A0F1A]/90 transition-colors"
-            >
-              General Application
-              <ArrowRight size={14} />
-            </Link>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { title: 'Urgency with Precision', desc: 'The continent cannot wait. We move fast but never cut corners. Speed and quality are not trade-offs — they\'re requirements.' },
+              { title: 'Sovereign Mindset', desc: 'We think like owners. Every decision is made with long-term sovereignty in mind, not short-term optimization. Africa first, always.' },
+              { title: 'Cross-Vertical Collaboration', desc: 'Our 7 verticals are designed to reinforce each other. Engineers in Energy work with teams in Intelligence. Mining collaborates with Technology. The whole is greater than the sum.' },
+              { title: 'Meritocratic Excellence', desc: 'The best idea wins, regardless of title or tenure. We hire the best, give them autonomy, and hold them to world-class standards.' },
+            ].map((item, i) => (
+              <FadeIn key={item.title} delay={i * 0.08}>
+                <div className="card p-8 h-full">
+                  <h3 className="text-lg font-bold text-[#000000] mb-3">{item.title}</h3>
+                  <div className="accent-line mb-4" />
+                  <p className="text-[14px] text-[#6B7280] leading-[1.7]">{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-28 md:py-36 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Benefits</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+              What We Offer
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((b, i) => (
+              <FadeIn key={b.title} delay={i * 0.06}>
+                <div className="card p-6 h-full">
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(0,0,0,0.04)] flex items-center justify-center mb-3">
+                    <b.icon size={18} className="text-[#000000]" strokeWidth={1.5} />
+                  </div>
+                  <h4 className="text-sm font-bold text-[#000000] mb-1">{b.title}</h4>
+                  <p className="text-[12px] text-[#6B7280] leading-relaxed">{b.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-28 md:py-36 bg-[#0A0A0A] relative overflow-hidden">
+        <div className="absolute inset-0 dot-pattern opacity-100" />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+          <FadeIn>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">Ready to Build?</h2>
+            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">Your next career move could reshape a continent. Join Harch Corp.</p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-[#000000] text-white px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:border-white/30 transition-all">Apply Now <ArrowRight size={14} /></Link>
+              <Link href="/about" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">About Harch Corp</Link>
+            </div>
           </FadeIn>
         </div>
       </section>

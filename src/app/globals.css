@@ -51,31 +51,31 @@
   --card-foreground: #0A0F1A;
   --popover: #FFFFFF;
   --popover-foreground: #0A0F1A;
-  --primary: #0A0F1A;
+  --primary: #000000;
   --primary-foreground: #FFFFFF;
   --secondary: #F1F3F5;
   --secondary-foreground: #0A0F1A;
   --muted: #F1F3F5;
   --muted-foreground: #6B7280;
-  --accent: #C9A84C;
+  --accent: #000000;
   --accent-foreground: #FFFFFF;
   --destructive: oklch(0.577 0.245 27.325);
   --border: rgba(0,0,0,0.06);
   --input: rgba(0,0,0,0.06);
-  --ring: #0A0F1A;
-  --chart-1: #0A0F1A;
+  --ring: #000000;
+  --chart-1: #000000;
   --chart-2: #6B7280;
   --chart-3: #9CA3AF;
   --chart-4: #D1D5DB;
   --chart-5: #E5E7EB;
   --sidebar: #F1F3F5;
   --sidebar-foreground: #0A0F1A;
-  --sidebar-primary: #0A0F1A;
+  --sidebar-primary: #000000;
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #F1F3F5;
   --sidebar-accent-foreground: #0A0F1A;
   --sidebar-border: rgba(0,0,0,0.06);
-  --sidebar-ring: #0A0F1A;
+  --sidebar-ring: #000000;
 }
 
 @layer base {
@@ -89,13 +89,13 @@
     scroll-behavior: smooth;
   }
   ::selection {
-    background: #C9A84C;
+    background: #000000;
     color: white;
   }
 }
 
 /* ═══════════════════════════════════════════
-   CUSTOM SCROLLBAR — White Palantir
+   CUSTOM SCROLLBAR — Palantir White Theme
    ═══════════════════════════════════════════ */
 ::-webkit-scrollbar {
   width: 5px;
@@ -112,7 +112,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   SECTION LABEL — Palantir editorial white
+   SECTION LABEL — Palantir editorial
    ═══════════════════════════════════════════ */
 .section-label {
   font-size: 10px;
@@ -123,7 +123,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   LINK STYLES — White theme
+   LINK STYLES — Palantir white theme
    ═══════════════════════════════════════════ */
 .nav-link {
   position: relative;
@@ -139,7 +139,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: #0A0F1A;
+  background: #000000;
   transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .nav-link:hover::after {
@@ -147,7 +147,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   DIVIDER — White
+   DIVIDER
    ═══════════════════════════════════════════ */
 .divider {
   height: 1px;
@@ -177,9 +177,9 @@
   from { width: 0; }
   to { width: 48px; }
 }
-.golden-line {
+.accent-line {
   height: 2px;
-  background: #C9A84C;
+  background: #000000;
   animation: expandLine 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
@@ -212,7 +212,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   IMAGE REVEAL — White
+   IMAGE REVEAL
    ═══════════════════════════════════════════ */
 .image-reveal {
   overflow: hidden;
@@ -225,7 +225,7 @@
 }
 
 /* ═══════════════════════════════════════════
-   CINEMATIC VIDEO — White overlay
+   CINEMATIC VIDEO — Dark overlay
    ═══════════════════════════════════════════ */
 .cinematic-video {
   position: relative;
@@ -240,17 +240,10 @@
 }
 
 /* ═══════════════════════════════════════════
-   GRADIENT TEXT — White theme
+   GRADIENT TEXT — Black/dark gradient
    ═══════════════════════════════════════════ */
 .gradient-text {
-  background: linear-gradient(135deg, #0A0F1A 0%, #374151 50%, #0A0F1A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-gold {
-  background: linear-gradient(135deg, #C9A84C 0%, #E8D48B 50%, #C9A84C 100%);
+  background: linear-gradient(135deg, #000000 0%, #374151 50%, #000000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -268,15 +261,15 @@
 }
 
 /* ═══════════════════════════════════════════
-   LIGHT CARD — Standard white card style
+   CARD — Standard white card style
    ═══════════════════════════════════════════ */
-.dark-card {
+.card {
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.04);
   border-radius: 12px;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.dark-card:hover {
+.card:hover {
   border-color: rgba(0, 0, 0, 0.08);
 }
 
@@ -292,9 +285,176 @@
 }
 
 /* ═══════════════════════════════════════════
-   DOT PATTERN BACKGROUND — White theme
+   DOT PATTERN BACKGROUND
    ═══════════════════════════════════════════ */
 .dot-pattern {
   background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0);
   background-size: 40px 40px;
+}
+
+/* ═══════════════════════════════════════════
+   HERO CAROUSEL — Full-bleed photo section
+   ═══════════════════════════════════════════ */
+.hero-carousel {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+.hero-carousel-slide {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.hero-carousel-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+.hero-carousel-slide.inactive {
+  opacity: 0;
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════════
+   PHOTO SECTION — Full-bleed photo with overlay
+   ═══════════════════════════════════════════ */
+.photo-section {
+  position: relative;
+  min-height: 70vh;
+  overflow: hidden;
+}
+.photo-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   BLINK DOT — Pulsing map point animation
+   ═══════════════════════════════════════════ */
+@keyframes blink-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(2.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes dot-pulse {
+  0%, 100% { r: 3; opacity: 1; }
+  50% { r: 5; opacity: 0.6; }
+}
+.blink-dot {
+  animation: blink-pulse 2s ease-in-out infinite;
+}
+.blink-dot-delay-1 {
+  animation-delay: 0.3s;
+}
+.blink-dot-delay-2 {
+  animation-delay: 0.6s;
+}
+.blink-dot-delay-3 {
+  animation-delay: 0.9s;
+}
+.blink-dot-delay-4 {
+  animation-delay: 1.2s;
+}
+.blink-dot-delay-5 {
+  animation-delay: 1.5s;
+}
+.blink-dot-delay-6 {
+  animation-delay: 1.8s;
+}
+
+/* ═══════════════════════════════════════════
+   DATA TABLE — Clean Palantir-style table
+   ═══════════════════════════════════════════ */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.data-table thead th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9CA3AF;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.data-table tbody tr {
+  transition: background 0.2s ease;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+.data-table tbody tr:hover {
+  background: rgba(0,0,0,0.02);
+}
+.data-table tbody td {
+  padding: 16px;
+  font-size: 14px;
+  color: #0A0F1A;
+}
+.data-table tbody td:first-child {
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   MAP CONTAINER
+   ═══════════════════════════════════════════ */
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.map-container svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ═══════════════════════════════════════════
+   ANNOUNCEMENT BAR — Thin top bar
+   ═══════════════════════════════════════════ */
+.announcement-bar {
+  background: #000000;
+  color: white;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 8px 16px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.announcement-bar:hover {
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════
+   STATUS BADGE
+   ═══════════════════════════════════════════ */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.status-badge-active {
+  background: rgba(0,0,0,0.06);
+  color: #000000;
+}
+.status-badge-engineering {
+  background: rgba(0,0,0,0.04);
+  color: #6B7280;
+}
+.status-badge-permitted {
+  background: rgba(0,0,0,0.04);
+  color: #6B7280;
+}
+.status-badge-design {
+  background: rgba(0,0,0,0.04);
+  color: #9CA3AF;
 }

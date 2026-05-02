@@ -40,7 +40,7 @@ const offerings = [
 
 export function Footer() {
   return (
-    <footer className="bg-black border-t border-[rgba(255,255,255,0.04)]">
+    <footer className="bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.04)]">
       {/* Main footer — Three column Palantir style */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">

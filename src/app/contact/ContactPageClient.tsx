@@ -1,9 +1,9 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import Link from 'next/link';
+import { ArrowRight, MapPin, Mail, Phone, Building2, Send, MessageSquare } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
-import { useState } from 'react';
-import { ArrowRight, MapPin, Mail, Phone } from 'lucide-react';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,182 +16,190 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 }
 
 const offices = [
-  {
-    city: 'Casablanca',
-    country: 'Morocco',
-    type: 'Headquarters',
-    address: '123 Boulevard Mohammed V',
-    email: 'info@harchcorp.com',
-    phone: '+212 5 22 00 00 00',
-  },
-  {
-    city: 'Dakar',
-    country: 'Senegal',
-    type: 'Regional Office',
-    address: '45 Rue Carnot, Plateau',
-    email: 'dakar@harchcorp.com',
-    phone: '+221 33 800 00 00',
-  },
-  {
-    city: 'Banjul',
-    country: 'The Gambia',
-    type: 'Operations',
-    address: 'Kairaba Avenue, Serrekunda',
-    email: 'gambia@harchcorp.com',
-    phone: '+220 400 0000',
-  },
+  { city: 'Casablanca', country: 'Morocco', type: 'Global Headquarters', address: '123 Boulevard Mohammed V, Casablanca 20000', email: 'hq@harchcorp.com', phone: '+212 5 22 00 00 00' },
+  { city: 'Dakhla', country: 'Morocco', type: 'Intelligence Operations', address: 'Dakhla Technology Park, Dakhla 73000', email: 'intelligence@harchcorp.com', phone: '+212 5 28 00 00 00' },
+  { city: 'Banjul', country: 'Gambia', type: 'Ciment Operations', address: '14 Kairaba Avenue, Banjul, Gambia', email: 'cement@harchcorp.com', phone: '+220 00 000 0000' },
+];
+
+const teamContacts = [
+  { name: 'Investor Relations', email: 'investors@harchcorp.com', desc: 'Fund structure, co-investment, and reporting inquiries.' },
+  { name: 'Partnerships', email: 'partners@harchcorp.com', desc: 'Strategic partnerships, government relations, and joint ventures.' },
+  { name: 'Careers', email: 'careers@harchcorp.com', desc: 'Job applications, internships, and talent inquiries.' },
+  { name: 'Media', email: 'press@harchcorp.com', desc: 'Press inquiries, interviews, and media resources.' },
 ];
 
 export default function ContactPageClient() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    inquiry: 'general',
-    message: '',
-  });
+  const [formState, setFormState] = useState({ name: '', email: '', company: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
+    setFormState({ name: '', email: '', company: '', subject: '', message: '' });
   };
 
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-white">
       {/* Hero */}
-      <section className="pt-32 pb-24 md:pt-40 md:pb-32 bg-white">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6">Contact</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-8">
+            <p className="section-label mb-4">Contact</p>
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-[#000000] tracking-[-0.02em] leading-[1.05] mb-6">
               Get in Touch
             </h1>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
-              Whether you&apos;re an investor, partner, or talent — we&apos;d like to hear from you.
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[16px] text-[#6B7280] leading-[1.7]">
+              Whether you&apos;re an investor, partner, or future team member — we&apos;d love to hear from you. Reach out and we&apos;ll respond within 24 hours.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* Contact Form & Offices */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-[#FAFAFA]">
+      {/* Contact Form + Info */}
+      <section className="py-28 md:py-36 bg-[#FAFAFA]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
             <FadeIn>
-              <div>
-                <p className="section-label mb-8">Send a Message</p>
-                {submitted ? (
-                  <div className="py-12">
-                    <h3 className="text-2xl font-bold text-[#0A0F1A] mb-3">Message Sent</h3>
-                    <p className="text-sm text-[#6B7280]">
-                      Thank you for reaching out. Our team will respond within 48 hours.
-                    </p>
+              <p className="section-label mb-4">Send a Message</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#000000] tracking-tight mb-8">
+                How Can We Help?
+              </h2>
+              {submitted ? (
+                <div className="card p-8 text-center">
+                  <div className="w-16 h-16 rounded-full bg-[rgba(0,0,0,0.04)] flex items-center justify-center mx-auto mb-4">
+                    <Send size={24} className="text-[#000000]" />
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-xs tracking-[0.05em] text-[#9CA3AF] mb-2">Name</label>
-                        <input
-                          type="text"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          required
-                          className="w-full bg-transparent border-b border-[rgba(0,0,0,0.08)] py-3 text-sm text-[#0A0F1A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#C9A84C] transition-colors"
-                          placeholder="Your name"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs tracking-[0.05em] text-[#9CA3AF] mb-2">Email</label>
-                        <input
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          required
-                          className="w-full bg-transparent border-b border-[rgba(0,0,0,0.08)] py-3 text-sm text-[#0A0F1A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#C9A84C] transition-colors"
-                          placeholder="your@email.com"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-xs tracking-[0.05em] text-[#9CA3AF] mb-2">Company</label>
-                        <input
-                          type="text"
-                          value={formData.company}
-                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          className="w-full bg-transparent border-b border-[rgba(0,0,0,0.08)] py-3 text-sm text-[#0A0F1A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#C9A84C] transition-colors"
-                          placeholder="Company name"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs tracking-[0.05em] text-[#9CA3AF] mb-2">Inquiry Type</label>
-                        <select
-                          value={formData.inquiry}
-                          onChange={(e) => setFormData({ ...formData, inquiry: e.target.value })}
-                          className="w-full bg-transparent border-b border-[rgba(0,0,0,0.08)] py-3 text-sm text-[#6B7280] focus:outline-none focus:border-[#C9A84C] transition-colors appearance-none cursor-pointer"
-                        >
-                          <option value="general" className="bg-white">General Inquiry</option>
-                          <option value="investment" className="bg-white">Investment</option>
-                          <option value="partnership" className="bg-white">Partnership</option>
-                          <option value="careers" className="bg-white">Careers</option>
-                          <option value="media" className="bg-white">Media / Press</option>
-                        </select>
-                      </div>
-                    </div>
+                  <h3 className="text-lg font-bold text-[#000000] mb-2">Message Sent</h3>
+                  <p className="text-[14px] text-[#6B7280]">Thank you for reaching out. We&apos;ll respond within 24 hours.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs tracking-[0.05em] text-[#9CA3AF] mb-2">Message</label>
-                      <textarea
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#9CA3AF] mb-2">Name</label>
+                      <input
+                        type="text"
                         required
-                        rows={5}
-                        className="w-full bg-transparent border-b border-[rgba(0,0,0,0.08)] py-3 text-sm text-[#0A0F1A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#C9A84C] transition-colors resize-none"
-                        placeholder="Tell us about your inquiry..."
+                        value={formState.name}
+                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                        className="w-full px-4 py-3 bg-white border border-[rgba(0,0,0,0.06)] rounded-lg text-[14px] text-[#0A0F1A] focus:outline-none focus:border-[#000000] transition-colors"
+                        placeholder="Your name"
                       />
                     </div>
-                    <button
-                      type="submit"
-                      className="inline-flex items-center gap-2 bg-[#0A0F1A] text-white px-8 py-4 rounded-xl text-sm font-medium hover:bg-[#0A0F1A]/90 transition-colors"
-                    >
-                      Send Message
-                      <ArrowRight size={14} />
-                    </button>
-                  </form>
-                )}
-              </div>
+                    <div>
+                      <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#9CA3AF] mb-2">Email</label>
+                      <input
+                        type="email"
+                        required
+                        value={formState.email}
+                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                        className="w-full px-4 py-3 bg-white border border-[rgba(0,0,0,0.06)] rounded-lg text-[14px] text-[#0A0F1A] focus:outline-none focus:border-[#000000] transition-colors"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#9CA3AF] mb-2">Company</label>
+                      <input
+                        type="text"
+                        value={formState.company}
+                        onChange={(e) => setFormState({ ...formState, company: e.target.value })}
+                        className="w-full px-4 py-3 bg-white border border-[rgba(0,0,0,0.06)] rounded-lg text-[14px] text-[#0A0F1A] focus:outline-none focus:border-[#000000] transition-colors"
+                        placeholder="Company name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#9CA3AF] mb-2">Subject</label>
+                      <select
+                        value={formState.subject}
+                        onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
+                        className="w-full px-4 py-3 bg-white border border-[rgba(0,0,0,0.06)] rounded-lg text-[14px] text-[#0A0F1A] focus:outline-none focus:border-[#000000] transition-colors"
+                      >
+                        <option value="">Select subject</option>
+                        <option value="investment">Investment Inquiry</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="careers">Careers</option>
+                        <option value="media">Media & Press</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#9CA3AF] mb-2">Message</label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={formState.message}
+                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                      className="w-full px-4 py-3 bg-white border border-[rgba(0,0,0,0.06)] rounded-lg text-[14px] text-[#0A0F1A] focus:outline-none focus:border-[#000000] transition-colors resize-none"
+                      placeholder="Tell us how we can help..."
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="inline-flex items-center gap-2.5 bg-[#000000] text-white px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#0A0F1A]/90 transition-all"
+                  >
+                    Send Message <ArrowRight size={14} />
+                  </button>
+                </form>
+              )}
             </FadeIn>
 
-            {/* Offices */}
+            {/* Contact Info */}
             <FadeIn delay={0.15}>
-              <div>
-                <p className="section-label mb-8">Our Offices</p>
-                <div className="space-y-10">
-                  {offices.map((office) => (
-                    <div key={office.city}>
-                      <div className="flex items-center gap-2 mb-3">
-                        <MapPin size={14} className="text-[#C9A84C]" />
-                        <h3 className="text-lg font-bold text-[#0A0F1A]">{office.city}</h3>
-                        <span className="text-xs text-[#9CA3AF]">· {office.type}</span>
-                      </div>
-                      <div className="space-y-1 text-sm text-[#6B7280]">
-                        <p>{office.address}, {office.country}</p>
-                        <p className="flex items-center gap-2">
-                          <Mail size={12} /> {office.email}
-                        </p>
-                        <p className="flex items-center gap-2">
-                          <Phone size={12} /> {office.phone}
-                        </p>
+              <p className="section-label mb-4">Offices</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#000000] tracking-tight mb-8">
+                Our Locations
+              </h2>
+              <div className="space-y-6">
+                {offices.map((office) => (
+                  <div key={office.city} className="card p-6">
+                    <div className="flex items-start gap-3 mb-3">
+                      <MapPin size={16} className="text-[#000000] shrink-0 mt-0.5" strokeWidth={1.5} />
+                      <div>
+                        <h3 className="text-[15px] font-bold text-[#000000]">{office.city}, {office.country}</h3>
+                        <p className="text-[11px] font-semibold text-[#000000] uppercase tracking-[0.08em]">{office.type}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
+                    <p className="text-[13px] text-[#6B7280] mb-2 ml-7">{office.address}</p>
+                    <div className="flex items-center gap-4 ml-7">
+                      <a href={`mailto:${office.email}`} className="text-[12px] text-[#6B7280] hover:text-[#000000] transition-colors flex items-center gap-1"><Mail size={10} />{office.email}</a>
+                      <a href={`tel:${office.phone}`} className="text-[12px] text-[#6B7280] hover:text-[#000000] transition-colors flex items-center gap-1"><Phone size={10} />{office.phone}</a>
+                    </div>
+                  </div>
+                ))}
               </div>
             </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Contacts */}
+      <section className="py-28 md:py-36 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Direct Contacts</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#000000] tracking-[-0.01em] mb-16">
+              Reach the Right Team
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {teamContacts.map((contact, i) => (
+              <FadeIn key={contact.name} delay={i * 0.08}>
+                <div className="card p-6 h-full">
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(0,0,0,0.04)] flex items-center justify-center mb-3">
+                    <MessageSquare size={16} className="text-[#000000]" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-[14px] font-bold text-[#000000] mb-1">{contact.name}</h3>
+                  <a href={`mailto:${contact.email}`} className="text-[12px] text-[#000000] hover:text-[#374151] transition-colors font-medium">{contact.email}</a>
+                  <p className="text-[12px] text-[#9CA3AF] leading-relaxed mt-2">{contact.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>

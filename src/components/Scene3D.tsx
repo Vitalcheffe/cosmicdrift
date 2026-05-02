@@ -87,7 +87,7 @@ function InnerSphere() {
   return (
     <Float speed={1.0} rotationIntensity={0.1} floatIntensity={0.25}>
       <Icosahedron ref={meshRef} args={[1.2, 2]}>
-        <meshStandardMaterial color="#C9A84C" emissive="#C9A84C" emissiveIntensity={0.08} wireframe transparent opacity={0.05} />
+        <meshStandardMaterial color="#374151" emissive="#374151" emissiveIntensity={0.06} wireframe transparent opacity={0.05} />
       </Icosahedron>
     </Float>
   );
@@ -104,7 +104,7 @@ function CoreSphere() {
   return (
     <Float speed={0.5} rotationIntensity={0.05} floatIntensity={0.15}>
       <Icosahedron ref={meshRef} args={[0.5, 0]}>
-        <meshStandardMaterial color="#0A0F1A" emissive="#C9A84C" emissiveIntensity={0.2} wireframe transparent opacity={0.15} />
+        <meshStandardMaterial color="#000000" emissive="#374151" emissiveIntensity={0.15} wireframe transparent opacity={0.15} />
       </Icosahedron>
     </Float>
   );
@@ -117,7 +117,7 @@ function MouseLight() {
     lightRef.current.position.x = state.pointer.x * 4;
     lightRef.current.position.y = state.pointer.y * 3;
   });
-  return <pointLight ref={lightRef} color="#C9A84C" intensity={0.6} distance={18} position={[0, 0, 4]} />;
+  return <pointLight ref={lightRef} color="#E5E7EB" intensity={0.6} distance={18} position={[0, 0, 4]} />;
 }
 
 export function Scene3D() {

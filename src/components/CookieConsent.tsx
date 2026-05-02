@@ -34,7 +34,7 @@ export function CookieConsent() {
           <Shield size={18} className="text-[#9CA3AF] shrink-0 mt-0.5" strokeWidth={1.5} />
           <p className="text-[13px] text-[#6B7280] leading-relaxed">
             We use cookies to improve your experience and analyze site traffic. By continuing, you agree to our{' '}
-            <Link href="/privacy" className="text-[#0A0F1A] font-medium underline underline-offset-2 hover:text-[#C9A84C] transition-colors">
+            <Link href="/privacy" className="text-[#0A0F1A] font-medium underline underline-offset-2 hover:text-[#000000] transition-colors">
               Privacy Policy
             </Link>.
           </p>
@@ -43,7 +43,7 @@ export function CookieConsent() {
           <button onClick={decline} className="px-5 py-2 text-[11px] font-semibold tracking-[0.05em] text-[#6B7280] hover:text-[#0A0F1A] border border-[rgba(0,0,0,0.06)] rounded-lg transition-colors">
             Decline
           </button>
-          <button onClick={accept} className="px-5 py-2 text-[11px] font-semibold tracking-[0.05em] bg-[#0A0F1A] text-white rounded-lg hover:bg-[#0A0F1A]/90 transition-colors">
+          <button onClick={accept} className="px-5 py-2 text-[11px] font-semibold tracking-[0.05em] bg-[#000000] text-white rounded-lg hover:bg-[#0A0F1A]/90 transition-colors">
             Accept
           </button>
         </div>

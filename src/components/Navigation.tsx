@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, Search, ArrowRight } from 'lucide-react';
+import { Menu, X, Search, ArrowRight, ChevronDown } from 'lucide-react';
 
 const verticalItems = [
   { name: 'Harch Intelligence', version: '/0.1', desc: 'AI Data Centers & GPU Clusters', href: '/subsidiaries/intelligence' },
@@ -36,9 +36,14 @@ export function Navigation() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [announcementVisible, setAnnouncementVisible] = useState(true);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      if (window.scrollY > 100) setAnnouncementVisible(false);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -56,15 +61,29 @@ export function Navigation() {
     setMenuOpen(false);
     setSearchOpen(false);
     setSearchQuery('');
+    setDropdownOpen(false);
   }, []);
 
   return (
     <>
+      {/* ═══ ANNOUNCEMENT BAR ═══ */}
+      <div
+        className={`announcement-bar fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
+          announcementVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <Link href="/strategy" onClick={closeAll} className="block w-full text-center text-white hover:text-white/90 transition-colors">
+          Building Africa&apos;s Industrial Sovereignty &rarr;
+        </Link>
+      </div>
+
       {/* ═══ HEADER ═══ */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-40 transition-all duration-500 ${
+          announcementVisible ? 'top-[33px]' : 'top-0'
+        } ${
           scrolled
-            ? 'bg-white/92 backdrop-blur-xl border-b border-[rgba(0,0,0,0.04)]'
+            ? 'bg-white/95 backdrop-blur-xl border-b border-[rgba(0,0,0,0.04)]'
             : 'bg-white/50 backdrop-blur-sm'
         }`}
       >
@@ -74,12 +93,51 @@ export function Navigation() {
             <Image src="/logo.svg" alt="Harch Corp" width={140} height={28} className="h-[22px] w-auto" priority />
           </Link>
 
-          {/* Desktop: Minimal right side — Get Started + Search + Menu */}
-          <div className="flex items-center gap-3">
+          {/* Desktop Navigation Links - Palantir style */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {/* Verticals dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
+              <button
+                className="flex items-center gap-1 px-3 py-2 text-[12px] font-medium tracking-[0.04em] text-[#6B7280] hover:text-[#0A0F1A] transition-colors"
+              >
+                Verticals <ChevronDown size={12} className={`transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {dropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 w-72 bg-white border border-[rgba(0,0,0,0.06)] rounded-xl shadow-xl shadow-black/5 p-2">
+                  {verticalItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={closeAll}
+                      className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-[rgba(0,0,0,0.02)] transition-colors group"
+                    >
+                      <div>
+                        <span className="text-[13px] font-semibold text-[#0A0F1A] group-hover:text-[#000000]">{item.name}</span>
+                        <p className="text-[11px] text-[#9CA3AF] mt-0.5">{item.desc}</p>
+                      </div>
+                      <span className="version-tag">{item.version}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            <Link href="/about" onClick={closeAll} className="px-3 py-2 text-[12px] font-medium tracking-[0.04em] text-[#6B7280] hover:text-[#0A0F1A] transition-colors">About</Link>
+            <Link href="/strategy" onClick={closeAll} className="px-3 py-2 text-[12px] font-medium tracking-[0.04em] text-[#6B7280] hover:text-[#0A0F1A] transition-colors">Strategy</Link>
+            <Link href="/investors" onClick={closeAll} className="px-3 py-2 text-[12px] font-medium tracking-[0.04em] text-[#6B7280] hover:text-[#0A0F1A] transition-colors">Investors</Link>
+            <Link href="/esg" onClick={closeAll} className="px-3 py-2 text-[12px] font-medium tracking-[0.04em] text-[#6B7280] hover:text-[#0A0F1A] transition-colors">ESG</Link>
+            <Link href="/careers" onClick={closeAll} className="px-3 py-2 text-[12px] font-medium tracking-[0.04em] text-[#6B7280] hover:text-[#0A0F1A] transition-colors">Careers</Link>
+          </nav>
+
+          {/* Right side: Get Started + Search + Menu */}
+          <div className="flex items-center gap-2">
             <Link
               href="/contact"
               onClick={closeAll}
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2 bg-[#0A0F1A] text-white text-[11px] font-semibold tracking-[0.08em] uppercase rounded-md hover:bg-[#0A0F1A]/90 transition-colors"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2 bg-white text-[#0A0F1A] text-[11px] font-semibold tracking-[0.08em] uppercase rounded-md border border-[rgba(0,0,0,0.15)] hover:border-[#0A0F1A] hover:bg-[#0A0F1A] hover:text-white transition-all duration-300"
             >
               Get Started
             </Link>
@@ -92,7 +150,7 @@ export function Navigation() {
             </button>
             <button
               onClick={() => { setSearchOpen(false); setMenuOpen(!menuOpen); }}
-              className="p-2 text-[#6B7280] hover:text-[#0A0F1A] transition-colors"
+              className="p-2 text-[#6B7280] hover:text-[#0A0F1A] transition-colors lg:hidden"
               aria-label="Menu"
             >
               {menuOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
@@ -103,7 +161,7 @@ export function Navigation() {
 
       {/* ═══ FULL-SCREEN WHITE MENU ═══ */}
       <div
-        className={`fixed inset-0 z-40 bg-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed inset-0 z-30 bg-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -120,13 +178,13 @@ export function Navigation() {
                   className="group flex items-center justify-between py-3 border-b border-[rgba(0,0,0,0.04)] hover:border-[rgba(0,0,0,0.08)] transition-colors"
                 >
                   <div className="flex items-baseline gap-4">
-                    <span className="text-2xl md:text-3xl font-bold text-[#0A0F1A] group-hover:text-[#C9A84C] transition-colors">
+                    <span className="text-2xl md:text-3xl font-bold text-[#0A0F1A] group-hover:text-[#000000] transition-colors">
                       {item.name}
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="version-tag">{item.version}</span>
-                    <ArrowRight size={14} className="text-[rgba(0,0,0,0.15)] group-hover:text-[#C9A84C] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={14} className="text-[rgba(0,0,0,0.15)] group-hover:text-[#000000] group-hover:translate-x-1 transition-all" />
                   </div>
                 </Link>
               ))}
@@ -167,7 +225,7 @@ export function Navigation() {
 
       {/* ═══ SEARCH OVERLAY ═══ */}
       <div
-        className={`fixed inset-0 z-40 bg-white/98 backdrop-blur-xl transition-all duration-400 ${
+        className={`fixed inset-0 z-30 bg-white/98 backdrop-blur-xl transition-all duration-400 ${
           searchOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >

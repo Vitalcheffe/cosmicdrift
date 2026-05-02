@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import SubsidiaryPageClient from './SubsidiaryPageClient';
+import SubsidiaryWrapper from './SubsidiaryWrapper';
 
 export const metadata: Metadata = {
   title: 'Subsidiaries',
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function SubsidiaryPage() {
-  return <SubsidiaryPageClient />;
+  return <SubsidiaryWrapper />;
 }

@@ -71,7 +71,7 @@ export default function PartnersPageClient() {
               <FadeIn key={category.title} delay={i * 0.15}>
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <category.icon size={18} className="text-[#C9A84C]" strokeWidth={1.5} />
+                    <category.icon size={18} className="text-[#000000]" strokeWidth={1.5} />
                     <h2 className="text-2xl md:text-3xl font-bold text-[#0A0F1A] tracking-[-0.01em]">
                       {category.title}
                     </h2>

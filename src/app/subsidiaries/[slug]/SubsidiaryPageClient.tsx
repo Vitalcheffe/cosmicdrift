@@ -20,6 +20,7 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 interface SubsidiaryData {
   name: string;
   label: string;
+  version: string;
   tagline: string;
   image: string;
   overview: string;
@@ -31,6 +32,7 @@ const subsidiaries: Record<string, SubsidiaryData> = {
   intelligence: {
     name: 'Harch Intelligence',
     label: 'AI & Data Infrastructure',
+    version: '/0.1',
     tagline: 'Africa\'s Sovereign AI Compute Backbone',
     image: '/images/verticals/intelligence.jpg',
     overview: 'Harch Intelligence is building Africa\'s largest AI-ready hyperscale data center in Dakhla, Morocco — a 500MW facility powered entirely by renewable energy. Designed for large language model training, inference at continental scale, and sovereign cloud infrastructure, the facility positions Africa as a global AI hub rather than a consumer of foreign compute.',
@@ -51,6 +53,7 @@ const subsidiaries: Record<string, SubsidiaryData> = {
   cement: {
     name: 'Harch Ciment',
     label: 'Construction & Materials',
+    version: '/0.2',
     tagline: 'Building the Foundations of Industrial Africa',
     image: '/images/verticals/cement.jpg',
     overview: 'Harch Ciment operates cement manufacturing plants across West Africa, starting with The Gambia — a country that previously imported 100% of its cement. By localizing production, Harch Ciment reduces costs by 30-40%, creates thousands of jobs, and ensures that critical construction materials are available for the continent\'s infrastructure boom.',
@@ -71,6 +74,7 @@ const subsidiaries: Record<string, SubsidiaryData> = {
   energy: {
     name: 'Harch Energy',
     label: 'Renewable Energy',
+    version: '/0.3',
     tagline: 'Powering Africa\'s Industrial Future',
     image: '/images/verticals/energy.jpg',
     overview: 'Harch Energy is developing over 2 gigawatts of renewable energy capacity across Morocco and the Sahel region. Combining solar PV, onshore wind, and green hydrogen production, Harch Energy provides the zero-carbon electricity that powers Harch Corp\'s industrial operations — from data centers to cement plants — while supplying national grids with affordable, clean power.',
@@ -91,6 +95,7 @@ const subsidiaries: Record<string, SubsidiaryData> = {
   technology: {
     name: 'Harch Technology',
     label: 'Sovereign Technology',
+    version: '/0.4',
     tagline: 'Indigenous Software for Africa\'s Digital Future',
     image: '/images/verticals/technology.jpg',
     overview: 'Harch Technology develops sovereign AI platforms, industrial IoT systems, and digital infrastructure tailored to African needs. From agricultural decision-support tools to mining automation software, Harch Technology ensures that Africa doesn\'t just consume technology — it creates it.',
@@ -111,6 +116,7 @@ const subsidiaries: Record<string, SubsidiaryData> = {
   mining: {
     name: 'Harch Mining',
     label: 'Mining & Critical Minerals',
+    version: '/0.5',
     tagline: 'Unlocking Africa\'s Mineral Wealth for Africa',
     image: '/images/verticals/mining.jpg',
     overview: 'Harch Mining operates strategic mining assets across Morocco and the Sahel, extracting phosphate, cobalt, lithium, and other critical minerals essential for global energy transition. Unlike traditional mining operations, Harch Mining processes minerals locally — retaining value on the continent and feeding downstream Harch operations.',
@@ -131,6 +137,7 @@ const subsidiaries: Record<string, SubsidiaryData> = {
   agriculture: {
     name: 'Harch Agri',
     label: 'Climate-Resilient Agriculture',
+    version: '/0.6',
     tagline: 'Feeding Africa\'s Growing Population Sustainably',
     image: '/images/verticals/agriculture.jpg',
     overview: 'Harch Agri deploys precision agriculture, smart irrigation, and climate-adaptive farming across the Sahel region. By combining traditional agricultural knowledge with AI-driven decision support and water-efficient irrigation, Harch Agri increases yields by 40-60% while using 50% less water — critical for a continent facing acute food and water security challenges.',
@@ -151,6 +158,7 @@ const subsidiaries: Record<string, SubsidiaryData> = {
   water: {
     name: 'Harch Water',
     label: 'Water Security',
+    version: '/0.7',
     tagline: 'Securing Africa\'s Most Critical Resource',
     image: '/images/verticals/water.jpg',
     overview: 'Harch Water builds and operates desalination plants, water treatment facilities, and distribution infrastructure across water-scarce regions of Africa. Powered by Harch Energy\'s renewable electricity, our desalination plants produce affordable clean water at scale — serving industrial operations and local communities alike.',
@@ -179,11 +187,11 @@ export default function SubsidiaryPageClient() {
 
   if (!data) {
     return (
-      <div className="bg-[#FAFAFA] min-h-screen flex items-center justify-center">
+      <div className="bg-black min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#0A0F1A] mb-4">Not Found</h1>
-          <p className="text-[#6B7280] mb-8">This subsidiary does not exist.</p>
-          <Link href="/" className="text-sm text-[#6B7280] hover:text-[#0A0F1A] transition-colors">
+          <h1 className="text-4xl font-bold text-white mb-4">Not Found</h1>
+          <p className="text-white/30 mb-8">This subsidiary does not exist.</p>
+          <Link href="/" className="text-sm text-white/30 hover:text-white/60 transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -196,16 +204,19 @@ export default function SubsidiaryPageClient() {
   const nextData = subsidiaries[nextSlug];
 
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-black">
       {/* Hero */}
       <section className="relative pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6">{data.label}</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-6">
+            <div className="flex items-center gap-4 mb-6">
+              <p className="section-label mb-0">{data.label}</p>
+              <span className="version-tag">{data.version}</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-[-0.01em] mb-6">
               {data.name}
             </h1>
-            <p className="text-xl md:text-2xl font-light text-[#6B7280] mb-10">
+            <p className="text-xl md:text-2xl font-light text-white/30 mb-10">
               {data.tagline}
             </p>
           </FadeIn>
@@ -213,27 +224,27 @@ export default function SubsidiaryPageClient() {
         {/* Hero Image */}
         <FadeIn delay={0.15}>
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl shadow-xl shadow-black/[0.03]">
+            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl bg-[#111]">
               <Image
                 src={data.image}
                 alt={data.name}
                 fill
-                className="object-cover"
+                className="object-cover opacity-70"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA]/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             </div>
           </div>
         </FadeIn>
       </section>
 
       {/* Overview */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
+      <section className="py-24 border-t border-[rgba(255,255,255,0.04)] bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="max-w-3xl">
               <p className="section-label mb-6">Overview</p>
-              <p className="text-base md:text-lg text-[#6B7280] leading-relaxed">
+              <p className="text-base md:text-lg text-white/40 leading-relaxed">
                 {data.overview}
               </p>
             </div>
@@ -242,7 +253,7 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* Key Metrics */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)]">
+      <section className="py-24 border-t border-[rgba(255,255,255,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-12">Key Metrics</p>
@@ -251,10 +262,10 @@ export default function SubsidiaryPageClient() {
             {data.metrics.map((metric, i) => (
               <FadeIn key={metric.label} delay={i * 0.1}>
                 <div>
-                  <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0F1A] tracking-[-0.01em]">
+                  <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C9A84C] tracking-[-0.01em]">
                     {metric.value}
                   </p>
-                  <p className="mt-2 text-xs tracking-[0.1em] uppercase text-[#9CA3AF]">
+                  <p className="mt-2 text-xs tracking-[0.1em] uppercase text-white/20">
                     {metric.label}
                   </p>
                 </div>
@@ -265,7 +276,7 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* Strategic Advantages */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
+      <section className="py-24 border-t border-[rgba(255,255,255,0.04)] bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-12">Strategic Advantages</p>
@@ -274,10 +285,10 @@ export default function SubsidiaryPageClient() {
             {data.advantages.map((advantage, i) => (
               <FadeIn key={i} delay={i * 0.08}>
                 <div className="flex gap-4">
-                  <span className="text-sm text-[#9CA3AF] font-mono mt-0.5 shrink-0">
+                  <span className="text-sm text-[#C9A84C]/30 font-mono mt-0.5 shrink-0">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <p className="text-sm md:text-base text-[#6B7280] leading-relaxed">
+                  <p className="text-sm md:text-base text-white/40 leading-relaxed">
                     {advantage}
                   </p>
                 </div>
@@ -288,21 +299,21 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)]">
+      <section className="py-24 border-t border-[rgba(255,255,255,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-3">
                   Invest in {data.name}
                 </h2>
-                <p className="text-sm text-[#9CA3AF]">
+                <p className="text-sm text-white/20">
                   Learn about investment opportunities in this vertical.
                 </p>
               </div>
               <Link
                 href="/investors"
-                className="inline-flex items-center gap-2 bg-[#0A0F1A] text-white px-8 py-4 rounded-xl text-sm font-medium hover:bg-[#1a1f2e] transition-colors shrink-0"
+                className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-xl text-sm font-medium hover:bg-white/90 transition-colors shrink-0"
               >
                 Investor Relations
                 <ArrowRight size={14} />
@@ -313,7 +324,7 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* Next Subsidiary */}
-      <section className="py-16 border-t border-[rgba(0,0,0,0.04)] bg-white">
+      <section className="py-16 border-t border-[rgba(255,255,255,0.04)] bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <Link
             href={`/subsidiaries/${nextSlug}`}
@@ -321,11 +332,11 @@ export default function SubsidiaryPageClient() {
           >
             <div>
               <p className="section-label mb-2">Next Vertical</p>
-              <p className="text-2xl md:text-3xl font-light text-[#6B7280] group-hover:text-[#0A0F1A] transition-colors">
+              <p className="text-2xl md:text-3xl font-light text-white/30 group-hover:text-[#C9A84C] transition-colors">
                 {nextData.name}
               </p>
             </div>
-            <ArrowLeft size={20} className="text-[#9CA3AF] group-hover:text-[#0A0F1A] group-hover:-translate-x-1 transition-all rotate-180" />
+            <ArrowLeft size={20} className="text-white/15 group-hover:text-[#C9A84C] group-hover:-translate-x-1 transition-all rotate-180" />
           </Link>
         </div>
       </section>

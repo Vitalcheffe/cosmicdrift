@@ -46,7 +46,7 @@ function Particles({ count = 500 }: { count?: number }) {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial size={0.025} color="#0A0F1A" transparent opacity={0.12} sizeAttenuation depthWrite={false} />
+      <pointsMaterial size={0.025} color="#FFFFFF" transparent opacity={0.15} sizeAttenuation depthWrite={false} />
     </points>
   );
 }
@@ -66,7 +66,7 @@ function OuterSphere() {
   return (
     <Float speed={0.8} rotationIntensity={0.15} floatIntensity={0.3}>
       <Icosahedron ref={meshRef} args={[2.0, 1]}>
-        <meshStandardMaterial color="#0A0F1A" emissive="#0A0F1A" emissiveIntensity={0.03} wireframe transparent opacity={0.07} />
+        <meshStandardMaterial color="#FFFFFF" emissive="#FFFFFF" emissiveIntensity={0.02} wireframe transparent opacity={0.04} />
       </Icosahedron>
     </Float>
   );
@@ -87,7 +87,7 @@ function InnerSphere() {
   return (
     <Float speed={1.0} rotationIntensity={0.1} floatIntensity={0.25}>
       <Icosahedron ref={meshRef} args={[1.2, 2]}>
-        <meshStandardMaterial color="#C9A84C" emissive="#C9A84C" emissiveIntensity={0.08} wireframe transparent opacity={0.05} />
+        <meshStandardMaterial color="#C9A84C" emissive="#C9A84C" emissiveIntensity={0.08} wireframe transparent opacity={0.06} />
       </Icosahedron>
     </Float>
   );
@@ -95,7 +95,7 @@ function InnerSphere() {
 
 function CoreSphere() {
   const meshRef = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
+  useFrame(() => {
     if (!meshRef.current) return;
     meshRef.current.rotation.y += 0.006;
     meshRef.current.rotation.z += 0.002;
@@ -104,7 +104,7 @@ function CoreSphere() {
   return (
     <Float speed={0.5} rotationIntensity={0.05} floatIntensity={0.15}>
       <Icosahedron ref={meshRef} args={[0.5, 0]}>
-        <meshStandardMaterial color="#0A0F1A" emissive="#C9A84C" emissiveIntensity={0.15} wireframe transparent opacity={0.15} />
+        <meshStandardMaterial color="#C9A84C" emissive="#C9A84C" emissiveIntensity={0.2} wireframe transparent opacity={0.2} />
       </Icosahedron>
     </Float>
   );
@@ -117,7 +117,7 @@ function MouseLight() {
     lightRef.current.position.x = state.pointer.x * 4;
     lightRef.current.position.y = state.pointer.y * 3;
   });
-  return <pointLight ref={lightRef} color="#C9A84C" intensity={0.6} distance={18} position={[0, 0, 4]} />;
+  return <pointLight ref={lightRef} color="#C9A84C" intensity={0.8} distance={18} position={[0, 0, 4]} />;
 }
 
 export function Scene3D() {
@@ -129,8 +129,8 @@ export function Scene3D() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
-        <ambientLight intensity={0.8} color="#FFFFFF" />
-        <directionalLight position={[3, 3, 5]} intensity={0.2} color="#FFFFFF" />
+        <ambientLight intensity={0.4} color="#FFFFFF" />
+        <directionalLight position={[3, 3, 5]} intensity={0.1} color="#FFFFFF" />
         <MouseLight />
         <Particles count={500} />
         <OuterSphere />

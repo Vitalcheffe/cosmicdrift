@@ -121,22 +121,22 @@ We may update this Privacy Policy from time to time. We will notify you of any m
 
 export default function PrivacyPageClient() {
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-black">
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-6">Privacy</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-4">
+            <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-[-0.01em] mb-4">
               Privacy Policy
             </h1>
-            <p className="text-xs text-[#9CA3AF] mb-12">Last Updated: January 1, 2026</p>
+            <p className="text-xs text-white/20 mb-12">Last Updated: January 1, 2026</p>
           </FadeIn>
 
-          <div className="space-y-10 text-sm text-[#6B7280] leading-relaxed">
+          <div className="space-y-10 text-sm text-white/40 leading-relaxed">
             {sections.map((section, i) => (
               <FadeIn key={section.title} delay={i * 0.05}>
                 <div>
-                  <h2 className="text-lg font-bold text-[#0A0F1A] mb-4">{section.title}</h2>
+                  <h2 className="text-lg font-bold text-white mb-4">{section.title}</h2>
                   <div className="whitespace-pre-line">{section.content}</div>
                 </div>
               </FadeIn>

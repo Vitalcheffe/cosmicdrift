@@ -4,98 +4,117 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const verticalLinks = [
-  { name: 'Harch Intelligence', href: '/subsidiaries/intelligence' },
-  { name: 'Harch Ciment', href: '/subsidiaries/cement' },
-  { name: 'Harch Energy', href: '/subsidiaries/energy' },
-  { name: 'Harch Technology', href: '/subsidiaries/technology' },
-  { name: 'Harch Mining', href: '/subsidiaries/mining' },
-  { name: 'Harch Agri', href: '/subsidiaries/agriculture' },
-  { name: 'Harch Water', href: '/subsidiaries/water' },
+  { name: 'Intelligence', version: '/0.1', href: '/subsidiaries/intelligence' },
+  { name: 'Ciment', version: '/0.2', href: '/subsidiaries/cement' },
+  { name: 'Energy', version: '/0.3', href: '/subsidiaries/energy' },
+  { name: 'Technology', version: '/0.4', href: '/subsidiaries/technology' },
+  { name: 'Mining', version: '/0.5', href: '/subsidiaries/mining' },
+  { name: 'Agri', version: '/0.6', href: '/subsidiaries/agriculture' },
+  { name: 'Water', version: '/0.7', href: '/subsidiaries/water' },
 ];
 
 const companyLinks = [
   { name: 'About', href: '/about' },
   { name: 'Strategy', href: '/strategy' },
-  { name: 'Investors', href: '/investors' },
   { name: 'ESG', href: '/esg' },
   { name: 'Careers', href: '/careers' },
-  { name: 'Newsroom', href: '/newsroom' },
-  { name: 'Contact', href: '/contact' },
   { name: 'Partners', href: '/partners' },
+  { name: 'Contact', href: '/contact' },
 ];
 
-const legalLinks = [
-  { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Terms of Use', href: '/terms' },
-  { name: 'Legal Mentions', href: '/legal' },
+const latestNews = [
+  { title: 'Harch Intelligence Secures 500MW Data Center Site in Dakhla', date: 'Mar 2026' },
+  { title: 'Harch Energy Reaches 2GW Renewable Pipeline Milestone', date: 'Feb 2026' },
+  { title: 'Harch Corp Announces $2.4B Investment Pipeline', date: 'Jan 2026' },
+];
+
+const offerings = [
+  'AI Data Centers',
+  'Renewable Energy',
+  'Cement Production',
+  'Sovereign Technology',
+  'Strategic Mining',
+  'Precision Agriculture',
+  'Water Infrastructure',
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A0F1A]">
-      {/* Main footer */}
+    <footer className="bg-black border-t border-[rgba(255,255,255,0.04)]">
+      {/* Main footer — Three column Palantir style */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-block mb-6">
-              <Image src="/logo.svg" alt="Harch Corp" width={120} height={24} className="h-5 w-auto brightness-0 invert" />
-            </Link>
-            <p className="text-[12px] text-white/30 leading-relaxed mb-6 max-w-[220px]">
-              Building Africa&apos;s industrial sovereignty across 7 verticals. From Casablanca to the continent.
-            </p>
-            <p className="text-[10px] text-white/20 tracking-wide">
-              Harch Corp S.A.<br />
-              Casablanca, Morocco<br />
-              Capital: 100M MAD<br />
-              RCS Casablanca
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+          {/* Column 1: Navigation */}
+          <div>
+            <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/25 mb-6">Navigation</p>
+            <div className="space-y-6">
+              <div>
+                <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-3">Verticals</p>
+                <nav className="space-y-2">
+                  {verticalLinks.map((link) => (
+                    <Link key={link.href} href={link.href} className="flex items-center justify-between text-[12px] text-white/30 hover:text-white/70 transition-colors group">
+                      <span>{link.name}</span>
+                      <span className="version-tag text-[10px]">{link.version}</span>
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+              <div>
+                <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-3">Company</p>
+                <nav className="space-y-2">
+                  {companyLinks.map((link) => (
+                    <Link key={link.href} href={link.href} className="block text-[12px] text-white/30 hover:text-white/70 transition-colors">
+                      {link.name}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </div>
           </div>
 
-          {/* Verticals */}
+          {/* Column 2: Latest News */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/25 mb-5">Verticals</p>
-            <nav className="space-y-2.5">
-              {verticalLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-[12px] text-white/40 hover:text-white/80 transition-colors">
-                  {link.name}
+            <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/25 mb-6">Latest News</p>
+            <div className="space-y-5">
+              {latestNews.map((item, i) => (
+                <Link key={i} href="/newsroom" className="block group">
+                  <p className="text-[13px] text-white/40 group-hover:text-white/80 transition-colors leading-snug mb-1">
+                    {item.title}
+                  </p>
+                  <p className="text-[10px] text-white/15 tracking-wide">{item.date}</p>
                 </Link>
               ))}
-            </nav>
+            </div>
           </div>
 
-          {/* Company */}
+          {/* Column 3: Offerings */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/25 mb-5">Company</p>
-            <nav className="space-y-2.5">
-              {companyLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-[12px] text-white/40 hover:text-white/80 transition-colors">
-                  {link.name}
-                </Link>
+            <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/25 mb-6">Offerings</p>
+            <div className="space-y-2">
+              {offerings.map((offering) => (
+                <p key={offering} className="text-[12px] text-white/30">{offering}</p>
               ))}
-            </nav>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/25 mb-5">Legal</p>
-            <nav className="space-y-2.5">
-              {legalLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-[12px] text-white/40 hover:text-white/80 transition-colors">
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
+            </div>
+            <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.04)]">
+              <p className="text-[10px] text-white/15 leading-relaxed">
+                Harch Corp S.A.<br />
+                Casablanca, Morocco<br />
+                Capital: 100M MAD
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/[0.04]">
+      {/* Brand bar at bottom */}
+      <div className="border-t border-[rgba(255,255,255,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] text-white/15 tracking-wide">
-            &copy; 2026 Harch Corp S.A. All rights reserved.
-          </p>
+          <div className="flex items-center gap-6">
+            <Image src="/logo.svg" alt="Harch Corp" width={100} height={20} className="h-4 w-auto" />
+            <p className="text-[10px] text-white/15 tracking-wide">
+              &copy; 2026 Harch Corp S.A. All rights reserved.
+            </p>
+          </div>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">Privacy</Link>
             <Link href="/terms" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">Terms</Link>

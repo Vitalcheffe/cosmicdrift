@@ -41,18 +41,18 @@ const calendar = [
 
 export default function InvestorsPageClient() {
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-black">
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-6">Investor Relations</p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-[-0.01em] mb-8">
               Invest in Africa&apos;s<br/>Industrial Future
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="max-w-2xl text-base md:text-lg text-[#6B7280] leading-relaxed">
+            <p className="max-w-2xl text-base md:text-lg text-white/40 leading-relaxed">
               Harch Corp offers institutional investors access to a diversified portfolio of critical 
               infrastructure assets across 7 verticals and 5 countries — with a $2.4B+ pipeline and 
               a clear path to continental scale.
@@ -62,15 +62,15 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Investment Thesis */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
+      <section className="py-24 border-t border-[rgba(255,255,255,0.04)] bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-8">Investment Thesis</p>
             <div className="max-w-3xl">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-6">
                 Africa is the last great infrastructure frontier.
               </h2>
-              <div className="space-y-4 text-base text-[#6B7280] leading-relaxed">
+              <div className="space-y-4 text-base text-white/40 leading-relaxed">
                 <p>
                   The continent hosts 18% of the world&apos;s population but generates just 3% of global GDP — 
                   not because of a lack of talent or resources, but because of a fundamental infrastructure deficit. 
@@ -94,7 +94,7 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Financial Highlights */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)]">
+      <section className="py-24 border-t border-[rgba(255,255,255,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-12">Financial Highlights</p>
@@ -103,10 +103,10 @@ export default function InvestorsPageClient() {
             {financialHighlights.map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div>
-                  <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0F1A] tracking-[-0.01em]">
+                  <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C9A84C] tracking-[-0.01em]">
                     {stat.value}
                   </p>
-                  <p className="mt-2 text-xs tracking-[0.1em] uppercase text-[#9CA3AF]">
+                  <p className="mt-2 text-xs tracking-[0.1em] uppercase text-white/20">
                     {stat.label}
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Documents */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
+      <section className="py-24 border-t border-[rgba(255,255,255,0.04)] bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-12">Documents</p>
@@ -125,21 +125,19 @@ export default function InvestorsPageClient() {
           <div className="space-y-0">
             {documents.map((doc, i) => (
               <FadeIn key={doc.name} delay={i * 0.05}>
-                <div
-                  className="flex items-center justify-between py-5 border-b border-[rgba(0,0,0,0.04)] group cursor-pointer hover:bg-[rgba(0,0,0,0.02)] transition-colors"
-                >
+                <div className="flex items-center justify-between py-5 border-b border-[rgba(255,255,255,0.04)] group cursor-pointer hover:bg-[rgba(255,255,255,0.02)] transition-colors">
                   <div className="flex items-center gap-4">
-                    <Download size={16} className="text-[#9CA3AF]" />
+                    <Download size={16} className="text-white/20" />
                     <div>
-                      <p className="text-sm text-[#0A0F1A] group-hover:text-[#0A0F1A] transition-colors">
+                      <p className="text-sm text-white/60 group-hover:text-white transition-colors">
                         {doc.name}
                       </p>
-                      <p className="text-xs text-[#9CA3AF] mt-0.5">
+                      <p className="text-xs text-white/15 mt-0.5">
                         {doc.type} · {doc.size}
                       </p>
                     </div>
                   </div>
-                  <ArrowRight size={14} className="text-[#D1D5DB] group-hover:text-[rgba(0,0,0,0.25)] transition-colors" />
+                  <ArrowRight size={14} className="text-white/10 group-hover:text-white/30 transition-colors" />
                 </div>
               </FadeIn>
             ))}
@@ -148,7 +146,7 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Financial Calendar */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)]">
+      <section className="py-24 border-t border-[rgba(255,255,255,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-12">Financial Calendar</p>
@@ -156,12 +154,12 @@ export default function InvestorsPageClient() {
           <div className="space-y-0">
             {calendar.map((item, i) => (
               <FadeIn key={item.date + item.event} delay={i * 0.05}>
-                <div className="flex gap-8 md:gap-16 py-5 border-b border-[rgba(0,0,0,0.04)] last:border-b-0">
+                <div className="flex gap-8 md:gap-16 py-5 border-b border-[rgba(255,255,255,0.04)] last:border-b-0">
                   <div className="flex items-center gap-2 shrink-0">
-                    <Calendar size={14} className="text-[#9CA3AF]" />
-                    <span className="text-sm font-mono text-[#9CA3AF]">{item.date}</span>
+                    <Calendar size={14} className="text-white/15" />
+                    <span className="text-sm font-mono text-white/20">{item.date}</span>
                   </div>
-                  <p className="text-sm text-[#6B7280]">{item.event}</p>
+                  <p className="text-sm text-white/40">{item.event}</p>
                 </div>
               </FadeIn>
             ))}
@@ -170,20 +168,20 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Investor Contact */}
-      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
+      <section className="py-24 border-t border-[rgba(255,255,255,0.04)] bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
               <div>
                 <p className="section-label mb-6">Investor Contact</p>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-4">
                   Get in Touch
                 </h2>
-                <p className="text-sm text-[#6B7280] leading-relaxed mb-6">
+                <p className="text-sm text-white/30 leading-relaxed mb-6">
                   For investment inquiries, due diligence requests, or partnership discussions, 
                   please contact our Investor Relations team.
                 </p>
-                <div className="space-y-2 text-sm text-[#6B7280]">
+                <div className="space-y-2 text-sm text-white/30">
                   <p>investor.relations@harchcorp.com</p>
                   <p>+212 5 22 00 00 00</p>
                   <p>123 Boulevard Mohammed V, Casablanca, Morocco</p>
@@ -192,7 +190,7 @@ export default function InvestorsPageClient() {
               <div className="flex items-start md:items-end justify-end">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-[#0A0F1A] text-white px-8 py-4 rounded-xl text-sm font-medium hover:bg-[#1a1f2e] transition-colors"
+                  className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-xl text-sm font-medium hover:bg-white/90 transition-colors"
                 >
                   Contact IR Team
                   <ArrowRight size={14} />

@@ -52,3 +52,14 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Generated / non-essential files
+/download/
+/upload/
+/db/
+/agent-ctx/
+worklog.md
+generate_report*.py
+generate_charts.py
+cover.html
+GPU_DataCenter_Infrastructure_Research_Report.md

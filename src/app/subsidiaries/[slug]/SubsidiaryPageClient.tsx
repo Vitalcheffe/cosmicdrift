@@ -187,11 +187,11 @@ export default function SubsidiaryPageClient() {
 
   if (!data) {
     return (
-      <div className="bg-black min-h-screen flex items-center justify-center">
+      <div className="bg-[#FAFAFA] min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Not Found</h1>
-          <p className="text-white/30 mb-8">This subsidiary does not exist.</p>
-          <Link href="/" className="text-sm text-white/30 hover:text-white/60 transition-colors">
+          <h1 className="text-4xl font-bold text-[#0A0F1A] mb-4">Not Found</h1>
+          <p className="text-[#9CA3AF] mb-8">This subsidiary does not exist.</p>
+          <Link href="/" className="text-sm text-[#9CA3AF] hover:text-[#0A0F1A] transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -204,19 +204,19 @@ export default function SubsidiaryPageClient() {
   const nextData = subsidiaries[nextSlug];
 
   return (
-    <div className="bg-black">
+    <div className="bg-[#FAFAFA]">
       {/* Hero */}
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32">
+      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="flex items-center gap-4 mb-6">
               <p className="section-label mb-0">{data.label}</p>
               <span className="version-tag">{data.version}</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-[-0.01em] mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-6">
               {data.name}
             </h1>
-            <p className="text-xl md:text-2xl font-light text-white/30 mb-10">
+            <p className="text-xl md:text-2xl font-light text-[#9CA3AF] mb-10">
               {data.tagline}
             </p>
           </FadeIn>
@@ -224,7 +224,7 @@ export default function SubsidiaryPageClient() {
         {/* Hero Image */}
         <FadeIn delay={0.15}>
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl bg-[#111]">
+            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl bg-[#F1F3F5]">
               <Image
                 src={data.image}
                 alt={data.name}
@@ -232,19 +232,19 @@ export default function SubsidiaryPageClient() {
                 className="object-cover opacity-70"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </div>
           </div>
         </FadeIn>
       </section>
 
       {/* Overview */}
-      <section className="py-24 border-t border-[rgba(255,255,255,0.04)] bg-[#0A0A0A]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-[#FAFAFA]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="max-w-3xl">
               <p className="section-label mb-6">Overview</p>
-              <p className="text-base md:text-lg text-white/40 leading-relaxed">
+              <p className="text-base md:text-lg text-[#6B7280] leading-relaxed">
                 {data.overview}
               </p>
             </div>
@@ -253,7 +253,7 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* Key Metrics */}
-      <section className="py-24 border-t border-[rgba(255,255,255,0.04)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-12">Key Metrics</p>
@@ -262,10 +262,10 @@ export default function SubsidiaryPageClient() {
             {data.metrics.map((metric, i) => (
               <FadeIn key={metric.label} delay={i * 0.1}>
                 <div>
-                  <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C9A84C] tracking-[-0.01em]">
+                  <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A0F1A] tracking-[-0.01em]">
                     {metric.value}
                   </p>
-                  <p className="mt-2 text-xs tracking-[0.1em] uppercase text-white/20">
+                  <p className="mt-2 text-xs tracking-[0.1em] uppercase text-[#9CA3AF]">
                     {metric.label}
                   </p>
                 </div>
@@ -276,7 +276,7 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* Strategic Advantages */}
-      <section className="py-24 border-t border-[rgba(255,255,255,0.04)] bg-[#0A0A0A]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-[#FAFAFA]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-12">Strategic Advantages</p>
@@ -288,7 +288,7 @@ export default function SubsidiaryPageClient() {
                   <span className="text-sm text-[#C9A84C]/30 font-mono mt-0.5 shrink-0">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <p className="text-sm md:text-base text-white/40 leading-relaxed">
+                  <p className="text-sm md:text-base text-[#6B7280] leading-relaxed">
                     {advantage}
                   </p>
                 </div>
@@ -299,21 +299,21 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 border-t border-[rgba(255,255,255,0.04)]">
+      <section className="py-24 border-t border-[rgba(0,0,0,0.04)] bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#0A0F1A] tracking-[-0.01em] mb-3">
                   Invest in {data.name}
                 </h2>
-                <p className="text-sm text-white/20">
+                <p className="text-sm text-[#9CA3AF]">
                   Learn about investment opportunities in this vertical.
                 </p>
               </div>
               <Link
                 href="/investors"
-                className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-xl text-sm font-medium hover:bg-white/90 transition-colors shrink-0"
+                className="inline-flex items-center gap-2 bg-[#0A0F1A] text-white px-8 py-4 rounded-xl text-sm font-medium hover:bg-[#0A0F1A]/90 transition-colors shrink-0"
               >
                 Investor Relations
                 <ArrowRight size={14} />
@@ -324,7 +324,7 @@ export default function SubsidiaryPageClient() {
       </section>
 
       {/* Next Subsidiary */}
-      <section className="py-16 border-t border-[rgba(255,255,255,0.04)] bg-[#0A0A0A]">
+      <section className="py-16 border-t border-[rgba(0,0,0,0.04)] bg-[#FAFAFA]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <Link
             href={`/subsidiaries/${nextSlug}`}
@@ -332,11 +332,11 @@ export default function SubsidiaryPageClient() {
           >
             <div>
               <p className="section-label mb-2">Next Vertical</p>
-              <p className="text-2xl md:text-3xl font-light text-white/30 group-hover:text-[#C9A84C] transition-colors">
+              <p className="text-2xl md:text-3xl font-light text-[#9CA3AF] group-hover:text-[#C9A84C] transition-colors">
                 {nextData.name}
               </p>
             </div>
-            <ArrowLeft size={20} className="text-white/15 group-hover:text-[#C9A84C] group-hover:-translate-x-1 transition-all rotate-180" />
+            <ArrowLeft size={20} className="text-[rgba(0,0,0,0.15)] group-hover:text-[#C9A84C] group-hover:-translate-x-1 transition-all rotate-180" />
           </Link>
         </div>
       </section>

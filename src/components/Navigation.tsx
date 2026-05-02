@@ -64,8 +64,8 @@ export function Navigation() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-black/90 backdrop-blur-xl border-b border-[rgba(255,255,255,0.04)]'
-            : 'bg-transparent'
+            ? 'bg-white/92 backdrop-blur-xl border-b border-[rgba(0,0,0,0.04)]'
+            : 'bg-white/50 backdrop-blur-sm'
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 h-[64px] flex items-center justify-between">
@@ -79,20 +79,20 @@ export function Navigation() {
             <Link
               href="/contact"
               onClick={closeAll}
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2 bg-white text-black text-[11px] font-semibold tracking-[0.08em] uppercase rounded-md hover:bg-white/90 transition-colors"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2 bg-[#0A0F1A] text-white text-[11px] font-semibold tracking-[0.08em] uppercase rounded-md hover:bg-[#0A0F1A]/90 transition-colors"
             >
               Get Started
             </Link>
             <button
               onClick={() => { setMenuOpen(false); setSearchOpen(!searchOpen); }}
-              className="p-2 text-white/40 hover:text-white transition-colors"
+              className="p-2 text-[#6B7280] hover:text-[#0A0F1A] transition-colors"
               aria-label="Search"
             >
               <Search size={16} strokeWidth={1.5} />
             </button>
             <button
               onClick={() => { setSearchOpen(false); setMenuOpen(!menuOpen); }}
-              className="p-2 text-white/40 hover:text-white transition-colors"
+              className="p-2 text-[#6B7280] hover:text-[#0A0F1A] transition-colors"
               aria-label="Menu"
             >
               {menuOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
@@ -101,9 +101,9 @@ export function Navigation() {
         </div>
       </header>
 
-      {/* ═══ FULL-SCREEN DARK MENU ═══ */}
+      {/* ═══ FULL-SCREEN WHITE MENU ═══ */}
       <div
-        className={`fixed inset-0 z-40 bg-black transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed inset-0 z-40 bg-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -117,16 +117,16 @@ export function Navigation() {
                   key={item.href}
                   href={item.href}
                   onClick={closeAll}
-                  className="group flex items-center justify-between py-3 border-b border-[rgba(255,255,255,0.04)] hover:border-[rgba(255,255,255,0.08)] transition-colors"
+                  className="group flex items-center justify-between py-3 border-b border-[rgba(0,0,0,0.04)] hover:border-[rgba(0,0,0,0.08)] transition-colors"
                 >
                   <div className="flex items-baseline gap-4">
-                    <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#C9A84C] transition-colors">
+                    <span className="text-2xl md:text-3xl font-bold text-[#0A0F1A] group-hover:text-[#C9A84C] transition-colors">
                       {item.name}
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="version-tag">{item.version}</span>
-                    <ArrowRight size={14} className="text-white/20 group-hover:text-[#C9A84C] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={14} className="text-[rgba(0,0,0,0.15)] group-hover:text-[#C9A84C] group-hover:translate-x-1 transition-all" />
                   </div>
                 </Link>
               ))}
@@ -140,7 +140,7 @@ export function Navigation() {
                   key={item.href}
                   href={item.href}
                   onClick={closeAll}
-                  className="block py-2.5 text-lg font-medium text-white/50 hover:text-white transition-colors"
+                  className="block py-2.5 text-lg font-medium text-[#6B7280] hover:text-[#0A0F1A] transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -155,7 +155,7 @@ export function Navigation() {
                   key={item.href}
                   href={item.href}
                   onClick={closeAll}
-                  className="block py-2.5 text-lg font-medium text-white/50 hover:text-white transition-colors"
+                  className="block py-2.5 text-lg font-medium text-[#6B7280] hover:text-[#0A0F1A] transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -167,7 +167,7 @@ export function Navigation() {
 
       {/* ═══ SEARCH OVERLAY ═══ */}
       <div
-        className={`fixed inset-0 z-40 bg-black/98 backdrop-blur-xl transition-all duration-400 ${
+        className={`fixed inset-0 z-40 bg-white/98 backdrop-blur-xl transition-all duration-400 ${
           searchOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -175,13 +175,13 @@ export function Navigation() {
           <div className="max-w-[800px] mx-auto w-full">
             <form onSubmit={(e) => { e.preventDefault(); closeAll(); }}>
               <div className="relative">
-                <Search size={20} className="absolute left-0 top-1/2 -translate-y-1/2 text-white/20" strokeWidth={1.5} />
+                <Search size={20} className="absolute left-0 top-1/2 -translate-y-1/2 text-[#9CA3AF]" strokeWidth={1.5} />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search Harch Corp..."
-                  className="w-full bg-transparent border-b border-[rgba(255,255,255,0.08)] pl-10 pr-4 py-4 text-2xl md:text-4xl font-light text-white placeholder:text-white/20 focus:outline-none focus:border-[#C9A84C] transition-colors"
+                  className="w-full bg-transparent border-b border-[rgba(0,0,0,0.08)] pl-10 pr-4 py-4 text-2xl md:text-4xl font-light text-[#0A0F1A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#0A0F1A] transition-colors"
                   autoFocus={searchOpen}
                 />
               </div>
@@ -193,7 +193,7 @@ export function Navigation() {
                   <button
                     key={term}
                     onClick={() => setSearchQuery(term)}
-                    className="px-4 py-2 border border-[rgba(255,255,255,0.06)] rounded-lg text-[12px] text-white/40 hover:text-white hover:border-[rgba(255,255,255,0.15)] transition-colors font-medium"
+                    className="px-4 py-2 border border-[rgba(0,0,0,0.06)] rounded-lg text-[12px] text-[#6B7280] hover:text-[#0A0F1A] hover:border-[rgba(0,0,0,0.15)] transition-colors font-medium"
                   >
                     {term}
                   </button>

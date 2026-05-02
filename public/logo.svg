@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 32">
-  <text x="0" y="24" font-family="Inter, sans-serif" font-weight="700" font-size="22" fill="white" letter-spacing="6">HARCH</text>
-  <text x="120" y="24" font-family="Inter, sans-serif" font-weight="300" font-size="22" fill="rgba(255,255,255,0.3)">|</text>
-  <text x="140" y="24" font-family="Inter, sans-serif" font-weight="300" font-size="22" fill="white" letter-spacing="6">CORP</text>
+  <text x="0" y="24" font-family="Inter, sans-serif" font-weight="700" font-size="22" fill="#C9A84C" letter-spacing="6">HARCH</text>
+  <text x="120" y="24" font-family="Inter, sans-serif" font-weight="300" font-size="22" fill="rgba(0,0,0,0.2)">|</text>
+  <text x="140" y="24" font-family="Inter, sans-serif" font-weight="300" font-size="22" fill="#0A0F1A" letter-spacing="6">CORP</text>
 </svg>

@@ -110,7 +110,7 @@ export function Footer() {
       <div className="border-t border-[rgba(255,255,255,0.04)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-6">
-            <Image src="/logo.svg" alt="Harch Corp" width={100} height={20} className="h-4 w-auto" />
+            <Image src="/logo.svg" alt="Harch Corp" width={100} height={20} className="h-4 w-auto brightness-0 invert" />
             <p className="text-[10px] text-white/15 tracking-wide">
               &copy; 2026 Harch Corp S.A. All rights reserved.
             </p>

@@ -205,3 +205,28 @@ Stage Summary:
 - New cinematic-quality images for all verticals
 - HARCH | CORP logo recreated as SVG
 - All 19 pages HTTP 200, lint passes
+
+---
+Task ID: 1
+Agent: Main Agent
+Task: Add interactive animations and Africa map with installations
+
+Work Log:
+- Created AfricaMap.tsx — fully interactive SVG map with scanning line, animated pulse dots, connection lines between installations, hover tooltips with vertical info/status, coordinate grid, and live indicator
+- Created LiveFeed.tsx — real-time terminal-style system feed with auto-rotating messages from all 7 verticals
+- Created DataStream.tsx — subtle matrix-style data stream canvas animation (very light opacity)
+- Created NetworkGrid.tsx — interactive particle network that responds to mouse movement, drawing connections between nearby nodes
+- Created CursorGlow.tsx — subtle cursor-following glow effect across the entire site
+- Created PulseIndicator.tsx — pulsing ring animation for live indicators + StatBar + TypingText utilities
+- Updated page.tsx — replaced basic WorldMap with new AfricaMap, added LiveFeed, System Health bars with animated progress, DataStream background, NetworkGrid on verticals section, PulseIndicator on stat cards
+- Updated layout.tsx — added CursorGlow globally
+- All builds clean, all pages HTTP 200
+
+Stage Summary:
+- Africa map now has scanning line, animated dots, connection paths, hover details, status indicators
+- Live system feed shows real-time operational data
+- NetworkGrid responds to mouse on verticals section
+- CursorGlow follows mouse across entire site  
+- Stats cards have "LIVE" pulse indicators
+- DataStream adds subtle matrix rain on map section
+- All animations are "très léger" — very subtle but cutting-edge

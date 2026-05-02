@@ -5,7 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, ExternalLink, Globe } from 'lucide-react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { WorldMap } from '@/components/WorldMap';
+import { AfricaMap } from '@/components/AfricaMap';
+import { LiveFeed } from '@/components/LiveFeed';
+import { DataStream } from '@/components/DataStream';
+import { PulseIndicator } from '@/components/PulseIndicator';
+import { NetworkGrid } from '@/components/NetworkGrid';
 
 /* ═══ DATA ═══ */
 const verticals = [
@@ -235,8 +239,9 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S2: OUR SOFTWARE / VERTICALS — Palantir product listing
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#1A1A1A] relative overflow-hidden">
+        <NetworkGrid nodeCount={30} maxDistance={100} opacity={0.04} />
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <FadeIn>
             <div className="mb-16">
               <p className="section-label mb-4">Our Verticals</p>
@@ -289,11 +294,11 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════
           S3: INTERACTIVE WORLD MAP — Africa with blinking dots
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#121212] relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <FadeIn>
             <div className="text-center mb-16">
-              <p className="section-label mb-4">Global Presence</p>
+              <p className="section-label mb-4">Deployments / Real-Time</p>
               <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em]">
                 Operating Across<br />Africa
               </h2>
@@ -303,26 +308,64 @@ export default function HomePage() {
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <WorldMap />
+            <AfricaMap />
           </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="flex flex-wrap justify-center gap-6 mt-12">
-              {[
-                { label: 'HQ', value: 'Casablanca' },
-                { label: 'AI Compute', value: 'Dakhla' },
-                { label: 'Cement', value: 'Gambia' },
-                { label: 'Energy', value: 'Sahel' },
-                { label: 'Mining', value: 'Mauritania' },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-white" />
-                  <span className="text-[11px] font-semibold text-white tracking-wide">{item.label}</span>
-                  <span className="text-[11px] text-[#999999]">— {item.value}</span>
+
+          {/* Live Feed + Map side panel */}
+          <FadeIn delay={0.35}>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+              <div className="lg:col-span-2">
+                {/* Operational status bars */}
+                <div className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[#0A0A0A] p-5">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">
+                      System Health
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <PulseIndicator size={6} />
+                      <span className="text-[8px] text-[#999999] font-[family-name:var(--font-space-mono)]">ALL NOMINAL</span>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    {[
+                      { label: 'Intelligence /0.1', value: 87, status: 'Engineering' },
+                      { label: 'Energy /0.3', value: 94, status: 'Active' },
+                      { label: 'Ciment /0.2', value: 72, status: 'Permitted' },
+                      { label: 'Technology /0.4', value: 55, status: 'Design' },
+                    ].map((item) => (
+                      <div key={item.label}>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="text-[9px] font-bold tracking-[0.1em] text-[#999999] font-[family-name:var(--font-space-mono)]">
+                            {item.label}
+                          </span>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[8px] text-[#666666] font-[family-name:var(--font-space-mono)]">{item.status.toUpperCase()}</span>
+                            <span className="text-[9px] text-white/60 font-[family-name:var(--font-space-mono)]">{item.value}%</span>
+                          </div>
+                        </div>
+                        <div className="h-[2px] bg-[rgba(255,255,255,0.06)] rounded-full overflow-hidden">
+                          <motion.div
+                            className="h-full rounded-full"
+                            style={{ backgroundColor: item.value > 80 ? 'rgba(255,255,255,0.4)' : item.value > 60 ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.12)' }}
+                            initial={{ width: 0 }}
+                            animate={{ width: `${item.value}%` }}
+                            transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.5 }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
+              </div>
+              <div>
+                <LiveFeed />
+              </div>
             </div>
           </FadeIn>
         </div>
+
+        {/* Subtle data stream background */}
+        <DataStream opacity={0.02} count={15} speed={0.3} />
       </section>
 
       {/* ═══════════════════════════════════════════
@@ -403,6 +446,10 @@ export default function HomePage() {
             {stats.map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div className="card p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <PulseIndicator size={5} speed={3} />
+                    <span className="text-[8px] font-bold tracking-[0.15em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">LIVE</span>
+                  </div>
                   <p className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-tight leading-none mb-2 stat-mono">
                     <AnimatedCounter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                   </p>

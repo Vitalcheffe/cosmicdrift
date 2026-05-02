@@ -4,6 +4,7 @@ import "./globals.css";
 import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
+import { CursorGlow } from "@/components/CursorGlow";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -107,6 +108,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <CookieConsent />
+        <CursorGlow />
       </body>
     </html>
   );

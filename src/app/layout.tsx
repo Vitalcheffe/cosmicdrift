@@ -5,6 +5,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
 import { CursorGlow } from "@/components/CursorGlow";
+import { TerminalTicker } from "@/components/TerminalTicker";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -106,11 +107,20 @@ export default function RootLayout({
       <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#1A1A1A] text-white min-h-screen flex flex-col`}>
         <Sidebar />
         <div className="flex-1 flex flex-col lg:ml-[250px]">
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pb-6">{children}</main>
           <Footer />
         </div>
         <CookieConsent />
         <CursorGlow />
+
+        {/* ── COMMAND CENTER OVERLAYS ── */}
+        {/* Scanline sweep */}
+        <div className="scanline-overlay">
+          <div className="scanline-bar" />
+          <div className="scanline-bar-slow" />
+        </div>
+        {/* Terminal ticker */}
+        <TerminalTicker />
       </body>
     </html>
   );

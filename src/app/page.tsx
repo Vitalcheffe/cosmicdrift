@@ -447,10 +447,10 @@ export default function HomePage() {
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div className="card p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <PulseIndicator size={5} speed={3} />
-                    <span className="text-[8px] font-bold tracking-[0.15em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">LIVE</span>
+                    <PulseIndicator size={5} speed={3} color="#00C8FF" />
+                    <span className="text-[8px] font-bold tracking-[0.15em] uppercase cmd-cyan font-[family-name:var(--font-space-mono)]">LIVE</span>
                   </div>
-                  <p className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-tight leading-none mb-2 stat-mono">
+                  <p className={`text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-tight leading-none mb-2 stat-mono stat-jitter ${i === 1 ? '' : i === 2 ? 'stat-jitter-delay-1' : i === 3 ? 'stat-jitter-delay-2' : 'stat-jitter-delay-3'}`}>
                     <AnimatedCounter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                   </p>
                   <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-1">
@@ -564,9 +564,9 @@ export default function HomePage() {
                   { val: '500MW+', label: 'Capacity' },
                   { val: '50K+', label: 'GPUs' },
                   { val: '100%', label: 'Renewable' },
-                ].map((s) => (
+                ].map((s, j) => (
                   <div key={s.label}>
-                    <p className="text-2xl font-bold text-white stat-mono">{s.val}</p>
+                    <p className={`text-2xl font-bold text-white stat-mono stat-jitter ${j === 1 ? 'stat-jitter-delay-1' : j === 2 ? 'stat-jitter-delay-2' : ''}`}>{s.val}</p>
                     <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold">{s.label}</p>
                   </div>
                 ))}
@@ -633,9 +633,9 @@ export default function HomePage() {
                   { val: '2GW+', label: 'Capacity' },
                   { val: '3', label: 'Energy Sources' },
                   { val: 'Zero', label: 'Carbon' },
-                ].map((s) => (
+                ].map((s, j) => (
                   <div key={s.label}>
-                    <p className="text-2xl font-bold text-white stat-mono">{s.val}</p>
+                    <p className={`text-2xl font-bold text-white stat-mono stat-jitter ${j === 1 ? 'stat-jitter-delay-1' : j === 2 ? 'stat-jitter-delay-2' : ''}`}>{s.val}</p>
                     <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold">{s.label}</p>
                   </div>
                 ))}
@@ -695,7 +695,7 @@ export default function HomePage() {
             {africaStats.map((item, i) => (
               <FadeIn key={i} delay={i * 0.12}>
                 <div className="card p-8 h-full">
-                  <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 leading-none stat-mono">{item.value}</p>
+                  <p className={`text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 leading-none stat-mono stat-jitter ${i === 1 ? 'stat-jitter-delay-1' : i === 2 ? 'stat-jitter-delay-2' : ''}`}>{item.value}</p>
                   <div className="accent-line mb-5" />
                   <p className="text-[13px] text-[#999999] leading-[1.7]">{item.desc}</p>
                 </div>

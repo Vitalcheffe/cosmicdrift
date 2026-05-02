@@ -48,20 +48,20 @@ export function Sidebar() {
 
   const closeMobile = () => setMobileOpen(false);
 
-  const sectionLabel = "text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] mb-3 px-1 font-[family-name:var(--font-space-mono)]";
+  const sectionLabel = "text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] mb-3 px-1 font-[family-name:var(--font-space-mono)] flex items-center gap-2";
 
   const navLink = (href: string, label: string, extra?: React.ReactNode) => (
     <Link
       key={href}
       href={href}
       onClick={closeMobile}
-      className={`flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent hover:border-white hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] rounded-r-md transition-all duration-300 ${
+      className={`holo-link flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent rounded-r-md transition-all duration-300 ${
         isActive(href)
-          ? 'text-white bg-[rgba(255,255,255,0.04)] border-white'
-          : 'text-[#999999] hover:text-white hover:bg-[rgba(255,255,255,0.02)]'
+          ? 'text-white bg-[rgba(0,200,255,0.04)] border-[rgba(0,200,255,0.3)]'
+          : 'text-[#999999] hover:text-white hover:bg-[rgba(0,200,255,0.02)]'
       }`}
     >
-      <span>{label}</span>
+      <span className="holo-text">{label}</span>
       {extra}
     </Link>
   );
@@ -106,7 +106,10 @@ export function Sidebar() {
                 onClick={() => setPlatformsOpen(!platformsOpen)}
                 className={`flex items-center justify-between w-full ${sectionLabel}`}
               >
-                <span>Platforms</span>
+                <span className="flex items-center gap-2">
+                  <span className="led-indicator led-green" style={{ width: 4, height: 4 }} />
+                  Platforms
+                </span>
                 <ChevronDown
                   size={10}
                   className={`transition-transform text-[#666666] ${platformsOpen ? 'rotate-180' : ''}`}
@@ -119,14 +122,14 @@ export function Sidebar() {
                       key={item.href}
                       href={item.href}
                       onClick={closeMobile}
-                      className={`flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent hover:border-white hover:shadow-[0_0_8px_rgba(255,255,255,0.15)] rounded-r-md transition-all duration-300 ${
+                      className={`holo-link flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent rounded-r-md transition-all duration-300 ${
                         isActive(item.href)
-                          ? 'text-white bg-[rgba(255,255,255,0.04)] border-white'
-                          : 'text-[#999999] hover:text-white hover:bg-[rgba(255,255,255,0.02)]'
+                          ? 'text-white bg-[rgba(0,200,255,0.04)] border-[rgba(0,200,255,0.3)]'
+                          : 'text-[#999999] hover:text-white hover:bg-[rgba(0,200,255,0.02)]'
                       }`}
                     >
-                      <span>{item.name}</span>
-                      <span className="text-[10px] text-[rgba(255,255,255,0.15)] font-[family-name:var(--font-space-mono)]">{item.version}</span>
+                      <span className="holo-text">{item.name}</span>
+                      <span className="text-[10px] text-[rgba(0,200,255,0.2)] font-[family-name:var(--font-space-mono)]">{item.version}</span>
                     </Link>
                   ))}
                 </div>
@@ -135,7 +138,10 @@ export function Sidebar() {
 
             {/* ── MISSION ── */}
             <div>
-              <p className={sectionLabel}>Mission</p>
+              <p className={sectionLabel}>
+                <span className="led-indicator" style={{ width: 4, height: 4 }} />
+                Mission
+              </p>
               <div className="space-y-0.5 mt-1">
                 {missionItems.map((item) => navLink(item.href, item.name))}
               </div>
@@ -143,7 +149,10 @@ export function Sidebar() {
 
             {/* ── DEPLOYMENTS ── */}
             <div>
-              <p className={sectionLabel}>Deployments</p>
+              <p className={sectionLabel}>
+                <span className="led-indicator led-delay-1" style={{ width: 4, height: 4 }} />
+                Deployments
+              </p>
               <div className="space-y-0.5 mt-1">
                 {deploymentItems.map((item) => navLink(item.href, item.name))}
               </div>
@@ -151,7 +160,10 @@ export function Sidebar() {
 
             {/* ── INVESTORS ── */}
             <div>
-              <p className={sectionLabel}>Investors</p>
+              <p className={sectionLabel}>
+                <span className="led-indicator led-delay-2" style={{ width: 4, height: 4 }} />
+                Investors
+              </p>
               <div className="space-y-0.5 mt-1">
                 {investorItems.map((item) => navLink(item.href, item.name))}
               </div>
@@ -159,17 +171,20 @@ export function Sidebar() {
           </nav>
 
           {/* ═══ Bottom: Get Started ═══ */}
-          <div className="mt-4 pt-5 border-t border-[rgba(255,255,255,0.06)]">
+          <div className="mt-4 pt-5 border-t border-[rgba(0,200,255,0.08)]">
             <Link
               href="/contact"
               onClick={closeMobile}
-              className="block w-full text-center border border-white/30 bg-transparent text-white text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-white hover:text-black transition-colors font-[family-name:var(--font-space-mono)]"
+              className="block w-full text-center border border-[rgba(0,200,255,0.25)] bg-[rgba(0,200,255,0.04)] text-[rgba(0,200,255,0.8)] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[rgba(0,200,255,0.1)] hover:border-[rgba(0,200,255,0.4)] hover:text-[#00C8FF] transition-colors font-[family-name:var(--font-space-mono)]"
             >
               Get Started
             </Link>
-            <p className="text-[9px] text-[#666666] mt-3 text-center font-[family-name:var(--font-space-mono)]">
-              v0.1.0 — Casablanca
-            </p>
+            <div className="flex items-center justify-center gap-2 mt-3">
+              <span className="led-indicator led-green" style={{ width: 3, height: 3 }} />
+              <p className="text-[9px] cmd-cyan-dim font-[family-name:var(--font-space-mono)]">
+                v0.1.0 — Casablanca
+              </p>
+            </div>
           </div>
         </div>
       </aside>

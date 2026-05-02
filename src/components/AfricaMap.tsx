@@ -65,10 +65,10 @@ export function AfricaMap() {
 
   const getStatusColor = (status: string) => {
     switch(status) {
-      case 'active': return '#FFFFFF';
-      case 'engineering': return '#CCCCCC';
-      case 'permitted': return '#999999';
-      default: return '#666666';
+      case 'active': return '#00C8FF';
+      case 'engineering': return '#00A0CC';
+      case 'permitted': return '#007799';
+      default: return '#005566';
     }
   };
 
@@ -78,17 +78,17 @@ export function AfricaMap() {
       <div className="flex items-center justify-between mb-4 px-1">
         <div className="flex items-center gap-3">
           <div className="flex gap-1">
-            <div className="w-2 h-2 rounded-full bg-white/30" />
-            <div className="w-2 h-2 rounded-full bg-white/20" />
-            <div className="w-2 h-2 rounded-full bg-white/10" />
+            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(0, 200, 255, 0.3)' }} />
+            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(0, 200, 255, 0.2)' }} />
+            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(0, 200, 255, 0.1)' }} />
           </div>
-          <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">
+          <span className="text-[9px] font-bold tracking-[0.2em] uppercase cmd-cyan-dim font-[family-name:var(--font-space-mono)]">
             Deployments / Real-Time
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-[9px] text-[#666666] font-[family-name:var(--font-space-mono)]">
+          <div className="led-indicator led-green" style={{ width: 6, height: 6 }} />
+          <span className="text-[9px] cmd-cyan font-[family-name:var(--font-space-mono)]">
             LIVE — {locations.filter(l => l.status === 'active').length} ACTIVE
           </span>
         </div>
@@ -115,16 +115,16 @@ export function AfricaMap() {
 
             {/* Gradient for scanning line */}
             <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
-              <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.08" />
-              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+              <stop offset="0%" stopColor="#00C8FF" stopOpacity="0" />
+              <stop offset="50%" stopColor="#00C8FF" stopOpacity="0.08" />
+              <stop offset="100%" stopColor="#00C8FF" stopOpacity="0" />
             </linearGradient>
 
             {/* Connection line gradient */}
             <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.15" />
-              <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.05" />
-              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.15" />
+              <stop offset="0%" stopColor="#00C8FF" stopOpacity="0.15" />
+              <stop offset="50%" stopColor="#00C8FF" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#00C8FF" stopOpacity="0.15" />
             </linearGradient>
 
             {/* Dot pulse filter */}
@@ -194,14 +194,14 @@ export function AfricaMap() {
                   <path
                     d={`M${from.cx},${from.cy} Q${midX},${midY} ${to.cx},${to.cy}`}
                     fill="none"
-                    stroke={isHighlighted ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.04)'}
+                    stroke={isHighlighted ? 'rgba(0,200,255,0.25)' : 'rgba(0,200,255,0.06)'}
                     strokeWidth={isHighlighted ? '1' : '0.5'}
                     strokeDasharray="3,6"
                     className="transition-all duration-500"
                   />
                   {/* Animated particle along path */}
                   {isHighlighted && (
-                    <circle r="1.5" fill="#FFFFFF" opacity="0.6" filter="url(#dot-glow)">
+                    <circle r="1.5" fill="#00C8FF" opacity="0.8" filter="url(#dot-glow)">
                       <animateMotion
                         dur="3s"
                         repeatCount="indefinite"
@@ -235,71 +235,84 @@ export function AfricaMap() {
                   onMouseLeave={() => setHovered(null)}
                   className="cursor-pointer"
                 >
-                  {/* Outer pulse ring - SVG breathe animation */}
+                  {/* ── SONAR PING RING 1 — Outer expanding ripple ── */}
                   <circle
                     cx={loc.cx}
                     cy={loc.cy}
-                    r={isHovered ? 18 : 12}
+                    r={4}
                     fill="none"
                     stroke={color}
-                    strokeWidth="0.3"
-                    className="transition-all duration-300"
+                    strokeWidth="0.8"
+                    opacity="0"
                   >
                     <animate
                       attributeName="r"
-                      values="8;14;8"
-                      dur="3s"
+                      values="4;22;4"
+                      dur="2.5s"
                       repeatCount="indefinite"
-                      begin={`${locations.indexOf(loc) * 0.4}s`}
+                      begin={`${locations.indexOf(loc) * 0.35}s`}
                     />
                     <animate
                       attributeName="opacity"
-                      values="0.3;0;0.3"
-                      dur="3s"
+                      values="0.5;0;0.5"
+                      dur="2.5s"
                       repeatCount="indefinite"
-                      begin={`${locations.indexOf(loc) * 0.4}s`}
+                      begin={`${locations.indexOf(loc) * 0.35}s`}
+                    />
+                    <animate
+                      attributeName="stroke-width"
+                      values="0.8;0.1;0.8"
+                      dur="2.5s"
+                      repeatCount="indefinite"
+                      begin={`${locations.indexOf(loc) * 0.35}s`}
                     />
                   </circle>
 
-                  {/* Second pulse ring - SVG breathe animation */}
+                  {/* ── SONAR PING RING 2 — Secondary ripple ── */}
                   <circle
                     cx={loc.cx}
                     cy={loc.cy}
-                    r={isHovered ? 12 : 8}
+                    r={4}
                     fill="none"
                     stroke={color}
                     strokeWidth="0.5"
-                    opacity={isHovered ? 0.2 : 0.08}
-                    className="transition-all duration-300"
+                    opacity="0"
                   >
                     <animate
                       attributeName="r"
-                      values="5;10;5"
-                      dur="3s"
+                      values="4;16;4"
+                      dur="2.5s"
                       repeatCount="indefinite"
-                      begin={`${locations.indexOf(loc) * 0.4}s`}
+                      begin={`${locations.indexOf(loc) * 0.35 + 0.8}s`}
                     />
                     <animate
                       attributeName="opacity"
-                      values="0.2;0.02;0.2"
-                      dur="3s"
+                      values="0.35;0;0.35"
+                      dur="2.5s"
                       repeatCount="indefinite"
-                      begin={`${locations.indexOf(loc) * 0.4}s`}
+                      begin={`${locations.indexOf(loc) * 0.35 + 0.8}s`}
+                    />
+                    <animate
+                      attributeName="stroke-width"
+                      values="0.5;0.05;0.5"
+                      dur="2.5s"
+                      repeatCount="indefinite"
+                      begin={`${locations.indexOf(loc) * 0.35 + 0.8}s`}
                     />
                   </circle>
 
-                  {/* Main dot */}
+                  {/* Main dot — cyan glow */}
                   <circle
                     cx={loc.cx}
                     cy={loc.cy}
                     r={isHovered ? 4.5 : 3}
                     fill={color}
-                    opacity={isHovered ? 1 : 0.7}
-                    filter={isHovered ? 'url(#glow)' : 'url(#dot-glow)'}
+                    opacity={isHovered ? 1 : 0.8}
+                    filter={isHovered ? 'url(#glow-strong)' : 'url(#glow)'}
                     className="transition-all duration-300"
                   />
 
-                  {/* Inner bright core */}
+                  {/* Inner bright core — white hot center */}
                   <circle
                     cx={loc.cx}
                     cy={loc.cy}
@@ -314,7 +327,7 @@ export function AfricaMap() {
                     y={loc.cy + 3}
                     fontSize="6"
                     fontWeight="600"
-                    fill={isHovered ? '#FFFFFF' : 'rgba(255,255,255,0.3)'}
+                    fill={isHovered ? '#00C8FF' : 'rgba(0,200,255,0.4)'}
                     letterSpacing="0.08em"
                     className="transition-all duration-300 font-[family-name:var(--font-space-mono)]"
                   >
@@ -346,7 +359,7 @@ export function AfricaMap() {
                         height="56"
                         rx="6"
                         fill="#0A0A0A"
-                        stroke="rgba(255,255,255,0.1)"
+                        stroke="rgba(0,200,255,0.2)"
                         strokeWidth="0.5"
                       />
                       {/* Tooltip accent line */}
@@ -356,15 +369,15 @@ export function AfricaMap() {
                         width="2"
                         height="56"
                         rx="1"
-                        fill={color}
-                        opacity="0.5"
+                        fill="#00C8FF"
+                        opacity="0.6"
                       />
                       <text
                         x={loc.cx + 40}
                         y={loc.cy - 16}
                         fontSize="7"
                         fontWeight="700"
-                        fill="#FFFFFF"
+                        fill="#00C8FF"
                         letterSpacing="0.12em"
                         className="font-[family-name:var(--font-space-mono)]"
                       >
@@ -374,7 +387,7 @@ export function AfricaMap() {
                         x={loc.cx + 40}
                         y={loc.cy - 4}
                         fontSize="7"
-                        fill="#999999"
+                        fill="#FFFFFF"
                       >
                         {loc.stat}
                       </text>
@@ -382,7 +395,7 @@ export function AfricaMap() {
                         x={loc.cx + 40}
                         y={loc.cy + 8}
                         fontSize="6"
-                        fill="#666666"
+                        fill="rgba(0,200,255,0.5)"
                       >
                         {loc.desc}
                       </text>
@@ -430,21 +443,27 @@ export function AfricaMap() {
         </svg>
 
         {/* Bottom status bar */}
-        <div className="flex items-center justify-between px-5 py-3 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)]">
+        <div className="flex items-center justify-between px-5 py-3 border-t border-[rgba(0,200,255,0.08)] bg-[rgba(0,200,255,0.02)]">
           <div className="flex items-center gap-4">
             {locations.slice(0, 4).map(loc => (
               <div key={loc.id} className="flex items-center gap-1.5">
                 <div
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ backgroundColor: getStatusColor(loc.status), opacity: 0.6 }}
+                  className="led-indicator"
+                  style={{
+                    width: 4,
+                    height: 4,
+                    backgroundColor: getStatusColor(loc.status),
+                    boxShadow: `0 0 4px ${getStatusColor(loc.status)}40`,
+                    animationDelay: `${locations.indexOf(loc) * 0.3}s`
+                  }}
                 />
-                <span className="text-[8px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">
+                <span className="text-[8px] cmd-cyan-dim font-[family-name:var(--font-space-mono)] tracking-wide">
                   {loc.vertical}
                 </span>
               </div>
             ))}
           </div>
-          <span className="text-[8px] text-[#444444] font-[family-name:var(--font-space-mono)]">
+          <span className="text-[8px] cmd-cyan-dim font-[family-name:var(--font-space-mono)]">
             {locations.length} NODES — 5 COUNTRIES
           </span>
         </div>

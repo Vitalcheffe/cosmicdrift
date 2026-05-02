@@ -52,7 +52,7 @@ export default function CareersPageClient() {
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Join the team building Africa&apos;s industrial backbone. 3,200+ positions across 7 verticals and 5 countries. Every role directly contributes to the continent&apos;s sovereignty.
+              Building the impossible requires the best minds. Join the team engineering Africa&apos;s industrial backbone — 3,200+ positions across 7 verticals and 5 countries. Every role directly contributes to the continent&apos;s sovereignty.
             </p>
           </FadeIn>
         </div>
@@ -178,7 +178,8 @@ export default function CareersPageClient() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">Ready to Build?</h2>
-            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">Your next career move could reshape a continent. Join Harch Corp.</p>
+            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-4">Your next career move could reshape a continent. Join Harch Corp.</p>
+            <p className="text-[13px] text-[#666666] font-[family-name:var(--font-space-mono)] mb-12">General applications: <a href="mailto:careers@harchcorp.com" className="text-[rgba(0,200,255,0.7)] hover:text-[#00C8FF] transition-colors">careers@harchcorp.com</a></p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

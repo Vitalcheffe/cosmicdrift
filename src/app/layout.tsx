@@ -5,7 +5,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
 import { CursorGlow } from "@/components/CursorGlow";
-import { TerminalTicker } from "@/components/TerminalTicker";
+
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,16 +22,20 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Harch Corp — Infrastructure for the Next Century",
+    default: "Harch Corp | Africa's Sovereign Infrastructure OS",
     template: "%s | Harch Corp",
   },
   description:
-    "Harch Corp builds the critical infrastructure that enables Africa's self-reliance — from 500MW AI data centers to 2GW renewable energy across 7 verticals.",
+    "Building the industrial backbone of Africa: AI Data Centers (500MW+), Renewable Energy (2GW+), and Critical Mining. $2.4B+ investment pipeline across 7 verticals.",
   keywords: [
     "Harch Corp",
     "Africa industrial sovereignty",
-    "Morocco conglomerate",
+    "Data Center Africa",
+    "Sovereign AI",
     "AI data center Dakhla",
+    "Renewable Energy Morocco",
+    "Industrial Infrastructure",
+    "Morocco conglomerate",
     "renewable energy Africa",
     "cement manufacturing Gambia",
     "strategic mining Morocco",
@@ -46,19 +50,28 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Harch Corp — Infrastructure for the Next Century",
+    title: "Harch Corp | Africa's Sovereign Infrastructure OS",
     description:
-      "Building Africa's industrial sovereignty across 7 verticals with $2.4B+ investment pipeline.",
+      "Building the industrial backbone of Africa: AI Data Centers (500MW+), Renewable Energy (2GW+), and Critical Mining across 7 verticals.",
     url: "https://harchcorp.com",
     siteName: "Harch Corp",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/images/og-harch-corp.png",
+        width: 1200,
+        height: 630,
+        alt: "Harch Corp — Africa's Sovereign Infrastructure OS",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harch Corp — Infrastructure for the Next Century",
+    title: "Harch Corp | Africa's Sovereign Infrastructure OS",
     description:
-      "Building Africa's industrial sovereignty across 7 verticals with $2.4B+ investment pipeline.",
+      "Building the industrial backbone of Africa: AI Data Centers (500MW+), Renewable Energy (2GW+), and Critical Mining.",
+    images: ["/images/og-harch-corp.png"],
   },
   robots: {
     index: true,
@@ -112,15 +125,6 @@ export default function RootLayout({
         </div>
         <CookieConsent />
         <CursorGlow />
-
-        {/* ── COMMAND CENTER OVERLAYS ── */}
-        {/* Scanline sweep */}
-        <div className="scanline-overlay">
-          <div className="scanline-bar" />
-          <div className="scanline-bar-slow" />
-        </div>
-        {/* Terminal ticker */}
-        <TerminalTicker />
       </body>
     </html>
   );

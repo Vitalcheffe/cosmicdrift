@@ -442,30 +442,51 @@ export function AfricaMap() {
           </g>
         </svg>
 
-        {/* Bottom status bar */}
-        <div className="flex items-center justify-between px-5 py-3 border-t border-[rgba(0,200,255,0.08)] bg-[rgba(0,200,255,0.02)]">
-          <div className="flex items-center gap-4">
-            {locations.slice(0, 4).map(loc => (
-              <div key={loc.id} className="flex items-center gap-1.5">
-                <div
-                  className="led-indicator"
-                  style={{
-                    width: 4,
-                    height: 4,
-                    backgroundColor: getStatusColor(loc.status),
-                    boxShadow: `0 0 4px ${getStatusColor(loc.status)}40`,
-                    animationDelay: `${locations.indexOf(loc) * 0.3}s`
-                  }}
-                />
-                <span className="text-[8px] cmd-cyan-dim font-[family-name:var(--font-space-mono)] tracking-wide">
-                  {loc.vertical}
-                </span>
-              </div>
-            ))}
+        {/* Bottom status bar with legend */}
+        <div className="px-5 py-3 border-t border-[rgba(0,200,255,0.08)] bg-[rgba(0,200,255,0.02)]">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-4">
+              {locations.slice(0, 4).map(loc => (
+                <div key={loc.id} className="flex items-center gap-1.5">
+                  <div
+                    className="led-indicator"
+                    style={{
+                      width: 4,
+                      height: 4,
+                      backgroundColor: getStatusColor(loc.status),
+                      boxShadow: `0 0 4px ${getStatusColor(loc.status)}40`,
+                      animationDelay: `${locations.indexOf(loc) * 0.3}s`
+                    }}
+                  />
+                  <span className="text-[8px] cmd-cyan-dim font-[family-name:var(--font-space-mono)] tracking-wide">
+                    {loc.vertical}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <span className="text-[8px] cmd-cyan-dim font-[family-name:var(--font-space-mono)]">
+              {locations.length} NODES — 5 COUNTRIES
+            </span>
           </div>
-          <span className="text-[8px] cmd-cyan-dim font-[family-name:var(--font-space-mono)]">
-            {locations.length} NODES — 5 COUNTRIES
-          </span>
+          {/* Legend */}
+          <div className="flex items-center gap-5 pt-1.5 border-t border-[rgba(0,200,255,0.05)]">
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00C8FF', boxShadow: '0 0 4px rgba(0,200,255,0.4)' }} />
+              <span className="text-[7px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">OPERATIONAL</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00A0CC', boxShadow: '0 0 4px rgba(0,160,204,0.4)' }} />
+              <span className="text-[7px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">ENGINEERING</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#007799', boxShadow: '0 0 4px rgba(0,119,153,0.4)' }} />
+              <span className="text-[7px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">PERMITTED</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#005566', boxShadow: '0 0 4px rgba(0,85,102,0.4)' }} />
+              <span className="text-[7px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">PLANNING</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

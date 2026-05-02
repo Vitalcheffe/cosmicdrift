@@ -170,16 +170,23 @@ export function Sidebar() {
             </div>
           </nav>
 
-          {/* ═══ Bottom: Get Started ═══ */}
-          <div className="mt-4 pt-5 border-t border-[rgba(0,200,255,0.08)]">
+          {/* ═══ Bottom: CTAs ═══ */}
+          <div className="mt-4 pt-5 border-t border-[rgba(0,200,255,0.08)] space-y-2">
             <Link
               href="/contact"
               onClick={closeMobile}
-              className="block w-full text-center border border-[rgba(0,200,255,0.25)] bg-[rgba(0,200,255,0.04)] text-[rgba(0,200,255,0.8)] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[rgba(0,200,255,0.1)] hover:border-[rgba(0,200,255,0.4)] hover:text-[#00C8FF] transition-colors font-[family-name:var(--font-space-mono)]"
+              className="block w-full text-center border border-[rgba(0,200,255,0.35)] bg-[rgba(0,200,255,0.06)] text-[rgba(0,200,255,0.9)] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[rgba(0,200,255,0.12)] hover:border-[rgba(0,200,255,0.5)] hover:text-[#00C8FF] transition-colors font-[family-name:var(--font-space-mono)]"
             >
-              Get Started
+              Partner With Us
             </Link>
-            <div className="flex items-center justify-center gap-2 mt-3">
+            <Link
+              href="/careers"
+              onClick={closeMobile}
+              className="block w-full text-center border border-[rgba(255,255,255,0.1)] bg-transparent text-[rgba(255,255,255,0.5)] text-[9px] tracking-[0.1em] uppercase px-4 py-2 rounded-md font-semibold hover:border-[rgba(255,255,255,0.2)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)]"
+            >
+              Join the Team
+            </Link>
+            <div className="flex items-center justify-center gap-2 pt-1">
               <span className="led-indicator led-green" style={{ width: 3, height: 3 }} />
               <p className="text-[9px] cmd-cyan-dim font-[family-name:var(--font-space-mono)]">
                 v0.1.0 — Casablanca

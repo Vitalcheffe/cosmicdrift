@@ -480,11 +480,11 @@
    INDUSTRIAL IMAGE — Dark/blue tint for stock photos
    ═══════════════════════════════════════════ */
 .industrial-image {
-  filter: brightness(0.7) contrast(1.1) saturate(0.6);
+  filter: brightness(0.75) contrast(1.08) saturate(0.55);
   transition: filter 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .industrial-image:hover {
-  filter: brightness(0.85) contrast(1.05) saturate(0.8);
+  filter: brightness(0.88) contrast(1.02) saturate(0.7);
 }
 
 /* ═══════════════════════════════════════════

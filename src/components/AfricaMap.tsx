@@ -65,10 +65,10 @@ export function AfricaMap() {
 
   const getStatusColor = (status: string) => {
     switch(status) {
-      case 'active': return '#00C8FF';
-      case 'engineering': return '#00A0CC';
-      case 'permitted': return '#007799';
-      default: return '#005566';
+      case 'active': return '#00C853'; // Green — Operational
+      case 'engineering': return '#00C8FF'; // Cyan — Development
+      case 'permitted': return '#FF8C00'; // Orange — Planning
+      default: return '#FF8C00'; // Orange — Planning
     }
   };
 
@@ -471,19 +471,15 @@ export function AfricaMap() {
           {/* Legend */}
           <div className="flex items-center gap-5 pt-1.5 border-t border-[rgba(0,200,255,0.05)]">
             <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00C8FF', boxShadow: '0 0 4px rgba(0,200,255,0.4)' }} />
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00C853', boxShadow: '0 0 4px rgba(0,200,83,0.4)' }} />
               <span className="text-[7px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">OPERATIONAL</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00A0CC', boxShadow: '0 0 4px rgba(0,160,204,0.4)' }} />
-              <span className="text-[7px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">ENGINEERING</span>
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00C8FF', boxShadow: '0 0 4px rgba(0,200,255,0.4)' }} />
+              <span className="text-[7px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">DEVELOPMENT</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#007799', boxShadow: '0 0 4px rgba(0,119,153,0.4)' }} />
-              <span className="text-[7px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">PERMITTED</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#005566', boxShadow: '0 0 4px rgba(0,85,102,0.4)' }} />
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#FF8C00', boxShadow: '0 0 4px rgba(255,140,0,0.4)' }} />
               <span className="text-[7px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">PLANNING</span>
             </div>
           </div>

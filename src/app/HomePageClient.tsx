@@ -118,6 +118,7 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 /* ═══ MAIN PAGE ═══ */
 export default function HomePageClient() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [activeVertical, setActiveVertical] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -237,57 +238,97 @@ export default function HomePageClient() {
       </motion.section>
 
       {/* ═══════════════════════════════════════════
-          S2: OUR SOFTWARE / VERTICALS — Palantir product listing
+          S2: VERTICALS — Palantir Feature Carousel
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A] relative overflow-hidden">
-        <NetworkGrid nodeCount={30} maxDistance={100} opacity={0.04} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+      <section className="bg-[#0A0A0A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-20 md:pt-28">
           <FadeIn>
-            <div className="mb-16">
+            <div className="mb-10">
               <p className="section-label mb-4">Our Verticals</p>
               <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-tight">
                 Infrastructure for<br />the Next Century
               </h2>
-              <p className="max-w-xl mt-4 text-[15px] text-[#999999] leading-relaxed">
-                Our platforms build the critical infrastructure that enables Africa&apos;s self-reliance across 7 industrial verticals.
-              </p>
             </div>
           </FadeIn>
-
-          {/* Palantir-style list layout */}
-          <div>
+          {/* Tab selector */}
+          <div className="flex gap-1 overflow-x-auto pb-4 scrollbar-hide">
             {verticals.map((v, i) => (
-              <FadeIn key={v.version} delay={i * 0.05}>
-                <Link
-                  href={v.href}
-                  className="vertical-row group flex items-center justify-between py-8 md:py-10 px-2 md:px-4 cursor-pointer"
-                >
-                  <div className="flex-1 min-w-0 pr-4">
-                    <div className="flex items-baseline gap-4 mb-2">
-                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white group-hover:text-[#CCCCCC] transition-colors tracking-tight">
-                        {v.name}
-                      </h3>
-                      <span className="text-[11px] font-bold text-white tracking-wide hidden sm:inline stat-mono">{v.stat}</span>
-                    </div>
-                    <p className="text-[13px] md:text-[15px] text-[#999999] leading-relaxed max-w-xl group-hover:text-[#CCCCCC] transition-colors">
-                      {v.desc}
-                    </p>
-                    <div className="mt-3 space-y-1">
-                      {v.outcomes?.map((outcome, j) => (
-                        <p key={j} className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)] tracking-wide">
-                          &gt; {outcome}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 shrink-0">
-                    <span className="version-tag hidden md:inline">{v.version}</span>
-                    <ArrowRight size={16} className="vertical-arrow text-[rgba(255,255,255,0.1)] group-hover:text-white transition-all duration-300" />
-                  </div>
-                </Link>
-              </FadeIn>
+              <button
+                key={v.version}
+                onClick={() => setActiveVertical(i)}
+                className={`shrink-0 px-4 py-2 text-[11px] font-bold tracking-[0.1em] uppercase rounded-md transition-all duration-300 ${
+                  i === activeVertical
+                    ? 'bg-white text-black'
+                    : 'text-[#666666] hover:text-white hover:bg-[rgba(255,255,255,0.06)]'
+                }`}
+              >
+                {v.name}
+              </button>
             ))}
           </div>
+        </div>
+        {/* Full-bleed feature image */}
+        <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+          {verticals.map((v, i) => (
+            <div
+              key={v.version}
+              className={`absolute inset-0 transition-opacity duration-800 ${
+                i === activeVertical ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+              style={{ transition: 'opacity 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
+            >
+              <Image src={v.image} alt={v.fullName} fill className="object-cover industrial-image" />
+            </div>
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-20" />
+          {/* Text overlay — bottom left */}
+          <div className="relative z-30 max-w-[1400px] mx-auto px-6 md:px-12 h-full flex items-end pb-12 md:pb-16">
+            <motion.div
+              key={activeVertical}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 font-[family-name:var(--font-space-mono)]">{verticals[activeVertical].version}</span>
+                <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/80 stat-mono">{verticals[activeVertical].stat}</span>
+              </div>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-[-0.02em] mb-3">
+                {verticals[activeVertical].name}
+              </h3>
+              <p className="max-w-lg text-[14px] text-white/60 leading-relaxed mb-6">
+                {verticals[activeVertical].desc}
+              </p>
+              <Link href={verticals[activeVertical].href} className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/80 transition-colors group">
+                Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+          </div>
+          {/* Navigation arrows */}
+          <div className="absolute right-6 md:right-12 bottom-12 md:bottom-16 z-30 flex items-center gap-3">
+            <button onClick={() => setActiveVertical((prev) => (prev - 1 + verticals.length) % verticals.length)} className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors" aria-label="Previous">
+              <ChevronLeft size={16} />
+            </button>
+            <span className="text-[11px] text-white/40 font-medium tabular-nums font-[family-name:var(--font-space-mono)]">
+              {String(activeVertical + 1).padStart(2, '0')} / {String(verticals.length).padStart(2, '0')}
+            </span>
+            <button onClick={() => setActiveVertical((prev) => (prev + 1) % verticals.length)} className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors" aria-label="Next">
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Full-bleed image break — Overview */}
+      <section className="photo-section relative min-h-[40vh] flex items-center justify-center">
+        <Image src="/images/section-harch-overview.jpg" alt="Harch Corp Overview" fill className="object-cover industrial-image" />
+        <div className="relative z-10 text-center">
+          <FadeIn>
+            <p className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-[-0.02em] mb-4">
+              7 Verticals. 5 Countries.
+            </p>
+            <p className="text-2xl md:text-3xl font-light text-white/60">$2.4B Investment Pipeline</p>
+          </FadeIn>
         </div>
       </section>
 

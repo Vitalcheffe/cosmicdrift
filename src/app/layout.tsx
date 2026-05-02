@@ -102,7 +102,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#FAFAFA] text-[#0A0F1A] min-h-screen flex flex-col`}>
         <Sidebar />
-        <div className="flex-1 flex flex-col lg:ml-[240px]">
+        <div className="flex-1 flex flex-col lg:ml-[250px]">
           <main className="flex-1">{children}</main>
           <Footer />
         </div>

@@ -256,13 +256,13 @@ export default function HomePageClient() {
             {verticals.map((v, i) => {
               const accentColors = ['#00C8FF', '#F59E0B', '#10B981', '#8B5CF6', '#EF4444', '#22C55E', '#3B82F6'];
               const sectionImages = [
-                '/images/section-intelligence-1.jpg',
-                '/images/section-cement-1.jpg',
-                '/images/section-energy-1.jpg',
-                '/images/section-technology-1.jpg',
-                '/images/section-mining-1.jpg',
-                '/images/section-agriculture-1.jpg',
-                '/images/section-water-1.jpg',
+                '/images/sections/intelligence-detail.jpg',
+                '/images/sections/cement-kiln.jpg',
+                '/images/sections/energy-solar.jpg',
+                '/images/sections/tech-satellite.jpg',
+                '/images/sections/mining-phosphate.jpg',
+                '/images/sections/agri-vertical.jpg',
+                '/images/sections/water-desal.jpg',
               ];
               const color = accentColors[i];
               return (

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Download } from 'lucide-react';
+
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -79,11 +79,10 @@ export default function DpaPageClient() {
                   Our standard DPA template is available for review and download. This template incorporates all mandatory provisions required by the GDPR, Moroccan data protection law, and best practices for data processing arrangements. If you require modifications to our standard template or have specific regulatory requirements, our legal team will work with you to address them.
                 </p>
                 <a
-                  href="/legal/dpa/dpa-template.pdf"
+                  href="mailto:legal@harchcorp.com"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-[13px] font-semibold rounded-md hover:bg-[#e0e0e0] transition-colors"
                 >
-                  <Download size={16} />
-                  Download DPA Template (PDF)
+                  Contact Legal Team
                 </a>
               </div>
             </FadeIn>

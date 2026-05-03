@@ -51,34 +51,34 @@ function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number;
 /* ─── DATA ─── */
 const hubs = [
   {
-    id: 'alpha', name: 'Harch Alpha', location: 'Dakhla', energy: 'Éolien offshore',
+    id: 'alpha', name: 'Harch Alpha', location: 'Dakhla', energy: 'Offshore Wind',
     power: '50MW', latency: '<12ms to Europe', color: '#3B82F6',
     icon: Wind, image: '/images/intelligence/harchos-tanger.png',
-    description: 'Hub principal connecté aux câbles sous-marins. Éolien offshore 24/7, le gateway compute Europe-Afrique.',
+    description: 'Primary hub connected to submarine cables. Offshore wind 24/7, the Europe-Africa compute gateway.',
   },
   {
-    id: 'beta', name: 'Harch Beta', location: 'Tanger', energy: 'Éolien + Hydrolien',
+    id: 'beta', name: 'Harch Beta', location: 'Tanger', energy: 'Wind + Tidal',
     power: '50MW', latency: '<5ms to Europe', color: '#06B6D4',
     icon: Droplets, image: '/images/intelligence/harchos-facility-night.png',
-    description: 'Latence la plus basse vers l\'Europe. Combo éolien-hydrolien pour disponibilité maximale.',
+    description: 'Lowest latency to Europe. Wind-tidal combo for maximum availability.',
   },
   {
-    id: 'gamma', name: 'Harch Gamma', location: 'Ouarzazate', energy: 'Solaire CSP+PV',
+    id: 'gamma', name: 'Harch Gamma', location: 'Ouarzazate', energy: 'Solar CSP+PV',
     power: '50MW', latency: 'Continental', color: '#F59E0B',
     icon: Sun, image: '/images/intelligence/harchos-energy-mix.png',
-    description: 'Au cœur du désert saharien. Solaire CSP avec stockage thermique pour l\'inference nocturne.',
+    description: 'Heart of the Saharan desert. CSP solar with thermal storage for nighttime inference.',
   },
   {
-    id: 'delta', name: 'Harch Delta', location: 'Casablanca', energy: 'Mix réseau + Solar',
+    id: 'delta', name: 'Harch Delta', location: 'Casablanca', energy: 'Grid Mix + Solar',
     power: '50MW', latency: 'Urban hub', color: '#8B5CF6',
     icon: Network, image: '/images/intelligence/harchos-mesh-map.png',
-    description: 'Hub urbain connecté au backbone national. Proximité clients enterprise et gouvernements.',
+    description: 'Urban hub connected to the national backbone. Proximity to enterprise and government clients.',
   },
   {
-    id: 'epsilon', name: 'Harch Epsilon', location: 'Benguerir', energy: 'Solaire + Éolien',
+    id: 'epsilon', name: 'Harch Epsilon', location: 'Benguerir', energy: 'Solar + Wind',
     power: '50MW', latency: 'R&D cluster', color: '#10B981',
     icon: Leaf, image: '/images/intelligence/harchos-architecture.png',
-    description: 'Greenfield R&D à côté de Mohammed VI Polytechnique. Hub d\'innovation et formation AI.',
+    description: 'Greenfield R&D next to Mohammed VI Polytechnique. AI innovation and training hub.',
   },
 ];
 
@@ -86,7 +86,7 @@ const architectureLayers = [
   {
     id: 'sense', name: 'SENSE', tag: 'Perception Layer',
     icon: Eye, color: '#06B6D4',
-    description: '50,000+ data points par seconde. Monitoring IoT temps réel, prévisions météo/énergie, capteurs infrarouges, ingestion de données satellite et API. La couche SENSE est les yeux et les oreilles du mesh — elle capture chaque signal avant qu\'il ne devienne critique.',
+    description: '50,000+ data points per second. Real-time IoT monitoring, weather/energy forecasting, infrared sensors, satellite data and API ingestion. The SENSE layer is the eyes and ears of the mesh — capturing every signal before it becomes critical.',
     specs: [
       { label: 'Data ingestion', value: '50K+ pts/sec' },
       { label: 'Sensor types', value: 'IoT, Satellite, API' },
@@ -97,7 +97,7 @@ const architectureLayers = [
   {
     id: 'think', name: 'THINK', tag: 'Intelligence Layer',
     icon: Brain, color: '#8B5CF6',
-    description: 'Modèles ML propriétés pour l\'optimisation multi-objectif. Placement prédictif des workloads 4h en avance, autoscaling basé sur les prévisions de demande et de production d\'énergie. La couche THINK décide où, quand et comment chaque compute job s\'exécute dans le mesh.',
+    description: 'Proprietary ML models for multi-objective optimization. Predictive workload placement 4 hours ahead, autoscaling based on demand and energy production forecasts. The THINK layer decides where, when, and how every compute job runs across the mesh.',
     specs: [
       { label: 'Prediction horizon', value: '4 hours' },
       { label: 'Model types', value: 'RL, Transformer, GNN' },
@@ -108,7 +108,7 @@ const architectureLayers = [
   {
     id: 'act', name: 'ACT', tag: 'Execution Layer',
     icon: Zap, color: '#10B981',
-    description: 'Live container migration entre hubs, GPU context switching en temps réel, zero-downtime failover automatique. La couche ACT exécute les décisions de THINK en moins de 200ms — déplaçant des workloads entiers entre data centers sans interruption de service.',
+    description: 'Live container migration between hubs, real-time GPU context switching, automatic zero-downtime failover. The ACT layer executes THINK decisions in under 200ms — moving entire workloads between data centers without service interruption.',
     specs: [
       { label: 'Container migration', value: 'Live, <200ms' },
       { label: 'Failover', value: 'Zero-downtime' },
@@ -121,27 +121,27 @@ const architectureLayers = [
 const capabilities = [
   {
     icon: Boxes, title: 'Workload Orchestration',
-    desc: 'Placement intelligent des workloads à travers les 5 hubs. Optimisation temps réel du coût énergétique, de la latence, et de la souveraineté des données. Chaque job est routé vers le hub optimal en fonction de 47 paramètres simultanés.',
+    desc: 'Intelligent workload placement across all 5 hubs. Real-time optimization of energy cost, latency, and data sovereignty. Every job is routed to the optimal hub based on 47 simultaneous parameters.',
   },
   {
     icon: Brain, title: 'ML Predictive Scheduling',
-    desc: 'Algorithmes d\'apprentissage par renforcement qui prédisent la demande compute 4h en avance et ajustent la distribution GPU en conséquence. Réduction de 35% des coûts énergétiques par rapport au scheduling statique.',
+    desc: 'Reinforcement learning algorithms that predict compute demand 4 hours ahead and adjust GPU distribution accordingly. 35% reduction in energy costs compared to static scheduling.',
   },
   {
     icon: Leaf, title: 'Carbon-Aware Scheduling',
-    desc: 'Chaque workload est horodaté et localisé pour maximiser l\'utilisation d\'énergie renouvelable. Les jobs batch sont déplacés vers les hubs solaires pendant la journée et vers les hubs éoliens la nuit.',
+    desc: 'Every workload is timestamped and geo-located to maximize renewable energy utilization. Batch jobs are shifted to solar hubs during the day and wind hubs at night.',
   },
   {
     icon: Shield, title: 'Data Sovereignty Engine',
-    desc: 'Politiques de souveraineté des données intégrées au niveau de l\'orchestrateur. Les données sensibles ne quittent jamais la juridiction marocaine. Conformité GDPR et loi 09-08 automatique.',
+    desc: 'Data sovereignty policies built into the orchestrator. Sensitive data never leaves Moroccan jurisdiction. Automatic GDPR and Law 09-08 compliance.',
   },
   {
     icon: CloudCog, title: 'Green GPU Cloud',
-    desc: 'Accès GPU à la demande, 100% alimenté par des énergies renouvelables. Prix compétitif avec les cloud providers traditionnels, sans compromis sur la durabilité. H100/A100 disponibles.',
+    desc: 'On-demand GPU access, 100% powered by renewable energy. Competitive pricing with traditional cloud providers, with no compromise on sustainability. H100/A100 available.',
   },
   {
     icon: Key, title: 'HarchOS Licensing',
-    desc: 'Licence HarchOS pour opérateurs tiers. Déployez l\'OS de souveraineté AI dans vos propres data centers. Support, mises à jour, et accès à l\'écosystème de partenaires Harch Corp.',
+    desc: 'HarchOS licensing for third-party operators. Deploy the AI sovereignty OS in your own data centers. Support, updates, and access to the Harch Corp partner ecosystem.',
   },
 ];
 
@@ -177,17 +177,17 @@ const specs = [
 ];
 
 const securityFeatures = [
-  { icon: Lock, title: 'Sovereign Encryption', desc: 'Chiffrement de bout en bout avec clés gérées localement. Aucune backdoor, aucun accès tiers. HSM FIPS 140-2 Level 3 dans chaque hub.' },
-  { icon: Shield, title: 'Zero Trust Architecture', desc: 'Chaque requête est authentifiée et autorisée, y compris entre services internes. mTLS obligatoire, network segmentation micro-granulaire.' },
-  { icon: Eye, title: 'Continuous Monitoring', desc: 'Surveillance SIEM 24/7 avec détection d\'anomalies alimentée par ML. Réponse aux incidents automatisée en moins de 30 secondes.' },
-  { icon: FileCode2, title: 'Compliance Automation', desc: 'Conformité automatique GDPR, ISO 27001, SOC 2 Type II, et loi marocaine 09-08. Audits continus plutôt que ponctuels.' },
+  { icon: Lock, title: 'Sovereign Encryption', desc: 'End-to-end encryption with locally managed keys. No backdoors, no third-party access. FIPS 140-2 Level 3 HSMs in every hub.' },
+  { icon: Shield, title: 'Zero Trust Architecture', desc: 'Every request is authenticated and authorized, including between internal services. Mandatory mTLS, micro-granular network segmentation.' },
+  { icon: Eye, title: 'Continuous Monitoring', desc: '24/7 SIEM monitoring with ML-powered anomaly detection. Automated incident response in under 30 seconds.' },
+  { icon: FileCode2, title: 'Compliance Automation', desc: 'Automatic GDPR, ISO 27001, SOC 2 Type II, and Moroccan Law 09-08 compliance. Continuous auditing, not point-in-time.' },
 ];
 
 const devPlatform = [
-  { icon: Code2, title: 'REST & gRPC APIs', desc: 'APIs complètes pour le provisioning, le monitoring, et l\'orchestration. SDK natifs pour Python, Go, Rust, et TypeScript. Documentation interactive OpenAPI 3.1.' },
-  { icon: GitBranch, title: 'HarchOS CLI', desc: 'Interface en ligne de commande pour le déploiement et la gestion des workloads. Intégration native avec CI/CD pipelines, Terraform provider, et Kubernetes operator.' },
-  { icon: Monitor, title: 'Observability Suite', desc: 'Dashboards Grafana intégrés, métriques Prometheus, distributed tracing Jaeger. Logs structurés avec recherche full-text et alertes intelligentes.' },
-  { icon: Database, title: 'Data Pipeline SDK', desc: 'Ingestion, transformation, et versioning de datasets à l\'échelle du petabyte. Connecteurs natifs pour S3, GCS, Azure Blob, et Hadoop.' },
+  { icon: Code2, title: 'REST & gRPC APIs', desc: 'Complete APIs for provisioning, monitoring, and orchestration. Native SDKs for Python, Go, Rust, and TypeScript. Interactive OpenAPI 3.1 documentation.' },
+  { icon: GitBranch, title: 'HarchOS CLI', desc: 'Command-line interface for workload deployment and management. Native integration with CI/CD pipelines, Terraform provider, and Kubernetes operator.' },
+  { icon: Monitor, title: 'Observability Suite', desc: 'Integrated Grafana dashboards, Prometheus metrics, Jaeger distributed tracing. Structured logs with full-text search and intelligent alerting.' },
+  { icon: Database, title: 'Data Pipeline SDK', desc: 'Petabyte-scale dataset ingestion, transformation, and versioning. Native connectors for S3, GCS, Azure Blob, and Hadoop.' },
 ];
 
 const roadmap = [
@@ -236,7 +236,7 @@ export default function HarchOSPageClient() {
               The Operating System for Sovereign AI Infrastructure
             </p>
             <p className="text-[15px] text-[#999999] max-w-xl leading-[1.7] mb-8">
-              5 hubs de calcul AI. 250MW installés. 100% énergie renouvelable. Un mesh distribué qui orchestre le compute souverain de l\'Afrique — de la perception à l\'exécution.
+              5 AI compute hubs. 250MW installed. 100% renewable energy. A distributed mesh orchestrating Africa\'s sovereign compute — from perception to execution.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
@@ -282,7 +282,7 @@ export default function HarchOSPageClient() {
             </blockquote>
             <div className="accent-line mt-8 mb-6" />
             <p className="text-[15px] text-[#999999] max-w-2xl leading-[1.7]">
-              HarchOS n&apos;est pas un produit — c&apos;est une doctrine. Chaque ligne de code, chaque rack de GPU, chaque kWh d&apos;énergie renouvelable est conçu pour une chose : s&apos;assurer que le compute de l&apos;Afrique reste sous contrôle africain.
+              HarchOS is not a product — it is a doctrine. Every line of code, every GPU rack, every kWh of renewable energy is designed for one thing: ensuring Africa&apos;s compute remains under African control.
             </p>
           </FadeIn>
         </div>
@@ -330,7 +330,7 @@ export default function HarchOSPageClient() {
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              HarchOS fonctionne sur trois couches interconnectées : SENSE capte les signaux, THINK prend les décisions, ACT exécute en temps réel. Un cycle de perception-décision-action complet en moins de 200ms.
+              HarchOS operates on three interconnected layers: SENSE captures signals, THINK makes decisions, ACT executes in real-time. A complete perception-decision-action cycle in under 200ms.
             </p>
           </FadeIn>
 
@@ -421,7 +421,7 @@ export default function HarchOSPageClient() {
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              Le Harch Intelligence Distributed Mesh s&apos;étend sur 5 sites stratégiques au Maroc — chaque hub alimenté par des énergies renouvelables locales, connecté par un backbone de 400Gbps.
+              The Harch Intelligence Distributed Mesh spans 5 strategic sites across Morocco — each hub powered by local renewable energy, connected by a 400Gbps backbone.
             </p>
           </FadeIn>
 
@@ -511,7 +511,7 @@ export default function HarchOSPageClient() {
                 </h2>
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
-                  Le HarchOS Operations Center offre une visibilité temps réel sur l&apos;ensemble du mesh. Monitoring de la consommation énergétique, de la distribution GPU, de la latence inter-hubs, et de la santé de chaque workload — tout dans un tableau de bord unifié.
+                  The HarchOS Operations Center provides real-time visibility across the entire mesh. Energy consumption monitoring, GPU distribution, inter-hub latency, and workload health — all in a unified dashboard.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {[
@@ -553,7 +553,7 @@ export default function HarchOSPageClient() {
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Six capacités fondamentales qui transforment le compute AI d&apos;une dépense en un avantage stratégique souverain.
+              Six foundational capabilities that transform AI compute from a cost center into a sovereign strategic advantage.
             </p>
           </FadeIn>
 
@@ -620,7 +620,7 @@ export default function HarchOSPageClient() {
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              La sécurité n&apos;est pas un add-on dans HarchOS — elle est architecturale. Chaque couche, chaque API, chaque workload est sécurisé par défaut.
+              Security is not an add-on in HarchOS — it is architectural. Every layer, every API, every workload is secure by default.
             </p>
           </FadeIn>
 
@@ -644,7 +644,7 @@ export default function HarchOSPageClient() {
           {/* Compliance Badges */}
           <FadeIn>
             <div className="mt-12 flex flex-wrap gap-3">
-              {['GDPR', 'ISO 27001', 'SOC 2 Type II', 'Loi 09-08', 'FIPS 140-2 L3', 'TLS 1.3'].map((cert) => (
+              {['GDPR', 'ISO 27001', 'SOC 2 Type II', 'Law 09-08', 'FIPS 140-2 L3', 'TLS 1.3'].map((cert) => (
                 <span key={cert} className="px-4 py-2 rounded-lg bg-[rgba(6,182,212,0.06)] border border-[rgba(6,182,212,0.15)] text-[11px] font-semibold text-[#06B6D4] font-[family-name:var(--font-space-mono)]">
                   {cert}
                 </span>
@@ -666,7 +666,7 @@ export default function HarchOSPageClient() {
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              APIs, SDKs, et outils CLI pour intégrer le mesh HarchOS dans vos workflows existants. Déployez, monitorer, et orchestrez — programmatiquement.
+              APIs, SDKs, and CLI tools to integrate the HarchOS mesh into your existing workflows. Deploy, monitor, and orchestrate — programmatically.
             </p>
           </FadeIn>
 
@@ -730,7 +730,7 @@ export default function HarchOSPageClient() {
                   </h2>
                   <div className="accent-line mb-6" />
                   <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
-                    Quatre câbles sous-marins, 100Gbps de liens inter-hubs dédiés, et un backbone de 400Gbps qui connecte le mesh HarchOS à l&apos;Europe en moins de 5ms et aux Amériques en moins de 35ms. Redondance triple sur chaque chemin.
+                    Four submarine cables, 100Gbps dedicated inter-hub links, and a 400Gbps backbone connecting the HarchOS mesh to Europe in under 5ms and the Americas in under 35ms. Triple redundancy on every path.
                   </p>
                   <div className="space-y-4">
                     {[
@@ -814,7 +814,7 @@ export default function HarchOSPageClient() {
               Ready for Sovereign Compute?
             </h2>
             <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">
-              HarchOS est le seul OS d&apos;infrastructure AI qui combine souveraineté, durabilité et performance. Déployez vos workloads sur le mesh le plus vert de la planète.
+              HarchOS is the only AI infrastructure OS that combines sovereignty, sustainability, and performance. Deploy your workloads on the greenest mesh on the planet.
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>

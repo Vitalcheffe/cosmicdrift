@@ -37,7 +37,7 @@ const industries = ['All', 'Finance', 'Government', 'Energy', 'Agriculture', 'Mi
 const caseStudies = [
   {
     organization: 'BCEAO',
-    fullName: 'Banque Centrale des États de l\'Afrique de l\'Ouest',
+    fullName: 'BCEAO (Central Bank of West African States)',
     useCase: 'Anti-Money Laundering',
     vertical: 'Intelligence',
     sector: 'Finance',
@@ -49,7 +49,7 @@ const caseStudies = [
   },
   {
     organization: 'ONEE',
-    fullName: 'Office National de l\'Électricité et de l\'Eau Potable',
+    fullName: 'ONEE (National Office of Electricity and Water)',
     useCase: 'Grid Optimization',
     vertical: 'Energy',
     sector: 'Energy',
@@ -61,7 +61,7 @@ const caseStudies = [
   },
   {
     organization: 'Senegal Ministry of Agriculture',
-    fullName: 'Ministère de l\'Agriculture du Sénégal',
+    fullName: 'Senegal Ministry of Agriculture',
     useCase: 'Crop Prediction & Yield Optimization',
     vertical: 'Agri',
     sector: 'Agriculture',
@@ -73,7 +73,7 @@ const caseStudies = [
   },
   {
     organization: 'OCP Group',
-    fullName: 'OCP Group — Office Chérifien des Phosphates',
+    fullName: 'OCP Group',
     useCase: 'Mining Analytics & Resource Optimization',
     vertical: 'Mining',
     sector: 'Mining',
@@ -85,7 +85,7 @@ const caseStudies = [
   },
   {
     organization: 'RAMED',
-    fullName: 'Régie Autonome de Distribution d\'Eau de Meknès',
+    fullName: 'RAMED (Meknès Water Distribution Authority)',
     useCase: 'Water Distribution Intelligence',
     vertical: 'Water',
     sector: 'Water',
@@ -177,7 +177,7 @@ export default function CustomersPageClient() {
                     </div>
                     <div>
                       <p className="text-sm font-bold text-white">BCEAO</p>
-                      <p className="text-[12px] text-[#666666]">Banque Centrale des États de l&apos;Afrique de l&apos;Ouest</p>
+                      <p className="text-[12px] text-[#666666]">BCEAO (Central Bank of West African States)</p>
                     </div>
                   </div>
                   <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">

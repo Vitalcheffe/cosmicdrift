@@ -63,28 +63,28 @@ const howItWorks = [
 const currentMembers = [
   {
     organization: 'BCEAO',
-    fullName: 'Banque Centrale des États de l\'Afrique de l\'Ouest',
+    fullName: 'BCEAO (Central Bank of West African States)',
     representative: 'Amadou Diallo',
     title: 'Chief Technology Officer',
     sector: 'Finance',
   },
   {
     organization: 'ONEE',
-    fullName: 'Office National de l\'Électricité et de l\'Eau Potable',
+    fullName: 'ONEE (National Office of Electricity and Water)',
     representative: 'Fatima Zahra El Amrani',
     title: 'Director of Operations',
     sector: 'Energy',
   },
   {
     organization: 'OCP Group',
-    fullName: 'Office Chérifien des Phosphates',
+    fullName: 'OCP Group',
     representative: 'Youssef Benkirane',
     title: 'VP Digital Transformation',
     sector: 'Mining',
   },
   {
     organization: 'Senegal Ministry of Agriculture',
-    fullName: 'Ministère de l\'Agriculture du Sénégal',
+    fullName: 'Senegal Ministry of Agriculture',
     representative: 'Mamadou Ndiaye',
     title: 'Permanent Secretary',
     sector: 'Government',
@@ -98,7 +98,7 @@ const currentMembers = [
   },
   {
     organization: 'RAMED',
-    fullName: 'Régie Autonome de Distribution d\'Eau de Meknès',
+    fullName: 'RAMED (Meknès Water Distribution Authority)',
     representative: 'Omar Tazi',
     title: 'General Director',
     sector: 'Water',

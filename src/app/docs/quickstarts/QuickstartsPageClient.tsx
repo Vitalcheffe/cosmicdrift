@@ -35,7 +35,7 @@ const quickstarts = [
     title: 'Set Up a Data Pipeline',
     description: 'Ingest streaming IoT data through the SENSE layer and store it in your data lake.',
     time: '5 min',
-    href: '#data-pipeline',
+    href: '/docs/guides',
     accent: '#8B5CF6',
   },
   {
@@ -43,7 +43,7 @@ const quickstarts = [
     title: 'Create a Monitoring Dashboard',
     description: 'Set up Grafana dashboards with real-time metrics for GPU utilization and energy consumption.',
     time: '5 min',
-    href: '#monitoring',
+    href: '/docs/guides',
     accent: '#10B981',
   },
   {
@@ -51,7 +51,7 @@ const quickstarts = [
     title: 'Configure Access Control',
     description: 'Set up RBAC policies, service accounts, and zero-trust network segmentation.',
     time: '5 min',
-    href: '#access-control',
+    href: '/docs/guides',
     accent: '#F59E0B',
   },
 ];

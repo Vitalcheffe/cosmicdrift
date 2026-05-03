@@ -1,0 +1,11 @@
+import { Metadata } from 'next';
+import AdvisoryBoardPageClient from './AdvisoryBoardPageClient';
+
+export const metadata: Metadata = {
+  title: 'Customer Advisory Board — Harch Corp',
+  description: 'Harch Corp Customer Advisory Board — co-creating the future of African industrial technology with our most strategic customers.',
+};
+
+export default function AdvisoryBoardPage() {
+  return <AdvisoryBoardPageClient />;
+}

@@ -1,0 +1,25 @@
+import type { Metadata } from 'next';
+import ChangelogPageClient from './ChangelogPageClient';
+
+export const metadata: Metadata = {
+  title: 'Release Notes — HarchOS',
+  description: 'HarchOS release notes and changelog. Track new features, improvements, bug fixes, breaking changes, and deprecations across all versions.',
+  keywords: [
+    'HarchOS changelog',
+    'release notes',
+    'version history',
+    'what\'s new',
+    'breaking changes',
+  ],
+  openGraph: {
+    title: 'Release Notes — HarchOS',
+    description: 'Track HarchOS releases. New features, improvements, bug fixes, and breaking changes.',
+    url: 'https://harchcorp.com/docs/changelog',
+    siteName: 'Harch Corp',
+    type: 'website',
+  },
+};
+
+export default function ChangelogPage() {
+  return <ChangelogPageClient />;
+}

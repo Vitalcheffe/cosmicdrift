@@ -15,11 +15,61 @@ const verticalLinks = [
 
 const companyLinks = [
   { name: 'About', href: '/about' },
+  { name: 'Leadership', href: '/company/leadership' },
   { name: 'Strategy', href: '/strategy' },
   { name: 'ESG', href: '/esg' },
+  { name: 'DEI', href: '/company/dei' },
+  { name: 'Harch Ventures', href: '/company/ventures' },
   { name: 'Careers', href: '/careers' },
   { name: 'Partners', href: '/partners' },
   { name: 'Contact', href: '/contact' },
+];
+
+const developerLinks = [
+  { name: 'Documentation', href: '/docs' },
+  { name: 'API Reference', href: '/docs/api' },
+  { name: 'SDKs', href: '/docs/sdks' },
+  { name: 'Developer Center', href: '/developers' },
+  { name: 'API Playground', href: '/developers/playground' },
+  { name: 'Open Source', href: '/developers/open-source' },
+  { name: 'Architecture', href: '/docs/architecture' },
+  { name: 'Changelog', href: '/docs/changelog' },
+];
+
+const resourceLinks = [
+  { name: 'Blog', href: '/blog' },
+  { name: 'Engineering Blog', href: '/engineering-blog' },
+  { name: 'Community', href: '/community' },
+  { name: 'Events', href: '/events' },
+  { name: 'Learn & Certify', href: '/learn' },
+  { name: 'Glossary', href: '/glossary' },
+  { name: 'Status', href: '/status' },
+  { name: 'Support', href: '/support' },
+];
+
+const trustLinks = [
+  { name: 'Trust Center', href: '/trust' },
+  { name: 'Security', href: '/trust/security' },
+  { name: 'Compliance', href: '/trust/compliance' },
+  { name: 'AI Ethics', href: '/trust/ai-ethics' },
+  { name: 'Vulnerability Disclosure', href: '/trust/vulnerability-disclosure' },
+];
+
+const businessLinks = [
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Calculator', href: '/pricing/calculator' },
+  { name: 'Customers', href: '/customers' },
+  { name: 'Startup Program', href: '/startup-program' },
+  { name: 'Investor Relations', href: '/investors' },
+];
+
+const legalLinks = [
+  { name: 'Legal Hub', href: '/legal/hub' },
+  { name: 'Privacy Policy', href: '/privacy' },
+  { name: 'Terms of Service', href: '/terms' },
+  { name: 'Cookie Policy', href: '/legal/cookies' },
+  { name: 'GDPR', href: '/legal/gdpr' },
+  { name: 'SLA', href: '/legal/sla' },
 ];
 
 const latestNews = [
@@ -28,74 +78,95 @@ const latestNews = [
   { title: 'Harch Corp Announces $2.4B Investment Pipeline', date: 'Jan 2026' },
 ];
 
-const offerings = [
-  'AI Data Centers',
-  'Renewable Energy',
-  'Cement Production',
-  'Sovereign Technology',
-  'Strategic Mining',
-  'Precision Agriculture',
-  'Water Infrastructure',
-];
-
 export function Footer() {
   return (
     <footer className="bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.04)]">
-      {/* Main footer — Three column Palantir style */}
+      {/* Main footer — Multi column */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-          {/* Column 1: Navigation */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10">
+          {/* Column 1: Verticals */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/25 mb-6">Navigation</p>
-            <div className="space-y-6">
-              <div>
-                <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-3">Verticals</p>
-                <nav className="space-y-2">
-                  {verticalLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className="flex items-center justify-between text-[12px] text-white/30 hover:text-white/70 transition-colors group">
-                      <span>{link.name}</span>
-                      <span className="version-tag text-[10px]">{link.version}</span>
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-              <div>
-                <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-3">Company</p>
-                <nav className="space-y-2">
-                  {companyLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className="block text-[12px] text-white/30 hover:text-white/70 transition-colors">
-                      {link.name}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            </div>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Verticals</p>
+            <nav className="space-y-2">
+              {verticalLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="flex items-center justify-between text-[11px] text-white/30 hover:text-white/70 transition-colors group">
+                  <span>{link.name}</span>
+                  <span className="version-tag text-[9px]">{link.version}</span>
+                </Link>
+              ))}
+            </nav>
           </div>
 
-          {/* Column 2: Latest News */}
+          {/* Column 2: Company */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/25 mb-6">Latest News</p>
-            <div className="space-y-5">
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Company</p>
+            <nav className="space-y-2">
+              {companyLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 3: Developers */}
+          <div>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Developers</p>
+            <nav className="space-y-2">
+              {developerLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 4: Resources */}
+          <div>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Resources</p>
+            <nav className="space-y-2">
+              {resourceLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 5: Trust & Business */}
+          <div>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Trust</p>
+            <nav className="space-y-2">
+              {trustLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4 mt-6">Business</p>
+            <nav className="space-y-2">
+              {businessLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 6: Latest News + Corporate */}
+          <div>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Latest News</p>
+            <div className="space-y-4">
               {latestNews.map((item, i) => (
                 <Link key={i} href="/newsroom" className="block group">
-                  <p className="text-[13px] text-white/40 group-hover:text-white/80 transition-colors leading-snug mb-1">
+                  <p className="text-[11px] text-white/40 group-hover:text-white/80 transition-colors leading-snug mb-1">
                     {item.title}
                   </p>
-                  <p className="text-[10px] text-white/15 tracking-wide">{item.date}</p>
+                  <p className="text-[9px] text-white/15 tracking-wide">{item.date}</p>
                 </Link>
               ))}
             </div>
-          </div>
-
-          {/* Column 3: Offerings */}
-          <div>
-            <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/25 mb-6">Offerings</p>
-            <div className="space-y-2">
-              {offerings.map((offering) => (
-                <p key={offering} className="text-[12px] text-white/30">{offering}</p>
-              ))}
-            </div>
-            <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.04)]">
+            <div className="mt-6 pt-4 border-t border-[rgba(255,255,255,0.04)]">
               <p className="text-[10px] text-white/15 leading-relaxed">
                 Harch Corp S.A.<br />
                 Casablanca, Morocco<br />
@@ -115,10 +186,10 @@ export function Footer() {
               &copy; 2026 Harch Corp S.A. All rights reserved.
             </p>
           </div>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">Privacy</Link>
-            <Link href="/terms" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">Terms</Link>
-            <Link href="/legal" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">Legal</Link>
+          <div className="flex items-center gap-4 flex-wrap justify-center">
+            {legalLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="text-[10px] text-white/15 hover:text-white/40 transition-colors">{link.name}</Link>
+            ))}
           </div>
         </div>
       </div>

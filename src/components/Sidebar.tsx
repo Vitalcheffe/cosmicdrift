@@ -32,6 +32,51 @@ const deploymentItems = [
   { name: 'Newsroom', href: '/newsroom' },
 ];
 
+const developerItems = [
+  { name: 'Developer Center', href: '/developers' },
+  { name: 'API Playground', href: '/developers/playground' },
+  { name: 'Open Source', href: '/developers/open-source' },
+  { name: 'Documentation', href: '/docs' },
+  { name: 'API Reference', href: '/docs/api' },
+  { name: 'SDKs', href: '/docs/sdks' },
+  { name: 'Architecture', href: '/docs/architecture' },
+  { name: 'Changelog', href: '/docs/changelog' },
+];
+
+const trustItems = [
+  { name: 'Trust Center', href: '/trust' },
+  { name: 'Security', href: '/trust/security' },
+  { name: 'Compliance', href: '/trust/compliance' },
+  { name: 'AI Ethics', href: '/trust/ai-ethics' },
+  { name: 'Vulnerability Disclosure', href: '/trust/vulnerability-disclosure' },
+];
+
+const resourceItems = [
+  { name: 'Blog', href: '/blog' },
+  { name: 'Engineering Blog', href: '/engineering-blog' },
+  { name: 'Community', href: '/community' },
+  { name: 'Events', href: '/events' },
+  { name: 'Learn & Certify', href: '/learn' },
+  { name: 'Glossary', href: '/glossary' },
+  { name: 'Status', href: '/status' },
+];
+
+const businessItems = [
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Calculator', href: '/pricing/calculator' },
+  { name: 'Customers', href: '/customers' },
+  { name: 'Support', href: '/support' },
+  { name: 'Startup Program', href: '/startup-program' },
+];
+
+const companyItems = [
+  { name: 'Leadership', href: '/company/leadership' },
+  { name: 'DEI', href: '/company/dei' },
+  { name: 'Harch Ventures', href: '/company/ventures' },
+  { name: 'Hiring Process', href: '/careers/hiring-process' },
+  { name: 'Legal Hub', href: '/legal/hub' },
+];
+
 const investorItems = [
   { name: 'Investor Relations', href: '/investors' },
   { name: 'Contact', href: '/contact' },
@@ -40,6 +85,10 @@ const investorItems = [
 export function Sidebar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [platformsOpen, setPlatformsOpen] = useState(true);
+  const [developersOpen, setDevelopersOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [businessOpen, setBusinessOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const pathname = usePathname();
 
   const isActive = (href: string) => {
@@ -66,6 +115,35 @@ export function Sidebar() {
       <span className="holo-text">{label}</span>
       {extra}
     </Link>
+  );
+
+  const collapsibleSection = (
+    label: string,
+    ledClass: string,
+    items: typeof platformItems,
+    isOpen: boolean,
+    setIsOpen: (v: boolean) => void,
+  ) => (
+    <div>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center justify-between w-full ${sectionLabel}`}
+      >
+        <span className="flex items-center gap-2">
+          <span className={`led-indicator ${ledClass}`} style={{ width: 4, height: 4 }} />
+          {label}
+        </span>
+        <ChevronDown
+          size={10}
+          className={`transition-transform text-[#666666] ${isOpen ? 'rotate-180' : ''}`}
+        />
+      </button>
+      {isOpen && (
+        <div className="space-y-0.5 mt-1">
+          {items.map((item) => navLink(item.href, item.name))}
+        </div>
+      )}
+    </div>
   );
 
   return (
@@ -100,43 +178,10 @@ export function Sidebar() {
           </div>
 
           {/* ═══ Navigation ═══ */}
-          <nav className="flex-1 space-y-5">
+          <nav className="flex-1 space-y-5 overflow-y-auto">
 
             {/* ── PLATFORMS ── */}
-            <div>
-              <button
-                onClick={() => setPlatformsOpen(!platformsOpen)}
-                className={`flex items-center justify-between w-full ${sectionLabel}`}
-              >
-                <span className="flex items-center gap-2">
-                  <span className="led-indicator led-green" style={{ width: 4, height: 4 }} />
-                  Platforms
-                </span>
-                <ChevronDown
-                  size={10}
-                  className={`transition-transform text-[#666666] ${platformsOpen ? 'rotate-180' : ''}`}
-                />
-              </button>
-              {platformsOpen && (
-                <div className="space-y-0.5 mt-1">
-                  {platformItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={closeMobile}
-                      className={`holo-link flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent rounded-r-md transition-all duration-300 ${
-                        isActive(item.href)
-                          ? 'text-white bg-[rgba(0,200,255,0.04)] border-[rgba(0,200,255,0.3)]'
-                          : 'text-[#999999] hover:text-white hover:bg-[rgba(0,200,255,0.02)]'
-                      }`}
-                    >
-                      <span className="holo-text">{item.name}</span>
-                      <span className="text-[10px] text-[rgba(0,200,255,0.2)] font-[family-name:var(--font-space-mono)]">{item.version}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+            {collapsibleSection('Platforms', 'led-green', platformItems, platformsOpen, setPlatformsOpen)}
 
             {/* ── MISSION ── */}
             <div>
@@ -160,10 +205,33 @@ export function Sidebar() {
               </div>
             </div>
 
-            {/* ── INVESTORS ── */}
+            {/* ── DEVELOPERS ── */}
+            {collapsibleSection('Developers', 'led-delay-1', developerItems, developersOpen, setDevelopersOpen)}
+
+            {/* ── TRUST ── */}
             <div>
               <p className={sectionLabel}>
                 <span className="led-indicator led-delay-2" style={{ width: 4, height: 4 }} />
+                Trust
+              </p>
+              <div className="space-y-0.5 mt-1">
+                {trustItems.map((item) => navLink(item.href, item.name))}
+              </div>
+            </div>
+
+            {/* ── RESOURCES ── */}
+            {collapsibleSection('Resources', 'led-delay-2', resourceItems, resourcesOpen, setResourcesOpen)}
+
+            {/* ── BUSINESS ── */}
+            {collapsibleSection('Business', 'led-delay-3', businessItems, businessOpen, setBusinessOpen)}
+
+            {/* ── COMPANY ── */}
+            {collapsibleSection('Company', 'led-delay-3', companyItems, companyOpen, setCompanyOpen)}
+
+            {/* ── INVESTORS ── */}
+            <div>
+              <p className={sectionLabel}>
+                <span className="led-indicator led-delay-3" style={{ width: 4, height: 4 }} />
                 Investors
               </p>
               <div className="space-y-0.5 mt-1">
@@ -191,7 +259,7 @@ export function Sidebar() {
             <div className="flex items-center justify-center gap-2 pt-1">
               <span className="led-indicator led-green" style={{ width: 3, height: 3 }} />
               <p className="text-[9px] cmd-cyan-dim font-[family-name:var(--font-space-mono)]">
-                v0.1.0 — Casablanca
+                v0.2.0 — Casablanca
               </p>
             </div>
           </div>

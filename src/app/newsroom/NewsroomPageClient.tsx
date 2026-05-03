@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Calendar, Tag } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Calendar, Tag, Bolt, Cpu, Factory, Mountain, Droplets, Wheat, Shield, Zap } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { featuredArticle, regularArticles } from '@/data/articles';
 
@@ -16,91 +16,135 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
   );
 }
 
+const tagIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
+  Intelligence: Cpu,
+  Energy: Bolt,
+  Corporate: Zap,
+  Ciment: Factory,
+  Technology: Shield,
+  Mining: Mountain,
+  Water: Droplets,
+  Agri: Wheat,
+};
+
 const pressResources = [
-  { title: 'Brand Guidelines', desc: 'Harch Corp brand assets, logos, and usage guidelines.' },
-  { title: 'Executive Bios', desc: 'Biographies and headshots of Harch Corp leadership.' },
-  { title: 'Fact Sheet', desc: 'Company overview, key metrics, and vertical summaries.' },
-  { title: 'Media Contact', desc: 'press@harchcorp.com — Response within 4 hours.' },
+  { title: 'Brand Guidelines', desc: 'Harch Corp brand assets, logos, and usage guidelines for media partners.' },
+  { title: 'Executive Bios', desc: 'Leadership biographies, headshots, and public speaking topics.' },
+  { title: 'Fact Sheet', desc: 'Key metrics, vertical summaries, and investment pipeline data.' },
+  { title: 'Media Contact', desc: 'press@harchcorp.com — Response within 4 hours, 24/7.' },
 ];
 
 export default function NewsroomPageClient() {
   return (
     <div className="bg-[#1A1A1A]">
-      {/* Hero */}
+
+      {/* ═══ HERO ═══ */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Newsroom</p>
+            <p className="section-label mb-4 text-[#06B6D4]">Newsroom</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Latest Updates
+              Dispatches from<br/>the Front Line
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              News, announcements, and insights from Harch Corp and its seven industrial verticals.
+              Announcements, deployments, and strategic updates from Harch Corp and its seven industrial verticals. No spin. No fluff. Just the facts that matter.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* Featured Article */}
+      {/* ═══ FEATURED ARTICLE — Full-width statement piece ═══ */}
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <div className="card p-8 md:p-12">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="inline-block px-2.5 py-1 rounded-md bg-[rgba(255,255,255,0.06)] text-[9px] font-bold tracking-[0.12em] uppercase text-white">{featuredArticle.tag}</span>
-                <span className="text-[11px] text-[#666666] flex items-center gap-1"><Calendar size={10} />{featuredArticle.date}</span>
+            <p className="section-label mb-6 text-[#06B6D4]">Featured</p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <Link href={`/newsroom/${featuredArticle.slug}`} className="group block">
+              <div className="relative card p-8 md:p-12 lg:p-16 overflow-hidden">
+                {/* Accent glow */}
+                <div className="absolute top-0 left-0 w-1 h-full bg-[#06B6D4]" />
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#06B6D4]">
+                        {(() => { const Icon = tagIcons[featuredArticle.tag]; return Icon ? <Icon size={10} /> : null; })()}
+                        {featuredArticle.tag}
+                      </span>
+                      <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]"><Calendar size={10} />{featuredArticle.date}</span>
+                    </div>
+                    <h2 className="text-2xl md:text-3xl lg:text-[40px] font-bold text-white tracking-tight mb-5 leading-[1.15] group-hover:text-[#CCCCCC] transition-colors">
+                      {featuredArticle.title}
+                    </h2>
+                    <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredArticle.excerpt}</p>
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#06B6D4] group-hover:text-white transition-colors">
+                      Read Full Dispatch <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
+                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(6,182,212,0.06)] border border-[rgba(6,182,212,0.12)] shrink-0">
+                    <ArrowUpRight size={24} className="text-[#06B6D4] group-hover:text-white transition-colors" />
+                  </div>
+                </div>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mb-4 leading-tight">{featuredArticle.title}</h2>
-              <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-6">{featuredArticle.excerpt}</p>
-              <Link href={`/newsroom/${featuredArticle.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-[#999999] hover:text-white transition-colors group">
-                Read Full Article <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            </Link>
           </FadeIn>
         </div>
       </section>
 
-      {/* All Articles */}
+      {/* ═══ ALL ARTICLES — Palantir-style vertical list ═══ */}
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">All Articles</p>
+            <p className="section-label mb-4">All Dispatches</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">News & Announcements</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {regularArticles.map((article, i) => (
-              <FadeIn key={article.slug} delay={i * 0.05}>
-                <div className="card p-6 h-full flex flex-col">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="inline-block px-2.5 py-1 rounded-md bg-[rgba(255,255,255,0.06)] text-[9px] font-bold tracking-[0.12em] uppercase text-white">{article.tag}</span>
-                    <span className="text-[10px] text-[#666666]">{article.date}</span>
-                  </div>
-                  <h3 className="text-[15px] font-bold text-white leading-snug mb-3">{article.title}</h3>
-                  <p className="text-[13px] text-[#999999] leading-relaxed flex-1">{article.excerpt}</p>
-                  <Link href={`/newsroom/${article.slug}`} className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#999999] hover:text-white transition-colors mt-4 group">
-                    Read More <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+
+          <div className="space-y-2">
+            {regularArticles.map((article, i) => {
+              const Icon = tagIcons[article.tag];
+              return (
+                <FadeIn key={article.slug} delay={i * 0.04}>
+                  <Link href={`/newsroom/${article.slug}`} className="vertical-row group block p-6 md:p-8 cursor-pointer">
+                    <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+                      <div className="flex items-center gap-4 shrink-0">
+                        <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
+                          {Icon ? <Icon size={18} className="text-white" strokeWidth={1.5} /> : <Tag size={18} className="text-white" strokeWidth={1.5} />}
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-3">
+                            <span className="inline-block px-2 py-0.5 rounded-md bg-[rgba(6,182,212,0.06)] border border-[rgba(6,182,212,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#06B6D4]">{article.tag}</span>
+                            <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{article.date}</span>
+                          </div>
+                          <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-[#CCCCCC] transition-colors mt-1 leading-snug">{article.title}</h3>
+                        </div>
+                      </div>
+                      <div className="flex-1 md:pt-7">
+                        <p className="text-[14px] text-[#999999] leading-relaxed">{article.excerpt}</p>
+                      </div>
+                      <ArrowRight size={16} className="vertical-arrow text-[rgba(255,255,255,0.1)] group-hover:text-white transition-all shrink-0 mt-2 md:mt-8" />
+                    </div>
                   </Link>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Press Resources */}
+      {/* ═══ PRESS RESOURCES ═══ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Press Resources</p>
+            <p className="section-label mb-4 text-[#06B6D4]">Press</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">Media Kit</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pressResources.map((resource, i) => (
               <FadeIn key={resource.title} delay={i * 0.08}>
                 <div className="card p-6 h-full">
-                  <Tag size={16} className="text-[rgba(255,255,255,0.15)] mb-3" strokeWidth={1.5} />
-                  <h3 className="text-[14px] font-bold text-white mb-1">{resource.title}</h3>
+                  <Tag size={16} className="text-[rgba(6,182,212,0.4)] mb-3" strokeWidth={1.5} />
+                  <h3 className="text-[14px] font-bold text-white mb-2">{resource.title}</h3>
                   <p className="text-[12px] text-[#999999] leading-relaxed">{resource.desc}</p>
                 </div>
               </FadeIn>

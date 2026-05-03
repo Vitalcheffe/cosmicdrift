@@ -9,7 +9,7 @@ import { HarchLogo } from '@/components/HarchLogo';
 const platformItems = [
   { name: 'HarchOS', version: '/0.1', href: '/intelligence/harchos' },
   { name: 'Intelligence', version: '/0.2', href: '/subsidiaries/intelligence' },
-  { name: 'Ciment', version: '/0.3', href: '/subsidiaries/cement' },
+  { name: 'Cement', version: '/0.3', href: '/subsidiaries/cement' },
   { name: 'Energy', version: '/0.4', href: '/subsidiaries/energy' },
   { name: 'Technology', version: '/0.5', href: '/subsidiaries/technology' },
   { name: 'Mining', version: '/0.6', href: '/subsidiaries/mining' },

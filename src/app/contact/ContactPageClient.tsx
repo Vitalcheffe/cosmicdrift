@@ -18,7 +18,7 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 const offices = [
   { city: 'Casablanca', country: 'Morocco', type: 'Global Headquarters', address: '123 Boulevard Mohammed V, Casablanca 20000', email: 'hq@harchcorp.com', phone: '+212 5 22 00 00 00' },
   { city: 'Dakhla', country: 'Morocco', type: 'Intelligence Operations', address: 'Dakhla Technology Park, Dakhla 73000', email: 'intelligence@harchcorp.com', phone: '+212 5 28 00 00 00' },
-  { city: 'Banjul', country: 'Gambia', type: 'Ciment Operations', address: '14 Kairaba Avenue, Banjul, Gambia', email: 'cement@harchcorp.com', phone: '+220 00 000 0000' },
+  { city: 'Banjul', country: 'Gambia', type: 'Cement Operations', address: '14 Kairaba Avenue, Banjul, Gambia', email: 'cement@harchcorp.com', phone: '+220 00 000 0000' },
 ];
 
 const teamContacts = [

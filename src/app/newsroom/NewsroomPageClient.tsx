@@ -20,7 +20,7 @@ const tagIcons: Record<string, React.ComponentType<{ size?: number; className?: 
   Intelligence: Cpu,
   Energy: Bolt,
   Corporate: Zap,
-  Ciment: Factory,
+  Cement: Factory,
   Technology: Shield,
   Mining: Mountain,
   Water: Droplets,

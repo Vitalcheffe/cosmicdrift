@@ -174,7 +174,7 @@ export default function GDPRPageClient() {
             <FadeIn delay={0.35}>
               <h2 className="text-lg font-bold text-white mb-3">Supervisory Authority</h2>
               <p className="text-[14px] text-[#999999] leading-[1.8]">
-                If you are an EU data subject and believe that our processing of your personal data infringes the GDPR, you have the right to lodge a complaint with a supervisory authority in the EU Member State of your habitual residence, place of work, or the place of the alleged infringement. In Morocco, the relevant authority is the Commission Nationale de Contrôle de la Protection des Données à Caractère Personnel (CNDP). We are committed to cooperating fully with any supervisory authority in the resolution of complaints.
+                If you are an EU data subject and believe that our processing of your personal data infringes the GDPR, you have the right to lodge a complaint with a supervisory authority in the EU Member State of your habitual residence, place of work, or the place of the alleged infringement. In Morocco, the relevant authority is the National Commission for the Control of Personal Data Protection (CNDP — Commission Nationale de Contrôle de la Protection des Données à Caractère Personnel). We are committed to cooperating fully with any supervisory authority in the resolution of complaints.
               </p>
             </FadeIn>
           </div>

@@ -14,7 +14,7 @@ interface MapLocation {
 const locations: MapLocation[] = [
   { name: 'Casablanca', vertical: 'HQ', stat: 'Global Operations', cx: 295, cy: 140, delay: 'blink-dot-delay-0' },
   { name: 'Dakhla', vertical: 'Intelligence', stat: '500MW AI Data Center', cx: 260, cy: 215, delay: 'blink-dot-delay-1' },
-  { name: 'Gambia', vertical: 'Ciment', stat: '500kT/yr Production', cx: 290, cy: 175, delay: 'blink-dot-delay-2' },
+  { name: 'Gambia', vertical: 'Cement', stat: '500kT/yr Production', cx: 290, cy: 175, delay: 'blink-dot-delay-2' },
   { name: 'Sahel Region', vertical: 'Energy', stat: '2GW+ Renewable Pipeline', cx: 340, cy: 165, delay: 'blink-dot-delay-3' },
   { name: 'Mauritania', vertical: 'Mining', stat: '3 Strategic Minerals', cx: 275, cy: 155, delay: 'blink-dot-delay-4' },
   { name: 'Senegal', vertical: 'Agri', stat: '$35B Market Access', cx: 285, cy: 178, delay: 'blink-dot-delay-5' },

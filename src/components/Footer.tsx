@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const verticalLinks = [
   { name: 'Intelligence', version: '/0.1', href: '/subsidiaries/intelligence' },
-  { name: 'Ciment', version: '/0.2', href: '/subsidiaries/cement' },
+  { name: 'Cement', version: '/0.2', href: '/subsidiaries/cement' },
   { name: 'Energy', version: '/0.3', href: '/subsidiaries/energy' },
   { name: 'Technology', version: '/0.4', href: '/subsidiaries/technology' },
   { name: 'Mining', version: '/0.5', href: '/subsidiaries/mining' },

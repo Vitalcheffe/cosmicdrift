@@ -78,7 +78,7 @@ const hubs = [
     id: 'epsilon', name: 'Harch Epsilon', location: 'Benguerir', energy: 'Solar + Wind',
     power: '50MW', latency: 'R&D cluster', color: '#10B981',
     icon: Leaf, image: '/images/intelligence/harchos-architecture.png',
-    description: 'Greenfield R&D next to Mohammed VI Polytechnique. AI innovation and training hub.',
+    description: 'Greenfield R&D next to Mohammed VI Polytechnic. AI innovation and training hub.',
   },
 ];
 

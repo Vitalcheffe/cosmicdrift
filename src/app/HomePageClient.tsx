@@ -14,7 +14,7 @@ import { NetworkGrid } from '@/components/NetworkGrid';
 /* ═══ DATA ═══ */
 const verticals = [
   { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'AI Data Centers & GPU Clusters — 500MW hyperscale facility in Dakhla, powered by 100% renewable energy. Hosts next-gen GPU clusters for sovereign AI compute.', stat: '500MW+', href: '/subsidiaries/intelligence', image: '/images/sections/comp-intel-dc.jpg', outcomes: ['500MW Sovereign Compute', 'AI Model Training Cluster', 'Secure Data Infrastructure'] },
-  { version: '/0.2', name: 'Ciment', fullName: 'Harch Ciment', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', image: '/images/sections/comp-cement-const.jpg', outcomes: ['500kT/yr Production Output', 'Quarry-to-Delivery Integration', 'West Africa Supply Chain'] },
+  { version: '/0.2', name: 'Cement', fullName: 'Harch Cement', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', image: '/images/sections/comp-cement-const.jpg', outcomes: ['500kT/yr Production Output', 'Quarry-to-Delivery Integration', 'West Africa Supply Chain'] },
   { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+', href: '/subsidiaries/energy', image: '/images/sections/comp-energy-wind.jpg', outcomes: ['2GW+ Renewables', 'Green Hydrogen Export', 'Grid Stabilization'] },
   { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'AI Platforms, Cyber & Satellite — Sovereign tech stack from cybersecurity to satellite communications. 50K+ GPU clusters powering continental AI.', stat: '50K+ GPUs', href: '/subsidiaries/technology', image: '/images/sections/comp-tech-dish.jpg', outcomes: ['50K+ GPU Clusters', 'Cybersecurity Platforms', 'Satellite Communications'] },
   { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', image: '/images/sections/comp-mining-site.jpg', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'In-Country Value Capture'] },
@@ -25,7 +25,7 @@ const verticals = [
 const carouselSlides = [
   { title: 'Harch Intelligence', subtitle: 'AI-Powered Sovereignty for Africa', desc: '500MW AI hyperscale data center in Dakhla — the backbone of Africa\'s sovereign compute infrastructure.', image: '/images/sections/comp-intel-dc.jpg', href: '/subsidiaries/intelligence' },
   { title: 'Harch Energy', subtitle: '2GW+ of Renewable Power', desc: 'Solar, wind, and green hydrogen across Morocco and the Sahel — zero-carbon electricity for industrial sovereignty.', image: '/images/sections/comp-energy-wind.jpg', href: '/subsidiaries/energy' },
-  { title: 'Harch Ciment', subtitle: 'Building West Africa\'s Future', desc: '500kT/yr cement production — vertically integrated from quarry to delivery, serving the construction boom.', image: '/images/sections/comp-cement-const.jpg', href: '/subsidiaries/cement' },
+  { title: 'Harch Cement', subtitle: 'Building West Africa\'s Future', desc: '500kT/yr cement production — vertically integrated from quarry to delivery, serving the construction boom.', image: '/images/sections/comp-cement-const.jpg', href: '/subsidiaries/cement' },
   { title: 'Harch Technology', subtitle: 'Sovereign Digital Infrastructure', desc: 'AI platforms, cybersecurity, and satellite communications — the technology stack that Africa controls.', image: '/images/sections/comp-tech-dish.jpg', href: '/subsidiaries/technology' },
   { title: 'Harch Mining', subtitle: 'Capturing the Value Chain', desc: 'Strategic mineral extraction — phosphates, cobalt, and rare earths processed in-country for the energy transition.', image: '/images/sections/comp-mining-site.jpg', href: '/subsidiaries/mining' },
   { title: 'Harch Agri', subtitle: 'Precision Agriculture at Scale', desc: 'Deploying IoT, drone monitoring, and vertical farming across Africa\'s uncultivated arable land.', image: '/images/sections/comp-agri-aerial.jpg', href: '/subsidiaries/agriculture' },
@@ -56,7 +56,7 @@ const africaStats = [
 
 const investmentTable = [
   { vertical: 'Intelligence', investment: '$800M', capacity: '500MW', timeline: '2027', status: 'Engineering' },
-  { vertical: 'Ciment', investment: '$200M', capacity: '500kT/yr', timeline: '2028', status: 'Permitted' },
+  { vertical: 'Cement', investment: '$200M', capacity: '500kT/yr', timeline: '2028', status: 'Permitted' },
   { vertical: 'Energy', investment: '$600M', capacity: '2GW+', timeline: '2027', status: 'Active' },
   { vertical: 'Technology', investment: '$400M', capacity: '50K+ GPUs', timeline: '2028', status: 'Design' },
   { vertical: 'Mining', investment: '$200M', capacity: '3 Minerals', timeline: '2029', status: 'Exploration' },
@@ -457,7 +457,7 @@ export default function HomePageClient() {
                     {[
                       { label: 'Intelligence /0.1', value: 87, status: 'Engineering' },
                       { label: 'Energy /0.3', value: 94, status: 'Active' },
-                      { label: 'Ciment /0.2', value: 72, status: 'Permitted' },
+                      { label: 'Cement /0.2', value: 72, status: 'Permitted' },
                       { label: 'Technology /0.4', value: 55, status: 'Design' },
                     ].map((item) => (
                       <div key={item.label}>

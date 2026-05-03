@@ -19,14 +19,14 @@ const positions = [
   { title: 'Senior Data Center Engineer', department: 'Intelligence', location: 'Dakhla, Morocco', type: 'Full-time', level: 'Senior' },
   { title: 'AI/ML Infrastructure Lead', department: 'Technology', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Lead' },
   { title: 'Renewable Energy Project Manager', department: 'Energy', location: 'Sahel Region', type: 'Full-time', level: 'Senior' },
-  { title: 'Cement Plant Operations Director', department: 'Ciment', location: 'Gambia', type: 'Full-time', level: 'Director' },
+  { title: 'Cement Plant Operations Director', department: 'Cement', location: 'Gambia', type: 'Full-time', level: 'Director' },
   { title: 'Mining Geologist', department: 'Mining', location: 'Mauritania', type: 'Full-time', level: 'Mid' },
   { title: 'Precision Agriculture Specialist', department: 'Agri', location: 'Senegal', type: 'Full-time', level: 'Mid' },
   { title: 'Water Desalination Engineer', department: 'Water', location: 'Morocco', type: 'Full-time', level: 'Senior' },
   { title: 'Cybersecurity Architect', department: 'Technology', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Lead' },
   { title: 'Corporate Finance Analyst', department: 'Corporate', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Mid' },
   { title: 'ESG & Sustainability Manager', department: 'Corporate', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Senior' },
-  { title: 'Construction Site Manager', department: 'Ciment', location: 'Gambia', type: 'Full-time', level: 'Senior' },
+  { title: 'Construction Site Manager', department: 'Cement', location: 'Gambia', type: 'Full-time', level: 'Senior' },
   { title: 'Satellite Communications Engineer', department: 'Technology', location: 'Casablanca, Morocco', type: 'Full-time', level: 'Mid' },
 ];
 

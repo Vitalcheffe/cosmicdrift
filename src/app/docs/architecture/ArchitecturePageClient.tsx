@@ -97,7 +97,7 @@ const referenceArchitectures = [
     desc: 'Complete sovereign AI cloud deployment with all data and compute remaining within Morocco jurisdiction. Full SENSE-THINK-ACT stack deployed across a single hub with dedicated GPU clusters.',
     icon: Shield,
     accent: '#06B6D4',
-    components: ['Dedicated H100 cluster (64-256 GPUs)', 'SENSE data ingestion pipeline', 'THINK orchestration engine', 'ACT execution controller', 'Sovereign encryption (HSM FIPS 140-2 L3)', 'Compliance automation (GDPR, Loi 09-08)'],
+    components: ['Dedicated H100 cluster (64-256 GPUs)', 'SENSE data ingestion pipeline', 'THINK orchestration engine', 'ACT execution controller', 'Sovereign encryption (HSM FIPS 140-2 L3)', 'Compliance automation (GDPR, Law 09-08)'],
     useCase: 'Government agencies, defense, critical infrastructure operators requiring absolute data sovereignty.',
   },
   {

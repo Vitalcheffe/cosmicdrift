@@ -401,7 +401,7 @@ export default function TrustPageClient() {
               { icon: Cloud, title: 'Cross-Border Transfer', desc: 'Standard contractual clauses, binding corporate rules, and adequacy decisions for all international data transfers.' },
               { icon: Shield, title: 'Data Processing Agreements', desc: 'Pre-signed DPAs available for all customers. Covers sub-processor management, breach notification, and data subject rights.' },
               { icon: Eye, title: 'Subject Rights', desc: 'Full support for access, rectification, erasure, portability, and objection rights. Automated fulfillment within 30-day SLA.' },
-              { icon: Globe, title: 'African Framework Alignment', desc: 'Compliant with Côte d\'Ivoire Loi n°2013-450, Kenya Data Protection Act 2019, and South Africa POPIA for pan-African operations.' },
+              { icon: Globe, title: 'African Framework Alignment', desc: 'Compliant with Cote d\'Ivoire Law No. 2013-450, Kenya Data Protection Act 2019, and South Africa POPIA for pan-African operations.' },
             ].map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.06}>
                 <div className="card p-6 h-full">

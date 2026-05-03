@@ -85,11 +85,11 @@ const caseStudies = [
   },
   {
     organization: 'RAMED',
-    fullName: 'RAMED (Meknès Water Distribution Authority)',
+    fullName: 'RAMED (Meknes Water Distribution Authority)',
     useCase: 'Water Distribution Intelligence',
     vertical: 'Water',
     sector: 'Water',
-    description: 'IoT sensor network and AI-driven leak detection across 1,200km of distribution infrastructure, reducing non-revenue water losses in the Meknès metropolitan area.',
+    description: 'IoT sensor network and AI-driven leak detection across 1,200km of distribution infrastructure, reducing non-revenue water losses in the Meknes metropolitan area.',
     metric: '38%',
     metricLabel: 'Leak Reduction',
     icon: Droplets,

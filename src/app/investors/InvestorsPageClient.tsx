@@ -39,7 +39,7 @@ const highlights = [
 
 const financialTable = [
   { vertical: 'Intelligence', investment: '$800M', capacity: '500MW', irr: '22-28%', timeline: '2027', status: 'Engineering' },
-  { vertical: 'Ciment', investment: '$200M', capacity: '500kT/yr', irr: '18-22%', timeline: '2028', status: 'Permitted' },
+  { vertical: 'Cement', investment: '$200M', capacity: '500kT/yr', irr: '18-22%', timeline: '2028', status: 'Permitted' },
   { vertical: 'Energy', investment: '$600M', capacity: '2GW+', irr: '15-20%', timeline: '2027', status: 'Active' },
   { vertical: 'Technology', investment: '$400M', capacity: '50K+ GPUs', irr: '25-30%', timeline: '2028', status: 'Design' },
   { vertical: 'Mining', investment: '$200M', capacity: '3 Minerals', irr: '20-25%', timeline: '2029', status: 'Exploration' },

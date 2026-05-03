@@ -78,7 +78,7 @@ const engPosts: EngPost[] = [
   },
   {
     title: 'From Terraform to Production: Our Infrastructure-as-Code Journey',
-    excerpt: 'Managing 200+ resources across Morocco, Senegal, and Côte d\'Ivoire required more than Terraform modules. We built a custom provider, a drift detection system, and a deployment pipeline that validates before it applies.',
+    excerpt: 'Managing 200+ resources across Morocco, Senegal, and Cote d\'Ivoire required more than Terraform modules. We built a custom provider, a drift detection system, and a deployment pipeline that validates before it applies.',
     date: 'November 2025',
     category: 'DevOps',
     readTime: '12 min read',

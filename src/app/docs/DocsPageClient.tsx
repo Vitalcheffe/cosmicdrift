@@ -100,7 +100,7 @@ const docCategories = [
     items: [
       { name: 'Identity & Access', desc: 'RBAC, service accounts, and zero-trust architecture', icon: Key, href: '/docs/guides' },
       { name: 'Encryption', desc: 'End-to-end encryption, key management, and HSM integration', icon: Lock, href: '/docs/guides' },
-      { name: 'Compliance', desc: 'GDPR, ISO 27001, SOC 2 Type II, and Loi 09-08', icon: CheckCircle2, href: '/docs/guides' },
+      { name: 'Compliance', desc: 'GDPR, ISO 27001, SOC 2 Type II, and Law 09-08', icon: CheckCircle2, href: '/docs/guides' },
       { name: 'Audit Logging', desc: 'Immutable audit trails, SIEM integration, and alerting', icon: FileText, href: '/docs/guides' },
     ],
   },

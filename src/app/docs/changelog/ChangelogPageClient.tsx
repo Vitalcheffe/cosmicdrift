@@ -122,7 +122,7 @@ const versions = [
         'HarchOS CLI v0.1.0 for deployment and management operations',
         'Authentication: API keys, OAuth 2.0 (Authorization Code, Client Credentials)',
         'Security: Zero-trust architecture, mTLS, sovereign encryption',
-        'Compliance: GDPR, ISO 27001, SOC 2 Type II, Loi 09-08 compliance automation',
+        'Compliance: GDPR, ISO 27001, SOC 2 Type II, Law 09-08 compliance automation',
         'Monitoring: Integrated Prometheus metrics, Grafana dashboards, Jaeger tracing',
         'Five compute hubs: Dakhla, Tanger, Ouarzazate, Casablanca, Benguerir',
       ],

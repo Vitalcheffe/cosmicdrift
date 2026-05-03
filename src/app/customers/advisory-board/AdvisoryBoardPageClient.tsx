@@ -98,7 +98,7 @@ const currentMembers = [
   },
   {
     organization: 'RAMED',
-    fullName: 'RAMED (Meknès Water Distribution Authority)',
+    fullName: 'RAMED (Meknes Water Distribution Authority)',
     representative: 'Omar Tazi',
     title: 'General Director',
     sector: 'Water',

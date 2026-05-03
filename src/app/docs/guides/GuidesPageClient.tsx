@@ -160,7 +160,7 @@ const guideCategories = [
       },
       {
         title: 'Audit Your Infrastructure',
-        desc: 'Configure immutable audit logging, SIEM integration, and compliance reporting. Set up continuous compliance checks for GDPR, ISO 27001, and Loi 09-08 requirements.',
+        desc: 'Configure immutable audit logging, SIEM integration, and compliance reporting. Set up continuous compliance checks for GDPR, ISO 27001, and Law 09-08 requirements.',
         time: '25 min',
         difficulty: 'Intermediate',
         tags: ['Compliance', 'Audit', 'Security'],

@@ -100,7 +100,7 @@ const certifications: Certification[] = [
   {
     name: 'Moroccan DPA',
     fullName: 'Moroccan Law 09-08 (Data Protection Act)',
-    description: 'Compliance with Moroccan data protection law administered by the CNDP (Commission Nationale de la Protection des Données Personnelles). All data processing declared and registered.',
+    description: 'Compliance with Moroccan data protection law administered by the CNDP (National Commission for Personal Data Protection). All data processing declared and registered.',
     status: 'Achieved',
     region: 'Morocco',
     auditor: 'CNDP Morocco',
@@ -180,7 +180,7 @@ const regions = [
   {
     name: 'Africa',
     flag: '🌍',
-    description: 'Alignment with emerging African data protection frameworks including Côte d\'Ivoire, Kenya, South Africa, and Nigeria regulations.',
+    description: 'Alignment with emerging African data protection frameworks including Cote d\'Ivoire, Kenya, South Africa, and Nigeria regulations.',
     certs: ['ISO 27001', 'SOC 2 Type II', 'ISO 22301', 'GDPR (as baseline)'],
   },
   {

@@ -7,13 +7,14 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { HarchLogo } from '@/components/HarchLogo';
 
 const platformItems = [
-  { name: 'Intelligence', version: '/0.1', href: '/subsidiaries/intelligence' },
-  { name: 'Ciment', version: '/0.2', href: '/subsidiaries/cement' },
-  { name: 'Energy', version: '/0.3', href: '/subsidiaries/energy' },
-  { name: 'Technology', version: '/0.4', href: '/subsidiaries/technology' },
-  { name: 'Mining', version: '/0.5', href: '/subsidiaries/mining' },
-  { name: 'Agri', version: '/0.6', href: '/subsidiaries/agriculture' },
-  { name: 'Water', version: '/0.7', href: '/subsidiaries/water' },
+  { name: 'HarchOS', version: '/0.1', href: '/intelligence/harchos' },
+  { name: 'Intelligence', version: '/0.2', href: '/subsidiaries/intelligence' },
+  { name: 'Ciment', version: '/0.3', href: '/subsidiaries/cement' },
+  { name: 'Energy', version: '/0.4', href: '/subsidiaries/energy' },
+  { name: 'Technology', version: '/0.5', href: '/subsidiaries/technology' },
+  { name: 'Mining', version: '/0.6', href: '/subsidiaries/mining' },
+  { name: 'Agri', version: '/0.7', href: '/subsidiaries/agriculture' },
+  { name: 'Water', version: '/0.8', href: '/subsidiaries/water' },
 ];
 
 const missionItems = [

@@ -13,23 +13,23 @@ import { NetworkGrid } from '@/components/NetworkGrid';
 
 /* ═══ DATA ═══ */
 const verticals = [
-  { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'AI Data Centers & GPU Clusters — 500MW hyperscale facility in Dakhla, powered by 100% renewable energy. Hosts next-gen GPU clusters for sovereign AI compute.', stat: '500MW+', href: '/subsidiaries/intelligence', image: '/images/real/intel-datacenter.jpg', outcomes: ['500MW Sovereign Compute', 'AI Model Training Cluster', 'Secure Data Infrastructure'] },
-  { version: '/0.2', name: 'Ciment', fullName: 'Harch Ciment', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', image: '/images/real/cement-construction.jpg', outcomes: ['500kT/yr Production Output', 'Quarry-to-Delivery Integration', 'West Africa Supply Chain'] },
-  { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+', href: '/subsidiaries/energy', image: '/images/real/energy-solar-panels.jpg', outcomes: ['2GW+ Renewables', 'Green Hydrogen Export', 'Grid Stabilization'] },
-  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'AI Platforms, Cyber & Satellite — Sovereign tech stack from cybersecurity to satellite communications. 50K+ GPU clusters powering continental AI.', stat: '50K+ GPUs', href: '/subsidiaries/technology', image: '/images/real/tech-satellite.jpg', outcomes: ['50K+ GPU Clusters', 'Cybersecurity Platforms', 'Satellite Communications'] },
-  { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', image: '/images/real/mining-open-pit.jpg', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'In-Country Value Capture'] },
-  { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', image: '/images/real/agri-aerial-field.jpg', outcomes: ['Precision IoT Farming', 'Drone Crop Monitoring', 'Vertical Farm Networks'] },
-  { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', image: '/images/real/water-treatment.jpg', outcomes: ['200M m³/yr Desalination', 'AI-Optimized Distribution', 'Continental Water Security'] },
+  { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'AI Data Centers & GPU Clusters — 500MW hyperscale facility in Dakhla, powered by 100% renewable energy. Hosts next-gen GPU clusters for sovereign AI compute.', stat: '500MW+', href: '/subsidiaries/intelligence', image: '/images/sections/comp-intel-dc.jpg', outcomes: ['500MW Sovereign Compute', 'AI Model Training Cluster', 'Secure Data Infrastructure'] },
+  { version: '/0.2', name: 'Ciment', fullName: 'Harch Ciment', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', image: '/images/sections/comp-cement-const.jpg', outcomes: ['500kT/yr Production Output', 'Quarry-to-Delivery Integration', 'West Africa Supply Chain'] },
+  { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+', href: '/subsidiaries/energy', image: '/images/sections/comp-energy-wind.jpg', outcomes: ['2GW+ Renewables', 'Green Hydrogen Export', 'Grid Stabilization'] },
+  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'AI Platforms, Cyber & Satellite — Sovereign tech stack from cybersecurity to satellite communications. 50K+ GPU clusters powering continental AI.', stat: '50K+ GPUs', href: '/subsidiaries/technology', image: '/images/sections/comp-tech-dish.jpg', outcomes: ['50K+ GPU Clusters', 'Cybersecurity Platforms', 'Satellite Communications'] },
+  { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', image: '/images/sections/comp-mining-site.jpg', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'In-Country Value Capture'] },
+  { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', image: '/images/sections/comp-agri-aerial.jpg', outcomes: ['Precision IoT Farming', 'Drone Crop Monitoring', 'Vertical Farm Networks'] },
+  { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', image: '/images/sections/comp-water-plant.jpg', outcomes: ['200M m³/yr Desalination', 'AI-Optimized Distribution', 'Continental Water Security'] },
 ];
 
 const carouselSlides = [
-  { title: 'Harch Intelligence', subtitle: 'AI-Powered Sovereignty for Africa', desc: '500MW AI hyperscale data center in Dakhla — the backbone of Africa\'s sovereign compute infrastructure.', image: '/images/real/intel-server-room.jpg', href: '/subsidiaries/intelligence' },
-  { title: 'Harch Energy', subtitle: '2GW+ of Renewable Power', desc: 'Solar, wind, and green hydrogen across Morocco and the Sahel — zero-carbon electricity for industrial sovereignty.', image: '/images/real/energy-wind-turbines.jpg', href: '/subsidiaries/energy' },
-  { title: 'Harch Ciment', subtitle: 'Building West Africa\'s Future', desc: '500kT/yr cement production — vertically integrated from quarry to delivery, serving the construction boom.', image: '/images/real/cement-factory.jpg', href: '/subsidiaries/cement' },
-  { title: 'Harch Technology', subtitle: 'Sovereign Digital Infrastructure', desc: 'AI platforms, cybersecurity, and satellite communications — the technology stack that Africa controls.', image: '/images/real/tech-ai-neural.jpg', href: '/subsidiaries/technology' },
-  { title: 'Harch Mining', subtitle: 'Capturing the Value Chain', desc: 'Strategic mineral extraction — phosphates, cobalt, and rare earths processed in-country for the energy transition.', image: '/images/real/mining-excavator.jpg', href: '/subsidiaries/mining' },
-  { title: 'Harch Agri', subtitle: 'Precision Agriculture at Scale', desc: 'Deploying IoT, drone monitoring, and vertical farming across Africa\'s uncultivated arable land.', image: '/images/real/agri-greenhouse.jpg', href: '/subsidiaries/agriculture' },
-  { title: 'Harch Water', subtitle: '200M m³/yr Desalination', desc: 'AI-optimized desalination and smart water networks solving Africa\'s water security crisis.', image: '/images/real/water-desalination.jpg', href: '/subsidiaries/water' },
+  { title: 'Harch Intelligence', subtitle: 'AI-Powered Sovereignty for Africa', desc: '500MW AI hyperscale data center in Dakhla — the backbone of Africa\'s sovereign compute infrastructure.', image: '/images/sections/comp-intel-dc.jpg', href: '/subsidiaries/intelligence' },
+  { title: 'Harch Energy', subtitle: '2GW+ of Renewable Power', desc: 'Solar, wind, and green hydrogen across Morocco and the Sahel — zero-carbon electricity for industrial sovereignty.', image: '/images/sections/comp-energy-wind.jpg', href: '/subsidiaries/energy' },
+  { title: 'Harch Ciment', subtitle: 'Building West Africa\'s Future', desc: '500kT/yr cement production — vertically integrated from quarry to delivery, serving the construction boom.', image: '/images/sections/comp-cement-const.jpg', href: '/subsidiaries/cement' },
+  { title: 'Harch Technology', subtitle: 'Sovereign Digital Infrastructure', desc: 'AI platforms, cybersecurity, and satellite communications — the technology stack that Africa controls.', image: '/images/sections/comp-tech-dish.jpg', href: '/subsidiaries/technology' },
+  { title: 'Harch Mining', subtitle: 'Capturing the Value Chain', desc: 'Strategic mineral extraction — phosphates, cobalt, and rare earths processed in-country for the energy transition.', image: '/images/sections/comp-mining-site.jpg', href: '/subsidiaries/mining' },
+  { title: 'Harch Agri', subtitle: 'Precision Agriculture at Scale', desc: 'Deploying IoT, drone monitoring, and vertical farming across Africa\'s uncultivated arable land.', image: '/images/sections/comp-agri-aerial.jpg', href: '/subsidiaries/agriculture' },
+  { title: 'Harch Water', subtitle: '200M m³/yr Desalination', desc: 'AI-optimized desalination and smart water networks solving Africa\'s water security crisis.', image: '/images/sections/comp-water-pipes.jpg', href: '/subsidiaries/water' },
 ];
 
 const stats = [
@@ -258,13 +258,13 @@ export default function HomePageClient() {
             {verticals.map((v, i) => {
               const accentColors = ['#00C8FF', '#F59E0B', '#10B981', '#8B5CF6', '#EF4444', '#22C55E', '#3B82F6'];
               const sectionImages = [
-                '/images/real/intel-control-room.jpg',
-                '/images/real/cement-quarry.jpg',
-                '/images/real/energy-solar-farm.jpg',
-                '/images/real/tech-cyber.jpg',
-                '/images/real/mining-processing.jpg',
-                '/images/real/agri-precision.jpg',
-                '/images/real/water-dam.jpg',
+                '/images/sections/comp-intel-server2.jpg',
+                '/images/sections/comp-cement-mixer.jpg',
+                '/images/sections/comp-energy-solar.jpg',
+                '/images/sections/comp-tech-ai.jpg',
+                '/images/sections/comp-mining-excavator.jpg',
+                '/images/sections/comp-agri-green.jpg',
+                '/images/sections/comp-water-pipes.jpg',
               ];
               const color = accentColors[i];
               return (
@@ -407,7 +407,7 @@ export default function HomePageClient() {
 
       {/* Full-bleed image break — Overview */}
       <section className="photo-section relative min-h-[40vh] flex items-center justify-center">
-        <Image src="/images/real/industrial-operations.jpg" alt="Harch Corp Industrial Operations" fill className="object-cover industrial-image" />
+        <Image src="/images/sections/overview-construction.jpg" alt="Harch Corp Industrial Operations" fill className="object-cover industrial-image" />
         <div className="relative z-10 text-center">
           <FadeIn>
             <p className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-[-0.02em] mb-4">
@@ -534,7 +534,7 @@ export default function HomePageClient() {
           ═══════════════════════════════════════════ */}
       <section className="photo-section relative min-h-[70vh] flex items-center">
         <Image
-          src="/images/real/energy-power-grid.jpg"
+          src="/images/sections/energy-solar-farm.jpg"
           alt="Harch Energy Renewable Infrastructure"
           fill
           className="object-cover industrial-image"
@@ -667,7 +667,7 @@ export default function HomePageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#1E1E1E] image-reveal">
-                <Image src="/images/real/intel-gpu-rack.jpg" alt="Harch Intelligence AI Data Center" fill className="object-cover industrial-image" />
+                <Image src="/images/sections/intelligence-detail.jpg" alt="Harch Intelligence AI Data Center" fill className="object-cover industrial-image" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#000000]/70 backdrop-blur-md px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)]">
                   <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/80">500MW AI Hyperscale</p>
@@ -711,7 +711,7 @@ export default function HomePageClient() {
           ═══════════════════════════════════════════ */}
       <section className="photo-section relative min-h-[70vh] flex items-center">
         <Image
-          src="/images/real/mining-smelter.jpg"
+          src="/images/sections/mining-smelter.jpg"
           alt="Harch Mining Operations"
           fill
           className="object-cover industrial-image"
@@ -773,7 +773,7 @@ export default function HomePageClient() {
             </FadeIn>
             <FadeIn className="order-1 lg:order-2">
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#1E1E1E] image-reveal">
-                <Image src="/images/real/energy-hydrogen.jpg" alt="Harch Energy Green Hydrogen" fill className="object-cover industrial-image" />
+                <Image src="/images/sections/energy-hydrogen.jpg" alt="Harch Energy Green Hydrogen" fill className="object-cover industrial-image" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#000000]/70 backdrop-blur-md px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)]">
                   <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/80">2GW+ Renewable Pipeline</p>

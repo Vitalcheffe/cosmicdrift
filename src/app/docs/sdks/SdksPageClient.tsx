@@ -104,8 +104,8 @@ for await (const event of workload.streamMetrics()) {
   {
     id: 'go',
     name: 'Go SDK',
-    package: 'harchos-go',
-    install: 'go get github.com/harchcorp/harchos-go',
+    package: 'harchos-cli',
+    install: 'go get github.com/HarchCorp/harchos-cli/pkg/client',
     version: '0.1.0',
     status: 'stable',
     accent: '#00ADD8',
@@ -116,7 +116,7 @@ import (
     "fmt"
     "log"
 
-    harchos "github.com/harchcorp/harchos-go"
+    harchos "github.com/HarchCorp/harchos-cli/pkg/client"
 )
 
 func main() {

@@ -143,7 +143,7 @@ console.log(\`Deployed to \${job.hub}\`); // → harch-alpha`,
 
 import (
     "fmt"
-    "github.com/harchcorp/harchos-sdk-go"
+    "github.com/HarchCorp/harchos-cli/pkg/client"
 )
 
 func main() {

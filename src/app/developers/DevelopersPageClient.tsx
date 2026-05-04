@@ -92,10 +92,10 @@ const dxMetrics = [
 ];
 
 const openSourceProjects = [
-  { name: 'harchos-sdk-python', description: 'Official Python SDK for HarchOS. Full async support with automatic retry, streaming, and type-safe models.', stars: 2847, language: 'Python', languageColor: '#3572A5' },
-  { name: 'harchos-sdk-js', description: 'TypeScript/JavaScript SDK with full IntelliSense support. Works in Node.js and modern browsers.', stars: 1923, language: 'TypeScript', languageColor: '#2B7489' },
-  { name: 'harchos-cli', description: 'Command-line interface for HarchOS. Deploy, manage, and monitor workloads from your terminal.', stars: 3156, language: 'Go', languageColor: '#00ADD8' },
-  { name: 'harchos-terraform-provider', description: 'Terraform provider for managing HarchOS infrastructure as code. Full resource and data source support.', stars: 892, language: 'Go', languageColor: '#00ADD8' },
+  { name: 'harchos-sdk-python', description: 'Official Python SDK for HarchOS. Full async support with automatic retry, streaming, and type-safe models.', githubUrl: 'https://github.com/HarchCorp/harchos-sdk-python', language: 'Python', languageColor: '#3572A5' },
+  { name: 'harchos-sdk-js', description: 'TypeScript/JavaScript SDK with full IntelliSense support. Works in Node.js and modern browsers.', githubUrl: 'https://github.com/HarchCorp/harchos-sdk-js', language: 'TypeScript', languageColor: '#2B7489' },
+  { name: 'harchos-cli', description: 'Command-line interface for HarchOS. Deploy, manage, and monitor workloads from your terminal.', githubUrl: 'https://github.com/HarchCorp/harchos-cli', language: 'Go', languageColor: '#00ADD8' },
+  { name: 'harchos-terraform-provider', description: 'Terraform provider for managing HarchOS infrastructure as code. Full resource and data source support.', githubUrl: 'https://github.com/HarchCorp/harchos-terraform-provider', language: 'Go', languageColor: '#00ADD8' },
 ];
 
 /* ─── MAIN COMPONENT ─── */
@@ -424,16 +424,13 @@ export default function DevelopersPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {openSourceProjects.map((project, i) => (
               <FadeIn key={project.name} delay={i * 0.08}>
-                <div className="card p-8 h-full group">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="card p-8 h-full group block hover:border-[#06B6D4]/30 transition-all">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <GitBranch size={18} className="text-[#06B6D4]" />
-                      <h3 className="text-lg font-bold text-white">{project.name}</h3>
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#06B6D4] transition-colors">{project.name}</h3>
                     </div>
-                    <div className="flex items-center gap-1.5 text-[#999999]">
-                      <Star size={14} />
-                      <span className="text-[13px] stat-mono">{project.stars.toLocaleString()}</span>
-                    </div>
+                    <ExternalLink size={14} className="text-[#666666] group-hover:text-[#06B6D4] transition-colors" />
                   </div>
                   <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{project.description}</p>
                   <div className="flex items-center gap-4">
@@ -443,7 +440,7 @@ export default function DevelopersPageClient() {
                     </div>
                     <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">Apache 2.0</span>
                   </div>
-                </div>
+                </a>
               </FadeIn>
             ))}
           </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   ArrowRight, ArrowLeft, Github, Star, GitFork, GitBranch,
@@ -21,59 +21,67 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 }
 
 /* ─── DATA ─── */
+const GITHUB_ORG = 'HarchCorp';
+
 const projects = [
   {
     name: 'harchos-sdk-python',
+    githubUrl: `https://github.com/${GITHUB_ORG}/harchos-sdk-python`,
     description: 'Official Python SDK for HarchOS. Full async/await support with automatic retry logic, streaming responses, and Pydantic models for type-safe API interactions. Works with Python 3.9+.',
     language: 'Python',
     languageColor: '#3572A5',
-    stars: 2847,
-    forks: 341,
+    defaultStars: 0,
+    defaultForks: 0,
     license: 'Apache 2.0',
   },
   {
     name: 'harchos-sdk-js',
+    githubUrl: `https://github.com/${GITHUB_ORG}/harchos-sdk-js`,
     description: 'TypeScript/JavaScript SDK with full IntelliSense support, tree-shakeable exports, and automatic type inference. Works seamlessly in Node.js, Deno, and modern browsers. Zero runtime dependencies.',
     language: 'TypeScript',
     languageColor: '#2B7489',
-    stars: 1923,
-    forks: 218,
+    defaultStars: 0,
+    defaultForks: 0,
     license: 'Apache 2.0',
   },
   {
     name: 'harchos-cli',
+    githubUrl: `https://github.com/${GITHUB_ORG}/harchos-cli`,
     description: 'Command-line interface for deploying, managing, and monitoring HarchOS workloads. Supports shell completions, configuration profiles, and piped output for CI/CD integration. Written in Go.',
     language: 'Go',
     languageColor: '#00ADD8',
-    stars: 3156,
-    forks: 487,
+    defaultStars: 0,
+    defaultForks: 0,
     license: 'Apache 2.0',
   },
   {
     name: 'harchos-terraform-provider',
+    githubUrl: `https://github.com/${GITHUB_ORG}/harchos-terraform-provider`,
     description: 'Terraform provider for managing HarchOS infrastructure as code. Full resource lifecycle management, data sources for queries, and plan/apply support for all compute, storage, and networking resources.',
     language: 'Go',
     languageColor: '#00ADD8',
-    stars: 892,
-    forks: 134,
+    defaultStars: 0,
+    defaultForks: 0,
     license: 'Apache 2.0',
   },
   {
     name: 'harchos-grafana-plugins',
+    githubUrl: `https://github.com/${GITHUB_ORG}/harchos-grafana-plugins`,
     description: 'Grafana dashboard plugins for HarchOS observability. Pre-built panels for GPU utilization, carbon metrics, hub health, and workload distribution. Drag-and-drop integration with existing Grafana instances.',
     language: 'TypeScript',
     languageColor: '#2B7489',
-    stars: 567,
-    forks: 89,
+    defaultStars: 0,
+    defaultForks: 0,
     license: 'Apache 2.0',
   },
   {
     name: 'harchos-examples',
+    githubUrl: `https://github.com/${GITHUB_ORG}/harchos-examples`,
     description: 'Starter templates and example projects for common HarchOS workflows. Includes PyTorch training, LLM inference, data pipelines, and multi-hub deployment patterns. Copy-paste ready.',
     language: 'Python',
     languageColor: '#3572A5',
-    stars: 1234,
-    forks: 567,
+    defaultStars: 0,
+    defaultForks: 0,
     license: 'Apache 2.0',
   },
 ];
@@ -129,6 +137,26 @@ const communityValues = [
 
 /* ─── MAIN COMPONENT ─── */
 export default function OpenSourcePageClient() {
+  const [repoStats, setRepoStats] = useState<Record<string, { stars: number; forks: number }>>({});
+
+  useEffect(() => {
+    async function fetchGitHubStats() {
+      try {
+        const res = await fetch(`https://api.github.com/orgs/${GITHUB_ORG}/repos?per_page=100`);
+        if (!res.ok) return;
+        const repos: Array<{ name: string; stargazers_count: number; forks_count: number }> = await res.json();
+        const stats: Record<string, { stars: number; forks: number }> = {};
+        for (const repo of repos) {
+          stats[repo.name] = { stars: repo.stargazers_count, forks: repo.forks_count };
+        }
+        setRepoStats(stats);
+      } catch {
+        // Silently fall back to defaults if GitHub API is unavailable
+      }
+    }
+    fetchGitHubStats();
+  }, []);
+
   return (
     <div className="bg-[#1A1A1A]">
 
@@ -183,34 +211,40 @@ export default function OpenSourcePageClient() {
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, i) => (
-              <FadeIn key={project.name} delay={i * 0.08}>
-                <div className="card p-8 h-full group cursor-pointer">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Github size={20} className="text-[#8B5CF6]" />
-                    <h3 className="text-lg font-bold text-white group-hover:text-[#8B5CF6] transition-colors">{project.name}</h3>
-                  </div>
-                  <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">{project.description}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: project.languageColor }} />
-                        <span className="text-[11px] text-[#999999] font-[family-name:var(--font-space-mono)]">{project.language}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 text-[#999999]">
-                        <Star size={13} />
-                        <span className="text-[11px] stat-mono">{project.stars.toLocaleString()}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 text-[#666666]">
-                        <GitFork size={13} />
-                        <span className="text-[11px] stat-mono">{project.forks.toLocaleString()}</span>
-                      </div>
+            {projects.map((project, i) => {
+              const stats = repoStats[project.name];
+              const stars = stats?.stars ?? project.defaultStars;
+              const forks = stats?.forks ?? project.defaultForks;
+              return (
+                <FadeIn key={project.name} delay={i * 0.08}>
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="block card p-8 h-full group cursor-pointer hover:border-[#8B5CF6]/30 transition-all">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Github size={20} className="text-[#8B5CF6]" />
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#8B5CF6] transition-colors">{project.name}</h3>
+                      <ExternalLink size={14} className="text-[#666666] group-hover:text-[#8B5CF6] transition-colors ml-auto" />
                     </div>
-                    <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{project.license}</span>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
+                    <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">{project.description}</p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: project.languageColor }} />
+                          <span className="text-[11px] text-[#999999] font-[family-name:var(--font-space-mono)]">{project.language}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-[#999999]">
+                          <Star size={13} />
+                          <span className="text-[11px] stat-mono">{stars.toLocaleString()}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-[#666666]">
+                          <GitFork size={13} />
+                          <span className="text-[11px] stat-mono">{forks.toLocaleString()}</span>
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{project.license}</span>
+                    </div>
+                  </a>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>

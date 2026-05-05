@@ -97,7 +97,7 @@ const referenceArchitectures = [
     desc: 'Complete sovereign AI cloud deployment with all data and compute remaining within Morocco jurisdiction. Full SENSE-THINK-ACT stack deployed across a single hub with dedicated GPU clusters.',
     icon: Shield,
     accent: '#06B6D4',
-    components: ['Dedicated H100 cluster (64-256 GPUs)', 'SENSE data ingestion pipeline', 'THINK orchestration engine', 'ACT execution controller', 'Sovereign encryption (HSM FIPS 140-2 L3)', 'Compliance automation (GDPR, Law 09-08)'],
+    components: ['Dedicated H100 cluster (up to 800 GPUs per hub)', 'SENSE data ingestion pipeline', 'THINK orchestration engine', 'ACT execution controller with carbon-aware scheduling', 'Sovereign encryption (HSM FIPS 140-2 L3)', 'Compliance automation (GDPR, Law 09-08)'],
     useCase: 'Government agencies, defense, critical infrastructure operators requiring absolute data sovereignty.',
   },
   {
@@ -157,9 +157,9 @@ const pillars = [
     name: 'Performance',
     icon: Gauge,
     accent: '#8B5CF6',
-    description: 'HarchOS delivers linear scaling efficiency above 92% across 4,096 GPUs, with sub-5ms latency to Europe and a 400Gbps inter-hub backbone.',
+    description: 'HarchOS delivers efficient scaling across 800 GPUs per hub (1,798 total), with sub-5ms latency to Europe and a 400Gbps inter-hub backbone. Carbon-aware scheduling automatically routes workloads to hubs with the lowest carbon intensity (~47 gCO2/kWh average).',
     principles: [
-      'GPU efficiency: >92% linear scaling across 4,096 GPU partitions',
+      'GPU efficiency: efficient scaling across 800 GPU partitions max (1,798 total across 5 hubs)',
       'Network: 400Gbps backbone with 100Gbps dedicated inter-hub links',
       'Inference latency: <50ms P99 for real-time inference endpoints',
       'Decision speed: THINK makes optimization decisions in <50ms',

@@ -51,34 +51,34 @@ function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number;
 /* ─── DATA ─── */
 const hubs = [
   {
-    id: 'alpha', name: 'Harch Alpha', location: 'Dakhla', energy: 'Offshore Wind',
-    power: '50MW', latency: '<12ms to Europe', color: '#3B82F6',
-    icon: Wind, image: '/images/intelligence/harchos-tanger.png',
-    description: 'Primary hub connected to submarine cables. Offshore wind 24/7, the Europe-Africa compute gateway.',
-  },
-  {
-    id: 'beta', name: 'Harch Beta', location: 'Tanger', energy: 'Wind + Tidal',
-    power: '50MW', latency: '<5ms to Europe', color: '#06B6D4',
-    icon: Droplets, image: '/images/intelligence/harchos-facility-night.png',
-    description: 'Lowest latency to Europe. Wind-tidal combo for maximum availability.',
-  },
-  {
-    id: 'gamma', name: 'Harch Gamma', location: 'Ouarzazate', energy: 'Solar CSP+PV',
-    power: '50MW', latency: 'Continental', color: '#F59E0B',
+    id: 'ouarzazate', name: 'Harch Ouarzazate', location: 'Ouarzazate', energy: 'Solar CSP+PV — 97.2% Renewable',
+    power: '800 GPUs', latency: '18 gCO2/kWh — Enterprise Tier', color: '#F59E0B',
     icon: Sun, image: '/images/intelligence/harchos-energy-mix.png',
-    description: 'Heart of the Saharan desert. CSP solar with thermal storage for nighttime inference.',
+    description: 'Largest hub at Morocco\'s best solar site. 800 GPUs with 97.2% renewable energy and just 18 gCO2/kWh carbon intensity. PUE 1.04 — the greenest GPU compute on Earth. Strict sovereignty enforcement.',
   },
   {
-    id: 'delta', name: 'Harch Delta', location: 'Casablanca', energy: 'Grid Mix + Solar',
-    power: '50MW', latency: 'Urban hub', color: '#8B5CF6',
-    icon: Network, image: '/images/intelligence/harchos-mesh-map.png',
-    description: 'Urban hub connected to the national backbone. Proximity to enterprise and government clients.',
+    id: 'dakhla', name: 'Harch Dakhla', location: 'Dakhla', energy: 'Offshore Wind — 94.8% Renewable',
+    power: '400 GPUs', latency: '32 gCO2/kWh — Enterprise Tier', color: '#3B82F6',
+    icon: Wind, image: '/images/intelligence/harchos-tanger.png',
+    description: 'Primary hub connected to submarine cables. 400 GPUs powered by offshore wind 24/7. 94.8% renewable, 32 gCO2/kWh. The Europe-Africa compute gateway with strict sovereignty.',
   },
   {
-    id: 'epsilon', name: 'Harch Epsilon', location: 'Benguerir', energy: 'Solar + Wind',
-    power: '50MW', latency: 'R&D cluster', color: '#10B981',
+    id: 'benguerir', name: 'Harch Benguerir', location: 'Benguerir', energy: 'Solar + Wind — 88.5% Renewable',
+    power: '350 GPUs', latency: '55 gCO2/kWh — Performance Tier', color: '#10B981',
     icon: Leaf, image: '/images/intelligence/harchos-architecture.png',
-    description: 'Greenfield R&D next to Mohammed VI Polytechnic. AI innovation and training hub.',
+    description: 'Greenfield hub next to Mohammed VI Polytechnic. 350 GPUs at 88.5% renewable. Performance tier with balanced cost and carbon. Ideal for training workloads.',
+  },
+  {
+    id: 'tanger', name: 'Harch Tanger', location: 'Tanger', energy: 'Wind + Grid — 82.1% Renewable',
+    power: '200 GPUs', latency: '<5ms to Europe — Performance Tier', color: '#06B6D4',
+    icon: Droplets, image: '/images/intelligence/harchos-facility-night.png',
+    description: 'Lowest latency to Europe. 200 GPUs at 82.1% renewable, 95 gCO2/kWh. Wind + tidal combo for maximum availability. Ideal for latency-sensitive inference.',
+  },
+  {
+    id: 'casablanca', name: 'Harch Casablanca', location: 'Casablanca', energy: 'Grid Mix + Solar — 45.0% Renewable',
+    power: '48 GPUs', latency: '210 gCO2/kWh — Standard Tier', color: '#8B5CF6',
+    icon: Network, image: '/images/intelligence/harchos-mesh-map.png',
+    description: 'Urban hub connected to the national backbone. 48 GPUs for latency-sensitive enterprise workloads. Standard tier — recommended only when sub-5ms latency is required.',
   },
 ];
 
@@ -86,9 +86,9 @@ const architectureLayers = [
   {
     id: 'sense', name: 'SENSE', tag: 'Perception Layer',
     icon: Eye, color: '#06B6D4',
-    description: '50,000+ data points per second. Real-time IoT monitoring, weather/energy forecasting, infrared sensors, satellite data and API ingestion. The SENSE layer is the eyes and ears of the mesh — capturing every signal before it becomes critical.',
+    description: '5,000+ data points per second. Real-time IoT monitoring, weather/energy forecasting, infrared sensors, satellite data and API ingestion. The SENSE layer is the eyes and ears of the mesh — capturing every signal before it becomes critical.',
     specs: [
-      { label: 'Data ingestion', value: '50K+ pts/sec' },
+      { label: 'Data ingestion', value: '5K+ pts/sec' },
       { label: 'Sensor types', value: 'IoT, Satellite, API' },
       { label: 'Forecast window', value: '4h ahead' },
       { label: 'Resolution', value: '1-second granularity' },
@@ -147,18 +147,18 @@ const capabilities = [
 
 const specs = [
   { category: 'Compute', items: [
-    { spec: 'Total GPU Capacity', value: '25,000+ GPUs' },
-    { spec: 'GPU Types', value: 'H100, A100, MI300X' },
+    { spec: 'Total GPU Capacity', value: '1,798 GPUs' },
+    { spec: 'GPU Types', value: 'H100, A100, L40S' },
     { spec: 'Interconnect', value: 'NVLink + InfiniBand' },
-    { spec: 'Max Partition', value: '4,096 GPUs' },
+    { spec: 'Max Partition', value: '800 GPUs per hub' },
     { spec: 'Scaling Efficiency', value: '>92% linear' },
   ]},
   { category: 'Power & Energy', items: [
-    { spec: 'Total Installed', value: '250MW' },
-    { spec: 'SLA Guaranteed', value: '200MW' },
-    { spec: 'Floating Reserve', value: '50MW' },
-    { spec: 'Energy Source', value: '100% Renewable' },
-    { spec: 'PUE', value: '<1.15' },
+    { spec: 'Avg Renewable', value: '81.5%' },
+    { spec: 'Avg Carbon Intensity', value: '~47 gCO2/kWh' },
+    { spec: 'Best Hub (Ouarzazate)', value: '18 gCO2/kWh' },
+    { spec: 'Avg PUE', value: '1.12' },
+    { spec: 'Best PUE (Ouarzazate)', value: '1.04' },
   ]},
   { category: 'Network', items: [
     { spec: 'Backbone', value: '400Gbps' },
@@ -191,12 +191,12 @@ const devPlatform = [
 ];
 
 const roadmap = [
-  { phase: 'Q1 2025', title: 'Foundation', items: ['HarchOS kernel v0.1', 'SENSE layer MVP', 'Hub Alpha (Dakhla) design complete'] },
-  { phase: 'Q3 2025', title: 'First Hub Live', items: ['Hub Alpha operational', 'SENSE + THINK layers active', 'First customer workloads'] },
-  { phase: 'Q1 2026', title: 'Mesh Expansion', items: ['Hub Beta (Tanger) online', 'ACT layer deployment', 'Live container migration'] },
-  { phase: 'Q3 2026', title: 'Full Mesh', items: ['Hub Gamma + Delta online', '400Gbps backbone complete', 'HarchOS Licensing beta'] },
-  { phase: 'Q1 2027', title: 'Continental Scale', items: ['Hub Epsilon (Benguerir) online', 'HarchOS Licensing GA', 'Carbon-aware scheduling v2'] },
-  { phase: 'Q4 2027', title: 'Sovereign AI Platform', items: ['25,000+ GPUs operational', 'Full developer platform', 'Pan-African sovereignty mesh'] },
+  { phase: 'Q1 2025', title: 'Foundation', items: ['HarchOS kernel v0.1', 'SENSE layer MVP', 'Hub Ouarzazate design complete'] },
+  { phase: 'Q3 2025', title: 'First Hub Live', items: ['Hub Ouarzazate operational (800 GPUs)', 'SENSE + THINK layers active', 'First customer workloads'] },
+  { phase: 'Q1 2026', title: 'Mesh Expansion', items: ['Hub Dakhla online (400 GPUs)', 'Hub Tanger online (200 GPUs)', 'Carbon-aware scheduling v1'] },
+  { phase: 'Q3 2026', title: 'Full Mesh', items: ['Hub Benguerir online (350 GPUs)', 'Hub Casablanca online (48 GPUs)', '1,798 GPUs operational'] },
+  { phase: 'Q1 2027', title: 'Platform Maturity', items: ['HarchOS Licensing GA', 'Pricing & Billing APIs', 'Regions & Monitoring APIs'] },
+  { phase: 'Q4 2027', title: 'Continental Scale', items: ['1,798+ GPUs across 5 hubs', 'Full developer platform', 'Pan-African sovereignty mesh'] },
 ];
 
 /* ─── MAIN COMPONENT ─── */
@@ -236,7 +236,7 @@ export default function HarchOSPageClient() {
               The Operating System for Sovereign AI Infrastructure
             </p>
             <p className="text-[15px] text-[#999999] max-w-xl leading-[1.7] mb-8">
-              5 AI compute hubs. 250MW installed. 100% renewable energy. A distributed mesh orchestrating Africa\'s sovereign compute — from perception to execution.
+              5 AI compute hubs. 1,798 GPUs. ~81.5% renewable energy. ~47 gCO2/kWh average. A distributed mesh orchestrating Africa\'s sovereign compute — from perception to execution.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
@@ -253,10 +253,10 @@ export default function HarchOSPageClient() {
           <FadeIn delay={0.5}>
             <div className="mt-16 flex flex-wrap gap-8 md:gap-12">
               {[
-                { value: 250, suffix: 'MW', label: 'Installed' },
+                { value: 1798, suffix: '', label: 'GPUs' },
                 { value: 5, suffix: '', label: 'Hubs' },
                 { value: 400, suffix: 'Gbps', label: 'Backbone' },
-                { value: 100, suffix: '%', label: 'Renewable' },
+                { value: 47, suffix: '', label: 'gCO2/kWh' },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
@@ -482,10 +482,10 @@ export default function HarchOSPageClient() {
           <FadeIn>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: 'Total Installed', value: '250MW', accent: '#06B6D4' },
-                { label: 'SLA Guaranteed', value: '200MW', accent: '#8B5CF6' },
-                { label: 'Floating Reserve', value: '50MW', accent: '#10B981' },
-                { label: 'Backbone', value: '400Gbps', accent: '#F59E0B' },
+                { label: 'Total GPUs', value: '1,798', accent: '#06B6D4' },
+                { label: 'Avg Carbon', value: '~47 gCO2/kWh', accent: '#10B981' },
+                { label: 'Avg Renewable', value: '81.5%', accent: '#F59E0B' },
+                { label: 'Backbone', value: '400Gbps', accent: '#8B5CF6' },
               ].map((stat) => (
                 <div key={stat.label} className="card p-6 text-center">
                   <p className="text-2xl font-bold text-white stat-mono mb-1">{stat.value}</p>
@@ -515,9 +515,9 @@ export default function HarchOSPageClient() {
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { value: 250, suffix: 'MW', label: 'Total Power' },
-                    { value: 200, suffix: 'MW', label: 'SLA Power' },
-                    { value: 50, suffix: 'MW', label: 'Reserve' },
+                    { value: 1798, suffix: '', label: 'Total GPUs' },
+                    { value: 47, suffix: '', label: 'gCO2/kWh Avg' },
+                    { value: 800, suffix: '', label: 'Max Per Hub' },
                     { value: 400, suffix: 'Gbps', label: 'Backbone' },
                   ].map((stat) => (
                     <div key={stat.label} className="card p-5">
@@ -708,7 +708,7 @@ export default function HarchOSPageClient() {
                 <p className="ml-4"><span className="text-[#E06C75]">count</span>: <span className="text-[#D19A66]">256</span>,</p>
                 <p className="ml-4"><span className="text-[#E06C75]">schedule</span>: <span className="text-[#98C379]">&apos;carbon-optimal&apos;</span>,</p>
                 <p>{'}'});</p>
-                <p className="mt-1 text-[#5C6370]">// Deployed to Hub Alpha — wind energy at 98% capacity</p>
+                <p className="mt-1 text-[#5C6370]">{'// Deployed to Harch Ouarzazate — solar energy at 97.2% capacity'}</p>
               </div>
             </div>
           </FadeIn>

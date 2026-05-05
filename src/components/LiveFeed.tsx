@@ -34,19 +34,14 @@ function getTimestamp() {
 }
 
 export function LiveFeed() {
-  const [items, setItems] = useState<FeedItem[]>([]);
-  const [counter, setCounter] = useState(0);
+  const [items, setItems] = useState<FeedItem[]>(() => feedMessages.slice(0, 4).map((msg, i) => ({
+    ...msg,
+    id: i,
+    timestamp: getTimestamp(),
+  })));
+  const [counter, setCounter] = useState(4);
 
   useEffect(() => {
-    // Initial populate
-    const initial: FeedItem[] = feedMessages.slice(0, 4).map((msg, i) => ({
-      ...msg,
-      id: i,
-      timestamp: getTimestamp(),
-    }));
-    setItems(initial);
-    setCounter(4);
-
     // Add new items periodically
     const interval = setInterval(() => {
       setCounter(prev => {

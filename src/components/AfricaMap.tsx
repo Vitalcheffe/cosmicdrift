@@ -18,9 +18,9 @@ interface MapLocation {
 // Locations positioned on the real Africa map (percentage-based)
 const locations: MapLocation[] = [
   { id: 'casa', name: 'Casablanca', vertical: 'HQ', version: '/0.0', stat: 'Global Operations', desc: 'Corporate HQ — Strategy & Capital', xPercent: 16.5, yPercent: 7, status: 'active' },
-  { id: 'dakhla', name: 'Dakhla', vertical: 'Intelligence', version: '/0.1', stat: '500MW AI Data Center', desc: 'Hyperscale GPU Cluster — Sovereign Compute', xPercent: 7, yPercent: 15, status: 'engineering' },
+  { id: 'dakhla', name: 'Dakhla', vertical: 'Intelligence', version: '/0.1', stat: '1,798 GPU Carbon-Aware Data Centers', desc: 'Hyperscale GPU Cluster — Sovereign Compute', xPercent: 7, yPercent: 15, status: 'engineering' },
   { id: 'gambia', name: 'Banjul', vertical: 'Cement', version: '/0.2', stat: '500kT/yr Production', desc: 'Vertically Integrated Cement Plant', xPercent: 6.5, yPercent: 23, status: 'permitted' },
-  { id: 'sahel', name: 'Sahel', vertical: 'Energy', version: '/0.3', stat: '2GW+ Renewables', desc: 'Solar, Wind & Green Hydrogen', xPercent: 22, yPercent: 22, status: 'active' },
+  { id: 'sahel', name: 'Sahel', vertical: 'Energy', version: '/0.3', stat: '2GW+ Renewable Pipeline', desc: 'Solar, Wind & Green Hydrogen', xPercent: 22, yPercent: 22, status: 'active' },
   { id: 'noudhibou', name: 'Nouadhibou', vertical: 'Mining', version: '/0.5', stat: '3 Strategic Minerals', desc: 'Phosphate, Cobalt & Rare Earths', xPercent: 6, yPercent: 17.5, status: 'engineering' },
   { id: 'dakar', name: 'Dakar', vertical: 'Agri', version: '/0.6', stat: '$35B Market Access', desc: 'Precision IoT Farming Hub', xPercent: 5.5, yPercent: 22, status: 'design' },
   { id: 'bamako', name: 'Bamako', vertical: 'Water', version: '/0.7', stat: '200M m³/yr', desc: 'AI-Optimized Desalination Network', xPercent: 15, yPercent: 24, status: 'design' },

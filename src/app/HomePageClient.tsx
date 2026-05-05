@@ -13,18 +13,18 @@ import { NetworkGrid } from '@/components/NetworkGrid';
 
 /* ═══ DATA ═══ */
 const verticals = [
-  { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'AI Data Centers & GPU Clusters — 500MW hyperscale facility in Dakhla, powered by 100% renewable energy. Hosts next-gen GPU clusters for sovereign AI compute.', stat: '500MW+', href: '/subsidiaries/intelligence', image: '/images/sections/comp-intel-dc.jpg', outcomes: ['500MW Sovereign Compute', 'AI Model Training Cluster', 'Secure Data Infrastructure'] },
+  { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'Carbon-Aware GPU Cloud — 1,798 GPUs across 5 hubs in Morocco, powered by ~81.5% renewable energy at ~47 gCO2/kWh average. Carbon-aware scheduling with zero competitors in Africa.', stat: '1,798 GPUs', href: '/subsidiaries/intelligence', image: '/images/sections/comp-intel-dc.jpg', outcomes: ['1,798 GPUs Carbon-Optimized', 'Carbon-Aware Scheduling', '~47 gCO2/kWh Average'] },
   { version: '/0.2', name: 'Cement', fullName: 'Harch Cement', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', image: '/images/sections/comp-cement-const.jpg', outcomes: ['500kT/yr Production Output', 'Quarry-to-Delivery Integration', 'West Africa Supply Chain'] },
-  { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+', href: '/subsidiaries/energy', image: '/images/sections/comp-energy-wind.jpg', outcomes: ['2GW+ Renewables', 'Green Hydrogen Export', 'Grid Stabilization'] },
-  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'AI Platforms, Cyber & Satellite — Sovereign tech stack from cybersecurity to satellite communications. 50K+ GPU clusters powering continental AI.', stat: '50K+ GPUs', href: '/subsidiaries/technology', image: '/images/sections/comp-tech-dish.jpg', outcomes: ['50K+ GPU Clusters', 'Cybersecurity Platforms', 'Satellite Communications'] },
+  { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+ Pipeline', href: '/subsidiaries/energy', image: '/images/sections/comp-energy-wind.jpg', outcomes: ['2GW+ Pipeline', 'Green Hydrogen Export', 'Grid Stabilization'] },
+  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'Carbon-Aware GPU Cloud, Cyber & Satellite — Sovereign tech stack with the world\'s most carbon-efficient GPU cloud. Cybersecurity, satellite communications, and AI orchestration.', stat: '1,798 GPUs', href: '/subsidiaries/technology', image: '/images/sections/comp-tech-dish.jpg', outcomes: ['Carbon-Aware GPU Cloud', 'Cybersecurity Platforms', 'Satellite Communications'] },
   { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', image: '/images/sections/comp-mining-site.jpg', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'In-Country Value Capture'] },
   { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', image: '/images/sections/comp-agri-aerial.jpg', outcomes: ['Precision IoT Farming', 'Drone Crop Monitoring', 'Vertical Farm Networks'] },
   { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', image: '/images/sections/comp-water-plant.jpg', outcomes: ['200M m³/yr Desalination', 'AI-Optimized Distribution', 'Continental Water Security'] },
 ];
 
 const carouselSlides = [
-  { title: 'Harch Intelligence', subtitle: 'AI-Powered Sovereignty for Africa', desc: '500MW AI hyperscale data center in Dakhla — the backbone of Africa\'s sovereign compute infrastructure.', image: '/images/sections/comp-intel-dc.jpg', href: '/subsidiaries/intelligence' },
-  { title: 'Harch Energy', subtitle: '2GW+ of Renewable Power', desc: 'Solar, wind, and green hydrogen across Morocco and the Sahel — zero-carbon electricity for industrial sovereignty.', image: '/images/sections/comp-energy-wind.jpg', href: '/subsidiaries/energy' },
+  { title: 'Harch Intelligence', subtitle: 'Carbon-Aware Sovereign AI', desc: '1,798 GPUs across 5 Moroccan hubs at ~47 gCO2/kWh — the world\'s most carbon-efficient GPU cloud, with carbon-aware scheduling and sovereign data residency.', image: '/images/sections/comp-intel-dc.jpg', href: '/subsidiaries/intelligence' },
+  { title: 'Harch Energy', subtitle: '2GW+ Renewable Energy Pipeline', desc: 'Solar, wind, and green hydrogen across Morocco and the Sahel — zero-carbon electricity for industrial sovereignty.', image: '/images/sections/comp-energy-wind.jpg', href: '/subsidiaries/energy' },
   { title: 'Harch Cement', subtitle: 'Building West Africa\'s Future', desc: '500kT/yr cement production — vertically integrated from quarry to delivery, serving the construction boom.', image: '/images/sections/comp-cement-const.jpg', href: '/subsidiaries/cement' },
   { title: 'Harch Technology', subtitle: 'Sovereign Digital Infrastructure', desc: 'AI platforms, cybersecurity, and satellite communications — the technology stack that Africa controls.', image: '/images/sections/comp-tech-dish.jpg', href: '/subsidiaries/technology' },
   { title: 'Harch Mining', subtitle: 'Capturing the Value Chain', desc: 'Strategic mineral extraction — phosphates, cobalt, and rare earths processed in-country for the energy transition.', image: '/images/sections/comp-mining-site.jpg', href: '/subsidiaries/mining' },
@@ -33,10 +33,10 @@ const carouselSlides = [
 ];
 
 const stats = [
+  { value: 1798, prefix: '', suffix: '', label: 'GPUs Operational', desc: 'Across 5 carbon-optimized hubs in Morocco' },
+  { value: 47, prefix: '~', suffix: '', label: 'gCO2/kWh Avg', desc: 'Carbon intensity — 89% lower than industry avg' },
+  { value: 81.5, prefix: '', suffix: '%', label: 'Renewable Energy', desc: 'Average across all 5 GPU hubs' },
   { value: 2.4, prefix: '$', suffix: 'B+', label: 'Investment Pipeline', desc: 'Active capital deployment across 7 verticals' },
-  { value: 7, prefix: '', suffix: '', label: 'Industrial Verticals', desc: 'From AI compute to water security' },
-  { value: 3200, prefix: '', suffix: '+', label: 'Jobs Created', desc: 'Direct employment by 2028' },
-  { value: 5, prefix: '', suffix: '', label: 'Countries', desc: 'Morocco, Gambia, Senegal, Mauritania, Mali' },
 ];
 
 const roadmap = [
@@ -55,10 +55,10 @@ const africaStats = [
 ];
 
 const investmentTable = [
-  { vertical: 'Intelligence', investment: '$800M', capacity: '500MW', timeline: '2027', status: 'Engineering' },
+  { vertical: 'Intelligence', investment: '$800M', capacity: '1,798 GPUs', timeline: '2027', status: 'Engineering' },
   { vertical: 'Cement', investment: '$200M', capacity: '500kT/yr', timeline: '2028', status: 'Permitted' },
-  { vertical: 'Energy', investment: '$600M', capacity: '2GW+', timeline: '2027', status: 'Active' },
-  { vertical: 'Technology', investment: '$400M', capacity: '50K+ GPUs', timeline: '2028', status: 'Design' },
+  { vertical: 'Energy', investment: '$600M', capacity: '2GW+ Pipeline', timeline: '2027', status: 'Active' },
+  { vertical: 'Technology', investment: '$400M', capacity: '1,798 GPUs', timeline: '2028', status: 'Design' },
   { vertical: 'Mining', investment: '$200M', capacity: '3 Minerals', timeline: '2029', status: 'Exploration' },
   { vertical: 'Agri', investment: '$150M', capacity: '$35B Market', timeline: '2029', status: 'Planning' },
   { vertical: 'Water', investment: '$150M', capacity: '200M m³/yr', timeline: '2030', status: 'Feasibility' },
@@ -670,27 +670,27 @@ export default function HomePageClient() {
                 <Image src="/images/sections/intelligence-detail.jpg" alt="Harch Intelligence AI Data Center" fill className="object-cover industrial-image" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#000000]/70 backdrop-blur-md px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.06)]">
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/80">500MW AI Hyperscale</p>
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/80">1,798 GPUs Carbon-Optimized</p>
                 </div>
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
               <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-                Africa&apos;s Largest AI<br />Hyperscale Data Center
+                Africa&apos;s Carbon-Aware<br />GPU Cloud
               </h2>
               <div className="accent-line mb-6" />
               <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
-                Harch Intelligence is building a 500MW AI-ready hyperscale data center in Dakhla,
-                Morocco — powered entirely by renewable energy and designed to serve as the backbone
-                of Africa&apos;s sovereign AI compute infrastructure. The facility will host
-                next-generation GPU clusters, supporting large language model training and inference
-                at continental scale, with direct submarine cable connectivity to Europe and the Americas.
+                Harch Intelligence operates 1,798 GPUs across 5 carbon-optimized hubs in Morocco —
+                with an average carbon intensity of ~47 gCO2/kWh and ~81.5% renewable energy.
+                Carbon-aware scheduling automatically routes workloads to the greenest hub in real-time,
+                delivering 40-60% cost savings vs. AWS/GCP/Azure while maintaining sovereign data residency
+                under Moroccan jurisdiction. Zero competitors in Africa offer carbon-aware GPU scheduling.
               </p>
               <div className="grid grid-cols-3 gap-6 mb-8">
                 {[
-                  { val: '500MW+', label: 'Capacity' },
-                  { val: '50K+', label: 'GPUs' },
-                  { val: '100%', label: 'Renewable' },
+                  { val: '1,798', label: 'GPUs' },
+                  { val: '~47', label: 'gCO2/kWh' },
+                  { val: '81.5%', label: 'Renewable' },
                 ].map((s, j) => (
                   <div key={s.label}>
                     <p className={`text-2xl font-bold text-white stat-mono stat-jitter ${j === 1 ? 'stat-jitter-delay-1' : j === 2 ? 'stat-jitter-delay-2' : ''}`}>{s.val}</p>
@@ -757,7 +757,7 @@ export default function HomePageClient() {
               </p>
               <div className="grid grid-cols-3 gap-6 mb-8">
                 {[
-                  { val: '2GW+', label: 'Capacity' },
+                  { val: '2GW+', label: 'Pipeline' },
                   { val: '3', label: 'Energy Sources' },
                   { val: 'Zero', label: 'Carbon' },
                 ].map((s, j) => (
@@ -935,8 +935,8 @@ export default function HomePageClient() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { title: 'Harch Intelligence Secures 500MW Data Center Site in Dakhla', date: 'March 2026', tag: 'Intelligence' },
-              { title: 'Harch Energy Reaches 2GW Renewable Pipeline Milestone', date: 'February 2026', tag: 'Energy' },
+              { title: 'Harch Intelligence Deploys 1,798 GPUs Across 5 Carbon-Optimized Hubs', date: 'March 2026', tag: 'Intelligence' },
+              { title: 'Harch Energy Reaches 2GW+ Renewable Pipeline Milestone', date: 'February 2026', tag: 'Energy' },
               { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'January 2026', tag: 'Corporate' },
             ].map((article, i) => (
               <FadeIn key={i} delay={i * 0.08}>

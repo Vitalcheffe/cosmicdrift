@@ -25,13 +25,13 @@ const values = [
 ];
 
 const leadership = [
-  { name: 'Amine Harch El Korane', title: 'Founder & CEO', desc: 'Serial entrepreneur with 15+ years in African industrial development. Founded Harch Corp to build the infrastructure the continent deserves — from 500MW AI data centers to 2GW renewable energy pipelines across 7 verticals and 5 countries. Leading a $2.4B+ investment pipeline to convert Africa\'s potential into industrial power.' },
+  { name: 'Amine Harch El Korane', title: 'Founder & CEO', desc: 'Serial entrepreneur with 15+ years in African industrial development. Founded Harch Corp to build the infrastructure the continent deserves — from 1,798 carbon-optimized GPU hubs to 2GW+ Renewable Pipeline across 7 verticals and 5 countries. Pioneering carbon-aware scheduling as the company\'s #1 differentiator, achieving ~47 gCO2/kWh average carbon intensity. Leading a $2.4B+ investment pipeline to convert Africa\'s potential into industrial power.' },
 ];
 
 const history = [
   { year: '2023', title: 'Vision Conceived', desc: 'Amine Harch El Korane identifies the gap between Africa\'s resource wealth and its industrial capacity. The vision for Harch Corp is born.' },
   { year: '2024', title: 'Foundation', desc: 'Harch Corp S.A. registered in Casablanca with 100M MAD capital. Core team assembled across 4 countries.' },
-  { year: '2025', title: 'Engineering Phase', desc: 'Dakhla data center engineering begins. Gambia cement plant permits secured. Energy pipeline reaches 2GW.' },
+  { year: '2025', title: 'Engineering Phase', desc: 'Dakhla data center engineering begins. Gambia cement plant permits secured. Energy pipeline reaches 2GW+ Pipeline.' },
   { year: '2026', title: 'Active Deployment', desc: 'First projects break ground. $2.4B pipeline activated. 7 verticals operational with 3,200+ jobs created.' },
 ];
 
@@ -48,7 +48,7 @@ export default function AboutPageClient() {
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Harch Corp is a Moroccan multi-sector industrial conglomerate building the critical infrastructure that enables Africa&apos;s self-reliance. From 500MW AI data centers to 2GW renewable energy, we convert the continent&apos;s potential into industrial power.
+              Harch Corp is a Moroccan multi-sector industrial conglomerate building the critical infrastructure that enables Africa&apos;s self-reliance. From 1,798 carbon-optimized GPUs to a 2GW+ Renewable Pipeline, we convert the continent&apos;s potential into industrial power.
             </p>
           </FadeIn>
         </div>

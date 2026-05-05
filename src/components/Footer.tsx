@@ -73,8 +73,8 @@ const legalLinks = [
 ];
 
 const latestNews = [
-  { title: 'Harch Intelligence Secures 500MW Data Center Site in Dakhla', date: 'Mar 2026' },
-  { title: 'Harch Energy Reaches 2GW Renewable Pipeline Milestone', date: 'Feb 2026' },
+  { title: 'Harch Intelligence Deploys 1,798 Carbon-Optimized GPUs Across 5 Hubs', date: 'Mar 2026' },
+  { title: 'Harch Energy Reaches 2GW+ Renewable Pipeline Milestone', date: 'Feb 2026' },
   { title: 'Harch Corp Announces $2.4B Investment Pipeline', date: 'Jan 2026' },
 ];
 

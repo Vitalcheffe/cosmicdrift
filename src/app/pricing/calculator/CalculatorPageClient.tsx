@@ -1,9 +1,9 @@
 'use client';
 
-import { useRef, useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import {
-  ArrowLeft, ArrowRight, Cpu, Database, Network, Headphones,
+  ArrowLeft, ArrowRight, Cpu, Database, Network, Globe,
   Download, Calculator, CheckCircle2, TrendingDown, Zap,
   Shield, BarChart3, Info
 } from 'lucide-react';
@@ -22,26 +22,40 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 
 /* ─── PRICING DATA ─── */
 const gpuPrices: Record<string, number> = {
-  A100: 0.35,
-  H100: 0.50,
-  MI300X: 0.45,
+  A100: 1.80,
+  H100: 2.10,
+  L40S: 1.40,
 };
+
+const gpuCarbonIntensity: Record<string, number> = {
+  A100: 95,
+  H100: 18,
+  L40S: 32,
+};
+
+const regions = [
+  { id: 'morocco', name: 'Morocco', hubs: 5, gpus: 1798, avgCarbon: 47, avgRenewable: 81.5 },
+  { id: 'algeria', name: 'Algeria', hubs: 0, gpus: 0, avgCarbon: 450, avgRenewable: 1.5 },
+  { id: 'tunisia', name: 'Tunisia', hubs: 0, gpus: 0, avgCarbon: 420, avgRenewable: 3.0 },
+  { id: 'egypt', name: 'Egypt', hubs: 0, gpus: 0, avgCarbon: 380, avgRenewable: 12.0 },
+  { id: 'nigeria', name: 'Nigeria', hubs: 0, gpus: 0, avgCarbon: 350, avgRenewable: 18.0 },
+  { id: 'kenya', name: 'Kenya', hubs: 0, gpus: 0, avgCarbon: 280, avgRenewable: 75.0 },
+  { id: 'south-africa', name: 'South Africa', hubs: 0, gpus: 0, avgCarbon: 500, avgRenewable: 8.0 },
+  { id: 'senegal', name: 'Senegal', hubs: 0, gpus: 0, avgCarbon: 380, avgRenewable: 22.0 },
+  { id: 'ghana', name: 'Ghana', hubs: 0, gpus: 0, avgCarbon: 320, avgRenewable: 28.0 },
+  { id: 'ethiopia', name: 'Ethiopia', hubs: 0, gpus: 0, avgCarbon: 150, avgRenewable: 90.0 },
+  { id: 'ivory-coast', name: 'Ivory Coast', hubs: 0, gpus: 0, avgCarbon: 360, avgRenewable: 25.0 },
+];
 
 const cloudComparison: Record<string, { aws: number; gcp: number; azure: number }> = {
   A100: { aws: 0.90, gcp: 0.85, azure: 0.88 },
-  H100: { aws: 1.20, gcp: 1.15, azure: 1.18 },
-  MI300X: { aws: 1.05, gcp: 0.98, azure: 1.02 },
+  H100: { aws: 3.50, gcp: 3.30, azure: 3.40 },
+  L40S: { aws: 1.20, gcp: 1.10, azure: 1.15 },
 };
 
 const storagePrices: Record<string, number> = {
   SSD: 0.02,
   NVMe: 0.04,
-};
-
-const supportPrices: Record<string, { monthly: number; label: string }> = {
-  community: { monthly: 0, label: 'Community' },
-  professional: { monthly: 500, label: 'Professional' },
-  enterprise: { monthly: 2500, label: 'Enterprise' },
 };
 
 /* ─── MAIN COMPONENT ─── */
@@ -53,26 +67,26 @@ export default function CalculatorPageClient() {
   const [storageCapacity, setStorageCapacity] = useState(2000);
   const [egressBandwidth, setEgressBandwidth] = useState(5);
   const [cdnEnabled, setCdnEnabled] = useState(false);
-  const [supportTier, setSupportTier] = useState('community');
+  const [region, setRegion] = useState('morocco');
 
   const costs = useMemo(() => {
     const computeCost = gpuPrices[gpuType] * gpuCount * gpuHours;
+    const carbonIntensity = gpuCarbonIntensity[gpuType];
+    const estimatedCO2 = (carbonIntensity * gpuCount * 0.3 * gpuHours / 1000).toFixed(1); // rough estimate: 0.3 kWh per GPU-hour
     const storageCost = storagePrices[storageType] * storageCapacity;
     const networkCost = egressBandwidth * 0.05 * 730 + (cdnEnabled ? 50 : 0);
-    const supportCost = supportPrices[supportTier].monthly;
-    const totalMonthly = computeCost + storageCost + networkCost + supportCost;
+    const totalMonthly = computeCost + storageCost + networkCost;
     const totalAnnual = totalMonthly * 12;
     const annualWithDiscount = totalAnnual * 0.7;
 
-    const awsCost = cloudComparison[gpuType].aws * gpuCount * gpuHours + storageCost * 1.4 + networkCost * 1.3 + (supportTier === 'enterprise' ? 5000 : supportTier === 'professional' ? 1000 : 0);
-    const gcpCost = cloudComparison[gpuType].gcp * gpuCount * gpuHours + storageCost * 1.35 + networkCost * 1.25 + (supportTier === 'enterprise' ? 4500 : supportTier === 'professional' ? 900 : 0);
-    const azureCost = cloudComparison[gpuType].azure * gpuCount * gpuHours + storageCost * 1.38 + networkCost * 1.28 + (supportTier === 'enterprise' ? 4800 : supportTier === 'professional' ? 950 : 0);
+    const awsCost = cloudComparison[gpuType].aws * gpuCount * gpuHours + storageCost * 1.4 + networkCost * 1.3;
+    const gcpCost = cloudComparison[gpuType].gcp * gpuCount * gpuHours + storageCost * 1.35 + networkCost * 1.25;
+    const azureCost = cloudComparison[gpuType].azure * gpuCount * gpuHours + storageCost * 1.38 + networkCost * 1.28;
 
     return {
       computeCost,
       storageCost,
       networkCost,
-      supportCost,
       totalMonthly,
       totalAnnual,
       annualWithDiscount,
@@ -82,8 +96,10 @@ export default function CalculatorPageClient() {
       savingsVsAws: Math.round((1 - totalMonthly / awsCost) * 100),
       savingsVsGcp: Math.round((1 - totalMonthly / gcpCost) * 100),
       savingsVsAzure: Math.round((1 - totalMonthly / azureCost) * 100),
+      carbonIntensity,
+      estimatedCO2,
     };
-  }, [gpuType, gpuCount, gpuHours, storageType, storageCapacity, egressBandwidth, cdnEnabled, supportTier]);
+  }, [gpuType, gpuCount, gpuHours, storageType, storageCapacity, egressBandwidth, cdnEnabled, region]);
 
   return (
     <div className="bg-[#1A1A1A]">
@@ -137,7 +153,7 @@ export default function CalculatorPageClient() {
                   <div className="mb-6">
                     <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-3 block">GPU Type</label>
                     <div className="grid grid-cols-3 gap-3">
-                      {['A100', 'H100', 'MI300X'].map((gpu) => (
+                      {['A100', 'H100', 'L40S'].map((gpu) => (
                         <button
                           key={gpu}
                           onClick={() => setGpuType(gpu)}
@@ -163,7 +179,7 @@ export default function CalculatorPageClient() {
                     <input
                       type="range"
                       min={1}
-                      max={4096}
+                      max={800}
                       step={1}
                       value={gpuCount}
                       onChange={(e) => setGpuCount(Number(e.target.value))}
@@ -171,7 +187,7 @@ export default function CalculatorPageClient() {
                     />
                     <div className="flex justify-between mt-1">
                       <span className="text-[10px] text-[#666666]">1</span>
-                      <span className="text-[10px] text-[#666666]">4,096</span>
+                      <span className="text-[10px] text-[#666666]">800</span>
                     </div>
                   </div>
 
@@ -293,28 +309,28 @@ export default function CalculatorPageClient() {
                   </div>
                 </div>
 
-                {/* Support Tier */}
+                {/* Region Selector */}
                 <div className="card p-8">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 rounded-lg bg-[rgba(16,185,129,0.08)] flex items-center justify-center">
-                      <Headphones size={20} className="text-[#10B981]" />
+                      <Globe size={20} className="text-[#10B981]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">Support</h3>
+                    <h3 className="text-lg font-bold text-white">Region</h3>
                   </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    {Object.entries(supportPrices).map(([key, value]) => (
+                  <div className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto">
+                    {regions.map((r) => (
                       <button
-                        key={key}
-                        onClick={() => setSupportTier(key)}
-                        className={`px-4 py-4 rounded-lg text-[13px] font-semibold transition-all border text-left ${
-                          supportTier === key
+                        key={r.id}
+                        onClick={() => setRegion(r.id)}
+                        className={`px-4 py-3 rounded-lg text-[13px] font-semibold transition-all border text-left ${
+                          region === r.id
                             ? 'bg-[rgba(16,185,129,0.08)] border-[rgba(16,185,129,0.3)] text-white'
                             : 'border-white/[0.06] text-[#999999] hover:border-white/12 hover:text-white'
                         }`}
                       >
-                        <p className="font-bold capitalize">{value.label}</p>
+                        <p className="font-bold">{r.name}</p>
                         <p className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)] mt-0.5">
-                          {value.monthly === 0 ? 'Included' : `$${value.monthly.toLocaleString()}/mo`}
+                          {r.hubs > 0 ? `${r.gpus} GPUs • ${r.avgCarbon} gCO2/kWh` : 'Coming soon'}
                         </p>
                       </button>
                     ))}
@@ -342,12 +358,6 @@ export default function CalculatorPageClient() {
                         <span className="text-[13px] text-[#999999]">Network</span>
                         <span className="text-[13px] text-white font-[family-name:var(--font-space-mono)] stat-mono">${costs.networkCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
-                      {costs.supportCost > 0 && (
-                        <div className="flex justify-between items-center">
-                          <span className="text-[13px] text-[#999999]">Support</span>
-                          <span className="text-[13px] text-white font-[family-name:var(--font-space-mono)] stat-mono">${costs.supportCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                        </div>
-                      )}
                     </div>
 
                     <div className="h-px bg-white/[0.06] mb-4" />
@@ -357,6 +367,33 @@ export default function CalculatorPageClient() {
                       <span className="text-2xl font-extrabold text-white stat-mono">${costs.totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
                     <p className="text-[11px] text-[#666666]">Estimated, excludes taxes</p>
+                  </div>
+
+                  {/* Carbon Intensity Estimate */}
+                  <div className="card p-8 border-[rgba(6,182,212,0.15)]">
+                    <div className="flex items-center gap-2 mb-4">
+                      <BarChart3 size={16} className="text-[#06B6D4]" />
+                      <p className="text-[10px] text-[#06B6D4] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Carbon Estimate</p>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-[13px] text-[#999999]">Carbon Intensity</span>
+                        <span className={`text-[13px] font-bold font-[family-name:var(--font-space-mono)] ${costs.carbonIntensity <= 50 ? 'text-[#10B981]' : costs.carbonIntensity <= 100 ? 'text-[#F59E0B]' : 'text-[#EF4444]'}`}>
+                          {costs.carbonIntensity} gCO2/kWh
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-[13px] text-[#999999]">Est. CO2 (monthly)</span>
+                        <span className="text-[13px] text-white font-[family-name:var(--font-space-mono)] stat-mono">{costs.estimatedCO2} kg</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-[13px] text-[#999999]">vs Industry Avg</span>
+                        <span className="text-[13px] text-[#10B981] font-semibold">89% lower</span>
+                      </div>
+                    </div>
+                    <div className="mt-3 p-3 rounded-lg bg-[rgba(6,182,212,0.04)] border border-[rgba(6,182,212,0.1)]">
+                      <p className="text-[11px] text-[#999999]">Carbon-aware scheduling shifts workloads to the greenest hub automatically, reducing carbon intensity up to 89% vs the ~450 gCO2/kWh industry average.</p>
+                    </div>
                   </div>
 
                   {/* Annual Savings */}

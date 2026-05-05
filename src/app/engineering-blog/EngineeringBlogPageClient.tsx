@@ -41,7 +41,7 @@ interface EngPost {
 const engPosts: EngPost[] = [
   {
     title: 'Inside HarchOS: How We Built a Distributed AI Operating System from Scratch',
-    excerpt: 'A complete walkthrough of HarchOS internals — from the custom scheduler and GPU topology awareness to the SENSE/THINK/ACT pipeline that orchestrates 50,000 GPUs across three data centers. No off-the-shelf orchestrator could handle our requirements, so we built one.',
+    excerpt: 'A complete walkthrough of HarchOS internals — from the custom scheduler and GPU topology awareness to the SENSE/THINK/ACT pipeline that orchestrates 1,798 GPUs across three data centers. No off-the-shelf orchestrator could handle our requirements, so we built one.',
     date: 'March 2026',
     category: 'Infrastructure',
     readTime: '24 min read',
@@ -59,7 +59,7 @@ const engPosts: EngPost[] = [
     difficulty: 'Advanced',
   },
   {
-    title: 'Our GPU Scheduling Algorithm: Balancing Throughput and Fairness Across 50,000 GPUs',
+    title: 'Our GPU Scheduling Algorithm: Balancing Throughput and Fairness Across 1,798 GPUs',
     excerpt: 'We rejected bin-packing and FIFO for a weighted fair queuing approach with topology-aware placement. This post covers the math, the trade-offs, and why latency-sensitive inference workloads changed everything.',
     date: 'January 2026',
     category: 'AI/ML',

@@ -52,14 +52,14 @@ const executives = [
   {
     name: 'Youssef Alaoui',
     title: 'VP, Harch Intelligence',
-    bio: 'AI and data center pioneer who designed Harch Corp\'s 500MW GPU compute strategy. Former head of AI infrastructure at a leading sovereign cloud provider. Led the deployment of HarchOS across 3 data center regions with 50,000+ GPUs under management.',
+    bio: 'AI and data center pioneer who designed Harch Corp\'s Carbon-Aware GPU Cloud Strategy. Former head of AI infrastructure at a leading sovereign cloud provider. Led the deployment of HarchOS across 3 data center regions with 1,798 carbon-optimized GPUs under management.',
     image: '/images/team/vp-intelligence.jpg',
     linkedin: '#',
   },
   {
     name: 'Mariama Diallo',
     title: 'VP, Sustainability & ESG',
-    bio: 'Environmental scientist and sustainability leader who ensures every Harch Corp vertical operates at the highest ESG standards. Former UN Environment Programme advisor for West Africa. Architected the company\'s 2GW renewable energy integration strategy and net-zero roadmap.',
+    bio: 'Environmental scientist and sustainability leader who ensures every Harch Corp vertical operates at the highest ESG standards. Former UN Environment Programme advisor for West Africa. Architected the company\'s 2GW+ Renewable Pipeline integration strategy and net-zero roadmap.',
     image: '/images/team/vp-sustainability.jpg',
     linkedin: '#',
   },

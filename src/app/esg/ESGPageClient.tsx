@@ -31,9 +31,9 @@ function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number;
 }
 
 const envCommitments = [
-  { icon: Sun, title: '100% Renewable Energy', desc: 'All Harch Corp operations — from data centers to manufacturing — are powered by renewable energy. Our 2GW+ solar and wind pipeline provides zero-carbon electricity at industrial scale.' },
+  { icon: Sun, title: '100% Renewable Energy', desc: 'All Harch Corp operations — from data centers to manufacturing — are powered by renewable energy. Our 2GW+ Renewable Pipeline provides zero-carbon electricity at industrial scale, achieving 81.5% average renewable across our 5 GPU hubs.' },
   { icon: Droplets, title: 'Water Stewardship', desc: 'Harch Water deploys 200M m³/yr desalination capacity with AI-optimized distribution, addressing Africa\'s water security crisis while minimizing environmental impact.' },
-  { icon: TreePine, title: 'Carbon Negative Goal', desc: 'Our energy and mining operations are designed to be carbon negative by 2030 — removing more CO₂ than we produce through green hydrogen and carbon capture technologies.' },
+  { icon: TreePine, title: 'Carbon Negative Goal', desc: 'Our energy and mining operations are designed to be carbon negative by 2030 — removing more CO₂ than we produce through green hydrogen and carbon capture technologies. Our GPU hubs achieve ~47 gCO2/kWh average carbon intensity — 89% below the industry average of ~450 gCO2/kWh.' },
   { icon: Recycle, title: 'Circular Economy', desc: 'Every vertical is designed for circularity — from mining tailings repurposed as construction materials to water recycling in cement production. Zero waste by design.' },
 ];
 
@@ -107,10 +107,10 @@ export default function ESGPageClient() {
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">Environmental Commitment</span>
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-[56px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-6 max-w-2xl">
-              2GW+ of Zero-Carbon<br />Electricity
+              2GW+ Renewable Pipeline of Zero-Carbon<br />Electricity
             </h2>
             <p className="max-w-lg text-[15px] text-white/60 leading-relaxed">
-              Every Harch Corp operation is powered by renewable energy. Our solar and wind farms generate more clean electricity than we consume — making us a net producer of zero-carbon power.
+              Every Harch Corp operation is powered by renewable energy. Our solar and wind farms generate more clean electricity than we consume — making us a net producer of zero-carbon power. With ~47 gCO2/kWh average carbon intensity and 81.5% renewable energy across our GPU hubs, we lead the industry in sustainable compute.
             </p>
           </FadeIn>
         </div>

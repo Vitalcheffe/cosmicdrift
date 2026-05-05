@@ -26,7 +26,7 @@ const quickStartSteps = [
   {
     step: '01',
     title: 'Create Account',
-    description: 'Sign up for a free HarchOS developer account. No credit card required. Instant access to the Starter tier with 10 GPU hours per month.',
+    description: 'Sign up for a free HarchOS developer account. No credit card required. Instant access to the Starter tier with 10 GPU hours/month free tier.',
     icon: Users,
     color: '#06B6D4',
   },
@@ -329,8 +329,10 @@ export default function DevelopersPageClient() {
                   {[
                     { icon: Shield, text: 'Sovereign-by-default data residency' },
                     { icon: Zap, text: 'Carbon-aware scheduling built in' },
-                    { icon: Activity, text: 'Real-time metrics and logging' },
+                    { icon: Activity, text: 'Real-time metrics and monitoring API' },
                     { icon: CheckCircle2, text: 'Automatic failover and migration' },
+                    { icon: BarChart3, text: 'Pricing API ($1.40-$2.35/gpu-hr)' },
+                    { icon: Globe, text: 'Regions API with carbon intensity data' },
                   ].map((feature) => (
                     <div key={feature.text} className="flex items-center gap-3">
                       <feature.icon size={16} className="text-[#06B6D4]" />
@@ -530,7 +532,7 @@ export default function DevelopersPageClient() {
               Your Next Deploy<br/>is One Command Away<span className="text-[#06B6D4]">.</span>
             </h2>
             <p className="text-[16px] text-[#999999] max-w-lg mx-auto leading-[1.7] mb-10">
-              Free Starter tier with 10 GPU hours per month. No credit card required. Deploy on 100% renewable sovereign infrastructure.
+              Free Starter tier with 10 GPU hours/month free tier. No credit card required. Deploy on 100% renewable sovereign infrastructure with carbon-aware scheduling, real-time monitoring, and pricing APIs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/developers/playground" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all">

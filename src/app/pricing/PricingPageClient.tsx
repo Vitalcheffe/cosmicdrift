@@ -115,7 +115,7 @@ const tiers = [
 const faqs = [
   {
     question: 'What GPU types are available?',
-    answer: 'HarchOS supports NVIDIA H100, A100, and AMD MI300X GPUs across all tiers. Starter tier provides A100 access. Professional and above include all GPU types. Enterprise and Sovereign tiers offer custom GPU configurations and dedicated clusters.',
+    answer: 'HarchOS supports NVIDIA H100, A100, and L40S GPUs across all tiers. Starter tier provides A100 access. Professional and above include all GPU types. Enterprise and Sovereign tiers offer custom GPU configurations and dedicated clusters.',
   },
   {
     question: 'How does billing work?',
@@ -135,8 +135,21 @@ const faqs = [
   },
   {
     question: 'How does HarchOS pricing compare to AWS/GCP/Azure?',
-    answer: 'HarchOS is 40-60% cheaper than equivalent GPU compute on AWS, GCP, and Azure. Our renewable energy infrastructure and Moroccan operations reduce costs significantly. Use our pricing calculator to compare exact costs for your workload.',
+    answer: 'HarchOS is 40-60% cheaper than equivalent GPU compute on AWS, GCP, and Azure. Our renewable energy infrastructure and Moroccan operations reduce costs significantly. H100 Enterprise at $2.10/gpu-hr vs AWS ~$3-4/gpu-hr. Use our pricing calculator to compare exact costs for your workload.',
   },
+  {
+    question: 'What is carbon-aware scheduling?',
+    answer: 'Carbon-aware scheduling automatically routes your workloads to the hub with the lowest carbon intensity at any given time. Harch Ouarzazate runs at just 18 gCO2/kWh with 97.2% renewable energy. This reduces your carbon footprint by up to 89% compared to industry average, and can reduce compute costs by up to 25% by shifting batch workloads to green energy windows.',
+  },
+];
+
+const gpuPricingPlans = [
+  { gpu: 'L40S', tier: 'Enterprise', hub: 'Dakhla', price: 1.40, carbon: 32, renewable: '94.8%', sovereignty: 'Strict' },
+  { gpu: 'L40S', tier: 'Performance', hub: 'Benguerir', price: 1.55, carbon: 55, renewable: '88.5%', sovereignty: 'Standard' },
+  { gpu: 'A100', tier: 'Performance', hub: 'Tanger', price: 1.80, carbon: 95, renewable: '82.1%', sovereignty: 'Standard' },
+  { gpu: 'A100', tier: 'Standard', hub: 'Casablanca', price: 1.95, carbon: 210, renewable: '45.0%', sovereignty: 'Standard' },
+  { gpu: 'H100', tier: 'Enterprise', hub: 'Ouarzazate', price: 2.10, carbon: 18, renewable: '97.2%', sovereignty: 'Strict' },
+  { gpu: 'H100', tier: 'Performance', hub: 'Benguerir', price: 2.35, carbon: 55, renewable: '88.5%', sovereignty: 'Standard' },
 ];
 
 const costOptimizationTips = [
@@ -363,6 +376,107 @@ export default function PricingPageClient() {
                   <p className="text-[13px] text-[#999999] leading-[1.7]">{item.description}</p>
                 </div>
               ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          GPU PRICING PLANS
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4 text-[#10B981]">GPU Pricing</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
+              Per-GPU Pricing<br/>by Hub<span className="text-[#10B981]">.</span>
+            </h2>
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
+              Transparent per-GPU pricing across all 5 hubs. Lower carbon intensity hubs offer the best value — carbon-aware scheduling automatically routes your workloads to the greenest, cheapest option.
+            </p>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="bg-[#1E1E1E] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>GPU</th>
+                      <th>Tier</th>
+                      <th>Hub</th>
+                      <th>Price</th>
+                      <th>Carbon</th>
+                      <th>Renewable</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {gpuPricingPlans.map((plan) => (
+                      <tr key={`${plan.gpu}-${plan.tier}-${plan.hub}`}>
+                        <td className="font-semibold">{plan.gpu}</td>
+                        <td>
+                          <span className={`px-2 py-1 rounded text-[10px] font-bold ${
+                            plan.tier === 'Enterprise' ? 'bg-[rgba(16,185,129,0.1)] text-[#10B981]' :
+                            plan.tier === 'Performance' ? 'bg-[rgba(6,182,212,0.1)] text-[#06B6D4]' :
+                            'bg-[rgba(255,255,255,0.04)] text-[#999999]'
+                          }`}>
+                            {plan.tier}
+                          </span>
+                        </td>
+                        <td>{plan.hub}</td>
+                        <td className="font-semibold">${plan.price.toFixed(2)}/gpu-hr</td>
+                        <td>
+                          <span className={`font-[family-name:var(--font-space-mono)] ${
+                            plan.carbon <= 50 ? 'text-[#10B981]' :
+                            plan.carbon <= 100 ? 'text-[#F59E0B]' :
+                            'text-[#EF4444]'
+                          }`}>
+                            {plan.carbon} gCO2/kWh
+                          </span>
+                        </td>
+                        <td>{plan.renewable}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="px-6 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)]">
+                <p className="text-[11px] text-[#666666]">Prices in USD. Carbon intensity color: <span className="text-[#10B981]">green</span> (&lt;50), <span className="text-[#F59E0B]">amber</span> (50-100), <span className="text-[#EF4444]">red</span> (&gt;100 gCO2/kWh). All hubs in Morocco with sovereign data residency.</p>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Carbon-Aware Savings Callout */}
+          <FadeIn>
+            <div className="mt-8 card p-8 border-[rgba(16,185,129,0.15)]">
+              <div className="flex items-start gap-6">
+                <div className="w-14 h-14 rounded-lg bg-[rgba(16,185,129,0.08)] flex items-center justify-center shrink-0">
+                  <Sparkles size={24} className="text-[#10B981]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Carbon-Aware Savings</h3>
+                  <p className="text-[14px] text-[#999999] leading-[1.7] mb-4">
+                    HarchOS carbon-aware scheduling automatically routes your workloads to the lowest-carbon hub in real-time. 
+                    Harch Ouarzazate runs at just <span className="text-[#10B981] font-semibold">18 gCO2/kWh</span> with <span className="text-[#10B981] font-semibold">97.2% renewable</span> energy — 
+                    that&apos;s <span className="text-white font-semibold">89% lower</span> than the industry average of ~450 gCO2/kWh.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="p-4 rounded-lg bg-[rgba(16,185,129,0.04)] border border-[rgba(16,185,129,0.1)]">
+                      <p className="text-2xl font-bold text-white stat-mono">25%</p>
+                      <p className="text-[11px] text-[#999999]">Cost savings with carbon-aware scheduling</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-[rgba(16,185,129,0.04)] border border-[rgba(16,185,129,0.1)]">
+                      <p className="text-2xl font-bold text-white stat-mono">89%</p>
+                      <p className="text-[11px] text-[#999999]">Lower carbon vs industry average</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-[rgba(16,185,129,0.04)] border border-[rgba(16,185,129,0.1)]">
+                      <p className="text-2xl font-bold text-white stat-mono">0</p>
+                      <p className="text-[11px] text-[#999999]">Competitors in Africa with carbon-aware</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </FadeIn>
         </div>

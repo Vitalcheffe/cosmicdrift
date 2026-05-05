@@ -106,13 +106,13 @@ export default function ThesisClient() {
         {/* ── Section 4: Intelligence ── */}
         <FadeIn>
           <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-6">
-            Sovereign Compute: The 500MW Dakhla Data Center
+            Sovereign Compute: Carbon-Aware GPU Cloud
           </h2>
           <p className="text-[15px] text-[#BBBBBB] leading-[1.8] mb-6">
-            The flagship of Harch Intelligence is a 500MW hyperscale data center in Dakhla, Morocco — the largest AI compute facility ever proposed on African soil. Dakhla was chosen with surgical precision: unlimited solar and wind resources, direct access to 14 submarine cable systems connecting Africa to Europe and the Americas, and a regulatory environment that supports sovereign data hosting. The facility will host over 50,000 next-generation GPUs, enabling African nations and enterprises to train and deploy AI models without routing data through foreign jurisdictions.
+            The flagship of Harch Intelligence is a carbon-aware GPU cloud platform across Morocco — the largest sovereign AI compute infrastructure on African soil. Five hubs were chosen with surgical precision: Ouarzazate (800 GPUs, 97.2% renewable), Dakhla (400 GPUs, 94.8% renewable), Benguerir (350 GPUs, 88.5% renewable), Tanger (200 GPUs, 82.1% renewable), and Casablanca (48 GPUs, latency-sensitive). Together they host 1,798 carbon-optimized GPUs with an average carbon intensity of ~47 gCO2/kWh, enabling African nations and enterprises to train and deploy AI models without routing data through foreign jurisdictions.
           </p>
           <p className="text-[15px] text-[#BBBBBB] leading-[1.8] mb-6">
-            This is not just a commercial project — it is a strategic asset. In the same way that submarine cables became critical national infrastructure in the 2000s, sovereign AI compute will define which nations control their digital destiny in the 2030s. The Dakhla facility ensures that Africa has a seat at that table, with the compute capacity to match. Every large language model trained on Dakhla GPUs is a model that Africa controls. Every inference run on African soil is data that does not leave the continent. This is sovereignty by architecture, not by legislation.
+            This is not just a commercial project — it is a strategic asset. In the same way that submarine cables became critical national infrastructure in the 2000s, sovereign AI compute will define which nations control their digital destiny in the 2030s. Our 500MW Pipeline in Dakhla ensures that Africa has a seat at that table, with the compute capacity to match. Every large language model trained on Harch GPUs is a model that Africa controls. Every inference run on African soil is data that does not leave the continent. This is sovereignty by architecture, not by legislation.
           </p>
         </FadeIn>
 
@@ -127,10 +127,10 @@ export default function ThesisClient() {
         {/* ── Section 5: Energy ── */}
         <FadeIn>
           <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-6">
-            Energy Independence: 2GW+ of Zero-Carbon Power
+            Energy Independence: 2GW+ Pipeline of Zero-Carbon Power
           </h2>
           <p className="text-[15px] text-[#BBBBBB] leading-[1.8] mb-6">
-            Industrial sovereignty begins with energy sovereignty. Harch Energy is developing over 2 gigawatts of renewable energy capacity across Morocco and the Sahel, combining solar photovoltaic, onshore wind, and green hydrogen production. This is not clean energy for its own sake — it is the power source that makes every other vertical economically viable. When your data center runs on electricity that costs $0.02/kWh instead of $0.08/kWh, your AI compute becomes the most competitive on the planet. When your cement plant runs on solar instead of diesel, your cost basis drops by 40% and your product becomes eligible for green building certifications across Europe.
+            Industrial sovereignty begins with energy sovereignty. Harch Energy is developing a 2GW+ Pipeline of renewable energy capacity across Morocco and the Sahel, combining solar photovoltaic, onshore wind, and green hydrogen production. This is not clean energy for its own sake — it is the power source that makes every other vertical economically viable. When your data center runs on electricity that costs $0.02/kWh instead of $0.08/kWh, your AI compute becomes the most competitive on the planet. When your cement plant runs on solar instead of diesel, your cost basis drops by 40% and your product becomes eligible for green building certifications across Europe.
           </p>
           <p className="text-[15px] text-[#BBBBBB] leading-[1.8] mb-6">
             The green hydrogen component is especially strategic. Europe will need to import 10 million tonnes of green hydrogen annually by 2030 to meet its decarbonization targets. Morocco — with its proximity to European markets via the existing gas pipeline network and its world-class solar irradiance — is geographically positioned to become the continent&apos;s primary supplier. Harch Energy intends to capture a meaningful share of this market, converting Moroccan sunlight into European energy currency and reinvesting the proceeds into continental infrastructure.

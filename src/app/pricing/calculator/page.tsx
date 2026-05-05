@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import CalculatorPageClient from './CalculatorPageClient';
 
 export const metadata: Metadata = {
-  title: 'Cost Calculator — HarchOS Pricing',
-  description: 'Calculate your HarchOS infrastructure costs. Compare GPU compute pricing against AWS, GCP, and Azure. See 40-60% savings with 100% renewable sovereign infrastructure.',
+  title: 'Cost Calculator — Carbon-Aware HarchOS Pricing',
+  description: 'Calculate your HarchOS infrastructure costs. From $1.40/gpu-hr with carbon-aware scheduling at ~47 gCO2/kWh. Compare GPU compute pricing against AWS, GCP, and Azure. See 40-60% savings with 100% renewable sovereign infrastructure.',
   keywords: [
     'HarchOS cost calculator',
     'GPU pricing calculator',
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
     'A100 pricing',
   ],
   openGraph: {
-    title: 'Cost Calculator — HarchOS Pricing',
-    description: 'Calculate and compare GPU compute costs. See 40-60% savings vs AWS, GCP, Azure.',
+    title: 'Cost Calculator — Carbon-Aware HarchOS Pricing',
+    description: 'Calculate GPU compute costs. From $1.40/gpu-hr at ~47 gCO2/kWh. See 40-60% savings vs AWS, GCP, Azure.',
     url: 'https://harchcorp.com/pricing/calculator',
     siteName: 'Harch Corp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cost Calculator — HarchOS Pricing',
-    description: 'Calculate and compare GPU compute costs. See 40-60% savings vs AWS, GCP, Azure.',
+    title: 'Cost Calculator — Carbon-Aware HarchOS Pricing',
+    description: 'Calculate GPU compute costs. From $1.40/gpu-hr at ~47 gCO2/kWh. See 40-60% savings vs AWS, GCP, Azure.',
   },
 };
 

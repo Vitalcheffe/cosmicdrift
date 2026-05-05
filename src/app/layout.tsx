@@ -27,13 +27,15 @@ export const metadata: Metadata = {
     template: "%s | Harch Corp",
   },
   description:
-    "Building the industrial backbone of Africa: AI Data Centers (500MW+), Renewable Energy (2GW+), and Critical Mining. $2.4B+ investment pipeline across 7 verticals.",
+    "Building Africa's sovereign infrastructure: Carbon-Aware GPU Cloud (1,798 GPUs, ~47 gCO2/kWh), Renewable Energy (2GW+ Pipeline), and Critical Mining. $2.4B+ investment pipeline across 7 verticals.",
   keywords: [
     "Harch Corp",
     "Africa industrial sovereignty",
     "Data Center Africa",
     "Sovereign AI",
-    "AI data center Dakhla",
+    "AI data center Morocco",
+    "carbon-aware GPU cloud",
+    "carbon-aware scheduling",
     "Renewable Energy Morocco",
     "Industrial Infrastructure",
     "Morocco conglomerate",
@@ -43,6 +45,8 @@ export const metadata: Metadata = {
     "precision agriculture Sahel",
     "water desalination Africa",
     "sovereign technology",
+    "green GPU cloud",
+    "low carbon intensity compute",
   ],
   authors: [{ name: "Harch Corp S.A." }],
   icons: {
@@ -53,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Harch Corp | Africa's Sovereign Infrastructure OS",
     description:
-      "Building the industrial backbone of Africa: AI Data Centers (500MW+), Renewable Energy (2GW+), and Critical Mining across 7 verticals.",
+      "Carbon-Aware GPU Cloud with 1,798 GPUs at ~47 gCO2/kWh. Renewable Energy (2GW+ Pipeline). Sovereign AI infrastructure built in Morocco.",
     url: "https://harchcorp.com",
     siteName: "Harch Corp",
     type: "website",
@@ -71,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Harch Corp | Africa's Sovereign Infrastructure OS",
     description:
-      "Building the industrial backbone of Africa: AI Data Centers (500MW+), Renewable Energy (2GW+), and Critical Mining.",
+      "Carbon-Aware GPU Cloud — 1,798 GPUs at ~47 gCO2/kWh. 2GW+ Renewable Energy Pipeline. Sovereign AI from Morocco.",
     images: ["/images/og-harch-corp.png"],
   },
   robots: {
@@ -113,8 +117,8 @@ export default function RootLayout({
         founder: { "@id": "https://harchcorp.com/#founder" },
         numberOfEmployees: {
           "@type": "QuantitativeValue",
-          minValue: 50,
-          maxValue: 200,
+          minValue: 1,
+          maxValue: 10,
         },
         sameAs: [
           "https://linkedin.com/company/harchcorp",
@@ -124,10 +128,10 @@ export default function RootLayout({
           "@type": "OfferCatalog",
           name: "Industrial Verticals",
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Data Centers — 500MW Hyperscale" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Data Centers — 1,798 GPUs Carbon-Optimized" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Renewable Energy — 2GW+ Pipeline" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cement Manufacturing — 500kT/yr" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sovereign Technology — 50K+ GPUs" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sovereign Technology — Carbon-Aware GPU Cloud" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Strategic Mining — Phosphates, Cobalt, Rare Earths" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Precision Agriculture — IoT & Vertical Farms" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Water Infrastructure — 200M m³/yr Desalination" } },

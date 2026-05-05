@@ -46,7 +46,7 @@ const glossaryTerms: GlossaryTerm[] = [
   { term: 'Green Computing', definition: 'The practice of designing, manufacturing, using, and disposing of computing devices in an environmentally sustainable manner. Includes renewable-powered data centers, efficient cooling, and carbon-aware workload scheduling.', letter: 'G' },
   { term: 'gRPC', definition: 'A high-performance, open-source RPC (Remote Procedure Call) framework developed by Google. Uses HTTP/2 for transport and Protocol Buffers for serialization, offering lower latency and smaller payloads than REST APIs.', letter: 'G' },
   // H
-  { term: 'HarchOS', definition: 'Harch Corp\'s proprietary distributed AI operating system. Orchestrates 50,000+ GPUs across multiple data centers with the SENSE/THINK/ACT pipeline — providing sovereign compute infrastructure for African and global markets.', letter: 'H' },
+  { term: 'HarchOS', definition: 'Harch Corp\'s proprietary distributed AI operating system. Orchestrates 1,798 GPUs across multiple data centers with the SENSE/THINK/ACT pipeline — providing sovereign compute infrastructure for African and global markets.', letter: 'H' },
   { term: 'Hyperscale', definition: 'A computing environment designed to scale rapidly to massive capacity — typically exceeding 100MW and hundreds of thousands of servers. Hyperscale data centers are operated by the largest cloud providers and require specialized power and cooling.', letter: 'H' },
   // I
   { term: 'IaaS', definition: 'Infrastructure as a Service. A cloud computing model where providers offer virtualized computing resources — servers, storage, networking — on demand. Customers manage OS, middleware, and applications while the provider manages the physical infrastructure.', letter: 'I' },
@@ -70,7 +70,7 @@ const glossaryTerms: GlossaryTerm[] = [
   // R
   { term: 'REST API', definition: 'Representational State Transfer API. An architectural style for web services that uses HTTP methods (GET, POST, PUT, DELETE) to perform CRUD operations on resources. The most common API pattern for web and cloud services.', letter: 'R' },
   { term: 'RBAC', definition: 'Role-Based Access Control. A security model that restricts system access based on the roles assigned to individual users. RBAC simplifies permission management by grouping permissions into roles rather than assigning them individually.', letter: 'R' },
-  { term: 'Renewable Energy', definition: 'Energy generated from naturally replenishing sources — solar, wind, hydroelectric, and geothermal. Harch Corp\'s 2GW+ renewable pipeline powers green data centers and green hydrogen production across North Africa.', letter: 'R' },
+  { term: 'Renewable Energy', definition: 'Energy generated from naturally replenishing sources — solar, wind, hydroelectric, and geothermal. Harch Corp\'s 2GW+ Renewable Pipeline powers green data centers and green hydrogen production across North Africa.', letter: 'R' },
   // S
   { term: 'SaaS', definition: 'Software as a Service. A cloud computing model where applications are hosted by a provider and accessed via the internet on a subscription basis. Eliminates the need for local installation and maintenance.', letter: 'S' },
   { term: 'SOC 2', definition: 'Service Organization Control 2. An auditing standard developed by AICPA that evaluates a service organization\'s controls for security, availability, processing integrity, confidentiality, and privacy. SOC 2 Type II is the gold standard for cloud providers.', letter: 'S' },

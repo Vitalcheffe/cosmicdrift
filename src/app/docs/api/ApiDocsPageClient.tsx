@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {
   Key, Shield, Globe, Zap, Server, Database, Brain, Activity,
   Monitor, Lock, ChevronRight, ArrowRight, Code2, Terminal,
-  FileText, AlertTriangle, CheckCircle2, Copy, Wifi
+  FileText, AlertTriangle, CheckCircle2, Copy, Wifi, Leaf
 } from 'lucide-react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 
@@ -60,6 +60,18 @@ const restEndpoints = [
     ],
   },
   {
+    resource: 'Carbon-Aware Scheduling',
+    icon: Leaf,
+    endpoints: [
+      { method: 'GET', path: '/v1/carbon/intensity', desc: 'Get real-time carbon intensity by zone' },
+      { method: 'GET', path: '/v1/carbon/optimal-hub', desc: 'Find the hub with lowest carbon intensity for a workload' },
+      { method: 'POST', path: '/v1/carbon/optimize', desc: 'Optimize workload placement for carbon efficiency' },
+      { method: 'GET', path: '/v1/carbon/forecast', desc: 'Get carbon intensity forecast with green window detection' },
+      { method: 'GET', path: '/v1/carbon/metrics', desc: 'Get aggregate carbon metrics across the platform' },
+      { method: 'GET', path: '/v1/carbon/dashboard', desc: 'Full carbon-aware dashboard data' },
+    ],
+  },
+  {
     resource: 'Data',
     icon: Database,
     endpoints: [
@@ -83,6 +95,25 @@ const restEndpoints = [
     ],
   },
   {
+    resource: 'Pricing',
+    icon: Monitor,
+    endpoints: [
+      { method: 'GET', path: '/v1/pricing/plans', desc: 'List pricing plans with GPU type, tier, and region filters' },
+      { method: 'GET', path: '/v1/pricing/plans/:id', desc: 'Get specific pricing plan details' },
+      { method: 'GET', path: '/v1/pricing/estimate', desc: 'Calculate cost estimate for a workload configuration' },
+      { method: 'GET', path: '/v1/pricing/billing/records', desc: 'List user billing records (auth required)' },
+      { method: 'GET', path: '/v1/pricing/billing/records/:id', desc: 'Get specific billing record details' },
+    ],
+  },
+  {
+    resource: 'Regions',
+    icon: Globe,
+    endpoints: [
+      { method: 'GET', path: '/v1/regions', desc: 'List all regions with hub count, GPUs, renewable %, and carbon intensity' },
+      { method: 'GET', path: '/v1/regions/:code', desc: 'Get specific region with compliance frameworks and latency data' },
+    ],
+  },
+  {
     resource: 'Operations',
     icon: Zap,
     endpoints: [
@@ -97,7 +128,8 @@ const restEndpoints = [
     resource: 'Monitoring',
     icon: Activity,
     endpoints: [
-      { method: 'GET', path: '/v1/monitoring/metrics', desc: 'Query platform metrics (Prometheus-compatible)' },
+      { method: 'GET', path: '/v1/monitoring/metrics', desc: 'Platform-wide metrics: GPUs, utilization, carbon, energy, CO2 saved' },
+      { method: 'GET', path: '/v1/monitoring/health/detailed', desc: 'Detailed health check: DB status, API version, uptime, connections' },
       { method: 'GET', path: '/v1/monitoring/alerts', desc: 'List active alerts across the mesh' },
       { method: 'POST', path: '/v1/monitoring/alerts/rules', desc: 'Create alert rule' },
       { method: 'GET', path: '/v1/monitoring/traces', desc: 'Query distributed traces' },
@@ -123,7 +155,7 @@ const wsEndpoints = [
 ];
 
 const rateLimits = [
-  { tier: 'Free', requests: '100 req/min', burst: '50 req', compute: '1 GPU-hour/day', data: '5 GB/month' },
+  { tier: 'Free', requests: '100 req/min', burst: '50 req', compute: '10 GPU-hours/month free tier', data: '5 GB/month' },
   { tier: 'Developer', requests: '1,000 req/min', burst: '500 req', compute: '10 GPU-hours/day', data: '50 GB/month' },
   { tier: 'Professional', requests: '10,000 req/min', burst: '5,000 req', compute: '100 GPU-hours/day', data: '500 GB/month' },
   { tier: 'Enterprise', requests: 'Custom', burst: 'Custom', compute: 'Unlimited', data: 'Unlimited' },

@@ -38,10 +38,10 @@ const highlights = [
 ];
 
 const financialTable = [
-  { vertical: 'Intelligence', investment: '$800M', capacity: '500MW', irr: '22-28%', timeline: '2027', status: 'Engineering' },
+  { vertical: 'Intelligence', investment: '$800M', capacity: '1,798 GPUs (5 hubs)', irr: '22-28%', timeline: '2027', status: 'Engineering' },
   { vertical: 'Cement', investment: '$200M', capacity: '500kT/yr', irr: '18-22%', timeline: '2028', status: 'Permitted' },
-  { vertical: 'Energy', investment: '$600M', capacity: '2GW+', irr: '15-20%', timeline: '2027', status: 'Active' },
-  { vertical: 'Technology', investment: '$400M', capacity: '50K+ GPUs', irr: '25-30%', timeline: '2028', status: 'Design' },
+  { vertical: 'Energy', investment: '$600M', capacity: '2GW+ Pipeline', irr: '15-20%', timeline: '2027', status: 'Active' },
+  { vertical: 'Technology', investment: '$400M', capacity: '1,798 GPUs', irr: '25-30%', timeline: '2028', status: 'Design' },
   { vertical: 'Mining', investment: '$200M', capacity: '3 Minerals', irr: '20-25%', timeline: '2029', status: 'Exploration' },
   { vertical: 'Agri', investment: '$150M', capacity: '$35B Market', irr: '16-20%', timeline: '2029', status: 'Planning' },
   { vertical: 'Water', investment: '$150M', capacity: '200M m³/yr', irr: '14-18%', timeline: '2030', status: 'Feasibility' },
@@ -50,7 +50,7 @@ const financialTable = [
 const pipelinePhases = [
   { phase: 'Phase 1', year: '2024-2026', desc: 'Foundation & Engineering', detail: 'Company formation, site acquisition, engineering design, permit applications, and initial capital deployment of $400M.' },
   { phase: 'Phase 2', year: '2027-2028', desc: 'Construction & Commissioning', detail: 'First data center module live (100MW). Cement plant construction. Energy farm at 1GW. Total deployment: $1.2B.' },
-  { phase: 'Phase 3', year: '2029-2030', desc: 'Scale & Expansion', detail: 'Full data center capacity (500MW). Mining operations begin. Agri and Water verticals operational. Total deployment: $2.4B.' },
+  { phase: 'Phase 3', year: '2029-2030', desc: 'Scale & Expansion', detail: 'Full data center capacity (500MW Pipeline). Mining operations begin. Agri and Water verticals operational. Total deployment: $2.4B.' },
 ];
 
 export default function InvestorsPageClient() {
@@ -190,14 +190,17 @@ export default function InvestorsPageClient() {
                 Harch Corp&apos;s vertically integrated model creates structural cost advantages of 30-50% versus competitors. Because we own energy, materials, and technology, our operating costs are fundamentally lower.
               </p>
               <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
+                Our carbon-aware scheduling is the #1 differentiator — achieving ~47 gCO2/kWh average carbon intensity, 89% below the industry average of ~450 gCO2/kWh. Combined with GPU pricing of $1.40-$2.35/gpu-hr, Harch Corp offers the most cost-effective and sustainable GPU compute on the planet.
+              </p>
+              <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
                 These advantages compound over time. As each vertical scales, it reduces costs for the others — creating a self-reinforcing industrial ecosystem that grows stronger and more profitable with every project delivered.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { label: 'Cost Advantage', value: '30-50%' },
                   { label: 'Weighted IRR', value: '20-25%' },
-                  { label: 'Payback Period', value: '5-7 yrs' },
-                  { label: 'Capital Efficiency', value: '1.8x' },
+                  { label: 'GPU Pricing', value: '$1.40-$2.35/hr' },
+                  { label: 'Carbon Intensity', value: '~47 gCO2/kWh' },
                 ].map((item) => (
                   <div key={item.label} className="bg-[rgba(255,255,255,0.03)] rounded-lg p-4">
                     <p className="text-xl font-bold text-white">{item.value}</p>

@@ -6,7 +6,7 @@ import {
   ArrowRight, Terminal, Code2, Package, Layout, FlaskConical,
   Activity, Github, MessageCircle, BookOpen, Zap, Key,
   Shield, Clock, BarChart3, CheckCircle2, Star, GitBranch,
-  ExternalLink, Users, ChevronRight, Box, Cpu, Cloud
+  ExternalLink, Users, ChevronRight, Box, Cpu, Cloud, Globe
 } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 

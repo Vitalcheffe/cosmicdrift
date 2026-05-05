@@ -221,8 +221,8 @@ export default function DevelopersPageClient() {
                   <br/>
                   <p><span className="text-[#C678DD]">with</span> <span className="text-[#E5C07B]">HarchOSClient</span>(<span className="text-[#98C379]">api_key</span>=<span className="text-[#98C379]">&quot;hsk_...&quot;</span>) <span className="text-[#C678DD]">as</span> client:</p>
                   <p>&nbsp;&nbsp;carbon = client.carbon.get_intensity(<span className="text-[#98C379]">&quot;MA&quot;</span>)</p>
-                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Morocco: </span><span className="text-[#06B6D4]">{carbon.carbon_intensity_gco2_kwh}</span><span className="text-[#98C379]"> gCO2/kWh&quot;</span>)</p>
-                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Renewable: </span><span className="text-[#06B6D4]">{carbon.renewable_percentage}</span><span className="text-[#98C379]">%&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Morocco: </span><span className="text-[#06B6D4]">{'{carbon.carbon_intensity_gco2_kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Renewable: </span><span className="text-[#06B6D4]">{'{carbon.renewable_percentage}'}</span><span className="text-[#98C379]">%&quot;</span>)</p>
                 </div>
               </div>
 
@@ -249,8 +249,8 @@ export default function DevelopersPageClient() {
                   <br/>
                   <p><span className="text-[#C678DD]">const</span> client = <span className="text-[#C678DD]">new</span> <span className="text-[#E5C07B]">HarchOSClient</span>({'{'} <span className="text-[#98C379]">apiKey</span>: <span className="text-[#98C379]">&quot;hsk_...&quot;</span> {'}'});</p>
                   <p><span className="text-[#C678DD]">const</span> carbon = <span className="text-[#C678DD]">await</span> client.carbon.getIntensity(<span className="text-[#98C379]">&quot;MA&quot;</span>);</p>
-                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Morocco: </span><span className="text-[#06B6D4]">${carbon.carbonIntensityGco2Kwh}</span><span className="text-[#98C379]"> gCO2/kWh`</span>);</p>
-                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Renewable: </span><span className="text-[#06B6D4]">${carbon.renewablePercentage}</span><span className="text-[#98C379]">%`</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Morocco: </span><span className="text-[#06B6D4]">{'${carbon.carbonIntensityGco2Kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh`</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Renewable: </span><span className="text-[#06B6D4]">{'${carbon.renewablePercentage}'}</span><span className="text-[#98C379]">%`</span>);</p>
                 </div>
               </div>
             </div>

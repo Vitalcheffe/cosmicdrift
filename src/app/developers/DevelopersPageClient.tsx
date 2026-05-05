@@ -183,12 +183,75 @@ export default function DevelopersPageClient() {
                 <span className="ml-4 text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">terminal</span>
               </div>
               <div className="p-6 font-mono text-[13px] leading-[2]">
-                <p><span className="text-[#999999]">$</span> <span className="text-[#06B6D4]">npm install</span> <span className="text-[#98C379]">@harchos/sdk</span></p>
-                <p><span className="text-[#999999]">$</span> <span className="text-[#06B6D4]">harchos auth login</span></p>
-                <p className="text-[#666666]">  ✓ Authenticated as developer@company.com</p>
-                <p><span className="text-[#999999]">$</span> <span className="text-[#06B6D4]">harchos deploy</span> <span className="text-[#98C379]">--gpu H100 --count 8 --region morocco</span></p>
-                <p className="text-[#666666]">  ✓ Deployment live at <span className="text-[#06B6D4]">mesh.harchos.com/a/i-7f3a2b</span></p>
+                <p><span className="text-[#999999]">$</span> <span className="text-[#06B6D4]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
+                <p className="text-[#666666]">  Successfully installed harchos-0.2.1</p>
+                <p><span className="text-[#999999]">$</span> <span className="text-[#06B6D4]">harchos</span> <span className="text-[#98C379]">--api-key hsk_... carbon MA</span></p>
+                <p className="text-[#666666]">  Morocco: 47.0 gCO2/kWh | Renewable: 81.5%</p>
+                <p><span className="text-[#999999]">$</span> <span className="text-[#06B6D4]">harchos</span> <span className="text-[#98C379]">hubs</span></p>
+                <p className="text-[#666666]">  5 hubs | 1,798 GPUs | 100% carbon-aware</p>
                 <p><span className="text-[#999999]">$</span></p>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Install Badges + Code Example */}
+          <FadeIn>
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Python SDK */}
+              <div className="card p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-[#3572A5]/15 flex items-center justify-center">
+                    <Code2 size={20} className="text-[#3572A5]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white">Python SDK</h3>
+                    <div className="flex items-center gap-2 mt-1">
+                      <img src="https://img.shields.io/pypi/v/harchos.svg" alt="PyPI" className="h-5" />
+                      <img src="https://img.shields.io/pypi/pyversions/harchos.svg" alt="Python versions" className="h-5" />
+                      <img src="https://img.shields.io/pypi/dm/harchos.svg" alt="Downloads" className="h-5" />
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[#0D0D0D] rounded-lg p-4 font-mono text-[12px] leading-[1.8] overflow-x-auto">
+                  <p className="text-[#666666]">{'# Install'}</p>
+                  <p><span className="text-[#06B6D4]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
+                  <br/>
+                  <p className="text-[#666666]">{'# Use'}</p>
+                  <p><span className="text-[#C678DD]">from</span> harchos <span className="text-[#C678DD]">import</span> <span className="text-[#E5C07B]">HarchOSClient</span></p>
+                  <br/>
+                  <p><span className="text-[#C678DD]">with</span> <span className="text-[#E5C07B]">HarchOSClient</span>(<span className="text-[#98C379]">api_key</span>=<span className="text-[#98C379]">&quot;hsk_...&quot;</span>) <span className="text-[#C678DD]">as</span> client:</p>
+                  <p>&nbsp;&nbsp;carbon = client.carbon.get_intensity(<span className="text-[#98C379]">&quot;MA&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Morocco: </span><span className="text-[#06B6D4]">{carbon.carbon_intensity_gco2_kwh}</span><span className="text-[#98C379]"> gCO2/kWh&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Renewable: </span><span className="text-[#06B6D4]">{carbon.renewable_percentage}</span><span className="text-[#98C379]">%&quot;</span>)</p>
+                </div>
+              </div>
+
+              {/* TypeScript SDK */}
+              <div className="card p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-[#2B7489]/15 flex items-center justify-center">
+                    <Code2 size={20} className="text-[#2B7489]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white">TypeScript SDK</h3>
+                    <div className="flex items-center gap-2 mt-1">
+                      <img src="https://img.shields.io/npm/v/@harchos/sdk.svg" alt="npm" className="h-5" />
+                      <img src="https://img.shields.io/npm/dt/@harchos/sdk.svg" alt="Downloads" className="h-5" />
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[#0D0D0D] rounded-lg p-4 font-mono text-[12px] leading-[1.8] overflow-x-auto">
+                  <p className="text-[#666666]">{'// Install'}</p>
+                  <p><span className="text-[#06B6D4]">npm install</span> <span className="text-[#98C379]">@harchos/sdk</span></p>
+                  <br/>
+                  <p className="text-[#666666]">{'// Use'}</p>
+                  <p><span className="text-[#C678DD]">import</span> {'{'} <span className="text-[#E5C07B]">HarchOSClient</span> {'}'} <span className="text-[#C678DD]">from</span> <span className="text-[#98C379]">&quot;@harchos/sdk&quot;</span>;</p>
+                  <br/>
+                  <p><span className="text-[#C678DD]">const</span> client = <span className="text-[#C678DD]">new</span> <span className="text-[#E5C07B]">HarchOSClient</span>({'{'} <span className="text-[#98C379]">apiKey</span>: <span className="text-[#98C379]">&quot;hsk_...&quot;</span> {'}'});</p>
+                  <p><span className="text-[#C678DD]">const</span> carbon = <span className="text-[#C678DD]">await</span> client.carbon.getIntensity(<span className="text-[#98C379]">&quot;MA&quot;</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Morocco: </span><span className="text-[#06B6D4]">${carbon.carbonIntensityGco2Kwh}</span><span className="text-[#98C379]"> gCO2/kWh`</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Renewable: </span><span className="text-[#06B6D4]">${carbon.renewablePercentage}</span><span className="text-[#98C379]">%`</span>);</p>
+                </div>
               </div>
             </div>
           </FadeIn>

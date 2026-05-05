@@ -707,6 +707,114 @@ export default function HomePageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════
+          S8.5: BUILD ON HARCHOS — SDK Install + Code Examples
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#0A0A0A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <p className="section-label mb-4">Developer Platform</p>
+              <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em]">
+                Build on HarchOS<span className="text-[#06B6D4]">.</span>
+              </h2>
+              <p className="max-w-xl mx-auto mt-4 text-[15px] text-[#999999] leading-relaxed">
+                Native SDKs for Python and TypeScript. Carbon-aware scheduling, sovereign defaults, and zero-config onboarding.
+              </p>
+              <div className="flex items-center justify-center gap-3 mt-6">
+                <img src="https://img.shields.io/pypi/v/harchos.svg" alt="PyPI" className="h-6" />
+                <img src="https://img.shields.io/npm/v/@harchos/sdk.svg" alt="npm" className="h-6" />
+                <img src="https://img.shields.io/pypi/dm/harchos.svg" alt="Downloads" className="h-6" />
+              </div>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Python SDK */}
+            <FadeIn delay={0.1}>
+              <div className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[#121212] p-6 h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-9 h-9 rounded-lg bg-[#3572A5]/15 flex items-center justify-center">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3572A5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-white">Python SDK</h3>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <img src="https://img.shields.io/pypi/v/harchos.svg?label=PyPI" alt="PyPI" className="h-4" />
+                      <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">pip install harchos</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[#0D0D0D] rounded-lg p-4 font-mono text-[12px] leading-[1.9] overflow-x-auto">
+                  <p className="text-[#666666]">{'# Install'}</p>
+                  <p><span className="text-[#06B6D4]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
+                  <br/>
+                  <p className="text-[#666666]">{'# Get carbon intensity for Morocco'}</p>
+                  <p><span className="text-[#C678DD]">from</span> harchos <span className="text-[#C678DD]">import</span> <span className="text-[#E5C07B]">HarchOSClient</span></p>
+                  <br/>
+                  <p><span className="text-[#C678DD]">with</span> <span className="text-[#E5C07B]">HarchOSClient</span>(<span className="text-[#98C379]">api_key</span>=<span className="text-[#98C379]">&quot;hsk_...&quot;</span>) <span className="text-[#C678DD]">as</span> client:</p>
+                  <p>&nbsp;&nbsp;carbon = client.carbon.get_intensity(<span className="text-[#98C379]">&quot;MA&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Morocco: </span><span className="text-[#06B6D4]">{'{carbon.carbon_intensity_gco2_kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Renewable: </span><span className="text-[#06B6D4]">{'{carbon.renewable_percentage}'}</span><span className="text-[#98C379]">%&quot;</span>)</p>
+                  <br/>
+                  <p className="text-[#666666]">{'# Find the greenest hub'}</p>
+                  <p>&nbsp;&nbsp;optimal = client.carbon.optimal_hub(</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#98C379]">region</span>=<span className="text-[#98C379]">&quot;morocco&quot;</span>,</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#98C379]">gpu_count</span>=<span className="text-[#D19A66]">4</span>,</p>
+                  <p>&nbsp;&nbsp;)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Best hub: </span><span className="text-[#06B6D4]">{'{optimal.recommended_hub_name}'}</span><span className="text-[#98C379]">&quot;</span>)</p>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* TypeScript SDK */}
+            <FadeIn delay={0.15}>
+              <div className="rounded-xl border border-[rgba(255,255,255,0.06)] bg-[#121212] p-6 h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-9 h-9 rounded-lg bg-[#2B7489]/15 flex items-center justify-center">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7489" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-white">TypeScript SDK</h3>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <img src="https://img.shields.io/npm/v/@harchos/sdk.svg?label=npm" alt="npm" className="h-4" />
+                      <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">npm i @harchos/sdk</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[#0D0D0D] rounded-lg p-4 font-mono text-[12px] leading-[1.9] overflow-x-auto">
+                  <p className="text-[#666666]">{'// Install'}</p>
+                  <p><span className="text-[#06B6D4]">npm install</span> <span className="text-[#98C379]">@harchos/sdk</span></p>
+                  <br/>
+                  <p className="text-[#666666]">{'// Get carbon intensity for Morocco'}</p>
+                  <p><span className="text-[#C678DD]">import</span> {'{'} <span className="text-[#E5C07B]">HarchOSClient</span> {'}'} <span className="text-[#C678DD]">from</span> <span className="text-[#98C379]">&quot;@harchos/sdk&quot;</span>;</p>
+                  <br/>
+                  <p><span className="text-[#C678DD]">const</span> client = <span className="text-[#C678DD]">new</span> <span className="text-[#E5C07B]">HarchOSClient</span>({'{'} <span className="text-[#98C379]">apiKey</span>: <span className="text-[#98C379]">&quot;hsk_...&quot;</span> {'}'});</p>
+                  <p><span className="text-[#C678DD]">const</span> carbon = <span className="text-[#C678DD]">await</span> client.carbon.getIntensity(<span className="text-[#98C379]">&quot;MA&quot;</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Morocco: </span><span className="text-[#06B6D4]">{'${carbon.carbon_intensity_gco2_kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh`</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Renewable: </span><span className="text-[#06B6D4]">{'${carbon.renewable_percentage}'}</span><span className="text-[#98C379]">%`</span>);</p>
+                  <br/>
+                  <p className="text-[#666666]">{'// Find the greenest hub'}</p>
+                  <p><span className="text-[#C678DD]">const</span> optimal = <span className="text-[#C678DD]">await</span> client.carbon.optimalHub({'{'}</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#98C379]">region</span>: <span className="text-[#98C379]">&quot;morocco&quot;</span>,</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#98C379]">gpu_count</span>: <span className="text-[#D19A66]">4</span>,</p>
+                  <p>{'}'});</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Best hub: </span><span className="text-[#06B6D4]">{'${optimal.recommended_hub_name}'}</span><span className="text-[#98C379]">`</span>);</p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={0.2}>
+            <div className="mt-8 text-center">
+              <Link href="/developers" className="inline-flex items-center gap-2 text-[14px] text-[#06B6D4] font-semibold hover:text-[#06B6D4]/80 transition-colors">
+                Full Developer Documentation <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
           S9: SECOND PHOTO BACKGROUND — Mining/Cement
           ═══════════════════════════════════════════ */}
       <section className="photo-section relative min-h-[70vh] flex items-center">

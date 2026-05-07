@@ -439,8 +439,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
     },
     agriculture: {
       name: 'Harch Agri', version: '/0.6',
-      heroTitle: "Precision Agriculture\nat Continental Scale",
-      heroSubtitle: 'IoT, drones, and vertical farming across 60% of the world\'s uncultivated arable land',
+      heroTitle: "Precision Agriculture\nfor Africa",
+      heroSubtitle: 'IoT, drones, vertical farms, and carbon credits — 5 countries, 11,800+ sensors, 25,000+ hectares of data-driven agriculture',
       heroImage: '/images/sections/comp-agri-aerial.jpg',
       sectionImage1: '/images/sections/comp-agri-green.jpg',
       sectionImage2: '/images/sections/agri-drone.jpg',

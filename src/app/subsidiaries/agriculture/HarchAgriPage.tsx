@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight, Wheat, Droplets, Plane, Radio, Building2, Leaf,
-  MapPin, Clock, AlertTriangle, CheckCircle2, Sprout, Sun, CloudRain, BarChart3, Cpu
+  MapPin, Clock, AlertTriangle, Sprout, Sun, CloudRain, BarChart3, Cpu
 } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
@@ -749,84 +749,6 @@ export default function HarchAgriPage() {
               </div>
             </div>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          HONEST POSITION — Current Starting Point
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Current Position</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              The honest starting point
-            </h2>
-            <div className="accent-line mb-6" />
-          </FadeIn>
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <FadeIn>
-              <div className="card p-8 border border-[rgba(255,255,255,0.08)]">
-                <div className="grid grid-cols-3 gap-6 mb-8">
-                  <div className="text-center">
-                    <p className="text-3xl md:text-4xl font-bold text-white stat-mono">$0</p>
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">Revenue</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-3xl md:text-4xl font-bold text-white stat-mono">$0</p>
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">Funding</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-3xl md:text-4xl font-bold text-white stat-mono">0</p>
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">Farmers</p>
-                  </div>
-                </div>
-                <p className="text-[15px] text-[#999999] leading-[1.7]">
-                  HarchAgri starts from zero — no revenue, no external funding, no farmers served. This is the honest baseline. But it is also an opportunity: no competitor integrates carbon credits, GPU-powered processing, and precision agriculture on the African continent. The starting line is empty because the race has not yet been invented.
-                </p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="card p-8" style={{ borderColor: 'rgba(34,197,94,0.2)' }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center">
-                    <CheckCircle2 size={18} className="text-[#22C55E]" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white">What HarchAgri Has That No Competitor Has</h3>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
-                    <div>
-                      <p className="text-[13px] font-semibold text-white">1,798 GPUs Across 5 Hubs</p>
-                      <p className="text-[12px] text-[#999999]">Zero-marginal-cost compute for drone imagery and AI models — competitors pay full cloud pricing</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
-                    <div>
-                      <p className="text-[13px] font-semibold text-white">Operational Carbon API</p>
-                      <p className="text-[12px] text-[#999999]">Real-time carbon credit calculation, certification, and monetization — no African agritech competitor has this</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
-                    <div>
-                      <p className="text-[13px] font-semibold text-white">81.5% Renewable Energy at 47 gCO2/kWh</p>
-                      <p className="text-[12px] text-[#999999]">Impact-first positioning unlocks exclusive access to DFI capital and government subsidies</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
-                    <div>
-                      <p className="text-[13px] font-semibold text-white">5 Strategic Hub Locations</p>
-                      <p className="text-[12px] text-[#999999]">Physical presence across Morocco with 100km operational radius per site for drone and IoT operations</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
         </div>
       </section>
 

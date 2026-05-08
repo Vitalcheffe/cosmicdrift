@@ -2,18 +2,18 @@ import { Metadata } from 'next';
 import HarchAgriPage from './HarchAgriPage';
 
 export const metadata: Metadata = {
-  title: 'HarchAgri — Agriculture de précision pour l\'Afrique | Harch Corp',
+  title: 'HarchAgri — Precision Agriculture for Africa | Harch Corp',
   description:
-    'Drones, IoT, fermes verticales et crédits carbone agricoles — la seule plateforme AgTech intégrée du continent africain. Conçue pour les réalités agricoles africaines.',
+    'Drones, IoT, vertical farms, and agricultural carbon credits — Africa\'s only integrated AgTech platform. Built for African agricultural realities.',
   keywords: [
-    'HarchAgri', 'agriculture de précision', 'Afrique', 'IoT agriculture',
-    'drone agriculture', 'fermes verticales', 'crédits carbone', 'drones agricoles',
-    'Maroc', 'Sénégal', 'Kenya', 'Ghana', 'AgTech', 'DaaS',
-    'irrigation précision', 'agriculture durable', 'ESG agriculture',
+    'HarchAgri', 'precision agriculture', 'Africa', 'agriculture IoT',
+    'agriculture drones', 'vertical farms', 'carbon credits', 'agricultural drones',
+    'Morocco', 'Senegal', 'Kenya', 'Ghana', 'AgTech', 'DaaS',
+    'precision irrigation', 'sustainable agriculture', 'ESG agriculture',
   ],
   openGraph: {
-    title: 'HarchAgri — Agriculture de précision pour l\'Afrique',
-    description: 'Drones, IoT, fermes verticales et crédits carbone — la seule plateforme AgTech intégrée en Afrique.',
+    title: 'HarchAgri — Precision Agriculture for Africa',
+    description: 'Drones, IoT, vertical farms, and carbon credits — Africa\'s only integrated AgTech platform.',
     type: 'website',
   },
 };

@@ -4,16 +4,16 @@ import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { ArrowRight, Cpu, Zap, Globe, Shield, BarChart3, Wheat, Droplets } from 'lucide-react';
+import {
+  ArrowRight, Cpu, Zap, Globe, Shield, BarChart3, Wheat, Droplets,
+  Plane, Radio, Building2, Leaf, MapPin, TrendingUp, Clock, AlertTriangle, CheckCircle2
+} from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 const HeroScene = dynamic(() => import('@/components/harchagri/HeroScene'), { ssr: false });
 const ParticleField = dynamic(() => import('@/components/harchagri/ParticleField'), { ssr: false });
 const AfricaMap = dynamic(() => import('@/components/harchagri/AfricaMap'), { ssr: false });
 const IoTDashboard = dynamic(() => import('@/components/harchagri/IoTDashboard'), { ssr: false });
-const ProductCards = dynamic(() => import('@/components/harchagri/ProductCards'), { ssr: false });
-const CompetitorComparison = dynamic(() => import('@/components/harchagri/CompetitorComparison'), { ssr: false });
-const PartnershipsSection = dynamic(() => import('@/components/harchagri/PartnershipsSection'), { ssr: false });
 
 /* ─── FADE IN — Palantir standard animation ─── */
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -32,7 +32,7 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
   );
 }
 
-/* ─── ANIMATED COUNTER — Palantir stat counter ─── */
+/* ─── ANIMATED COUNTER ─── */
 function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -105,76 +105,377 @@ function StatBar({ stat, value, max }: { stat: string; value: number; max: numbe
   );
 }
 
-/* ─── AGRICULTURE DATA (from SubsidiaryPageClient) ─── */
+/* ═══════════════════════════════════════════
+   DATA — From HarchAgri Strategy PDF
+   ═══════════════════════════════════════════ */
+
 const agriData = {
-  name: 'Harch Agri',
+  name: 'HarchAgri',
   version: '/0.6',
-  heroTitle: "Precision Agriculture\nfor Africa",
-  heroSubtitle: 'IoT, drones, vertical farms, and carbon credits — 5 countries, 11,800+ sensors, 25,000+ hectares of data-driven agriculture',
-  heroImage: '/images/sections/comp-agri-aerial.jpg',
-  sectionImage1: '/images/sections/comp-agri-green.jpg',
-  sectionImage2: '/images/sections/agri-drone.jpg',
-  sectionImage3: '/images/sections/agri-vertical-farm.jpg',
-  sectionImage4: '/images/sections/agri-drone-field.jpg',
-  overview: 'Harch Agri deploys precision farming, IoT sensors, and vertical farming technology across Africa\'s 60% of the world\'s uncultivated arable land. Our approach combines cutting-edge technology with deep local knowledge to convert untapped potential into food security and export revenue. This is not traditional agriculture — it is data-driven, technology-enabled food production at continental scale, designed to feed Africa\'s growing population and supply global markets with premium produce.',
-  strategicContext: 'Africa holds 60% of the world\'s uncultivated arable land — approximately 600 million hectares — yet the continent remains a net food importer, spending $35 billion annually on food imports. This paradox results from low yields (African cereal yields average 1.5 tonnes/hectare versus 4 tonnes/hectare globally), limited irrigation (only 6% of cultivated land is irrigated versus 37% globally), and post-harvest losses exceeding 30%. Harch Agri addresses each of these constraints with technology-driven solutions that multiply yields while reducing resource consumption.',
-  marketAnalysis: 'Africa\'s agriculture and food market is valued at $280 billion and growing at 6% CAGR. The addressable opportunity includes $35 billion in current food import substitution, $50 billion in export potential for high-value crops, and $20 billion in agricultural technology services. Precision agriculture alone represents a $5 billion opportunity in Africa by 2028, growing at 25% CAGR. The Senegal River Valley, Harch Agri\'s initial deployment zone, offers ideal conditions with year-round growing seasons, reliable water access, and proximity to European export markets.',
-  sustainability: 'Sustainability is foundational to Harch Agri\'s business model. Our precision irrigation systems reduce water usage by 60% versus traditional flood irrigation while increasing yields by 30%. Drone-enabled precision spraying reduces chemical usage by 90% compared to conventional methods. Vertical farming operations use 95% less water and 99% less land than field agriculture. All energy for irrigation, processing, and cold chain is supplied by Harch Energy\'s renewable infrastructure. We practice regenerative soil management, building soil carbon and fertility rather than depleting it, and allocate 10% of farmland for biodiversity corridors.',
-  investment: '$150M',
+  heroTitle: "Carbon-Aware\nAgriculture\nfor Africa",
+  heroSubtitle: 'Drones, IoT, vertical farms, and carbon credits — powered by 1,798 GPUs across 5 hubs. The only integrated AgTech platform on the African continent.',
+  heroImage: '/images/sections/agri-aerial-drone.jpg',
+  sectionImage1: '/images/sections/agri-carbon-credit.jpg',
+  sectionImage2: '/images/sections/agri-drone-flight.jpg',
+  sectionImage3: '/images/sections/agri-vertical-interior.jpg',
+  sectionImage4: '/images/sections/agri-iot-sensor.jpg',
+
+  overview: 'HarchAgri is the agriculture subsidiary of Harch Corp, built on a unique foundation: 1,798 carbon-optimized GPUs, a native Carbon API already in production, and operations across 5 hubs in Morocco. Unlike every competitor who starts with a single product, HarchAgri launches with five integrated pillars — Drone-as-a-Service, IoT irrigation, vertical farms, carbon credit monetization, and a starter kit for smallholders — that reinforce each other into a network effect no single-product player can replicate. Africa holds 60% of the world\'s uncultivated arable land yet imports $50 billion in food annually. HarchAgri exists to close that gap with technology, not charity.',
+
+  strategicContext: 'Africa holds 60% of the world\'s uncultivated arable land — approximately 600 million hectares — yet the continent remains a net food importer, spending $50 billion annually on food imports. African cereal yields average 1.5 tonnes/hectare versus 4 tonnes/hectare globally, only 6% of cultivated land is irrigated versus 37% globally, and post-harvest losses exceed 30%. The 30 million smallholder farmers who produce 70% of locally consumed food face systemic barriers: no access to credit, limited weather data, and fragmented supply chains. Morocco\'s Plan Vert (2008-2020) proved that national strategy works — agricultural GDP doubled, exports tripled, cereal production rose 67%. Generation Green (2020-2030) continues this push with technology and sustainability at its core. HarchAgri addresses each constraint with integrated, GPU-powered solutions.',
+
+  marketAnalysis: 'The African agritech market is valued at $35 billion and growing rapidly, despite a volatile funding environment — agritech financing dropped 18% to $168M in 2025 (Briter Intelligence). The market divides into five segments: agricultural drones ($8.5B, 25% CAGR), IoT irrigation ($3.2B, 18% CAGR), vertical farming ($8.5B global, 26.8% CAGR), carbon credits ($2B Africa, 30%+ CAGR), and agricultural marketplaces ($15B Africa, 12% CAGR — the most crowded and most troubled segment, as Twiga Foods\' collapse demonstrates). HarchAgri targets the four highest-growth, least-served segments while avoiding the commoditized marketplace space entirely. The ACMI initiative aims to multiply African carbon credits 20x by 2030, creating a market HarchAgri is uniquely positioned to capture.',
+
+  sustainability: 'Sustainability is not an add-on — it is HarchAgri\'s business model. Every hectare under IoT irrigation saves 0.5-1.5 tonnes CO2/year. Every vertical farm avoids 2-5 tonnes CO2 versus conventional agriculture. Every hectare in regenerative farming sequesters 1-3 tonnes CO2 in soil. Harch Corp\'s Carbon API, already operational, calculates and certifies these credits automatically via Verra (VCS) and Gold Standard. With 81.5% renewable energy across our 5 hubs and 47 gCO2/kWh carbon intensity — 89% below the industry average — every product we sell is verifiably low-carbon. Vertical farms powered by renewable energy from Harch Corp hubs produce vegetables that are certified low-carbon, commanding premium prices from hotels, restaurants, and retailers seeking to reduce their Scope 3 emissions.',
+
+  investment: '$250K',
   metrics: [
-    { value: 35, prefix: '$', suffix: 'B', label: 'Market Access' },
-    { value: 60, prefix: '', suffix: '%', label: 'Uncultivated Land' },
-    { value: 5, prefix: '', suffix: 'K ha', label: 'Active Trials' },
-    { value: 150, prefix: '$', suffix: 'M', label: 'Investment' },
+    { value: 60, prefix: '', suffix: '%', label: 'Uncultivated Arable Land' },
+    { value: 50, prefix: '$', suffix: 'B', label: 'Annual Food Imports' },
+    { value: 1798, prefix: '', suffix: '', label: 'GPU Infrastructure' },
+    { value: 5, prefix: '', suffix: ' hubs', label: 'Operational' },
   ],
-  capabilities: [
-    { icon: Cpu, title: 'Precision Farming Platform', desc: 'IoT sensor networks and AI-optimized crop management across thousands of hectares. Real-time monitoring of soil health, moisture levels, nutrient status, and crop growth enables precision application of water, fertilizer, and crop protection — reducing inputs by 40% while increasing yields by 30%.' },
-    { icon: Globe, title: 'Autonomous Drone Fleet', desc: 'Autonomous drone fleets for crop surveillance, pest detection, and precision spraying. Our 50+ drone fleet covers 5,000 hectares daily with multispectral imaging for early disease detection and targeted intervention. Drone spraying is 10x faster than traditional methods with 90% less chemical usage.' },
-    { icon: Wheat, title: 'Vertical Farming Facilities', desc: 'Indoor vertical farming facilities for high-value crops including herbs, leafy greens, and pharmaceutical plants. 95% less water, 10x yield per square meter, year-round production independent of weather or season. Our first 3 facilities target European export markets with premium organic produce.' },
-    { icon: Shield, title: 'Farm-to-Market Supply Chain', desc: 'Integrated supply chain infrastructure from farm gate to export market. Cold chain logistics, processing facilities, and export networks ensure maximum value capture. Our post-harvest loss rate is below 5% versus the African average of 30%+.' },
-    { icon: Droplets, title: 'AI-Optimized Irrigation', desc: 'Smart irrigation systems reducing water usage by 60% while increasing yields by 30%. Powered by Harch Water desalination infrastructure and solar-powered pumps from Harch Energy. Soil moisture sensors and weather forecasting enable predictive irrigation scheduling.' },
-    { icon: BarChart3, title: 'Market Intelligence Platform', desc: 'AI-powered commodity pricing and demand forecasting enabling farmers to time sales for maximum revenue and plan crops for optimal market conditions. Real-time market data from 15 African and European commodity exchanges with predictive analytics for price trends.' },
+
+  /* ─── 5 PILLARS FROM STRATEGY PDF ─── */
+  products: [
+    {
+      icon: Plane,
+      name: 'HarchAgri Drone',
+      tagline: 'Drone-as-a-Service Monitoring',
+      price: '$50',
+      unit: '/hectare/month',
+      roi: '6-8 months',
+      target: 'Farms >5ha',
+      description: 'Autonomous drones equipped with multispectral sensors for NDVI analysis, early disease detection 48 hours before visible symptoms, precision irrigation mapping, and yield prediction at 2 weeks. Unlike Western solutions that require purchasing a drone ($15,000+), HarchAgri operates a DaaS model — the farmer pays a monthly subscription and HarchAgri handles flights, GPU-based data processing, and delivers actionable insights directly to their phone.',
+      features: [
+        'NDVI analysis — stress detection 48h before visible symptoms',
+        'GPU-processed real-time analytics on Harch Corp infrastructure',
+        'Yield prediction 2 weeks ahead with 90%+ accuracy',
+        'DaaS model — no drone purchase required',
+        '1 drone covers 40 ha/day, ROI 150% year 1',
+      ],
+      stats: [
+        { label: 'Coverage/day', value: '40 ha' },
+        { label: 'ROI Year 1', value: '150%' },
+        { label: 'Detection Lead', value: '48h' },
+      ],
+    },
+    {
+      icon: Radio,
+      name: 'HarchAgri IoT',
+      tagline: 'Intelligent Irrigation Network',
+      price: '$500',
+      unit: '/hectare/year',
+      roi: '12-18 months',
+      target: 'Farms >2ha',
+      description: 'Solar-powered sensor networks monitoring soil moisture, temperature, pH, and nutrient levels continuously. Data transmitted via LoRaWAN (15km range) to Harch Corp servers where AI optimizes irrigation schedules based on weather forecasts, growth stage, and water quotas. Reduces water consumption 30-50% while increasing yields 15-25%. Pay-as-you-grow model: start with a $200 starter kit (3 sensors + LoRaWAN gateway) and scale as results confirm.',
+      features: [
+        'Soil sensors: moisture, temperature, pH, NPK',
+        'LoRaWAN network — 15 km range, solar-powered',
+        'AI-optimized irrigation scheduling via GPU compute',
+        'Automatic Carbon API integration — CO2 savings calculated',
+        'Pay-as-you-grow: starter kit at $200',
+      ],
+      stats: [
+        { label: 'Water Savings', value: '30-50%' },
+        { label: 'Yield Increase', value: '15-25%' },
+        { label: 'Starter Kit', value: '$200' },
+      ],
+    },
+    {
+      icon: Building2,
+      name: 'HarchAgri Vertical',
+      tagline: 'Modular Vertical Farms',
+      price: '$50,000',
+      unit: '/container (500m\u00B2)',
+      roi: '12-18 months',
+      target: 'Hotels, restaurants, retail',
+      description: '20-foot container transformed into a 500m\u00B2 equivalent hydroponic vertical farm — LED lighting, hydroponic circulation, IoT sensors, cloud connectivity included. Produces 2 tonnes of vegetables/month (lettuce, basil, mint, cherry tomatoes) generating $4,000-6,000/month revenue. Unlike AeroFarms\' capital-intensive aeroponie model that failed, HarchAgri uses affordable hydroponics adapted for African markets, targeting premium buyers (hotels, restaurants, supermarkets) and integrating carbon credit revenue.',
+      features: [
+        '500m\u00B2 equivalent in a 20-foot container',
+        '2 tonnes/month production — herbs, greens, cherry tomatoes',
+        'Cloud-connected for real-time climate optimization',
+        'Generates verified carbon credits per container',
+        'Powered by Harch Corp renewable energy — certified low-carbon',
+      ],
+      stats: [
+        { label: 'Revenue/month', value: '$4-6K' },
+        { label: 'Water Savings', value: '95%' },
+        { label: 'ROI', value: '12-18mo' },
+      ],
+    },
+    {
+      icon: Leaf,
+      name: 'HarchAgri Carbon',
+      tagline: 'Agricultural Carbon Credits',
+      price: '2%',
+      unit: 'commission on credits',
+      roi: 'Immediate',
+      target: 'All HarchAgri clients',
+      description: 'The product no competitor has. Harch Corp\'s Carbon API, already operational, automatically calculates, certifies, and monetizes agricultural carbon credits. Every hectare under IoT irrigation saves 0.5-1.5 tCO2/year. Every vertical farm avoids 2-5 tCO2. Every regenerative hectare sequesters 1-3 tCO2. Certified via Verra (VCS) and Gold Standard. The ACMI initiative targets 20x growth in African carbon credits by 2030 — HarchAgri is positioned to capture this explosion. Revenue model: 2% commission on credit value, with 100,000 ha target by 2030 generating $150K-450K/year in commissions alone.',
+      features: [
+        'Native Carbon API — already operational, zero build needed',
+        'Automatic certification via Verra VCS + Gold Standard',
+        'Real-time CO2 calculation from IoT sensor data',
+        'Integrated across all HarchAgri products by default',
+        'ACMI-aligned — 20x market growth by 2030',
+      ],
+      stats: [
+        { label: 'Credits/ha/yr', value: '0.5-3 tCO2' },
+        { label: 'Target 2030', value: '100K ha' },
+        { label: 'Commission', value: '2%' },
+      ],
+    },
   ],
-  specTable: [
-    { spec: 'Trial Area', value: '5,000 ha', phase: 'Senegal River Valley' },
-    { spec: 'IoT Sensors', value: '10,000+', phase: 'Soil + weather + crop' },
-    { spec: 'Drone Fleet', value: '50+ units', phase: 'Autonomous operations' },
-    { spec: 'Vertical Farms', value: '3 Facilities', phase: 'Under development' },
-    { spec: 'Water Reduction', value: '60%', phase: 'vs. traditional irrigation' },
-    { spec: 'Yield Increase', value: '30%', phase: 'vs. traditional farming' },
-    { spec: 'Chemical Reduction', value: '90%', phase: 'Drone precision spraying' },
-    { spec: 'Export Crops', value: '12 Types', phase: 'High-value organic' },
-    { spec: 'Post-Harvest Loss', value: '<5%', phase: 'vs. 30% African average' },
-    { spec: 'Energy Source', value: '100% Renewable', phase: 'Harch Energy supply' },
+
+  /* ─── STARTER KIT ─── */
+  starterKit: {
+    price: '$200',
+    contents: '3 soil sensors + LoRaWAN gateway',
+    roi: '3-6 months',
+    target: 'Smallholder farmers',
+  },
+
+  /* ─── COMPETITOR DATA FROM STRATEGY PDF ─── */
+  competitors: [
+    {
+      name: 'OCP Group / Al Moutmir',
+      country: 'Morocco',
+      revenue: '$11.4B (2025)',
+      funding: 'State-owned',
+      farmers: '580K+ (40K direct)',
+      model: 'Precision + fertilizer',
+      maturity: 'Advanced',
+      africa: 'Morocco + 5 countries',
+      advantage: 'Complementary — HarchAgri provides drones + IoT + carbon for their 580K farmer ecosystem',
+      weakness: 'Slow innovation, not a tech startup culture',
+    },
+    {
+      name: 'Twiga Foods',
+      country: 'Kenya',
+      revenue: 'Declining',
+      funding: '$145.65M (12 rounds)',
+      farmers: 'Indirect',
+      model: 'B2B Marketplace',
+      maturity: 'Crisis — restructured',
+      africa: 'Kenya only',
+      advantage: 'Cautionary tale — we avoid the capital-intensive marketplace model',
+      weakness: 'Over-expanded, unprofitable, 300+ layoffs, ops suspended',
+    },
+    {
+      name: 'Apollo Agriculture',
+      country: 'Kenya',
+      revenue: 'Non-public',
+      funding: '$50M+ (Series B)',
+      farmers: '350K+',
+      model: 'ML credit + inputs',
+      maturity: 'Growing',
+      africa: 'Kenya + Zambia',
+      advantage: 'Credit integration model — HarchAgri IoT data reduces default risk 40%',
+      weakness: 'FX-dependent, single product (credit)',
+    },
+    {
+      name: 'AeroFarms',
+      country: 'USA',
+      revenue: 'Post-bankruptcy',
+      funding: '$100M+ (pre-BK)',
+      farmers: 'N/A (B2C retail)',
+      model: 'Aeroponie microgreens',
+      maturity: 'Post-failure pivot',
+      africa: 'None',
+      advantage: 'Proof that vertical farming works only with focused model + premium retail',
+      weakness: 'Capital-intensive aeroponie, no Africa presence',
+    },
+    {
+      name: 'Climate Corp / FieldView',
+      country: 'USA (Bayer)',
+      revenue: '$50B+ (Bayer total)',
+      funding: '$930M acquisition',
+      farmers: '250M acres, 23 countries',
+      model: 'Insurance + data platform',
+      maturity: 'Mature',
+      africa: 'Indirect only',
+      advantage: 'Data moat model — HarchAgri builds a GPU-powered data moat for Africa',
+      weakness: 'Not present in Africa, requires massive data volume',
+    },
   ],
-  milestones: [
-    { year: '2025 Q2', title: 'Precision Farming Trial Launch', desc: '5,000-hectare precision farming trial launched in Senegal River Valley. IoT sensor deployment and baseline data collection initiated.' },
-    { year: '2026 Q1', title: 'IoT Network Fully Deployed', desc: '10,000+ IoT sensors deployed across trial farms. Data pipeline and AI analytics platform operational with first crop management recommendations.' },
-    { year: '2026 Q4', title: 'First Harvest Results', desc: 'First precision farming harvest demonstrates 25% yield improvement and 50% water savings versus control plots. Investor and partner confidence validated.' },
-    { year: '2027 Q2', title: 'Drone Fleet Operational', desc: 'Autonomous drone fleet operational for crop monitoring and precision spraying. Aerial survey coverage of 5,000 hectares every 48 hours.' },
-    { year: '2028 Q1', title: 'Vertical Farm Commissioning', desc: 'First vertical farming facility commissioned and producing. European export contracts for premium organic produce signed.' },
-    { year: '2029 Q2', title: 'Full Agricultural Operations', desc: 'All Agri systems operational at scale. Export revenue flowing. Second phase expansion to 20,000 hectares initiated.' },
+
+  /* ─── PRICING GRID ─── */
+  pricing: [
+    { product: 'HarchAgri Drone', price: '$50/ha/month', unit: 'DaaS subscription', roi: '6-8 months', target: 'Exploitations >5ha' },
+    { product: 'HarchAgri IoT', price: '$500/ha/year', unit: 'Annual subscription', roi: '12-18 months', target: 'Exploitations >2ha' },
+    { product: 'HarchAgri Vertical', price: '$50,000/container', unit: '500m\u00B2 module', roi: '12-18 months', target: 'Hotels, restaurants, retail' },
+    { product: 'HarchAgri Carbon', price: '2% commission', unit: 'On carbon credits', roi: 'Immediate', target: 'All HarchAgri clients' },
+    { product: 'Starter Kit', price: '$200', unit: '3 sensors + LoRaWAN', roi: '3-6 months', target: 'Smallholder farmers' },
   ],
+
+  /* ─── PARTNERSHIPS FROM STRATEGY PDF ─── */
+  partners: [
+    {
+      name: 'Plan Vert Maroc',
+      type: 'Government',
+      country: 'Morocco',
+      priority: 'P1 — Critical',
+      harchContribution: 'Tech agriculture',
+      partnerContribution: 'Subventions, labels, cadre r\u00e9glementaire',
+      status: 'Active' as const,
+    },
+    {
+      name: 'OCP / Al Moutmir',
+      type: 'Strategic',
+      country: 'Morocco',
+      priority: 'P1 — Critical',
+      harchContribution: 'Drones + IoT + Carbon API',
+      partnerContribution: '580K farmers ecosystem, agronomie, distribution',
+      status: 'Active' as const,
+    },
+    {
+      name: 'FAO Maroc',
+      type: 'Institutional',
+      country: 'Morocco',
+      priority: 'P1 — Critical',
+      harchContribution: 'Carbon API + data platform',
+      partnerContribution: 'Certification standards, international credibility',
+      status: 'In Negotiation' as const,
+    },
+    {
+      name: 'ISRA S\u00e9n\u00e9gal',
+      type: 'Research',
+      country: 'Senegal',
+      priority: 'P2 — Important',
+      harchContribution: 'Technology transfer',
+      partnerContribution: 'R&D, local adaptation, farmer networks',
+      status: 'Prospect' as const,
+    },
+    {
+      name: 'AgriTech Kenya',
+      type: 'Ecosystem',
+      country: 'Kenya',
+      priority: 'P2 — Important',
+      harchContribution: 'Platform + data',
+      partnerContribution: 'Market entry, mature ecosystem',
+      status: 'Prospect' as const,
+    },
+    {
+      name: 'Ghana MoFA',
+      type: 'Government',
+      country: 'Ghana',
+      priority: 'P3 — Future',
+      harchContribution: 'IoT solutions',
+      partnerContribution: 'Planting for Food and Jobs program',
+      status: 'Prospect' as const,
+    },
+  ],
+
+  /* ─── ROADMAP FROM STRATEGY PDF ─── */
+  roadmap: [
+    {
+      phase: 'Phase 1',
+      period: '2026',
+      title: 'Proof of Concept',
+      hectares: 100,
+      farmers: 50,
+      revenue: '$0.1M',
+      funding: 'Auto-financed ($250K)',
+      actions: [
+        'Deploy 2 DJI Agras drones across 5 hub pilot sites',
+        'Install 30 IoT sensors on 5 pilot parcels',
+        'Recruit 3 agronomists for field operations',
+        'Integrate Carbon API for automatic CO2 calculation',
+        'Deploy 5 vertical farm containers (1 per hub)',
+        'Obtain Verra certification for carbon methodology',
+        'Measure impact: NPS > 70, ROI > 100%',
+      ],
+    },
+    {
+      phase: 'Phase 2',
+      period: '2027-2028',
+      title: 'Scale in Morocco',
+      hectares: 5000,
+      farmers: 1000,
+      revenue: '$2.5M ARR',
+      funding: 'Series A ($3-5M)',
+      actions: [
+        'Scale to 1,000 farmers and 5,000 hectares across Morocco',
+        'Leverage OCP/Al Moutmir partnership for 580K farmer access',
+        'Expand vertical farms from 5 to 25 units',
+        'Launch HarchAgri Marketplace v1 for urban market access',
+        'Achieve operational break-even by end of 2028',
+        'Secure government subsidies via Plan Vert certification',
+      ],
+    },
+    {
+      phase: 'Phase 3',
+      period: '2028-2029',
+      title: 'African Expansion',
+      hectares: 25000,
+      farmers: 5000,
+      revenue: '$10M ARR',
+      funding: 'Series B ($15-20M)',
+      actions: [
+        'Expand to Senegal (ISRA partnership), Kenya (AgriTech ecosystem), Ghana (MoFA/PFJ)',
+        'Same playbook: 5 pilots per country, measure, then scale',
+        '4 countries, 5,000 farmers, 25,000 hectares under management',
+        'Target investors: CDC, Swedfund, IFC — Africa-focused DFIs',
+        'Launch index-based crop insurance (inspired by Climate Corp, adapted for Africa)',
+      ],
+    },
+    {
+      phase: 'Phase 4',
+      period: '2029-2031',
+      title: 'Continental Leadership',
+      hectares: 100000,
+      farmers: 50000,
+      revenue: '$50M ARR',
+      funding: 'Pre-IPO / Strategic',
+      actions: [
+        '50,000 farmers, 100,000 hectares, 10 countries',
+        'Full platform: drones + IoT + vertical + carbon + marketplace + insurance',
+        'HarchAgri becomes the reference platform for precision agriculture in Africa',
+        'Virtuous cycle: more data improves AI models, more carbon credits attract ESG investors',
+        'Position for IPO or strategic acquisition',
+      ],
+    },
+  ],
+
+  /* ─── TRIPLE MOAT ─── */
+  moats: [
+    {
+      title: 'GPU Infrastructure',
+      desc: '1,798 GPUs across 5 hubs already operational. A competitor would need to invest millions to replicate this compute capacity. The marginal cost of processing one drone image on existing infrastructure is near zero — a competitor pays full cloud price (AWS/GCP). This cost advantage translates directly to lower prices for farmers and higher margins for HarchAgri.',
+      icon: Cpu,
+    },
+    {
+      title: 'Native Carbon API',
+      desc: 'Already operational. No African agritech competitor can calculate, certify, and monetize agricultural carbon credits in real time. This transforms every hectare under management into an additional revenue stream, making the HarchAgri offer economically irresistible for farmers. The Carbon API is the connective tissue linking all four products into a coherent ecosystem.',
+      icon: Zap,
+    },
+    {
+      title: 'ESG Premium Positioning',
+      desc: '81.5% renewable energy, 47 gCO2/kWh — 89% below industry average. This positioning attracts impact investors (CDC, IFC, Swedfund), unlocks government subsidies, and enables premium pricing for low-carbon verified produce. Vertical farms powered by Harch Corp renewable energy produce vegetables that are verifiably low-carbon — a unique selling proposition no competitor can match.',
+      icon: Shield,
+    },
+  ],
+
+  /* ─── RISKS FROM STRATEGY PDF ─── */
+  risks: [
+    { risk: 'Over-expansion (Twiga mistake)', probability: 'Medium', impact: 'Critical', mitigation: 'Lean startup: validate before scaling. Threshold of 100 paying farmers before expansion.' },
+    { risk: 'Vertical farm failure (AeroFarms mistake)', probability: 'Medium', impact: 'High', mitigation: 'Start with DaaS/IoT (low capex). Vertical farms only in Phase 2 after proof of concept.' },
+    { risk: 'Agritech funding downturn', probability: 'High', impact: 'Medium', mitigation: 'Self-financed from day one. Break-even by Phase 2. Carbon credits = recurring revenue.' },
+    { risk: 'Farmer tech adoption barrier', probability: 'High', impact: 'Critical', mitigation: 'Mobile-first UX. OCP partnership for trust. $200 starter kit eliminates price barrier.' },
+    { risk: 'Carbon credit regulation', probability: 'Low', impact: 'Medium', mitigation: 'Verra certification in Phase 1. FAO partnership for legitimacy.' },
+    { risk: 'OCP enters drone market', probability: 'Low', impact: 'High', mitigation: 'Partnership over competition. OCP lacks startup tech culture.' },
+  ],
+
   stats: [
-    { stat: 'Yield Improvement', value: 75, max: 100 },
-    { stat: 'Water Efficiency', value: 85, max: 100 },
-    { stat: 'Chemical Reduction', value: 90, max: 100 },
-    { stat: 'Post-Harvest Loss Reduction', value: 83, max: 100 },
+    { stat: 'Renewable Energy', value: 81, max: 100 },
+    { stat: 'Carbon Below Industry', value: 89, max: 100 },
+    { stat: 'Water Efficiency Gain', value: 75, max: 100 },
+    { stat: 'Yield Improvement', value: 70, max: 100 },
   ],
-  location: 'Senegal',
-  locationDesc: 'Prime agricultural land in the Senegal River Valley with year-round growing seasons, reliable irrigation water from the Senegal River, and proximity to Dakar port for European export. The region offers 300+ growing days annually and established agricultural infrastructure.',
-  strategicAdvantages: [
-    { title: 'Technology-Driven Yield Gap Closure', desc: 'Africa\'s yield gap represents the largest untapped agricultural opportunity globally. Precision farming technology can close 60-80% of this gap within 3 growing seasons, creating immediate value from underperforming land.' },
-    { title: 'Integrated Water-Energy-Agri Nexus', desc: 'Harch Water provides desalinated irrigation water, Harch Energy supplies solar-powered pumps, and Harch Technology delivers IoT and AI analytics — an integrated stack no standalone agri company can replicate.' },
-    { title: 'European Export Proximity', desc: 'Senegal\'s location provides 4-day shipping to European markets versus 14+ days from Asian and South American competitors, enabling premium pricing for fresh produce.' },
-    { title: 'Food Security Mandate', desc: 'Government food security programs across West Africa provide guaranteed offtake and subsidy support for domestic food production, derisking agricultural investment.' },
-  ],
-  partnershipModel: [
-    { title: 'Contract Farming', desc: 'Managed farming services for landowners and investors. Harch Agri provides technology, expertise, and market access; partners provide land and capital. Guaranteed minimum returns with profit sharing above threshold.' },
-    { title: 'AgTech Licensing', desc: 'Precision farming platform licensing for agricultural cooperatives and development organizations. SaaS model with per-hectare pricing and technical support packages.' },
-    { title: 'Export Joint Ventures', desc: 'Partnerships with European food distributors and retailers for premium African produce. Shared branding, quality assurance, and supply chain management.' },
-    { title: 'Development Finance Partnerships', desc: 'Collaborative programs with IFAD, AfDB, and bilateral development agencies for smallholder farmer technology transfer and capacity building.' },
-  ],
+
+  location: 'Morocco (5 Hubs)',
+  locationDesc: 'Casablanca, Marrakech, Tanger, Rabat, Agadir — each hub covers a 100km radius for drone and IoT operations. Morocco\'s Generation Green strategy (2020-2030) provides institutional support, OCP\'s Al Moutmir program offers a 580K farmer ecosystem, and Harch Corp\'s existing GPU infrastructure delivers zero-marginal-cost compute for all agricultural AI processing.',
 };
 
 /* ═══════════════════════════════════════════
@@ -186,11 +487,10 @@ export default function HarchAgriPage() {
   return (
     <div className="bg-[#1A1A1A]">
       {/* ═══════════════════════════════════════════
-          HERO — Full-bleed photo + subtle Three.js particle overlay
+          HERO
           ═══════════════════════════════════════════ */}
       <section className="photo-section relative min-h-[85vh] flex items-end">
         <Image src={data.heroImage} alt={data.name} fill className="object-cover" priority />
-        {/* Three.js particle overlay — subtle background effect */}
         <div className="absolute inset-0 z-[1] opacity-30">
           <HeroScene />
         </div>
@@ -210,7 +510,7 @@ export default function HarchAgriPage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          OVERVIEW — Text left + Metrics right (Palantir split)
+          OVERVIEW + METRICS
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -222,6 +522,11 @@ export default function HarchAgriPage() {
               </h2>
               <div className="accent-line mb-6" />
               <p className="text-[15px] text-[#999999] leading-[1.7]">{data.overview}</p>
+              {/* Brutal truth callout */}
+              <div className="mt-6 p-4 rounded-lg border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]">
+                <p className="text-[11px] text-white/50 font-[family-name:var(--font-space-mono)] uppercase tracking-wider mb-1">Brutal Truth</p>
+                <p className="text-[13px] text-white/70 leading-relaxed">HarchAgri has $0 revenue, $0 funding, 0 farmers served. But no competitor integrates carbon credits + GPU orchestration + precision agriculture. Our advantage is Harch Corp&apos;s existing infrastructure and Carbon API.</p>
+              </div>
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="grid grid-cols-2 gap-4">
@@ -240,12 +545,82 @@ export default function HarchAgriPage() {
       </section>
 
       {/* ═══════════════════════════════════════════
+          MARKET SEGMENTS TABLE
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Market Analysis</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Five Segments, One Platform</h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">The African agritech market divides into five segments. HarchAgri targets the four highest-growth, least-served — avoiding the commoditized marketplace space entirely.</p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="bg-[#1A1A1A] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>Segment</th>
+                      <th>Market Size</th>
+                      <th>CAGR</th>
+                      <th>Africa Maturity</th>
+                      <th>HarchAgri Opportunity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="font-semibold text-white">Agricultural Drones</td>
+                      <td className="text-white">$8.5B (2025)</td>
+                      <td className="text-white">25%</td>
+                      <td>Nascent</td>
+                      <td className="text-white font-semibold">Very strong</td>
+                    </tr>
+                    <tr>
+                      <td className="font-semibold text-white">IoT Irrigation</td>
+                      <td className="text-white">$3.2B (2025)</td>
+                      <td className="text-white">18%</td>
+                      <td>Low</td>
+                      <td className="text-white font-semibold">Strong</td>
+                    </tr>
+                    <tr>
+                      <td className="font-semibold text-white">Vertical Farming</td>
+                      <td className="text-white">$8.5B (2025)</td>
+                      <td className="text-white">26.8%</td>
+                      <td>Non-existent</td>
+                      <td className="text-white">Medium</td>
+                    </tr>
+                    <tr>
+                      <td className="font-semibold text-white">Carbon Credits</td>
+                      <td className="text-white">$2B Africa</td>
+                      <td className="text-white">30%+</td>
+                      <td>Emerging</td>
+                      <td className="text-white font-semibold">Very strong</td>
+                    </tr>
+                    <tr>
+                      <td className="font-semibold text-white">Marketplace</td>
+                      <td className="text-white">$15B Africa</td>
+                      <td className="text-white">12%</td>
+                      <td>Crowded</td>
+                      <td>Low (avoid)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="px-6 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)]">
+                <p className="text-[11px] text-[#666666]">Sources: Briter Intelligence 2025, ACMI, Grand View Research. ACMI targets 20x growth in African carbon credits by 2030.</p>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
           FULL-BLEED IMAGE BREAK
           ═══════════════════════════════════════════ */}
       <FullBleedImage src={data.sectionImage1} alt={`${data.name} infrastructure`} height="55vh" />
 
       {/* ═══════════════════════════════════════════
-          STRATEGIC CONTEXT — Side-by-side split
+          STRATEGIC CONTEXT
           ═══════════════════════════════════════════ */}
       <SplitSection imageSrc={data.sectionImage2} imageAlt={`${data.name} operations`}>
         <FadeIn>
@@ -259,39 +634,146 @@ export default function HarchAgriPage() {
       </SplitSection>
 
       {/* ═══════════════════════════════════════════
-          CAPABILITIES — Grid cards
+          5 PILLARS — PRODUCT CARDS
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Capabilities</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              What We Build
+            <p className="section-label mb-4">Products</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
+              Five Integrated Pillars
             </h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
+              Each product works standalone or in full synergy. Together, they create a network effect no single-product competitor can replicate.
+            </p>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.capabilities.map((cap, i) => {
-              const Icon = cap.icon;
+          <div className="grid md:grid-cols-2 gap-6">
+            {data.products.map((product, i) => {
+              const Icon = product.icon;
               return (
-                <FadeIn key={cap.title} delay={i * 0.06}>
-                  <div className="card p-6 h-full">
-                    <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center mb-3">
-                      <Icon size={18} className="text-white" strokeWidth={1.5} />
+                <FadeIn key={product.name} delay={i * 0.08}>
+                  <div className="card p-6 h-full group relative overflow-hidden">
+                    {/* Subtle top accent on hover */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-white/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-400" />
+                    {/* Header */}
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
+                          <Icon size={18} className="text-white" strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-[14px] text-white">{product.name}</h3>
+                          <p className="text-[11px] text-[#666666]">{product.tagline}</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-lg font-bold text-white stat-mono">{product.price}</p>
+                        <p className="text-[10px] text-[#666666]">{product.unit}</p>
+                      </div>
                     </div>
-                    <h3 className="text-[14px] font-bold text-white mb-2">{cap.title}</h3>
-                    <p className="text-[12px] text-[#999999] leading-relaxed">{cap.desc}</p>
+                    {/* Description */}
+                    <p className="text-[12px] text-[#999999] leading-relaxed mb-4">{product.description}</p>
+                    {/* Stats */}
+                    <div className="grid grid-cols-3 gap-2 mb-4">
+                      {product.stats.map((stat, j) => (
+                        <div key={j} className="text-center p-2 rounded-lg bg-[rgba(255,255,255,0.03)]">
+                          <p className="text-sm font-bold text-white stat-mono">{stat.value}</p>
+                          <p className="text-[9px] text-[#666666] uppercase tracking-wider">{stat.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Features */}
+                    <div className="space-y-2 mb-4">
+                      {product.features.map((feature, j) => (
+                        <div key={j} className="flex items-start gap-2">
+                          <div className="mt-1.5 w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />
+                          <span className="text-[11px] text-[#999999]">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Footer: ROI + Target */}
+                    <div className="flex items-center justify-between pt-3 border-t border-[rgba(255,255,255,0.04)]">
+                      <div className="flex items-center gap-1.5">
+                        <Clock size={10} className="text-[#666666]" />
+                        <span className="text-[10px] text-[#666666]">ROI: {product.roi}</span>
+                      </div>
+                      <span className="text-[10px] text-[#666666]">{product.target}</span>
+                    </div>
                   </div>
                 </FadeIn>
               );
             })}
           </div>
+
+          {/* STARTER KIT — Highlighted */}
+          <FadeIn delay={0.4}>
+            <div className="mt-6 card p-6 border-dashed border-[rgba(255,255,255,0.12)]">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
+                    <Wheat size={18} className="text-white" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[14px] text-white">Starter Kit</h3>
+                    <p className="text-[12px] text-[#999999]">{data.starterKit.contents}</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-bold text-white stat-mono">{data.starterKit.price}</p>
+                  <p className="text-[10px] text-[#666666]">ROI: {data.starterKit.roi}</p>
+                </div>
+              </div>
+              <p className="text-[12px] text-[#666666] mt-3">For {data.starterKit.target} — eliminates price barrier to technology adoption.</p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════
-          INTERACTIVE MAP — D3.js Africa map in .card container
+          PRICING GRID
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A] relative overflow-hidden">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Pricing</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Transparent Pricing</h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Simple, transparent pricing designed for African agricultural economics. No hidden fees. Carbon credit revenue included by default.</p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="bg-[#121212] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Price</th>
+                      <th>Unit</th>
+                      <th>ROI</th>
+                      <th>Target</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.pricing.map((row) => (
+                      <tr key={row.product}>
+                        <td className="font-semibold text-white">{row.product}</td>
+                        <td className="text-white stat-mono">{row.price}</td>
+                        <td className="text-[#999999]">{row.unit}</td>
+                        <td className="text-white">{row.roi}</td>
+                        <td className="text-[#999999]">{row.target}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          INTERACTIVE MAP
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#121212] relative overflow-hidden">
         <ParticleField />
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <FadeIn>
@@ -301,7 +783,7 @@ export default function HarchAgriPage() {
                 Operating Across<br />Africa
               </h2>
               <p className="max-w-xl mx-auto mt-4 text-[15px] text-[#999999] leading-relaxed">
-                From Senegal to Kenya — our IoT network spans the continent&apos;s most strategic agricultural corridors. Hover each hub for details.
+                5 hubs in Morocco — Casablanca, Marrakech, Tanger, Rabat, Agadir — each covering 100km radius for drone and IoT operations. Expansion to Senegal, Kenya, Ghana in Phase 3.
               </p>
             </div>
           </FadeIn>
@@ -314,32 +796,328 @@ export default function HarchAgriPage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          SPEC TABLE — Data table (Palantir style)
+          PHOTO BREAK
+          ═══════════════════════════════════════════ */}
+      <FullBleedImage src={data.sectionImage3} alt={`${data.name} vertical farming`} height="50vh" />
+
+      {/* ═══════════════════════════════════════════
+          IoT DASHBOARD
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#1A1A1A] relative overflow-hidden">
+        <ParticleField />
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn>
+            <p className="section-label mb-4">Live Monitoring</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
+              IoT Dashboard
+            </h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
+              Real-time sensor data — temperature, soil moisture, crop health, and carbon credits. All processed on Harch Corp GPU infrastructure with near-zero marginal cost.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <IoTDashboard />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          COMPETITIVE ANALYSIS
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Technical Specifications</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">Key Metrics</h2>
-            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Detailed specifications and performance targets for {data.name}.</p>
+            <p className="section-label mb-4">Competitive Analysis</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
+              HarchAgri vs. The Field
+            </h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
+              Five competitors, five different market entry points. None have integrated carbon credits + GPU orchestration + precision agriculture on the African continent.
+            </p>
+          </FadeIn>
+
+          {/* Competitor cards */}
+          <div className="space-y-4">
+            {data.competitors.map((comp, i) => (
+              <FadeIn key={comp.name} delay={i * 0.06}>
+                <div className="card p-6">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+                    {/* Name + Country */}
+                    <div className="md:col-span-3">
+                      <h3 className="font-bold text-white text-[15px]">{comp.name}</h3>
+                      <p className="text-[11px] text-[#666666]">{comp.country} &middot; {comp.maturity}</p>
+                      <p className="text-[11px] text-[#999999] mt-1">{comp.model}</p>
+                    </div>
+                    {/* Key data */}
+                    <div className="md:col-span-3 grid grid-cols-2 gap-2">
+                      <div>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Revenue</p>
+                        <p className="text-[13px] text-white stat-mono">{comp.revenue}</p>
+                      </div>
+                      <div>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Funding</p>
+                        <p className="text-[13px] text-white stat-mono">{comp.funding}</p>
+                      </div>
+                      <div>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Farmers</p>
+                        <p className="text-[13px] text-white">{comp.farmers}</p>
+                      </div>
+                      <div>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Africa</p>
+                        <p className="text-[13px] text-white">{comp.africa}</p>
+                      </div>
+                    </div>
+                    {/* HarchAgri Advantage */}
+                    <div className="md:col-span-4">
+                      <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">HarchAgri Advantage</p>
+                      <p className="text-[12px] text-[#999999] leading-relaxed">{comp.advantage}</p>
+                    </div>
+                    {/* Weakness */}
+                    <div className="md:col-span-2">
+                      <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Key Weakness</p>
+                      <p className="text-[12px] text-[#999999] leading-relaxed">{comp.weakness}</p>
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* HarchAgri comparison highlight */}
+          <FadeIn delay={0.4}>
+            <div className="mt-6 card p-6 border border-white/10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
+                  <span className="text-[10px] font-bold tracking-[0.15em] text-white font-[family-name:var(--font-space-mono)]">{data.version}</span>
+                </div>
+                <div>
+                  <h4 className="font-bold text-white text-lg">HarchAgri</h4>
+                  <p className="text-[11px] text-[#666666]">5 hubs, 1,798 GPUs, 81.5% renewable</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-wider">Model</p>
+                  <p className="text-[14px] text-white font-semibold">SaaS + Hardware + Carbon</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-wider">Differentiator</p>
+                  <p className="text-[14px] text-white font-semibold">Only integrated AgTech + Carbon + GPU platform</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-wider">Africa Presence</p>
+                  <p className="text-[14px] text-white font-semibold">5 hubs operational (Morocco)</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-wider">Target 2031</p>
+                  <p className="text-[14px] text-white font-semibold stat-mono">50K farmers / $50M ARR</p>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          TRIPLE MOAT — Competitive Advantages
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <FadeIn>
+              <p className="section-label mb-4">Competitive Moat</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
+                Three Advantages Nobody Can Replicate
+              </h2>
+              <div className="accent-line mb-8" />
+              <div className="space-y-8">
+                {data.moats.map((moat) => {
+                  const Icon = moat.icon;
+                  return (
+                    <div key={moat.title} className="flex gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center flex-shrink-0 mt-1">
+                        <Icon size={18} className="text-white" strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <h3 className="text-[15px] font-bold text-white mb-2">{moat.title}</h3>
+                        <p className="text-[13px] text-[#999999] leading-relaxed">{moat.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.15}>
+              <div className="space-y-2 mt-8 lg:mt-0">
+                {data.stats.map((s) => (
+                  <StatBar key={s.stat} stat={s.stat} value={s.value} max={s.max} />
+                ))}
+              </div>
+              <div className="mt-12 p-6 card">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-2">Carbon Intensity</p>
+                <p className="text-4xl font-bold text-white stat-mono">47 gCO2/kWh</p>
+                <p className="text-[12px] text-[#999999] mt-2">89% below industry average of ~450 gCO2/kWh</p>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          ROADMAP — 4 Phase Timeline
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Roadmap</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">Four Phases to Continental Leadership</h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">Lean startup philosophy: validate with minimum viable product before scaling. Avoid the fatal mistake of Twiga Foods — over-investing before proving the model.</p>
+          </FadeIn>
+
+          <div className="space-y-6">
+            {data.roadmap.map((phase, i) => (
+              <FadeIn key={phase.phase} delay={i * 0.1}>
+                <div className="card p-6 md:p-8">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    {/* Phase header */}
+                    <div className="md:col-span-3">
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">{phase.phase}</span>
+                      <h3 className="text-xl font-bold text-white mt-1">{phase.title}</h3>
+                      <p className="text-[12px] text-[#666666] mt-1">{phase.period}</p>
+                      <p className="text-[11px] text-[#666666] mt-1">{phase.funding}</p>
+                    </div>
+                    {/* Key metrics */}
+                    <div className="md:col-span-3 grid grid-cols-3 gap-3">
+                      <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.03)]">
+                        <p className="text-lg font-bold text-white stat-mono">{phase.hectares.toLocaleString()}</p>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Hectares</p>
+                      </div>
+                      <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.03)]">
+                        <p className="text-lg font-bold text-white stat-mono">{phase.farmers.toLocaleString()}</p>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Farmers</p>
+                      </div>
+                      <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.03)]">
+                        <p className="text-sm font-bold text-white stat-mono">{phase.revenue}</p>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Revenue</p>
+                      </div>
+                    </div>
+                    {/* Actions */}
+                    <div className="md:col-span-6">
+                      <div className="space-y-2">
+                        {phase.actions.map((action, j) => (
+                          <div key={j} className="flex items-start gap-2">
+                            <div className="mt-1.5 w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />
+                            <span className="text-[12px] text-[#999999] leading-relaxed">{action}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SUSTAINABILITY — Split section
+          ═══════════════════════════════════════════ */}
+      <SplitSection imageSrc={data.sectionImage4} imageAlt={`${data.name} sustainability`}>
+        <FadeIn>
+          <p className="section-label mb-4">Sustainability & ESG</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
+            Sustainability Is the Business Model
+          </h2>
+          <div className="accent-line mb-6" />
+          <p className="text-[15px] text-[#999999] leading-[1.7]">{data.sustainability}</p>
+        </FadeIn>
+      </SplitSection>
+
+      {/* ═══════════════════════════════════════════
+          STRATEGIC PARTNERSHIPS
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#0A0A0A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Partnerships</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
+              Strategic Partners
+            </h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
+              Selective, symbiotic partnerships — each partner brings competence HarchAgri lacks; HarchAgri brings technology and carbon credits they don&apos;t have.
+            </p>
+          </FadeIn>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {data.partners.map((partner, i) => (
+              <FadeIn key={partner.name} delay={i * 0.08}>
+                <div className="card p-6 h-full group">
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <h4 className="font-bold text-[13px] text-white">{partner.name}</h4>
+                      <p className="text-[10px] text-[#666666]">{partner.type} — {partner.country}</p>
+                    </div>
+                    <span className={`status-badge ${partner.status === 'Active' ? 'status-badge-active' : 'status-badge-engineering'}`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                      {partner.status}
+                    </span>
+                  </div>
+                  <div className="mb-3">
+                    <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">We bring</p>
+                    <p className="text-[11px] text-white">{partner.harchContribution}</p>
+                  </div>
+                  <div className="mb-3">
+                    <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">They bring</p>
+                    <p className="text-[11px] text-[#999999]">{partner.partnerContribution}</p>
+                  </div>
+                  <div className="pt-3 border-t border-[rgba(255,255,255,0.04)]">
+                    <span className="text-[9px] text-[#666666] uppercase tracking-wider font-[family-name:var(--font-space-mono)]">{partner.priority}</span>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          RISKS — From Strategy PDF
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Risk Analysis</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Identified Risks & Mitigations</h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Prudence is not an option — it is a necessity. The failures of Twiga Foods, AeroFarms, and the volatile agritech funding environment in 2025 teach us this.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="bg-[#1A1A1A] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
+            <div className="bg-[#121212] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="data-table">
                   <thead>
                     <tr>
-                      <th>Specification</th>
-                      <th>Value</th>
-                      <th>Phase</th>
+                      <th>Risk</th>
+                      <th>Probability</th>
+                      <th>Impact</th>
+                      <th>Mitigation Strategy</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {data.specTable.map((row) => (
-                      <tr key={row.spec}>
-                        <td>{row.spec}</td>
-                        <td className="font-semibold">{row.value}</td>
-                        <td className="text-[#999999]">{row.phase}</td>
+                    {data.risks.map((r) => (
+                      <tr key={r.risk}>
+                        <td className="font-semibold text-white">{r.risk}</td>
+                        <td>
+                          <span className={`inline-flex items-center gap-1.5 text-[11px] ${r.probability === 'High' ? 'text-white' : r.probability === 'Medium' ? 'text-[#999999]' : 'text-[#666666]'}`}>
+                            {r.probability === 'High' && <AlertTriangle size={10} />}
+                            {r.probability}
+                          </span>
+                        </td>
+                        <td>
+                          <span className={`text-[11px] ${r.impact === 'Critical' ? 'text-white font-semibold' : r.impact === 'High' ? 'text-[#999999]' : 'text-[#666666]'}`}>
+                            {r.impact}
+                          </span>
+                        </td>
+                        <td className="text-[12px] text-[#999999] max-w-md">{r.mitigation}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -351,87 +1129,6 @@ export default function HarchAgriPage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          PHOTO BREAK — Full-bleed image section
-          ═══════════════════════════════════════════ */}
-      <FullBleedImage src={data.sectionImage3} alt={`${data.name} vertical farming`} height="50vh" />
-
-      {/* ═══════════════════════════════════════════
-          IoT DASHBOARD — Recharts live monitoring in .card containers
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A] relative overflow-hidden">
-        <ParticleField />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-          <FadeIn>
-            <p className="section-label mb-4">Live Monitoring</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              IoT Dashboard
-            </h2>
-            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
-              Real-time sensor data updated every 2 seconds. Temperature, soil moisture, crop health, and carbon credits — all in one view.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <IoTDashboard />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          PRODUCT CARDS — Interactive cards with .card style
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Products</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Four Integrated Solutions
-            </h2>
-            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
-              From drones to vertical farms, IoT to carbon credits. Each product works standalone or in full synergy.
-            </p>
-          </FadeIn>
-          <ProductCards />
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          STRATEGIC ADVANTAGES — Full-width with stat bars
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <FadeIn>
-              <p className="section-label mb-4">Strategic Advantages</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-                Competitive Positioning
-              </h2>
-              <div className="accent-line mb-8" />
-              <div className="space-y-8">
-                {data.strategicAdvantages.map((adv) => (
-                  <div key={adv.title}>
-                    <h3 className="text-[15px] font-bold text-white mb-2">{adv.title}</h3>
-                    <p className="text-[13px] text-[#999999] leading-relaxed">{adv.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="space-y-2 mt-8 lg:mt-0">
-                {data.stats.map((s) => (
-                  <StatBar key={s.stat} stat={s.stat} value={s.value} max={s.max} />
-                ))}
-              </div>
-              <div className="mt-12 p-6 card">
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-2">Investment</p>
-                <p className="text-4xl font-bold text-white stat-mono">{data.investment}</p>
-                <p className="text-[12px] text-[#999999] mt-2">{data.location}</p>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
           PHOTO BACKGROUND — Investment & Location
           ═══════════════════════════════════════════ */}
       <section className="photo-section relative min-h-[50vh] flex items-center">
@@ -439,7 +1136,7 @@ export default function HarchAgriPage() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-20">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-6 max-w-2xl">
-              {data.investment} Investment<br />in {data.location}
+              {data.investment} Phase 1<br />in {data.location}
             </h2>
             <p className="max-w-lg text-[15px] text-white/60 leading-relaxed">{data.locationDesc}</p>
           </FadeIn>
@@ -447,137 +1144,14 @@ export default function HarchAgriPage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          MARKET ANALYSIS — Side-by-side split (reversed)
-          ═══════════════════════════════════════════ */}
-      <SplitSection imageSrc={data.sectionImage1} imageAlt={`${data.name} market`} reverse>
-        <FadeIn>
-          <p className="section-label mb-4">Market Analysis</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-            The Opportunity
-          </h2>
-          <div className="accent-line mb-6" />
-          <p className="text-[15px] text-[#999999] leading-[1.7]">{data.marketAnalysis}</p>
-        </FadeIn>
-      </SplitSection>
-
-      {/* ═══════════════════════════════════════════
-          SUSTAINABILITY — Split section
-          ═══════════════════════════════════════════ */}
-      <SplitSection imageSrc={data.sectionImage4} imageAlt={`${data.name} sustainability`}>
-        <FadeIn>
-          <p className="section-label mb-4">Sustainability & ESG</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-            Built for the Long Term
-          </h2>
-          <div className="accent-line mb-6" />
-          <p className="text-[15px] text-[#999999] leading-[1.7]">{data.sustainability}</p>
-        </FadeIn>
-      </SplitSection>
-
-      {/* ═══════════════════════════════════════════
-          TIMELINE — Milestones
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Timeline</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">Key Milestones</h2>
-          </FadeIn>
-          <div className="relative">
-            <div className="absolute left-5 md:left-10 top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)]" />
-            <div className="space-y-10">
-              {data.milestones.map((m, i) => (
-                <FadeIn key={m.year} delay={i * 0.08}>
-                  <div className="flex gap-6 md:gap-12 relative">
-                    <div className="relative z-10 shrink-0 w-10 md:w-20 flex justify-center">
-                      <div className="w-3.5 h-3.5 rounded-full bg-[#1A1A1A] border-2 border-[rgba(255,255,255,0.15)] mt-1.5" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white font-[family-name:var(--font-space-mono)]">{m.year}</span>
-                      <h3 className="text-lg font-bold text-white mt-1 mb-1">{m.title}</h3>
-                      <p className="text-[13px] text-[#999999] leading-relaxed max-w-lg">{m.desc}</p>
-                    </div>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          COMPETITOR TABLE — .data-table with competitor data
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Competitive Analysis</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Harch Agri vs. The Field
-            </h2>
-            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
-              How Harch Agri positions against the leading AgTech players across Africa and globally.
-            </p>
-          </FadeIn>
-          <CompetitorComparison />
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          PARTNERSHIP MODEL — Grid cards
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Partnership</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              How to Work With Us
-            </h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {data.partnershipModel.map((p, i) => (
-              <FadeIn key={p.title} delay={i * 0.08}>
-                <div className="card p-8 h-full">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">0{i + 1}</span>
-                    <div className="h-px flex-1 bg-[rgba(255,255,255,0.06)]" />
-                  </div>
-                  <h3 className="text-[16px] font-bold text-white mb-3">{p.title}</h3>
-                  <p className="text-[13px] text-[#999999] leading-relaxed">{p.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          STRATEGIC PARTNERS — Using PartnershipsSection
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#0A0A0A]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Ecosystem</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Strategic Partners
-            </h2>
-            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
-              Governments, research institutions, and AgTech ecosystems — Harch Agri builds Africa&apos;s agricultural infrastructure with the best.
-            </p>
-          </FadeIn>
-          <PartnershipsSection />
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          CTA — Dark with dot pattern (Palantir standard)
+          CTA
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">Learn More</h2>
-            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">Interested in {data.name}? Let&apos;s discuss partnership and investment opportunities.</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">Build With Us</h2>
+            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">Partnership, investment, and pilot program inquiries. HarchAgri is looking for farmers, governments, and investors who share our vision for African agricultural sovereignty.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

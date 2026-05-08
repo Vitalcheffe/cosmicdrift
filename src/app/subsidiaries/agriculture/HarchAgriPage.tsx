@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -8,27 +8,85 @@ import {
   ArrowRight, Cpu, Zap, Globe, Shield, BarChart3, Wheat, Droplets,
   Plane, Radio, Building2, Leaf, MapPin, TrendingUp, Clock, AlertTriangle, CheckCircle2
 } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 const HeroScene = dynamic(() => import('@/components/harchagri/HeroScene'), { ssr: false });
 const ParticleField = dynamic(() => import('@/components/harchagri/ParticleField'), { ssr: false });
 const AfricaMap = dynamic(() => import('@/components/harchagri/AfricaMap'), { ssr: false });
 const IoTDashboard = dynamic(() => import('@/components/harchagri/IoTDashboard'), { ssr: false });
 
-/* ─── FADE IN — Palantir standard animation ─── */
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+/* ─── FADE IN — Palantir standard animation (enhanced) ─── */
+function FadeIn({
+  children,
+  className = '',
+  delay = 0,
+  direction = 'up',
+  stagger = false,
+  staggerDelay = 0.05,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: 'up' | 'left' | 'right';
+  stagger?: boolean;
+  staggerDelay?: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-60px' });
+
+  const directionOffset = {
+    up: { x: 0, y: 40 },
+    left: { x: -40, y: 0 },
+    right: { x: 40, y: 0 },
+  };
+
+  const offset = directionOffset[direction];
+
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      initial={{ opacity: 0, x: offset.x, y: offset.y, scale: 1.02 }}
+      animate={isInView ? { opacity: 1, x: 0, y: 0, scale: 1 } : { opacity: 0, x: offset.x, y: offset.y, scale: 1.02 }}
       transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={className}
     >
-      {children}
+      {stagger && React.Children.count(children) > 1
+        ? React.Children.map(children, (child, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: delay + i * staggerDelay, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              {child}
+            </motion.div>
+          ))
+        : children}
     </motion.div>
+  );
+}
+
+/* ─── SECTION LABEL with extending line ─── */
+function SectionLabel({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-40px' });
+  return (
+    <div ref={ref} className={`flex items-center gap-3 mb-4 ${className}`}>
+      <motion.p
+        className="section-label !mb-0"
+        initial={{ opacity: 0, x: -10 }}
+        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
+        {children}
+      </motion.p>
+      <motion.div
+        className="h-px bg-white/20"
+        initial={{ width: 0 }}
+        animate={isInView ? { width: 40 } : { width: 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+      />
+    </div>
   );
 }
 
@@ -58,20 +116,71 @@ function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number;
   return <span ref={ref}>{format()}</span>;
 }
 
-/* ─── FULL-BLEED IMAGE BREAK (Palantir style) ─── */
+/* ─── MICRO COUNT UP — for hover-activated counters ─── */
+function MicroCountUp({ value, isActive }: { value: string; isActive: boolean }) {
+  const numericMatch = value.match(/([\d,]+)/);
+  if (!numericMatch) return <>{value}</>;
+  const numericStr = numericMatch[1];
+  const numericVal = parseInt(numericStr.replace(/,/g, ''), 10);
+  const prefix = value.substring(0, value.indexOf(numericStr));
+  const suffix = value.substring(value.indexOf(numericStr) + numericStr.length);
+  const [display, setDisplay] = useState(isActive ? numericVal : 0);
+  const prevActive = useRef(isActive);
+
+  useEffect(() => {
+    if (isActive && !prevActive.current) {
+      const duration = 400;
+      const startTime = Date.now();
+      const step = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setDisplay(Math.round(eased * numericVal));
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    prevActive.current = isActive;
+  }, [isActive, numericVal]);
+
+  useEffect(() => {
+    if (!isActive) setDisplay(0);
+  }, [isActive]);
+
+  const formatted = display.toLocaleString();
+  return <>{prefix}{formatted}{suffix}</>;
+}
+
+/* ─── FULL-BLEED IMAGE BREAK with parallax ─── */
 function FullBleedImage({ src, alt, height = '50vh' }: { src: string; alt: string; height?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+
   return (
-    <div className="relative w-full overflow-hidden" style={{ height }}>
-      <Image src={src} alt={alt} fill className="object-cover industrial-image" />
+    <div ref={ref} className="relative w-full overflow-hidden" style={{ height }}>
+      <motion.div className="absolute inset-[-10%] will-change-transform" style={{ y }}>
+        <Image src={src} alt={alt} fill className="object-cover industrial-image" />
+      </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-[#1A1A1A]" />
     </div>
   );
 }
 
-/* ─── SPLIT SECTION (Palantir: text + image) ─── */
+/* ─── SPLIT SECTION with parallax on image ─── */
 function SplitSection({ children, imageSrc, imageAlt, reverse = false }: { children: React.ReactNode; imageSrc: string; imageAlt: string; reverse?: boolean }) {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const imgY = useTransform(scrollYProgress, [0, 1], ['-5%', '5%']);
+
   return (
-    <section className="bg-[#1A1A1A]">
+    <section ref={sectionRef} className="bg-[#1A1A1A]">
       <div className="max-w-[1800px] mx-auto">
         <div className={`grid grid-cols-1 lg:grid-cols-2 min-h-[70vh] ${reverse ? 'lg:dir-rtl' : ''}`}>
           <div className={`flex items-center px-8 md:px-16 lg:px-24 py-20 ${reverse ? 'lg:order-2' : 'lg:order-1'}`}>
@@ -80,7 +189,9 @@ function SplitSection({ children, imageSrc, imageAlt, reverse = false }: { child
             </div>
           </div>
           <div className={`relative min-h-[40vh] lg:min-h-0 overflow-hidden ${reverse ? 'lg:order-1' : 'lg:order-2'}`}>
-            <Image src={imageSrc} alt={imageAlt} fill className="object-cover industrial-image" />
+            <motion.div className="absolute inset-[-10%] will-change-transform" style={{ y: imgY }}>
+              <Image src={imageSrc} alt={imageAlt} fill className="object-cover industrial-image" />
+            </motion.div>
           </div>
         </div>
       </div>
@@ -88,7 +199,7 @@ function SplitSection({ children, imageSrc, imageAlt, reverse = false }: { child
   );
 }
 
-/* ─── STAT BAR (Palantir style) ─── */
+/* ─── STAT BAR with bounce animation ─── */
 function StatBar({ stat, value, max }: { stat: string; value: number; max: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -99,9 +210,270 @@ function StatBar({ stat, value, max }: { stat: string; value: number; max: numbe
         <span className="text-[12px] font-bold text-white">{value}%</span>
       </div>
       <div className="h-1 bg-[#252525] rounded-full overflow-hidden">
-        <div className="h-full bg-white/60 rounded-full transition-all duration-[2s] ease-out" style={{ width: isInView ? `${(value / max) * 100}%` : '0%' }} />
+        <motion.div
+          className="h-full bg-white/60 rounded-full"
+          initial={{ width: '0%' }}
+          animate={isInView ? { width: `${(value / max) * 100}%` } : { width: '0%' }}
+          transition={{ duration: 1.5, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
+        />
       </div>
     </div>
+  );
+}
+
+/* ─── STAGGERED TABLE ROW ─── */
+function StaggeredRow({ children, index }: { children: React.ReactNode; index: number }) {
+  const ref = useRef<HTMLTableRowElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-20px' });
+  return (
+    <motion.tr
+      ref={ref}
+      initial={{ opacity: 0, y: 12 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+      transition={{ duration: 0.5, delay: index * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="group"
+    >
+      {children}
+    </motion.tr>
+  );
+}
+
+/* ─── INTERACTIVE CARD WRAPPER ─── */
+function InteractiveCard({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return (
+    <motion.div
+      className={`card group relative overflow-hidden ${className}`}
+      whileHover={{ y: -4, borderColor: 'rgba(255,255,255,0.12)' }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+    >
+      {/* Gradient reveal on hover */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      {children}
+    </motion.div>
+  );
+}
+
+/* ─── METRIC CARD with hover glow ─── */
+function MetricCard({ m }: { m: { value: number; prefix: string; suffix: string; label: string } }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <motion.div
+      className="card p-6 text-center relative group cursor-default"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      whileHover={{ y: -4, boxShadow: '0 0 30px rgba(255,255,255,0.04)' }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+    >
+      {/* Subtle glow effect */}
+      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ boxShadow: '0 0 40px rgba(255,255,255,0.03) inset' }} />
+      <p className="text-3xl md:text-4xl font-bold text-white stat-mono relative z-10">
+        <motion.span
+          animate={hovered ? { scale: [1, 1.05, 1] } : { scale: 1 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="inline-block"
+        >
+          <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
+        </motion.span>
+      </p>
+      <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1 relative z-10">{m.label}</p>
+    </motion.div>
+  );
+}
+
+/* ─── ANIMATED ROADMAP TIMELINE ─── */
+function AnimatedRoadmap({ roadmap }: { roadmap: typeof agriData.roadmap }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, margin: '-100px' });
+
+  return (
+    <div ref={containerRef} className="relative">
+      {/* Vertical line that draws on scroll */}
+      <div className="absolute left-[19px] md:left-[23px] top-0 bottom-0 w-px overflow-hidden">
+        <motion.div
+          className="w-full bg-white/20 origin-top"
+          initial={{ height: '0%' }}
+          animate={isInView ? { height: '100%' } : { height: '0%' }}
+          transition={{ duration: 2.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        />
+      </div>
+
+      <div className="space-y-12">
+        {roadmap.map((phase, i) => (
+          <RoadmapPhase key={phase.phase} phase={phase} index={i} isInView={isInView} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ─── ROADMAP PHASE with scroll-triggered reveal ─── */
+function RoadmapPhase({ phase, index, isInView }: { phase: typeof agriData.roadmap[0]; index: number; isInView: boolean }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const phaseInView = useInView(ref, { once: true, margin: '-80px' });
+  const [statsActive, setStatsActive] = useState(false);
+
+  useEffect(() => {
+    if (phaseInView && !statsActive) {
+      const timer = setTimeout(() => setStatsActive(true), 300 + index * 200);
+      return () => clearTimeout(timer);
+    }
+  }, [phaseInView, statsActive, index]);
+
+  return (
+    <motion.div
+      ref={ref}
+      className="relative pl-12 md:pl-16"
+      initial={{ opacity: 0, x: -20 }}
+      animate={phaseInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+      transition={{ duration: 0.7, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
+      {/* Phase dot */}
+      <div className="absolute left-[12px] md:left-[16px] top-2">
+        <motion.div
+          className="w-[15px] h-[15px] rounded-full border-2 border-white/30 bg-[#1A1A1A] flex items-center justify-center"
+          animate={phaseInView ? { borderColor: 'rgba(255,255,255,0.6)' } : { borderColor: 'rgba(255,255,255,0.15)' }}
+          transition={{ duration: 0.5, delay: index * 0.15 }}
+        >
+          <motion.div
+            className="w-[5px] h-[5px] rounded-full bg-white/60"
+            animate={phaseInView ? { scale: [0, 1.2, 1], opacity: [0, 1, 1] } : { scale: 0, opacity: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
+          />
+        </motion.div>
+        {/* Pulse ring */}
+        {phaseInView && (
+          <motion.div
+            className="absolute inset-[-4px] rounded-full border border-white/10"
+            animate={{ scale: [1, 1.6], opacity: [0.5, 0] }}
+            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3, delay: index * 0.15 }}
+          />
+        )}
+      </div>
+
+      {/* Content card */}
+      <div className="card p-6 md:p-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          {/* Phase header */}
+          <div className="md:col-span-3">
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">{phase.phase}</span>
+            <h3 className="text-xl font-bold text-white mt-1">{phase.title}</h3>
+            <p className="text-[12px] text-[#666666] mt-1">{phase.period}</p>
+            <p className="text-[11px] text-[#666666] mt-1">{phase.funding}</p>
+          </div>
+          {/* Key metrics */}
+          <div className="md:col-span-3 grid grid-cols-3 gap-3">
+            <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.03)]">
+              <p className="text-lg font-bold text-white stat-mono">
+                {statsActive ? <AnimatedCounter target={phase.hectares} /> : '0'}
+              </p>
+              <p className="text-[9px] text-[#666666] uppercase tracking-wider">Hectares</p>
+            </div>
+            <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.03)]">
+              <p className="text-lg font-bold text-white stat-mono">
+                {statsActive ? <AnimatedCounter target={phase.farmers} /> : '0'}
+              </p>
+              <p className="text-[9px] text-[#666666] uppercase tracking-wider">Farmers</p>
+            </div>
+            <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.03)]">
+              <p className="text-sm font-bold text-white stat-mono">{phase.revenue}</p>
+              <p className="text-[9px] text-[#666666] uppercase tracking-wider">Revenue</p>
+            </div>
+          </div>
+          {/* Actions */}
+          <div className="md:col-span-6">
+            <div className="space-y-2">
+              {phase.actions.map((action, j) => (
+                <motion.div
+                  key={j}
+                  className="flex items-start gap-2"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={phaseInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }}
+                  transition={{ duration: 0.4, delay: index * 0.15 + 0.3 + j * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <div className="mt-1.5 w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />
+                  <span className="text-[12px] text-[#999999] leading-relaxed">{action}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ─── MOAT CARD with hover effects ─── */
+function MoatCard({ moat }: { moat: typeof agriData.moats[0] }) {
+  const Icon = moat.icon;
+  return (
+    <motion.div
+      className="flex gap-4 group cursor-default p-4 -m-4 rounded-lg transition-colors duration-300 hover:bg-[rgba(255,255,255,0.02)]"
+      whileHover={{ x: 4 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+    >
+      <motion.div
+        className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center flex-shrink-0 mt-1"
+        whileHover={{ rotate: 8 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+      >
+        <Icon size={18} className="text-white" strokeWidth={1.5} />
+      </motion.div>
+      <div>
+        <h3 className="text-[15px] font-bold text-white mb-2">{moat.title}</h3>
+        <p className="text-[13px] text-[#999999] leading-relaxed group-hover:text-[#BBBBBB] transition-colors duration-300">{moat.desc}</p>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ─── COMPETITOR ROW with hover highlight ─── */
+function CompetitorCard({ comp, index }: { comp: typeof agriData.competitors[0]; index: number }) {
+  return (
+    <FadeIn delay={index * 0.06}>
+      <motion.div
+        className="card p-6 group cursor-default"
+        whileHover={{ borderColor: 'rgba(255,255,255,0.12)' }}
+        transition={{ duration: 0.25 }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+          {/* Name + Country */}
+          <div className="md:col-span-3">
+            <h3 className="font-bold text-white text-[15px]">{comp.name}</h3>
+            <p className="text-[11px] text-[#666666]">{comp.country} &middot; {comp.maturity}</p>
+            <p className="text-[11px] text-[#999999] mt-1">{comp.model}</p>
+          </div>
+          {/* Key data */}
+          <div className="md:col-span-3 grid grid-cols-2 gap-2">
+            <div>
+              <p className="text-[9px] text-[#666666] uppercase tracking-wider">Revenue</p>
+              <p className="text-[13px] text-white stat-mono">{comp.revenue}</p>
+            </div>
+            <div>
+              <p className="text-[9px] text-[#666666] uppercase tracking-wider">Funding</p>
+              <p className="text-[13px] text-white stat-mono">{comp.funding}</p>
+            </div>
+            <div>
+              <p className="text-[9px] text-[#666666] uppercase tracking-wider">Farmers</p>
+              <p className="text-[13px] text-white">{comp.farmers}</p>
+            </div>
+            <div>
+              <p className="text-[9px] text-[#666666] uppercase tracking-wider">Africa</p>
+              <p className="text-[13px] text-white">{comp.africa}</p>
+            </div>
+          </div>
+          {/* HarchAgri Advantage */}
+          <div className="md:col-span-4">
+            <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">HarchAgri Advantage</p>
+            <p className="text-[12px] text-[#999999] leading-relaxed group-hover:text-[#BBBBBB] transition-colors duration-300">{comp.advantage}</p>
+          </div>
+          {/* Weakness */}
+          <div className="md:col-span-2">
+            <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Key Weakness</p>
+            <p className="text-[12px] text-[#999999] leading-relaxed group-hover:text-[#BBBBBB] transition-colors duration-300">{comp.weakness}</p>
+          </div>
+        </div>
+      </motion.div>
+    </FadeIn>
   );
 }
 
@@ -484,13 +856,23 @@ const agriData = {
 export default function HarchAgriPage() {
   const data = agriData;
 
+  /* Hero parallax */
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroScroll } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const heroY = useTransform(heroScroll, [0, 1], ['0%', '20%']);
+
   return (
     <div className="bg-[#1A1A1A]">
       {/* ═══════════════════════════════════════════
-          HERO
+          HERO — with parallax
           ═══════════════════════════════════════════ */}
-      <section className="photo-section relative min-h-[85vh] flex items-end">
-        <Image src={data.heroImage} alt={data.name} fill className="object-cover" priority />
+      <section ref={heroRef} className="photo-section relative min-h-[85vh] flex items-end overflow-hidden">
+        <motion.div className="absolute inset-0 will-change-transform" style={{ y: heroY }}>
+          <Image src={data.heroImage} alt={data.name} fill className="object-cover" priority />
+        </motion.div>
         <div className="absolute inset-0 z-[1] opacity-30">
           <HeroScene />
         </div>
@@ -516,7 +898,7 @@ export default function HarchAgriPage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn>
-              <p className="section-label mb-4">Overview</p>
+              <SectionLabel>Overview</SectionLabel>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
                 {data.name}
               </h2>
@@ -531,12 +913,7 @@ export default function HarchAgriPage() {
             <FadeIn delay={0.15}>
               <div className="grid grid-cols-2 gap-4">
                 {data.metrics.map((m) => (
-                  <div key={m.label} className="card p-6 text-center">
-                    <p className="text-3xl md:text-4xl font-bold text-white stat-mono">
-                      <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
-                    </p>
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1">{m.label}</p>
-                  </div>
+                  <MetricCard key={m.label} m={m} />
                 ))}
               </div>
             </FadeIn>
@@ -550,7 +927,7 @@ export default function HarchAgriPage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Market Analysis</p>
+            <SectionLabel>Market Analysis</SectionLabel>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Five Segments, One Platform</h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">The African agritech market divides into five segments. HarchAgri targets the four highest-growth, least-served — avoiding the commoditized marketplace space entirely.</p>
           </FadeIn>
@@ -568,41 +945,21 @@ export default function HarchAgriPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td className="font-semibold text-white">Agricultural Drones</td>
-                      <td className="text-white">$8.5B (2025)</td>
-                      <td className="text-white">25%</td>
-                      <td>Nascent</td>
-                      <td className="text-white font-semibold">Very strong</td>
-                    </tr>
-                    <tr>
-                      <td className="font-semibold text-white">IoT Irrigation</td>
-                      <td className="text-white">$3.2B (2025)</td>
-                      <td className="text-white">18%</td>
-                      <td>Low</td>
-                      <td className="text-white font-semibold">Strong</td>
-                    </tr>
-                    <tr>
-                      <td className="font-semibold text-white">Vertical Farming</td>
-                      <td className="text-white">$8.5B (2025)</td>
-                      <td className="text-white">26.8%</td>
-                      <td>Non-existent</td>
-                      <td className="text-white">Medium</td>
-                    </tr>
-                    <tr>
-                      <td className="font-semibold text-white">Carbon Credits</td>
-                      <td className="text-white">$2B Africa</td>
-                      <td className="text-white">30%+</td>
-                      <td>Emerging</td>
-                      <td className="text-white font-semibold">Very strong</td>
-                    </tr>
-                    <tr>
-                      <td className="font-semibold text-white">Marketplace</td>
-                      <td className="text-white">$15B Africa</td>
-                      <td className="text-white">12%</td>
-                      <td>Crowded</td>
-                      <td>Low (avoid)</td>
-                    </tr>
+                    {[
+                      { segment: 'Agricultural Drones', size: '$8.5B (2025)', cagr: '25%', maturity: 'Nascent', opportunity: 'Very strong', oppStrong: true },
+                      { segment: 'IoT Irrigation', size: '$3.2B (2025)', cagr: '18%', maturity: 'Low', opportunity: 'Strong', oppStrong: true },
+                      { segment: 'Vertical Farming', size: '$8.5B (2025)', cagr: '26.8%', maturity: 'Non-existent', opportunity: 'Medium', oppStrong: false },
+                      { segment: 'Carbon Credits', size: '$2B Africa', cagr: '30%+', maturity: 'Emerging', opportunity: 'Very strong', oppStrong: true },
+                      { segment: 'Marketplace', size: '$15B Africa', cagr: '12%', maturity: 'Crowded', opportunity: 'Low (avoid)', oppStrong: false },
+                    ].map((row, i) => (
+                      <StaggeredRow key={row.segment} index={i}>
+                        <td className="font-semibold text-white">{row.segment}</td>
+                        <td className="text-white">{row.size}</td>
+                        <td className="text-white">{row.cagr}</td>
+                        <td>{row.maturity}</td>
+                        <td className={`text-white ${row.oppStrong ? 'font-semibold' : ''}`}>{row.opportunity}</td>
+                      </StaggeredRow>
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -624,7 +981,7 @@ export default function HarchAgriPage() {
           ═══════════════════════════════════════════ */}
       <SplitSection imageSrc={data.sectionImage2} imageAlt={`${data.name} operations`}>
         <FadeIn>
-          <p className="section-label mb-4">Strategic Context</p>
+          <SectionLabel>Strategic Context</SectionLabel>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
             Why This Matters
           </h2>
@@ -639,7 +996,7 @@ export default function HarchAgriPage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Products</p>
+            <SectionLabel>Products</SectionLabel>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               Five Integrated Pillars
             </h2>
@@ -652,11 +1009,11 @@ export default function HarchAgriPage() {
               const Icon = product.icon;
               return (
                 <FadeIn key={product.name} delay={i * 0.08}>
-                  <div className="card p-6 h-full group relative overflow-hidden">
-                    {/* Subtle top accent on hover */}
-                    <div className="absolute top-0 left-0 right-0 h-px bg-white/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-400" />
+                  <InteractiveCard className="p-6 h-full">
+                    {/* Top accent line on hover */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-white/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                     {/* Header */}
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-start justify-between mb-4 relative z-10">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
                           <Icon size={18} className="text-white" strokeWidth={1.5} />
@@ -672,18 +1029,23 @@ export default function HarchAgriPage() {
                       </div>
                     </div>
                     {/* Description */}
-                    <p className="text-[12px] text-[#999999] leading-relaxed mb-4">{product.description}</p>
-                    {/* Stats */}
-                    <div className="grid grid-cols-3 gap-2 mb-4">
+                    <p className="text-[12px] text-[#999999] leading-relaxed mb-4 relative z-10">{product.description}</p>
+                    {/* Stats — animate on hover */}
+                    <div className="grid grid-cols-3 gap-2 mb-4 relative z-10">
                       {product.stats.map((stat, j) => (
-                        <div key={j} className="text-center p-2 rounded-lg bg-[rgba(255,255,255,0.03)]">
+                        <motion.div
+                          key={j}
+                          className="text-center p-2 rounded-lg bg-[rgba(255,255,255,0.03)]"
+                          whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.06)' }}
+                          transition={{ duration: 0.2, ease: 'easeOut' }}
+                        >
                           <p className="text-sm font-bold text-white stat-mono">{stat.value}</p>
                           <p className="text-[9px] text-[#666666] uppercase tracking-wider">{stat.label}</p>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                     {/* Features */}
-                    <div className="space-y-2 mb-4">
+                    <div className="space-y-2 mb-4 relative z-10">
                       {product.features.map((feature, j) => (
                         <div key={j} className="flex items-start gap-2">
                           <div className="mt-1.5 w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />
@@ -692,14 +1054,14 @@ export default function HarchAgriPage() {
                       ))}
                     </div>
                     {/* Footer: ROI + Target */}
-                    <div className="flex items-center justify-between pt-3 border-t border-[rgba(255,255,255,0.04)]">
+                    <div className="flex items-center justify-between pt-3 border-t border-[rgba(255,255,255,0.04)] relative z-10">
                       <div className="flex items-center gap-1.5">
                         <Clock size={10} className="text-[#666666]" />
                         <span className="text-[10px] text-[#666666]">ROI: {product.roi}</span>
                       </div>
                       <span className="text-[10px] text-[#666666]">{product.target}</span>
                     </div>
-                  </div>
+                  </InteractiveCard>
                 </FadeIn>
               );
             })}
@@ -707,8 +1069,8 @@ export default function HarchAgriPage() {
 
           {/* STARTER KIT — Highlighted */}
           <FadeIn delay={0.4}>
-            <div className="mt-6 card p-6 border-dashed border-[rgba(255,255,255,0.12)]">
-              <div className="flex items-center justify-between">
+            <InteractiveCard className="mt-6 p-6 border-dashed border-[rgba(255,255,255,0.12)]">
+              <div className="flex items-center justify-between relative z-10">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
                     <Wheat size={18} className="text-white" strokeWidth={1.5} />
@@ -723,8 +1085,8 @@ export default function HarchAgriPage() {
                   <p className="text-[10px] text-[#666666]">ROI: {data.starterKit.roi}</p>
                 </div>
               </div>
-              <p className="text-[12px] text-[#666666] mt-3">For {data.starterKit.target} — eliminates price barrier to technology adoption.</p>
-            </div>
+              <p className="text-[12px] text-[#666666] mt-3 relative z-10">For {data.starterKit.target} — eliminates price barrier to technology adoption.</p>
+            </InteractiveCard>
           </FadeIn>
         </div>
       </section>
@@ -735,7 +1097,7 @@ export default function HarchAgriPage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Pricing</p>
+            <SectionLabel>Pricing</SectionLabel>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Transparent Pricing</h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Simple, transparent pricing designed for African agricultural economics. No hidden fees. Carbon credit revenue included by default.</p>
           </FadeIn>
@@ -753,14 +1115,14 @@ export default function HarchAgriPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.pricing.map((row) => (
-                      <tr key={row.product}>
+                    {data.pricing.map((row, i) => (
+                      <StaggeredRow key={row.product} index={i}>
                         <td className="font-semibold text-white">{row.product}</td>
                         <td className="text-white stat-mono">{row.price}</td>
                         <td className="text-[#999999]">{row.unit}</td>
                         <td className="text-white">{row.roi}</td>
                         <td className="text-[#999999]">{row.target}</td>
-                      </tr>
+                      </StaggeredRow>
                     ))}
                   </tbody>
                 </table>
@@ -771,63 +1133,12 @@ export default function HarchAgriPage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          INTERACTIVE MAP
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212] relative overflow-hidden">
-        <ParticleField />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-          <FadeIn>
-            <div className="text-center mb-12">
-              <p className="section-label mb-4">Deployments / Real-Time</p>
-              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em]">
-                Operating Across<br />Africa
-              </h2>
-              <p className="max-w-xl mx-auto mt-4 text-[15px] text-[#999999] leading-relaxed">
-                5 hubs in Morocco — Casablanca, Marrakech, Tanger, Rabat, Agadir — each covering 100km radius for drone and IoT operations. Expansion to Senegal, Kenya, Ghana in Phase 3.
-              </p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="card overflow-hidden" style={{ height: '520px' }}>
-              <AfricaMap />
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          PHOTO BREAK
-          ═══════════════════════════════════════════ */}
-      <FullBleedImage src={data.sectionImage3} alt={`${data.name} vertical farming`} height="50vh" />
-
-      {/* ═══════════════════════════════════════════
-          IoT DASHBOARD
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A] relative overflow-hidden">
-        <ParticleField />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-          <FadeIn>
-            <p className="section-label mb-4">Live Monitoring</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              IoT Dashboard
-            </h2>
-            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
-              Real-time sensor data — temperature, soil moisture, crop health, and carbon credits. All processed on Harch Corp GPU infrastructure with near-zero marginal cost.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <IoTDashboard />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
           COMPETITIVE ANALYSIS
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Competitive Analysis</p>
+            <SectionLabel>Competitive Analysis</SectionLabel>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               HarchAgri vs. The Field
             </h2>
@@ -839,53 +1150,17 @@ export default function HarchAgriPage() {
           {/* Competitor cards */}
           <div className="space-y-4">
             {data.competitors.map((comp, i) => (
-              <FadeIn key={comp.name} delay={i * 0.06}>
-                <div className="card p-6">
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
-                    {/* Name + Country */}
-                    <div className="md:col-span-3">
-                      <h3 className="font-bold text-white text-[15px]">{comp.name}</h3>
-                      <p className="text-[11px] text-[#666666]">{comp.country} &middot; {comp.maturity}</p>
-                      <p className="text-[11px] text-[#999999] mt-1">{comp.model}</p>
-                    </div>
-                    {/* Key data */}
-                    <div className="md:col-span-3 grid grid-cols-2 gap-2">
-                      <div>
-                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Revenue</p>
-                        <p className="text-[13px] text-white stat-mono">{comp.revenue}</p>
-                      </div>
-                      <div>
-                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Funding</p>
-                        <p className="text-[13px] text-white stat-mono">{comp.funding}</p>
-                      </div>
-                      <div>
-                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Farmers</p>
-                        <p className="text-[13px] text-white">{comp.farmers}</p>
-                      </div>
-                      <div>
-                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Africa</p>
-                        <p className="text-[13px] text-white">{comp.africa}</p>
-                      </div>
-                    </div>
-                    {/* HarchAgri Advantage */}
-                    <div className="md:col-span-4">
-                      <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">HarchAgri Advantage</p>
-                      <p className="text-[12px] text-[#999999] leading-relaxed">{comp.advantage}</p>
-                    </div>
-                    {/* Weakness */}
-                    <div className="md:col-span-2">
-                      <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Key Weakness</p>
-                      <p className="text-[12px] text-[#999999] leading-relaxed">{comp.weakness}</p>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
+              <CompetitorCard key={comp.name} comp={comp} index={i} />
             ))}
           </div>
 
           {/* HarchAgri comparison highlight */}
           <FadeIn delay={0.4}>
-            <div className="mt-6 card p-6 border border-white/10">
+            <motion.div
+              className="mt-6 card p-6 border border-white/10"
+              whileHover={{ borderColor: 'rgba(255,255,255,0.2)' }}
+              transition={{ duration: 0.25 }}
+            >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
                   <span className="text-[10px] font-bold tracking-[0.15em] text-white font-[family-name:var(--font-space-mono)]">{data.version}</span>
@@ -913,7 +1188,7 @@ export default function HarchAgriPage() {
                   <p className="text-[14px] text-white font-semibold stat-mono">50K farmers / $50M ARR</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </FadeIn>
         </div>
       </section>
@@ -925,26 +1200,15 @@ export default function HarchAgriPage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <FadeIn>
-              <p className="section-label mb-4">Competitive Moat</p>
+              <SectionLabel>Competitive Moat</SectionLabel>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
                 Three Advantages Nobody Can Replicate
               </h2>
               <div className="accent-line mb-8" />
-              <div className="space-y-8">
-                {data.moats.map((moat) => {
-                  const Icon = moat.icon;
-                  return (
-                    <div key={moat.title} className="flex gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center flex-shrink-0 mt-1">
-                        <Icon size={18} className="text-white" strokeWidth={1.5} />
-                      </div>
-                      <div>
-                        <h3 className="text-[15px] font-bold text-white mb-2">{moat.title}</h3>
-                        <p className="text-[13px] text-[#999999] leading-relaxed">{moat.desc}</p>
-                      </div>
-                    </div>
-                  );
-                })}
+              <div className="space-y-4">
+                {data.moats.map((moat) => (
+                  <MoatCard key={moat.title} moat={moat} />
+                ))}
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
@@ -953,69 +1217,16 @@ export default function HarchAgriPage() {
                   <StatBar key={s.stat} stat={s.stat} value={s.value} max={s.max} />
                 ))}
               </div>
-              <div className="mt-12 p-6 card">
+              <motion.div
+                className="mt-12 p-6 card"
+                whileHover={{ borderColor: 'rgba(255,255,255,0.12)' }}
+                transition={{ duration: 0.25 }}
+              >
                 <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-2">Carbon Intensity</p>
                 <p className="text-4xl font-bold text-white stat-mono">47 gCO2/kWh</p>
                 <p className="text-[12px] text-[#999999] mt-2">89% below industry average of ~450 gCO2/kWh</p>
-              </div>
+              </motion.div>
             </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          ROADMAP — 4 Phase Timeline
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Roadmap</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">Four Phases to Continental Leadership</h2>
-            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">Lean startup philosophy: validate with minimum viable product before scaling. Avoid the fatal mistake of Twiga Foods — over-investing before proving the model.</p>
-          </FadeIn>
-
-          <div className="space-y-6">
-            {data.roadmap.map((phase, i) => (
-              <FadeIn key={phase.phase} delay={i * 0.1}>
-                <div className="card p-6 md:p-8">
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                    {/* Phase header */}
-                    <div className="md:col-span-3">
-                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">{phase.phase}</span>
-                      <h3 className="text-xl font-bold text-white mt-1">{phase.title}</h3>
-                      <p className="text-[12px] text-[#666666] mt-1">{phase.period}</p>
-                      <p className="text-[11px] text-[#666666] mt-1">{phase.funding}</p>
-                    </div>
-                    {/* Key metrics */}
-                    <div className="md:col-span-3 grid grid-cols-3 gap-3">
-                      <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.03)]">
-                        <p className="text-lg font-bold text-white stat-mono">{phase.hectares.toLocaleString()}</p>
-                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Hectares</p>
-                      </div>
-                      <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.03)]">
-                        <p className="text-lg font-bold text-white stat-mono">{phase.farmers.toLocaleString()}</p>
-                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Farmers</p>
-                      </div>
-                      <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.03)]">
-                        <p className="text-sm font-bold text-white stat-mono">{phase.revenue}</p>
-                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Revenue</p>
-                      </div>
-                    </div>
-                    {/* Actions */}
-                    <div className="md:col-span-6">
-                      <div className="space-y-2">
-                        {phase.actions.map((action, j) => (
-                          <div key={j} className="flex items-start gap-2">
-                            <div className="mt-1.5 w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />
-                            <span className="text-[12px] text-[#999999] leading-relaxed">{action}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
           </div>
         </div>
       </section>
@@ -1025,7 +1236,7 @@ export default function HarchAgriPage() {
           ═══════════════════════════════════════════ */}
       <SplitSection imageSrc={data.sectionImage4} imageAlt={`${data.name} sustainability`}>
         <FadeIn>
-          <p className="section-label mb-4">Sustainability & ESG</p>
+          <SectionLabel>Sustainability & ESG</SectionLabel>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
             Sustainability Is the Business Model
           </h2>
@@ -1035,12 +1246,17 @@ export default function HarchAgriPage() {
       </SplitSection>
 
       {/* ═══════════════════════════════════════════
+          FULL-BLEED IMAGE BREAK
+          ═══════════════════════════════════════════ */}
+      <FullBleedImage src={data.sectionImage3} alt={`${data.name} vertical farming`} height="50vh" />
+
+      {/* ═══════════════════════════════════════════
           STRATEGIC PARTNERSHIPS
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Partnerships</p>
+            <SectionLabel>Partnerships</SectionLabel>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               Strategic Partners
             </h2>
@@ -1051,8 +1267,8 @@ export default function HarchAgriPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {data.partners.map((partner, i) => (
               <FadeIn key={partner.name} delay={i * 0.08}>
-                <div className="card p-6 h-full group">
-                  <div className="flex items-start justify-between mb-3">
+                <InteractiveCard className="p-6 h-full">
+                  <div className="flex items-start justify-between mb-3 relative z-10">
                     <div>
                       <h4 className="font-bold text-[13px] text-white">{partner.name}</h4>
                       <p className="text-[10px] text-[#666666]">{partner.type} — {partner.country}</p>
@@ -1062,21 +1278,36 @@ export default function HarchAgriPage() {
                       {partner.status}
                     </span>
                   </div>
-                  <div className="mb-3">
+                  <div className="mb-3 relative z-10">
                     <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">We bring</p>
                     <p className="text-[11px] text-white">{partner.harchContribution}</p>
                   </div>
-                  <div className="mb-3">
+                  <div className="mb-3 relative z-10">
                     <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">They bring</p>
                     <p className="text-[11px] text-[#999999]">{partner.partnerContribution}</p>
                   </div>
-                  <div className="pt-3 border-t border-[rgba(255,255,255,0.04)]">
+                  <div className="pt-3 border-t border-[rgba(255,255,255,0.04)] relative z-10">
                     <span className="text-[9px] text-[#666666] uppercase tracking-wider font-[family-name:var(--font-space-mono)]">{partner.priority}</span>
                   </div>
-                </div>
+                </InteractiveCard>
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          ROADMAP — Animated Timeline
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <SectionLabel>Roadmap</SectionLabel>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">Four Phases to Continental Leadership</h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">Lean startup philosophy: validate with minimum viable product before scaling. Avoid the fatal mistake of Twiga Foods — over-investing before proving the model.</p>
+          </FadeIn>
+
+          <AnimatedRoadmap roadmap={data.roadmap} />
         </div>
       </section>
 
@@ -1086,7 +1317,7 @@ export default function HarchAgriPage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Risk Analysis</p>
+            <SectionLabel>Risk Analysis</SectionLabel>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Identified Risks & Mitigations</h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Prudence is not an option — it is a necessity. The failures of Twiga Foods, AeroFarms, and the volatile agritech funding environment in 2025 teach us this.</p>
           </FadeIn>
@@ -1103,8 +1334,8 @@ export default function HarchAgriPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.risks.map((r) => (
-                      <tr key={r.risk}>
+                    {data.risks.map((r, i) => (
+                      <StaggeredRow key={r.risk} index={i}>
                         <td className="font-semibold text-white">{r.risk}</td>
                         <td>
                           <span className={`inline-flex items-center gap-1.5 text-[11px] ${r.probability === 'High' ? 'text-white' : r.probability === 'Medium' ? 'text-[#999999]' : 'text-[#666666]'}`}>
@@ -1118,11 +1349,129 @@ export default function HarchAgriPage() {
                           </span>
                         </td>
                         <td className="text-[12px] text-[#999999] max-w-md">{r.mitigation}</td>
-                      </tr>
+                      </StaggeredRow>
                     ))}
                   </tbody>
                 </table>
               </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          IoT DASHBOARD
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#1A1A1A] relative overflow-hidden">
+        <ParticleField />
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn>
+            <SectionLabel>Live Monitoring</SectionLabel>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
+              IoT Dashboard
+            </h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
+              Real-time sensor data — temperature, soil moisture, crop health, and carbon credits. All processed on Harch Corp GPU infrastructure with near-zero marginal cost.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <IoTDashboard />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          AFRICA MAP
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#121212] relative overflow-hidden">
+        <ParticleField />
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <SectionLabel className="justify-center">Deployments / Real-Time</SectionLabel>
+              <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em]">
+                Operating Across<br />Africa
+              </h2>
+              <p className="max-w-xl mx-auto mt-4 text-[15px] text-[#999999] leading-relaxed">
+                5 hubs in Morocco — Casablanca, Marrakech, Tanger, Rabat, Agadir — each covering 100km radius for drone and IoT operations. Expansion to Senegal, Kenya, Ghana in Phase 3.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="card overflow-hidden" style={{ height: '520px' }}>
+              <AfricaMap />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          STATS
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <FadeIn>
+              <SectionLabel>Performance</SectionLabel>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
+                By the Numbers
+              </h2>
+              <div className="accent-line mb-8" />
+              <div className="space-y-2">
+                {data.stats.map((s) => (
+                  <StatBar key={s.stat} stat={s.stat} value={s.value} max={s.max} />
+                ))}
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.15}>
+              <div className="mt-8 lg:mt-0">
+                <motion.div
+                  className="p-6 card mb-6"
+                  whileHover={{ borderColor: 'rgba(255,255,255,0.12)' }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-2">Carbon Intensity</p>
+                  <p className="text-4xl font-bold text-white stat-mono">47 gCO2/kWh</p>
+                  <p className="text-[12px] text-[#999999] mt-2">89% below industry average of ~450 gCO2/kWh</p>
+                </motion.div>
+                <motion.div
+                  className="p-6 card"
+                  whileHover={{ borderColor: 'rgba(255,255,255,0.12)' }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-2">Renewable Energy</p>
+                  <p className="text-4xl font-bold text-white stat-mono">81.5%</p>
+                  <p className="text-[12px] text-[#999999] mt-2">Across 5 operational hubs in Morocco</p>
+                </motion.div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          LOCATION
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#0A0A0A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <SectionLabel>Location</SectionLabel>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">{data.location}</h2>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-8">{data.locationDesc}</p>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+              {['Casablanca', 'Marrakech', 'Tanger', 'Rabat', 'Agadir'].map((city, i) => (
+                <FadeIn key={city} delay={i * 0.06}>
+                  <motion.div
+                    className="card p-4 text-center"
+                    whileHover={{ y: -2, borderColor: 'rgba(255,255,255,0.12)' }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <MapPin size={14} className="text-white/40 mx-auto mb-2" />
+                    <p className="text-[12px] font-semibold text-white">{city}</p>
+                    <p className="text-[9px] text-[#666666]">100km radius</p>
+                  </motion.div>
+                </FadeIn>
+              ))}
             </div>
           </FadeIn>
         </div>

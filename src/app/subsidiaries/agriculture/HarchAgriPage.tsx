@@ -116,8 +116,8 @@ const agriData = {
   heroSubtitle: 'Drones, IoT, vertical farms, and carbon credits — powered by 1,798 GPUs across 5 hubs. The only integrated AgTech platform on the African continent.',
   heroImage: '/images/sections/agri-aerial-drone.jpg',
   sectionImage1: '/images/sections/agri-carbon-credit.jpg',
-  sectionImage2: '/images/sections/agri-drone-flight.jpg',
-  sectionImage3: '/images/sections/agri-vertical-interior.jpg',
+  sectionImage2: '/images/sections/agri-drone-hightech.jpg',
+  sectionImage3: '/images/sections/agri-aerofarms-interior.jpg',
   sectionImage4: '/images/sections/agri-iot-sensor.jpg',
 
   overview: 'HarchAgri is the agriculture subsidiary of Harch Corp, built on a unique foundation: 1,798 carbon-optimized GPUs, a native Carbon API already in production, and operations across 5 hubs in Morocco. Unlike every competitor who starts with a single product, HarchAgri launches with five integrated pillars — Drone-as-a-Service, IoT irrigation, vertical farms, carbon credit monetization, and a starter kit for smallholders — that reinforce each other into a network effect no single-product player can replicate. Africa holds 60% of the world\'s uncultivated arable land yet imports $50 billion in food annually. HarchAgri exists to close that gap with technology, not charity.',

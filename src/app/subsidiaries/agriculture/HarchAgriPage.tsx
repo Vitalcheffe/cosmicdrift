@@ -492,13 +492,13 @@ const agriData = {
   sectionImage3: '/images/sections/agri-aerofarms-interior.jpg',
   sectionImage4: '/images/sections/agri-iot-sensor.jpg',
 
-  overview: 'HarchAgri is the agriculture subsidiary of Harch Corp, built on a unique foundation: 1,798 carbon-optimized GPUs, a native Carbon API already in production, and operations across 5 hubs in Morocco. Unlike every competitor who starts with a single product, HarchAgri launches with five integrated pillars — Drone-as-a-Service, IoT irrigation, vertical farms, carbon credit monetization, and a starter kit for smallholders — that reinforce each other into a network effect no single-product player can replicate. Africa holds 60% of the world\'s uncultivated arable land yet imports $50 billion in food annually. HarchAgri exists to close that gap with technology, not charity.',
+  overview: 'Africa holds 60% of the world\'s uncultivated arable land yet imports $50 billion in food annually. African cereal yields average 1.5 tonnes per hectare versus 4 tonnes globally. Only 6% of cultivated land is irrigated versus 37% globally. Post-harvest losses exceed 30%. HarchAgri addresses each of these constraints with five integrated pillars — Drone-as-a-Service, IoT irrigation, modular vertical farms, agricultural carbon credits, and a smallholder starter kit — that reinforce each other into a network effect no single-product competitor can replicate. Every product is powered by 1,798 carbon-optimized GPUs and a native Carbon API already operational, delivering zero-marginal-cost compute for all agricultural AI processing across 5 hubs in Morocco.',
 
   strategicContext: 'Africa holds 60% of the world\'s uncultivated arable land — approximately 600 million hectares — yet the continent remains a net food importer, spending $50 billion annually on food imports. African cereal yields average 1.5 tonnes/hectare versus 4 tonnes/hectare globally, only 6% of cultivated land is irrigated versus 37% globally, and post-harvest losses exceed 30%. The 30 million smallholder farmers who produce 70% of locally consumed food face systemic barriers: no access to credit, limited weather data, and fragmented supply chains. Morocco\'s Plan Vert (2008-2020) proved that national strategy works — agricultural GDP doubled, exports tripled, cereal production rose 67%. Generation Green (2020-2030) continues this push with technology and sustainability at its core. HarchAgri addresses each constraint with integrated, GPU-powered solutions.',
 
   marketAnalysis: 'The African agritech market is valued at $35 billion and growing rapidly, despite a volatile funding environment — agritech financing dropped 18% to $168M in 2025 (Briter Intelligence). The market divides into five segments: agricultural drones ($8.5B, 25% CAGR), IoT irrigation ($3.2B, 18% CAGR), vertical farming ($8.5B global, 26.8% CAGR), carbon credits ($2B Africa, 30%+ CAGR), and agricultural marketplaces ($15B Africa, 12% CAGR — the most crowded and most troubled segment, as Twiga Foods\' collapse demonstrates). HarchAgri targets the four highest-growth, least-served segments while avoiding the commoditized marketplace space entirely. The ACMI initiative aims to multiply African carbon credits 20x by 2030, creating a market HarchAgri is uniquely positioned to capture.',
 
-  sustainability: 'Sustainability is not an add-on — it is HarchAgri\'s business model. Every hectare under IoT irrigation saves 0.5-1.5 tonnes CO2/year. Every vertical farm avoids 2-5 tonnes CO2 versus conventional agriculture. Every hectare in regenerative farming sequesters 1-3 tonnes CO2 in soil. Harch Corp\'s Carbon API, already operational, calculates and certifies these credits automatically via Verra (VCS) and Gold Standard. With 81.5% renewable energy across our 5 hubs and 47 gCO2/kWh carbon intensity — 89% below the industry average — every product we sell is verifiably low-carbon. Vertical farms powered by renewable energy from Harch Corp hubs produce vegetables that are certified low-carbon, commanding premium prices from hotels, restaurants, and retailers seeking to reduce their Scope 3 emissions.',
+  sustainability: 'Sustainability is not an add-on — it is HarchAgri\'s business model. Every hectare under IoT irrigation saves 0.5-1.5 tonnes CO2 per year. Every vertical farm avoids 2-5 tonnes CO2 versus conventional agriculture. Every hectare in regenerative farming sequesters 1-3 tonnes CO2 in soil. The Carbon API calculates and certifies these credits automatically via Verra (VCS) and Gold Standard. With 81.5% renewable energy across 5 hubs and 47 gCO2/kWh carbon intensity — 89% below the industry average — every product is verifiably low-carbon. Vertical farms powered by renewable energy produce vegetables that are certified low-carbon, commanding premium prices from hotels, restaurants, and retailers seeking to reduce their Scope 3 emissions.',
 
   investment: '$250K',
   metrics: [
@@ -521,7 +521,7 @@ const agriData = {
       description: 'Autonomous drones equipped with multispectral sensors for NDVI analysis, early disease detection 48 hours before visible symptoms, precision irrigation mapping, and yield prediction at 2 weeks. Unlike Western solutions that require purchasing a drone ($15,000+), HarchAgri operates a DaaS model — the farmer pays a monthly subscription and HarchAgri handles flights, GPU-based data processing, and delivers actionable insights directly to their phone.',
       features: [
         'NDVI analysis — stress detection 48h before visible symptoms',
-        'GPU-processed real-time analytics on Harch Corp infrastructure',
+        'GPU-processed real-time analytics on dedicated infrastructure',
         'Yield prediction 2 weeks ahead with 90%+ accuracy',
         'DaaS model — no drone purchase required',
         '1 drone covers 40 ha/day, ROI 150% year 1',
@@ -540,7 +540,7 @@ const agriData = {
       unit: '/hectare/year',
       roi: '12-18 months',
       target: 'Farms >2ha',
-      description: 'Solar-powered sensor networks monitoring soil moisture, temperature, pH, and nutrient levels continuously. Data transmitted via LoRaWAN (15km range) to Harch Corp servers where AI optimizes irrigation schedules based on weather forecasts, growth stage, and water quotas. Reduces water consumption 30-50% while increasing yields 15-25%. Pay-as-you-grow model: start with a $200 starter kit (3 sensors + LoRaWAN gateway) and scale as results confirm.',
+      description: 'Solar-powered sensor networks monitoring soil moisture, temperature, pH, and nutrient levels continuously. Data transmitted via LoRaWAN (15km range) to dedicated servers where AI optimizes irrigation schedules based on weather forecasts, growth stage, and water quotas. Reduces water consumption 30-50% while increasing yields 15-25%. Pay-as-you-grow model: start with a $200 starter kit (3 sensors + LoRaWAN gateway) and scale as results confirm.',
       features: [
         'Soil sensors: moisture, temperature, pH, NPK',
         'LoRaWAN network — 15 km range, solar-powered',
@@ -568,7 +568,7 @@ const agriData = {
         '2 tonnes/month production — herbs, greens, cherry tomatoes',
         'Cloud-connected for real-time climate optimization',
         'Generates verified carbon credits per container',
-        'Powered by Harch Corp renewable energy — certified low-carbon',
+        'Powered by renewable energy — certified low-carbon',
       ],
       stats: [
         { label: 'Revenue/month', value: '$4-6K' },
@@ -584,7 +584,7 @@ const agriData = {
       unit: 'commission on credits',
       roi: 'Immediate',
       target: 'All HarchAgri clients',
-      description: 'The product no competitor has. Harch Corp\'s Carbon API, already operational, automatically calculates, certifies, and monetizes agricultural carbon credits. Every hectare under IoT irrigation saves 0.5-1.5 tCO2/year. Every vertical farm avoids 2-5 tCO2. Every regenerative hectare sequesters 1-3 tCO2. Certified via Verra (VCS) and Gold Standard. The ACMI initiative targets 20x growth in African carbon credits by 2030 — HarchAgri is positioned to capture this explosion. Revenue model: 2% commission on credit value, with 100,000 ha target by 2030 generating $150K-450K/year in commissions alone.',
+      description: 'The product no competitor has. The Carbon API, already operational, automatically calculates, certifies, and monetizes agricultural carbon credits. Every hectare under IoT irrigation saves 0.5-1.5 tCO2 per year. Every vertical farm avoids 2-5 tCO2. Every regenerative hectare sequesters 1-3 tCO2. Certified via Verra (VCS) and Gold Standard. The ACMI initiative targets 20x growth in African carbon credits by 2030 — HarchAgri is positioned to capture this explosion. Revenue model: 2% commission on credit value, with 100,000 ha target by 2030 generating $150K-450K per year in commissions alone.',
       features: [
         'Native Carbon API — already operational, zero build needed',
         'Automatic certification via Verra VCS + Gold Standard',
@@ -824,7 +824,7 @@ const agriData = {
     },
     {
       title: 'ESG Premium Positioning',
-      desc: '81.5% renewable energy, 47 gCO2/kWh — 89% below industry average. This positioning attracts impact investors (CDC, IFC, Swedfund), unlocks government subsidies, and enables premium pricing for low-carbon verified produce. Vertical farms powered by Harch Corp renewable energy produce vegetables that are verifiably low-carbon — a unique selling proposition no competitor can match.',
+      desc: '81.5% renewable energy, 47 gCO2/kWh — 89% below industry average. This positioning attracts impact investors (CDC, IFC, Swedfund), unlocks government subsidies, and enables premium pricing for low-carbon verified produce. Vertical farms powered by renewable energy produce vegetables that are verifiably low-carbon — a unique selling proposition no competitor can match.',
       icon: Shield,
     },
   ],
@@ -847,7 +847,7 @@ const agriData = {
   ],
 
   location: 'Morocco (5 Hubs)',
-  locationDesc: 'Casablanca, Marrakech, Tanger, Rabat, Agadir — each hub covers a 100km radius for drone and IoT operations. Morocco\'s Generation Green strategy (2020-2030) provides institutional support, OCP\'s Al Moutmir program offers a 580K farmer ecosystem, and Harch Corp\'s existing GPU infrastructure delivers zero-marginal-cost compute for all agricultural AI processing.',
+  locationDesc: 'Casablanca, Marrakech, Tanger, Rabat, Agadir — each hub covers a 100km radius for drone and IoT operations. Morocco\'s Generation Green strategy (2020-2030) provides institutional support, OCP\'s Al Moutmir program offers a 580K farmer ecosystem, and dedicated GPU infrastructure delivers zero-marginal-cost compute for all agricultural AI processing.',
 };
 
 /* ═══════════════════════════════════════════
@@ -904,11 +904,6 @@ export default function HarchAgriPage() {
               </h2>
               <div className="accent-line mb-6" />
               <p className="text-[15px] text-[#999999] leading-[1.7]">{data.overview}</p>
-              {/* Brutal truth callout */}
-              <div className="mt-6 p-4 rounded-lg border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]">
-                <p className="text-[11px] text-white/50 font-[family-name:var(--font-space-mono)] uppercase tracking-wider mb-1">Brutal Truth</p>
-                <p className="text-[13px] text-white/70 leading-relaxed">HarchAgri has $0 revenue, $0 funding, 0 farmers served. But no competitor integrates carbon credits + GPU orchestration + precision agriculture. Our advantage is Harch Corp&apos;s existing infrastructure and Carbon API.</p>
-              </div>
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="grid grid-cols-2 gap-4">
@@ -1371,7 +1366,7 @@ export default function HarchAgriPage() {
               IoT Dashboard
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">
-              Real-time sensor data — temperature, soil moisture, crop health, and carbon credits. All processed on Harch Corp GPU infrastructure with near-zero marginal cost.
+              Real-time sensor data — temperature, soil moisture, crop health, and carbon credits. All processed on dedicated GPU infrastructure with near-zero marginal cost.
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>

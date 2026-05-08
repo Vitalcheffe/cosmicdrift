@@ -9,7 +9,6 @@ interface Particle {
   vy: number
   size: number
   opacity: number
-  color: string
   life: number
   maxLife: number
 }
@@ -31,20 +30,18 @@ export default function ParticleField() {
     }
     resize()
 
-    const colors = ['#22c55e', '#10b981', '#f59e0b', '#06b6d4']
     const particles: Particle[] = []
-    const maxParticles = 80
+    const maxParticles = 50
 
     const createParticle = (): Particle => ({
       x: Math.random() * canvas.offsetWidth,
       y: canvas.offsetHeight + 10,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: -Math.random() * 1.5 - 0.5,
-      size: Math.random() * 3 + 1,
-      opacity: Math.random() * 0.5 + 0.3,
-      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: -Math.random() * 0.8 - 0.3,
+      size: Math.random() * 2 + 0.5,
+      opacity: Math.random() * 0.3 + 0.1,
       life: 0,
-      maxLife: 200 + Math.random() * 200,
+      maxLife: 300 + Math.random() * 300,
     })
 
     for (let i = 0; i < maxParticles; i++) {
@@ -75,19 +72,19 @@ export default function ParticleField() {
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = p.color + Math.floor(alpha * 255).toString(16).padStart(2, '0')
+        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`
         ctx.fill()
 
-        // Trail
+        // Subtle trail
         ctx.beginPath()
         ctx.moveTo(p.x, p.y)
-        ctx.lineTo(p.x - p.vx * 5, p.y - p.vy * 5)
-        ctx.strokeStyle = p.color + Math.floor(alpha * 0.3 * 255).toString(16).padStart(2, '0')
-        ctx.lineWidth = p.size * 0.5
+        ctx.lineTo(p.x - p.vx * 4, p.y - p.vy * 4)
+        ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.3})`
+        ctx.lineWidth = p.size * 0.4
         ctx.stroke()
       })
 
-      // Draw connections between nearby particles
+      // Draw connections between nearby particles — white/muted
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x
@@ -95,11 +92,11 @@ export default function ParticleField() {
           const dist = Math.sqrt(dx * dx + dy * dy)
 
           if (dist < 100) {
-            const alpha = (1 - dist / 100) * 0.1
+            const alpha = (1 - dist / 100) * 0.04
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(34, 197, 94, ${alpha})`
+            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }

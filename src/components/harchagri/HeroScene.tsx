@@ -29,17 +29,17 @@ export default function HeroScene() {
     renderer.setClearColor(0x000000, 0)
     container.appendChild(renderer.domElement)
 
-    // Particle system — IoT data nodes
-    const particleCount = 2500
+    // Particle system — subtle white/muted nodes
+    const particleCount = 2000
     const positions = new Float32Array(particleCount * 3)
     const colors = new Float32Array(particleCount * 3)
     const sizes = new Float32Array(particleCount)
 
-    const greenColor = new THREE.Color('#22c55e')
-    const emeraldColor = new THREE.Color('#10b981')
-    const goldColor = new THREE.Color('#f59e0b')
-    const cyanColor = new THREE.Color('#06b6d4')
-    const colorPalette = [greenColor, emeraldColor, goldColor, cyanColor]
+    // Muted white palette
+    const whiteColor = new THREE.Color('#FFFFFF')
+    const grayColor = new THREE.Color('#999999')
+    const dimColor = new THREE.Color('#666666')
+    const colorPalette = [whiteColor, grayColor, dimColor, whiteColor]
 
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3
@@ -66,10 +66,10 @@ export default function HeroScene() {
     particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1))
 
     const particleMaterial = new THREE.PointsMaterial({
-      size: 0.15,
+      size: 0.12,
       vertexColors: true,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.5,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
       sizeAttenuation: true,
@@ -78,7 +78,7 @@ export default function HeroScene() {
     const particles = new THREE.Points(particleGeometry, particleMaterial)
     scene.add(particles)
 
-    // Connection lines between nearby particles
+    // Connection lines between nearby particles — white/muted
     const linePositions: number[] = []
     const lineColors: number[] = []
     const posArray = particleGeometry.attributes.position.array
@@ -93,7 +93,7 @@ export default function HeroScene() {
         if (dist < 4) {
           linePositions.push(posArray[i * 3], posArray[i * 3 + 1], posArray[i * 3 + 2])
           linePositions.push(posArray[j * 3], posArray[j * 3 + 1], posArray[j * 3 + 2])
-          lineColors.push(0.13, 0.77, 0.37, 0.06, 0.71, 0.51)
+          lineColors.push(0.6, 0.6, 0.6, 0.4, 0.4, 0.4)
         }
       }
     }
@@ -105,51 +105,51 @@ export default function HeroScene() {
       const lineMaterial = new THREE.LineBasicMaterial({
         vertexColors: true,
         transparent: true,
-        opacity: 0.15,
+        opacity: 0.08,
         blending: THREE.AdditiveBlending,
       })
       const lines = new THREE.LineSegments(lineGeometry, lineMaterial)
       scene.add(lines)
     }
 
-    // Africa-shaped ring of light
-    const ringGeometry = new THREE.TorusGeometry(12, 0.03, 16, 100)
+    // Ring — white/muted style
+    const ringGeometry = new THREE.TorusGeometry(12, 0.02, 16, 100)
     const ringMaterial = new THREE.MeshBasicMaterial({
-      color: 0x22c55e,
+      color: 0xFFFFFF,
       transparent: true,
-      opacity: 0.3,
+      opacity: 0.12,
     })
     const ring = new THREE.Mesh(ringGeometry, ringMaterial)
     ring.rotation.x = Math.PI / 2
     scene.add(ring)
 
     // Inner ring
-    const innerRingGeometry = new THREE.TorusGeometry(8, 0.02, 16, 100)
+    const innerRingGeometry = new THREE.TorusGeometry(8, 0.015, 16, 100)
     const innerRingMaterial = new THREE.MeshBasicMaterial({
-      color: 0x06b6d4,
+      color: 0x999999,
       transparent: true,
-      opacity: 0.2,
+      opacity: 0.08,
     })
     const innerRing = new THREE.Mesh(innerRingGeometry, innerRingMaterial)
     innerRing.rotation.x = Math.PI / 2
     scene.add(innerRing)
 
-    // Hub markers — 5 HarchAgri hubs
+    // Hub markers — 5 HarchAgri hubs (white dots)
     const hubLocations = [
-      { name: 'Morocco', lat: 31.79, lon: -7.09, color: 0x22c55e },
-      { name: 'Senegal', lat: 14.49, lon: -14.45, color: 0x10b981 },
-      { name: 'Kenya', lat: -0.02, lon: 37.91, color: 0xf59e0b },
-      { name: 'Ghana', lat: 7.95, lon: -1.02, color: 0x06b6d4 },
-      { name: 'Nigeria', lat: 9.08, lon: 8.68, color: 0x22c55e },
+      { name: 'Morocco', lat: 31.79, lon: -7.09 },
+      { name: 'Senegal', lat: 14.49, lon: -14.45 },
+      { name: 'Kenya', lat: -0.02, lon: 37.91 },
+      { name: 'Ghana', lat: 7.95, lon: -1.02 },
+      { name: 'Nigeria', lat: 9.08, lon: 8.68 },
     ]
 
     const hubMarkers: THREE.Mesh[] = []
     hubLocations.forEach((hub) => {
-      const markerGeom = new THREE.SphereGeometry(0.3, 16, 16)
+      const markerGeom = new THREE.SphereGeometry(0.2, 16, 16)
       const markerMat = new THREE.MeshBasicMaterial({
-        color: hub.color,
+        color: 0xFFFFFF,
         transparent: true,
-        opacity: 0.9,
+        opacity: 0.6,
       })
       const marker = new THREE.Mesh(markerGeom, markerMat)
 
@@ -161,19 +161,6 @@ export default function HeroScene() {
 
       hubMarkers.push(marker)
       scene.add(marker)
-
-      // Pulse ring for each hub
-      const pulseGeom = new THREE.RingGeometry(0.4, 0.6, 32)
-      const pulseMat = new THREE.MeshBasicMaterial({
-        color: hub.color,
-        transparent: true,
-        opacity: 0.5,
-        side: THREE.DoubleSide,
-      })
-      const pulse = new THREE.Mesh(pulseGeom, pulseMat)
-      pulse.position.copy(marker.position)
-      pulse.lookAt(camera.position)
-      scene.add(pulse)
     })
 
     // Mouse interaction
@@ -197,10 +184,10 @@ export default function HeroScene() {
 
       // Pulse the rings
       ring.rotation.z = elapsed * 0.1
-      ring.material.opacity = 0.2 + Math.sin(elapsed) * 0.1
+      ring.material.opacity = 0.08 + Math.sin(elapsed) * 0.04
 
       innerRing.rotation.z = -elapsed * 0.15
-      innerRing.material.opacity = 0.15 + Math.sin(elapsed * 1.5) * 0.05
+      innerRing.material.opacity = 0.06 + Math.sin(elapsed * 1.5) * 0.02
 
       // Hub marker pulsing
       hubMarkers.forEach((marker, i) => {
@@ -212,7 +199,7 @@ export default function HeroScene() {
       const posAttr = particleGeometry.attributes.position
       for (let i = 0; i < particleCount; i++) {
         const i3 = i * 3
-        posAttr.array[i3 + 1] += Math.sin(elapsed + i * 0.01) * 0.002
+        posAttr.array[i3 + 1] += Math.sin(elapsed + i * 0.01) * 0.001
       }
       posAttr.needsUpdate = true
 

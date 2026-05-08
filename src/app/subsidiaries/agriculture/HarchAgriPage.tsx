@@ -10,67 +10,44 @@ import {
 import { motion, useInView } from 'framer-motion';
 
 /* ═══════════════════════════════════════════════════
-   HARCHAGRI — Identité visuelle AGRICOLE
-   Palette terre/chaude — Accent doré — Zero tech/GPU
+   HARCHAGRI — Design System Unifié HarchCorp
+   Palette site — Accent vert (#22C55E) — CSS classes partagées
    ═══════════════════════════════════════════════════ */
 
-/* ─── Simple fade-in — NO parallax, NO direction, NO stagger ─── */
+/* ─── FadeIn — framer-motion, matches HarchOS ─── */
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-40px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: isInView ? 1 : 0,
-        transform: isInView ? 'translateY(0)' : 'translateY(16px)',
-        transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,
-      }}
-    >
+    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
       {children}
-    </div>
+    </motion.div>
   );
 }
 
-/* ─── Section label — HarchAgri style (warm gold accent) ─── */
-function AgriLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-3 mb-3">
-      <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#C8A04A] font-[family-name:var(--font-space-mono)]">
-        {children}
-      </span>
-      <div className="h-px w-8 bg-[#C8A04A]/40" />
-    </div>
-  );
-}
-
-/* ─── Animated counter — simple ─── */
-function CountUp({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
+/* ─── AnimatedCounter — matches HarchOS ─── */
+function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [count, setCount] = useState(0);
-
   useEffect(() => {
     if (!isInView) return;
-    const duration = 2000;
+    const duration = 2500;
     const startTime = Date.now();
     const step = () => {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      const eased = 1 - Math.pow(1 - progress, 4);
       setCount(eased * target);
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
   }, [isInView, target]);
-
   const format = () => {
     if (target >= 1000) return `${prefix}${Math.round(count).toLocaleString()}${suffix}`;
     if (target < 10) return `${prefix}${count.toFixed(1)}${suffix}`;
     return `${prefix}${Math.round(count)}${suffix}`;
   };
-
   return <span ref={ref}>{format()}</span>;
 }
 
@@ -370,13 +347,13 @@ const data = {
 };
 
 /* ═══════════════════════════════════════════════════
-   MAIN PAGE — Layout agricole, PAS tech
+   MAIN PAGE — HarchCorp unified design, green accent
    ═══════════════════════════════════════════════════ */
 export default function HarchAgriPage() {
   return (
-    <div className="bg-[#171411] text-[#F0EBE3]">
+    <div className="bg-[#1A1A1A] text-white">
       {/* ═══════════════════════════════════════════
-          HERO — Photo agricole plein écran
+          HERO — Full-screen immersive
           ═══════════════════════════════════════════ */}
       <section className="relative min-h-[85vh] flex items-end overflow-hidden">
         <Image
@@ -385,54 +362,65 @@ export default function HarchAgriPage() {
           fill
           className="object-cover"
           priority
-          style={{ filter: 'brightness(0.4) saturate(0.7)' }}
+          style={{ filter: 'brightness(0.35) contrast(1.1) saturate(0.5)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#171411] via-[#171411]/30 to-transparent" />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12 pb-20 md:pb-32 w-full">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/60 via-transparent to-transparent" />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pb-20 md:pb-32 w-full">
           <FadeIn>
-            <AgriLabel>HarchAgri /0.6</AgriLabel>
+            <p className="section-label mb-4 text-[#22C55E]">HarchAgri /0.6</p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-4xl md:text-5xl lg:text-[68px] font-extrabold text-[#F5F0EB] leading-[1.08] tracking-[-0.02em] mb-5 whitespace-pre-line">
+            <h1 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-6 whitespace-pre-line">
               {data.heroTitle}
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-lg md:text-xl text-[#F0EBE3]/70 max-w-xl leading-relaxed">{data.heroSubtitle}</p>
+            <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed mb-4">{data.heroSubtitle}</p>
+          </FadeIn>
+          <FadeIn delay={0.3}>
+            <div className="mt-10 flex flex-wrap gap-8 md:gap-12">
+              {data.metrics.map((m) => (
+                <div key={m.label}>
+                  <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
+                    <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
+                  </p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1 font-[family-name:var(--font-space-mono)]">{m.label}</p>
+                </div>
+              ))}
+            </div>
           </FadeIn>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════
-          OVERVIEW + MÉTRIQUES
+          OVERVIEW
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#171411]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-            <div className="lg:col-span-3">
-              <FadeIn>
-                <AgriLabel>Vue d'ensemble</AgriLabel>
-                <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] tracking-tight mb-6">
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <FadeIn>
+              <div>
+                <p className="section-label mb-4 text-[#22C55E]">Vue d&apos;ensemble</p>
+                <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
                   Le défi agricole africain
                 </h2>
-                <div className="h-px w-12 bg-[#C8A04A]/40 mb-6" />
-                <p className="text-[15px] text-[#B8AFA3] leading-[1.8]">{data.overview}</p>
-              </FadeIn>
-            </div>
-            <div className="lg:col-span-2">
-              <FadeIn delay={0.15}>
-                <div className="grid grid-cols-2 gap-4">
-                  {data.metrics.map((m) => (
-                    <div key={m.label} className="bg-[#1E1B16] border border-[#2A2520] rounded-lg p-5">
-                      <p className="text-2xl md:text-3xl font-bold text-[#C8A04A] font-[family-name:var(--font-space-mono)]">
-                        <CountUp target={m.value} prefix={m.prefix} suffix={m.suffix} />
-                      </p>
-                      <p className="text-[10px] text-[#8A8178] uppercase tracking-[0.1em] font-bold mt-2">{m.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </FadeIn>
-            </div>
+                <div className="accent-line mb-6" />
+                <p className="text-[15px] text-[#999999] leading-[1.7]">{data.overview}</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.15}>
+              <div className="grid grid-cols-2 gap-4">
+                {data.metrics.map((m) => (
+                  <div key={m.label} className="card p-6">
+                    <p className="text-2xl md:text-3xl font-bold text-[#22C55E] stat-mono">
+                      <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
+                    </p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -440,28 +428,28 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           CONTEXTE STRATÉGIQUE — Photo + Texte
           ═══════════════════════════════════════════ */}
-      <section className="bg-[#1E1B16]">
-        <div className="max-w-[1600px] mx-auto">
+      <section className="bg-[#1A1A1A]">
+        <div className="max-w-[1800px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative min-h-[45vh] lg:min-h-0 overflow-hidden">
               <Image
                 src="/images/sections/agri-drone-field.jpg"
                 alt="Drone agricole HarchAgri"
                 fill
-                className="object-cover"
-                style={{ filter: 'brightness(0.6) saturate(0.8)' }}
+                className="object-cover industrial-image"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1E1B16]/40 lg:bg-gradient-to-l lg:from-transparent lg:to-[#1E1B16]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1A1A1A]/40 lg:bg-gradient-to-l lg:from-transparent lg:to-[#1A1A1A]" />
             </div>
             <div className="flex items-center px-8 md:px-16 py-20">
               <div className="max-w-lg">
                 <FadeIn>
-                  <AgriLabel>Contexte stratégique</AgriLabel>
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] tracking-tight mb-6">
+                  <p className="section-label mb-4 text-[#22C55E]">Contexte stratégique</p>
+                  <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
                     Pourquoi ça compte
                   </h2>
-                  <div className="h-px w-12 bg-[#C8A04A]/40 mb-6" />
-                  <p className="text-[15px] text-[#B8AFA3] leading-[1.8]">{data.strategicContext}</p>
+                  <div className="accent-line mb-6" />
+                  <p className="text-[15px] text-[#999999] leading-[1.7]">{data.strategicContext}</p>
                 </FadeIn>
               </div>
             </div>
@@ -472,24 +460,25 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           ANALYSE MARCHÉ — Tableau
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#171411]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <AgriLabel>Analyse marché</AgriLabel>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] tracking-tight mb-4">Cinq segments, une plateforme</h2>
-            <p className="max-w-xl text-[15px] text-[#B8AFA3] leading-relaxed mb-12">Le marché agritech africain se divise en cinq segments. HarchAgri cible les quatre à plus forte croissance et moins desservis — évitant l'espace marketplace commoditisé.</p>
+            <p className="section-label mb-4 text-[#22C55E]">Analyse marché</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Cinq segments, une plateforme</h2>
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">Le marché agritech africain se divise en cinq segments. HarchAgri cible les quatre à plus forte croissance et moins desservis — évitant l&apos;espace marketplace commoditisé.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="bg-[#1E1B16] rounded-xl border border-[#2A2520] overflow-hidden">
+            <div className="card overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="w-full text-left">
+                <table className="data-table">
                   <thead>
-                    <tr className="border-b border-[#2A2520]">
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Segment</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Taille marché</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">TCAM</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Maturité Afrique</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Opportunité</th>
+                    <tr>
+                      <th>Segment</th>
+                      <th>Taille marché</th>
+                      <th>TCAM</th>
+                      <th>Maturité Afrique</th>
+                      <th>Opportunité</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -500,19 +489,19 @@ export default function HarchAgriPage() {
                       { segment: 'Crédits carbone', size: '2 Mds$ Afrique', cagr: '30%+', maturity: 'Émergent', opportunity: 'Très forte', strong: true },
                       { segment: 'Marketplace', size: '15 Mds$ Afrique', cagr: '12%', maturity: 'Encombré', opportunity: 'Faible (éviter)', strong: false },
                     ].map((row) => (
-                      <tr key={row.segment} className="border-b border-[#2A2520]/60 last:border-0 hover:bg-[#252118]/50 transition-colors">
-                        <td className="px-6 py-4 font-semibold text-[#F0EBE3] text-[13px]">{row.segment}</td>
-                        <td className="px-6 py-4 text-[13px] text-[#F0EBE3]">{row.size}</td>
-                        <td className="px-6 py-4 text-[13px] text-[#F0EBE3] font-[family-name:var(--font-space-mono)]">{row.cagr}</td>
-                        <td className="px-6 py-4 text-[13px] text-[#8A8178]">{row.maturity}</td>
-                        <td className={`px-6 py-4 text-[13px] ${row.strong ? 'text-[#C8A04A] font-semibold' : 'text-[#8A8178]'}`}>{row.opportunity}</td>
+                      <tr key={row.segment}>
+                        <td>{row.segment}</td>
+                        <td>{row.size}</td>
+                        <td className="font-[family-name:var(--font-space-mono)]">{row.cagr}</td>
+                        <td className="!text-[#666666] !font-normal">{row.maturity}</td>
+                        <td className={row.strong ? '!text-[#22C55E] !font-semibold' : '!text-[#666666] !font-normal'}>{row.opportunity}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-              <div className="px-6 py-3 border-t border-[#2A2520] bg-[#1A1714]/50">
-                <p className="text-[10px] text-[#6A6258]">Sources : Briter Intelligence 2025, ACMI, Grand View Research. ACMI vise 20x la croissance des crédits carbone africains d'ici 2030.</p>
+              <div className="px-6 py-3 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)]">
+                <p className="text-[10px] text-[#666666]">Sources : Briter Intelligence 2025, ACMI, Grand View Research. ACMI vise 20x la croissance des crédits carbone africains d&apos;ici 2030.</p>
               </div>
             </div>
           </FadeIn>
@@ -522,66 +511,67 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           PRODUITS — Les 5 piliers
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#1E1B16]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <AgriLabel>Produits</AgriLabel>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#F5F0EB] tracking-[-0.01em] mb-4">
+            <p className="section-label mb-4 text-[#22C55E]">Produits</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Cinq piliers intégrés
             </h2>
-            <p className="max-w-xl text-[15px] text-[#B8AFA3] leading-relaxed mb-16">
-              Chaque produit fonctionne seul ou en synergie complète. Ensemble, ils créent un effet réseau qu'aucun concurrent mono-produit ne peut répliquer.
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
+              Chaque produit fonctionne seul ou en synergie complète. Ensemble, ils créent un effet réseau qu&apos;aucun concurrent mono-produit ne peut répliquer.
             </p>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-6">
             {data.products.map((product, i) => {
               const Icon = product.icon;
               return (
                 <FadeIn key={product.name} delay={i * 0.08}>
-                  <div className="bg-[#171411] border border-[#2A2520] rounded-xl p-6 hover:border-[#3A3530] transition-colors h-full">
+                  <div className="card p-8 h-full">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-5">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-[#C8A04A]/10 flex items-center justify-center">
-                          <Icon size={16} className="text-[#C8A04A]" strokeWidth={1.5} />
+                        <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center">
+                          <Icon size={18} className="text-[#22C55E]" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-[14px] text-[#F0EBE3]">{product.name}</h3>
-                          <p className="text-[11px] text-[#8A8178]">{product.tagline}</p>
+                          <h3 className="text-lg font-bold text-white">{product.name}</h3>
+                          <p className="text-[11px] text-[#666666]">{product.tagline}</p>
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-lg font-bold text-[#C8A04A] font-[family-name:var(--font-space-mono)]">{product.price}</p>
-                        <p className="text-[10px] text-[#6A6258]">{product.unit}</p>
+                        <p className="text-lg font-bold text-[#22C55E] stat-mono">{product.price}</p>
+                        <p className="text-[10px] text-[#666666]">{product.unit}</p>
                       </div>
                     </div>
                     {/* Description */}
-                    <p className="text-[12px] text-[#B8AFA3] leading-relaxed mb-4">{product.description}</p>
+                    <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">{product.description}</p>
                     {/* Stats */}
-                    <div className="grid grid-cols-3 gap-2 mb-4">
+                    <div className="grid grid-cols-3 gap-3 mb-6">
                       {product.stats.map((stat, j) => (
-                        <div key={j} className="text-center p-2.5 rounded-lg bg-[#1E1B16] border border-[#2A2520]/60">
-                          <p className="text-sm font-bold text-[#F0EBE3] font-[family-name:var(--font-space-mono)]">{stat.value}</p>
-                          <p className="text-[9px] text-[#6A6258] uppercase tracking-wider">{stat.label}</p>
+                        <div key={j} className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
+                          <p className="text-sm font-bold text-white stat-mono">{stat.value}</p>
+                          <p className="text-[9px] text-[#666666] uppercase tracking-wider mt-1">{stat.label}</p>
                         </div>
                       ))}
                     </div>
                     {/* Features */}
-                    <div className="space-y-1.5 mb-4">
+                    <div className="space-y-2 mb-6">
                       {product.features.map((feature, j) => (
                         <div key={j} className="flex items-start gap-2">
-                          <div className="mt-1.5 w-1 h-1 rounded-full bg-[#C8A04A]/40 flex-shrink-0" />
-                          <span className="text-[11px] text-[#8A8178]">{feature}</span>
+                          <div className="mt-1.5 w-1 h-1 rounded-full bg-[#22C55E]/40 flex-shrink-0" />
+                          <span className="text-[12px] text-[#999999]">{feature}</span>
                         </div>
                       ))}
                     </div>
                     {/* Footer */}
-                    <div className="flex items-center justify-between pt-3 border-t border-[#2A2520]/60">
+                    <div className="flex items-center justify-between pt-4 border-t border-[rgba(255,255,255,0.04)]">
                       <div className="flex items-center gap-1.5">
-                        <Clock size={10} className="text-[#6A6258]" />
-                        <span className="text-[10px] text-[#6A6258]">ROI : {product.roi}</span>
+                        <Clock size={10} className="text-[#666666]" />
+                        <span className="text-[10px] text-[#666666]">ROI : {product.roi}</span>
                       </div>
-                      <span className="text-[10px] text-[#6A6258]">{product.target}</span>
+                      <span className="text-[10px] text-[#666666]">{product.target}</span>
                     </div>
                   </div>
                 </FadeIn>
@@ -591,23 +581,23 @@ export default function HarchAgriPage() {
 
           {/* Kit Démarrage */}
           <FadeIn delay={0.4}>
-            <div className="mt-5 bg-[#171411] border border-dashed border-[#C8A04A]/30 rounded-xl p-6 hover:border-[#C8A04A]/50 transition-colors">
+            <div className="mt-6 card p-8 border-dashed" style={{ borderColor: 'rgba(34,197,94,0.25)' }}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-lg bg-[#C8A04A]/10 flex items-center justify-center">
-                    <Sprout size={16} className="text-[#C8A04A]" strokeWidth={1.5} />
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center">
+                    <Sprout size={18} className="text-[#22C55E]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-[14px] text-[#F0EBE3]">Kit Démarrage</h3>
-                    <p className="text-[12px] text-[#8A8178]">{data.starterKit.contents}</p>
+                    <h3 className="text-lg font-bold text-white">Kit Démarrage</h3>
+                    <p className="text-[12px] text-[#999999]">{data.starterKit.contents}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-bold text-[#C8A04A] font-[family-name:var(--font-space-mono)]">{data.starterKit.price}</p>
-                  <p className="text-[10px] text-[#6A6258]">ROI : {data.starterKit.roi}</p>
+                  <p className="text-2xl font-bold text-[#22C55E] stat-mono">{data.starterKit.price}</p>
+                  <p className="text-[10px] text-[#666666]">ROI : {data.starterKit.roi}</p>
                 </div>
               </div>
-              <p className="text-[12px] text-[#6A6258] mt-3">Pour {data.starterKit.target} — élimine la barrière prix à l'adoption technologique.</p>
+              <p className="text-[12px] text-[#666666] mt-3">Pour {data.starterKit.target} — élimine la barrière prix à l&apos;adoption technologique.</p>
             </div>
           </FadeIn>
         </div>
@@ -616,34 +606,35 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           TARIFICATION
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#171411]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <AgriLabel>Tarification</AgriLabel>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] tracking-tight mb-4">Tarifs transparents</h2>
-            <p className="max-w-xl text-[15px] text-[#B8AFA3] leading-relaxed mb-12">Prix simples et transparents, conçus pour les économies agricoles africaines. Pas de frais cachés. Revenus crédits carbone inclus par défaut.</p>
+            <p className="section-label mb-4 text-[#22C55E]">Tarification</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Tarifs transparents</h2>
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">Prix simples et transparents, conçus pour les économies agricoles africaines. Pas de frais cachés. Revenus crédits carbone inclus par défaut.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="bg-[#1E1B16] rounded-xl border border-[#2A2520] overflow-hidden">
+            <div className="card overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="w-full text-left">
+                <table className="data-table">
                   <thead>
-                    <tr className="border-b border-[#2A2520]">
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Produit</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Prix</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Unité</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">ROI</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Cible</th>
+                    <tr>
+                      <th>Produit</th>
+                      <th>Prix</th>
+                      <th>Unité</th>
+                      <th>ROI</th>
+                      <th>Cible</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data.pricing.map((row) => (
-                      <tr key={row.product} className="border-b border-[#2A2520]/60 last:border-0 hover:bg-[#252118]/50 transition-colors">
-                        <td className="px-6 py-4 font-semibold text-[#F0EBE3] text-[13px]">{row.product}</td>
-                        <td className="px-6 py-4 text-[13px] text-[#C8A04A] font-[family-name:var(--font-space-mono)]">{row.price}</td>
-                        <td className="px-6 py-4 text-[13px] text-[#8A8178]">{row.unit}</td>
-                        <td className="px-6 py-4 text-[13px] text-[#F0EBE3]">{row.roi}</td>
-                        <td className="px-6 py-4 text-[13px] text-[#8A8178]">{row.target}</td>
+                      <tr key={row.product}>
+                        <td>{row.product}</td>
+                        <td className="!text-[#22C55E] font-[family-name:var(--font-space-mono)]">{row.price}</td>
+                        <td className="!text-[#666666] !font-normal">{row.unit}</td>
+                        <td>{row.roi}</td>
+                        <td className="!text-[#666666] !font-normal">{row.target}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -657,66 +648,67 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           PHOTO BREAK — Fermes verticales
           ═══════════════════════════════════════════ */}
-      <section className="relative h-[50vh] overflow-hidden">
+      <section className="photo-section">
         <Image
           src="/images/sections/agri-vertical-farm.jpg"
           alt="Ferme verticale HarchAgri"
           fill
           className="object-cover"
-          style={{ filter: 'brightness(0.35) saturate(0.6)' }}
+          style={{ filter: 'brightness(0.35) contrast(1.1) saturate(0.5)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#171411] via-transparent to-[#171411]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-[#1A1A1A]" />
       </section>
 
       {/* ═══════════════════════════════════════════
           ANALYSE CONCURRENTIELLE
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#1E1B16]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <AgriLabel>Analyse concurrentielle</AgriLabel>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#F5F0EB] tracking-[-0.01em] mb-4">
+            <p className="section-label mb-4 text-[#22C55E]">Analyse concurrentielle</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               HarchAgri vs. le terrain
             </h2>
-            <p className="max-w-xl text-[15px] text-[#B8AFA3] leading-relaxed mb-12">
-              Cinq concurrents, cinq points d'entrée marché. Aucun n'a intégré crédits carbone + irrigation IoT + drones + fermes verticales sur le continent africain.
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
+              Cinq concurrents, cinq points d&apos;entrée marché. Aucun n&apos;a intégré crédits carbone + irrigation IoT + drones + fermes verticales sur le continent africain.
             </p>
           </FadeIn>
           <div className="space-y-4">
             {data.competitors.map((comp, i) => (
               <FadeIn key={comp.name} delay={i * 0.06}>
-                <div className="bg-[#171411] border border-[#2A2520] rounded-xl p-6 hover:border-[#3A3530] transition-colors">
+                <div className="card p-6">
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                     <div className="md:col-span-3">
-                      <h3 className="font-bold text-[#F0EBE3] text-[15px]">{comp.name}</h3>
-                      <p className="text-[11px] text-[#6A6258]">{comp.country} · {comp.maturity}</p>
-                      <p className="text-[11px] text-[#8A8178] mt-1">{comp.model}</p>
+                      <h3 className="font-bold text-white text-[15px]">{comp.name}</h3>
+                      <p className="text-[11px] text-[#666666]">{comp.country} · {comp.maturity}</p>
+                      <p className="text-[11px] text-[#999999] mt-1">{comp.model}</p>
                     </div>
                     <div className="md:col-span-3 grid grid-cols-2 gap-2">
                       <div>
-                        <p className="text-[9px] text-[#6A6258] uppercase tracking-wider">Revenus</p>
-                        <p className="text-[13px] text-[#F0EBE3] font-[family-name:var(--font-space-mono)]">{comp.revenue}</p>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Revenus</p>
+                        <p className="text-[13px] text-white stat-mono">{comp.revenue}</p>
                       </div>
                       <div>
-                        <p className="text-[9px] text-[#6A6258] uppercase tracking-wider">Financement</p>
-                        <p className="text-[13px] text-[#F0EBE3] font-[family-name:var(--font-space-mono)]">{comp.funding}</p>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Financement</p>
+                        <p className="text-[13px] text-white stat-mono">{comp.funding}</p>
                       </div>
                       <div>
-                        <p className="text-[9px] text-[#6A6258] uppercase tracking-wider">Agriculteurs</p>
-                        <p className="text-[13px] text-[#F0EBE3]">{comp.farmers}</p>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Agriculteurs</p>
+                        <p className="text-[13px] text-white">{comp.farmers}</p>
                       </div>
                       <div>
-                        <p className="text-[9px] text-[#6A6258] uppercase tracking-wider">Afrique</p>
-                        <p className="text-[13px] text-[#F0EBE3]">{comp.africa}</p>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider">Afrique</p>
+                        <p className="text-[13px] text-white">{comp.africa}</p>
                       </div>
                     </div>
                     <div className="md:col-span-4">
-                      <p className="text-[9px] text-[#6A6258] uppercase tracking-wider mb-1">Avantage HarchAgri</p>
-                      <p className="text-[12px] text-[#B8AFA3] leading-relaxed">{comp.advantage}</p>
+                      <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Avantage HarchAgri</p>
+                      <p className="text-[12px] text-[#999999] leading-relaxed">{comp.advantage}</p>
                     </div>
                     <div className="md:col-span-2">
-                      <p className="text-[9px] text-[#6A6258] uppercase tracking-wider mb-1">Faiblesse clé</p>
-                      <p className="text-[12px] text-[#8A8178] leading-relaxed">{comp.weakness}</p>
+                      <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Faiblesse clé</p>
+                      <p className="text-[12px] text-[#999999] leading-relaxed">{comp.weakness}</p>
                     </div>
                   </div>
                 </div>
@@ -726,32 +718,32 @@ export default function HarchAgriPage() {
 
           {/* Highlight HarchAgri */}
           <FadeIn delay={0.4}>
-            <div className="mt-6 bg-[#171411] border border-[#C8A04A]/30 rounded-xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-[#C8A04A]/10 flex items-center justify-center">
-                  <span className="text-[10px] font-bold tracking-[0.15em] text-[#C8A04A] font-[family-name:var(--font-space-mono)]">/0.6</span>
+            <div className="mt-6 card p-8" style={{ borderColor: 'rgba(34,197,94,0.2)' }}>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center">
+                  <span className="text-[10px] font-bold tracking-[0.15em] text-[#22C55E] font-[family-name:var(--font-space-mono)]">/0.6</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#F0EBE3] text-lg">HarchAgri</h4>
-                  <p className="text-[11px] text-[#6A6258]">La seule plateforme AgTech intégrée avec crédits carbone natifs en Afrique</p>
+                  <h4 className="font-bold text-white text-lg">HarchAgri</h4>
+                  <p className="text-[11px] text-[#666666]">La seule plateforme AgTech intégrée avec crédits carbone natifs en Afrique</p>
                 </div>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <p className="text-[10px] text-[#6A6258] uppercase tracking-wider">Modèle</p>
-                  <p className="text-[14px] text-[#F0EBE3] font-semibold">SaaS + Hardware + Carbone</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-wider">Modèle</p>
+                  <p className="text-[14px] text-white font-semibold">SaaS + Hardware + Carbone</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-[#6A6258] uppercase tracking-wider">Différenciateur</p>
-                  <p className="text-[14px] text-[#F0EBE3] font-semibold">Seul AgTech + Carbone intégré</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-wider">Différenciateur</p>
+                  <p className="text-[14px] text-white font-semibold">Seul AgTech + Carbone intégré</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-[#6A6258] uppercase tracking-wider">Présence Afrique</p>
-                  <p className="text-[14px] text-[#F0EBE3] font-semibold">5 sites opérationnels (Maroc)</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-wider">Présence Afrique</p>
+                  <p className="text-[14px] text-white font-semibold">5 sites opérationnels (Maroc)</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-[#6A6258] uppercase tracking-wider">Cible 2031</p>
-                  <p className="text-[14px] text-[#C8A04A] font-semibold font-[family-name:var(--font-space-mono)]">50K agriculteurs / 50M$ ARR</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-wider">Cible 2031</p>
+                  <p className="text-[14px] text-[#22C55E] font-semibold stat-mono">50K agriculteurs / 50M$ ARR</p>
                 </div>
               </div>
             </div>
@@ -762,26 +754,27 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           MOAT CONCURRENTIEL
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#171411]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <AgriLabel>Avantage concurrentiel</AgriLabel>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] tracking-tight mb-6">
-              Trois avantages irreplicables
+            <p className="section-label mb-4 text-[#22C55E]">Avantage concurrentiel</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
+              Trois avantages irréplicables
             </h2>
-            <div className="h-px w-12 bg-[#C8A04A]/40 mb-12" />
+            <div className="accent-line mb-12" />
           </FadeIn>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {data.moats.map((moat, i) => {
               const Icon = moat.icon;
               return (
                 <FadeIn key={moat.title} delay={i * 0.1}>
-                  <div className="bg-[#1E1B16] border border-[#2A2520] rounded-xl p-6">
-                    <div className="w-10 h-10 rounded-lg bg-[#C8A04A]/10 flex items-center justify-center mb-4">
-                      <Icon size={18} className="text-[#C8A04A]" strokeWidth={1.5} />
+                  <div className="card p-8 h-full">
+                    <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center mb-5">
+                      <Icon size={18} className="text-[#22C55E]" />
                     </div>
-                    <h3 className="text-[15px] font-bold text-[#F0EBE3] mb-3">{moat.title}</h3>
-                    <p className="text-[13px] text-[#B8AFA3] leading-relaxed">{moat.desc}</p>
+                    <h3 className="text-lg font-bold text-white mb-3">{moat.title}</h3>
+                    <div className="accent-line mb-4" />
+                    <p className="text-[14px] text-[#999999] leading-[1.7]">{moat.desc}</p>
                   </div>
                 </FadeIn>
               );
@@ -793,18 +786,18 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           DURABILITÉ & ESG
           ═══════════════════════════════════════════ */}
-      <section className="bg-[#1E1B16]">
-        <div className="max-w-[1600px] mx-auto">
+      <section className="bg-[#1A1A1A]">
+        <div className="max-w-[1800px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="flex items-center px-8 md:px-16 py-20 order-2 lg:order-1">
               <div className="max-w-lg">
                 <FadeIn>
-                  <AgriLabel>Durabilité & ESG</AgriLabel>
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] tracking-tight mb-6">
+                  <p className="section-label mb-4 text-[#22C55E]">Durabilité &amp; ESG</p>
+                  <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
                     La durabilité est le modèle économique
                   </h2>
-                  <div className="h-px w-12 bg-[#C8A04A]/40 mb-6" />
-                  <p className="text-[15px] text-[#B8AFA3] leading-[1.8]">{data.sustainability}</p>
+                  <div className="accent-line mb-6" />
+                  <p className="text-[15px] text-[#999999] leading-[1.7]">{data.sustainability}</p>
                 </FadeIn>
               </div>
             </div>
@@ -813,10 +806,10 @@ export default function HarchAgriPage() {
                 src="/images/sections/agri-green-crops-aerial.jpg"
                 alt="Agriculture durable HarchAgri"
                 fill
-                className="object-cover"
-                style={{ filter: 'brightness(0.5) saturate(0.7)' }}
+                className="object-cover industrial-image"
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#1E1B16]/40 lg:bg-gradient-to-r lg:from-transparent lg:to-[#1E1B16]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#1A1A1A]/40 lg:bg-gradient-to-r lg:from-transparent lg:to-[#1A1A1A]" />
             </div>
           </div>
         </div>
@@ -825,43 +818,44 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           PARTENARIATS
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#171411]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <AgriLabel>Partenariats</AgriLabel>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#F5F0EB] tracking-[-0.01em] mb-4">
+            <p className="section-label mb-4 text-[#22C55E]">Partenariats</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Partenaires stratégiques
             </h2>
-            <p className="max-w-xl text-[15px] text-[#B8AFA3] leading-relaxed mb-12">
-              Partenariats sélectifs et symbiotiques — chaque partenaire apporte une compétence qu'HarchAgri n'a pas ; HarchAgri apporte la technologie et les crédits carbone qu'ils n'ont pas.
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
+              Partenariats sélectifs et symbiotiques — chaque partenaire apporte une compétence qu&apos;HarchAgri n&apos;a pas ; HarchAgri apporte la technologie et les crédits carbone qu&apos;ils n&apos;ont pas.
             </p>
           </FadeIn>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {data.partners.map((partner, i) => (
               <FadeIn key={partner.name} delay={i * 0.08}>
-                <div className="bg-[#1E1B16] border border-[#2A2520] rounded-xl p-5 h-full hover:border-[#3A3530] transition-colors">
-                  <div className="flex items-start justify-between mb-3">
+                <div className="card p-6 h-full">
+                  <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h4 className="font-bold text-[13px] text-[#F0EBE3]">{partner.name}</h4>
-                      <p className="text-[10px] text-[#6A6258]">{partner.type} — {partner.country}</p>
+                      <h4 className="font-bold text-[13px] text-white">{partner.name}</h4>
+                      <p className="text-[10px] text-[#666666]">{partner.type} — {partner.country}</p>
                     </div>
                     <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded text-[10px] font-semibold ${
-                      partner.status === 'Actif' ? 'bg-[#C8A04A]/10 text-[#C8A04A]' : 'bg-[#2A2520] text-[#8A8178]'
+                      partner.status === 'Actif' ? 'bg-[rgba(34,197,94,0.08)] text-[#22C55E]' : 'bg-[rgba(255,255,255,0.04)] text-[#666666]'
                     }`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${partner.status === 'Actif' ? 'bg-[#C8A04A]' : 'bg-[#8A8178]'}`} />
+                      <span className={`w-1.5 h-1.5 rounded-full ${partner.status === 'Actif' ? 'bg-[#22C55E]' : 'bg-[#666666]'}`} />
                       {partner.status}
                     </span>
                   </div>
-                  <div className="mb-2">
-                    <p className="text-[9px] text-[#6A6258] uppercase tracking-wider mb-0.5">Nous apportons</p>
-                    <p className="text-[11px] text-[#F0EBE3]">{partner.harchContribution}</p>
+                  <div className="mb-3">
+                    <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">Nous apportons</p>
+                    <p className="text-[11px] text-white">{partner.harchContribution}</p>
                   </div>
-                  <div className="mb-2">
-                    <p className="text-[9px] text-[#6A6258] uppercase tracking-wider mb-0.5">Ils apportent</p>
-                    <p className="text-[11px] text-[#8A8178]">{partner.partnerContribution}</p>
+                  <div className="mb-3">
+                    <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">Ils apportent</p>
+                    <p className="text-[11px] text-[#999999]">{partner.partnerContribution}</p>
                   </div>
-                  <div className="pt-2 border-t border-[#2A2520]/60">
-                    <span className="text-[9px] text-[#6A6258] uppercase tracking-wider font-[family-name:var(--font-space-mono)]">{partner.priority}</span>
+                  <div className="pt-3 border-t border-[rgba(255,255,255,0.04)]">
+                    <span className="text-[9px] text-[#666666] uppercase tracking-wider font-[family-name:var(--font-space-mono)]">{partner.priority}</span>
                   </div>
                 </div>
               </FadeIn>
@@ -873,59 +867,60 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           ROADMAP
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#1E1B16]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <AgriLabel>Roadmap</AgriLabel>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#F5F0EB] tracking-[-0.01em] mb-4">Quatre phases vers le leadership continental</h2>
-            <p className="max-w-xl text-[15px] text-[#B8AFA3] leading-relaxed mb-16">Philosophie lean startup : valider avec un MVP avant de scaler. Éviter l'erreur fatale de Twiga Foods — sur-investir avant de prouver le modèle.</p>
+            <p className="section-label mb-4 text-[#22C55E]">Roadmap</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Quatre phases vers le leadership continental</h2>
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">Philosophie lean startup : valider avec un MVP avant de scaler. Éviter l&apos;erreur fatale de Twiga Foods — sur-investir avant de prouver le modèle.</p>
           </FadeIn>
 
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-[11px] md:left-[15px] top-0 bottom-0 w-px bg-[#2A2520]" />
+            <div className="absolute left-[11px] md:left-[15px] top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)]" />
 
             <div className="space-y-10">
               {data.roadmap.map((phase, i) => (
                 <FadeIn key={phase.phase} delay={i * 0.1}>
                   <div className="relative pl-10 md:pl-14">
                     {/* Dot */}
-                    <div className="absolute left-0 md:left-1 top-1 w-[23px] md:w-[31px] h-[23px] md:h-[31px] rounded-full border-2 border-[#2A2520] bg-[#1E1B16] flex items-center justify-center">
-                      <div className="w-[7px] h-[7px] rounded-full bg-[#C8A04A]" />
+                    <div className="absolute left-0 md:left-1 top-1 w-[23px] md:w-[31px] h-[23px] md:h-[31px] rounded-full border-2 border-[rgba(255,255,255,0.06)] bg-[#1E1E1E] flex items-center justify-center">
+                      <div className="w-[7px] h-[7px] rounded-full bg-[#22C55E]" />
                     </div>
 
-                    <div className="bg-[#171411] border border-[#2A2520] rounded-xl p-6">
+                    <div className="card p-8">
                       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
                         <div className="md:col-span-3">
-                          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6A6258] font-[family-name:var(--font-space-mono)]">{phase.phase}</span>
-                          <h3 className="text-xl font-bold text-[#F0EBE3] mt-1">{phase.title}</h3>
-                          <p className="text-[12px] text-[#6A6258] mt-1">{phase.period}</p>
-                          <p className="text-[11px] text-[#6A6258] mt-0.5">{phase.funding}</p>
+                          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">{phase.phase}</span>
+                          <h3 className="text-xl font-bold text-white mt-1">{phase.title}</h3>
+                          <p className="text-[12px] text-[#666666] mt-1">{phase.period}</p>
+                          <p className="text-[11px] text-[#666666] mt-0.5">{phase.funding}</p>
                         </div>
                         <div className="md:col-span-3 grid grid-cols-3 gap-2">
-                          <div className="text-center p-3 rounded-lg bg-[#1E1B16] border border-[#2A2520]/60">
-                            <p className="text-lg font-bold text-[#C8A04A] font-[family-name:var(--font-space-mono)]">
-                              <CountUp target={phase.hectares} />
+                          <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
+                            <p className="text-lg font-bold text-[#22C55E] stat-mono">
+                              <AnimatedCounter target={phase.hectares} />
                             </p>
-                            <p className="text-[9px] text-[#6A6258] uppercase tracking-wider">Hectares</p>
+                            <p className="text-[9px] text-[#666666] uppercase tracking-wider">Hectares</p>
                           </div>
-                          <div className="text-center p-3 rounded-lg bg-[#1E1B16] border border-[#2A2520]/60">
-                            <p className="text-lg font-bold text-[#C8A04A] font-[family-name:var(--font-space-mono)]">
-                              <CountUp target={phase.farmers} />
+                          <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
+                            <p className="text-lg font-bold text-[#22C55E] stat-mono">
+                              <AnimatedCounter target={phase.farmers} />
                             </p>
-                            <p className="text-[9px] text-[#6A6258] uppercase tracking-wider">Agriculteurs</p>
+                            <p className="text-[9px] text-[#666666] uppercase tracking-wider">Agriculteurs</p>
                           </div>
-                          <div className="text-center p-3 rounded-lg bg-[#1E1B16] border border-[#2A2520]/60">
-                            <p className="text-sm font-bold text-[#F0EBE3] font-[family-name:var(--font-space-mono)]">{phase.revenue}</p>
-                            <p className="text-[9px] text-[#6A6258] uppercase tracking-wider">Revenus</p>
+                          <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
+                            <p className="text-sm font-bold text-white stat-mono">{phase.revenue}</p>
+                            <p className="text-[9px] text-[#666666] uppercase tracking-wider">Revenus</p>
                           </div>
                         </div>
                         <div className="md:col-span-6">
-                          <div className="space-y-1.5">
+                          <div className="space-y-2">
                             {phase.actions.map((action, j) => (
                               <div key={j} className="flex items-start gap-2">
-                                <div className="mt-1.5 w-1 h-1 rounded-full bg-[#C8A04A]/40 flex-shrink-0" />
-                                <span className="text-[12px] text-[#8A8178] leading-relaxed">{action}</span>
+                                <div className="mt-1.5 w-1 h-1 rounded-full bg-[#22C55E]/40 flex-shrink-0" />
+                                <span className="text-[12px] text-[#999999] leading-relaxed">{action}</span>
                               </div>
                             ))}
                           </div>
@@ -943,45 +938,46 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           RISQUES
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#171411]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <AgriLabel>Analyse des risques</AgriLabel>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] tracking-tight mb-4">Risques identifiés & atténuations</h2>
-            <p className="max-w-xl text-[15px] text-[#B8AFA3] leading-relaxed mb-12">La prudence n'est pas une option — c'est une nécessité. Les échecs de Twiga Foods, AeroFarms et l'environnement volatil du financement agritech en 2025 nous l'enseignent.</p>
+            <p className="section-label mb-4 text-[#22C55E]">Analyse des risques</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Risques identifiés &amp; atténuations</h2>
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">La prudence n&apos;est pas une option — c&apos;est une nécessité. Les échecs de Twiga Foods, AeroFarms et l&apos;environnement volatil du financement agritech en 2025 nous l&apos;enseignent.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="bg-[#1E1B16] rounded-xl border border-[#2A2520] overflow-hidden">
+            <div className="card overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="w-full text-left">
+                <table className="data-table">
                   <thead>
-                    <tr className="border-b border-[#2A2520]">
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Risque</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Probabilité</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Impact</th>
-                      <th className="px-6 py-4 text-[10px] font-bold tracking-[0.15em] uppercase text-[#8A8178]">Atténuation</th>
+                    <tr>
+                      <th>Risque</th>
+                      <th>Probabilité</th>
+                      <th>Impact</th>
+                      <th>Atténuation</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data.risks.map((r) => (
-                      <tr key={r.risk} className="border-b border-[#2A2520]/60 last:border-0 hover:bg-[#252118]/50 transition-colors">
-                        <td className="px-6 py-4 font-semibold text-[#F0EBE3] text-[13px]">{r.risk}</td>
-                        <td className="px-6 py-4">
+                      <tr key={r.risk}>
+                        <td>{r.risk}</td>
+                        <td>
                           <span className={`inline-flex items-center gap-1.5 text-[11px] ${
-                            r.probability === 'Élevé' ? 'text-[#C8A04A]' : r.probability === 'Moyen' ? 'text-[#B8AFA3]' : 'text-[#6A6258]'
+                            r.probability === 'Élevé' ? 'text-[#22C55E]' : r.probability === 'Moyen' ? 'text-[#999999]' : 'text-[#666666]'
                           }`}>
                             {r.probability === 'Élevé' && <AlertTriangle size={10} />}
                             {r.probability}
                           </span>
                         </td>
-                        <td className="px-6 py-4">
+                        <td>
                           <span className={`text-[11px] ${
-                            r.impact === 'Critique' ? 'text-[#F0EBE3] font-semibold' : r.impact === 'Élevé' ? 'text-[#B8AFA3]' : 'text-[#6A6258]'
+                            r.impact === 'Critique' ? 'text-white font-semibold' : r.impact === 'Élevé' ? 'text-[#999999]' : 'text-[#666666]'
                           }`}>
                             {r.impact}
                           </span>
                         </td>
-                        <td className="px-6 py-4 text-[12px] text-[#8A8178] max-w-md">{r.mitigation}</td>
+                        <td className="!text-[#999999] !font-normal max-w-md text-[12px]">{r.mitigation}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -995,23 +991,24 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           IMPLANTATIONS
           ═══════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#1E1B16]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <AgriLabel>Implantations</AgriLabel>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] tracking-tight mb-4">Cinq sites au Maroc</h2>
-            <p className="max-w-xl text-[15px] text-[#B8AFA3] leading-relaxed mb-12">
-              Chaque site couvre un rayon de 100km pour les opérations drone et IoT. La stratégie Generation Green (2020-2030) du Maroc offre le soutien institutionnel, le programme Al Moutmir d'OCP apporte un écosystème de 580K agriculteurs. Expansion vers le Sénégal, le Kenya et le Ghana en Phase 3.
+            <p className="section-label mb-4 text-[#22C55E]">Implantations</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Cinq sites au Maroc</h2>
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
+              Chaque site couvre un rayon de 100km pour les opérations drone et IoT. La stratégie Generation Green (2020-2030) du Maroc offre le soutien institutionnel, le programme Al Moutmir d&apos;OCP apporte un écosystème de 580K agriculteurs. Expansion vers le Sénégal, le Kenya et le Ghana en Phase 3.
             </p>
           </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {data.locations.map((loc, i) => (
               <FadeIn key={loc.city} delay={i * 0.06}>
-                <div className="bg-[#171411] border border-[#2A2520] rounded-xl p-4 text-center hover:border-[#3A3530] transition-colors">
-                  <MapPin size={14} className="text-[#C8A04A] mx-auto mb-2" />
-                  <p className="text-[13px] font-semibold text-[#F0EBE3]">{loc.city}</p>
-                  <p className="text-[10px] text-[#6A6258] mt-0.5">{loc.region}</p>
-                  <p className="text-[9px] text-[#8A8178] mt-1">{loc.crops}</p>
+                <div className="card p-5 text-center">
+                  <MapPin size={14} className="text-[#22C55E] mx-auto mb-2" />
+                  <p className="text-[13px] font-semibold text-white">{loc.city}</p>
+                  <p className="text-[10px] text-[#666666] mt-0.5">{loc.region}</p>
+                  <p className="text-[9px] text-[#999999] mt-1">{loc.crops}</p>
                 </div>
               </FadeIn>
             ))}
@@ -1020,7 +1017,7 @@ export default function HarchAgriPage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          PHOTO + INVESTISSEMENT
+          INVESTISSEMENT — Photo + CTA
           ═══════════════════════════════════════════ */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <Image
@@ -1028,16 +1025,17 @@ export default function HarchAgriPage() {
           alt="Capteurs IoT HarchAgri"
           fill
           className="object-cover"
-          style={{ filter: 'brightness(0.25) saturate(0.5)' }}
+          style={{ filter: 'brightness(0.25) contrast(1.1) saturate(0.5)' }}
         />
-        <div className="absolute inset-0 bg-[#171411]/60" />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12 py-20 w-full">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/80 via-[#1A1A1A]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-20 w-full">
           <FadeIn>
-            <AgriLabel>Investissement Phase 1</AgriLabel>
-            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold text-[#F5F0EB] leading-[1.08] tracking-[-0.02em] mb-4">
+            <p className="section-label mb-4 text-[#22C55E]">Investissement Phase 1</p>
+            <h2 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-4">
               {data.investment}
             </h2>
-            <p className="text-[15px] text-[#B8AFA3]/60 leading-relaxed max-w-lg">Auto-financé pour prouver le modèle avant de lever. Break-even opérationnel prévu fin Phase 2.</p>
+            <p className="text-[15px] text-[#999999] max-w-lg leading-[1.7]">Auto-financé pour prouver le modèle avant de lever. Break-even opérationnel prévu fin Phase 2.</p>
           </FadeIn>
         </div>
       </section>
@@ -1045,18 +1043,18 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           CTA
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#0F0D0A]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
+      <section className="py-28 md:py-36 bg-[#0A0A0A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#F5F0EB] tracking-[-0.01em] mb-6">Construisons ensemble</h2>
-            <p className="max-w-xl mx-auto text-[15px] text-[#B8AFA3]/40 leading-relaxed mb-12">Demandes de partenariat, investissement et programmes pilotes. HarchAgri cherche des agriculteurs, gouvernements et investisseurs qui partagent notre vision de la souveraineté agricole africaine.</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-[-0.01em] mb-6">Construisons ensemble</h2>
+            <p className="max-w-xl mx-auto text-[15px] text-[#666666] leading-[1.7] mb-12">Demandes de partenariat, investissement et programmes pilotes. HarchAgri cherche des agriculteurs, gouvernements et investisseurs qui partagent notre vision de la souveraineté agricole africaine.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-[#C8A04A] text-[#171411] px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#D4AD55] transition-all">
+              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
                 Démarrer <ArrowRight size={14} />
               </Link>
-              <Link href="/investors" className="inline-flex items-center gap-2.5 border border-[#2A2520] text-[#B8AFA3] px-8 py-4 rounded-lg text-sm font-semibold hover:border-[#3A3530] hover:text-[#F0EBE3] transition-all">
+              <Link href="/investors" className="inline-flex items-center gap-2.5 border border-[rgba(255,255,255,0.12)] text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
                 Détails investisseurs
               </Link>
             </div>

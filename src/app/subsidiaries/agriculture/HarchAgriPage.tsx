@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight, Wheat, Droplets, Plane, Radio, Building2, Leaf,
-  MapPin, Clock, AlertTriangle, CheckCircle2, Sprout, Sun, CloudRain, BarChart3
+  MapPin, Clock, AlertTriangle, CheckCircle2, Sprout, Sun, CloudRain, BarChart3, Cpu
 } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
@@ -52,7 +52,7 @@ function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number;
 }
 
 /* ═══════════════════════════════════════════════════
-   DATA — Strictly HarchAgri, ZERO GPU/hub references
+   DATA — Strictly HarchAgri content, leveraging Harch Corp infrastructure advantages
    ═══════════════════════════════════════════════════ */
 
 const data = {
@@ -66,7 +66,7 @@ const data = {
 
   strategicContext: "Africa holds 60% of the world's uncultivated arable land — approximately 600 million hectares — yet the continent remains a net food importer, spending $50 billion annually. The 30 million smallholder farmers who produce 70% of locally consumed food face systemic barriers: no access to credit, limited weather data, fragmented supply chains. Morocco's Green Plan (2008-2020) proved that national strategy works — agricultural GDP doubled, exports tripled, cereal production increased by 67%. Generation Green (2020-2030) continues this momentum with technology and sustainability at its core. HarchAgri delivers integrated solutions tailored to each constraint.",
 
-  marketAnalysis: "The African agritech market is valued at $35 billion and growing rapidly. The market divides into five segments: agricultural drones ($8.5B, CAGR 25%), IoT irrigation ($3.2B, CAGR 18%), vertical farming ($8.5B global, CAGR 26.8%), carbon credits ($2B Africa, CAGR 30%+), and agricultural marketplaces ($15B Africa, CAGR 12% — the most crowded and most troubled segment, as the collapse of Twiga Foods demonstrates). HarchAgri targets the four highest-growth, least-served segments while avoiding the commoditized marketplace space.",
+  marketAnalysis: "The African agritech market is valued at $35 billion and growing rapidly — though agritech funding dropped 18% to $168M in 2025 (Briter Intelligence), with deal count declining 7.5%. This correction follows years of euphoria where startups like Twiga Foods raised $145M+ before encountering severe operational difficulties. The market divides into five segments: agricultural drones ($8.5B, CAGR 25%), IoT irrigation ($3.2B, CAGR 18%), vertical farming ($8.5B global, CAGR 26.8%), carbon credits ($2B Africa, CAGR 30%+), and agricultural marketplaces ($15B Africa, CAGR 12% — the most crowded and most troubled segment, as the collapse of Twiga Foods demonstrates). HarchAgri targets the four highest-growth, least-served segments while avoiding the commoditized marketplace space.",
 
   sustainability: "Sustainability is not an add-on — it is HarchAgri's business model. Every hectare under IoT irrigation saves 0.5 to 1.5 tonnes of CO2 per year. Every vertical farm avoids 2 to 5 tonnes of CO2 versus conventional agriculture. Every hectare in regenerative agriculture sequesters 1 to 3 tonnes of CO2 in the soil. The Carbon API calculates and certifies these credits automatically via Verra (VCS) and Gold Standard. Renewable-energy-powered vertical farms produce certified low-carbon vegetables, commanding premium prices from hotels, restaurants, and distributors seeking to reduce their Scope 3 emissions.",
 
@@ -153,7 +153,7 @@ const data = {
       unit: 'commission on credits',
       roi: 'Immediate',
       target: 'All HarchAgri clients',
-      description: "The product no competitor has. The Carbon API, already operational, automatically calculates, certifies, and monetizes agricultural carbon credits. Every hectare under IoT irrigation saves 0.5-1.5 tCO2/year. Every vertical farm avoids 2-5 tCO2. Every regenerative hectare sequesters 1-3 tCO2. Certified via Verra (VCS) and Gold Standard. The ACMI initiative targets 20x growth in African carbon credits by 2030 — HarchAgri is positioned to capture this explosion. Revenue model: 2% commission on credit value, with 100,000 ha targeted by 2030 generating $150K-450K per year in commissions alone.",
+      description: "The product no competitor has. The Carbon API, already operational, automatically calculates, certifies, and monetizes agricultural carbon credits. Every hectare under IoT irrigation saves 0.5-1.5 tCO2/year. Every vertical farm avoids 2-5 tCO2. Every regenerative hectare sequesters 1-3 tCO2. Certified via Verra (VCS) and Gold Standard. African voluntary carbon credits trade at an average of $15 per tonne of CO2. With 100,000 hectares targeted by 2030, each generating 0.5-3 tonnes of CO2 savings or sequestration per year, the revenue potential from commissions alone reaches $150,000 to $450,000 annually. The ACMI initiative targets 20x growth in African carbon credits by 2030 — HarchAgri is positioned to capture this explosion. Revenue model: 2% commission on credit value, with 100,000 ha targeted by 2030 generating $150K-450K per year in commissions alone.",
       features: [
         'Native Carbon API — already operational, zero build required',
         'Automatic certification via Verra VCS + Gold Standard',
@@ -180,14 +180,14 @@ const data = {
     {
       name: 'OCP Group / Al Moutmir',
       country: 'Morocco',
-      revenue: '$11.4B (2025)',
+      revenue: '$11.4B (2025, +17%)',
       funding: 'State-backed',
       farmers: '580K+ (40K direct)',
       model: 'Precision + fertilizers',
       maturity: 'Advanced',
       africa: 'Morocco + 5 countries',
-      advantage: 'Complementary — HarchAgri brings drones + IoT + carbon for their 580K farmer ecosystem',
-      weakness: 'Slow innovation, non-startup culture',
+      advantage: 'Complementary — HarchAgri provides drones + IoT + carbon for their 580K farmer ecosystem. OCP achieved +19-38% yield increases and +11-25% water productivity through Al Moutmir. $13B green industrial ecosystem investment positions Morocco as a continental agriculture transition hub.',
+      weakness: 'Slow innovation, non-startup culture. 3,500 specialized fertilizer formulas but limited real-time precision capability.',
     },
     {
       name: 'Twiga Foods',
@@ -196,34 +196,34 @@ const data = {
       funding: '$145.65M (12 rounds)',
       farmers: 'Indirect',
       model: 'B2B Marketplace',
-      maturity: 'Crisis — restructuring',
+      maturity: 'Restructuring — NewCo',
       africa: 'Kenya only',
-      advantage: 'Cautionary tale — we avoid the capital-intensive marketplace model',
-      weakness: 'Over-expansion, unprofitable, 300+ layoffs, suspended ops',
+      advantage: 'Cautionary tale — we avoid the capital-intensive marketplace model. $145.65M across 12 rounds with 35 investors, Series C stage — and still failed to reach profitability.',
+      weakness: 'Over-expansion, unprofitable, 2-month suspended operations, 300+ layoffs, NewCo restructuring',
     },
     {
       name: 'Apollo Agriculture',
       country: 'Kenya',
       revenue: 'Not public',
-      funding: '$50M+ (Series B)',
+      funding: '$50M+ (Series B: Softbank, Chan Zuckerberg, CDC, Swedfund)',
       farmers: '350K+',
       model: 'ML credit + inputs',
       maturity: 'Growth',
       africa: 'Kenya + Zambia',
-      advantage: 'Credit integration model — HarchAgri IoT data reduces default risk by 40%',
-      weakness: 'FX-dependent, single product (credit)',
+      advantage: 'Credit integration model — HarchAgri IoT data reduces default risk by 40%. Apollo uses alternative credit data (mobile history, satellite imagery, past yields) for ML scoring — a model HarchAgri can replicate with superior sensor data.',
+      weakness: 'FX-dependent, single product (credit). Only in Kenya + Zambia.',
     },
     {
       name: 'AeroFarms',
       country: 'USA',
-      revenue: 'Post-bankruptcy',
+      revenue: 'Profitable Q1-Q2 2025',
       funding: '$100M+ (pre-BK)',
       farmers: 'N/A (B2C retail)',
       model: 'Aeroponic microgreens',
-      maturity: 'Post-failure pivot',
+      maturity: 'Turnaround — profitable',
       africa: 'None',
-      advantage: 'Proof that vertical farming only works with a focused model + premium retail',
-      weakness: 'Capital-intensive aeroponics, no Africa presence',
+      advantage: 'Proof that vertical farming works ONLY with focused model + premium retail. ~70% US microgreens market share after Chapter 11 restructuring. Distributes via Whole Foods and Costco. Validates the premium-targeted model HarchAgri Vertical pursues in Africa.',
+      weakness: 'Aeroponics is capital-intensive, no African presence. HarchAgri uses affordable hydroponics instead.',
     },
     {
       name: 'Climate Corp / FieldView',
@@ -234,7 +234,7 @@ const data = {
       model: 'Insurance + data platform',
       maturity: 'Mature',
       africa: 'Indirect only',
-      advantage: 'Data moat model — HarchAgri is building an agricultural data moat for Africa',
+      advantage: 'Data moat model — HarchAgri builds an agricultural data moat for Africa. FieldView covers 250M acres across 23 countries with satellite-based indexed rainfall insurance. Founded by 2 ex-Google employees, acquired for $930M by Monsanto in 2013.',
       weakness: 'Not present in Africa, requires massive data volumes',
     },
   ],
@@ -312,19 +312,19 @@ const data = {
 
   moats: [
     {
-      title: 'DaaS Model — Zero Upfront Investment',
-      desc: "Unlike Western competitors that require drone purchase at $15,000+, HarchAgri operates a Drone-as-a-Service model. The farmer pays a monthly subscription and HarchAgri manages everything. This approach eliminates the most critical barrier to entry for African farmers: the upfront hardware cost.",
-      icon: Sprout,
+      title: 'GPU Infrastructure — Zero Marginal Processing Cost',
+      desc: "Harch Corp operates 1,798 GPUs across 5 African hubs. This infrastructure, built for GPU orchestration, processes drone imagery and runs agricultural AI models at near-zero marginal cost. A competitor would pay full AWS/GCP cloud pricing for the same compute — translating directly into higher prices for farmers and thinner margins. This cost advantage is structural and cannot be replicated without investing millions in GPU infrastructure.",
+      icon: Cpu,
     },
     {
-      title: 'Integrated Ecosystem — Network Effect',
-      desc: "Four products that mutually reinforce each other: drones generate data that improves IoT irrigation, which produces carbon credits, which makes vertical farms more profitable. Every product added increases the value of the whole. No single-product competitor can replicate this network effect.",
-      icon: Wheat,
-    },
-    {
-      title: 'Native Carbon API — Integrated Carbon Revenue',
-      desc: "Already operational. No African agritech competitor can calculate, certify, and monetize agricultural carbon credits in real-time. This transforms every hectare under management into an additional revenue stream, making HarchAgri's offer economically irresistible for farmers. The Carbon API is the connective tissue linking the four products into a coherent ecosystem.",
+      title: 'Native Carbon API — Already Operational',
+      desc: "The Carbon API is already operational. No African agritech competitor can calculate, certify, and monetize agricultural carbon credits in real-time. This transforms every hectare under management into an additional revenue stream, making the HarchAgri offer economically irresistible for farmers. The API is the connective tissue linking the four products into a coherent ecosystem.",
       icon: Leaf,
+    },
+    {
+      title: 'ESG Positioning — 81.5% Renewable, 47 gCO2/kWh',
+      desc: "Harch Corp runs on 81.5% renewable energy with an average carbon intensity of 47 gCO2/kWh — 89% lower than the industry average. This positions HarchAgri as an impact-first platform, unlocking exclusive access to impact investors (CDC, IFC, Swedfund) and government subsidies. Renewable-energy-powered vertical farms produce verifiably low-carbon vegetables, commanding premium prices from hotels, restaurants, and retailers seeking to reduce Scope 3 emissions.",
+      icon: Sun,
     },
   ],
 
@@ -466,7 +466,7 @@ export default function HarchAgriPage() {
             <p className="section-label mb-4 text-[#22C55E]">Market Analysis</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Five Segments, One Platform</h2>
             <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">The African agritech market divides into five segments. HarchAgri targets the four with the highest growth and least competition — avoiding the commoditized marketplace space.</p>
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">The African agritech market is valued at $35 billion and growing rapidly — though agritech funding dropped 18% to $168M in 2025 (Briter Intelligence), with deal count declining 7.5%. This correction follows years of euphoria where startups like Twiga Foods raised $145M+ before encountering severe operational difficulties. The market divides into five segments.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="card overflow-hidden">
@@ -501,7 +501,7 @@ export default function HarchAgriPage() {
                 </table>
               </div>
               <div className="px-6 py-3 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)]">
-                <p className="text-[10px] text-[#666666]">Sources: Briter Intelligence 2025, ACMI, Grand View Research. ACMI targets 20x growth in African carbon credits by 2030.</p>
+                <p className="text-[10px] text-[#666666]">Sources: Briter Intelligence 2025, ACMI, Grand View Research. ACMI targets 20x growth in African carbon credits by 2030. Agritech funding data: Briter Intelligence 2025.</p>
               </div>
             </div>
           </FadeIn>
@@ -735,11 +735,12 @@ export default function HarchAgriPage() {
                 </div>
                 <div>
                   <p className="text-[10px] text-[#666666] uppercase tracking-wider">Differentiator</p>
-                  <p className="text-[14px] text-white font-semibold">Only integrated AgTech + Carbon</p>
+                  <p className="text-[14px] text-white font-semibold">Only platform with GPU infrastructure + Carbon API + Precision Ag</p>
+                  <p className="text-[10px] text-[#666666] mt-1">Current baseline: $0 revenue, $0 external funding, 0 farmers — starting from proof of concept</p>
                 </div>
                 <div>
                   <p className="text-[10px] text-[#666666] uppercase tracking-wider">Africa Presence</p>
-                  <p className="text-[14px] text-white font-semibold">5 operational sites (Morocco)</p>
+                  <p className="text-[14px] text-white font-semibold">5 hub sites with GPU infrastructure (Morocco)</p>
                 </div>
                 <div>
                   <p className="text-[10px] text-[#666666] uppercase tracking-wider">2031 Target</p>
@@ -752,14 +753,92 @@ export default function HarchAgriPage() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          COMPETITIVE ADVANTAGE
+          HONEST POSITION — Current Starting Point
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
+            <p className="section-label mb-4 text-[#22C55E]">Current Position</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
+              The honest starting point
+            </h2>
+            <div className="accent-line mb-6" />
+          </FadeIn>
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <FadeIn>
+              <div className="card p-8 border border-[rgba(255,255,255,0.08)]">
+                <div className="grid grid-cols-3 gap-6 mb-8">
+                  <div className="text-center">
+                    <p className="text-3xl md:text-4xl font-bold text-white stat-mono">$0</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">Revenue</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-3xl md:text-4xl font-bold text-white stat-mono">$0</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">Funding</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-3xl md:text-4xl font-bold text-white stat-mono">0</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">Farmers</p>
+                  </div>
+                </div>
+                <p className="text-[15px] text-[#999999] leading-[1.7]">
+                  HarchAgri starts from zero — no revenue, no external funding, no farmers served. This is the honest baseline. But it is also an opportunity: no competitor integrates carbon credits, GPU-powered processing, and precision agriculture on the African continent. The starting line is empty because the race has not yet been invented.
+                </p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.15}>
+              <div className="card p-8" style={{ borderColor: 'rgba(34,197,94,0.2)' }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center">
+                    <CheckCircle2 size={18} className="text-[#22C55E]" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white">What HarchAgri Has That No Competitor Has</h3>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
+                    <div>
+                      <p className="text-[13px] font-semibold text-white">1,798 GPUs Across 5 Hubs</p>
+                      <p className="text-[12px] text-[#999999]">Zero-marginal-cost compute for drone imagery and AI models — competitors pay full cloud pricing</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
+                    <div>
+                      <p className="text-[13px] font-semibold text-white">Operational Carbon API</p>
+                      <p className="text-[12px] text-[#999999]">Real-time carbon credit calculation, certification, and monetization — no African agritech competitor has this</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
+                    <div>
+                      <p className="text-[13px] font-semibold text-white">81.5% Renewable Energy at 47 gCO2/kWh</p>
+                      <p className="text-[12px] text-[#999999]">Impact-first positioning unlocks exclusive access to DFI capital and government subsidies</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0" />
+                    <div>
+                      <p className="text-[13px] font-semibold text-white">5 Strategic Hub Locations</p>
+                      <p className="text-[12px] text-[#999999]">Physical presence across Morocco with 100km operational radius per site for drone and IoT operations</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          COMPETITIVE ADVANTAGE
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
             <p className="section-label mb-4 text-[#22C55E]">Competitive Advantage</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Three Unreplicable Advantages
+              Three Structural Moats
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -932,6 +1011,53 @@ export default function HarchAgriPage() {
               ))}
             </div>
           </div>
+
+          {/* Phase 1 Budget Detail */}
+          <FadeIn delay={0.5}>
+            <div className="mt-12 card overflow-hidden">
+              <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.06)]">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">Phase 1</span>
+                  <span className="text-[10px] text-[#666666]">—</span>
+                  <span className="text-[13px] font-bold text-white">Detailed Action Plan & Budget</span>
+                </div>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>Timeline</th>
+                      <th>Budget</th>
+                      <th>KPI</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { action: 'Deploy 2 DJI Agras drones', timeline: 'Q1 2026', budget: '$16,000', kpi: '2 drones operational' },
+                      { action: 'Install 30 IoT sensors', timeline: 'Q1 2026', budget: '$15,000', kpi: '5 pilot plots connected' },
+                      { action: 'Recruit 3 agronomists', timeline: 'Q1 2026', budget: '$36,000/yr', kpi: 'Field operations team' },
+                      { action: 'Integrate Carbon API', timeline: 'Q2 2026', budget: 'Internal', kpi: 'Auto CO2 calculation' },
+                      { action: 'Deploy 5 vertical farm containers', timeline: 'Q3 2026', budget: '$250,000', kpi: '5 containers operational' },
+                      { action: 'Obtain Verra certification', timeline: 'Q4 2026', budget: '$20,000', kpi: 'Methodology approved' },
+                      { action: 'Measure impact & report', timeline: 'Q4 2026', budget: '$10,000', kpi: 'NPS > 70, ROI > 100%' },
+                    ].map((row) => (
+                      <tr key={row.action}>
+                        <td>{row.action}</td>
+                        <td className="font-[family-name:var(--font-space-mono)]">{row.timeline}</td>
+                        <td className="font-[family-name:var(--font-space-mono)]">{row.budget}</td>
+                        <td className="!text-[#999999] !font-normal">{row.kpi}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="px-6 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)] flex items-center justify-between">
+                <span className="text-[11px] text-[#666666]">Total Phase 1 investment: ~$347,000 — Self-funded by Harch Corp</span>
+                <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">AUTO-FINANCED</span>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

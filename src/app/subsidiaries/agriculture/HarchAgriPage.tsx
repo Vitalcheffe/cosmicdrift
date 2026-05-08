@@ -758,7 +758,7 @@ export default function HarchAgriPage() {
           ═══════════════════════════════════════════ */}
       <CompetitiveComparison
         title="Competitive Landscape"
-        subtitle="HarchAgri vs. global agritech competitors — metric by metric."
+        subtitle="HarchAgri vs. global agritech competitors — metric by metric. No competitor matches our integrated stack."
         accentColor="#22C55E"
         sectionLabel="Competitive Comparison"
         harchName="Harch Agri"
@@ -768,13 +768,16 @@ export default function HarchAgriPage() {
             country: 'USA',
             metrics: [
               { label: 'Integrated Product Stack', harchValue: '5 products (Drone+IoT+Vertical+Carbon+Kit)', competitorValue: '1 product (vertical farm only)', harchWins: true },
-              { label: 'Financial Stability', harchValue: '$150M pipeline — growing', competitorValue: 'Nearly shut down Dec 2025 — rescued', harchWins: true },
+              { label: 'Financial Stability', harchValue: '$150M pipeline — growing', competitorValue: 'Chapter 11 in 2023 — rescued', harchWins: true },
               { label: 'African Operations', harchValue: 'Senegal + Morocco — building now', competitorValue: 'None — USA only', harchWins: true },
               { label: 'Energy Cost', harchValue: '$0.03/kWh (Harch Energy solar)', competitorValue: '$0.12-0.18/kWh (US grid)', harchWins: true },
               { label: 'Post-Harvest Loss', harchValue: '<5% (AI-optimized supply chain)', competitorValue: '10-15% (US distribution)', harchWins: true },
               { label: 'Carbon Credits Revenue', harchValue: 'Yes — Verra VCS + Gold Standard', competitorValue: 'None', harchWins: true },
               { label: 'Cross-Vertical Synergy', harchValue: 'Harch Energy + Water + Technology', competitorValue: 'None — standalone farm', harchWins: true },
               { label: 'Market Size', harchValue: '30M smallholder farmers (Africa)', competitorValue: '331M US consumers (saturated)', harchWins: true },
+              { label: 'Farming Method', harchValue: 'Hydroponic — affordable, proven', competitorValue: 'Aeroponic — capital-intensive, failed', harchWins: true },
+              { label: 'Drone Fleet', harchValue: '50+ autonomous drones', competitorValue: '0 — no drone capability', harchWins: true },
+              { label: 'IoT Network', harchValue: '10,000+ sensors — real-time', competitorValue: '0 — no IoT capability', harchWins: true },
             ],
             verdict: '3 of 4 major vertical farm competitors went bankrupt. Harch Agri enters at market bottom with 5 integrated products, 4x lower energy costs, carbon credit revenue, and 30M underserved African farmers. Aeroponics without economics is a science project.',
           },
@@ -789,6 +792,9 @@ export default function HarchAgriPage() {
               { label: 'African Operations', harchValue: '5,000 ha trials — Senegal + Morocco', competitorValue: '0 hectares in Africa', harchWins: true },
               { label: 'Starter Kit Price', harchValue: '$200 — 3 sensors + LoRaWAN gateway', competitorValue: '$749-$1,499/year (US pricing)', harchWins: true },
               { label: 'Water Reduction', harchValue: '60% vs traditional irrigation', competitorValue: 'N/A — no irrigation control', harchWins: true },
+              { label: 'Cross-Vertical Synergy', harchValue: 'Harch Energy + Water + Technology + Intelligence', competitorValue: 'None — standalone software', harchWins: true },
+              { label: 'Vertical Farming', harchValue: '3 facilities — premium produce', competitorValue: 'None — no vertical farms', harchWins: true },
+              { label: 'Yield Increase', harchValue: '30% vs traditional', competitorValue: '10-15% (sensing only)', harchWins: true },
             ],
             verdict: 'CropX and Climate Corp serve American commercial farms at $749/year. Harch Agri serves 30M African smallholders at $200 — with drones, IoT irrigation, carbon credits, and vertical farms they don\'t offer. Different market, different price, different planet.',
           },
@@ -803,8 +809,40 @@ export default function HarchAgriPage() {
               { label: 'Water Management', harchValue: '60% reduction — AI irrigation', competitorValue: 'None — no water tech', harchWins: true },
               { label: 'Yield Increase', harchValue: '30% vs traditional', competitorValue: '227% income boost (via mechanization)', harchWins: true },
               { label: 'Cross-Vertical Integration', harchValue: 'Harch Energy + Water + Technology + Intelligence', competitorValue: 'None — standalone platform', harchWins: true },
+              { label: 'Drone Surveillance', harchValue: '50+ autonomous drones', competitorValue: 'None', harchWins: true },
+              { label: 'Vertical Farming', harchValue: '3 facilities under development', competitorValue: 'None', harchWins: true },
             ],
             verdict: 'Hello Tractor connects 2.5M farmers to tractors. Harch Agri connects farmers to the entire precision agriculture stack — drones, IoT, irrigation, vertical farms, and carbon credits — backed by 4 other Harch subsidiaries. Tractor sharing is one feature. We are the platform.',
+          },
+          {
+            name: 'OCP Group / Al Moutmir',
+            country: 'Morocco',
+            metrics: [
+              { label: 'Integrated Product Stack', harchValue: '5 products (Drone+IoT+Vertical+Carbon+Kit)', competitorValue: '1 product (precision fertilization)', harchWins: true },
+              { label: 'Drone-as-a-Service', harchValue: 'Yes — $50/ha/month DaaS', competitorValue: 'None — no drone service', harchWins: true },
+              { label: 'Carbon Credit Revenue', harchValue: 'Native Carbon API — real-time', competitorValue: 'None — no carbon capability', harchWins: true },
+              { label: 'Vertical Farming', harchValue: '3 facilities — premium produce', competitorValue: 'None — no vertical farms', harchWins: true },
+              { label: 'IoT Irrigation', harchValue: 'Full stack — sensors + AI + LoRaWAN', competitorValue: 'Limited — fertilizer advisory only', harchWins: true },
+              { label: 'Cross-Vertical Synergy', harchValue: 'Harch Energy + Water + Technology + Intelligence', competitorValue: 'Fertilizer + advisory — no tech stack', harchWins: true },
+              { label: 'Starter Kit Price', harchValue: '$200 — eliminates adoption barrier', competitorValue: 'Free — but fertilizer-dependent', harchWins: true },
+              { label: 'Innovation Speed', harchValue: 'Startup agility — ship fast', competitorValue: 'State-owned — slow iteration', harchWins: true },
+            ],
+            verdict: 'OCP is a partner, not a competitor. They have 580K farmers and the world\'s best phosphate. HarchAgri brings drones, IoT, carbon credits, and vertical farms that OCP cannot build. Together we are unstoppable. Separate, OCP lacks tech. We complement.',
+          },
+          {
+            name: 'Apollo Agriculture',
+            country: 'Kenya',
+            metrics: [
+              { label: 'Technology Depth', harchValue: '5 integrated products', competitorValue: '1 product (agricultural credit)', harchWins: true },
+              { label: 'Carbon Credits', harchValue: 'Native API — Verra VCS + Gold Standard', competitorValue: 'None — no carbon capability', harchWins: true },
+              { label: 'Drone-as-a-Service', harchValue: 'Yes — $50/ha/month', competitorValue: 'None', harchWins: true },
+              { label: 'IoT Irrigation', harchValue: 'Full stack — 10,000+ sensors', competitorValue: 'None — credit platform only', harchWins: true },
+              { label: 'Vertical Farming', harchValue: '3 facilities — premium produce', competitorValue: 'None', harchWins: true },
+              { label: 'Cross-Vertical Synergy', harchValue: '4 Harch subsidiaries', competitorValue: 'None — standalone credit', harchWins: true },
+              { label: 'Credit Default Risk', harchValue: 'IoT data reduces default 40%', competitorValue: 'Mobile/satellite ML scoring', harchWins: true },
+              { label: 'Geographic Reach', harchValue: '5 countries — Morocco + West Africa', competitorValue: '2 countries — Kenya + Zambia', harchWins: true },
+            ],
+            verdict: 'Apollo validates ML credit scoring for African farmers. HarchAgri validates the entire precision agriculture stack — with IoT sensor data that makes credit scoring 40% more accurate than Apollo\'s mobile-based model. Better data, better credit, better farming.',
           },
         ]}
       />

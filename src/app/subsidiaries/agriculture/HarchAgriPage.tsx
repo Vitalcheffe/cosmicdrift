@@ -8,6 +8,7 @@ import {
   MapPin, Clock, AlertTriangle, Sprout, Sun, CloudRain, BarChart3, Cpu
 } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
 
 /* ═══════════════════════════════════════════════════
    HARCHAGRI — HarchCorp Unified Design System
@@ -751,6 +752,54 @@ export default function HarchAgriPage() {
           </FadeIn>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          COMPETITIVE COMPARISON — Metric-level
+          ═══════════════════════════════════════════ */}
+      <CompetitiveComparison
+        title="Competitive Landscape"
+        subtitle="HarchAgri vs. global agritech competitors — metric by metric."
+        accentColor="#22C55E"
+        sectionLabel="Competitive Comparison"
+        harchName="Harch Agri"
+        competitors={[
+          {
+            name: 'AeroFarms',
+            country: 'USA',
+            metrics: [
+              { label: 'Vertical Farm Model', harchValue: 'Part of 5-product stack', competitorValue: 'Pure-play (distressed)', harchWins: true },
+              { label: 'Water Reduction', harchValue: '60%', competitorValue: '90%', harchWins: false },
+              { label: 'Financial Stability', harchValue: '$150M pipeline', competitorValue: 'Nearly shut down Dec 2025', harchWins: true },
+              { label: 'African Operations', harchValue: 'Yes (Senegal, Morocco)', competitorValue: 'No', harchWins: true },
+              { label: 'Integrated Products', harchValue: 'Drone+IoT+Vertical+Carbon+Kit', competitorValue: 'Vertical farm only', harchWins: true },
+            ],
+            verdict: '3 of 4 major vertical farm competitors went bankrupt. Harch Agri enters at market bottom with integrated stack and African solar advantage.',
+          },
+          {
+            name: 'CropX / Climate Corp',
+            country: 'USA / Israel',
+            metrics: [
+              { label: 'Smallholder Focus', harchValue: 'Yes (30M target)', competitorValue: 'No (large farms)', harchWins: true },
+              { label: 'Drone-as-a-Service', harchValue: 'Yes ($50/ha/month)', competitorValue: 'No (software only)', harchWins: true },
+              { label: 'IoT + Irrigation Integration', harchValue: 'Yes', competitorValue: 'Partial (sensing only)', harchWins: true },
+              { label: 'Carbon Credits for Farmers', harchValue: 'Yes (2% commission)', competitorValue: 'Indigo Ag (US only)', harchWins: true },
+              { label: 'African Operations', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+            ],
+            verdict: 'CropX and Climate Corp serve American commercial farms. Harch Agri serves the 30M African smallholders they ignore.',
+          },
+          {
+            name: 'Hello Tractor',
+            country: 'Nigeria',
+            metrics: [
+              { label: 'Farmers Served', harchValue: 'Target: 100K by 2030', competitorValue: '2.5M in marketplace', harchWins: false },
+              { label: 'Technology Stack', harchValue: 'Drone+IoT+Vertical+Carbon', competitorValue: 'Tractor sharing platform', harchWins: true },
+              { label: 'Product Range', harchValue: '5 integrated products', competitorValue: '1 product (tractor sharing)', harchWins: true },
+              { label: 'Revenue Model', harchValue: 'SaaS + Hardware + Credits', competitorValue: 'Booking commissions', harchWins: true },
+            ],
+            verdict: 'Hello Tractor leads in farmer reach. Harch Agri leads in technology depth — 5 integrated products vs 1.',
+          },
+        ]}
+      />
 
       {/* ═══════════════════════════════════════════
           COMPETITIVE ADVANTAGE

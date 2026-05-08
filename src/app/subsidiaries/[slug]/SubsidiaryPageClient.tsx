@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Clock, TrendingUp, Target, Layers, Activity, Database, Thermometer, Wind, Droplets, Satellite, Lock, Radio, Eye, Gauge, Factory, Mountain, Wheat, Waves } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
+import type { Competitor } from '@/components/competitive/CompetitiveComparison';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -83,6 +85,9 @@ interface SubsidiaryInfo {
   location: string; locationDesc: string;
   strategicAdvantages: { title: string; desc: string }[];
   partnershipModel: { title: string; desc: string }[];
+  competitors?: Competitor[];
+  competitorHarchName?: string;
+  competitorAccentColor?: string;
 }
 
 export default function SubsidiaryPageClient({ slug }: { slug: string }) {
@@ -159,6 +164,9 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Colocation Services', desc: 'Carrier-neutral colocation with direct cloud on-ramps to AWS, Azure, and GCP. Private suites from 500kW to 10MW with custom power densities up to 150kW per rack for AI training clusters.' },
         { title: 'Strategic Partnerships', desc: 'Joint venture structures for sovereign wealth funds, development finance institutions, and strategic technology partners. Equity participation with preferred access to capacity and governance rights.' },
       ],
+      competitorHarchName: 'HarchOS',
+      competitorAccentColor: '#06B6D4',
+      competitors: [],
     },
     cement: {
       name: 'Harch Cement', version: '/0.2',
@@ -228,6 +236,44 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Joint Venture Operations', desc: 'Partnership structures for regional cement producers seeking West African market entry. Shared infrastructure, distribution, and technology transfer with Harch Corp operational management.' },
         { title: 'Government Partnerships', desc: 'Public-private partnership models for national infrastructure programs. Dedicated production allocation for government projects with priority delivery commitments.' },
         { title: 'Industrial Synergies', desc: 'Cross-vertical integration with Harch Energy for renewable power supply and Harch Mining for supplementary raw materials. Captive energy costs 40% below grid tariffs.' },
+      ],
+      competitorHarchName: 'Harch Cement',
+      competitorAccentColor: '#FFFFFF',
+      competitors: [
+        {
+          name: 'Dangote Cement',
+          country: 'Nigeria',
+          metrics: [
+            { label: 'Clinker Factor', harchValue: '<85% (target <70%)', competitorValue: '~80%+', harchWins: false },
+            { label: 'Green Product Line', harchValue: 'LC3 R&D', competitorValue: 'None', harchWins: true },
+            { label: 'Production', harchValue: '500kT/yr', competitorValue: '52 Mt/yr', harchWins: false },
+            { label: 'African Countries', harchValue: 'Gambia', competitorValue: '10+ countries', harchWins: false },
+            { label: 'Cost vs Imports', harchValue: '30-50% advantage', competitorValue: 'N/A (domestic)', harchWins: true },
+          ],
+          verdict: "Dangote is Africa's cement giant. Harch Cement is West Africa's green cement pioneer. Different league, different playbook.",
+        },
+        {
+          name: 'Holcim (ECOPact)',
+          country: 'Switzerland',
+          metrics: [
+            { label: 'Clinker Factor', harchValue: '<85% (target <70%)', competitorValue: '72% (target <68%)', harchWins: false },
+            { label: 'Green Premium', harchValue: 'None (cost advantage)', competitorValue: '5-15% premium', harchWins: true },
+            { label: 'West Africa Ops', harchValue: 'Gambia', competitorValue: 'Exited (sold to Huaxin)', harchWins: true },
+            { label: 'CO2/tonne', harchValue: '25% reduction target', competitorValue: '~565 kgCO2/tonne', harchWins: false },
+          ],
+          verdict: 'Holcim leads globally in green cement. But they exited West Africa. Harch Cement is where Holcim isn\'t — serving the fastest-growing construction market on Earth.',
+        },
+        {
+          name: 'Dalmia Cement',
+          country: 'India',
+          metrics: [
+            { label: 'Clinker Factor Target', harchValue: '<70% by 2029', competitorValue: '63% (current)', harchWins: false },
+            { label: 'Green Certification', harchValue: 'Planned', competitorValue: 'CII Green Pro', harchWins: false },
+            { label: 'Market', harchValue: 'Gambia/West Africa', competitorValue: 'India', harchWins: false },
+            { label: 'Carbon Target', harchValue: '25% reduction', competitorValue: 'Carbon negative by 2040', harchWins: false },
+          ],
+          verdict: 'Dalmia proves that <70% clinker is commercially viable at scale. Harch Cement\'s LC3 roadmap follows the same validated path.',
+        },
       ],
     },
     energy: {
@@ -299,6 +345,44 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Green Hydrogen Offtake', desc: 'Hydrogen supply agreements with European industrial customers. Delivered via pipeline or converted to green ammonia for maritime transport. Target price: $2.50/kg by 2028.' },
         { title: 'Community Energy Programs', desc: 'Mini-grid and rural electrification partnerships with governments and development agencies. 5% of generation capacity allocated for community energy access programs.' },
       ],
+      competitorHarchName: 'Harch Energy',
+      competitorAccentColor: '#FFFFFF',
+      competitors: [
+        {
+          name: 'ACWA Power',
+          country: 'Saudi Arabia',
+          metrics: [
+            { label: 'LCOE Solar', harchValue: '$14/MWh', competitorValue: '~$16-20/MWh', harchWins: true },
+            { label: 'Green H2 Target', harchValue: '$2.50/kg by 2028', competitorValue: 'Not disclosed', harchWins: true },
+            { label: 'African Focus', harchValue: 'Yes (Morocco, Sahel)', competitorValue: 'Limited (Senegal desal)', harchWins: true },
+            { label: 'Community Revenue Share', harchValue: '5%', competitorValue: 'Not disclosed', harchWins: true },
+            { label: 'Integrated Industrial', harchValue: 'Yes (7 verticals)', competitorValue: 'No (power + water only)', harchWins: true },
+          ],
+          verdict: 'ACWA leads in desalination scale. Harch Energy leads in integrated industrial energy — powering cement, mining, data centers, and agriculture from a single renewable backbone.',
+        },
+        {
+          name: 'Masdar',
+          country: 'Abu Dhabi',
+          metrics: [
+            { label: 'LCOE Solar', harchValue: '$14/MWh', competitorValue: '~$13-15/MWh', harchWins: false },
+            { label: 'Green H2 Electrolyzer', harchValue: '200MW', competitorValue: '4GW planned', harchWins: false },
+            { label: 'African Countries', harchValue: '5', competitorValue: '4+', harchWins: true },
+            { label: 'Community Revenue Share', harchValue: '5%', competitorValue: 'Not disclosed', harchWins: true },
+          ],
+          verdict: 'Masdar has deeper pockets. Harch Energy has deeper integration — every MWh powers a Harch subsidiary.',
+        },
+        {
+          name: 'Fortescue Future Industries',
+          country: 'Australia',
+          metrics: [
+            { label: 'Green H2 Target', harchValue: '$2.50/kg by 2028', competitorValue: '$2/kg target (scaled back)', harchWins: true },
+            { label: 'H2 Electrolyzer', harchValue: '200MW', competitorValue: '2GW+ planned', harchWins: false },
+            { label: 'Renewable Pipeline', harchValue: '2GW+', competitorValue: '15GW+', harchWins: false },
+            { label: 'African Operations', harchValue: 'Yes (5 countries)', competitorValue: 'Limited (Egypt, Kenya)', harchWins: true },
+          ],
+          verdict: "Fortescue's FFI scaled back multiple green hydrogen projects in 2025. Harch Energy's disciplined 200MW approach prioritizes execution over announcements.",
+        },
+      ],
     },
     technology: {
       name: 'Harch Technology', version: '/0.4',
@@ -366,6 +450,44 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Managed Security Services', desc: '24/7 security operations center with managed detection and response for critical infrastructure. Tiered service levels from monitoring-only to full incident response and remediation.' },
         { title: 'Technology Licensing', desc: 'White-label licensing of Harch Technology platforms for telecom operators and system integrators seeking to offer sovereign digital services under their own brand.' },
         { title: 'Research Partnerships', desc: 'Collaborative R&D programs with African universities and research institutions. Joint publications, patent sharing, and talent pipeline development for the next generation of African technologists.' },
+      ],
+      competitorHarchName: 'Harch Technology',
+      competitorAccentColor: '#FFFFFF',
+      competitors: [
+        {
+          name: 'Africa Data Centres / Liquid C2',
+          country: 'South Africa',
+          metrics: [
+            { label: 'Sovereign AI Platform', harchValue: '1,798 GPUs', competitorValue: 'Google Cloud (not sovereign)', harchWins: true },
+            { label: '100% Data Residency', harchValue: 'Yes', competitorValue: 'No explicit guarantee', harchWins: true },
+            { label: 'ISO 27001 + SOC 2', harchValue: 'Both', competitorValue: 'ISO 27001 only', harchWins: true },
+            { label: 'Cybersecurity Suite', harchValue: 'Integrated DDoS+IDS+SOC', competitorValue: 'Microsoft Sentinel partnership', harchWins: true },
+            { label: 'Edge Nodes', harchValue: '50+ in 5 countries', competitorValue: '15+ countries (fewer nodes)', harchWins: true },
+          ],
+          verdict: 'Liquid C2 depends on Google Cloud. Harch Technology offers sovereign AI — every GPU, every byte, every policy under African control.',
+        },
+        {
+          name: 'Dimension Data / NTT Security',
+          country: 'South Africa',
+          metrics: [
+            { label: 'African-Based SOC', harchValue: 'Yes (Morocco)', competitorValue: 'Global SOC (SA office)', harchWins: true },
+            { label: 'ISO 27001 + SOC 2', harchValue: 'Both', competitorValue: 'Both', harchWins: false },
+            { label: 'Sovereign AI Platform', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+            { label: 'Edge Computing', harchValue: '50+ nodes', competitorValue: 'Via NTT global network', harchWins: true },
+          ],
+          verdict: 'Dimension Data has the deepest African IT footprint. Harch Technology has the only African sovereign AI platform.',
+        },
+        {
+          name: 'Starlink',
+          country: 'USA (SpaceX)',
+          metrics: [
+            { label: 'Uptime SLA', harchValue: '99.99%', competitorValue: '99.9%', harchWins: true },
+            { label: 'LEO + MEO', harchValue: 'Yes', competitorValue: 'LEO only', harchWins: true },
+            { label: 'African Sovereign', harchValue: 'Yes', competitorValue: 'No (US-operated)', harchWins: true },
+            { label: 'Enterprise Integration', harchValue: 'Cloud + Edge + Satellite', competitorValue: 'Internet only', harchWins: true },
+          ],
+          verdict: 'Starlink dominates consumer broadband. Harch Technology delivers enterprise-grade satellite with sovereign compliance and integrated cloud-edge-satellite stack.',
+        },
       ],
     },
     mining: {
@@ -436,6 +558,44 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Government Revenue Sharing', desc: 'Transparent revenue sharing with host governments exceeding industry standards. Royalties, taxes, and community development contributions structured for mutual long-term benefit.' },
         { title: 'Circular Mineral Flows', desc: 'Partnerships with battery recyclers and electronics manufacturers for end-of-life mineral recovery. Closing the loop on critical minerals reduces demand for primary extraction.' },
       ],
+      competitorHarchName: 'Harch Mining',
+      competitorAccentColor: '#FFFFFF',
+      competitors: [
+        {
+          name: 'Glencore',
+          country: 'Switzerland',
+          metrics: [
+            { label: 'Cobalt Production', harchValue: '10K t/yr target', competitorValue: '~35K t/yr', harchWins: false },
+            { label: 'Renewable-Powered Processing', harchValue: '100% (Harch Energy)', competitorValue: '<15%', harchWins: true },
+            { label: 'Carbon vs Chinese Processing', harchValue: '80% lower', competitorValue: 'Similar to industry', harchWins: true },
+            { label: 'ESG Certification', harchValue: 'ISO 14001 planned', competitorValue: 'Evolving', harchWins: false },
+            { label: 'Value Capture', harchValue: '5-8x vs raw ore', competitorValue: '2-3x', harchWins: true },
+          ],
+          verdict: 'Glencore leads in cobalt volume. Harch Mining leads in green processing — every tonne is renewable-powered and ESG-certifiable.',
+        },
+        {
+          name: 'OCP Group',
+          country: 'Morocco',
+          metrics: [
+            { label: 'Phosphate Production', harchValue: '5M t/yr target', competitorValue: '40-45M t/yr', harchWins: false },
+            { label: 'Green Processing', harchValue: '100% renewable', competitorValue: '$13B green plan', harchWins: true },
+            { label: 'Value-Added Products', harchValue: 'Cobalt, REE, Phosphate', competitorValue: 'Phosphate + Fertilizers', harchWins: true },
+            { label: 'Carbon Neutrality Target', harchValue: 'Year 1 (renewable)', competitorValue: '2040', harchWins: true },
+          ],
+          verdict: "OCP is the world's phosphate giant. Harch Mining targets the strategic minerals OCP doesn't — cobalt and rare earths for the energy transition.",
+        },
+        {
+          name: 'Lynas Rare Earths',
+          country: 'Australia',
+          metrics: [
+            { label: 'REE Processing', harchValue: '2K t/yr target', competitorValue: '~10K t/yr', harchWins: false },
+            { label: 'Purity', harchValue: '99.9% target', competitorValue: '99.5%+', harchWins: true },
+            { label: 'Renewable-Powered', harchValue: '100% (Harch Energy)', competitorValue: 'Partial', harchWins: true },
+            { label: 'African Operations', harchValue: 'Mauritania', competitorValue: 'None', harchWins: true },
+          ],
+          verdict: 'Lynas leads in REE processing scale. Harch Mining offers renewable-powered processing closer to European and African markets.',
+        },
+      ],
     },
     agriculture: {
       name: 'Harch Agri', version: '/0.6',
@@ -505,6 +665,9 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Export Joint Ventures', desc: 'Partnerships with European food distributors and retailers for premium African produce. Shared branding, quality assurance, and supply chain management.' },
         { title: 'Development Finance Partnerships', desc: 'Collaborative programs with IFAD, AfDB, and bilateral development agencies for smallholder farmer technology transfer and capacity building.' },
       ],
+      competitorHarchName: 'Harch Agri',
+      competitorAccentColor: '#22C55E',
+      competitors: [],
     },
     water: {
       name: 'Harch Water', version: '/0.7',
@@ -573,6 +736,46 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Government Water Concessions', desc: 'Public-private partnerships for municipal water supply and distribution. Build-operate-transfer or build-own-operate models with government offtake guarantees.' },
         { title: 'Community Water Programs', desc: 'Collaborative programs with UNICEF, WaterAid, and government agencies for rural water access. 10% community allocation provides baseline; partnerships fund expansion.' },
         { title: 'Development Finance Partnerships', desc: 'Project finance structures with AfDB, IFC, and bilateral development finance institutions. Concessional lending eligibility through community impact metrics and ESG compliance.' },
+      ],
+      competitorHarchName: 'Harch Water',
+      competitorAccentColor: '#FFFFFF',
+      competitors: [
+        {
+          name: 'ACWA Power',
+          country: 'Saudi Arabia',
+          metrics: [
+            { label: 'Production Cost', harchValue: '$0.45/m³', competitorValue: '$0.45-0.55/m³', harchWins: true },
+            { label: 'Energy Use', harchValue: '2.5 kWh/m³', competitorValue: '2.5-3.5 kWh/m³', harchWins: true },
+            { label: 'Network Losses', harchValue: '<5%', competitorValue: 'Not applicable', harchWins: true },
+            { label: 'AI Distribution', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+            { label: 'Community Allocation', harchValue: '10% free', competitorValue: 'Not disclosed', harchWins: true },
+            { label: 'Capacity', harchValue: '200M m³/yr', competitorValue: '2,950M m³/yr', harchWins: false },
+          ],
+          verdict: 'Harch Water matches ACWA\'s world-record cost. But Harch adds AI-optimized distribution and community allocation — ACWA builds plants, Harch builds water systems.',
+        },
+        {
+          name: 'Veolia',
+          country: 'France',
+          metrics: [
+            { label: 'Production Cost', harchValue: '$0.45/m³', competitorValue: '$0.60-1.00/m³', harchWins: true },
+            { label: 'Energy Use', harchValue: '2.5 kWh/m³', competitorValue: '3.0-4.0 kWh/m³', harchWins: true },
+            { label: 'Network Losses', harchValue: '<5%', competitorValue: '15-25% typical', harchWins: true },
+            { label: 'AI Distribution', harchValue: 'Yes', competitorValue: 'Limited (Xylem partnership)', harchWins: true },
+            { label: 'Morocco Desal', harchValue: '200M m³/yr (Mali focus)', competitorValue: '300M m³/yr (Casablanca)', harchWins: false },
+          ],
+          verdict: 'Veolia builds Africa\'s largest desal plant in Morocco. Harch Water builds Africa\'s smartest — at 40% lower cost and 8x fewer network losses.',
+        },
+        {
+          name: 'IDE Technologies',
+          country: 'Israel',
+          metrics: [
+            { label: 'Production Cost', harchValue: '$0.45/m³', competitorValue: '$0.50-0.60/m³', harchWins: true },
+            { label: 'Energy Use', harchValue: '2.5 kWh/m³', competitorValue: '3.0-3.5 kWh/m³', harchWins: true },
+            { label: 'AI Distribution', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+            { label: 'Africa Focus', harchValue: 'Yes (Mali, Morocco)', competitorValue: 'No', harchWins: true },
+          ],
+          verdict: 'IDE builds world-class desal plants. Harch Water builds world-class desal systems — plant + AI distribution + community allocation.',
+        },
       ],
     },
   };
@@ -866,6 +1069,20 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          COMPETITIVE LANDSCAPE — Before partnership
+          ═══════════════════════════════════════════ */}
+      {data.competitors && data.competitors.length > 0 && (
+        <CompetitiveComparison
+          title="Competitive Landscape"
+          subtitle={`How ${data.name} compares against global and regional competitors.`}
+          accentColor={data.competitorAccentColor || '#FFFFFF'}
+          sectionLabel="Competitive Landscape"
+          harchName={data.competitorHarchName || data.name}
+          competitors={data.competitors}
+        />
+      )}
 
       {/* ═══════════════════════════════════════════
           PARTNERSHIP MODEL — Grid cards

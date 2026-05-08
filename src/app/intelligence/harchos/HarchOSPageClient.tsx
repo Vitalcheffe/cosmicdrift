@@ -11,6 +11,8 @@ import {
   Sun, Droplets, MapPin
 } from 'lucide-react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
+import type { Competitor } from '@/components/competitive/CompetitiveComparison';
 
 /* ─── ANIMATION HELPERS ─── */
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -756,6 +758,71 @@ export default function HarchOSPageClient() {
           </div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 11B: COMPETITIVE LANDSCAPE
+          ═══════════════════════════════════════════ */}
+      <CompetitiveComparison
+        title="Competitive Landscape"
+        subtitle="HarchOS vs. the world's GPU infrastructure providers. We don't just run green — we schedule green."
+        accentColor="#06B6D4"
+        sectionLabel="Competitive Landscape"
+        harchName="HarchOS"
+        competitors={[
+          {
+            name: 'CoreWeave',
+            country: 'USA',
+            metrics: [
+              { label: 'Carbon-Aware Scheduling', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+              { label: 'African Sovereign DC', harchValue: 'Yes (Morocco)', competitorValue: 'No', harchWins: true },
+              { label: 'Uptime SLA', harchValue: '99.999%', competitorValue: '99.99%', harchWins: true },
+              { label: 'GPU Fleet', harchValue: '1,798', competitorValue: '300,000+', harchWins: false },
+              { label: 'Avg Renewable Energy', harchValue: '81.5%', competitorValue: 'Not disclosed', harchWins: true },
+              { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh', competitorValue: 'Not disclosed', harchWins: true },
+              { label: 'PUE', harchValue: '<1.15', competitorValue: 'Not disclosed', harchWins: true },
+              { label: 'Submarine Cable Hub', harchValue: 'Yes (4 systems)', competitorValue: 'No', harchWins: true },
+            ],
+            verdict: 'Only carbon-aware GPU cloud on Earth. CoreWeave leads in scale; HarchOS leads in sustainability and sovereignty.',
+          },
+          {
+            name: 'Google Cloud (Hamina)',
+            country: 'Finland',
+            metrics: [
+              { label: 'Carbon-Aware Scheduling', harchValue: 'Yes (real-time)', competitorValue: 'No (static green)', harchWins: true },
+              { label: 'PUE', harchValue: '<1.15', competitorValue: '~1.07', harchWins: false },
+              { label: 'Renewable Energy', harchValue: '81.5%', competitorValue: '97%', harchWins: false },
+              { label: 'GPU Cloud Access', harchValue: 'Yes (H100/A100)', competitorValue: 'No (internal only)', harchWins: true },
+              { label: 'African Sovereignty', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+              { label: 'Latency to Africa', harchValue: '<5ms', competitorValue: '>100ms', harchWins: true },
+            ],
+            verdict: 'Google runs green. HarchOS schedules green. Accessible GPU cloud at African sovereignty — Google offers neither.',
+          },
+          {
+            name: 'Africa Data Centres (Cassava)',
+            country: 'South Africa',
+            metrics: [
+              { label: 'GPU Compute', harchValue: 'Yes (1,798 GPUs)', competitorValue: 'No', harchWins: true },
+              { label: 'Carbon-Aware Scheduling', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+              { label: 'PUE', harchValue: '<1.15', competitorValue: 'Not disclosed', harchWins: true },
+              { label: 'MW Pipeline', harchValue: '500MW', competitorValue: '30MW+', harchWins: true },
+              { label: 'Sovereign AI Platform', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+            ],
+            verdict: 'Largest African DC operator has zero GPU capabilities. HarchOS is the only African GPU cloud.',
+          },
+          {
+            name: 'QScale',
+            country: 'Canada',
+            metrics: [
+              { label: 'Carbon-Aware Scheduling', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+              { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh', competitorValue: '~1-5 gCO2/kWh', harchWins: false },
+              { label: 'GPU Cloud Access', harchValue: 'Yes', competitorValue: 'Colocation only', harchWins: true },
+              { label: 'PUE', harchValue: '<1.15', competitorValue: '~1.06', harchWins: false },
+              { label: 'African Sovereignty', harchValue: 'Yes', competitorValue: 'No', harchWins: true },
+            ],
+            verdict: "QScale has lower grid carbon. HarchOS offers carbon-AWARE scheduling — we don't just run green, we schedule green.",
+          },
+        ]}
+      />
 
       {/* ═══════════════════════════════════════════
           SECTION 12: ROADMAP

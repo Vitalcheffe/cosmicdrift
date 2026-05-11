@@ -167,13 +167,13 @@ const certifications: Certification[] = [
 const regions = [
   {
     name: 'Morocco',
-    flag: '🇲🇦',
+    flag: 'MA',
     description: 'Primary operating jurisdiction. Full compliance with Moroccan Law 09-08, CNDP registration, and all local regulatory requirements.',
     certs: ['Moroccan DPA', 'ISO 27001', 'SOC 2 Type II', 'ISO 22301'],
   },
   {
     name: 'European Union',
-    flag: '🇪🇺',
+    flag: 'EU',
     description: 'GDPR compliance for EU data subjects. Standard contractual clauses for data transfers. Adequacy decision alignment for Morocco-EU transfers.',
     certs: ['GDPR', 'ISO 27001', 'SOC 2 Type II', 'ISO 22301'],
   },

@@ -51,7 +51,7 @@ const communityChannels = [
     desc: 'Long-form discussions, architecture reviews, and project showcases. The place for asynchronous deep conversations.',
     members: '1,800+ threads',
     icon: Users,
-    accent: '#C7923E',
+    accent: '#8B9DAF',
     channels: ['discussions.harchcorp.com', 'RFCs', 'Show & Tell'],
     cta: 'Visit Forum',
     href: 'https://discussions.harchcorp.com',
@@ -71,7 +71,7 @@ const upcomingEvents = [
     desc: 'Monthly in-person meetup at the Harch Corp HQ. Lightning talks, networking, and live demos of HarchOS features.',
     date: 'April 15, 2026',
     type: 'Meetup',
-    typeColor: 'bg-[rgba(199,146,62,0.08)] border-[rgba(199,146,62,0.15)] text-[#C7923E]',
+    typeColor: 'bg-[rgba(139,157,175,0.08)] border-[rgba(139,157,175,0.15)] text-[#8B9DAF]',
   },
   {
     name: 'Sovereign AI Hackathon',
@@ -97,7 +97,7 @@ export default function CommunityPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Community</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Community</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Build Together.
             </h1>
@@ -113,7 +113,7 @@ export default function CommunityPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Channels</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Channels</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">Where We Connect</h2>
           </FadeIn>
 
@@ -143,7 +143,7 @@ export default function CommunityPageClient() {
                         </span>
                       ))}
                     </div>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
                       {channel.cta} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
@@ -167,7 +167,7 @@ export default function CommunityPageClient() {
               return (
                 <FadeIn key={stat.label} delay={i * 0.08}>
                   <div className="card p-6 text-center">
-                    <Icon size={20} className="text-[#C7923E] mx-auto mb-3" strokeWidth={1.5} />
+                    <Icon size={20} className="text-[#8B9DAF] mx-auto mb-3" strokeWidth={1.5} />
                     <p className="text-3xl md:text-4xl font-bold text-white stat-mono mb-2">{stat.value}</p>
                     <p className="text-[12px] text-[#999999] leading-relaxed">{stat.label}</p>
                   </div>
@@ -182,7 +182,7 @@ export default function CommunityPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Events</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Events</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">Upcoming Community Events</h2>
           </FadeIn>
 
@@ -193,7 +193,7 @@ export default function CommunityPageClient() {
                   <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                     <div className="shrink-0">
                       <div className="flex items-center gap-3">
-                        <Calendar size={16} className="text-[#C7923E]" strokeWidth={1.5} />
+                        <Calendar size={16} className="text-[#8B9DAF]" strokeWidth={1.5} />
                         <span className={`inline-flex items-center px-2.5 py-1 rounded-md border text-[9px] font-bold tracking-[0.12em] uppercase ${event.typeColor}`}>
                           {event.type}
                         </span>
@@ -219,7 +219,7 @@ export default function CommunityPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
             <FadeIn>
               <div>
-                <p className="section-label mb-4 text-[#C7923E]">Guidelines</p>
+                <p className="section-label mb-4 text-[#8B9DAF]">Guidelines</p>
                 <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">Community Code of Conduct</h2>
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
                   We are committed to providing a welcoming, inclusive, and harassment-free experience for everyone. Our community guidelines apply across all Harch Corp community spaces — Discord, GitHub, forums, and events.
@@ -232,19 +232,19 @@ export default function CommunityPageClient() {
                     'Zero tolerance for harassment, discrimination, or spam',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3">
-                      <Shield size={14} className="text-[#C7923E] shrink-0 mt-0.5" strokeWidth={1.5} />
+                      <Shield size={14} className="text-[#8B9DAF] shrink-0 mt-0.5" strokeWidth={1.5} />
                       <span className="text-[13px] text-[#999999]">{item}</span>
                     </div>
                   ))}
                 </div>
-                <Link href="/legal/code-of-conduct" className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] hover:text-white transition-colors">
+                <Link href="/legal/code-of-conduct" className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] hover:text-white transition-colors">
                   Read Full Code of Conduct <ArrowRight size={14} />
                 </Link>
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
               <div>
-                <p className="section-label mb-4 text-[#C7923E]">Champions</p>
+                <p className="section-label mb-4 text-[#8B9DAF]">Champions</p>
                 <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">Community Champions</h2>
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
                   The Harch Community Champions program recognizes members who go above and beyond — answering questions, contributing code, writing tutorials, and mentoring newcomers.
@@ -262,7 +262,7 @@ export default function CommunityPageClient() {
                     </div>
                   ))}
                 </div>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] hover:text-white transition-colors cursor-pointer">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] hover:text-white transition-colors cursor-pointer">
                   Apply to Become a Champion <ArrowRight size={14} />
                 </span>
               </div>

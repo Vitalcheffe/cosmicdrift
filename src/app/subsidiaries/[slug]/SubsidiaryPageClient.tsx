@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+
 import { ArrowRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Clock, TrendingUp, Target, Layers, Activity, Database, Thermometer, Wind, Droplets, Satellite, Lock, Radio, Eye, Gauge, Factory, Mountain, Wheat, Waves } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
@@ -23,20 +23,20 @@ function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number;
   return <span ref={ref}>{format()}</span>;
 }
 
-/* ─── FULL-BLEED IMAGE BREAK (Palantir style) ─── */
-function FullBleedImage({ src, alt, height = '50vh' }: { src: string; alt: string; height?: string }) {
+/* ─── FULL-BLEED GRADIENT BREAK ─── */
+function FullBleedGradient({ height = '50vh', gradient = 'from-[#1a2a3a] via-[#0D0D0D] to-[#0D0D0D]' }: { height?: string; gradient?: string }) {
   return (
-    <div className="relative w-full overflow-hidden" style={{ height }}>
-      <Image src={src} alt={alt} fill className="object-cover industrial-image" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-[#1A1A1A]" />
+    <div className={`relative w-full overflow-hidden bg-gradient-to-br ${gradient}`} style={{ height }}>
+      <div className="absolute inset-0 dot-pattern opacity-20" />
+      <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #8B9DAF, transparent)' }} />
     </div>
   );
 }
 
-/* ─── SIDE-BY-SIDE SPLIT (Palantir style: text + image) ─── */
-function SplitSection({ children, imageSrc, imageAlt, reverse = false }: { children: React.ReactNode; imageSrc: string; imageAlt: string; reverse?: boolean }) {
+/* ─── SIDE-BY-SIDE SPLIT (text + gradient panel) ─── */
+function SplitSection({ children, reverse = false, gradient = 'from-[#1a2a3a] to-[#0d1520]' }: { children: React.ReactNode; reverse?: boolean; gradient?: string }) {
   return (
-    <section className="bg-[#1A1A1A]">
+    <section className="bg-[#0D0D0D]">
       <div className="max-w-[1800px] mx-auto">
         <div className={`grid grid-cols-1 lg:grid-cols-2 min-h-[70vh] ${reverse ? 'lg:dir-rtl' : ''}`}>
           <div className={`flex items-center px-8 md:px-16 lg:px-24 py-20 ${reverse ? 'lg:order-2' : 'lg:order-1'}`}>
@@ -44,8 +44,9 @@ function SplitSection({ children, imageSrc, imageAlt, reverse = false }: { child
               {children}
             </div>
           </div>
-          <div className={`relative min-h-[40vh] lg:min-h-0 overflow-hidden ${reverse ? 'lg:order-1' : 'lg:order-2'}`}>
-            <Image src={imageSrc} alt={imageAlt} fill className="object-cover industrial-image" />
+          <div className={`relative min-h-[40vh] lg:min-h-0 overflow-hidden bg-gradient-to-br ${gradient} ${reverse ? 'lg:order-1' : 'lg:order-2'}`}>
+            <div className="absolute inset-0 dot-pattern opacity-20" />
+            <div className="absolute -bottom-12 -right-12 w-48 h-48 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #8B9DAF, transparent)' }} />
           </div>
         </div>
       </div>
@@ -63,7 +64,7 @@ function StatBar({ stat, value, max }: { stat: string; value: number; max: numbe
         <span className="text-[12px] text-[#999999]">{stat}</span>
         <span className="text-[12px] font-bold text-white">{value}%</span>
       </div>
-      <div className="h-1 bg-[#252525] rounded-full overflow-hidden">
+      <div className="h-1 bg-[#1A1A1A] rounded-full overflow-hidden">
         <div className="h-full bg-white/60 rounded-full transition-all duration-[2s] ease-out" style={{ width: isInView ? `${(value / max) * 100}%` : '0%' }} />
       </div>
     </div>
@@ -175,7 +176,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Strategic Partnerships', desc: 'Joint venture structures for sovereign wealth funds, development finance institutions, and strategic technology partners. Equity participation with preferred access to capacity and governance rights.' },
       ],
       competitorHarchName: 'HarchOS',
-      competitorAccentColor: '#C7923E',
+      competitorAccentColor: '#8B9DAF',
       competitors: [
         {
           name: 'CoreWeave',
@@ -1233,12 +1234,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
   if (!data) return <div className="pt-40 pb-20 text-center"><h1 className="text-2xl font-bold">Page not found</h1></div>;
 
   return (
-    <div className="bg-[#1A1A1A]">
+    <div className="bg-[#0D0D0D]">
       {/* ═══════════════════════════════════════════
           HERO — Full-bleed photo with overlaid text (Palantir style)
           ═══════════════════════════════════════════ */}
-      <section className="photo-section relative min-h-[85vh] flex items-end">
-        <Image src={data.heroImage} alt={data.name} fill className="object-cover" priority />
+      <section className="relative min-h-[85vh] flex items-end bg-gradient-to-br from-[#1a2a3a] via-[#0D0D0D] to-[#0D0D0D]">
+        <div className="absolute inset-0 dot-pattern opacity-20" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pb-20 md:pb-32 w-full">
           <FadeIn>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm mb-6">
@@ -1255,7 +1256,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           OVERVIEW — Text left + Metrics right (Palantir split)
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+      <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn>
@@ -1285,12 +1286,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           FULL-BLEED IMAGE BREAK — Palantir style between sections
           ═══════════════════════════════════════════ */}
-      <FullBleedImage src={data.sectionImage1} alt={`${data.name} infrastructure`} height="55vh" />
+      <FullBleedGradient height="55vh" />
 
       {/* ═══════════════════════════════════════════
           STRATEGIC CONTEXT — Side-by-side split (Palantir: text left + image right)
           ═══════════════════════════════════════════ */}
-      <SplitSection imageSrc={data.sectionImage2} imageAlt={`${data.name} operations`}>
+      <SplitSection>
         <FadeIn>
           <p className="section-label mb-4">Strategic Context</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
@@ -1304,7 +1305,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           CAPABILITIES — Grid cards
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
+      <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Capabilities</p>
@@ -1368,8 +1369,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           PHOTO BACKGROUND — Investment & Location (Palantir mood section)
           ═══════════════════════════════════════════ */}
-      <section className="photo-section relative min-h-[50vh] flex items-center">
-        <Image src={data.heroImage} alt={data.name} fill className="object-cover" />
+      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-[#1a2a3a] via-[#0D0D0D] to-[#0D0D0D]">
+        <div className="absolute inset-0 dot-pattern opacity-20" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-20">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-6 max-w-2xl">
@@ -1383,7 +1384,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           MARKET ANALYSIS — Side-by-side split (Palantir: image left + text right)
           ═══════════════════════════════════════════ */}
-      <SplitSection imageSrc={data.sectionImage1} imageAlt={`${data.name} market`} reverse>
+      <SplitSection reverse gradient="from-[#1a2a1a] to-[#0d150d]">
         <FadeIn>
           <p className="section-label mb-4">Market Analysis</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
@@ -1397,7 +1398,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           TECHNICAL SPECIFICATIONS — Data table
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
+      <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Technical Specifications</p>
@@ -1405,7 +1406,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Detailed specifications and performance targets for {data.name}.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="bg-[#1A1A1A] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
+            <div className="bg-[#141414] rounded-lg border border-[rgba(255,255,255,0.06)] overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="data-table">
                   <thead>
@@ -1434,7 +1435,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           SUSTAINABILITY & ESG — Full-width section
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+      <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn>
@@ -1462,12 +1463,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           SECOND FULL-BLEED IMAGE BREAK
           ═══════════════════════════════════════════ */}
-      <FullBleedImage src={data.sectionImage2} alt={`${data.name} facility`} height="45vh" />
+      <FullBleedGradient height="45vh" gradient="from-[#1a2a1a] via-[#0D0D0D] to-[#0D0D0D]" />
 
       {/* ═══════════════════════════════════════════
           DEEP DIVE — Additional visual section with sectionImage3
           ═══════════════════════════════════════════ */}
-      <SplitSection imageSrc={data.sectionImage3} imageAlt={`${data.name} deep operations`} reverse>
+      <SplitSection reverse gradient="from-[#2a1a1a] to-[#150d0d]">
         <p className="section-label mb-4">Deep Operations</p>
         <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-4">
           Inside the Infrastructure
@@ -1486,12 +1487,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           THIRD FULL-BLEED IMAGE BREAK — sectionImage4
           ═══════════════════════════════════════════ */}
-      <FullBleedImage src={data.sectionImage4} alt={`${data.name} scale`} height="40vh" />
+      <FullBleedGradient height="40vh" gradient="from-[#1a1a2a] via-[#0D0D0D] to-[#0D0D0D]" />
 
       {/* ═══════════════════════════════════════════
           TIMELINE — Milestones
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+      <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Timeline</p>
@@ -1536,7 +1537,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {/* ═══════════════════════════════════════════
           PARTNERSHIP MODEL — Grid cards
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
+      <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Partnership</p>

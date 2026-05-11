@@ -9,17 +9,11 @@ interface PageHeroProps {
   backgroundImage?: string;
 }
 
-export function PageHero({ title, subtitle, version, backgroundImage }: PageHeroProps) {
+export function PageHero({ title, subtitle, version }: PageHeroProps) {
   return (
-    <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-black">
-      {backgroundImage && (
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        />
-      )}
-      <div className="absolute inset-0 bg-black/70" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+    <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#1a2a3a] via-[#0D0D0D] to-[#0D0D0D]">
+      <div className="absolute inset-0 dot-pattern opacity-20" />
+      <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #8B9DAF, transparent)' }} />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -33,7 +27,7 @@ export function PageHero({ title, subtitle, version, backgroundImage }: PageHero
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-4 text-base md:text-lg text-white/40 max-w-2xl mx-auto">
+          <p className="mt-4 text-sm text-[rgba(255,255,255,0.5)] max-w-2xl mx-auto">
             {subtitle}
           </p>
         )}

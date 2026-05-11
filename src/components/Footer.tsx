@@ -12,7 +12,6 @@ const verticalLinks = [
   { name: 'Agri', version: '/0.6', href: '/subsidiaries/agriculture' },
   { name: 'Water', version: '/0.7', href: '/subsidiaries/water' },
   { name: 'Finance', version: '/0.8', href: '/subsidiaries/finance' },
-  { name: 'Aegis', version: '/0.9', href: '/aegis' },
 ];
 
 const companyLinks = [
@@ -80,12 +79,11 @@ const latestNews = [
   { title: 'Harch Intelligence: 500MW Dakhla Data Center Enters Engineering Phase', date: 'Mar 2026' },
   { title: 'Harch Cement Secures Gambia Permits — 500kT/yr Facility Greenlit', date: 'Feb 2026' },
   { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'Jan 2026' },
-  { title: 'Aegis Defense: Counter-UAS System Outperforms 10 Global Competitors', date: 'Jan 2026' },
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.04)]">
+    <footer className="bg-[#0D0D0D] border-t border-[rgba(255,255,255,0.04)]">
       {/* Main footer — Multi column */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10">

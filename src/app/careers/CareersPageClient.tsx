@@ -179,7 +179,7 @@ export default function CareersPageClient() {
           <FadeIn>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">Ready to Build?</h2>
             <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-4">Your next career move could reshape a continent. Join Harch Corp.</p>
-            <p className="text-[13px] text-[#666666] font-[family-name:var(--font-space-mono)] mb-12">General applications: <a href="mailto:careers@harchcorp.com" className="text-[rgba(199,146,62,0.7)] hover:text-[#C7923E] transition-colors">careers@harchcorp.com</a></p>
+            <p className="text-[13px] text-[#666666] font-[family-name:var(--font-space-mono)] mb-12">General applications: <a href="mailto:careers@harchcorp.com" className="text-[rgba(139,157,175,0.7)] hover:text-[#8B9DAF] transition-colors">careers@harchcorp.com</a></p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -43,7 +43,7 @@ const learningPaths = [
     price: 'Free',
     description: 'Get started with HarchOS, the sovereign infrastructure operating system. Learn core concepts, deployment basics, and the HarchOS command-line interface.',
     topics: ['HarchOS Architecture Overview', 'CLI Fundamentals', 'Resource Management', 'Basic Deployments', 'Monitoring & Logging'],
-    color: 'rgba(199, 146, 62, 0.7)',
+    color: 'rgba(139, 157, 175, 0.7)',
   },
   {
     icon: Server,

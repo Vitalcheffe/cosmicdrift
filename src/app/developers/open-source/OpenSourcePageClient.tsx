@@ -92,7 +92,7 @@ const contributingSteps = [
     title: 'Find an Issue',
     description: 'Browse issues labeled "good first issue" or "help wanted" across our repositories. We maintain a curated list of beginner-friendly contributions.',
     icon: Eye,
-    color: '#C7923E',
+    color: '#8B9DAF',
   },
   {
     step: '02',

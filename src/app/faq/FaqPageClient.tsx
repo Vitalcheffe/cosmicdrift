@@ -81,7 +81,7 @@ function FaqAccordionItem({ item, isOpen, onToggle, index }: { item: FaqItem; is
     <FadeIn delay={index * 0.04}>
       <div
         className={`card overflow-hidden transition-all duration-300 ${
-          isOpen ? 'border-[rgba(199,146,62,0.25)]' : 'hover:border-[rgba(255,255,255,0.12)]'
+          isOpen ? 'border-[rgba(139,157,175,0.25)]' : 'hover:border-[rgba(255,255,255,0.12)]'
         }`}
       >
         <button
@@ -91,11 +91,11 @@ function FaqAccordionItem({ item, isOpen, onToggle, index }: { item: FaqItem; is
         >
           <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 ${
             isOpen
-              ? 'bg-[rgba(199,146,62,0.15)] border border-[rgba(199,146,62,0.3)]'
+              ? 'bg-[rgba(139,157,175,0.15)] border border-[rgba(139,157,175,0.3)]'
               : 'bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)]'
           }`}>
             <span className={`text-[11px] font-bold font-[family-name:var(--font-space-mono)] transition-colors duration-300 ${
-              isOpen ? 'text-[#C7923E]' : 'text-[#666666]'
+              isOpen ? 'text-[#8B9DAF]' : 'text-[#666666]'
             }`}>
               {String(index + 1).padStart(2, '0')}
             </span>
@@ -103,7 +103,7 @@ function FaqAccordionItem({ item, isOpen, onToggle, index }: { item: FaqItem; is
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-3 mb-1">
               <span className={`text-[9px] font-bold tracking-[0.2em] uppercase font-[family-name:var(--font-space-mono)] transition-colors duration-300 ${
-                isOpen ? 'text-[#C7923E]' : 'text-[#555555]'
+                isOpen ? 'text-[#8B9DAF]' : 'text-[#555555]'
               }`}>
                 {item.category}
               </span>
@@ -116,12 +116,12 @@ function FaqAccordionItem({ item, isOpen, onToggle, index }: { item: FaqItem; is
           </div>
           <div className={`shrink-0 mt-1 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
             isOpen
-              ? 'bg-[rgba(199,146,62,0.15)] rotate-180'
+              ? 'bg-[rgba(139,157,175,0.15)] rotate-180'
               : 'bg-[rgba(255,255,255,0.04)] group-hover:bg-[rgba(255,255,255,0.06)]'
           }`}>
             <ChevronDown
               size={16}
-              className={`transition-colors duration-300 ${isOpen ? 'text-[#C7923E]' : 'text-[#666666]'}`}
+              className={`transition-colors duration-300 ${isOpen ? 'text-[#8B9DAF]' : 'text-[#666666]'}`}
               strokeWidth={1.5}
             />
           </div>
@@ -135,7 +135,7 @@ function FaqAccordionItem({ item, isOpen, onToggle, index }: { item: FaqItem; is
               transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <div className="px-6 md:px-8 pb-6 md:pb-8 pl-[4.5rem] md:pl-[5.5rem]">
-                <div className="w-8 h-px bg-[rgba(199,146,62,0.25)] mb-4" />
+                <div className="w-8 h-px bg-[rgba(139,157,175,0.25)] mb-4" />
                 <p className="text-[14px] text-[#999999] leading-[1.8]">
                   {item.answer}
                 </p>
@@ -171,7 +171,7 @@ export default function FaqPageClient() {
                 Home
               </Link>
               <span className="text-[#333333]">/</span>
-              <span className="text-[#C7923E] font-[family-name:var(--font-space-mono)]">FAQ</span>
+              <span className="text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">FAQ</span>
             </nav>
           </FadeIn>
         </div>
@@ -182,8 +182,8 @@ export default function FaqPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="flex items-center gap-3 mb-4">
-              <HelpCircle size={18} className="text-[#C7923E]" strokeWidth={1.5} />
-              <p className="section-label text-[#C7923E]">Frequently Asked Questions</p>
+              <HelpCircle size={18} className="text-[#8B9DAF]" strokeWidth={1.5} />
+              <p className="section-label text-[#8B9DAF]">Frequently Asked Questions</p>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Answers to the<br />Questions That Matter
@@ -206,7 +206,7 @@ export default function FaqPageClient() {
                 onClick={() => { setActiveCategory(category); setOpenIndex(0); }}
                 className={`px-4 py-1.5 rounded-md text-[11px] font-bold tracking-[0.08em] uppercase transition-all duration-300 shrink-0 font-[family-name:var(--font-space-mono)] ${
                   activeCategory === category
-                    ? 'bg-[rgba(199,146,62,0.15)] text-[#C7923E] border border-[rgba(199,146,62,0.3)]'
+                    ? 'bg-[rgba(139,157,175,0.15)] text-[#8B9DAF] border border-[rgba(139,157,175,0.3)]'
                     : 'bg-[rgba(255,255,255,0.04)] text-[#999999] hover:bg-[rgba(255,255,255,0.08)] hover:text-white border border-transparent'
                 }`}
               >
@@ -242,8 +242,8 @@ export default function FaqPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
-              <MessageSquare size={32} className="text-[#C7923E] mx-auto mb-6" strokeWidth={1.5} />
-              <p className="section-label mb-4 text-[#C7923E]">Get in Touch</p>
+              <MessageSquare size={32} className="text-[#8B9DAF] mx-auto mb-6" strokeWidth={1.5} />
+              <p className="section-label mb-4 text-[#8B9DAF]">Get in Touch</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">
                 Still Have Questions?
               </h2>
@@ -259,7 +259,7 @@ export default function FaqPageClient() {
                 </Link>
                 <a
                   href="mailto:ir@harchcorp.com"
-                  className="px-8 py-3 rounded-lg bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.25)] text-[#C7923E] text-[12px] font-bold tracking-[0.06em] uppercase hover:bg-[rgba(199,146,62,0.15)] hover:border-[rgba(199,146,62,0.4)] transition-colors inline-flex items-center gap-2"
+                  className="px-8 py-3 rounded-lg bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.25)] text-[#8B9DAF] text-[12px] font-bold tracking-[0.06em] uppercase hover:bg-[rgba(139,157,175,0.15)] hover:border-[rgba(139,157,175,0.4)] transition-colors inline-flex items-center gap-2"
                 >
                   <Mail size={14} />
                   ir@harchcorp.com

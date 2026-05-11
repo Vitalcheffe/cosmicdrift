@@ -16,7 +16,6 @@ const platformItems = [
   { name: 'Agri', version: '/0.7', href: '/subsidiaries/agriculture' },
   { name: 'Water', version: '/0.8', href: '/subsidiaries/water' },
   { name: 'Finance', version: '/0.8', href: '/subsidiaries/finance' },
-  { name: 'Aegis', version: '/0.9', href: '/aegis' },
 ];
 
 const missionItems = [
@@ -103,27 +102,27 @@ export function Sidebar() {
 
   const closeMobile = () => setMobileOpen(false);
 
-  const sectionLabel = "text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] mb-3 px-1 font-[family-name:var(--font-space-mono)] flex items-center gap-2";
+  const sectionLabel = "text-[9px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] mb-3 px-1 font-[family-name:var(--font-space-mono)] flex items-center gap-2";
 
   const navLink = (href: string, label: string, extra?: React.ReactNode) => (
     <Link
       key={href}
       href={href}
       onClick={closeMobile}
-      className={`holo-link flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent rounded-r-md transition-all duration-300 ${
+      className={`flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent rounded-r-md transition-all duration-300 ${
         isActive(href)
-          ? 'text-white bg-[rgba(199,146,62,0.04)] border-[rgba(199,146,62,0.3)]'
-          : 'text-[#999999] hover:text-white hover:bg-[rgba(199,146,62,0.02)]'
+          ? 'text-white bg-[rgba(139,157,175,0.06)] border-[rgba(139,157,175,0.3)]'
+          : 'text-[#999999] hover:text-white hover:bg-[rgba(139,157,175,0.03)]'
       }`}
     >
-      <span className="holo-text">{label}</span>
+      <span>{label}</span>
       {extra}
     </Link>
   );
 
   const collapsibleSection = (
     label: string,
-    ledClass: string,
+    dotColor: string,
     items: typeof platformItems,
     isOpen: boolean,
     setIsOpen: (v: boolean) => void,
@@ -134,12 +133,12 @@ export function Sidebar() {
         className={`flex items-center justify-between w-full ${sectionLabel}`}
       >
         <span className="flex items-center gap-2">
-          <span className={`led-indicator ${ledClass}`} style={{ width: 4, height: 4 }} />
+          <span className="inline-block w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: dotColor }} />
           {label}
         </span>
         <ChevronDown
           size={10}
-          className={`transition-transform text-[#666666] ${isOpen ? 'rotate-180' : ''}`}
+          className={`transition-transform duration-200 text-[rgba(255,255,255,0.25)] ${isOpen ? 'rotate-180' : ''}`}
         />
       </button>
       {isOpen && (
@@ -152,16 +151,16 @@ export function Sidebar() {
 
   return (
     <>
-      {/* ═══ HAMBURGER BUTTON — Mobile only ═══ */}
+      {/* Hamburger button — Mobile only */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden w-10 h-10 flex items-center justify-center bg-[#121212] border border-[rgba(255,255,255,0.06)] rounded-lg shadow-sm"
+        className="fixed top-4 left-4 z-50 lg:hidden w-10 h-10 flex items-center justify-center bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg shadow-sm"
         aria-label="Toggle menu"
       >
         {mobileOpen ? <X size={18} strokeWidth={1.5} className="text-white" /> : <Menu size={18} strokeWidth={1.5} className="text-white" />}
       </button>
 
-      {/* ═══ MOBILE OVERLAY ═══ */}
+      {/* Mobile overlay */}
       {mobileOpen && (
         <div
           className="fixed inset-0 bg-black/40 z-30 lg:hidden"
@@ -169,28 +168,28 @@ export function Sidebar() {
         />
       )}
 
-      {/* ═══ SIDEBAR — Control Panel Dark ═══ */}
+      {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full z-40 w-[250px] bg-[#121212] border-r border-[rgba(255,255,255,0.06)] overflow-y-auto transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
+        className={`fixed top-0 left-0 h-full z-40 w-[250px] bg-[#111111] border-r border-[rgba(255,255,255,0.06)] overflow-y-auto transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full'
         } lg:translate-x-0`}
       >
         <div className="flex flex-col h-full px-4 py-6">
-          {/* ═══ Logo ═══ */}
+          {/* Logo */}
           <div className="mb-8 px-2 pt-1">
             <HarchLogo />
           </div>
 
-          {/* ═══ Navigation ═══ */}
+          {/* Navigation */}
           <nav className="flex-1 space-y-5 overflow-y-auto">
 
-            {/* ── PLATFORMS ── */}
-            {collapsibleSection('Platforms', 'led-green', platformItems, platformsOpen, setPlatformsOpen)}
+            {/* Platforms */}
+            {collapsibleSection('Platforms', '#4A7B5F', platformItems, platformsOpen, setPlatformsOpen)}
 
-            {/* ── MISSION ── */}
+            {/* Mission */}
             <div>
               <p className={sectionLabel}>
-                <span className="led-indicator" style={{ width: 4, height: 4 }} />
+                <span className="inline-block w-1 h-1 rounded-full" style={{ backgroundColor: '#8B9DAF' }} />
                 Mission
               </p>
               <div className="space-y-0.5 mt-1">
@@ -198,10 +197,10 @@ export function Sidebar() {
               </div>
             </div>
 
-            {/* ── DEPLOYMENTS ── */}
+            {/* Deployments */}
             <div>
               <p className={sectionLabel}>
-                <span className="led-indicator led-delay-1" style={{ width: 4, height: 4 }} />
+                <span className="inline-block w-1 h-1 rounded-full" style={{ backgroundColor: '#8B9DAF' }} />
                 Deployments
               </p>
               <div className="space-y-0.5 mt-1">
@@ -209,13 +208,13 @@ export function Sidebar() {
               </div>
             </div>
 
-            {/* ── DEVELOPERS ── */}
-            {collapsibleSection('Developers', 'led-delay-1', developerItems, developersOpen, setDevelopersOpen)}
+            {/* Developers */}
+            {collapsibleSection('Developers', '#8B9DAF', developerItems, developersOpen, setDevelopersOpen)}
 
-            {/* ── TRUST ── */}
+            {/* Trust */}
             <div>
               <p className={sectionLabel}>
-                <span className="led-indicator led-delay-2" style={{ width: 4, height: 4 }} />
+                <span className="inline-block w-1 h-1 rounded-full" style={{ backgroundColor: '#8B9DAF' }} />
                 Trust
               </p>
               <div className="space-y-0.5 mt-1">
@@ -223,19 +222,19 @@ export function Sidebar() {
               </div>
             </div>
 
-            {/* ── RESOURCES ── */}
-            {collapsibleSection('Resources', 'led-delay-2', resourceItems, resourcesOpen, setResourcesOpen)}
+            {/* Resources */}
+            {collapsibleSection('Resources', '#666666', resourceItems, resourcesOpen, setResourcesOpen)}
 
-            {/* ── BUSINESS ── */}
-            {collapsibleSection('Business', 'led-delay-3', businessItems, businessOpen, setBusinessOpen)}
+            {/* Business */}
+            {collapsibleSection('Business', '#666666', businessItems, businessOpen, setBusinessOpen)}
 
-            {/* ── COMPANY ── */}
-            {collapsibleSection('Company', 'led-delay-3', companyItems, companyOpen, setCompanyOpen)}
+            {/* Company */}
+            {collapsibleSection('Company', '#666666', companyItems, companyOpen, setCompanyOpen)}
 
-            {/* ── INVESTORS ── */}
+            {/* Investors */}
             <div>
               <p className={sectionLabel}>
-                <span className="led-indicator led-delay-3" style={{ width: 4, height: 4 }} />
+                <span className="inline-block w-1 h-1 rounded-full" style={{ backgroundColor: '#666666' }} />
                 Investors
               </p>
               <div className="space-y-0.5 mt-1">
@@ -244,12 +243,12 @@ export function Sidebar() {
             </div>
           </nav>
 
-          {/* ═══ Bottom: CTAs ═══ */}
-          <div className="mt-4 pt-5 border-t border-[rgba(199,146,62,0.08)] space-y-2">
+          {/* Bottom: CTAs */}
+          <div className="mt-4 pt-5 border-t border-[rgba(139,157,175,0.08)] space-y-2">
             <Link
               href="/contact"
               onClick={closeMobile}
-              className="block w-full text-center border border-[rgba(199,146,62,0.35)] bg-[rgba(199,146,62,0.06)] text-[rgba(199,146,62,0.9)] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[rgba(199,146,62,0.12)] hover:border-[rgba(199,146,62,0.5)] hover:text-[#C7923E] transition-colors font-[family-name:var(--font-space-mono)]"
+              className="block w-full text-center border border-[rgba(139,157,175,0.35)] bg-[rgba(139,157,175,0.06)] text-[rgba(139,157,175,0.9)] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[rgba(139,157,175,0.12)] hover:border-[rgba(139,157,175,0.5)] hover:text-[#8B9DAF] transition-colors font-[family-name:var(--font-space-mono)]"
             >
               Partner With Us
             </Link>
@@ -261,8 +260,8 @@ export function Sidebar() {
               Join the Team
             </Link>
             <div className="flex items-center justify-center gap-2 pt-1">
-              <span className="led-indicator led-green" style={{ width: 3, height: 3 }} />
-              <p className="text-[9px] cmd-amber-dim font-[family-name:var(--font-space-mono)]">
+              <span className="inline-block w-0.5 h-0.5 rounded-full bg-[#4A7B5F]" />
+              <p className="text-[9px] text-[rgba(255,255,255,0.2)] font-[family-name:var(--font-space-mono)]">
                 v0.2.0 — Casablanca
               </p>
             </div>

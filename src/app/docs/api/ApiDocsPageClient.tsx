@@ -240,7 +240,7 @@ console.log(\`Energy source: \${workload.energySource}\`);`,
 
 const methodColors: Record<string, string> = {
   GET: '#10B981',
-  POST: '#C7923E',
+  POST: '#8B9DAF',
   PATCH: '#F59E0B',
   DELETE: '#EF4444',
 };
@@ -267,7 +267,7 @@ export default function ApiDocsPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#C7923E]">HarchOS API /0.1</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">HarchOS API /0.1</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
@@ -292,7 +292,7 @@ export default function ApiDocsPageClient() {
           <FadeIn delay={0.4}>
             <div className="mt-8 font-[family-name:var(--font-space-mono)] text-[13px] bg-[#121212] border border-white/[0.06] rounded-lg px-5 py-3 max-w-xl">
               <span className="text-[#666666]">Base URL:</span>{' '}
-              <span className="text-[#C7923E]">https://api.harchos.io</span>
+              <span className="text-[#8B9DAF]">https://api.harchos.io</span>
             </div>
           </FadeIn>
         </div>
@@ -304,7 +304,7 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Authentication</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Authentication</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Authenticate Your Requests
             </h2>
@@ -316,14 +316,14 @@ export default function ApiDocsPageClient() {
               <FadeIn key={method.name} delay={i * 0.08}>
                 <div className="card p-6 h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
-                      <method.icon size={16} className="text-[#C7923E]" />
+                    <div className="w-9 h-9 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
+                      <method.icon size={16} className="text-[#8B9DAF]" />
                     </div>
                     <h3 className="text-base font-bold text-white">{method.name}</h3>
                   </div>
                   <p className="text-[13px] text-[#999999] leading-[1.7] mb-4">{method.description}</p>
                   <div className="bg-[#121212] border border-white/[0.06] rounded-lg px-4 py-3 mb-4">
-                    <code className="text-[12px] text-[#C7923E] font-[family-name:var(--font-space-mono)] break-all">{method.example}</code>
+                    <code className="text-[12px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] break-all">{method.example}</code>
                   </div>
                   <p className="text-[11px] text-[#666666]">
                     <span className="text-[#999999] font-semibold">Use case:</span> {method.useCase}
@@ -341,7 +341,7 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">REST API</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">REST API</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               REST Endpoints
             </h2>
@@ -356,7 +356,7 @@ export default function ApiDocsPageClient() {
               <FadeIn key={group.resource} delay={gi * 0.06}>
                 <div className="card overflow-hidden">
                   <div className="flex items-center gap-3 px-6 py-4 border-b border-white/[0.06]">
-                    <group.icon size={16} className="text-[#C7923E]" />
+                    <group.icon size={16} className="text-[#8B9DAF]" />
                     <h3 className="text-base font-bold text-white">{group.resource}</h3>
                     <span className="ml-auto text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">{group.endpoints.length} endpoints</span>
                   </div>
@@ -382,7 +382,7 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">gRPC API</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">gRPC API</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               gRPC Service Definitions
             </h2>
@@ -419,7 +419,7 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">WebSocket API</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">WebSocket API</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Real-Time Streaming
             </h2>
@@ -431,7 +431,7 @@ export default function ApiDocsPageClient() {
 
           <div className="card overflow-hidden">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-white/[0.06]">
-              <Wifi size={16} className="text-[#C7923E]" />
+              <Wifi size={16} className="text-[#8B9DAF]" />
               <h3 className="text-base font-bold text-white">Streaming Endpoints</h3>
             </div>
             <div className="divide-y divide-white/[0.03]">
@@ -455,7 +455,7 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Rate Limits</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Rate Limits</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               API Rate Limits
             </h2>
@@ -502,7 +502,7 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Error Handling</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Error Handling</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Error Codes
             </h2>
@@ -533,7 +533,7 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Code Examples</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Code Examples</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Quick Code Samples
             </h2>
@@ -550,7 +550,7 @@ export default function ApiDocsPageClient() {
                     onClick={() => setActiveCodeTab(ex.lang)}
                     className={`px-6 py-3 text-[13px] font-semibold transition-colors border-b-2 ${
                       activeCodeTab === ex.lang
-                        ? 'text-[#C7923E] border-[#C7923E] bg-[rgba(199,146,62,0.04)]'
+                        ? 'text-[#8B9DAF] border-[#8B9DAF] bg-[rgba(139,157,175,0.04)]'
                         : 'text-[#666666] border-transparent hover:text-white'
                     }`}
                   >
@@ -585,7 +585,7 @@ export default function ApiDocsPageClient() {
 
           <FadeIn>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/docs/sdks" className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#C7923E] hover:text-white transition-colors">
+              <Link href="/docs/sdks" className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#8B9DAF] hover:text-white transition-colors">
                 View full SDK documentation <ArrowRight size={14} />
               </Link>
               <Link href="/docs/quickstarts" className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#999999] hover:text-white transition-colors">

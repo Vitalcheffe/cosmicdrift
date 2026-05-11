@@ -119,7 +119,7 @@ export default function EngineeringBlogPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Engineering Blog</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Engineering Blog</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Build. Break.<br/>Document. Repeat.
             </h1>
@@ -131,11 +131,11 @@ export default function EngineeringBlogPageClient() {
           <FadeIn delay={0.15}>
             <div className="flex items-center gap-4 mt-8">
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)]">
-                <Terminal size={14} className="text-[#C7923E]" />
+                <Terminal size={14} className="text-[#8B9DAF]" />
                 <span className="text-[11px] font-[family-name:var(--font-space-mono)] text-[#999999]">6 Articles</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)]">
-                <Activity size={14} className="text-[#C7923E]" />
+                <Activity size={14} className="text-[#8B9DAF]" />
                 <span className="text-[11px] font-[family-name:var(--font-space-mono)] text-[#999999]">Updated Weekly</span>
               </div>
             </div>
@@ -169,11 +169,11 @@ export default function EngineeringBlogPageClient() {
         <section className="py-20 md:py-28 bg-[#121212]">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <FadeIn>
-              <p className="section-label mb-6 text-[#C7923E]">Featured Technical Deep-Dive</p>
+              <p className="section-label mb-6 text-[#8B9DAF]">Featured Technical Deep-Dive</p>
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="relative card p-8 md:p-12 lg:p-16 overflow-hidden group cursor-pointer">
-                <div className="absolute top-0 left-0 w-1 h-full bg-[#C7923E]" />
+                <div className="absolute top-0 left-0 w-1 h-full bg-[#8B9DAF]" />
                 {/* Code-style decorative element */}
                 <div className="absolute top-6 right-6 md:top-8 md:right-8 hidden md:block">
                   <div className="flex items-center gap-1.5">
@@ -185,7 +185,7 @@ export default function EngineeringBlogPageClient() {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-6">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
                         <Network size={10} />{featuredPost.category}
                       </span>
                       <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md border text-[9px] font-bold tracking-[0.08em] uppercase ${difficultyColors[featuredPost.difficulty]}`}>
@@ -202,12 +202,12 @@ export default function EngineeringBlogPageClient() {
                       {featuredPost.title}
                     </h2>
                     <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredPost.excerpt}</p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
                       Read Technical Deep-Dive <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
-                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(199,146,62,0.06)] border border-[rgba(199,146,62,0.12)] shrink-0">
-                    <Terminal size={24} className="text-[#C7923E] group-hover:text-white transition-colors" />
+                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] shrink-0">
+                    <Terminal size={24} className="text-[#8B9DAF] group-hover:text-white transition-colors" />
                   </div>
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function EngineeringBlogPageClient() {
                         </div>
                         <div>
                           <div className="flex items-center gap-3">
-                            <span className="inline-block px-2 py-0.5 rounded-md bg-[rgba(199,146,62,0.06)] border border-[rgba(199,146,62,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">{post.category}</span>
+                            <span className="inline-block px-2 py-0.5 rounded-md bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{post.category}</span>
                             <span className={`inline-block px-2 py-0.5 rounded-md border text-[8px] font-bold tracking-[0.08em] uppercase ${difficultyColors[post.difficulty]}`}>{post.difficulty}</span>
                             <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{post.readTime}</span>
                           </div>
@@ -263,7 +263,7 @@ export default function EngineeringBlogPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Open Source</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Open Source</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">Built in the Open</h2>
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
               We believe sovereign infrastructure should be built transparently. Key components of HarchOS, our scheduling algorithms, and the SENSE ingestion layer are open source.
@@ -280,8 +280,8 @@ export default function EngineeringBlogPageClient() {
                   <div className="card p-6 h-full group">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2">
-                        <GitBranch size={14} className="text-[#C7923E]" strokeWidth={1.5} />
-                        <span className="text-[12px] font-[family-name:var(--font-space-mono)] text-[#C7923E]">{repo.name}</span>
+                        <GitBranch size={14} className="text-[#8B9DAF]" strokeWidth={1.5} />
+                        <span className="text-[12px] font-[family-name:var(--font-space-mono)] text-[#8B9DAF]">{repo.name}</span>
                       </div>
                       <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{repo.lang}</span>
                     </div>
@@ -297,7 +297,7 @@ export default function EngineeringBlogPageClient() {
           </div>
           <FadeIn delay={0.3}>
             <div className="mt-8 text-center">
-              <Link href="/developers/open-source" className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] hover:text-white transition-colors">
+              <Link href="/developers/open-source" className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] hover:text-white transition-colors">
                 View All Open Source Projects <ArrowRight size={14} />
               </Link>
             </div>
@@ -311,24 +311,24 @@ export default function EngineeringBlogPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FadeIn>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
-                <Users size={20} className="text-[#C7923E] mb-4" strokeWidth={1.5} />
+                <Users size={20} className="text-[#8B9DAF] mb-4" strokeWidth={1.5} />
                 <h3 className="text-xl font-bold text-white mb-3">Join the Engineering Team</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
                   We&apos;re hiring distributed systems engineers, ML infrastructure specialists, and security engineers across Casablanca, Dakar, and remote. Build systems that matter.
                 </p>
-                <Link href="/careers" className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
+                <Link href="/careers" className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
                   View Open Roles <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
-                <Rss size={20} className="text-[#C7923E] mb-4" strokeWidth={1.5} />
+                <Rss size={20} className="text-[#8B9DAF] mb-4" strokeWidth={1.5} />
                 <h3 className="text-xl font-bold text-white mb-3">Engineering RSS Feed</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
                   Subscribe to the engineering blog RSS feed. New posts, architecture decision records, and post-mortems — delivered straight to your reader.
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
                   Copy Feed URL <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>

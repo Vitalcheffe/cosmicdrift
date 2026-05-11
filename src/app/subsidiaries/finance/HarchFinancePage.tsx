@@ -13,7 +13,7 @@ import { motion, useInView } from 'framer-motion';
 
 /* ═══════════════════════════════════════════════════
    HARCH FINANCE — HarchCorp Unified Design System
-   Site palette — Amber accent (#C7923E) — Shared CSS classes
+   Site palette — Amber accent (#8B9DAF) — Shared CSS classes
    ═══════════════════════════════════════════════════ */
 
 /* ─── FadeIn — framer-motion, matches HarchOS ─── */
@@ -352,7 +352,7 @@ export default function HarchFinancePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/60 via-transparent to-transparent" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pb-20 md:pb-32 w-full">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Harch Finance /0.8</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Harch Finance /0.8</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-6 whitespace-pre-line">
@@ -385,7 +385,7 @@ export default function HarchFinancePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn>
               <div>
-                <p className="section-label mb-4 text-[#C7923E]">Overview</p>
+                <p className="section-label mb-4 text-[#8B9DAF]">Overview</p>
                 <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
                   Bridging Africa&apos;s<br />Financing Gap
                 </h2>
@@ -428,7 +428,7 @@ export default function HarchFinancePage() {
             <div className="flex items-center px-8 md:px-16 py-20">
               <div className="max-w-lg">
                 <FadeIn>
-                  <p className="section-label mb-4 text-[#C7923E]">Investment Philosophy</p>
+                  <p className="section-label mb-4 text-[#8B9DAF]">Investment Philosophy</p>
                   <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
                     Sovereign Capital for Sovereign Infrastructure
                   </h2>
@@ -447,7 +447,7 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Financial Instruments</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Financial Instruments</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Six Capital Architecture Pillars
             </h2>
@@ -465,8 +465,8 @@ export default function HarchFinancePage() {
                     {/* Header */}
                     <div className="flex items-start justify-between mb-5">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
-                          <Icon size={18} className="text-[#C7923E]" />
+                        <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
+                          <Icon size={18} className="text-[#8B9DAF]" />
                         </div>
                         <div>
                           <h3 className="text-lg font-bold text-white">{instrument.name}</h3>
@@ -489,7 +489,7 @@ export default function HarchFinancePage() {
                     <div className="space-y-2 mb-6">
                       {instrument.features.map((feature, j) => (
                         <div key={j} className="flex items-start gap-2">
-                          <div className="mt-1.5 w-1 h-1 rounded-full bg-[#C7923E]/40 flex-shrink-0" />
+                          <div className="mt-1.5 w-1 h-1 rounded-full bg-[#8B9DAF]/40 flex-shrink-0" />
                           <span className="text-[12px] text-[#999999]">{feature}</span>
                         </div>
                       ))}
@@ -508,7 +508,7 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Pipeline</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Pipeline</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">$2.4B Investment Pipeline</h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
@@ -537,14 +537,14 @@ export default function HarchFinancePage() {
                         <td>
                           <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-semibold tracking-wide ${
                             row.status === 'Structuring' || row.status === 'Mandated'
-                              ? 'bg-[rgba(199,146,62,0.12)] text-[#C7923E]'
+                              ? 'bg-[rgba(139,157,175,0.12)] text-[#8B9DAF]'
                               : row.status === 'Fundraising' || row.status === 'Pre-mandate'
                               ? 'bg-[rgba(255,255,255,0.06)] text-[#999999]'
                               : 'bg-[rgba(255,255,255,0.03)] text-[#666666]'
                           }`}>
                             <span className={`w-1.5 h-1.5 rounded-full ${
                               row.status === 'Structuring' || row.status === 'Mandated'
-                                ? 'bg-[#C7923E]'
+                                ? 'bg-[#8B9DAF]'
                                 : row.status === 'Fundraising' || row.status === 'Pre-mandate'
                                 ? 'bg-[#999999]'
                                 : 'bg-[#666666]'
@@ -572,7 +572,7 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Partnership Models</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Partnership Models</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Four Paths to Co-Investment
             </h2>
@@ -588,8 +588,8 @@ export default function HarchFinancePage() {
                 <FadeIn key={model.title} delay={i * 0.08}>
                   <div className="card p-8 h-full">
                     <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
-                        <Icon size={18} className="text-[#C7923E]" />
+                      <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
+                        <Icon size={18} className="text-[#8B9DAF]" />
                       </div>
                       <h3 className="text-lg font-bold text-white">{model.title}</h3>
                     </div>
@@ -608,7 +608,7 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Strategic Advantages</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Strategic Advantages</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Morocco&apos;s Financial Infrastructure
             </h2>
@@ -624,8 +624,8 @@ export default function HarchFinancePage() {
                 <FadeIn key={adv.title} delay={i * 0.08}>
                   <div className="card p-8 h-full">
                     <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
-                        <Icon size={18} className="text-[#C7923E]" />
+                      <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
+                        <Icon size={18} className="text-[#8B9DAF]" />
                       </div>
                       <h3 className="text-lg font-bold text-white">{adv.title}</h3>
                     </div>
@@ -638,10 +638,10 @@ export default function HarchFinancePage() {
 
           {/* Cross-Vertical Integration Highlight */}
           <FadeIn delay={0.4}>
-            <div className="mt-6 card p-8 border-dashed" style={{ borderColor: 'rgba(199,146,62,0.25)' }}>
+            <div className="mt-6 card p-8 border-dashed" style={{ borderColor: 'rgba(139,157,175,0.25)' }}>
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center flex-shrink-0">
-                  <TrendingUp size={18} className="text-[#C7923E]" />
+                <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center flex-shrink-0">
+                  <TrendingUp size={18} className="text-[#8B9DAF]" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white mb-2">Cross-Vertical Integration — Unique Risk Management</h3>
@@ -661,7 +661,7 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Risk Management</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Risk Management</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Four-Layer Risk Architecture
             </h2>
@@ -678,12 +678,12 @@ export default function HarchFinancePage() {
                   <div className="card p-8 h-full">
                     <div className="flex items-center justify-between mb-5">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
-                          <Icon size={18} className="text-[#C7923E]" />
+                        <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
+                          <Icon size={18} className="text-[#8B9DAF]" />
                         </div>
                         <h3 className="text-lg font-bold text-white">{rm.title}</h3>
                       </div>
-                      <span className="text-[10px] font-bold tracking-[0.1em] uppercase px-2.5 py-1 rounded bg-[rgba(199,146,62,0.08)] text-[#C7923E] font-[family-name:var(--font-space-mono)]">
+                      <span className="text-[10px] font-bold tracking-[0.1em] uppercase px-2.5 py-1 rounded bg-[rgba(139,157,175,0.08)] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
                         {rm.riskLevel}
                       </span>
                     </div>
@@ -702,7 +702,7 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Roadmap</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Roadmap</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               From Foundation to Platform
             </h2>
@@ -717,8 +717,8 @@ export default function HarchFinancePage() {
                 <div className="card p-8">
                   <div className="flex flex-col md:flex-row md:items-start justify-between mb-5 gap-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center flex-shrink-0">
-                        <span className="text-sm font-bold text-[#C7923E] stat-mono">{i + 1}</span>
+                      <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center flex-shrink-0">
+                        <span className="text-sm font-bold text-[#8B9DAF] stat-mono">{i + 1}</span>
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-white">{phase.title}</h3>
@@ -733,7 +733,7 @@ export default function HarchFinancePage() {
                   <div className="space-y-2">
                     {phase.actions.map((action, j) => (
                       <div key={j} className="flex items-start gap-2">
-                        <div className="mt-1.5 w-1 h-1 rounded-full bg-[#C7923E]/40 flex-shrink-0" />
+                        <div className="mt-1.5 w-1 h-1 rounded-full bg-[#8B9DAF]/40 flex-shrink-0" />
                         <span className="text-[12px] text-[#999999]">{action}</span>
                       </div>
                     ))}
@@ -751,7 +751,7 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Risk Register</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Risk Register</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Identified Risks & Mitigations
             </h2>
@@ -767,7 +767,7 @@ export default function HarchFinancePage() {
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                     <div className="md:col-span-4">
                       <div className="flex items-center gap-2 mb-2">
-                        <AlertTriangle size={14} className="text-[#C7923E]" />
+                        <AlertTriangle size={14} className="text-[#8B9DAF]" />
                         <h3 className="font-bold text-white text-[15px]">{r.risk}</h3>
                       </div>
                     </div>
@@ -776,20 +776,20 @@ export default function HarchFinancePage() {
                         <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Probability</p>
                         <span className={`text-[11px] font-semibold ${
                           r.probability === 'High' ? 'text-red-400' :
-                          r.probability === 'Medium' ? 'text-[#C7923E]' : 'text-green-400'
+                          r.probability === 'Medium' ? 'text-[#8B9DAF]' : 'text-green-400'
                         }`}>{r.probability}</span>
                       </div>
                       <div>
                         <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Impact</p>
                         <span className={`text-[11px] font-semibold ${
                           r.impact === 'Critical' ? 'text-red-400' :
-                          r.impact === 'High' ? 'text-[#C7923E]' : 'text-green-400'
+                          r.impact === 'High' ? 'text-[#8B9DAF]' : 'text-green-400'
                         }`}>{r.impact}</span>
                       </div>
                     </div>
                     <div className="md:col-span-6">
                       <p className="text-[13px] text-[#999999] leading-[1.6]">
-                        <span className="text-[10px] text-[#C7923E] uppercase tracking-wider font-bold">Mitigation:</span>{' '}
+                        <span className="text-[10px] text-[#8B9DAF] uppercase tracking-wider font-bold">Mitigation:</span>{' '}
                         {r.mitigation}
                       </p>
                     </div>
@@ -807,7 +807,7 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Partner With Us</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Partner With Us</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Structure Africa&apos;s Next<br />Infrastructure Investment
             </h2>
@@ -818,7 +818,7 @@ export default function HarchFinancePage() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 border border-[rgba(199,146,62,0.4)] bg-[rgba(199,146,62,0.06)] text-[#C7923E] text-[11px] tracking-[0.1em] uppercase px-6 py-3 rounded-md font-semibold hover:bg-[rgba(199,146,62,0.12)] hover:border-[rgba(199,146,62,0.6)] transition-colors font-[family-name:var(--font-space-mono)]"
+                className="inline-flex items-center gap-2 border border-[rgba(139,157,175,0.4)] bg-[rgba(139,157,175,0.06)] text-[#8B9DAF] text-[11px] tracking-[0.1em] uppercase px-6 py-3 rounded-md font-semibold hover:bg-[rgba(139,157,175,0.12)] hover:border-[rgba(139,157,175,0.6)] transition-colors font-[family-name:var(--font-space-mono)]"
               >
                 Partner With Us
                 <ArrowRight size={12} />

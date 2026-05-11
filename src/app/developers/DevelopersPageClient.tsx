@@ -28,7 +28,7 @@ const quickStartSteps = [
     title: 'Create Account',
     description: 'Sign up for a free HarchOS developer account. No credit card required. Instant access to the Starter tier with 10 GPU hours/month free tier.',
     icon: Users,
-    color: '#C7923E',
+    color: '#8B9DAF',
   },
   {
     step: '02',
@@ -52,7 +52,7 @@ const developerTools = [
     title: 'HarchOS CLI',
     description: 'Command-line interface for deploying, managing, and monitoring workloads. Terraform provider and Kubernetes operator included for infrastructure-as-code workflows.',
     tags: ['Terraform Provider', 'K8s Operator', 'CI/CD Integration'],
-    color: '#C7923E',
+    color: '#8B9DAF',
   },
   {
     icon: Code2,
@@ -85,7 +85,7 @@ const developerTools = [
 ];
 
 const dxMetrics = [
-  { label: 'API Response Time', value: '12ms', sublabel: 'p99 latency', icon: Clock, color: '#C7923E' },
+  { label: 'API Response Time', value: '12ms', sublabel: 'p99 latency', icon: Clock, color: '#8B9DAF' },
   { label: 'SDK Satisfaction', value: '94%', sublabel: 'developer survey', icon: BarChart3, color: '#8B5CF6' },
   { label: 'Documentation Coverage', value: '87%', sublabel: 'API endpoints documented', icon: BookOpen, color: '#10B981' },
   { label: 'First Deploy Time', value: '4.2min', sublabel: 'average onboarding', icon: Zap, color: '#F59E0B' },
@@ -108,14 +108,14 @@ export default function DevelopersPageClient() {
           ═══════════════════════════════════════════ */}
       <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-30" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#C7923E]/[0.03] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#8B9DAF]/[0.03] rounded-full blur-[120px] pointer-events-none" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#C7923E]">Developer Center /0.2</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">Developer Center /0.2</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[88px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              Build on<br/>HarchOS<span className="text-[#C7923E]">.</span>
+              Build on<br/>HarchOS<span className="text-[#8B9DAF]">.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -145,7 +145,7 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Quick Start</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Quick Start</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               From Zero to<br/>Deployed in Minutes
             </h2>
@@ -183,11 +183,11 @@ export default function DevelopersPageClient() {
                 <span className="ml-4 text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">terminal</span>
               </div>
               <div className="p-6 font-mono text-[13px] leading-[2]">
-                <p><span className="text-[#999999]">$</span> <span className="text-[#C7923E]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
+                <p><span className="text-[#999999]">$</span> <span className="text-[#8B9DAF]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
                 <p className="text-[#666666]">  Successfully installed harchos-0.2.1</p>
-                <p><span className="text-[#999999]">$</span> <span className="text-[#C7923E]">harchos</span> <span className="text-[#98C379]">--api-key hsk_... carbon MA</span></p>
+                <p><span className="text-[#999999]">$</span> <span className="text-[#8B9DAF]">harchos</span> <span className="text-[#98C379]">--api-key hsk_... carbon MA</span></p>
                 <p className="text-[#666666]">  Morocco: 47.0 gCO2/kWh | Renewable: 81.5%</p>
-                <p><span className="text-[#999999]">$</span> <span className="text-[#C7923E]">harchos</span> <span className="text-[#98C379]">hubs</span></p>
+                <p><span className="text-[#999999]">$</span> <span className="text-[#8B9DAF]">harchos</span> <span className="text-[#98C379]">hubs</span></p>
                 <p className="text-[#666666]">  5 hubs | 1,798 GPUs | 100% carbon-aware</p>
                 <p><span className="text-[#999999]">$</span></p>
               </div>
@@ -214,15 +214,15 @@ export default function DevelopersPageClient() {
                 </div>
                 <div className="bg-[#0D0D0D] rounded-lg p-4 font-mono text-[12px] leading-[1.8] overflow-x-auto">
                   <p className="text-[#666666]">{'# Install'}</p>
-                  <p><span className="text-[#C7923E]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
+                  <p><span className="text-[#8B9DAF]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
                   <br/>
                   <p className="text-[#666666]">{'# Use'}</p>
                   <p><span className="text-[#C678DD]">from</span> harchos <span className="text-[#C678DD]">import</span> <span className="text-[#E5C07B]">HarchOSClient</span></p>
                   <br/>
                   <p><span className="text-[#C678DD]">with</span> <span className="text-[#E5C07B]">HarchOSClient</span>(<span className="text-[#98C379]">api_key</span>=<span className="text-[#98C379]">&quot;hsk_...&quot;</span>) <span className="text-[#C678DD]">as</span> client:</p>
                   <p>&nbsp;&nbsp;carbon = client.carbon.get_intensity(<span className="text-[#98C379]">&quot;MA&quot;</span>)</p>
-                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Morocco: </span><span className="text-[#C7923E]">{'{carbon.carbon_intensity_gco2_kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh&quot;</span>)</p>
-                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Renewable: </span><span className="text-[#C7923E]">{'{carbon.renewable_percentage}'}</span><span className="text-[#98C379]">%&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Morocco: </span><span className="text-[#8B9DAF]">{'{carbon.carbon_intensity_gco2_kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Renewable: </span><span className="text-[#8B9DAF]">{'{carbon.renewable_percentage}'}</span><span className="text-[#98C379]">%&quot;</span>)</p>
                 </div>
               </div>
 
@@ -242,15 +242,15 @@ export default function DevelopersPageClient() {
                 </div>
                 <div className="bg-[#0D0D0D] rounded-lg p-4 font-mono text-[12px] leading-[1.8] overflow-x-auto">
                   <p className="text-[#666666]">{'// Install'}</p>
-                  <p><span className="text-[#C7923E]">npm install</span> <span className="text-[#98C379]">@harchos/sdk</span></p>
+                  <p><span className="text-[#8B9DAF]">npm install</span> <span className="text-[#98C379]">@harchos/sdk</span></p>
                   <br/>
                   <p className="text-[#666666]">{'// Use'}</p>
                   <p><span className="text-[#C678DD]">import</span> {'{'} <span className="text-[#E5C07B]">HarchOSClient</span> {'}'} <span className="text-[#C678DD]">from</span> <span className="text-[#98C379]">&quot;@harchos/sdk&quot;</span>;</p>
                   <br/>
                   <p><span className="text-[#C678DD]">const</span> client = <span className="text-[#C678DD]">new</span> <span className="text-[#E5C07B]">HarchOSClient</span>({'{'} <span className="text-[#98C379]">apiKey</span>: <span className="text-[#98C379]">&quot;hsk_...&quot;</span> {'}'});</p>
                   <p><span className="text-[#C678DD]">const</span> carbon = <span className="text-[#C678DD]">await</span> client.carbon.getIntensity(<span className="text-[#98C379]">&quot;MA&quot;</span>);</p>
-                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Morocco: </span><span className="text-[#C7923E]">{'${carbon.carbonIntensityGco2Kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh`</span>);</p>
-                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Renewable: </span><span className="text-[#C7923E]">{'${carbon.renewablePercentage}'}</span><span className="text-[#98C379]">%`</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Morocco: </span><span className="text-[#8B9DAF]">{'${carbon.carbonIntensityGco2Kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh`</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Renewable: </span><span className="text-[#8B9DAF]">{'${carbon.renewablePercentage}'}</span><span className="text-[#98C379]">%`</span>);</p>
                 </div>
               </div>
             </div>
@@ -264,7 +264,7 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Developer Tools</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Developer Tools</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Everything You Need<br/>to Build
             </h2>
@@ -304,9 +304,9 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">API Playground</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">API Playground</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Explore the API<span className="text-[#C7923E]">.</span>
+              Explore the API<span className="text-[#8B9DAF]">.</span>
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
@@ -362,7 +362,7 @@ export default function DevelopersPageClient() {
               </div>
 
               <div className="px-6 py-4 border-t border-white/[0.04] flex items-center justify-between">
-                <Link href="/developers/playground" className="inline-flex items-center gap-2 text-[13px] text-[#C7923E] font-semibold hover:text-[#C7923E]/80 transition-colors">
+                <Link href="/developers/playground" className="inline-flex items-center gap-2 text-[13px] text-[#8B9DAF] font-semibold hover:text-[#8B9DAF]/80 transition-colors">
                   Open Full Playground <ChevronRight size={14} />
                 </Link>
                 <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">No auth required for sandbox</span>
@@ -380,13 +380,13 @@ export default function DevelopersPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <FadeIn>
               <div>
-                <p className="section-label mb-4 text-[#C7923E]">Code Example</p>
+                <p className="section-label mb-4 text-[#8B9DAF]">Code Example</p>
                 <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
-                  Deploy in<br/>Three Lines<span className="text-[#C7923E]">.</span>
+                  Deploy in<br/>Three Lines<span className="text-[#8B9DAF]">.</span>
                 </h2>
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
-                  The <code className="px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.06)] text-[#C7923E] text-[13px] font-[family-name:var(--font-space-mono)]">@harchos/sdk</code> provides a clean, intuitive API that gets out of your way. Type-safe, async-first, and built for production workloads.
+                  The <code className="px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.06)] text-[#8B9DAF] text-[13px] font-[family-name:var(--font-space-mono)]">@harchos/sdk</code> provides a clean, intuitive API that gets out of your way. Type-safe, async-first, and built for production workloads.
                 </p>
                 <div className="space-y-4">
                   {[
@@ -398,7 +398,7 @@ export default function DevelopersPageClient() {
                     { icon: Globe, text: 'Regions API with carbon intensity data' },
                   ].map((feature) => (
                     <div key={feature.text} className="flex items-center gap-3">
-                      <feature.icon size={16} className="text-[#C7923E]" />
+                      <feature.icon size={16} className="text-[#8B9DAF]" />
                       <span className="text-[14px] text-[#CCCCCC]">{feature.text}</span>
                     </div>
                   ))}
@@ -443,9 +443,9 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Developer Experience</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Developer Experience</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              DX by the<br/>Numbers<span className="text-[#C7923E]">.</span>
+              DX by the<br/>Numbers<span className="text-[#8B9DAF]">.</span>
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
@@ -476,9 +476,9 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Open Source</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Open Source</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Built in the<br/>Open<span className="text-[#C7923E]">.</span>
+              Built in the<br/>Open<span className="text-[#8B9DAF]">.</span>
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
@@ -489,13 +489,13 @@ export default function DevelopersPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {openSourceProjects.map((project, i) => (
               <FadeIn key={project.name} delay={i * 0.08}>
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="card p-8 h-full group block hover:border-[#C7923E]/30 transition-all">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="card p-8 h-full group block hover:border-[#8B9DAF]/30 transition-all">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <GitBranch size={18} className="text-[#C7923E]" />
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#C7923E] transition-colors">{project.name}</h3>
+                      <GitBranch size={18} className="text-[#8B9DAF]" />
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#8B9DAF] transition-colors">{project.name}</h3>
                     </div>
-                    <ExternalLink size={14} className="text-[#666666] group-hover:text-[#C7923E] transition-colors" />
+                    <ExternalLink size={14} className="text-[#666666] group-hover:text-[#8B9DAF] transition-colors" />
                   </div>
                   <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{project.description}</p>
                   <div className="flex items-center gap-4">
@@ -512,7 +512,7 @@ export default function DevelopersPageClient() {
 
           <FadeIn>
             <div className="mt-8 text-center">
-              <Link href="/developers/open-source" className="inline-flex items-center gap-2 text-[14px] text-[#C7923E] font-semibold hover:text-[#C7923E]/80 transition-colors">
+              <Link href="/developers/open-source" className="inline-flex items-center gap-2 text-[14px] text-[#8B9DAF] font-semibold hover:text-[#8B9DAF]/80 transition-colors">
                 View All Open Source Projects <ArrowRight size={14} />
               </Link>
             </div>
@@ -526,9 +526,9 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Community</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Community</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Join the Mesh<span className="text-[#C7923E]">.</span>
+              Join the Mesh<span className="text-[#8B9DAF]">.</span>
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
@@ -569,7 +569,7 @@ export default function DevelopersPageClient() {
                     <community.icon size={22} style={{ color: community.color }} />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">{community.title}</h3>
-                  <p className="text-[11px] text-[#C7923E] font-[family-name:var(--font-space-mono)] mb-3">{community.members} members</p>
+                  <p className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] mb-3">{community.members} members</p>
                   <div className="accent-line mb-4" />
                   <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{community.description}</p>
                   <span className="inline-flex items-center gap-1.5 text-[12px] text-[#666666] font-[family-name:var(--font-space-mono)] group-hover:text-[#999999] transition-colors">
@@ -587,12 +587,12 @@ export default function DevelopersPageClient() {
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-20" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C7923E]/[0.04] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#8B9DAF]/[0.04] rounded-full blur-[120px] pointer-events-none" />
         <div className="relative z-10 max-w-[900px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="section-label mb-6 text-[#C7923E]">Start Building</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">Start Building</p>
             <h2 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Your Next Deploy<br/>is One Command Away<span className="text-[#C7923E]">.</span>
+              Your Next Deploy<br/>is One Command Away<span className="text-[#8B9DAF]">.</span>
             </h2>
             <p className="text-[16px] text-[#999999] max-w-lg mx-auto leading-[1.7] mb-10">
               Free Starter tier with 10 GPU hours/month free tier. No credit card required. Deploy on 100% renewable sovereign infrastructure with carbon-aware scheduling, real-time monitoring, and pricing APIs.

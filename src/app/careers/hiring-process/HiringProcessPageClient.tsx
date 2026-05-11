@@ -89,7 +89,7 @@ const traits = [
     icon: Shield,
     title: 'Sovereignty Mindset',
     description: 'You think like an owner and care about Africa\'s self-determination. Every decision you make considers the long-term impact on the continent\'s independence. You don\'t just build products — you build infrastructure that empowers.',
-    color: 'rgba(199, 146, 62, 0.7)',
+    color: 'rgba(139, 157, 175, 0.7)',
   },
   {
     icon: Target,
@@ -318,7 +318,7 @@ export default function HiringProcessPageClient() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between py-3 border-b border-white/[0.04]">
                     <span className="text-[13px] text-[#999999]">Email</span>
-                    <a href="mailto:accommodations@harchcorp.com" className="text-[14px] font-semibold text-[rgba(199,146,62,0.7)] hover:text-[#C7923E] transition-colors">
+                    <a href="mailto:accommodations@harchcorp.com" className="text-[14px] font-semibold text-[rgba(139,157,175,0.7)] hover:text-[#8B9DAF] transition-colors">
                       accommodations@harchcorp.com
                     </a>
                   </div>

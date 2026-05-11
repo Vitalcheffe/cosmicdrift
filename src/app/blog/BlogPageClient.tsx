@@ -125,7 +125,7 @@ export default function BlogPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Blog</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Blog</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Engineering.<br/>Insights.<br/>Thought Leadership.
             </h1>
@@ -163,15 +163,15 @@ export default function BlogPageClient() {
         <section className="py-20 md:py-28 bg-[#121212]">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <FadeIn>
-              <p className="section-label mb-6 text-[#C7923E]">Featured</p>
+              <p className="section-label mb-6 text-[#8B9DAF]">Featured</p>
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="relative card p-8 md:p-12 lg:p-16 overflow-hidden group cursor-pointer">
-                <div className="absolute top-0 left-0 w-1 h-full bg-[#C7923E]" />
+                <div className="absolute top-0 left-0 w-1 h-full bg-[#8B9DAF]" />
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-6">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
                         {(() => { const Icon = categoryIcons[featuredPost.category]; return Icon ? <Icon size={10} /> : null; })()}
                         {featuredPost.category}
                       </span>
@@ -186,12 +186,12 @@ export default function BlogPageClient() {
                       {featuredPost.title}
                     </h2>
                     <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredPost.excerpt}</p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
                       Read Article <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
-                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(199,146,62,0.06)] border border-[rgba(199,146,62,0.12)] shrink-0">
-                    <ArrowUpRight size={24} className="text-[#C7923E] group-hover:text-white transition-colors" />
+                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] shrink-0">
+                    <ArrowUpRight size={24} className="text-[#8B9DAF] group-hover:text-white transition-colors" />
                   </div>
                 </div>
               </div>
@@ -217,7 +217,7 @@ export default function BlogPageClient() {
                 <FadeIn key={post.slug} delay={i * 0.06}>
                   <div className="card p-6 h-full flex flex-col group cursor-pointer">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[rgba(199,146,62,0.06)] border border-[rgba(199,146,62,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
                         {Icon ? <Icon size={10} /> : null}
                         {post.category}
                       </span>
@@ -246,8 +246,8 @@ export default function BlogPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="max-w-2xl mx-auto text-center">
             <FadeIn>
-              <Mail size={32} className="text-[#C7923E] mx-auto mb-6" strokeWidth={1.5} />
-              <p className="section-label mb-4 text-[#C7923E]">Newsletter</p>
+              <Mail size={32} className="text-[#8B9DAF] mx-auto mb-6" strokeWidth={1.5} />
+              <p className="section-label mb-4 text-[#8B9DAF]">Newsletter</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">Stay in the Loop</h2>
               <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
                 Get engineering insights, product updates, and technical deep-dives delivered to your inbox. No spam. Unsubscribe anytime.
@@ -266,7 +266,7 @@ export default function BlogPageClient() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@company.com"
-                    className="flex-1 px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(199,146,62,0.3)] transition-colors font-[family-name:var(--font-space-mono)]"
+                    className="flex-1 px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors font-[family-name:var(--font-space-mono)]"
                   />
                   <button
                     onClick={() => { if (email) setSubscribed(true); }}
@@ -287,24 +287,24 @@ export default function BlogPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FadeIn>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
-                <PenLine size={20} className="text-[#C7923E] mb-4" strokeWidth={1.5} />
+                <PenLine size={20} className="text-[#8B9DAF] mb-4" strokeWidth={1.5} />
                 <h3 className="text-xl font-bold text-white mb-3">Write for Us</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
                   Have a technical perspective on sovereign infrastructure, distributed systems, or African industrial development? We accept guest contributions from engineers, researchers, and operators.
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
                   Submit a Pitch <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
-                <Rss size={20} className="text-[#C7923E] mb-4" strokeWidth={1.5} />
+                <Rss size={20} className="text-[#8B9DAF] mb-4" strokeWidth={1.5} />
                 <h3 className="text-xl font-bold text-white mb-3">RSS Feed</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
                   Prefer a reader? Subscribe to our RSS feed and never miss a post. Full content, no tracking, no middleman — the way the web was meant to work.
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
                   Copy Feed URL <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>

@@ -83,7 +83,7 @@ export default function PressPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Press & Media</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Press & Media</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Newsroom Resources
             </h1>
@@ -107,7 +107,7 @@ export default function PressPageClient() {
               <FadeIn key={i} delay={i * 0.06}>
                 <div className="card p-6 md:p-8">
                   <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
                       {release.category}
                     </span>
                     <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)] flex items-center gap-1">
@@ -170,19 +170,19 @@ export default function PressPageClient() {
                 <div className="card p-6">
                   <div className="flex items-center gap-3 mb-3">
                     {asset.format === 'SVG' || asset.format === 'PNG' ? (
-                      <Image size={18} className="text-[#C7923E]" />
+                      <Image size={18} className="text-[#8B9DAF]" />
                     ) : asset.format === 'PDF' ? (
-                      <FileText size={18} className="text-[#C7923E]" />
+                      <FileText size={18} className="text-[#8B9DAF]" />
                     ) : (
-                      <Globe size={18} className="text-[#C7923E]" />
+                      <Globe size={18} className="text-[#8B9DAF]" />
                     )}
-                    <span className="px-2 py-0.5 rounded text-[9px] font-bold tracking-[0.1em] uppercase bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.15)] text-[#C7923E] font-[family-name:var(--font-space-mono)]">
+                    <span className="px-2 py-0.5 rounded text-[9px] font-bold tracking-[0.1em] uppercase bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
                       {asset.format}
                     </span>
                   </div>
                   <h3 className="text-[14px] font-bold text-white mb-1">{asset.name}</h3>
                   <p className="text-[12px] text-[#666666] mb-4">{asset.desc}</p>
-                  <button className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#C7923E] hover:text-white transition-colors">
+                  <button className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#8B9DAF] hover:text-white transition-colors">
                     <Download size={12} /> Download
                   </button>
                 </div>
@@ -206,14 +206,14 @@ export default function PressPageClient() {
                 <h3 className="text-lg font-bold text-white mb-4">Press Inquiries</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <Mail size={14} className="text-[#C7923E]" />
+                    <Mail size={14} className="text-[#8B9DAF]" />
                     <div>
                       <p className="text-[12px] text-[#666666]">Email</p>
-                      <a href="mailto:press@harchcorp.com" className="text-[14px] text-white hover:text-[#C7923E] transition-colors">press@harchcorp.com</a>
+                      <a href="mailto:press@harchcorp.com" className="text-[14px] text-white hover:text-[#8B9DAF] transition-colors">press@harchcorp.com</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Phone size={14} className="text-[#C7923E]" />
+                    <Phone size={14} className="text-[#8B9DAF]" />
                     <div>
                       <p className="text-[12px] text-[#666666]">Phone</p>
                       <p className="text-[14px] text-white">+212-522-000-002</p>
@@ -229,10 +229,10 @@ export default function PressPageClient() {
                 <h3 className="text-lg font-bold text-white mb-4">Interview Requests</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <Mail size={14} className="text-[#C7923E]" />
+                    <Mail size={14} className="text-[#8B9DAF]" />
                     <div>
                       <p className="text-[12px] text-[#666666]">Email</p>
-                      <a href="mailto:ir@harchcorp.com" className="text-[14px] text-white hover:text-[#C7923E] transition-colors">ir@harchcorp.com</a>
+                      <a href="mailto:ir@harchcorp.com" className="text-[14px] text-white hover:text-[#8B9DAF] transition-colors">ir@harchcorp.com</a>
                     </div>
                   </div>
                 </div>
@@ -240,7 +240,7 @@ export default function PressPageClient() {
                   For interview requests with Harch Corp executives or subsidiary leaders, please contact our investor relations team. We accommodate broadcast, print, and podcast formats.
                 </p>
                 <div className="mt-4 pt-4 border-t border-[rgba(255,255,255,0.06)]">
-                  <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] hover:text-white transition-colors">
+                  <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] hover:text-white transition-colors">
                     General Contact <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
                   </Link>
                 </div>

@@ -327,7 +327,7 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href="https://www.harchcorp.com" />
-        <meta name="theme-color" content="#C7923E" />
+        <meta name="theme-color" content="#8B9DAF" />
         <meta name="apple-mobile-web-app-title" content="HarchCorp" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -338,7 +338,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#1A1A1A] text-white min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#0D0D0D] text-white min-h-screen flex flex-col`}>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Sidebar />
         <div className="flex-1 flex flex-col lg:ml-[250px]">

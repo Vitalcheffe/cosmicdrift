@@ -143,8 +143,8 @@ export default function CalculatorPageClient() {
                 {/* Compute */}
                 <div className="card p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
-                      <Cpu size={20} className="text-[#C7923E]" />
+                    <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
+                      <Cpu size={20} className="text-[#8B9DAF]" />
                     </div>
                     <h3 className="text-lg font-bold text-white">Compute</h3>
                   </div>
@@ -159,7 +159,7 @@ export default function CalculatorPageClient() {
                           onClick={() => setGpuType(gpu)}
                           className={`px-4 py-3 rounded-lg text-[13px] font-semibold transition-all border ${
                             gpuType === gpu
-                              ? 'bg-[rgba(199,146,62,0.08)] border-[rgba(199,146,62,0.3)] text-white'
+                              ? 'bg-[rgba(139,157,175,0.08)] border-[rgba(139,157,175,0.3)] text-white'
                               : 'border-white/[0.06] text-[#999999] hover:border-white/12 hover:text-white'
                           }`}
                         >
@@ -174,7 +174,7 @@ export default function CalculatorPageClient() {
                   <div className="mb-6">
                     <div className="flex justify-between items-center mb-3">
                       <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Number of GPUs</label>
-                      <span className="text-[13px] text-[#C7923E] font-[family-name:var(--font-space-mono)] stat-mono">{gpuCount}</span>
+                      <span className="text-[13px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] stat-mono">{gpuCount}</span>
                     </div>
                     <input
                       type="range"
@@ -183,7 +183,7 @@ export default function CalculatorPageClient() {
                       step={1}
                       value={gpuCount}
                       onChange={(e) => setGpuCount(Number(e.target.value))}
-                      className="w-full h-1.5 bg-[rgba(255,255,255,0.08)] rounded-full appearance-none cursor-pointer accent-[#C7923E]"
+                      className="w-full h-1.5 bg-[rgba(255,255,255,0.08)] rounded-full appearance-none cursor-pointer accent-[#8B9DAF]"
                     />
                     <div className="flex justify-between mt-1">
                       <span className="text-[10px] text-[#666666]">1</span>
@@ -195,7 +195,7 @@ export default function CalculatorPageClient() {
                   <div>
                     <div className="flex justify-between items-center mb-3">
                       <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Hours / Month</label>
-                      <span className="text-[13px] text-[#C7923E] font-[family-name:var(--font-space-mono)] stat-mono">{gpuHours}</span>
+                      <span className="text-[13px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] stat-mono">{gpuHours}</span>
                     </div>
                     <input
                       type="range"
@@ -204,7 +204,7 @@ export default function CalculatorPageClient() {
                       step={1}
                       value={gpuHours}
                       onChange={(e) => setGpuHours(Number(e.target.value))}
-                      className="w-full h-1.5 bg-[rgba(255,255,255,0.08)] rounded-full appearance-none cursor-pointer accent-[#C7923E]"
+                      className="w-full h-1.5 bg-[rgba(255,255,255,0.08)] rounded-full appearance-none cursor-pointer accent-[#8B9DAF]"
                     />
                     <div className="flex justify-between mt-1">
                       <span className="text-[10px] text-[#666666]">1 hr</span>
@@ -370,10 +370,10 @@ export default function CalculatorPageClient() {
                   </div>
 
                   {/* Carbon Intensity Estimate */}
-                  <div className="card p-8 border-[rgba(199,146,62,0.15)]">
+                  <div className="card p-8 border-[rgba(139,157,175,0.15)]">
                     <div className="flex items-center gap-2 mb-4">
-                      <BarChart3 size={16} className="text-[#C7923E]" />
-                      <p className="text-[10px] text-[#C7923E] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Carbon Estimate</p>
+                      <BarChart3 size={16} className="text-[#8B9DAF]" />
+                      <p className="text-[10px] text-[#8B9DAF] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Carbon Estimate</p>
                     </div>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
@@ -391,7 +391,7 @@ export default function CalculatorPageClient() {
                         <span className="text-[13px] text-[#10B981] font-semibold">89% lower</span>
                       </div>
                     </div>
-                    <div className="mt-3 p-3 rounded-lg bg-[rgba(199,146,62,0.04)] border border-[rgba(199,146,62,0.1)]">
+                    <div className="mt-3 p-3 rounded-lg bg-[rgba(139,157,175,0.04)] border border-[rgba(139,157,175,0.1)]">
                       <p className="text-[11px] text-[#999999]">Carbon-aware scheduling shifts workloads to the greenest hub automatically, reducing carbon intensity up to 89% vs the ~450 gCO2/kWh industry average.</p>
                     </div>
                   </div>
@@ -466,8 +466,8 @@ export default function CalculatorPageClient() {
                       </div>
                     </div>
 
-                    <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-[rgba(199,146,62,0.04)] border border-[rgba(199,146,62,0.1)]">
-                      <Info size={14} className="text-[#C7923E] mt-0.5 shrink-0" />
+                    <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-[rgba(139,157,175,0.04)] border border-[rgba(139,157,175,0.1)]">
+                      <Info size={14} className="text-[#8B9DAF] mt-0.5 shrink-0" />
                       <p className="text-[11px] text-[#999999]">Comparison based on equivalent GPU types, storage, and network configuration. HarchOS includes 100% renewable energy and sovereign data residency at no extra cost.</p>
                     </div>
                   </div>

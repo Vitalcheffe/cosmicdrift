@@ -28,7 +28,7 @@ const architectureLayers = [
     name: 'SENSE',
     tag: 'Data Ingestion Layer',
     icon: Eye,
-    color: '#C7923E',
+    color: '#8B9DAF',
     description: 'The perception layer of HarchOS. SENSE captures every signal from the physical and digital world — IoT sensors, satellite imagery, API feeds, and industrial control data. It processes over 50,000 data points per second with 1-second granularity and 4-hour forecast windows.',
     capabilities: [
       'IoT sensor data ingestion via MQTT, AMQP, and HTTP',
@@ -96,7 +96,7 @@ const referenceArchitectures = [
     title: 'Sovereign AI Cloud',
     desc: 'Complete sovereign AI cloud deployment with all data and compute remaining within Morocco jurisdiction. Full SENSE-THINK-ACT stack deployed across a single hub with dedicated GPU clusters.',
     icon: Shield,
-    accent: '#C7923E',
+    accent: '#8B9DAF',
     components: ['Dedicated H100 cluster (up to 800 GPUs per hub)', 'SENSE data ingestion pipeline', 'THINK orchestration engine', 'ACT execution controller with carbon-aware scheduling', 'Sovereign encryption (HSM FIPS 140-2 L3)', 'Compliance automation (GDPR, Law 09-08)'],
     useCase: 'Government agencies, defense, critical infrastructure operators requiring absolute data sovereignty.',
   },
@@ -143,7 +143,7 @@ const pillars = [
   {
     name: 'Reliability',
     icon: Shield,
-    accent: '#C7923E',
+    accent: '#8B9DAF',
     description: 'HarchOS is designed for 99.999% uptime with zero-downtime failover, live migration, and multi-hub redundancy. The ACT layer executes failover in under 200ms.',
     principles: [
       'Multi-hub: workloads replicated across at least 2 hubs with automatic failover',
@@ -270,7 +270,7 @@ export default function ArchitecturePageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#C7923E]">Architecture /0.1</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">Architecture /0.1</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
@@ -301,7 +301,7 @@ export default function ArchitecturePageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Architecture Overview</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Architecture Overview</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               SENSE. THINK. ACT.
             </h2>
@@ -380,9 +380,9 @@ export default function ArchitecturePageClient() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 p-4 rounded-lg bg-[rgba(199,146,62,0.04)] border border-[rgba(199,146,62,0.1)]">
+                <div className="mt-6 p-4 rounded-lg bg-[rgba(139,157,175,0.04)] border border-[rgba(139,157,175,0.1)]">
                   <p className="text-[12px] text-[#999999] leading-[1.6]">
-                    <span className="text-[#C7923E] font-semibold">Data Flow:</span> {activeLayer === 'sense' ? 'Physical world → SENSE → THINK' : activeLayer === 'think' ? 'SENSE → THINK → ACT' : 'THINK → ACT → Physical world'}
+                    <span className="text-[#8B9DAF] font-semibold">Data Flow:</span> {activeLayer === 'sense' ? 'Physical world → SENSE → THINK' : activeLayer === 'think' ? 'SENSE → THINK → ACT' : 'THINK → ACT → Physical world'}
                   </p>
                 </div>
               </div>
@@ -397,7 +397,7 @@ export default function ArchitecturePageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Reference Architectures</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Reference Architectures</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Proven Deployment Patterns
             </h2>
@@ -445,7 +445,7 @@ export default function ArchitecturePageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Well-Architected Framework</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Well-Architected Framework</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Five Pillars of Excellence
             </h2>
@@ -494,7 +494,7 @@ export default function ArchitecturePageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Design Patterns</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Design Patterns</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Common Patterns
             </h2>
@@ -509,11 +509,11 @@ export default function ArchitecturePageClient() {
               <FadeIn key={pattern.name} delay={i * 0.06}>
                 <div className="card p-6 h-full group hover:border-white/15">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-[rgba(199,146,62,0.06)] text-[#C7923E] border border-[rgba(199,146,62,0.12)]">
+                    <span className="px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-[rgba(139,157,175,0.06)] text-[#8B9DAF] border border-[rgba(139,157,175,0.12)]">
                       {pattern.category}
                     </span>
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#C7923E] transition-colors">{pattern.name}</h3>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#8B9DAF] transition-colors">{pattern.name}</h3>
                   <p className="text-[13px] text-[#999999] leading-[1.6]">{pattern.desc}</p>
                 </div>
               </FadeIn>
@@ -528,7 +528,7 @@ export default function ArchitecturePageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#C7923E]">Best Practices</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">Best Practices</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Key Recommendations
             </h2>

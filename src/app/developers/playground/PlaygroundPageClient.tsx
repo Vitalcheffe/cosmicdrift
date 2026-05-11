@@ -62,7 +62,7 @@ const endpoints: Record<string, { method: string; path: string; description: str
 
 const methodColors: Record<string, string> = {
   GET: '#10B981',
-  POST: '#C7923E',
+  POST: '#8B9DAF',
   PUT: '#F59E0B',
   DELETE: '#EF4444',
 };
@@ -195,9 +195,9 @@ export default function PlaygroundPageClient() {
             </Link>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="section-label mb-6 text-[#C7923E]">API Playground /0.3</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">API Playground /0.3</p>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              API Playground<span className="text-[#C7923E]">.</span>
+              API Playground<span className="text-[#8B9DAF]">.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -227,7 +227,7 @@ export default function PlaygroundPageClient() {
                         onClick={() => { setActiveGroup(group.id); setActiveMethod('POST'); if (group.id === 'compute') setUrlValue('https://api.harchos.com/v1/compute/deploy'); else if (group.id === 'data') setUrlValue('https://api.harchos.com/v1/data/upload'); else if (group.id === 'models') setUrlValue('https://api.harchos.com/v1/models/register'); else setUrlValue('https://api.harchos.com/v1/ops/metrics'); }}
                         className={`w-full text-left px-4 py-3 rounded-lg transition-all text-[13px] ${
                           activeGroup === group.id
-                            ? 'bg-[rgba(199,146,62,0.08)] text-white border border-[rgba(199,146,62,0.15)]'
+                            ? 'bg-[rgba(139,157,175,0.08)] text-white border border-[rgba(139,157,175,0.15)]'
                             : 'text-[#999999] hover:text-white hover:bg-[rgba(255,255,255,0.02)] border border-transparent'
                         }`}
                       >
@@ -270,7 +270,7 @@ export default function PlaygroundPageClient() {
                       <select
                         value={activeMethod}
                         onChange={(e) => setActiveMethod(e.target.value)}
-                        className="appearance-none bg-transparent text-[12px] font-bold font-[family-name:var(--font-space-mono)] px-3 py-1.5 rounded border border-white/[0.08] pr-7 cursor-pointer focus:outline-none focus:border-[#C7923E]/50"
+                        className="appearance-none bg-transparent text-[12px] font-bold font-[family-name:var(--font-space-mono)] px-3 py-1.5 rounded border border-white/[0.08] pr-7 cursor-pointer focus:outline-none focus:border-[#8B9DAF]/50"
                         style={{ color: methodColors[activeMethod] }}
                       >
                         <option value="GET" className="bg-[#1E1E1E]">GET</option>
@@ -287,7 +287,7 @@ export default function PlaygroundPageClient() {
                       className="flex-1 bg-transparent text-[13px] text-white font-[family-name:var(--font-space-mono)] focus:outline-none placeholder:text-[#444444]"
                       placeholder="Enter request URL..."
                     />
-                    <button className="inline-flex items-center gap-2 bg-[#C7923E] text-black px-5 py-2 rounded-lg text-[12px] font-bold hover:bg-[#C7923E]/90 transition-all">
+                    <button className="inline-flex items-center gap-2 bg-[#8B9DAF] text-black px-5 py-2 rounded-lg text-[12px] font-bold hover:bg-[#8B9DAF]/90 transition-all">
                       <Play size={12} /> Send
                     </button>
                   </div>
@@ -298,7 +298,7 @@ export default function PlaygroundPageClient() {
                       {['Headers', 'Body', 'Auth'].map((tab) => (
                         <button
                           key={tab}
-                          className="px-4 py-3 text-[12px] font-semibold text-[#999999] hover:text-white border-b-2 border-transparent transition-all first:border-b-2 first:border-[#C7923E] first:text-white"
+                          className="px-4 py-3 text-[12px] font-semibold text-[#999999] hover:text-white border-b-2 border-transparent transition-all first:border-b-2 first:border-[#8B9DAF] first:text-white"
                         >
                           {tab}
                         </button>
@@ -368,20 +368,20 @@ export default function PlaygroundPageClient() {
                 {/* Authentication */}
                 <div className="card p-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
-                      <Key size={18} className="text-[#C7923E]" />
+                    <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
+                      <Key size={18} className="text-[#8B9DAF]" />
                     </div>
                     <h3 className="text-lg font-bold text-white">Authentication</h3>
                   </div>
                   <div className="accent-line mb-4" />
                   <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">
-                    All HarchOS API requests require a valid API key passed via the <code className="px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.06)] text-[#C7923E] text-[12px] font-[family-name:var(--font-space-mono)]">Authorization</code> header. API keys start with <code className="px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.06)] text-[#C7923E] text-[12px] font-[family-name:var(--font-space-mono)]">harch_sk_</code> and can be generated from your developer dashboard.
+                    All HarchOS API requests require a valid API key passed via the <code className="px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.06)] text-[#8B9DAF] text-[12px] font-[family-name:var(--font-space-mono)]">Authorization</code> header. API keys start with <code className="px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.06)] text-[#8B9DAF] text-[12px] font-[family-name:var(--font-space-mono)]">harch_sk_</code> and can be generated from your developer dashboard.
                   </p>
                   <div className="bg-[rgba(0,0,0,0.3)] rounded-lg p-4 font-mono text-[13px] border border-white/[0.04]">
                     <p><span className="text-[#E06C75]">Authorization</span>: <span className="text-[#98C379]">Bearer harch_sk_your_api_key_here</span></p>
                   </div>
-                  <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-[rgba(199,146,62,0.04)] border border-[rgba(199,146,62,0.1)]">
-                    <Info size={14} className="text-[#C7923E] mt-0.5 shrink-0" />
+                  <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-[rgba(139,157,175,0.04)] border border-[rgba(139,157,175,0.1)]">
+                    <Info size={14} className="text-[#8B9DAF] mt-0.5 shrink-0" />
                     <p className="text-[12px] text-[#999999]">Never expose your API key in client-side code. Use environment variables or a server-side proxy in production.</p>
                   </div>
                 </div>
@@ -389,7 +389,7 @@ export default function PlaygroundPageClient() {
                 {/* Code Generation */}
                 <div className="card overflow-hidden">
                   <div className="flex items-center gap-3 px-6 py-4 border-b border-white/[0.04] bg-[rgba(255,255,255,0.02)]">
-                    <Code2 size={16} className="text-[#C7923E]" />
+                    <Code2 size={16} className="text-[#8B9DAF]" />
                     <span className="text-[13px] font-semibold text-white">Code Generation</span>
                   </div>
                   <div className="flex border-b border-white/[0.04]">
@@ -399,7 +399,7 @@ export default function PlaygroundPageClient() {
                         onClick={() => setActiveCodeTab(lang)}
                         className={`px-5 py-3 text-[12px] font-semibold capitalize transition-all ${
                           activeCodeTab === lang
-                            ? 'text-white border-b-2 border-[#C7923E]'
+                            ? 'text-white border-b-2 border-[#8B9DAF]'
                             : 'text-[#666666] hover:text-[#999999]'
                         }`}
                       >

@@ -27,7 +27,7 @@ const guideCategories = [
     title: 'Getting Started',
     description: 'Fundamental guides for new HarchOS users. Go from zero to production.',
     icon: Rocket,
-    accent: '#C7923E',
+    accent: '#8B9DAF',
     guides: [
       {
         title: 'Deploy Your First Model',
@@ -188,7 +188,7 @@ export default function GuidesPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#C7923E]">How-to Guides /0.1</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">How-to Guides /0.1</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
@@ -249,7 +249,7 @@ export default function GuidesPageClient() {
                         </span>
                       </div>
                     </div>
-                    <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#C7923E] transition-colors">{guide.title}</h3>
+                    <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#8B9DAF] transition-colors">{guide.title}</h3>
                     <p className="text-[13px] text-[#999999] leading-[1.6] mb-4">{guide.desc}</p>
                     <div className="flex items-center justify-between">
                       <div className="flex flex-wrap gap-1.5">
@@ -259,7 +259,7 @@ export default function GuidesPageClient() {
                           </span>
                         ))}
                       </div>
-                      <ArrowRight size={14} className="text-[#333333] group-hover:text-[#C7923E] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                      <ArrowRight size={14} className="text-[#333333] group-hover:text-[#8B9DAF] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
                     </div>
                   </div>
                 </FadeIn>

@@ -43,7 +43,7 @@ const initiatives = [
     description: 'We maintain an 80%+ African workforce target across all levels — from entry-level engineers to the C-suite. Every role is posted locally first, and we invest in training programs to develop talent from within the communities we serve.',
     metric: '80%+',
     metricLabel: 'African workforce target',
-    color: 'rgba(199, 146, 62, 0.7)',
+    color: 'rgba(139, 157, 175, 0.7)',
   },
   {
     icon: Sparkles,

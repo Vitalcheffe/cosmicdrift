@@ -37,7 +37,7 @@ const benefits = [
     title: '$50,000 in HarchOS Credits',
     description: 'Free GPU compute, storage, and API calls for 12 months. Enough to train models, run inference at scale, and build your product without infrastructure costs.',
     details: ['Free GPU compute (A100 & H100)', '50TB object storage', 'Unlimited API calls', '12-month credit period'],
-    color: 'rgba(199, 146, 62, 0.7)',
+    color: 'rgba(139, 157, 175, 0.7)',
   },
   {
     icon: Users,

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#0B0D13"/>
+  <text x="256" y="220" font-family="Inter, sans-serif" font-weight="700" font-size="72" fill="#FFFFFF" text-anchor="middle" letter-spacing="12">HARCH</text>
+  <text x="256" y="310" font-family="Inter, sans-serif" font-weight="300" font-size="36" fill="#C7923E" text-anchor="middle" letter-spacing="8">CORP</text>
+  <text x="256" y="400" font-family="Inter, sans-serif" font-weight="400" font-size="18" fill="rgba(255,255,255,0.4)" text-anchor="middle" letter-spacing="4">AFRICA'S SOVEREIGN</text>
+  <text x="256" y="425" font-family="Inter, sans-serif" font-weight="400" font-size="18" fill="rgba(255,255,255,0.4)" text-anchor="middle" letter-spacing="4">INFRASTRUCTURE OS</text>
+</svg>

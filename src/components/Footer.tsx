@@ -23,6 +23,7 @@ const companyLinks = [
   { name: 'Harch Ventures', href: '/company/ventures' },
   { name: 'Careers', href: '/careers' },
   { name: 'Partners', href: '/partners' },
+  { name: 'Press & Media', href: '/press' },
   { name: 'Contact', href: '/contact' },
 ];
 

@@ -256,7 +256,7 @@ export default function HomePageClient() {
           {/* ── Visual Card Grid — All 7 verticals visible at once ── */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-16">
             {verticals.map((v, i) => {
-              const accentColors = ['#C7923E', '#F59E0B', '#10B981', '#8B5CF6', '#EF4444', '#22C55E', '#3B82F6'];
+              const accentColors = ['#C7923E', '#F59E0B', '#10B981', '#8B5CF6', '#EF4444', '#22C55E', '#5B8FB9'];
               const sectionImages = [
                 '/images/sections/comp-intel-server2.jpg',
                 '/images/sections/comp-cement-mixer.jpg',

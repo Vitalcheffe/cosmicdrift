@@ -31,6 +31,7 @@ const deploymentItems = [
   { name: 'Careers', href: '/careers' },
   { name: 'Partners', href: '/partners' },
   { name: 'Newsroom', href: '/newsroom' },
+  { name: 'Press & Media', href: '/press' },
 ];
 
 const developerItems = [

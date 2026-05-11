@@ -53,7 +53,7 @@ export function AfricaMap() {
 
   const getStatusColor = (status: string) => {
     switch(status) {
-      case 'active': return '#00C853';
+      case 'active': return '#4A7B5F';
       case 'engineering': return '#C7923E';
       case 'permitted': return '#FF8C00';
       default: return '#FF8C00';
@@ -287,7 +287,7 @@ export function AfricaMap() {
       {/* Legend */}
       <div className="flex items-center justify-center gap-6 mt-4 flex-wrap">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00C853', boxShadow: '0 0 4px #00C85360' }} />
+          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#4A7B5F', boxShadow: '0 0 4px rgba(74,123,95,0.6)' }} />
           <span className="text-[9px] text-[#999999] font-[family-name:var(--font-space-mono)]">ACTIVE</span>
         </div>
         <div className="flex items-center gap-2">

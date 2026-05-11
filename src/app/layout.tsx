@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Harch Corp",
   },
   description:
-    "Building Africa's sovereign infrastructure: Carbon-Aware GPU Cloud (1,798 GPUs, ~47 gCO2/kWh), Renewable Energy (2GW+ Pipeline), and Critical Mining. $2.4B+ investment pipeline across 7 verticals.",
+    "Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty. Carbon-Aware GPU Cloud (1,798 GPUs, ~47 gCO2/kWh), Renewable Energy (2GW+ Pipeline), Cement, Technology, Mining, Agriculture, Water. $2.4B+ investment pipeline across 7 verticals and 5 countries. Founded 2024, Casablanca, Morocco.",
   keywords: [
     "Harch Corp",
     "Africa industrial sovereignty",
@@ -51,9 +51,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Harch Corp S.A." }],
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180' },
@@ -113,31 +115,44 @@ export default function RootLayout({
         logo: {
           "@type": "ImageObject",
           "@id": "https://www.harchcorp.com/#logo",
-          url: "https://www.harchcorp.com/images/og-harch-corp.png",
-          contentUrl: "https://www.harchcorp.com/images/og-harch-corp.png",
+          url: "https://www.harchcorp.com/logo-512x512.png",
+          contentUrl: "https://www.harchcorp.com/logo-512x512.png",
           caption: "Harch Corp — Moroccan Industrial Conglomerate",
           inLanguage: "en",
-          width: 1200,
-          height: 630,
+          width: 512,
+          height: 512,
         },
-        image: {
-          "@type": "ImageObject",
-          "@id": "https://www.harchcorp.com/#og-image",
-          url: "https://www.harchcorp.com/images/og-harch-corp.png",
-          contentUrl: "https://www.harchcorp.com/images/og-harch-corp.png",
-          caption: "HarchCorp Headquarters, Casablanca, Morocco",
-          inLanguage: "en",
-          width: 1200,
-          height: 630,
-        },
+        image: [
+          {
+            "@type": "ImageObject",
+            "@id": "https://www.harchcorp.com/#og-image",
+            url: "https://www.harchcorp.com/images/og-harch-corp.png",
+            contentUrl: "https://www.harchcorp.com/images/og-harch-corp.png",
+            caption: "HarchCorp — Africa's Sovereign Infrastructure OS",
+            inLanguage: "en",
+            width: 1200,
+            height: 630,
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://www.harchcorp.com/#logo-square",
+            url: "https://www.harchcorp.com/logo-512x512.png",
+            contentUrl: "https://www.harchcorp.com/logo-512x512.png",
+            caption: "Harch Corp Logo",
+            inLanguage: "en",
+            width: 512,
+            height: 512,
+          },
+        ],
         description:
           "Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate and holding company building Africa's industrial sovereignty across 7 verticals: AI data centers, renewable energy, cement manufacturing, sovereign technology, strategic mining, precision agriculture, and water infrastructure. $2.4B+ investment pipeline across 5 countries.",
         foundingDate: "2024",
         founder: { "@id": "https://www.harchcorp.com/#founder" },
         numberOfEmployees: {
           "@type": "QuantitativeValue",
-          minValue: 1,
-          maxValue: 10,
+          minValue: 50,
+          maxValue: 200,
+          value: "50-200",
         },
         address: {
           "@type": "PostalAddress",
@@ -171,6 +186,8 @@ export default function RootLayout({
           "https://www.instagram.com/harchcorp/",
           "https://www.youtube.com/@harchcorp",
           "https://www.crunchbase.com/organization/harchcorp",
+          "https://github.com/HarchCorp",
+          "https://www.wikidata.org/wiki/Q133902221",
         ],
         subOrganization: [
           {
@@ -282,6 +299,18 @@ export default function RootLayout({
           "query-input": "required name=search_term_string",
         },
       },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.harchcorp.com/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.harchcorp.com",
+          },
+        ],
+      },
     ],
   };
 
@@ -289,17 +318,23 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
+        <link rel="canonical" href="https://www.harchcorp.com" />
         <meta name="theme-color" content="#C7923E" />
         <meta name="apple-mobile-web-app-title" content="HarchCorp" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="google-site-verification" content="harchcorp-site-verification" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
       <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#1A1A1A] text-white min-h-screen flex flex-col`}>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <Sidebar />
         <div className="flex-1 flex flex-col lg:ml-[250px]">
-          <main className="flex-1 pb-6">{children}</main>
+          <main id="main-content" className="flex-1 pb-6">{children}</main>
           <Footer />
         </div>
         <CookieConsent />

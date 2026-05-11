@@ -51,12 +51,12 @@ const services: Service[] = [
 
 function StatusDot({ status }: { status: ServiceStatus }) {
   const colors = {
-    operational: 'bg-[#00FF88]',
+    operational: 'bg-[#4A7B5F]',
     degraded: 'bg-[#FFAA00]',
     outage: 'bg-[#FF4444]',
   };
   const shadows = {
-    operational: '0 0 6px rgba(0,255,136,0.5)',
+    operational: '0 0 6px rgba(74,123,95,0.5)',
     degraded: '0 0 6px rgba(255,170,0,0.5)',
     outage: '0 0 6px rgba(255,68,68,0.5)',
   };
@@ -72,7 +72,7 @@ function StatusLabel({ status }: { status: ServiceStatus }) {
     outage: 'Service Outage',
   };
   const textColors = {
-    operational: 'text-[#00FF88]',
+    operational: 'text-[#4A7B5F]',
     degraded: 'text-[#FFAA00]',
     outage: 'text-[#FF4444]',
   };
@@ -109,7 +109,7 @@ function UptimeBar({ uptime }: { uptime: number }) {
           key={block.day}
           className={`flex-1 rounded-[2px] min-w-[2px] ${
             block.status === 'operational'
-              ? 'bg-[#00FF88]/60'
+              ? 'bg-[#4A7B5F]/60'
               : block.status === 'degraded'
               ? 'bg-[#FFAA00]/60'
               : 'bg-[#FF4444]/60'
@@ -154,7 +154,7 @@ export default function StatusPageClient() {
             <div className="card p-8 md:p-12">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-5 h-5 rounded-full bg-[#00FF88]" style={{ boxShadow: '0 0 12px rgba(0,255,136,0.5), 0 0 24px rgba(0,255,136,0.2)' }} />
+                  <div className="w-5 h-5 rounded-full bg-[#4A7B5F]" style={{ boxShadow: '0 0 12px rgba(74,123,95,0.5), 0 0 24px rgba(74,123,95,0.2)' }} />
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-white">
                       {allOperational ? 'All Systems Operational' : 'Partial Service Disruption'}
@@ -217,7 +217,7 @@ export default function StatusPageClient() {
           <FadeIn delay={0.5}>
             <div className="flex items-center gap-6 mt-8 ml-1">
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-[2px] bg-[#00FF88]/60" />
+                <div className="w-3 h-3 rounded-[2px] bg-[#4A7B5F]/60" />
                 <span className="text-[11px] text-[#666666]">Operational</span>
               </div>
               <div className="flex items-center gap-2">
@@ -246,7 +246,7 @@ export default function StatusPageClient() {
 
           <FadeIn delay={0.1}>
             <div className="card p-12 text-center">
-              <CheckCircle2 size={32} className="text-[#00FF88]/40 mx-auto mb-4" strokeWidth={1.5} />
+              <CheckCircle2 size={32} className="text-[#4A7B5F]/40 mx-auto mb-4" strokeWidth={1.5} />
               <p className="text-[16px] font-semibold text-white mb-2">No incidents in the last 90 days</p>
               <p className="text-[13px] text-[#666666]">
                 All services have been operating within normal parameters. We maintain transparency — 

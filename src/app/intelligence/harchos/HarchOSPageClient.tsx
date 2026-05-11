@@ -60,7 +60,7 @@ const hubs = [
   },
   {
     id: 'dakhla', name: 'Harch Dakhla', location: 'Dakhla', energy: 'Offshore Wind — 94.8% Renewable',
-    power: '400 GPUs', latency: '32 gCO2/kWh — Enterprise Tier', color: '#3B82F6',
+    power: '400 GPUs', latency: '32 gCO2/kWh — Enterprise Tier', color: '#5B8FB9',
     icon: Wind, image: '/images/intelligence/harchos-tanger.png',
     description: 'Primary hub connected to submarine cables. 400 GPUs powered by offshore wind 24/7. 94.8% renewable, 32 gCO2/kWh. The Europe-Africa compute gateway with strict sovereignty.',
   },

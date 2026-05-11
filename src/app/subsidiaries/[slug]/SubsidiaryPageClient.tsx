@@ -1151,13 +1151,18 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                 </thead>
                 <tbody>
                   {data.specTable.map((row, i) => (
-                    <FadeIn key={row.spec} delay={i * 0.03} direction="none">
-                      <tr className="border-b border-[rgba(255,255,255,0.03)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors">
-                        <td className="px-6 py-3.5 text-[13px] text-[#CCCCCC]">{row.spec}</td>
-                        <td className="px-6 py-3.5 text-[13px] font-bold text-white stat-mono">{row.value}</td>
-                        <td className="px-6 py-3.5 text-[12px] text-[#666666]">{row.phase}</td>
-                      </tr>
-                    </FadeIn>
+                    <motion.tr
+                      key={row.spec}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true, margin: '-20px' }}
+                      transition={{ duration: 0.3, delay: i * 0.03 }}
+                      className="border-b border-[rgba(255,255,255,0.03)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors"
+                    >
+                      <td className="px-6 py-3.5 text-[13px] text-[#CCCCCC]">{row.spec}</td>
+                      <td className="px-6 py-3.5 text-[13px] font-bold text-white stat-mono">{row.value}</td>
+                      <td className="px-6 py-3.5 text-[12px] text-[#666666]">{row.phase}</td>
+                    </motion.tr>
                   ))}
                 </tbody>
               </table>

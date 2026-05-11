@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, PanelLeftClose, PanelLeft } from 'lucide-react';
+import { Menu, ChevronDown, PanelLeftClose } from 'lucide-react';
 import { HarchLogo } from '@/components/HarchLogo';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -182,17 +182,18 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Toggle button — always visible */}
+      {/* Toggle button — slides from top-left to sidebar edge when open */}
       <button
         onClick={toggleSidebar}
-        className="fixed top-4 left-4 z-50 w-11 h-11 flex items-center justify-center bg-[#111111]/90 backdrop-blur-md border border-[rgba(255,255,255,0.08)] rounded-lg shadow-lg touch-manipulation transition-all duration-300 hover:bg-[#111111] hover:border-[rgba(255,255,255,0.15)]"
+        style={{ left: isOpen ? 280 : 16 }}
+        className="fixed top-5 z-50 w-9 h-9 flex items-center justify-center bg-[#111111]/90 backdrop-blur-md border border-[rgba(255,255,255,0.08)] rounded-lg shadow-lg touch-manipulation transition-all duration-300 ease-out hover:bg-[#111111] hover:border-[rgba(255,255,255,0.15)]"
         aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
         aria-expanded={isOpen}
       >
         {isOpen ? (
-          <X size={18} strokeWidth={1.5} className="text-white" />
+          <PanelLeftClose size={16} strokeWidth={1.5} className="text-[rgba(255,255,255,0.5)]" />
         ) : (
-          <Menu size={18} strokeWidth={1.5} className="text-white" />
+          <Menu size={16} strokeWidth={1.5} className="text-white" />
         )}
       </button>
 
@@ -223,16 +224,9 @@ export function Sidebar() {
             aria-label="Navigation"
           >
             <div className="flex flex-col h-full px-4 py-6">
-              {/* Logo + close button */}
-              <div className="flex items-center justify-between mb-8 px-2 pt-1">
+              {/* Logo */}
+              <div className="mb-8 px-2 pt-1">
                 <HarchLogo />
-                <button
-                  onClick={closeSidebar}
-                  className="w-8 h-8 flex items-center justify-center rounded-md text-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.05)] transition-colors"
-                  aria-label="Close navigation"
-                >
-                  <X size={16} strokeWidth={1.5} />
-                </button>
               </div>
 
               {/* Navigation */}

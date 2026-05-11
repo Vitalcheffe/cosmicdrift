@@ -13,6 +13,7 @@ import {
   Card3D, MagneticButton, SmoothLink, TextReveal, SectionDivider,
   CountUp, ParallaxSection,
 } from '@/components/ui/motion';
+import { InteractivePlatform } from '@/components/InteractivePlatform';
 
 /* ═══════════════════════════════════════════════════
    HARCH FINANCE — HarchCorp Unified Design System
@@ -823,6 +824,7 @@ export default function HarchFinancePage() {
           </FadeIn>
         </div>
       </section>
+      <InteractivePlatform slug="finance" />
     </div>
   );
 }

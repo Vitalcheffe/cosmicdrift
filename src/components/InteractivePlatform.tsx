@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Server, Cpu, Zap, Droplets, Thermometer, Wind, Sun, Battery, Activity,
@@ -10,7 +10,8 @@ import {
   Leaf, CloudRain, Sun as SunIcon, Wind as WindIcon, RefreshCw, ArrowRight,
   Settings, Bell, Search, Home, Layers, Database, HardDrive, Monitor,
   RadioTower, Network, Lock, Key, FileCode, Package, TrendingUp, Clock,
-  Users, Cpu as GpuIcon
+  Users, Cpu as GpuIcon, Landmark, DollarSign, Percent, PieChart, Plane,
+  Warehouse, Sprout, AlertCircle
 } from 'lucide-react';
 import { GuidedTour, type TourStep } from '@/components/GuidedTour';
 
@@ -521,6 +522,137 @@ const agricultureConfig: DashboardConfig = {
           ) : null}
         </AnimatePresence>
 
+        {/* Yield Forecasting Chart */}
+        {(activeTab === 0 || activeSidebar === 2) && (
+          <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Yield Forecast (T/ha)</span>
+              <span className="text-[8px] text-[#4A7B5F]/50">vs ACTUAL</span>
+            </div>
+            <div className="space-y-1.5">
+              {[
+                { crop: 'Wheat', forecast: 12.4, actual: 11.8 },
+                { crop: 'Corn', forecast: 9.2, actual: 8.7 },
+                { crop: 'Soy', forecast: 3.8, actual: 3.6 },
+                { crop: 'Rice', forecast: 7.1, actual: 6.9 },
+                { crop: 'Cassava', forecast: 15.2, actual: 14.1 },
+              ].map(c => (
+                <div key={c.crop} className="cursor-pointer hover:bg-[rgba(74,123,95,0.04)] transition-colors rounded px-1 py-0.5">
+                  <div className="flex items-center justify-between mb-0.5">
+                    <span className="text-[8px] text-white/40">{c.crop}</span>
+                    <div className="flex items-center gap-2 text-[7px]">
+                      <span className="text-[#4A7B5F]/70">{c.forecast}T</span>
+                      <span className="text-white/25">{c.actual}T</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5 h-[4px]">
+                    <motion.div
+                      className="rounded-sm bg-[#4A7B5F]/60"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(c.forecast / 16) * 100}%` }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                    />
+                    <motion.div
+                      className="rounded-sm bg-white/10"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${((c.actual - c.forecast + 16) / 16) * 0}%` }}
+                      transition={{ duration: 0.8, delay: 0.3 }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Supply Chain Tracker */}
+        {(activeTab === 0 || activeSidebar === 5) && (
+          <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
+            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Supply Chain — Farm to Market</span>
+            <div className="flex items-center gap-1">
+              {[
+                { stage: 'Harvest', status: 'complete', throughput: '94%', icon: <Wheat size={10} /> },
+                { stage: 'Sorting', status: 'complete', throughput: '98%', icon: <Package size={10} /> },
+                { stage: 'Storage', status: 'active', throughput: '87%', icon: <Warehouse size={10} /> },
+                { stage: 'Transport', status: 'pending', throughput: '72%', icon: <Truck size={10} /> },
+                { stage: 'Market', status: 'pending', throughput: '—', icon: <BarChart3 size={10} /> },
+              ].map((s, i) => (
+                <div key={s.stage} className="flex-1 cursor-pointer group">
+                  <div className={`bg-[rgba(74,123,95,0.04)] border rounded-lg p-2 text-center transition-colors ${
+                    s.status === 'complete' ? 'border-emerald-500/20 group-hover:bg-emerald-500/5' :
+                    s.status === 'active' ? 'border-[#4A7B5F]/30 group-hover:bg-[#4A7B5F]/8' :
+                    'border-[rgba(74,123,95,0.08)] group-hover:bg-[rgba(74,123,95,0.04)]'
+                  }`}>
+                    <div className="flex justify-center mb-1" style={{ color: s.status === 'complete' ? '#22C55E80' : s.status === 'active' ? '#4A7B5F80' : 'rgba(255,255,255,0.15)' }}>{s.icon}</div>
+                    <p className="text-[7px] text-white/40 group-hover:text-white/60 transition-colors">{s.stage}</p>
+                    <p className={`text-[7px] font-bold mt-0.5 ${s.status === 'complete' ? 'text-emerald-400/60' : s.status === 'active' ? 'text-[#4A7B5F]/70' : 'text-white/15'}`}>{s.throughput}</p>
+                  </div>
+                  {i < 4 && <div className="flex justify-center mt-0.5"><ArrowRight size={8} className="text-white/10" /></div>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Carbon Credit Dashboard */}
+        {(activeTab === 0 || activeSidebar === 2) && (
+          <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Carbon Credits</span>
+              <Leaf size={10} className="text-emerald-400/30" />
+            </div>
+            <div className="grid grid-cols-3 gap-2 mb-2">
+              <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
+                <p className="text-sm font-bold text-white">12,450</p>
+                <p className="text-[7px] text-white/25 uppercase">tCO2 Total</p>
+              </div>
+              <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
+                <p className="text-sm font-bold text-emerald-400">8,200</p>
+                <p className="text-[7px] text-white/25 uppercase">Certified</p>
+              </div>
+              <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
+                <p className="text-sm font-bold text-amber-400/70">4,250</p>
+                <p className="text-[7px] text-white/25 uppercase">Pending</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-between text-[8px]">
+              <span className="text-white/25">Revenue</span>
+              <span className="text-emerald-400/60 font-bold">$82,000</span>
+            </div>
+          </div>
+        )}
+
+        {/* Vertical Farming Container Status */}
+        {(activeTab === 0 || activeSidebar === 0) && (
+          <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
+            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Vertical Farm Containers</span>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { id: 'VFC-01', crop: 'Lettuce', temp: '22C', humidity: '68%', day: 18, eta: '7d', status: 'growing' },
+                { id: 'VFC-02', crop: 'Basil', temp: '24C', humidity: '72%', day: 12, eta: '13d', status: 'growing' },
+                { id: 'VFC-03', crop: 'Mint', temp: '21C', humidity: '65%', day: 28, eta: 'Harvest', status: 'ready' },
+                { id: 'VFC-04', crop: 'Cherry Tom.', temp: '25C', humidity: '70%', day: 5, eta: '20d', status: 'early' },
+              ].map(c => (
+                <button key={c.id} onClick={() => {}} className="bg-[rgba(74,123,95,0.04)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-left hover:bg-[rgba(74,123,95,0.08)] transition-colors cursor-pointer group">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[8px] text-white/50 font-bold">{c.id}</span>
+                    <span className={`w-1.5 h-1.5 rounded-full ${c.status === 'ready' ? 'bg-emerald-400' : c.status === 'growing' ? 'bg-[#4A7B5F]' : 'bg-amber-400/50'}`} />
+                  </div>
+                  <p className="text-[9px] text-white/60 group-hover:text-white/80 transition-colors">{c.crop}</p>
+                  <div className="flex items-center gap-2 mt-1 text-[7px] text-white/25">
+                    <span>{c.temp}</span>
+                    <span>{c.humidity}</span>
+                  </div>
+                  <div className="flex items-center justify-between mt-1">
+                    <span className="text-[7px] text-white/20">Day {c.day}</span>
+                    <span className={`text-[7px] font-bold ${c.status === 'ready' ? 'text-emerald-400/60' : 'text-white/25'}`}>{c.eta}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Crop Rotation Timeline */}
         {(activeTab === 3 || activeSidebar === 2) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-4">
@@ -576,7 +708,7 @@ const agricultureConfig: DashboardConfig = {
   },
   renderSidebar: (accent) => (
     <div className="space-y-3">
-      {/* 7-Day Weather Forecast */}
+      {/* 7-Day Weather Forecast with Rain Probability */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">7-Day Forecast — Casablanca</span>
         <div className="flex items-center justify-between mb-2">
@@ -587,34 +719,112 @@ const agricultureConfig: DashboardConfig = {
           </div>
         </div>
         <div className="grid grid-cols-7 gap-1">
-          {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((d, i) => (
-            <div key={d} className="text-center">
-              <span className="text-[7px] text-white/25 block">{d}</span>
-              {i === 2 || i === 5 ? <CloudRain size={8} className="mx-auto text-amber-400/50 my-0.5" /> : <Sun size={8} className="mx-auto text-amber-400/30 my-0.5" />}
-              <span className="text-[8px] text-white/40 block">{26 + i}</span>
-            </div>
-          ))}
+          {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((d, i) => {
+            const rain = i === 2 ? 70 : i === 5 ? 45 : i === 3 ? 20 : 5;
+            return (
+              <div key={d} className="text-center cursor-pointer hover:bg-[rgba(74,123,95,0.06)] rounded transition-colors py-0.5">
+                <span className="text-[7px] text-white/25 block">{d}</span>
+                {i === 2 || i === 5 ? <CloudRain size={8} className="mx-auto text-amber-400/50 my-0.5" /> : <Sun size={8} className="mx-auto text-amber-400/30 my-0.5" />}
+                <span className="text-[8px] text-white/40 block">{26 + i}</span>
+                <span className="text-[6px] text-blue-400/40 block">{rain}%</span>
+              </div>
+            );
+          })}
         </div>
       </div>
-      {/* Market Prices Comparison */}
+
+      {/* Market Prices with Sparklines */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Market Prices</span>
         {[
-          { crop: 'Wheat', price: '$285/T', change: '+2.3%', up: true },
-          { crop: 'Corn', price: '$198/T', change: '-1.1%', up: false },
-          { crop: 'Soy', price: '$412/T', change: '+4.7%', up: true },
-          { crop: 'Rice', price: '$340/T', change: '+1.2%', up: true },
-          { crop: 'Cassava', price: '$165/T', change: '-0.5%', up: false },
-        ].map((m) => (
-          <div key={m.crop} className="flex items-center justify-between py-1 border-b border-[rgba(74,123,95,0.05)] last:border-0">
-            <span className="text-[9px] text-white/40">{m.crop}</span>
-            <div className="flex items-center gap-2">
-              <span className="text-[9px] text-white/55">{m.price}</span>
-              <span className={`text-[8px] ${m.up ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{m.change}</span>
+          { crop: 'Wheat', price: '$285/T', change: '+2.3%', up: true, data: [270, 275, 278, 282, 280, 285] },
+          { crop: 'Corn', price: '$198/T', change: '-1.1%', up: false, data: [205, 202, 200, 198, 199, 198] },
+          { crop: 'Soy', price: '$412/T', change: '+4.7%', up: true, data: [390, 395, 400, 405, 410, 412] },
+          { crop: 'Rice', price: '$340/T', change: '+1.2%', up: true, data: [335, 336, 338, 339, 340, 340] },
+          { crop: 'Cassava', price: '$165/T', change: '-0.5%', up: false, data: [168, 167, 166, 166, 165, 165] },
+        ].map((m) => {
+          const min = Math.min(...m.data);
+          const max = Math.max(...m.data);
+          const range = max - min || 1;
+          const points = m.data.map((v, i) => `${i * 12},${18 - ((v - min) / range) * 14}`).join(' ');
+          return (
+            <div key={m.crop} className="flex items-center justify-between py-1 border-b border-[rgba(74,123,95,0.05)] last:border-0 cursor-pointer hover:bg-[rgba(74,123,95,0.04)] transition-colors rounded px-1">
+              <span className="text-[9px] text-white/40 w-14">{m.crop}</span>
+              <svg viewBox="0 0 60 20" className="w-14 h-4 flex-shrink-0">
+                <motion.polyline
+                  points={points}
+                  fill="none"
+                  stroke={m.up ? '#22C55E' : '#EF4444'}
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 1 }}
+                  opacity={0.5}
+                />
+              </svg>
+              <span className="text-[9px] text-white/55 w-12 text-right">{m.price}</span>
+              <span className={`text-[8px] w-10 text-right ${m.up ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{m.change}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Soil Composition */}
+      <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
+        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Soil Composition</span>
+        {[
+          { nutrient: 'pH', value: '6.8', level: 68, color: '#4A7B5F' },
+          { nutrient: 'Nitrogen', value: '42 ppm', level: 52, color: '#22C55E' },
+          { nutrient: 'Phosphorus', value: '28 ppm', level: 35, color: '#EAB308' },
+          { nutrient: 'Potassium', value: '180 ppm', level: 72, color: '#4A7B5F' },
+        ].map(s => (
+          <div key={s.nutrient} className="mb-1.5 cursor-pointer hover:bg-[rgba(74,123,95,0.04)] transition-colors rounded px-1">
+            <div className="flex items-center justify-between mb-0.5">
+              <span className="text-[8px] text-white/35">{s.nutrient}</span>
+              <span className="text-[8px] text-white/50">{s.value}</span>
+            </div>
+            <div className="h-[2px] bg-[rgba(255,255,255,0.04)] rounded-full overflow-hidden">
+              <motion.div className="h-full rounded-full" style={{ backgroundColor: s.color, width: `${s.level}%` }} initial={{ width: 0 }} animate={{ width: `${s.level}%` }} transition={{ duration: 0.8, delay: 0.2 }} />
             </div>
           </div>
         ))}
       </div>
+
+      {/* Active Weather Alerts */}
+      <div className="bg-[#0D120D] border border-[rgba(234,179,8,0.15)] rounded-lg p-3">
+        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-amber-400/40 mb-2 block">Weather Alerts</span>
+        <div className="space-y-1.5">
+          {[
+            { severity: 'warning', text: 'Heavy rain expected Wed — 70% probability', icon: <CloudRain size={9} /> },
+            { severity: 'info', text: 'High wind advisory — Fri 25km/h gusts', icon: <Wind size={9} /> },
+          ].map((a, i) => (
+            <div key={i} className={`flex items-center gap-2 p-1.5 rounded cursor-pointer hover:opacity-80 transition-opacity ${a.severity === 'warning' ? 'bg-amber-500/5 border border-amber-500/10' : 'bg-[rgba(74,123,95,0.04)] border border-[rgba(74,123,95,0.08)]'}`}>
+              <span className={a.severity === 'warning' ? 'text-amber-400/60' : 'text-white/25'}>{a.icon}</span>
+              <span className={`text-[8px] ${a.severity === 'warning' ? 'text-amber-400/50' : 'text-white/30'}`}>{a.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Quick Actions */}
+      <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
+        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Quick Actions</span>
+        <div className="space-y-1.5">
+          {[
+            { label: 'Run Drone Scan', icon: <Plane size={10} /> },
+            { label: 'Export Report', icon: <FileCode size={10} /> },
+            { label: 'Irrigate All', icon: <Droplets size={10} /> },
+          ].map(a => (
+            <button key={a.label} onClick={() => {}} className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-[9px] text-white/35 hover:text-white/60 hover:bg-[rgba(74,123,95,0.08)] transition-all cursor-pointer">
+              <span style={{ color: '#4A7B5F60' }}>{a.icon}</span>
+              {a.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Soil Moisture Overview */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Soil Moisture</span>
@@ -622,7 +832,7 @@ const agricultureConfig: DashboardConfig = {
           {[67, 72, 55, 80, 45, 68, 75, 58, 82, 60, 70, 52].map((v, i) => (
             <motion.div
               key={i}
-              className="flex-1 rounded-t-sm"
+              className="flex-1 rounded-t-sm cursor-pointer hover:opacity-80 transition-opacity"
               style={{ backgroundColor: v > 60 ? '#4A7B5F50' : v > 45 ? '#EAB30840' : '#EF444440' }}
               initial={{ height: 0 }}
               animate={{ height: `${(v / 100) * 100}%` }}
@@ -1567,6 +1777,394 @@ const technologyConfig: DashboardConfig = {
   backgroundImage: '/images/sections/tech-cyber.jpg',
 };
 
+// ═══════════════════════════════════════════════════════════════
+// FINANCE — HarchFinance Terminal
+// Bloomberg/professional fintech aesthetic, warm gold accent, mono fonts
+// ═══════════════════════════════════════════════════════════════
+const financeConfig: DashboardConfig = {
+  platformName: 'HarchFinance Terminal',
+  platformVersion: '0.8',
+  accent: '#C9A84C',
+  bgGradient: 'from-[#0A0A12] to-[#0D0D15]',
+  sidebar: [
+    { icon: <BarChart3 size={13} />, label: 'Portfolio' },
+    { icon: <Layers size={13} />, label: 'Pipeline' },
+    { icon: <FileCode size={13} />, label: 'Bonds' },
+    { icon: <Shield size={13} />, label: 'Risk' },
+    { icon: <ArrowRight size={13} />, label: 'Transactions' },
+    { icon: <CheckCircle size={13} />, label: 'Compliance' },
+  ],
+  headerTabs: ['Portfolio', 'Pipeline', 'Bonds', 'Risk'],
+  tourSteps: [
+    { targetId: 'finance-metric-aum', label: 'A', title: 'Investment Pipeline', description: '$2.4B across 7 verticals spanning 5 countries. Green bonds, project finance, and Islamic finance instruments.', position: 'bottom' },
+    { targetId: 'finance-metric-bonds', label: 'B', title: 'Green Bond Issuance', description: '$890M in green bonds certified by Climate Bonds Initiative. First African corporate green bond program for sovereign infrastructure.', position: 'bottom' },
+    { targetId: 'finance-metric-pipeline', label: 'C', title: 'Risk Intelligence', description: 'Real-time risk scoring across all portfolio positions. DFI-backed and MIGA-guaranteed structures minimize downside exposure.', position: 'top' },
+  ],
+  metricCards: [
+    { id: 'finance-metric-aum', label: 'AUM', value: '$2.4B', change: '+$340M', changeUp: true, icon: <Landmark size={14} /> },
+    { id: 'finance-metric-irr', label: 'Avg IRR', value: '22.8%', change: '+1.2%', changeUp: true, icon: <TrendingUp size={14} /> },
+    { id: 'finance-metric-bonds', label: 'Green Bonds', value: '$890M', change: '+$120M', changeUp: true, icon: <FileCode size={14} /> },
+    { id: 'finance-metric-pipeline', label: 'Active Deals', value: '7', change: '+2', changeUp: true, icon: <Layers size={14} /> },
+  ],
+  statusBarText: 'DEALS: 7 ACTIVE | 5 COUNTRIES | COMPLIANT',
+  renderMain: (accent, activeTab, activeSidebar, selectedHub, setSelectedHub, _toggleIrr, _irrState) => {
+    const deals = [
+      { name: 'Harch Intelligence Phase 2', amount: '$400M', irr: '28%', country: 'Morocco', status: 'Active' },
+      { name: 'Harch Energy Solar Park', amount: '$350M', irr: '24%', country: 'Morocco', status: 'Funding' },
+      { name: 'Harch Cement Expansion', amount: '$180M', irr: '38%', country: 'Gambia', status: 'Committed' },
+      { name: 'Harch Water Desalination', amount: '$520M', irr: '19%', country: 'Senegal', status: 'Active' },
+      { name: 'Harch Mining Processing', amount: '$280M', irr: '22%', country: 'Morocco', status: 'Term Sheet' },
+      { name: 'Harch Agri Scale-Up', amount: '$320M', irr: '26%', country: 'Sahel', status: 'Due Diligence' },
+      { name: 'Green Bond Series III', amount: '$350M', irr: '5.2%', country: 'Pan-African', status: 'Launching' },
+    ];
+
+    const selectedDeal = selectedHub !== null ? deals[selectedHub] : null;
+
+    const yieldCurve = [
+      { tenor: '1Y', yield: 4.8 },
+      { tenor: '3Y', yield: 5.2 },
+      { tenor: '5Y', yield: 5.5 },
+      { tenor: '7Y', yield: 5.7 },
+      { tenor: '10Y', yield: 6.1 },
+    ];
+
+    const allocations = [
+      { sector: 'Energy', pct: 35, color: '#D4A843' },
+      { sector: 'Intelligence', pct: 22, color: '#8B9DAF' },
+      { sector: 'Water', pct: 18, color: '#4A9EB5' },
+      { sector: 'Mining', pct: 10, color: '#B8965A' },
+      { sector: 'Cement', pct: 8, color: '#C8903A' },
+      { sector: 'Agri', pct: 7, color: '#4A7B5F' },
+    ];
+
+    const funnelStages = [
+      { stage: 'Sourcing', count: 14 },
+      { stage: 'Due Diligence', count: 9 },
+      { stage: 'Term Sheet', count: 5 },
+      { stage: 'Committed', count: 3 },
+      { stage: 'Closed', count: 2 },
+    ];
+
+    const transactions = [
+      { time: '16:42:18', type: 'BOND', desc: 'Green Bond III — $50M tranche closed', amount: '+$50M', status: 'settled' },
+      { time: '15:38:05', type: 'TRANSFER', desc: 'Harch Energy — ECA drawdown', amount: '-$12M', status: 'pending' },
+      { time: '14:22:31', type: 'BOND', desc: 'Sukuk Ijarah — coupon payment', amount: '-$8.4M', status: 'settled' },
+      { time: '13:15:44', type: 'TRADE', desc: 'Harch Cement — LC confirmed', amount: '$22M', status: 'confirmed' },
+      { time: '11:50:22', type: 'CREDIT', desc: 'Carbon credit forward sale — Verra VCS', amount: '+$2.1M', status: 'settled' },
+    ];
+
+    return (
+      <div className="space-y-3 font-mono">
+        {/* Deal Detail Panel */}
+        {selectedDeal && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-[#0D0D15] border border-[rgba(201,168,76,0.2)] rounded-sm p-4"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <Landmark size={14} style={{ color: accent }} />
+                <span className="text-[11px] font-bold text-white">{selectedDeal.name}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className={`px-2 py-0.5 rounded-sm text-[8px] font-bold uppercase ${
+                  selectedDeal.status === 'Active' || selectedDeal.status === 'Committed'
+                    ? 'bg-emerald-500/15 text-emerald-400'
+                    : selectedDeal.status === 'Funding' || selectedDeal.status === 'Launching'
+                    ? 'bg-amber-500/15 text-amber-400'
+                    : 'bg-[rgba(201,168,76,0.1)] text-[#C9A84C]'
+                }`}>{selectedDeal.status}</span>
+                <button onClick={() => setSelectedHub(null)} className="text-white/20 hover:text-white/50 transition-colors cursor-pointer">
+                  <X size={12} />
+                </button>
+              </div>
+            </div>
+            <div className="grid grid-cols-4 gap-3">
+              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Amount</p><p className="text-sm font-bold text-white">{selectedDeal.amount}</p></div>
+              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">{selectedDeal.irr.includes('%') && parseFloat(selectedDeal.irr) < 10 ? 'Coupon' : 'IRR'}</p><p className="text-sm font-bold text-[#C9A84C]">{selectedDeal.irr}</p></div>
+              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Country</p><p className="text-sm font-bold text-white">{selectedDeal.country}</p></div>
+              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Risk</p><p className="text-sm font-bold text-emerald-400">LOW</p></div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Investment Pipeline Table */}
+        {(activeTab === 0 || activeTab === 1) && (
+          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm overflow-hidden">
+            <div className="px-3 py-2 border-b border-[rgba(201,168,76,0.08)] flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Layers size={11} style={{ color: accent }} />
+                <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Investment Pipeline</span>
+              </div>
+              <span className="text-[8px] text-emerald-400/50">7 DEALS</span>
+            </div>
+            <div className="divide-y divide-[rgba(201,168,76,0.05)]">
+              {deals.map((deal, i) => (
+                <button
+                  key={deal.name}
+                  onClick={() => setSelectedHub(i)}
+                  className={`w-full px-3 py-2 flex items-center justify-between hover:bg-[rgba(201,168,76,0.04)] transition-colors cursor-pointer text-left ${selectedHub === i ? 'bg-[rgba(201,168,76,0.06)]' : ''}`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                      deal.status === 'Active' || deal.status === 'Committed' ? 'bg-emerald-400' :
+                      deal.status === 'Funding' || deal.status === 'Launching' ? 'bg-amber-400' :
+                      deal.status === 'Term Sheet' ? 'bg-[#C9A84C]' : 'bg-white/20'
+                    }`} />
+                    <span className="text-[10px] text-white/60">{deal.name}</span>
+                  </div>
+                  <div className="flex items-center gap-4 text-[8px]">
+                    <span className="text-white/50 w-14 text-right">{deal.amount}</span>
+                    <span className="text-[#C9A84C] w-10 text-right">{deal.irr}</span>
+                    <span className="text-white/25 w-16 text-right">{deal.country}</span>
+                    <span className={`w-16 text-right ${
+                      deal.status === 'Active' || deal.status === 'Committed' ? 'text-emerald-400/60' :
+                      deal.status === 'Funding' || deal.status === 'Launching' ? 'text-amber-400/60' :
+                      'text-white/30'
+                    }`}>{deal.status}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Bond Yield Curve */}
+        {(activeTab === 2 || activeTab === 0) && (
+          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Bond Yield Curve</span>
+              <span className="text-[8px] text-[#C9A84C]/50">CBI CERTIFIED</span>
+            </div>
+            <svg viewBox="0 0 300 80" className="w-full h-auto">
+              {/* Grid lines */}
+              {[4.5, 5.0, 5.5, 6.0, 6.5].map((y, i) => (
+                <g key={i}>
+                  <line x1="30" y1={10 + i * 15} x2="290" y2={10 + i * 15} stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
+                  <text x="25" y={13 + i * 15} fill="rgba(255,255,255,0.15)" fontSize="6" textAnchor="end">{y}%</text>
+                </g>
+              ))}
+              {/* Curve */}
+              <motion.path
+                d="M 50 58 Q 100 48 140 38 Q 180 30 220 24 Q 250 20 280 14"
+                stroke="#C9A84C"
+                strokeWidth="2"
+                fill="none"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1.5 }}
+              />
+              {/* Fill under curve */}
+              <motion.path
+                d="M 50 58 Q 100 48 140 38 Q 180 30 220 24 Q 250 20 280 14 L 280 70 L 50 70 Z"
+                fill="url(#yieldGrad)"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.15 }}
+                transition={{ delay: 0.5, duration: 1 }}
+              />
+              <defs>
+                <linearGradient id="yieldGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#C9A84C" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#C9A84C" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              {/* Data points */}
+              {yieldCurve.map((point, i) => {
+                const x = 50 + i * 57.5;
+                const y = 70 - ((point.yield - 4.5) / 2) * 60;
+                return (
+                  <g key={point.tenor}>
+                    <motion.circle
+                      cx={x} cy={y} r="3"
+                      fill="#0D0D15"
+                      stroke="#C9A84C"
+                      strokeWidth="1.5"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.3 + i * 0.15 }}
+                    />
+                    <text x={x} y={y + 14} fill="rgba(255,255,255,0.3)" fontSize="6" textAnchor="middle">{point.tenor}</text>
+                    <text x={x} y={y - 6} fill="#C9A84C" fontSize="6" textAnchor="middle" fontWeight="bold">{point.yield}%</text>
+                  </g>
+                );
+              })}
+            </svg>
+          </div>
+        )}
+
+        {/* Portfolio Allocation */}
+        {(activeTab === 0 || activeTab === 3) && (
+          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Portfolio Allocation</span>
+            <div className="space-y-1.5">
+              {allocations.map((a) => (
+                <div key={a.sector} className="group cursor-pointer hover:bg-[rgba(201,168,76,0.03)] transition-colors rounded-sm px-1 py-0.5">
+                  <div className="flex items-center justify-between mb-0.5">
+                    <span className="text-[9px] text-white/40">{a.sector}</span>
+                    <span className="text-[9px] text-white/55 font-bold">{a.pct}%</span>
+                  </div>
+                  <div className="h-[3px] bg-[rgba(255,255,255,0.04)] rounded-sm overflow-hidden">
+                    <motion.div
+                      className="h-full rounded-sm"
+                      style={{ backgroundColor: a.color, width: `${a.pct}%` }}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${a.pct}%` }}
+                      transition={{ duration: 1, delay: 0.2 }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Deal Flow Funnel */}
+        {activeTab === 1 && (
+          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Deal Flow Funnel</span>
+            <div className="space-y-1.5">
+              {funnelStages.map((s, i) => {
+                const width = (s.count / 14) * 100;
+                return (
+                  <button
+                    key={s.stage}
+                    onClick={() => {}}
+                    className="w-full cursor-pointer group"
+                  >
+                    <div className="flex items-center justify-between mb-0.5">
+                      <span className="text-[9px] text-white/40 group-hover:text-white/60 transition-colors">{s.stage}</span>
+                      <span className="text-[9px] text-[#C9A84C] font-bold">{s.count}</span>
+                    </div>
+                    <div className="h-[6px] bg-[rgba(255,255,255,0.03)] rounded-sm overflow-hidden">
+                      <motion.div
+                        className="h-full rounded-sm"
+                        style={{ backgroundColor: accent, opacity: 0.6 - i * 0.08 }}
+                        initial={{ width: 0 }}
+                        animate={{ width: `${width}%` }}
+                        transition={{ duration: 0.8, delay: i * 0.1 }}
+                      />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Transaction Feed */}
+        {(activeSidebar === 4 || activeTab === 0) && (
+          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm overflow-hidden">
+            <div className="px-3 py-2 border-b border-[rgba(201,168,76,0.08)] flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <ArrowRight size={10} style={{ color: accent }} />
+                <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Transaction Feed</span>
+              </div>
+              <span className="text-[8px] text-emerald-400/50 animate-pulse">LIVE</span>
+            </div>
+            <div className="max-h-32 overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#C9A84C20 transparent' }}>
+              {transactions.map((tx, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                  className="px-3 py-1.5 flex items-center justify-between border-b border-[rgba(201,168,76,0.03)] hover:bg-[rgba(201,168,76,0.03)] transition-colors cursor-pointer"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-[7px] text-white/15 w-12">{tx.time}</span>
+                    <span className={`px-1 py-0.5 rounded-sm text-[6px] font-bold ${
+                      tx.type === 'BOND' ? 'bg-[#C9A84C]/10 text-[#C9A84C]/70' :
+                      tx.type === 'TRANSFER' ? 'bg-amber-500/10 text-amber-400/60' :
+                      tx.type === 'TRADE' ? 'bg-emerald-500/10 text-emerald-400/60' :
+                      'bg-[#4A9EB5]/10 text-[#4A9EB5]/60'
+                    }`}>{tx.type}</span>
+                    <span className="text-[8px] text-white/40">{tx.desc}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className={`text-[8px] font-bold ${tx.amount.startsWith('+') ? 'text-emerald-400/70' : 'text-white/30'}`}>{tx.amount}</span>
+                    <span className={`w-1 h-1 rounded-full ${tx.status === 'settled' ? 'bg-emerald-400/50' : 'bg-amber-400/50'}`} />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  },
+  renderSidebar: (accent) => (
+    <div className="space-y-3 font-mono">
+      {/* Risk Score Matrix */}
+      <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Risk Score Matrix</span>
+        <div className="grid grid-cols-4 gap-1">
+          <div />
+          {['EN', 'AG', 'MIN'].map(s => (
+            <span key={s} className="text-[6px] text-white/15 text-center">{s}</span>
+          ))}
+          {[
+            { region: 'MA', scores: ['#22C55E', '#22C55E', '#EAB308'] },
+            { region: 'GM', scores: ['#22C55E', '#EAB308', '#22C55E'] },
+            { region: 'SN', scores: ['#EAB308', '#22C55E', '#EAB308'] },
+            { region: 'KE', scores: ['#EAB308', '#EAB308', '#EF4444'] },
+          ].map(row => (
+            <React.Fragment key={row.region}>
+              <span className="text-[6px] text-white/20 flex items-center">{row.region}</span>
+              {row.scores.map((color, j) => (
+                <div key={j} className="h-4 rounded-sm cursor-pointer hover:opacity-80 transition-opacity" style={{ backgroundColor: `${color}30`, border: `1px solid ${color}40` }} />
+              ))}
+            </React.Fragment>
+          ))}
+        </div>
+        <div className="flex items-center gap-3 mt-2">
+          {[{ color: '#22C55E', label: 'Low' }, { color: '#EAB308', label: 'Med' }, { color: '#EF4444', label: 'High' }].map(l => (
+            <span key={l.label} className="flex items-center gap-1 text-[6px] text-white/15">
+              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: l.color }} /> {l.label}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Currency Rates */}
+      <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Currency Rates</span>
+        {[
+          { code: 'MAD', rate: '10.05/$', change: '+0.3%', up: true },
+          { code: 'EUR', rate: '0.92/$', change: '-0.1%', up: false },
+          { code: 'USD', rate: '1.00', change: '0%', up: true },
+          { code: 'GBP', rate: '0.79/$', change: '+0.2%', up: true },
+        ].map(c => (
+          <div key={c.code} className="flex items-center justify-between py-1 border-b border-[rgba(201,168,76,0.04)] last:border-0 cursor-pointer hover:bg-[rgba(201,168,76,0.03)] transition-colors rounded-sm px-1">
+            <span className="text-[9px] text-white/40 font-bold w-8">{c.code}</span>
+            <span className="text-[9px] text-white/55">{c.rate}</span>
+            <span className={`text-[8px] ${c.up ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{c.change}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Compliance Status */}
+      <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Compliance Status</span>
+        {[
+          { label: 'Sharia (OIC)', status: 'Compliant', icon: <CheckCircle size={8} /> },
+          { label: 'MIGA Coverage', status: 'Active', icon: <Shield size={8} /> },
+          { label: 'DFI Alignment', status: 'Verified', icon: <CheckCircle size={8} /> },
+        ].map(c => (
+          <div key={c.label} className="flex items-center justify-between py-1 border-b border-[rgba(201,168,76,0.04)] last:border-0">
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-400/50">{c.icon}</span>
+              <span className="text-[8px] text-white/35">{c.label}</span>
+            </div>
+            <span className="text-[8px] text-emerald-400/60 font-bold">{c.status}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  ),
+  backgroundImage: '/images/sections/finance-district.jpg',
+};
+
 // ─── Config Registry ───
 const configs: Record<string, DashboardConfig> = {
   intelligence: intelligenceConfig,
@@ -1576,6 +2174,7 @@ const configs: Record<string, DashboardConfig> = {
   cement: cementConfig,
   water: waterConfig,
   technology: technologyConfig,
+  finance: financeConfig,
 };
 
 // ═══════════════════════════════════════════════════════════════
@@ -1616,9 +2215,10 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
   const isCement = slug === 'cement';
   const isWater = slug === 'water';
   const isTech = slug === 'technology';
+  const isFinance = slug === 'finance';
 
-  const borderRadius = isMining ? 'rounded-none' : isCement ? 'rounded-sm' : 'rounded-xl';
-  const monoFont = (isIntelligence || isTech) ? 'font-mono' : '';
+  const borderRadius = isMining ? 'rounded-none' : isCement || isFinance ? 'rounded-sm' : 'rounded-xl';
+  const monoFont = (isIntelligence || isTech || isFinance) ? 'font-mono' : '';
 
   return (
     <section className={`py-20 md:py-28 bg-gradient-to-b ${config.bgGradient}`}>
@@ -1710,7 +2310,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
           {/* Main Content Area */}
           <div className="flex flex-col md:flex-row">
             {/* Sidebar */}
-            <div className={`w-full md:w-48 border-b md:border-b-0 md:border-r border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]/50' : isAgriculture ? 'bg-[#0A120A]/50' : isEnergy ? 'bg-[#0D0A05]/50' : isMining ? 'bg-[#0D0905]/50' : isCement ? 'bg-[#0D0802]/50' : isWater ? 'bg-[#030D14]/50' : isTech ? 'bg-[#0A0D1A]/50' : 'bg-[#0A0A0A]/50'}`}>
+            <div className={`w-full md:w-48 border-b md:border-b-0 md:border-r border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]/50' : isAgriculture ? 'bg-[#0A120A]/50' : isEnergy ? 'bg-[#0D0A05]/50' : isMining ? 'bg-[#0D0905]/50' : isCement ? 'bg-[#0D0802]/50' : isWater ? 'bg-[#030D14]/50' : isTech ? 'bg-[#0A0D1A]/50' : isFinance ? 'bg-[#0A0A12]/50' : 'bg-[#0A0A0A]/50'}`}>
               <nav className="py-2">
                 {config.sidebar.map((item, i) => (
                   <button
@@ -1731,7 +2331,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
             </div>
 
             {/* Main Panel */}
-            <div className={`flex-1 p-4 md:p-5 ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0905]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : ''}`}>
+            <div className={`flex-1 p-4 md:p-5 ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0905]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : ''}`}>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <div className="lg:col-span-2">
                   <AnimatePresence mode="wait">
@@ -1764,7 +2364,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
           </div>
 
           {/* Bottom Status Bar */}
-          <div className={`flex items-center justify-between px-4 py-2 border-t border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0905]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : 'bg-[#0A0A0A]'}`}>
+          <div className={`flex items-center justify-between px-4 py-2 border-t border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0905]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : 'bg-[#0A0A0A]'}`}>
             <div className="flex items-center gap-3">
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />

@@ -57,6 +57,7 @@ export const metadata: Metadata = {
     "low carbon intensity compute",
   ],
   authors: [{ name: "Harch Corp S.A." }],
+  applicationName: "Harch Corp",
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
@@ -333,6 +334,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <title>Harch Corp | Africa's Sovereign Infrastructure OS</title>
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href="https://www.harchcorp.com" />
         <meta name="theme-color" content="#0A0A0A" />

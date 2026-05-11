@@ -179,13 +179,13 @@ const regions = [
   },
   {
     name: 'Africa',
-    flag: '🌍',
+    flag: 'AF',
     description: 'Alignment with emerging African data protection frameworks including Cote d\'Ivoire, Kenya, South Africa, and Nigeria regulations.',
     certs: ['ISO 27001', 'SOC 2 Type II', 'ISO 22301', 'GDPR (as baseline)'],
   },
   {
     name: 'Global',
-    flag: '🌐',
+    flag: 'GL',
     description: 'International compliance programs for cross-border operations. Designed to meet the most stringent requirements across all operating jurisdictions.',
     certs: ['SOC 2 Type II', 'ISO 27001', 'ISO 22301', 'CCPA', 'PCI DSS (In Progress)'],
   },

@@ -12,6 +12,7 @@ import {
   CountUp, ParallaxSection,
 } from '@/components/ui/motion';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
+import { InteractivePlatform } from '@/components/InteractivePlatform';
 
 /* ═══════════════════════════════════════════════════
    HARCHAGRI — HarchCorp Unified Design System
@@ -1216,6 +1217,7 @@ export default function HarchAgriPage() {
           </FadeIn>
         </div>
       </section>
+      <InteractivePlatform slug="agriculture" />
     </div>
   );
 }

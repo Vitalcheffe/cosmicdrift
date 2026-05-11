@@ -36,7 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/intelligence`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85 },
     { url: `${baseUrl}/intelligence/harchos`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.9 },
     { url: `${baseUrl}/faq`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
-    { url: `${baseUrl}/aegis`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85 },
     { url: `${baseUrl}/press`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.8 },
   ];
 
@@ -112,12 +111,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/status`, lastModified: now, changeFrequency: 'daily' as const, priority: 0.6 },
   ];
 
+  const verticalImages: Record<string, string> = {
+    intelligence: 'comp-intel-dc',
+    cement: 'comp-cement-mixer',
+    energy: 'comp-energy-solar',
+    technology: 'comp-tech-ai',
+    mining: 'comp-mining-heavy',
+    agriculture: 'comp-agri-aerial',
+    water: 'comp-water-plant',
+    finance: 'finance-corporate',
+  };
+
   const verticalPages = verticals.map((v) => ({
     url: `${baseUrl}/subsidiaries/${v}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.85,
-    images: [`${baseUrl}/images/sections/comp-${v === 'intelligence' ? 'intel-dc' : v === 'agriculture' ? 'agri-aerial' : v}-const.jpg`],
+    images: [`${baseUrl}/images/sections/${verticalImages[v]}.jpg`],
   }));
 
   return [

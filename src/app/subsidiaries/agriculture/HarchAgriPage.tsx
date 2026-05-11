@@ -1,56 +1,25 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight, Wheat, Droplets, Plane, Radio, Building2, Leaf,
   MapPin, Clock, AlertTriangle, Sprout, Sun, CloudRain, BarChart3, Cpu
 } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import {
+  FadeIn, AnimatedCounter, StaggerContainer, StaggerItem,
+  Card3D, MagneticButton, SmoothLink, TextReveal, SectionDivider,
+  CountUp, ParallaxSection,
+} from '@/components/ui/motion';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
 
 /* ═══════════════════════════════════════════════════
    HARCHAGRI — HarchCorp Unified Design System
-   Site palette — Green accent (#22C55E) — Shared CSS classes
+   Site palette — Sage Green accent (#4A7B5F) — Shared CSS classes
    ═══════════════════════════════════════════════════ */
 
-/* ─── FadeIn — framer-motion, matches HarchOS ─── */
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-/* ─── AnimatedCounter — matches HarchOS ─── */
-function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 2500;
-    const startTime = Date.now();
-    const step = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [isInView, target]);
-  const format = () => {
-    if (target >= 1000) return `${prefix}${Math.round(count).toLocaleString()}${suffix}`;
-    if (target < 10) return `${prefix}${count.toFixed(1)}${suffix}`;
-    return `${prefix}${Math.round(count)}${suffix}`;
-  };
-  return <span ref={ref}>{format()}</span>;
-}
+const ACCENT = '#4A7B5F';
+const ACCENT_RGB = '74,123,95';
 
 /* ═══════════════════════════════════════════════════
    DATA — Strictly HarchAgri content, leveraging Harch Corp infrastructure advantages
@@ -88,6 +57,7 @@ const data = {
       unit: '/hectare/month',
       roi: '6-8 months',
       target: 'Farms >5ha',
+      image: '/images/sections/agri-drone.jpg',
       description: "Autonomous drones equipped with multispectral sensors for NDVI analysis, early disease detection 48 hours before visible symptoms, precision irrigation mapping, and yield prediction 2 weeks out. Unlike Western solutions that require drone purchase ($15,000+), HarchAgri operates a DaaS model — the farmer pays a monthly subscription and HarchAgri manages flights, data processing, and delivers recommendations directly to their phone.",
       features: [
         'NDVI analysis — stress detection 48h before visible symptoms',
@@ -110,6 +80,7 @@ const data = {
       unit: '/hectare/year',
       roi: '12-18 months',
       target: 'Farms >2ha',
+      image: '/images/sections/agri-iot-sensor.jpg',
       description: "Solar-powered sensor networks monitoring soil moisture, temperature, pH, and nutrient levels continuously. Data transmitted via LoRaWAN (15km range) to servers where AI optimizes irrigation schedules based on weather forecasts, growth stage, and water quotas. Reduces water consumption by 30-50% while increasing yields by 15-25%. Pay-as-you-grow model: start with a $200 starter kit (3 sensors + LoRaWAN gateway).",
       features: [
         'Solar sensors: moisture, temperature, pH, NPK',
@@ -132,6 +103,7 @@ const data = {
       unit: '/container (500m\u00B2)',
       roi: '12-18 months',
       target: 'Hotels, restaurants, retail',
+      image: '/images/sections/agri-vertical-farm.jpg',
       description: "A 20-foot container transformed into a hydroponic vertical farm equivalent to 500m\u00B2 — LED lighting, hydroponic circulation, IoT sensors, and cloud connectivity included. Produces 2 tonnes of vegetables/month (lettuce, basil, mint, cherry tomatoes) generating $4,000-6,000/month in revenue. Unlike AeroFarms' failed aeroponic model, HarchAgri uses affordable hydroponics adapted to African markets, targeting premium buyers and integrating carbon credit revenue.",
       features: [
         '500m\u00B2 equivalent in a 20-foot container',
@@ -154,6 +126,7 @@ const data = {
       unit: 'commission on credits',
       roi: 'Immediate',
       target: 'All HarchAgri clients',
+      image: '/images/sections/agri-green-crops-aerial.jpg',
       description: "The product no competitor has. The Carbon API, already operational, automatically calculates, certifies, and monetizes agricultural carbon credits. Every hectare under IoT irrigation saves 0.5-1.5 tCO2/year. Every vertical farm avoids 2-5 tCO2. Every regenerative hectare sequesters 1-3 tCO2. Certified via Verra (VCS) and Gold Standard. African voluntary carbon credits trade at an average of $15 per tonne of CO2. With 100,000 hectares targeted by 2030, each generating 0.5-3 tonnes of CO2 savings or sequestration per year, the revenue potential from commissions alone reaches $150,000 to $450,000 annually. The ACMI initiative targets 20x growth in African carbon credits by 2030 — HarchAgri is positioned to capture this explosion. Revenue model: 2% commission on credit value, with 100,000 ha targeted by 2030 generating $150K-450K per year in commissions alone.",
       features: [
         'Native Carbon API — already operational, zero build required',
@@ -348,11 +321,11 @@ const data = {
 };
 
 /* ═══════════════════════════════════════════════════
-   MAIN PAGE — HarchCorp unified design, green accent
+   MAIN PAGE — HarchCorp unified design, sage green accent
    ═══════════════════════════════════════════════════ */
 export default function HarchAgriPage() {
   return (
-    <div className="bg-[#1A1A1A] text-white">
+    <div className="bg-[#1A1A1A] text-white overflow-x-hidden">
       {/* ═══════════════════════════════════════════
           HERO — Full-screen immersive
           ═══════════════════════════════════════════ */}
@@ -369,10 +342,10 @@ export default function HarchAgriPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/60 via-transparent to-transparent" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pb-20 md:pb-32 w-full">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">HarchAgri /0.6</p>
+            <p className="section-label mb-4 text-[#4A7B5F]">HarchAgri /0.6</p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-6 whitespace-pre-line">
+            <h1 className="text-[clamp(2.5rem,6vw,6rem)] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-6 whitespace-pre-line">
               {data.heroTitle}
             </h1>
           </FadeIn>
@@ -383,8 +356,8 @@ export default function HarchAgriPage() {
             <div className="mt-10 flex flex-wrap gap-8 md:gap-12">
               {data.metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
-                    <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
+                  <p className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-white stat-mono">
+                    <CountUp to={m.value} prefix={m.prefix} suffix={m.suffix} />
                   </p>
                   <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1 font-[family-name:var(--font-space-mono)]">{m.label}</p>
                 </div>
@@ -394,37 +367,39 @@ export default function HarchAgriPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           OVERVIEW
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <FadeIn>
+            <FadeIn direction="left">
               <div>
-                <p className="section-label mb-4 text-[#22C55E]">Overview</p>
-                <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-                  Africa&apos;s Agricultural Challenge
-                </h2>
+                <p className="section-label mb-4 text-[#4A7B5F]">Overview</p>
+                <TextReveal text="Africa's Agricultural Challenge" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7]">{data.overview}</p>
               </div>
             </FadeIn>
-            <FadeIn delay={0.15}>
+            <FadeIn direction="right" delay={0.15}>
               <div className="grid grid-cols-2 gap-4">
                 {data.metrics.map((m) => (
-                  <div key={m.label} className="card p-6">
-                    <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
-                      <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
+                  <Card3D key={m.label} className="p-6">
+                    <p className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-white stat-mono">
+                      <CountUp to={m.value} prefix={m.prefix} suffix={m.suffix} />
                     </p>
                     <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">{m.label}</p>
-                  </div>
+                  </Card3D>
                 ))}
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* ═══════════════════════════════════════════
           STRATEGIC CONTEXT — Photo + Text
@@ -434,7 +409,7 @@ export default function HarchAgriPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative min-h-[45vh] lg:min-h-0 overflow-hidden">
               <Image
-                src="/images/sections/agri-drone-field.jpg"
+                src="/images/sections/agri-drone.jpg"
                 alt="HarchAgri agricultural drone"
                 fill
                 className="object-cover industrial-image"
@@ -444,11 +419,9 @@ export default function HarchAgriPage() {
             </div>
             <div className="flex items-center px-8 md:px-16 py-20">
               <div className="max-w-lg">
-                <FadeIn>
-                  <p className="section-label mb-4 text-[#22C55E]">Strategic Context</p>
-                  <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-                    Why It Matters
-                  </h2>
+                <FadeIn direction="right">
+                  <p className="section-label mb-4 text-[#4A7B5F]">Strategic Context</p>
+                  <TextReveal text="Why It Matters" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
                   <div className="accent-line mb-6" />
                   <p className="text-[15px] text-[#999999] leading-[1.7]">{data.strategicContext}</p>
                 </FadeIn>
@@ -458,14 +431,16 @@ export default function HarchAgriPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           MARKET ANALYSIS — Table
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Market Analysis</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Five Segments, One Platform</h2>
+            <p className="section-label mb-4 text-[#4A7B5F]">Market Analysis</p>
+            <TextReveal text="Five Segments, One Platform" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">The African agritech market is valued at $35 billion and growing rapidly — though agritech funding dropped 18% to $168M in 2025 (Briter Intelligence), with deal count declining 7.5%. This correction follows years of euphoria where startups like Twiga Foods raised $145M+ before encountering severe operational difficulties. The market divides into five segments.</p>
           </FadeIn>
@@ -495,7 +470,7 @@ export default function HarchAgriPage() {
                         <td>{row.size}</td>
                         <td className="font-[family-name:var(--font-space-mono)]">{row.cagr}</td>
                         <td className="!text-[#666666] !font-normal">{row.maturity}</td>
-                        <td className={row.strong ? '!text-[#22C55E] !font-semibold' : '!text-[#666666] !font-normal'}>{row.opportunity}</td>
+                        <td className={row.strong ? `!text-[${ACCENT}] !font-semibold` : '!text-[#666666] !font-normal'}>{row.opportunity}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -509,32 +484,32 @@ export default function HarchAgriPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           PRODUCTS — The 5 Pillars
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Products</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Five Integrated Pillars
-            </h2>
+            <p className="section-label mb-4 text-[#4A7B5F]">Products</p>
+            <TextReveal text="Five Integrated Pillars" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
               Each product works standalone or in full synergy. Together, they create a network effect no single-product competitor can replicate.
             </p>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-6">
-            {data.products.map((product, i) => {
+          <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
+            {data.products.map((product) => {
               const Icon = product.icon;
               return (
-                <FadeIn key={product.name} delay={i * 0.08}>
-                  <div className="card p-8 h-full">
+                <StaggerItem key={product.name}>
+                  <Card3D className="p-8 h-full" glareEnabled>
                     {/* Header */}
                     <div className="flex items-start justify-between mb-5">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center">
-                          <Icon size={18} className="text-[#22C55E]" />
+                        <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center`}>
+                          <Icon size={18} className={`text-[${ACCENT}]`} />
                         </div>
                         <div>
                           <h3 className="text-lg font-bold text-white">{product.name}</h3>
@@ -561,7 +536,7 @@ export default function HarchAgriPage() {
                     <div className="space-y-2 mb-6">
                       {product.features.map((feature, j) => (
                         <div key={j} className="flex items-start gap-2">
-                          <div className="mt-1.5 w-1 h-1 rounded-full bg-white/20 flex-shrink-0" />
+                          <div className={`mt-1.5 w-1 h-1 rounded-full bg-[rgba(${ACCENT_RGB},0.4)] flex-shrink-0`} />
                           <span className="text-[12px] text-[#999999]">{feature}</span>
                         </div>
                       ))}
@@ -574,19 +549,19 @@ export default function HarchAgriPage() {
                       </div>
                       <span className="text-[10px] text-[#666666]">{product.target}</span>
                     </div>
-                  </div>
-                </FadeIn>
+                  </Card3D>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
 
           {/* Starter Kit */}
           <FadeIn delay={0.4}>
-            <div className="mt-6 card p-8 border-dashed" style={{ borderColor: 'rgba(34,197,94,0.25)' }}>
+            <div className="mt-6 card p-8 border-dashed" style={{ borderColor: `rgba(${ACCENT_RGB},0.25)` }}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center">
-                    <Sprout size={18} className="text-[#22C55E]" />
+                  <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center`}>
+                    <Sprout size={18} className={`text-[${ACCENT}]`} />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white">Starter Kit</h3>
@@ -604,14 +579,16 @@ export default function HarchAgriPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           PRICING
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Pricing</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Transparent Pricing</h2>
+            <p className="section-label mb-4 text-[#4A7B5F]">Pricing</p>
+            <TextReveal text="Transparent Pricing" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">Simple, transparent pricing designed for African agricultural economies. No hidden fees. Carbon credit revenue included by default.</p>
           </FadeIn>
@@ -649,7 +626,7 @@ export default function HarchAgriPage() {
       {/* ═══════════════════════════════════════════
           PHOTO BREAK — Vertical Farms
           ═══════════════════════════════════════════ */}
-      <section className="photo-section">
+      <ParallaxSection speed={0.2} className="photo-section">
         <Image
           src="/images/sections/agri-vertical-farm.jpg"
           alt="HarchAgri vertical farm"
@@ -658,7 +635,7 @@ export default function HarchAgriPage() {
           style={{ filter: 'brightness(0.35) contrast(1.1) saturate(0.5)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-[#1A1A1A]" />
-      </section>
+      </ParallaxSection>
 
       {/* ═══════════════════════════════════════════
           COMPETITIVE ANALYSIS
@@ -666,10 +643,8 @@ export default function HarchAgriPage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Competitive Analysis</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              HarchAgri vs. The Field
-            </h2>
+            <p className="section-label mb-4 text-[#4A7B5F]">Competitive Analysis</p>
+            <TextReveal text="HarchAgri vs. The Field" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
               Five competitors, five market entry points. None have integrated carbon credits + IoT irrigation + drones + vertical farms on the African continent.
@@ -719,10 +694,10 @@ export default function HarchAgriPage() {
 
           {/* Highlight HarchAgri */}
           <FadeIn delay={0.4}>
-            <div className="mt-6 card p-8" style={{ borderColor: 'rgba(34,197,94,0.2)' }}>
+            <div className="mt-6 card p-8" style={{ borderColor: `rgba(${ACCENT_RGB},0.2)` }}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center">
-                  <span className="text-[10px] font-bold tracking-[0.15em] text-[#22C55E] font-[family-name:var(--font-space-mono)]">/0.6</span>
+                <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center`}>
+                  <span className="text-[10px] font-bold tracking-[0.15em] text-[#4A7B5F] font-[family-name:var(--font-space-mono)]">/0.6</span>
                 </div>
                 <div>
                   <h4 className="font-bold text-white text-lg">HarchAgri</h4>
@@ -759,7 +734,7 @@ export default function HarchAgriPage() {
       <CompetitiveComparison
         title="Competitive Landscape"
         subtitle="HarchAgri vs. global agritech competitors — metric by metric. No competitor matches our integrated stack."
-        accentColor="#22C55E"
+        accentColor="#4A7B5F"
         sectionLabel="Competitive Comparison"
         harchName="Harch Agri"
         competitors={[
@@ -872,37 +847,39 @@ export default function HarchAgriPage() {
         ]}
       />
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           COMPETITIVE ADVANTAGE
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Competitive Advantage</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Three Structural Moats
-            </h2>
+            <p className="section-label mb-4 text-[#4A7B5F]">Competitive Advantage</p>
+            <TextReveal text="Three Structural Moats" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-12" />
           </FadeIn>
-          <div className="grid md:grid-cols-3 gap-6">
-            {data.moats.map((moat, i) => {
+          <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
+            {data.moats.map((moat) => {
               const Icon = moat.icon;
               return (
-                <FadeIn key={moat.title} delay={i * 0.1}>
-                  <div className="card p-8 h-full">
-                    <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.08)] flex items-center justify-center mb-5">
-                      <Icon size={18} className="text-[#22C55E]" />
+                <StaggerItem key={moat.title}>
+                  <Card3D className="p-8 h-full">
+                    <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center mb-5`}>
+                      <Icon size={18} className={`text-[${ACCENT}]`} />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-3">{moat.title}</h3>
                     <div className="accent-line mb-4" />
                     <p className="text-[14px] text-[#999999] leading-[1.7]">{moat.desc}</p>
-                  </div>
-                </FadeIn>
+                  </Card3D>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* ═══════════════════════════════════════════
           SUSTAINABILITY & ESG
@@ -912,11 +889,9 @@ export default function HarchAgriPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="flex items-center px-8 md:px-16 py-20 order-2 lg:order-1">
               <div className="max-w-lg">
-                <FadeIn>
-                  <p className="section-label mb-4 text-[#22C55E]">Sustainability &amp; ESG</p>
-                  <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-                    Sustainability Is the Business Model
-                  </h2>
+                <FadeIn direction="right">
+                  <p className="section-label mb-4 text-[#4A7B5F]">Sustainability &amp; ESG</p>
+                  <TextReveal text="Sustainability Is the Business Model" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
                   <div className="accent-line mb-6" />
                   <p className="text-[15px] text-[#999999] leading-[1.7]">{data.sustainability}</p>
                 </FadeIn>
@@ -936,34 +911,34 @@ export default function HarchAgriPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           PARTNERSHIPS
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Partnerships</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Strategic Partners
-            </h2>
+            <p className="section-label mb-4 text-[#4A7B5F]">Partnerships</p>
+            <TextReveal text="Strategic Partners" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
               Selective, symbiotic partnerships — each partner brings a capability HarchAgri lacks; HarchAgri brings the technology and carbon credits they don&apos;t have.
             </p>
           </FadeIn>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {data.partners.map((partner, i) => (
-              <FadeIn key={partner.name} delay={i * 0.08}>
-                <div className="card p-6 h-full">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-4" staggerDelay={0.08}>
+            {data.partners.map((partner) => (
+              <StaggerItem key={partner.name}>
+                <Card3D className="p-6 h-full">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h4 className="font-bold text-[13px] text-white">{partner.name}</h4>
                       <p className="text-[10px] text-[#666666]">{partner.type} — {partner.country}</p>
                     </div>
                     <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded text-[10px] font-semibold ${
-                      partner.status === 'Active' ? 'bg-[rgba(34,197,94,0.08)] text-[#22C55E]' : 'bg-[rgba(255,255,255,0.04)] text-[#666666]'
+                      partner.status === 'Active' ? `bg-[rgba(${ACCENT_RGB},0.08)] text-[${ACCENT}]` : 'bg-[rgba(255,255,255,0.04)] text-[#666666]'
                     }`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${partner.status === 'Active' ? 'bg-[#22C55E]' : 'bg-[#666666]'}`} />
+                      <span className={`w-1.5 h-1.5 rounded-full ${partner.status === 'Active' ? `bg-[${ACCENT}]` : 'bg-[#666666]'}`} />
                       {partner.status}
                     </span>
                   </div>
@@ -978,12 +953,14 @@ export default function HarchAgriPage() {
                   <div className="pt-3 border-t border-[rgba(255,255,255,0.04)]">
                     <span className="text-[9px] text-[#666666] uppercase tracking-wider font-[family-name:var(--font-space-mono)]">{partner.priority}</span>
                   </div>
-                </div>
-              </FadeIn>
+                </Card3D>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* ═══════════════════════════════════════════
           ROADMAP
@@ -991,8 +968,8 @@ export default function HarchAgriPage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Roadmap</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Four Phases to Continental Leadership</h2>
+            <p className="section-label mb-4 text-[#4A7B5F]">Roadmap</p>
+            <TextReveal text="Four Phases to Continental Leadership" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">Lean startup philosophy: validate with an MVP before scaling. Avoid Twiga Foods&apos; fatal mistake — over-investing before proving the model.</p>
           </FadeIn>
@@ -1007,7 +984,7 @@ export default function HarchAgriPage() {
                   <div className="relative pl-10 md:pl-14">
                     {/* Dot */}
                     <div className="absolute left-0 md:left-1 top-1 w-[23px] md:w-[31px] h-[23px] md:h-[31px] rounded-full border-2 border-[rgba(255,255,255,0.06)] bg-[#1E1E1E] flex items-center justify-center">
-                      <div className="w-[7px] h-[7px] rounded-full bg-[#22C55E]" />
+                      <div className={`w-[7px] h-[7px] rounded-full bg-[${ACCENT}]`} />
                     </div>
 
                     <div className="card p-8">
@@ -1021,13 +998,13 @@ export default function HarchAgriPage() {
                         <div className="md:col-span-3 grid grid-cols-3 gap-2">
                           <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
                             <p className="text-lg font-bold text-white stat-mono">
-                              <AnimatedCounter target={phase.hectares} />
+                              <CountUp to={phase.hectares} />
                             </p>
                             <p className="text-[9px] text-[#666666] uppercase tracking-wider">Hectares</p>
                           </div>
                           <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
                             <p className="text-lg font-bold text-white stat-mono">
-                              <AnimatedCounter target={phase.farmers} />
+                              <CountUp to={phase.farmers} />
                             </p>
                             <p className="text-[9px] text-[#666666] uppercase tracking-wider">Farmers</p>
                           </div>
@@ -1040,7 +1017,7 @@ export default function HarchAgriPage() {
                           <div className="space-y-2">
                             {phase.actions.map((action, j) => (
                               <div key={j} className="flex items-start gap-2">
-                                <div className="mt-1.5 w-1 h-1 rounded-full bg-white/20 flex-shrink-0" />
+                                <div className={`mt-1.5 w-1 h-1 rounded-full bg-[rgba(${ACCENT_RGB},0.4)] flex-shrink-0`} />
                                 <span className="text-[12px] text-[#999999] leading-relaxed">{action}</span>
                               </div>
                             ))}
@@ -1103,14 +1080,16 @@ export default function HarchAgriPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           RISKS
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Risk Analysis</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Identified Risks &amp; Mitigations</h2>
+            <p className="section-label mb-4 text-[#4A7B5F]">Risk Analysis</p>
+            <TextReveal text="Identified Risks & Mitigations" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">Prudence is not optional — it is essential. The failures of Twiga Foods, AeroFarms, and the volatile agritech funding environment in 2025 teach us this.</p>
           </FadeIn>
@@ -1156,33 +1135,37 @@ export default function HarchAgriPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           DEPLOYMENTS
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Deployments</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">Five Sites in Morocco</h2>
+            <p className="section-label mb-4 text-[#4A7B5F]">Deployments</p>
+            <TextReveal text="Five Sites in Morocco" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
               Each site covers a 100km radius for drone and IoT operations. Morocco&apos;s Generation Green strategy (2020-2030) provides institutional support, OCP&apos;s Al Moutmir program brings a 580K farmer ecosystem. Expansion to Senegal, Kenya, and Ghana in Phase 3.
             </p>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {data.locations.map((loc, i) => (
-              <FadeIn key={loc.city} delay={i * 0.06}>
-                <div className="card p-5 text-center">
-                  <MapPin size={14} className="text-[#22C55E] mx-auto mb-2" />
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-5 gap-4" staggerDelay={0.06}>
+            {data.locations.map((loc) => (
+              <StaggerItem key={loc.city}>
+                <Card3D className="p-5 text-center">
+                  <MapPin size={14} className={`text-[${ACCENT}] mx-auto mb-2`} />
                   <p className="text-[13px] font-semibold text-white">{loc.city}</p>
                   <p className="text-[10px] text-[#666666] mt-0.5">{loc.region}</p>
                   <p className="text-[9px] text-[#999999] mt-1">{loc.crops}</p>
-                </div>
-              </FadeIn>
+                </Card3D>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* ═══════════════════════════════════════════
           INVESTMENT — Photo + CTA
@@ -1199,8 +1182,8 @@ export default function HarchAgriPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-20 w-full">
           <FadeIn>
-            <p className="section-label mb-4 text-[#22C55E]">Phase 1 Investment</p>
-            <h2 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-4">
+            <p className="section-label mb-4 text-[#4A7B5F]">Phase 1 Investment</p>
+            <h2 className="text-[clamp(2.5rem,6vw,6rem)] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-4">
               {data.investment}
             </h2>
             <p className="text-[15px] text-[#999999] max-w-lg leading-[1.7]">Self-funded to prove the model before raising. Operational break-even targeted by end of Phase 2.</p>
@@ -1214,17 +1197,21 @@ export default function HarchAgriPage() {
       <section className="py-28 md:py-36 bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-[-0.01em] mb-6">Let&apos;s Build Together</h2>
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-[-0.01em] mb-6">Let&apos;s Build Together</h2>
             <p className="max-w-xl mx-auto text-[15px] text-[#666666] leading-[1.7] mb-12">Partnership inquiries, investment, and pilot programs. HarchAgri is looking for farmers, governments, and investors who share our vision for African agricultural sovereignty.</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Get Started <ArrowRight size={14} />
-              </Link>
-              <Link href="/investors" className="inline-flex items-center gap-2.5 border border-[rgba(255,255,255,0.12)] text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                Investor Details
-              </Link>
+              <MagneticButton>
+                <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all min-h-[44px]">
+                  Get Started <ArrowRight size={14} />
+                </Link>
+              </MagneticButton>
+              <MagneticButton>
+                <Link href="/investors" className="inline-flex items-center gap-2.5 border border-[rgba(255,255,255,0.12)] text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all min-h-[44px]">
+                  Investor Details
+                </Link>
+              </MagneticButton>
             </div>
           </FadeIn>
         </div>

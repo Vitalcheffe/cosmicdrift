@@ -2,33 +2,51 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+  Card3D,
+  MagneticButton,
+  ParallaxSection,
+  SmoothLink,
+  TextReveal,
+  SectionDivider,
+  CountUp,
+} from '@/components/ui/motion';
 import { AfricaMap } from '@/components/AfricaMap';
 import { LiveFeed } from '@/components/LiveFeed';
 import { DataStream } from '@/components/DataStream';
 import { PulseIndicator } from '@/components/PulseIndicator';
+import { NetworkGrid } from '@/components/NetworkGrid';
+import { TypingText } from '@/components/PulseIndicator';
 
-/* ═══ DATA ═══ */
+/* ═══════════════════════════════════════════════════════════════
+   DATA — All existing data preserved, images added
+   ═══════════════════════════════════════════════════════════════ */
+
 const verticals = [
-  { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'Carbon-Aware GPU Cloud — 1,798 GPUs across 5 hubs in Morocco, powered by ~81.5% renewable energy at ~47 gCO2/kWh average. Carbon-aware scheduling with zero competitors in Africa.', stat: '1,798 GPUs', href: '/subsidiaries/intelligence', gradient: 'from-[#1a2a3a] to-[#0d1520]', accent: '#8B9DAF', outcomes: ['1,798 GPUs Carbon-Optimized', 'Carbon-Aware Scheduling', '~47 gCO2/kWh Average'] },
-  { version: '/0.2', name: 'Cement', fullName: 'Harch Cement', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', gradient: 'from-[#2a2420] to-[#151210]', accent: '#A08878', outcomes: ['500kT/yr Production Output', 'Quarry-to-Delivery Integration', 'West Africa Supply Chain'] },
-  { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+ Pipeline', href: '/subsidiaries/energy', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6B9F6B', outcomes: ['2GW+ Pipeline', 'Green Hydrogen Export', 'Grid Stabilization'] },
-  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'Carbon-Aware GPU Cloud, Cyber & Satellite — Sovereign tech stack with the world\'s most carbon-efficient GPU cloud. Cybersecurity, satellite communications, and AI orchestration.', stat: '1,798 GPUs', href: '/subsidiaries/technology', gradient: 'from-[#1a1a2a] to-[#0d0d15]', accent: '#7888A8', outcomes: ['Carbon-Aware GPU Cloud', 'Cybersecurity Platforms', 'Satellite Communications'] },
-  { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', gradient: 'from-[#2a1a1a] to-[#150d0d]', accent: '#A87878', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'In-Country Value Capture'] },
-  { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6BAF6B', outcomes: ['Precision IoT Farming', 'Drone Crop Monitoring', 'Vertical Farm Networks'] },
-  { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', gradient: 'from-[#1a2030] to-[#0d1018]', accent: '#6888A8', outcomes: ['200M m³/yr Desalination', 'AI-Optimized Distribution', 'Continental Water Security'] },
-  { version: '/0.8', name: 'Finance', fullName: 'Harch Finance', desc: 'Green Bonds, Project Finance & Islamic Finance — Structuring capital flows for sovereign infrastructure. Green bonds, sustainability-linked loans, trade finance, and carbon credit monetization.', stat: '$2.4B+', href: '/subsidiaries/finance', gradient: 'from-[#2a2a1a] to-[#15150d]', accent: '#A8A068', outcomes: ['Green Bonds & Sukuk', 'Project Finance Structuring', 'Carbon Credit Monetization'] },
+  { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'Carbon-Aware GPU Cloud — 1,798 GPUs across 5 hubs in Morocco, powered by ~81.5% renewable energy at ~47 gCO2/kWh average. Carbon-aware scheduling with zero competitors in Africa.', stat: '1,798 GPUs', href: '/subsidiaries/intelligence', gradient: 'from-[#1a2a3a] to-[#0d1520]', accent: '#8B9DAF', outcomes: ['1,798 GPUs Carbon-Optimized', 'Carbon-Aware Scheduling', '~47 gCO2/kWh Average'], image: '/images/sections/intelligence-gpu-cluster.jpg', deepDiveImage: '/images/sections/intelligence-exterior.jpg' },
+  { version: '/0.2', name: 'Cement', fullName: 'Harch Cement', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', gradient: 'from-[#2a2420] to-[#151210]', accent: '#A08878', outcomes: ['500kT/yr Production Output', 'Quarry-to-Delivery Integration', 'West Africa Supply Chain'], image: '/images/sections/cement-kiln.jpg', deepDiveImage: '/images/sections/cement-quarry.jpg' },
+  { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+ Pipeline', href: '/subsidiaries/energy', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6B9F6B', outcomes: ['2GW+ Pipeline', 'Green Hydrogen Export', 'Grid Stabilization'], image: '/images/sections/energy-wind-farm.jpg', deepDiveImage: '/images/sections/energy-hydrogen-plant.jpg' },
+  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'Carbon-Aware GPU Cloud, Cyber & Satellite — Sovereign tech stack with the world\'s most carbon-efficient GPU cloud. Cybersecurity, satellite communications, and AI orchestration.', stat: '1,798 GPUs', href: '/subsidiaries/technology', gradient: 'from-[#1a1a2a] to-[#0d0d15]', accent: '#7888A8', outcomes: ['Carbon-Aware GPU Cloud', 'Cybersecurity Platforms', 'Satellite Communications'], image: '/images/sections/tech-ground-station.jpg', deepDiveImage: '/images/sections/tech-cyber.jpg' },
+  { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', gradient: 'from-[#2a1a1a] to-[#150d0d]', accent: '#A87878', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'In-Country Value Capture'], image: '/images/sections/mining-smelter.jpg', deepDiveImage: '/images/sections/mining-processing.jpg' },
+  { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6BAF6B', outcomes: ['Precision IoT Farming', 'Drone Crop Monitoring', 'Vertical Farm Networks'], image: '/images/sections/agri-vertical-farm.jpg', deepDiveImage: '/images/sections/agri-iot-sensor.jpg' },
+  { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', gradient: 'from-[#1a2030] to-[#0d1018]', accent: '#6888A8', outcomes: ['200M m³/yr Desalination', 'AI-Optimized Distribution', 'Continental Water Security'], image: '/images/sections/water-treatment.jpg', deepDiveImage: '/images/sections/water-desal-plant.jpg' },
+  { version: '/0.8', name: 'Finance', fullName: 'Harch Finance', desc: 'Green Bonds, Project Finance & Islamic Finance — Structuring capital flows for sovereign infrastructure. Green bonds, sustainability-linked loans, trade finance, and carbon credit monetization.', stat: '$2.4B+', href: '/subsidiaries/finance', gradient: 'from-[#2a2a1a] to-[#15150d]', accent: '#A8A068', outcomes: ['Green Bonds & Sukuk', 'Project Finance Structuring', 'Carbon Credit Monetization'], image: '/images/sections/finance-trading.jpg', deepDiveImage: '/images/sections/finance-district.jpg' },
 ];
 
 const carouselSlides = [
-  { title: 'Harch Intelligence', subtitle: 'Carbon-Aware Sovereign AI', desc: '1,798 GPUs across 5 Moroccan hubs at ~47 gCO2/kWh — the world\'s most carbon-efficient GPU cloud, with carbon-aware scheduling and sovereign data residency.', href: '/subsidiaries/intelligence', gradient: 'radial-gradient(ellipse at 30% 50%, rgba(139,157,175,0.15) 0%, rgba(13,13,13,0.9) 60%, rgba(13,13,13,1) 100%)' },
-  { title: 'Harch Energy', subtitle: '2GW+ Renewable Energy Pipeline', desc: 'Solar, wind, and green hydrogen across Morocco and the Sahel — zero-carbon electricity for industrial sovereignty.', href: '/subsidiaries/energy', gradient: 'radial-gradient(ellipse at 70% 40%, rgba(107,159,107,0.15) 0%, rgba(13,13,13,0.9) 60%, rgba(13,13,13,1) 100%)' },
-  { title: 'Harch Cement', subtitle: 'Building West Africa\'s Future', desc: '500kT/yr cement production — vertically integrated from quarry to delivery, serving the construction boom.', href: '/subsidiaries/cement', gradient: 'radial-gradient(ellipse at 40% 60%, rgba(160,136,120,0.15) 0%, rgba(13,13,13,0.9) 60%, rgba(13,13,13,1) 100%)' },
-  { title: 'Harch Technology', subtitle: 'Sovereign Digital Infrastructure', desc: 'AI platforms, cybersecurity, and satellite communications — the technology stack that Africa controls.', href: '/subsidiaries/technology', gradient: 'radial-gradient(ellipse at 50% 30%, rgba(120,136,168,0.15) 0%, rgba(13,13,13,0.9) 60%, rgba(13,13,13,1) 100%)' },
-  { title: 'Harch Mining', subtitle: 'Capturing the Value Chain', desc: 'Strategic mineral extraction — phosphates, cobalt, and rare earths processed in-country for the energy transition.', href: '/subsidiaries/mining', gradient: 'radial-gradient(ellipse at 60% 50%, rgba(168,120,120,0.15) 0%, rgba(13,13,13,0.9) 60%, rgba(13,13,13,1) 100%)' },
-  { title: 'Harch Agri', subtitle: 'Precision Agriculture at Scale', desc: 'Deploying IoT, drone monitoring, and vertical farming across Africa\'s uncultivated arable land.', href: '/subsidiaries/agriculture', gradient: 'radial-gradient(ellipse at 30% 70%, rgba(107,175,107,0.15) 0%, rgba(13,13,13,0.9) 60%, rgba(13,13,13,1) 100%)' },
-  { title: 'Harch Water', subtitle: '200M m³/yr Desalination', desc: 'AI-optimized desalination and smart water networks solving Africa\'s water security crisis.', href: '/subsidiaries/water', gradient: 'radial-gradient(ellipse at 50% 60%, rgba(104,136,168,0.15) 0%, rgba(13,13,13,0.9) 60%, rgba(13,13,13,1) 100%)' },
+  { title: 'Harch Intelligence', subtitle: 'Carbon-Aware Sovereign AI', desc: '1,798 GPUs across 5 Moroccan hubs at ~47 gCO2/kWh — the world\'s most carbon-efficient GPU cloud, with carbon-aware scheduling and sovereign data residency.', href: '/subsidiaries/intelligence', image: '/images/sections/intelligence-rack.jpg', accent: '#8B9DAF' },
+  { title: 'Harch Energy', subtitle: '2GW+ Renewable Energy Pipeline', desc: 'Solar, wind, and green hydrogen across Morocco and the Sahel — zero-carbon electricity for industrial sovereignty.', href: '/subsidiaries/energy', image: '/images/sections/energy-solar-farm.jpg', accent: '#6B9F6B' },
+  { title: 'Harch Cement', subtitle: 'Building West Africa\'s Future', desc: '500kT/yr cement production — vertically integrated from quarry to delivery, serving the construction boom.', href: '/subsidiaries/cement', image: '/images/sections/cement-factory.jpg', accent: '#A08878' },
+  { title: 'Harch Technology', subtitle: 'Sovereign Digital Infrastructure', desc: 'AI platforms, cybersecurity, and satellite communications — the technology stack that Africa controls.', href: '/subsidiaries/technology', image: '/images/sections/tech-satellite.jpg', accent: '#7888A8' },
+  { title: 'Harch Mining', subtitle: 'Capturing the Value Chain', desc: 'Strategic mineral extraction — phosphates, cobalt, and rare earths processed in-country for the energy transition.', href: '/subsidiaries/mining', image: '/images/sections/mining-open-pit.jpg', accent: '#A87878' },
+  { title: 'Harch Agri', subtitle: 'Precision Agriculture at Scale', desc: 'Deploying IoT, drone monitoring, and vertical farming across Africa\'s uncultivated arable land.', href: '/subsidiaries/agriculture', image: '/images/sections/agri-aerial-drone.jpg', accent: '#6BAF6B' },
+  { title: 'Harch Water', subtitle: '200M m³/yr Desalination', desc: 'AI-optimized desalination and smart water networks solving Africa\'s water security crisis.', href: '/subsidiaries/water', image: '/images/sections/water-desal.jpg', accent: '#6888A8' },
 ];
 
 const stats = [
@@ -48,9 +66,9 @@ const roadmap = [
 ];
 
 const africaStats = [
-  { value: '30%', desc: 'of the world\'s mineral reserves are in Africa — yet the continent captures less than 5% of the value chain. Morocco alone holds 75% of global phosphate reserves, while the DRC produces 70% of the world\'s cobalt. Harch Mining builds in-country processing and refining capacity to ensure that resource wealth stays on the continent, converting raw extraction into industrial value.' },
-  { value: '60%', desc: 'of the world\'s uncultivated arable land is in Africa, yet the continent spends $50 billion annually on food imports. Harch Agri deploys precision IoT sensors, drone monitoring, and vertical farming technology across this untapped potential, converting it into food security and export revenue at continental scale — with an integrated carbon credit API that no competitor offers.' },
-  { value: '1.4B', desc: 'people — the youngest population on Earth with a median age of 19.7 years. Africa\'s digital economy is projected to grow from $115 billion to $712 billion by 2050, yet the continent hosts less than 1% of global data center capacity. Harch Intelligence provides the sovereign AI compute infrastructure — 1,798 GPUs scaling to 100,000+ — to educate, connect, and empower the next generation of African innovators.' },
+  { value: '30%', numValue: 30, desc: 'of the world\'s mineral reserves are in Africa — yet the continent captures less than 5% of the value chain. Morocco alone holds 75% of global phosphate reserves, while the DRC produces 70% of the world\'s cobalt. Harch Mining builds in-country processing and refining capacity to ensure that resource wealth stays on the continent, converting raw extraction into industrial value.' },
+  { value: '60%', numValue: 60, desc: 'of the world\'s uncultivated arable land is in Africa, yet the continent spends $50 billion annually on food imports. Harch Agri deploys precision IoT sensors, drone monitoring, and vertical farming technology across this untapped potential, converting it into food security and export revenue at continental scale — with an integrated carbon credit API that no competitor offers.' },
+  { value: '1.4B', numValue: 1400, desc: 'people — the youngest population on Earth with a median age of 19.7 years. Africa\'s digital economy is projected to grow from $115 billion to $712 billion by 2050, yet the continent hosts less than 1% of global data center capacity. Harch Intelligence provides the sovereign AI compute infrastructure — 1,798 GPUs scaling to 100,000+ — to educate, connect, and empower the next generation of African innovators.' },
 ];
 
 const investmentTable = [
@@ -71,53 +89,36 @@ const testimonials = [
   { quote: 'Harch\'s approach to water infrastructure — combining desalination with AI-optimized distribution — is exactly the kind of innovation Africa needs to solve its water crisis at scale.', name: 'Prof. Youssef El Amrani', title: 'Director', company: 'Pan-African Water Council' },
 ];
 
-/* ═══ ANIMATED COUNTER ═══ */
-function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [count, setCount] = useState(0);
+const operatorPrinciples = [
+  { title: 'Vertically Integrated', desc: 'Energy + Materials + Technology + Operations — all under one roof. We control every link in the chain.' },
+  { title: 'Sovereign by Design', desc: 'Infrastructure that Africa owns, operates, and controls. No dependency on foreign operators or technology.' },
+  { title: 'Speed at Scale', desc: 'We move with urgency. The continent cannot afford to wait. Every project is executed with precision and pace.' },
+  { title: 'World-Class Standards', desc: 'From engineering to governance, we accept nothing less than the best. International certifications across all verticals.' },
+];
 
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 2500;
-    const startTime = Date.now();
-    const step = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [isInView, target]);
+const newsArticles = [
+  { title: 'Harch Intelligence Deploys 1,798 GPUs Across 5 Carbon-Optimized Hubs', date: 'March 2026', tag: 'Intelligence' },
+  { title: 'Harch Energy Reaches 2GW+ Renewable Pipeline Milestone', date: 'February 2026', tag: 'Energy' },
+  { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'January 2026', tag: 'Corporate' },
+];
 
-  const format = () => {
-    if (target >= 1000) return `${prefix}${Math.round(count).toLocaleString()}${suffix}`;
-    if (target < 10) return `${prefix}${count.toFixed(1)}${suffix}`;
-    return `${prefix}${Math.round(count)}${suffix}`;
-  };
+/* ═══════════════════════════════════════════════════════════════
+   STATUS BADGE HELPER
+   ═══════════════════════════════════════════════════════════════ */
 
-  return <span ref={ref}>{format()}</span>;
+function getStatusBadgeClass(status: string) {
+  switch (status) {
+    case 'Active': return 'status-badge-active';
+    case 'Engineering': return 'status-badge-engineering';
+    case 'Permitted': return 'status-badge-permitted';
+    default: return 'status-badge-design';
+  }
 }
 
-/* ═══ FADE IN ═══ */
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
+/* ═══════════════════════════════════════════════════════════════
+   MAIN PAGE
+   ═══════════════════════════════════════════════════════════════ */
 
-/* ═══ MAIN PAGE ═══ */
 export default function HomePageClient() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeVertical, setActiveVertical] = useState(0);
@@ -143,27 +144,50 @@ export default function HomePageClient() {
 
   return (
     <div className="bg-[#0D0D0D]">
-      {/* ═══════════════════════════════════════════
-          S1: HERO CAROUSEL — Gradient backgrounds
-          ═══════════════════════════════════════════ */}
+
+      {/* ═══════════════════════════════════════════════════════════
+          S1: HERO CAROUSEL — Real images, TextReveal, Parallax
+          ═══════════════════════════════════════════════════════════ */}
       <motion.section
         ref={heroRef}
         style={{ opacity: heroOpacity }}
-        className="relative h-screen flex items-end overflow-hidden"
+        className="relative h-[100dvh] flex items-end overflow-hidden"
       >
-        {/* Gradient slides */}
+        {/* Background images with crossfade */}
         {carouselSlides.map((slide, i) => (
           <div
             key={i}
             className={`absolute inset-0 transition-opacity duration-1000 ${
               i === activeSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
-            style={{ background: slide.gradient }}
-          />
+          >
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              className="object-cover"
+              priority={i === 0}
+              sizes="100vw"
+            />
+            {/* Dark gradient overlay for text readability */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(to top, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.7) 40%, rgba(13,13,13,0.4) 70%, rgba(13,13,13,0.3) 100%)`,
+              }}
+            />
+            {/* Accent glow */}
+            <div
+              className="absolute inset-0 transition-opacity duration-1000"
+              style={{
+                background: `radial-gradient(ellipse at 30% 70%, ${slide.accent}10 0%, transparent 60%)`,
+              }}
+            />
+          </div>
         ))}
 
         {/* Dot pattern overlay */}
-        <div className="absolute inset-0 dot-pattern z-10 opacity-50" />
+        <div className="absolute inset-0 dot-pattern z-10 opacity-30" />
 
         {/* Content overlay */}
         <div className="relative z-20 max-w-[1400px] mx-auto px-6 md:px-12 pb-24 md:pb-32 w-full">
@@ -178,9 +202,12 @@ export default function HomePageClient() {
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">Building Africa&apos;s Industrial Sovereignty</span>
             </span>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[84px] font-extrabold text-white leading-[1.02] tracking-[-0.02em] mb-4">
-              {carouselSlides[activeSlide].title}
-            </h1>
+            <div className="mb-4">
+              <TextReveal
+                text={carouselSlides[activeSlide].title}
+                className="text-[clamp(2rem,6vw,5.25rem)] font-extrabold text-white leading-[1.02] tracking-[-0.02em]"
+              />
+            </div>
 
             <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 tracking-tight mb-3">
               {carouselSlides[activeSlide].subtitle}
@@ -190,12 +217,14 @@ export default function HomePageClient() {
               {carouselSlides[activeSlide].desc}
             </p>
 
-            <Link
-              href={carouselSlides[activeSlide].href}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/80 transition-colors group"
-            >
-              Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <MagneticButton className="inline-block">
+              <Link
+                href={carouselSlides[activeSlide].href}
+                className="inline-flex items-center gap-2.5 bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold hover:bg-white/90 transition-colors"
+              >
+                Learn More <ArrowRight size={14} />
+              </Link>
+            </MagneticButton>
           </motion.div>
         </div>
 
@@ -203,7 +232,7 @@ export default function HomePageClient() {
         <div className="absolute right-6 md:right-12 bottom-24 md:bottom-32 z-30 flex items-center gap-3">
           <button
             onClick={prevSlide}
-            className="w-10 h-10 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors"
+            className="w-11 h-11 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors"
             aria-label="Previous slide"
           >
             <ChevronLeft size={16} />
@@ -213,7 +242,7 @@ export default function HomePageClient() {
           </span>
           <button
             onClick={nextSlide}
-            className="w-10 h-10 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors"
+            className="w-11 h-11 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors"
             aria-label="Next slide"
           >
             <ChevronRight size={16} />
@@ -232,88 +261,84 @@ export default function HomePageClient() {
         </motion.div>
       </motion.section>
 
-      {/* ═══════════════════════════════════════════
-          S2: VERTICALS — Unified Card Grid + Deep Dive
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S2: VERTICALS GRID — Card3D, StaggerContainer, real images
+          ═══════════════════════════════════════════════════════════ */}
       <section className="bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-20 md:pt-28">
           <FadeIn>
             <div className="mb-12">
               <p className="section-label mb-4">Our Verticals</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight leading-tight">
                 Infrastructure for<br />the Next Century
               </h2>
             </div>
           </FadeIn>
 
-          {/* Card Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {verticals.map((v, i) => (
-              <Link key={v.version} href={v.href} className="group block">
-                <FadeIn delay={i * 0.06}>
-                  <motion.div
-                    whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                    className="relative overflow-hidden rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#141414] transition-all duration-500 hover:border-[rgba(255,255,255,0.12)]"
-                  >
-                    {/* Gradient header */}
-                    <div className={`relative h-[160px] md:h-[180px] overflow-hidden bg-gradient-to-br ${v.gradient}`}>
-                      {/* Dot pattern */}
-                      <div className="absolute inset-0 dot-pattern opacity-30" />
-                      {/* Version + Stat badge */}
-                      <div className="absolute top-3 left-3 flex items-center gap-2">
-                        <span className="px-2 py-1 rounded text-[9px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] bg-[rgba(0,0,0,0.3)] backdrop-blur-md" style={{ color: v.accent, border: `1px solid ${v.accent}30` }}>
+          {/* Card Grid — 4 col desktop, 2 tablet, 1 mobile */}
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" staggerDelay={0.08}>
+            {verticals.map((v) => (
+              <StaggerItem key={v.version}>
+                <Link href={v.href} className="group block">
+                  <Card3D className="bg-[#141414] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(255,255,255,0.12)] transition-all duration-500 p-0">
+                    {/* Image header */}
+                    <div className="relative h-[140px] md:h-[160px] overflow-hidden">
+                      <Image
+                        src={v.image}
+                        alt={v.fullName}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent" />
+                      {/* Version tag */}
+                      <div className="absolute top-3 left-3">
+                        <span
+                          className="px-2 py-1 rounded text-[9px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] bg-[rgba(0,0,0,0.5)] backdrop-blur-md"
+                          style={{ color: v.accent, border: `1px solid ${v.accent}30` }}
+                        >
                           {v.version}
                         </span>
                       </div>
+                      {/* Stat badge */}
                       <div className="absolute top-3 right-3">
-                        <span className="px-2.5 py-1 rounded text-[10px] font-bold tracking-[0.1em] stat-mono bg-[rgba(0,0,0,0.3)] text-white/70 backdrop-blur-md border border-[rgba(255,255,255,0.06)]">
+                        <span className="px-2.5 py-1 rounded text-[10px] font-bold tracking-[0.1em] stat-mono bg-[rgba(0,0,0,0.5)] text-white/70 backdrop-blur-md border border-[rgba(255,255,255,0.06)]">
                           {v.stat}
                         </span>
                       </div>
-                      {/* Decorative circles */}
-                      <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full opacity-10" style={{ background: `radial-gradient(circle, ${v.accent}, transparent)` }} />
                     </div>
                     {/* Text content */}
-                    <div className="p-6">
+                    <div className="p-5">
                       <div className="flex items-center gap-2 mb-2">
                         <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: v.accent }} />
-                        <h3 className="text-lg font-bold text-white tracking-tight">
-                          {v.name}
-                        </h3>
+                        <h3 className="text-base font-bold text-white tracking-tight">{v.name}</h3>
                       </div>
-                      <p className="text-sm text-[rgba(255,255,255,0.5)] leading-relaxed mb-4 line-clamp-2">
+                      <p className="text-[13px] text-[rgba(255,255,255,0.45)] leading-relaxed mb-3 line-clamp-2">
                         {v.desc}
                       </p>
-                      {/* Outcomes */}
-                      <div className="space-y-1.5">
-                        {v.outcomes.map((outcome) => (
-                          <div key={outcome} className="flex items-center gap-2">
-                            <span className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: `${v.accent}80` }} />
-                            <span className="text-[11px] text-[rgba(255,255,255,0.35)]">{outcome}</span>
-                          </div>
-                        ))}
-                      </div>
                       {/* CTA */}
-                      <div className="mt-4 pt-3 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
+                      <div className="pt-3 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
                         <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]" style={{ color: `${v.accent}90` }}>
                           Explore
                         </span>
                         <ArrowRight size={12} className="text-[rgba(255,255,255,0.25)] group-hover:translate-x-1 group-hover:text-white transition-all" />
                       </div>
                     </div>
-                  </motion.div>
-                </FadeIn>
-              </Link>
+                  </Card3D>
+                </Link>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
 
-        {/* Deep Dive Carousel */}
+        {/* Deep Dive Carousel — enhanced with real images */}
         <div className="border-t border-[rgba(255,255,255,0.04)]">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-12 pb-4">
             <div className="flex items-center justify-between mb-4">
               <p className="section-label">Deep Dive</p>
-              <div className="flex gap-1 overflow-x-auto">
+              <div className="flex gap-1 overflow-x-auto no-scrollbar">
                 {verticals.map((v, i) => (
                   <button
                     key={v.version}
@@ -330,7 +355,8 @@ export default function HomePageClient() {
               </div>
             </div>
           </div>
-          {/* Deep dive feature section — gradient background */}
+
+          {/* Deep dive feature section with real background image */}
           <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
             {verticals.map((v, i) => (
               <div
@@ -338,11 +364,23 @@ export default function HomePageClient() {
                 className={`absolute inset-0 transition-opacity ${
                   i === activeVertical ? 'opacity-100 z-10' : 'opacity-0 z-0'
                 }`}
-                style={{ transition: 'opacity 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)', background: `radial-gradient(ellipse at 30% 50%, ${v.accent}15, rgba(13,13,13,0.95) 60%, rgba(13,13,13,1) 100%)` }}
+                style={{ transition: 'opacity 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
               >
-                <div className="absolute inset-0 dot-pattern opacity-30" />
+                <Image
+                  src={v.deepDiveImage}
+                  alt={v.fullName}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.95)] via-[rgba(13,13,13,0.6)] to-[rgba(13,13,13,0.3)]" />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: `radial-gradient(ellipse at 30% 50%, ${v.accent}10, transparent 60%)` }}
+                />
               </div>
             ))}
+
             {/* Text overlay */}
             <div className="relative z-30 max-w-[1400px] mx-auto px-6 md:px-12 h-full flex items-end pb-12 md:pb-16">
               <motion.div
@@ -355,26 +393,28 @@ export default function HomePageClient() {
                   <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{verticals[activeVertical].version}</span>
                   <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/60 stat-mono">{verticals[activeVertical].stat}</span>
                 </div>
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-[-0.02em] mb-3">
-                  {verticals[activeVertical].name}
-                </h3>
+                <TextReveal
+                  text={verticals[activeVertical].name}
+                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-[-0.02em] mb-3"
+                />
                 <p className="max-w-lg text-sm text-[rgba(255,255,255,0.5)] leading-relaxed mb-6">
                   {verticals[activeVertical].desc}
                 </p>
-                <Link href={verticals[activeVertical].href} className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/80 transition-colors group">
-                  Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
+                <SmoothLink href={verticals[activeVertical].href} className="text-sm font-semibold text-white">
+                  Learn More
+                </SmoothLink>
               </motion.div>
             </div>
+
             {/* Navigation arrows */}
             <div className="absolute right-6 md:right-12 bottom-12 md:bottom-16 z-30 flex items-center gap-3">
-              <button onClick={() => setActiveVertical((prev) => (prev - 1 + verticals.length) % verticals.length)} className="w-10 h-10 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors" aria-label="Previous">
+              <button onClick={() => setActiveVertical((prev) => (prev - 1 + verticals.length) % verticals.length)} className="w-11 h-11 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors" aria-label="Previous">
                 <ChevronLeft size={16} />
               </button>
               <span className="text-[11px] text-white/30 font-medium tabular-nums font-[family-name:var(--font-space-mono)]">
                 {String(activeVertical + 1).padStart(2, '0')} / {String(verticals.length).padStart(2, '0')}
               </span>
-              <button onClick={() => setActiveVertical((prev) => (prev + 1) % verticals.length)} className="w-10 h-10 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors" aria-label="Next">
+              <button onClick={() => setActiveVertical((prev) => (prev + 1) % verticals.length)} className="w-11 h-11 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors" aria-label="Next">
                 <ChevronRight size={16} />
               </button>
             </div>
@@ -382,28 +422,42 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* Gradient break — Overview */}
-      <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-b from-[#111111] via-[#0D0D0D] to-[#0D0D0D]">
-        <div className="absolute inset-0 dot-pattern opacity-30" />
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S3: OVERVIEW BREAK — Parallax with real image
+          ═══════════════════════════════════════════════════════════ */}
+      <ParallaxSection speed={0.15} className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/sections/overview-casablanca.jpg"
+          alt="Casablanca overview"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[rgba(13,13,13,0.8)]" />
+        <div className="absolute inset-0 dot-pattern opacity-20" />
         <div className="relative z-10 text-center">
           <FadeIn>
-            <p className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-[-0.02em] mb-4">
+            <p className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-white tracking-[-0.02em] mb-4">
               8 Verticals. 5 Countries.
             </p>
-            <p className="text-2xl md:text-3xl font-light text-[rgba(255,255,255,0.4)]">$2.4B Investment Pipeline</p>
+            <p className="text-xl md:text-2xl font-light text-[rgba(255,255,255,0.4)]">$2.4B Investment Pipeline</p>
           </FadeIn>
         </div>
-      </section>
+      </ParallaxSection>
 
-      {/* ═══════════════════════════════════════════
-          S3: INTERACTIVE AFRICA MAP
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S4: AFRICA MAP — Import from component, FadeIn
+          ═══════════════════════════════════════════════════════════ */}
       <section id="global-presence" className="py-28 md:py-36 bg-[#0D0D0D] relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <FadeIn>
             <div className="text-center mb-16">
               <p className="section-label mb-4">Deployments / Real-Time</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+              <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight">
                 Operating Across<br />Africa
               </h2>
               <p className="max-w-xl mx-auto mt-4 text-sm text-[rgba(255,255,255,0.5)] leading-relaxed">
@@ -470,100 +524,39 @@ export default function HomePageClient() {
         <DataStream opacity={0.02} count={15} speed={0.3} />
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S4: TESTIMONIALS
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#111111]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Partners & Endorsements</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-16">
-              Trusted by Leaders<br />Across Africa
-            </h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {testimonials.map((t, i) => (
-              <FadeIn key={i} delay={i * 0.08}>
-                <motion.div
-                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                  className="card p-6 h-full"
-                >
-                  <p className="text-sm text-[rgba(255,255,255,0.7)] leading-[1.7] italic mb-6">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.04)] flex items-center justify-center text-[12px] font-bold text-white">
-                      {t.name.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="text-[13px] font-semibold text-white">{t.name}</p>
-                      <p className="text-[11px] text-[rgba(255,255,255,0.35)]">{t.title}, {t.company}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SectionDivider />
 
-      {/* ═══════════════════════════════════════════
-          S5: GRADIENT SECTION — Energy
-          ═══════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-[#1a2a1a] via-[#0D0D0D] to-[#0D0D0D]">
-        <div className="absolute inset-0 dot-pattern opacity-20" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-32">
-          <FadeIn>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.06)] mb-6">
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">Harch Energy /0.3</span>
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6 max-w-2xl">
-              2GW+ Renewable<br />Energy Pipeline
-            </h2>
-            <p className="max-w-lg text-sm text-[rgba(255,255,255,0.5)] leading-relaxed mb-8">
-              Harch Energy is developing over 2 gigawatts of renewable energy capacity across Morocco and the Sahel — combining solar, wind, and green hydrogen production to power industrial operations with zero-carbon electricity.
-            </p>
-            <Link href="/subsidiaries/energy" className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/80 transition-colors group">
-              Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          S6: STATS
-          ═══════════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════
+          S5: STATS — "By the Numbers" with CountUp, Card3D, PulseIndicator
+          ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Scale & Impact</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-16">
+            <p className="section-label mb-4">Scale &amp; Impact</p>
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-16">
               By the Numbers
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, i) => (
-              <FadeIn key={stat.label} delay={i * 0.1}>
-                <motion.div
-                  whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-                  className="card p-6"
-                >
+          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.12}>
+            {stats.map((stat) => (
+              <StaggerItem key={stat.label}>
+                <Card3D className="card p-6">
                   <div className="flex items-center gap-2 mb-3">
                     <PulseIndicator size={5} speed={3} color="#8B9DAF" />
                     <span className="text-[8px] font-bold tracking-[0.15em] uppercase text-[rgba(139,157,175,0.7)] font-[family-name:var(--font-space-mono)]">LIVE</span>
                   </div>
-                  <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-none mb-2 stat-mono">
-                    <AnimatedCounter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                  <p className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight leading-none mb-2 stat-mono">
+                    <CountUp to={stat.value} prefix={stat.prefix} suffix={stat.suffix} duration={2.5} />
                   </p>
                   <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-1">
                     {stat.label}
                   </p>
-                  <p className="text-sm text-[rgba(255,255,255,0.35)] leading-relaxed">{stat.desc}</p>
-                </motion.div>
-              </FadeIn>
+                  <p className="text-[13px] text-[rgba(255,255,255,0.35)] leading-relaxed">{stat.desc}</p>
+                </Card3D>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           <FadeIn delay={0.4}>
             <p className="mt-8 text-[11px] text-[rgba(255,255,255,0.25)] italic">
@@ -573,14 +566,16 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S7: DATA TABLE — Investment breakdown
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S6: INVESTMENT TABLE — Row stagger, consistent badges
+          ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Investment Pipeline</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-4">
               Capital Deployment
             </h2>
             <p className="max-w-xl text-sm text-[rgba(255,255,255,0.5)] leading-relaxed mb-12">
@@ -608,19 +603,15 @@ export default function HomePageClient() {
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.05, duration: 0.4 }}
+                        transition={{ delay: i * 0.06, duration: 0.4 }}
+                        className="hover:bg-[rgba(255,255,255,0.02)] transition-colors"
                       >
                         <td>{row.vertical}</td>
                         <td className="font-semibold">{row.investment}</td>
                         <td>{row.capacity}</td>
                         <td>{row.timeline}</td>
                         <td>
-                          <span className={`status-badge ${
-                            row.status === 'Active' ? 'status-badge-active' :
-                            row.status === 'Engineering' ? 'status-badge-engineering' :
-                            row.status === 'Permitted' ? 'status-badge-permitted' :
-                            'status-badge-design'
-                          }`}>
+                          <span className={`status-badge ${getStatusBadgeClass(row.status)}`}>
                             <span className="w-1.5 h-1.5 rounded-full bg-current" />
                             {row.status}
                           </span>
@@ -638,28 +629,39 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S8: IMPACT STUDY — Intelligence
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S7: IMPACT STUDY — Intelligence (IMAGE + TEXT)
+          ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-8">Impact Study &mdash; Harch Intelligence /0.1</p>
           </FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <FadeIn>
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gradient-to-br from-[#1a2a3a] to-[#0d1520]">
-                <div className="absolute inset-0 dot-pattern opacity-20" />
-                <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-full opacity-15" style={{ background: 'radial-gradient(circle, #8B9DAF, transparent)' }} />
+            {/* Image on left */}
+            <FadeIn direction="right">
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
+                <Image
+                  src="/images/sections/intelligence-rack.jpg"
+                  alt="Harch Intelligence GPU rack"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.6)] to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-md px-4 py-2 rounded-md border border-[rgba(255,255,255,0.06)]">
                   <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/70">1,798 GPUs Carbon-Optimized</p>
                 </div>
               </div>
             </FadeIn>
-            <FadeIn delay={0.15}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
-                Africa&apos;s Carbon-Aware<br />GPU Cloud
-              </h2>
+            {/* Text on right */}
+            <FadeIn delay={0.15} direction="left">
+              <TextReveal
+                text="Africa's Carbon-Aware GPU Cloud"
+                className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-4"
+              />
               <div className="accent-line mb-6" />
               <p className="text-sm text-[rgba(255,255,255,0.5)] leading-[1.7] mb-8">
                 Harch Intelligence operates 1,798 GPUs across 5 carbon-optimized hubs in Morocco —
@@ -680,23 +682,86 @@ export default function HomePageClient() {
                   </div>
                 ))}
               </div>
-              <Link href="/subsidiaries/intelligence" className="inline-flex items-center gap-2 text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white transition-colors duration-300 group">
-                Read More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <SmoothLink href="/subsidiaries/intelligence" className="text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white">
+                Read More
+              </SmoothLink>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S8.5: BUILD ON HARCHOS — SDK
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S8: IMPACT STUDY — Energy (TEXT + IMAGE, reversed)
+          ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-8">Impact Study &mdash; Harch Energy /0.3</p>
+          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Text on left */}
+            <FadeIn delay={0.15} direction="right" className="order-2 lg:order-1">
+              <TextReveal
+                text="2GW+ of Renewable Energy Pipeline"
+                className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-4"
+              />
+              <div className="accent-line mb-6" />
+              <p className="text-sm text-[rgba(255,255,255,0.5)] leading-[1.7] mb-8">
+                Harch Energy is developing over 2 gigawatts of renewable energy capacity across
+                Morocco and the Sahel region — combining solar, wind, and green hydrogen production
+                to power industrial operations and data centers with zero-carbon electricity. Our
+                integrated approach ensures energy sovereignty for the continent while creating
+                a model for sustainable industrialization worldwide.
+              </p>
+              <div className="grid grid-cols-3 gap-6 mb-8">
+                {[
+                  { val: '2GW+', label: 'Pipeline' },
+                  { val: '3', label: 'Energy Sources' },
+                  { val: 'Zero', label: 'Carbon' },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <p className="text-2xl font-bold text-white stat-mono">{s.val}</p>
+                    <p className="text-[10px] text-[rgba(255,255,255,0.25)] uppercase tracking-[0.1em] font-bold">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+              <SmoothLink href="/subsidiaries/energy" className="text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white">
+                Read More
+              </SmoothLink>
+            </FadeIn>
+            {/* Image on right */}
+            <FadeIn direction="left" className="order-1 lg:order-2">
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
+                <Image
+                  src="/images/sections/energy-solar-farm.jpg"
+                  alt="Harch Energy solar farm"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.6)] to-transparent" />
+                <div className="absolute bottom-4 left-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-md px-4 py-2 rounded-md border border-[rgba(255,255,255,0.06)]">
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/70">2GW+ Renewable Pipeline</p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S9: HarchOS DEVELOPER PLATFORM — Typing animation on code
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="text-center mb-12">
               <p className="section-label mb-4">Developer Platform</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+              <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight">
                 Build on HarchOS<span className="text-[#8B9DAF]">.</span>
               </h2>
               <p className="max-w-xl mx-auto mt-4 text-sm text-[rgba(255,255,255,0.5)] leading-relaxed">
@@ -722,7 +787,9 @@ export default function HomePageClient() {
                     <h3 className="text-base font-bold text-white">Python SDK</h3>
                     <div className="flex items-center gap-2 mt-0.5">
                       <img src="https://img.shields.io/pypi/v/harchos.svg?label=PyPI" alt="PyPI" className="h-4" />
-                      <span className="text-[10px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">pip install harchos</span>
+                      <span className="text-[10px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">
+                        <TypingText text="pip install harchos" speed={50} delay={800} />
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -759,7 +826,9 @@ export default function HomePageClient() {
                     <h3 className="text-base font-bold text-white">TypeScript SDK</h3>
                     <div className="flex items-center gap-2 mt-0.5">
                       <img src="https://img.shields.io/npm/v/@harchos/sdk.svg?label=npm" alt="npm" className="h-4" />
-                      <span className="text-[10px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">npm i @harchos/sdk</span>
+                      <span className="text-[10px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">
+                        <TypingText text="npm i @harchos/sdk" speed={50} delay={1200} />
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -788,101 +857,31 @@ export default function HomePageClient() {
 
           <FadeIn delay={0.2}>
             <div className="mt-8 text-center">
-              <Link href="/developers" className="inline-flex items-center gap-2 text-[14px] text-[#8B9DAF] font-semibold hover:text-[#8B9DAF]/80 transition-colors">
-                Full Developer Documentation <ArrowRight size={14} />
-              </Link>
+              <SmoothLink href="/developers" className="text-[14px] text-[#8B9DAF] font-semibold">
+                Full Developer Documentation
+              </SmoothLink>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S9: GRADIENT SECTION — Mining
-          ═══════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-br from-[#2a1a1a] via-[#0D0D0D] to-[#0D0D0D]">
-        <div className="absolute inset-0 dot-pattern opacity-20" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-32">
-          <FadeIn>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.06)] mb-6">
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">Harch Mining /0.5</span>
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6 max-w-2xl">
-              Capturing the<br />Value Chain
-            </h2>
-            <p className="max-w-lg text-sm text-[rgba(255,255,255,0.5)] leading-relaxed mb-8">
-              Africa holds 30% of the world&apos;s mineral reserves yet captures less than 5% of the value chain. Harch Mining builds processing and refining capacity in-country — ensuring resource wealth stays on the continent.
-            </p>
-            <Link href="/subsidiaries/mining" className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/80 transition-colors group">
-              Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
+      <SectionDivider />
 
-      {/* ═══════════════════════════════════════════
-          S10: IMPACT STUDY — Energy (reversed)
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#0D0D0D]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-8">Impact Study &mdash; Harch Energy /0.3</p>
-          </FadeIn>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <FadeIn delay={0.15} className="order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
-                2GW+ of Renewable<br />Energy Pipeline
-              </h2>
-              <div className="accent-line mb-6" />
-              <p className="text-sm text-[rgba(255,255,255,0.5)] leading-[1.7] mb-8">
-                Harch Energy is developing over 2 gigawatts of renewable energy capacity across
-                Morocco and the Sahel region — combining solar, wind, and green hydrogen production
-                to power industrial operations and data centers with zero-carbon electricity. Our
-                integrated approach ensures energy sovereignty for the continent while creating
-                a model for sustainable industrialization worldwide.
-              </p>
-              <div className="grid grid-cols-3 gap-6 mb-8">
-                {[
-                  { val: '2GW+', label: 'Pipeline' },
-                  { val: '3', label: 'Energy Sources' },
-                  { val: 'Zero', label: 'Carbon' },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <p className="text-2xl font-bold text-white stat-mono">{s.val}</p>
-                    <p className="text-[10px] text-[rgba(255,255,255,0.25)] uppercase tracking-[0.1em] font-bold">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-              <Link href="/subsidiaries/energy" className="inline-flex items-center gap-2 text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white transition-colors duration-300 group">
-                Read More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </FadeIn>
-            <FadeIn className="order-1 lg:order-2">
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gradient-to-br from-[#1a2a1a] to-[#0d150d]">
-                <div className="absolute inset-0 dot-pattern opacity-20" />
-                <div className="absolute -bottom-8 -left-8 w-48 h-48 rounded-full opacity-15" style={{ background: 'radial-gradient(circle, #6B9F6B, transparent)' }} />
-                <div className="absolute bottom-4 left-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-md px-4 py-2 rounded-md border border-[rgba(255,255,255,0.06)]">
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/70">2GW+ Renewable Pipeline</p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          S11: CEO QUOTE
-          ═══════════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════
+          S10: CEO QUOTE — TextReveal, subtle parallax quotation mark
+          ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[960px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <span className="text-7xl md:text-9xl text-[rgba(255,255,255,0.04)] leading-none font-serif block -mb-12">&ldquo;</span>
-            <blockquote className="text-xl md:text-2xl lg:text-[32px] font-light text-white leading-[1.4] mb-10">
-              Africa doesn&apos;t need aid — it needs infrastructure. It doesn&apos;t need pity
-              — it needs partnership on equal terms. We build the systems that convert
-              potential into power.
-            </blockquote>
+            <ParallaxSection speed={0.1} className="mb-0">
+              <span className="text-[clamp(4rem,12vw,9rem)] text-[rgba(255,255,255,0.04)] leading-none font-serif block -mb-12">&ldquo;</span>
+            </ParallaxSection>
+            <TextReveal
+              text="Africa doesn't need aid — it needs infrastructure. It doesn't need pity — it needs partnership on equal terms. We build the systems that convert potential into power."
+              className="text-[clamp(1.25rem,3vw,2rem)] font-light text-white leading-[1.4] mb-10"
+            />
             <div className="flex items-center gap-4">
-              <div className="w-12 h-px bg-white" />
+              <div className="w-12 h-px bg-[#B8965A]" />
               <div>
                 <p className="text-sm text-white font-semibold">Amine Harch El Korane</p>
                 <p className="text-[11px] text-[rgba(255,255,255,0.25)] mt-0.5">Founder &amp; CEO, Harch Corp</p>
@@ -892,59 +891,87 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S12: AFRICA'S POTENTIAL
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S11: AFRICA'S POTENTIAL — CountUp, StaggerContainer
+          ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">The Opportunity</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-16">
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-16">
               Africa&apos;s Potential,<br />By the Numbers
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
             {africaStats.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.12}>
-                <div className="card p-6 h-full">
-                  <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2 leading-none stat-mono">{item.value}</p>
+              <StaggerItem key={i}>
+                <Card3D className="card h-full">
+                  <p className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-white mb-2 leading-none stat-mono">
+                    {i === 0 && <CountUp to={30} suffix="%" duration={2} />}
+                    {i === 1 && <CountUp to={60} suffix="%" duration={2} />}
+                    {i === 2 && <CountUp to={1400} suffix="M+" duration={2.5} />}
+                  </p>
                   <div className="accent-line mb-5" />
-                  <p className="text-sm text-[rgba(255,255,255,0.5)] leading-relaxed">{item.desc}</p>
-                </div>
-              </FadeIn>
+                  <p className="text-[13px] text-[rgba(255,255,255,0.5)] leading-relaxed">{item.desc}</p>
+                </Card3D>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S13: TIMELINE/ROADMAP
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S12: TIMELINE/ROADMAP — Animated line, pulse dots, stagger
+          ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Roadmap</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-16">
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-16">
               2024 &mdash; 2030
             </h2>
           </FadeIn>
 
           <div className="relative">
-            <div className="absolute left-5 md:left-10 top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)]" />
-            <div className="space-y-10">
-              {roadmap.map((item, i) => (
-                <FadeIn key={item.year} delay={i * 0.08}>
+            {/* Animated vertical line */}
+            <div className="absolute left-5 md:left-10 top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)]">
+              <motion.div
+                className="w-full bg-[#8B9DAF]/30"
+                initial={{ height: '0%' }}
+                whileInView={{ height: '100%' }}
+                viewport={{ once: true }}
+                transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              />
+            </div>
+
+            <StaggerContainer className="space-y-10" staggerDelay={0.12}>
+              {roadmap.map((item) => (
+                <StaggerItem key={item.year}>
                   <div className="flex gap-6 md:gap-12 relative">
                     <div className="relative z-10 shrink-0 w-10 md:w-20 flex justify-center">
-                      <div className={`w-3.5 h-3.5 rounded-full border-2 mt-1.5 ${
-                        item.status === 'completed' ? 'bg-white border-white' :
-                        item.status === 'active' ? 'bg-white border-white shadow-md shadow-white/20' :
-                        'bg-transparent border-[rgba(255,255,255,0.15)]'
-                      }`} />
+                      {item.status === 'active' ? (
+                        <div className="relative">
+                          <PulseIndicator size={14} color="#B8965A" speed={2} />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#B8965A]" />
+                          </div>
+                        </div>
+                      ) : (
+                        <div className={`w-3.5 h-3.5 rounded-full border-2 mt-1.5 ${
+                          item.status === 'completed' ? 'bg-white border-white' :
+                          'bg-transparent border-[rgba(255,255,255,0.15)]'
+                        }`} />
+                      )}
                     </div>
                     <div className="pb-2">
                       <span className={`text-[10px] font-bold tracking-[0.2em] uppercase font-[family-name:var(--font-space-mono)] ${
-                        item.status === 'active' ? 'text-white' : 'text-[rgba(255,255,255,0.25)]'
+                        item.status === 'active' ? 'text-[#B8965A]' :
+                        item.status === 'completed' ? 'text-white/50' :
+                        'text-[rgba(255,255,255,0.25)]'
                       }`}>
                         {item.year}
                         {item.status === 'active' && ' — Current'}
@@ -953,24 +980,29 @@ export default function HomePageClient() {
                       <p className="text-sm text-[rgba(255,255,255,0.5)] leading-relaxed max-w-lg">{item.desc}</p>
                     </div>
                   </div>
-                </FadeIn>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S14: OPERATOR MODEL
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S13: OPERATOR MODEL — TextReveal, Card3D principles
+          ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <FadeIn>
               <p className="section-label mb-4">Our Model</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6">
+              <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-6">
                 Not a Service Provider.<br />Not a Consultancy.<br />
-                <span className="gradient-text">An Operator.</span>
+                <TextReveal
+                  text="An Operator."
+                  className="gradient-text inline-block"
+                />
               </h2>
               <div className="accent-line mb-6" />
               <p className="text-sm text-[rgba(255,255,255,0.5)] leading-[1.7] mb-8">
@@ -979,79 +1011,72 @@ export default function HomePageClient() {
                 advantages of 30-50% versus competitors who rely on external supply chains. We don&apos;t
                 write reports about Africa&apos;s potential — we convert it into industrial power.
               </p>
-              <Link href="/strategy" className="inline-flex items-center gap-2 text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white transition-colors duration-300 group">
-                Our Strategy <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <SmoothLink href="/strategy" className="text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white">
+                Our Strategy
+              </SmoothLink>
             </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="space-y-4">
-                {[
-                  { title: 'Vertically Integrated', desc: 'Energy + Materials + Technology + Operations — all under one roof. We control every link in the chain.' },
-                  { title: 'Sovereign by Design', desc: 'Infrastructure that Africa owns, operates, and controls. No dependency on foreign operators or technology.' },
-                  { title: 'Speed at Scale', desc: 'We move with urgency. The continent cannot afford to wait. Every project is executed with precision and pace.' },
-                  { title: 'World-Class Standards', desc: 'From engineering to governance, we accept nothing less than the best. International certifications across all verticals.' },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                    className="card p-6"
-                  >
+            <StaggerContainer className="space-y-4" staggerDelay={0.1}>
+              {operatorPrinciples.map((item, i) => (
+                <StaggerItem key={i}>
+                  <Card3D className="card">
                     <h4 className="text-sm font-bold text-white mb-1">{item.title}</h4>
-                    <p className="text-sm text-[rgba(255,255,255,0.5)] leading-relaxed">{item.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </FadeIn>
+                    <p className="text-[13px] text-[rgba(255,255,255,0.45)] leading-relaxed">{item.desc}</p>
+                  </Card3D>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S15: NEWSROOM PREVIEW
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S14: NEWSROOM PREVIEW — Card3D, Stagger entrance
+          ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="flex items-end justify-between mb-12">
               <div>
                 <p className="section-label mb-4">Latest Updates</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Newsroom</h2>
+                <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-white tracking-tight">Newsroom</h2>
               </div>
               <Link href="/newsroom" className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[rgba(255,255,255,0.25)] hover:text-white transition-colors group">
                 All Updates <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: 'Harch Intelligence Deploys 1,798 GPUs Across 5 Carbon-Optimized Hubs', date: 'March 2026', tag: 'Intelligence' },
-              { title: 'Harch Energy Reaches 2GW+ Renewable Pipeline Milestone', date: 'February 2026', tag: 'Energy' },
-              { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'January 2026', tag: 'Corporate' },
-            ].map((article, i) => (
-              <FadeIn key={i} delay={i * 0.08}>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
+            {newsArticles.map((article, i) => (
+              <StaggerItem key={i}>
                 <Link href="/newsroom" className="group block">
-                  <motion.div whileHover={{ y: -4, transition: { duration: 0.3 } }} className="card p-6 h-full">
+                  <Card3D className="card h-full">
                     <span className="inline-block px-2.5 py-1 rounded-md bg-[rgba(255,255,255,0.04)] text-[9px] font-bold tracking-[0.12em] uppercase text-[rgba(255,255,255,0.4)] mb-3">{article.tag}</span>
                     <h3 className="text-sm font-bold text-[rgba(255,255,255,0.7)] leading-snug mb-3 group-hover:text-white transition-colors">{article.title}</h3>
                     <p className="text-[11px] text-[rgba(255,255,255,0.25)] tracking-wide">{article.date}</p>
-                  </motion.div>
+                  </Card3D>
                 </Link>
-              </FadeIn>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          S16: CTA SECTION
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S15: CTA SECTION — NetworkGrid, ParallaxSection, MagneticButton
+          ═══════════════════════════════════════════════════════════ */}
+      <ParallaxSection speed={0.1} className="relative bg-[#000000] overflow-hidden">
+        <NetworkGrid nodeCount={35} maxDistance={100} opacity={0.04} />
         <div className="absolute inset-0 dot-pattern opacity-100" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-28 md:py-36 text-center">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
-              The Next Century<br />Starts Now
-            </h2>
+            <TextReveal
+              text="The Next Century Starts Now"
+              className="text-[clamp(1.75rem,5vw,3.5rem)] font-bold text-white tracking-tight mb-6 leading-tight"
+            />
             <p className="max-w-xl mx-auto text-sm text-[rgba(255,255,255,0.3)] leading-relaxed mb-12">
               Join the consortium building Africa&apos;s industrial sovereignty.
               From investment to partnership — the future is being built.
@@ -1059,16 +1084,21 @@ export default function HomePageClient() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all duration-300">
-                Get Started <ArrowRight size={14} />
-              </Link>
-              <Link href="/careers" className="inline-flex items-center gap-2.5 border border-[rgba(255,255,255,0.1)] text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.03)] transition-all duration-300">
-                View Careers
-              </Link>
+              <MagneticButton className="inline-block">
+                <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all duration-300">
+                  Get Started <ArrowRight size={14} />
+                </Link>
+              </MagneticButton>
+              <MagneticButton className="inline-block">
+                <Link href="/careers" className="inline-flex items-center gap-2.5 border border-[rgba(255,255,255,0.1)] text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.03)] transition-all duration-300">
+                  View Careers
+                </Link>
+              </MagneticButton>
             </div>
           </FadeIn>
         </div>
-      </section>
+      </ParallaxSection>
+
     </div>
   );
 }

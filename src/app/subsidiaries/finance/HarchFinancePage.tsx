@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -9,49 +8,19 @@ import {
   Clock, AlertTriangle, DollarSign, Wallet, Target, Lock,
   Banknote, CreditCard, Coins, ShieldCheck, MapPin, Users,
 } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import {
+  FadeIn, AnimatedCounter, StaggerContainer, StaggerItem,
+  Card3D, MagneticButton, SmoothLink, TextReveal, SectionDivider,
+  CountUp, ParallaxSection,
+} from '@/components/ui/motion';
 
 /* ═══════════════════════════════════════════════════
    HARCH FINANCE — HarchCorp Unified Design System
-   Site palette — Amber accent (#8B9DAF) — Shared CSS classes
+   Site palette — Slate Blue-Gray accent (#8B9DAF) — Shared CSS classes
    ═══════════════════════════════════════════════════ */
 
-/* ─── FadeIn — framer-motion, matches HarchOS ─── */
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-/* ─── AnimatedCounter — matches HarchOS ─── */
-function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 2500;
-    const startTime = Date.now();
-    const step = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [isInView, target]);
-  const format = () => {
-    if (target >= 1000) return `${prefix}${Math.round(count).toLocaleString()}${suffix}`;
-    if (target < 10) return `${prefix}${count.toFixed(1)}${suffix}`;
-    return `${prefix}${Math.round(count)}${suffix}`;
-  };
-  return <span ref={ref}>{format()}</span>;
-}
+const ACCENT = '#8B9DAF';
+const ACCENT_RGB = '139,157,175';
 
 /* ═══════════════════════════════════════════════════
    DATA — Strictly Harch Finance content
@@ -62,17 +31,17 @@ const data = {
   version: '/0.8',
   heroTitle: "Financing Africa's\nIndustrial\nTransformation",
   heroSubtitle: "Structuring capital flows for sovereign infrastructure — from green bonds to project finance across 7 verticals",
-  heroImage: '/images/sections/comp-finance-const.jpg',
+  heroImage: '/images/sections/finance-district.jpg',
 
   overview: "Africa's infrastructure financing gap exceeds $100 billion annually. Traditional development finance institutions and commercial banks struggle to structure instruments that match the continent's unique risk profiles — political volatility, currency exposure, and long project horizons deter conventional capital. Harch Finance exists to bridge this gap. As the financial engine of Harch Corp's 7-vertical industrial conglomerate, we structure capital flows that transform sovereign ambition into built reality — from green bonds funding renewable energy installations to sukuk instruments mobilizing Islamic capital for cement plants. Our cross-vertical integration enables risk management no standalone financial institution can replicate: revenue streams from energy, mining, cement, agriculture, and water operations create natural hedges that de-risk individual projects and attract capital at lower cost.",
 
   investmentPhilosophy: "Our philosophy is rooted in a single principle: sovereign capital for sovereign infrastructure. Africa does not need charity — it needs financial architecture that respects national sovereignty while attracting global capital at competitive rates. Harch Finance structures every instrument around this principle: local currency financing where possible, sovereign wealth fund partnerships that align interests, and ECA-backed structures that reduce political risk without surrendering control. The result is a financing model where capital serves infrastructure, not the other way around. Every bond we issue, every trade facility we structure, every sukuk we originate creates productive assets on African soil — generating returns for investors while building the industrial base the continent requires.",
 
   metrics: [
-    { value: 2.4, prefix: '$', suffix: 'B', label: 'Investment Pipeline' },
-    { value: 7, prefix: '', suffix: '', label: 'Verticals Covered' },
-    { value: 5, prefix: '', suffix: '', label: 'Countries Active' },
-    { value: 25000, prefix: '', suffix: '+', label: 'Jobs Target' },
+    { value: 2400, prefix: '$', suffix: 'M', label: 'Investment Pipeline', display: '$2.4B' },
+    { value: 7, prefix: '', suffix: '', label: 'Verticals Covered', display: '7' },
+    { value: 5, prefix: '', suffix: '', label: 'Countries Active', display: '5' },
+    { value: 25000, prefix: '', suffix: '+', label: 'Jobs Target', display: '25,000+' },
   ],
 
   financialInstruments: [
@@ -331,11 +300,11 @@ const data = {
 };
 
 /* ═══════════════════════════════════════════════════
-   MAIN PAGE — HarchCorp unified design, amber accent
+   MAIN PAGE — HarchCorp unified design, slate blue-gray accent
    ═══════════════════════════════════════════════════ */
 export default function HarchFinancePage() {
   return (
-    <div className="bg-[#1A1A1A] text-white">
+    <div className="bg-[#1A1A1A] text-white overflow-x-hidden">
       {/* ═══════════════════════════════════════════
           HERO — Full-screen immersive
           ═══════════════════════════════════════════ */}
@@ -355,7 +324,7 @@ export default function HarchFinancePage() {
             <p className="section-label mb-4 text-[#8B9DAF]">Harch Finance /0.8</p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h1 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-6 whitespace-pre-line">
+            <h1 className="text-[clamp(2.5rem,6vw,6rem)] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-6 whitespace-pre-line">
               {data.heroTitle}
             </h1>
           </FadeIn>
@@ -366,8 +335,8 @@ export default function HarchFinancePage() {
             <div className="mt-10 flex flex-wrap gap-8 md:gap-12">
               {data.metrics.map((m) => (
                 <div key={m.label}>
-                  <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
-                    <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
+                  <p className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-white stat-mono">
+                    {m.display}
                   </p>
                   <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1 font-[family-name:var(--font-space-mono)]">{m.label}</p>
                 </div>
@@ -377,37 +346,41 @@ export default function HarchFinancePage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           OVERVIEW
           ═══════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <FadeIn>
+            <FadeIn direction="left">
               <div>
                 <p className="section-label mb-4 text-[#8B9DAF]">Overview</p>
-                <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-                  Bridging Africa&apos;s<br />Financing Gap
-                </h2>
+                <TextReveal text="Bridging Africa's Financing Gap" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7]">{data.overview}</p>
               </div>
             </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="grid grid-cols-2 gap-4">
+            <FadeIn direction="right" delay={0.15}>
+              <StaggerContainer className="grid grid-cols-2 gap-4" staggerDelay={0.08}>
                 {data.metrics.map((m) => (
-                  <div key={m.label} className="card p-6">
-                    <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
-                      <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
-                    </p>
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">{m.label}</p>
-                  </div>
+                  <StaggerItem key={m.label}>
+                    <Card3D className="p-6">
+                      <p className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-white stat-mono">
+                        {m.display}
+                      </p>
+                      <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-2 font-[family-name:var(--font-space-mono)]">{m.label}</p>
+                    </Card3D>
+                  </StaggerItem>
                 ))}
-              </div>
+              </StaggerContainer>
             </FadeIn>
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* ═══════════════════════════════════════════
           INVESTMENT PHILOSOPHY — Photo + Text
@@ -417,7 +390,7 @@ export default function HarchFinancePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative min-h-[45vh] lg:min-h-0 overflow-hidden">
               <Image
-                src="/images/sections/comp-finance-const.jpg"
+                src="/images/sections/finance-trading.jpg"
                 alt="Harch Finance investment philosophy"
                 fill
                 className="object-cover industrial-image"
@@ -427,11 +400,9 @@ export default function HarchFinancePage() {
             </div>
             <div className="flex items-center px-8 md:px-16 py-20">
               <div className="max-w-lg">
-                <FadeIn>
+                <FadeIn direction="right">
                   <p className="section-label mb-4 text-[#8B9DAF]">Investment Philosophy</p>
-                  <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-                    Sovereign Capital for Sovereign Infrastructure
-                  </h2>
+                  <TextReveal text="Sovereign Capital for Sovereign Infrastructure" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
                   <div className="accent-line mb-6" />
                   <p className="text-[15px] text-[#999999] leading-[1.7]">{data.investmentPhilosophy}</p>
                 </FadeIn>
@@ -441,6 +412,8 @@ export default function HarchFinancePage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           FINANCIAL INSTRUMENTS — The 6 Pillars
           ═══════════════════════════════════════════ */}
@@ -448,25 +421,23 @@ export default function HarchFinancePage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4 text-[#8B9DAF]">Financial Instruments</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Six Capital Architecture Pillars
-            </h2>
+            <TextReveal text="Six Capital Architecture Pillars" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
               Each instrument serves a distinct capital need. Together, they create a comprehensive financing platform that no standalone financial institution on the continent can match — powered by cross-vertical integration and Morocco&apos;s regulatory advantages.
             </p>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-6">
-            {data.financialInstruments.map((instrument, i) => {
+          <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
+            {data.financialInstruments.map((instrument) => {
               const Icon = instrument.icon;
               return (
-                <FadeIn key={instrument.name} delay={i * 0.08}>
-                  <div className="card p-8 h-full">
+                <StaggerItem key={instrument.name}>
+                  <Card3D className="p-8 h-full" glareEnabled>
                     {/* Header */}
                     <div className="flex items-start justify-between mb-5">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
-                          <Icon size={18} className="text-[#8B9DAF]" />
+                        <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center`}>
+                          <Icon size={18} className={`text-[${ACCENT}]`} />
                         </div>
                         <div>
                           <h3 className="text-lg font-bold text-white">{instrument.name}</h3>
@@ -489,18 +460,32 @@ export default function HarchFinancePage() {
                     <div className="space-y-2 mb-6">
                       {instrument.features.map((feature, j) => (
                         <div key={j} className="flex items-start gap-2">
-                          <div className="mt-1.5 w-1 h-1 rounded-full bg-[#8B9DAF]/40 flex-shrink-0" />
+                          <div className={`mt-1.5 w-1 h-1 rounded-full bg-[rgba(${ACCENT_RGB},0.4)] flex-shrink-0`} />
                           <span className="text-[12px] text-[#999999]">{feature}</span>
                         </div>
                       ))}
                     </div>
-                  </div>
-                </FadeIn>
+                  </Card3D>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          PHOTO BREAK — Finance District
+          ═══════════════════════════════════════════ */}
+      <ParallaxSection speed={0.2} className="photo-section">
+        <Image
+          src="/images/sections/finance-corporate.jpg"
+          alt="Harch Finance corporate partnerships"
+          fill
+          className="object-cover"
+          style={{ filter: 'brightness(0.35) contrast(1.1) saturate(0.5)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-transparent to-[#1A1A1A]" />
+      </ParallaxSection>
 
       {/* ═══════════════════════════════════════════
           PIPELINE TABLE
@@ -509,7 +494,7 @@ export default function HarchFinancePage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4 text-[#8B9DAF]">Pipeline</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">$2.4B Investment Pipeline</h2>
+            <TextReveal text="$2.4B Investment Pipeline" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
               Seven live opportunities across Harch Corp&apos;s verticals — each structured with the optimal instrument for its risk profile, cash flow characteristics, and capital requirements.
@@ -537,14 +522,14 @@ export default function HarchFinancePage() {
                         <td>
                           <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-semibold tracking-wide ${
                             row.status === 'Structuring' || row.status === 'Mandated'
-                              ? 'bg-[rgba(139,157,175,0.12)] text-[#8B9DAF]'
+                              ? `bg-[rgba(${ACCENT_RGB},0.12)] text-[${ACCENT}]`
                               : row.status === 'Fundraising' || row.status === 'Pre-mandate'
                               ? 'bg-[rgba(255,255,255,0.06)] text-[#999999]'
                               : 'bg-[rgba(255,255,255,0.03)] text-[#666666]'
                           }`}>
                             <span className={`w-1.5 h-1.5 rounded-full ${
                               row.status === 'Structuring' || row.status === 'Mandated'
-                                ? 'bg-[#8B9DAF]'
+                                ? `bg-[${ACCENT}]`
                                 : row.status === 'Fundraising' || row.status === 'Pre-mandate'
                                 ? 'bg-[#999999]'
                                 : 'bg-[#666666]'
@@ -566,6 +551,8 @@ export default function HarchFinancePage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           PARTNERSHIP MODELS
           ═══════════════════════════════════════════ */}
@@ -573,34 +560,34 @@ export default function HarchFinancePage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4 text-[#8B9DAF]">Partnership Models</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Four Paths to Co-Investment
-            </h2>
+            <TextReveal text="Four Paths to Co-Investment" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
               Harch Finance structures partnerships that align incentives, share risk, and optimize returns — from sovereign wealth fund co-investments to DFI-blended facilities that catalyze commercial capital.
             </p>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-6">
-            {data.partnershipModels.map((model, i) => {
+          <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
+            {data.partnershipModels.map((model) => {
               const Icon = model.icon;
               return (
-                <FadeIn key={model.title} delay={i * 0.08}>
-                  <div className="card p-8 h-full">
+                <StaggerItem key={model.title}>
+                  <Card3D className="p-8 h-full">
                     <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
-                        <Icon size={18} className="text-[#8B9DAF]" />
+                      <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center`}>
+                        <Icon size={18} className={`text-[${ACCENT}]`} />
                       </div>
                       <h3 className="text-lg font-bold text-white">{model.title}</h3>
                     </div>
                     <p className="text-[14px] text-[#999999] leading-[1.7]">{model.desc}</p>
-                  </div>
-                </FadeIn>
+                  </Card3D>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* ═══════════════════════════════════════════
           STRATEGIC ADVANTAGES
@@ -609,39 +596,37 @@ export default function HarchFinancePage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4 text-[#8B9DAF]">Strategic Advantages</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Morocco&apos;s Financial Infrastructure
-            </h2>
+            <TextReveal text="Morocco's Financial Infrastructure" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
               Four structural advantages that no other African jurisdiction can replicate — creating a financing platform with built-in cost of capital reductions of 200-400 basis points.
             </p>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-6">
-            {data.strategicAdvantages.map((adv, i) => {
+          <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
+            {data.strategicAdvantages.map((adv) => {
               const Icon = adv.icon;
               return (
-                <FadeIn key={adv.title} delay={i * 0.08}>
-                  <div className="card p-8 h-full">
+                <StaggerItem key={adv.title}>
+                  <Card3D className="p-8 h-full">
                     <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
-                        <Icon size={18} className="text-[#8B9DAF]" />
+                      <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center`}>
+                        <Icon size={18} className={`text-[${ACCENT}]`} />
                       </div>
                       <h3 className="text-lg font-bold text-white">{adv.title}</h3>
                     </div>
                     <p className="text-[14px] text-[#999999] leading-[1.7]">{adv.desc}</p>
-                  </div>
-                </FadeIn>
+                  </Card3D>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
 
           {/* Cross-Vertical Integration Highlight */}
           <FadeIn delay={0.4}>
-            <div className="mt-6 card p-8 border-dashed" style={{ borderColor: 'rgba(139,157,175,0.25)' }}>
+            <div className="mt-6 card p-8 border-dashed" style={{ borderColor: `rgba(${ACCENT_RGB},0.25)` }}>
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center flex-shrink-0">
-                  <TrendingUp size={18} className="text-[#8B9DAF]" />
+                <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center flex-shrink-0`}>
+                  <TrendingUp size={18} className={`text-[${ACCENT}]`} />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white mb-2">Cross-Vertical Integration — Unique Risk Management</h3>
@@ -655,6 +640,8 @@ export default function HarchFinancePage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           RISK MANAGEMENT
           ═══════════════════════════════════════════ */}
@@ -662,39 +649,39 @@ export default function HarchFinancePage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4 text-[#8B9DAF]">Risk Management</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Four-Layer Risk Architecture
-            </h2>
+            <TextReveal text="Four-Layer Risk Architecture" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
               Every Harch Finance instrument is protected by four layers of risk management — from political risk insurance to cross-vertical diversification. The result: capital protection that matches the best global standards while operating in markets others consider too risky.
             </p>
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-6">
-            {data.riskManagement.map((rm, i) => {
+          <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
+            {data.riskManagement.map((rm) => {
               const Icon = rm.icon;
               return (
-                <FadeIn key={rm.title} delay={i * 0.08}>
-                  <div className="card p-8 h-full">
+                <StaggerItem key={rm.title}>
+                  <Card3D className="p-8 h-full">
                     <div className="flex items-center justify-between mb-5">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
-                          <Icon size={18} className="text-[#8B9DAF]" />
+                        <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center`}>
+                          <Icon size={18} className={`text-[${ACCENT}]`} />
                         </div>
                         <h3 className="text-lg font-bold text-white">{rm.title}</h3>
                       </div>
-                      <span className="text-[10px] font-bold tracking-[0.1em] uppercase px-2.5 py-1 rounded bg-[rgba(139,157,175,0.08)] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
+                      <span className={`text-[10px] font-bold tracking-[0.1em] uppercase px-2.5 py-1 rounded bg-[rgba(${ACCENT_RGB},0.08)] text-[${ACCENT}] font-[family-name:var(--font-space-mono)]`}>
                         {rm.riskLevel}
                       </span>
                     </div>
                     <p className="text-[14px] text-[#999999] leading-[1.7]">{rm.desc}</p>
-                  </div>
-                </FadeIn>
+                  </Card3D>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* ═══════════════════════════════════════════
           ROADMAP
@@ -703,21 +690,19 @@ export default function HarchFinancePage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4 text-[#8B9DAF]">Roadmap</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              From Foundation to Platform
-            </h2>
+            <TextReveal text="From Foundation to Platform" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
               Four phases, six years — from first green bond origination to becoming Africa&apos;s reference infrastructure financing institution.
             </p>
           </FadeIn>
-          <div className="space-y-6">
+          <StaggerContainer className="space-y-6" staggerDelay={0.08}>
             {data.roadmap.map((phase, i) => (
-              <FadeIn key={phase.phase} delay={i * 0.08}>
+              <StaggerItem key={phase.phase}>
                 <div className="card p-8">
                   <div className="flex flex-col md:flex-row md:items-start justify-between mb-5 gap-4">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center flex-shrink-0">
+                      <div className={`w-10 h-10 rounded-lg bg-[rgba(${ACCENT_RGB},0.08)] flex items-center justify-center flex-shrink-0`}>
                         <span className="text-sm font-bold text-[#8B9DAF] stat-mono">{i + 1}</span>
                       </div>
                       <div>
@@ -733,17 +718,19 @@ export default function HarchFinancePage() {
                   <div className="space-y-2">
                     {phase.actions.map((action, j) => (
                       <div key={j} className="flex items-start gap-2">
-                        <div className="mt-1.5 w-1 h-1 rounded-full bg-[#8B9DAF]/40 flex-shrink-0" />
+                        <div className={`mt-1.5 w-1 h-1 rounded-full bg-[rgba(${ACCENT_RGB},0.4)] flex-shrink-0`} />
                         <span className="text-[12px] text-[#999999]">{action}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-              </FadeIn>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* ═══════════════════════════════════════════
           RISK REGISTER
@@ -752,9 +739,7 @@ export default function HarchFinancePage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4 text-[#8B9DAF]">Risk Register</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Identified Risks & Mitigations
-            </h2>
+            <TextReveal text="Identified Risks & Mitigations" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
               Prudent risk management requires transparent identification and mitigation. Every risk in Harch Finance&apos;s register has a specific, actionable mitigation strategy.
@@ -767,7 +752,7 @@ export default function HarchFinancePage() {
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                     <div className="md:col-span-4">
                       <div className="flex items-center gap-2 mb-2">
-                        <AlertTriangle size={14} className="text-[#8B9DAF]" />
+                        <AlertTriangle size={14} className={`text-[${ACCENT}]`} />
                         <h3 className="font-bold text-white text-[15px]">{r.risk}</h3>
                       </div>
                     </div>
@@ -776,20 +761,20 @@ export default function HarchFinancePage() {
                         <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Probability</p>
                         <span className={`text-[11px] font-semibold ${
                           r.probability === 'High' ? 'text-red-400' :
-                          r.probability === 'Medium' ? 'text-[#8B9DAF]' : 'text-green-400'
+                          r.probability === 'Medium' ? `text-[${ACCENT}]` : 'text-green-400'
                         }`}>{r.probability}</span>
                       </div>
                       <div>
                         <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Impact</p>
                         <span className={`text-[11px] font-semibold ${
                           r.impact === 'Critical' ? 'text-red-400' :
-                          r.impact === 'High' ? 'text-[#8B9DAF]' : 'text-green-400'
+                          r.impact === 'High' ? `text-[${ACCENT}]` : 'text-green-400'
                         }`}>{r.impact}</span>
                       </div>
                     </div>
                     <div className="md:col-span-6">
                       <p className="text-[13px] text-[#999999] leading-[1.6]">
-                        <span className="text-[10px] text-[#8B9DAF] uppercase tracking-wider font-bold">Mitigation:</span>{' '}
+                        <span className={`text-[10px] text-[${ACCENT}] uppercase tracking-wider font-bold`}>Mitigation:</span>{' '}
                         {r.mitigation}
                       </p>
                     </div>
@@ -801,6 +786,8 @@ export default function HarchFinancePage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* ═══════════════════════════════════════════
           CTA
           ═══════════════════════════════════════════ */}
@@ -808,28 +795,30 @@ export default function HarchFinancePage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
             <p className="section-label mb-4 text-[#8B9DAF]">Partner With Us</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Structure Africa&apos;s Next<br />Infrastructure Investment
-            </h2>
+            <TextReveal text="Structure Africa's Next Infrastructure Investment" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mx-auto mb-6" />
             <p className="max-w-xl mx-auto text-[15px] text-[#999999] leading-[1.7] mb-10">
               Whether you represent a sovereign wealth fund, development finance institution, ECA, or institutional investor — Harch Finance offers structured access to Africa&apos;s most compelling infrastructure investment pipeline.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 border border-[rgba(139,157,175,0.4)] bg-[rgba(139,157,175,0.06)] text-[#8B9DAF] text-[11px] tracking-[0.1em] uppercase px-6 py-3 rounded-md font-semibold hover:bg-[rgba(139,157,175,0.12)] hover:border-[rgba(139,157,175,0.6)] transition-colors font-[family-name:var(--font-space-mono)]"
-              >
-                Partner With Us
-                <ArrowRight size={12} />
-              </Link>
-              <Link
-                href="/investors"
-                className="inline-flex items-center gap-2 border border-[rgba(255,255,255,0.1)] bg-transparent text-[rgba(255,255,255,0.5)] text-[11px] tracking-[0.1em] uppercase px-6 py-3 rounded-md font-semibold hover:border-[rgba(255,255,255,0.2)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)]"
-              >
-                Investor Relations
-                <ArrowRight size={12} />
-              </Link>
+              <MagneticButton>
+                <Link
+                  href="/contact"
+                  className={`inline-flex items-center gap-2 border border-[rgba(${ACCENT_RGB},0.4)] bg-[rgba(${ACCENT_RGB},0.06)] text-[${ACCENT}] text-[11px] tracking-[0.1em] uppercase px-6 py-3 rounded-md font-semibold hover:bg-[rgba(${ACCENT_RGB},0.12)] hover:border-[rgba(${ACCENT_RGB},0.6)] transition-colors font-[family-name:var(--font-space-mono)] min-h-[44px]`}
+                >
+                  Partner With Us
+                  <ArrowRight size={12} />
+                </Link>
+              </MagneticButton>
+              <MagneticButton>
+                <Link
+                  href="/investors"
+                  className="inline-flex items-center gap-2 border border-[rgba(255,255,255,0.1)] bg-transparent text-[rgba(255,255,255,0.5)] text-[11px] tracking-[0.1em] uppercase px-6 py-3 rounded-md font-semibold hover:border-[rgba(255,255,255,0.2)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)] min-h-[44px]"
+                >
+                  Investor Relations
+                  <ArrowRight size={12} />
+                </Link>
+              </MagneticButton>
             </div>
           </FadeIn>
         </div>

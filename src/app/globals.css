@@ -44,12 +44,13 @@
 }
 
 :root {
-  --radius: 0.5rem;
-  --background: #0D0D0D;
+  /* ── Unified Color Palette ── */
+  --radius: 0.75rem; /* 12px base — consistent card radius */
+  --background: #0A0A0A;
   --foreground: #FFFFFF;
-  --card: #141414;
+  --card: #111111;
   --card-foreground: #FFFFFF;
-  --popover: #141414;
+  --popover: #111111;
   --popover-foreground: #FFFFFF;
   --primary: #FFFFFF;
   --primary-foreground: #000000;
@@ -57,25 +58,40 @@
   --secondary-foreground: #FFFFFF;
   --muted: #1A1A1A;
   --muted-foreground: #999999;
-  --accent: #FFFFFF;
+  --accent: #8B9DAF;
   --accent-foreground: #000000;
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: #A0524B;
   --border: rgba(255,255,255,0.06);
   --input: rgba(255,255,255,0.06);
-  --ring: #FFFFFF;
-  --chart-1: #FFFFFF;
+  --ring: #8B9DAF;
+  --chart-1: #8B9DAF;
   --chart-2: #999999;
   --chart-3: #666666;
-  --chart-4: #333333;
-  --chart-5: #141414;
-  --sidebar: #111111;
+  --chart-4: #4A5D6E;
+  --chart-5: #111111;
+  --sidebar: #0A0A0A;
   --sidebar-foreground: #FFFFFF;
   --sidebar-primary: #FFFFFF;
   --sidebar-primary-foreground: #000000;
   --sidebar-accent: rgba(255,255,255,0.04);
   --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: rgba(255,255,255,0.06);
-  --sidebar-ring: #FFFFFF;
+  --sidebar-ring: #8B9DAF;
+
+  /* ── Brand Color Tokens ── */
+  --color-accent-slate: #8B9DAF;
+  --color-accent-slate-dark: #4A5D6E;
+  --color-success: #4A7B5F;
+  --color-warning: #B8965A;
+  --color-error: #A0524B;
+
+  /* ── Unified Animation Variables ── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.8s;
 }
 
 @layer base {
@@ -87,6 +103,7 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   ::selection {
     background: #8B9DAF;
@@ -107,10 +124,67 @@
     z-index: 9999;
     font-size: 14px;
     font-weight: 600;
-    transition: top 0.2s;
+    transition: top var(--duration-fast) var(--ease-out-quart);
   }
   .skip-link:focus {
     top: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE SAFETY
+   ═══════════════════════════════════════════ */
+@layer base {
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  img, video, svg {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Only apply object-fit: cover to content images, not logos/icons */
+  img[data-cover],
+  img[style*="object-fit: cover"] {
+    object-fit: cover;
+  }
+  /* Hide scrollbar utility for horizontal scroll containers */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   TOUCH TARGETS — min 44px for interactive
+   ═══════════════════════════════════════════ */
+@media (pointer: coarse) {
+  button,
+  [role="button"],
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  /* Disable hover-dependent effects on touch devices */
+  .card:hover {
+    border-color: var(--border);
+    background: var(--card);
+  }
+  .vertical-row:hover {
+    background: transparent;
+  }
+  .vertical-row:hover .vertical-arrow {
+    transform: none;
+    opacity: inherit;
+  }
+  .nav-link::after {
+    display: none;
   }
 }
 
@@ -132,8 +206,10 @@
 }
 
 /* ═══════════════════════════════════════════
-   SECTION LABEL — Unified
+   UNIFIED TYPOGRAPHY
    ═══════════════════════════════════════════ */
+
+/* Section labels — always 10px, 700, 0.2em tracking, uppercase, Space Mono */
 .section-label {
   font-size: 10px;
   font-weight: 700;
@@ -143,12 +219,79 @@
   font-family: var(--font-space-mono), monospace;
 }
 
+/* Section titles — consistent sizing scale */
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #999999;
+}
+
+/* Body text — always 14px, same line-height */
+.body-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Stat numbers — always stat-mono class */
+.stat-mono {
+  font-family: var(--font-space-mono), monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Font mono tag */
+.font-mono-tag {
+  font-family: var(--font-space-mono), monospace;
+}
+
+/* Version tag */
+.version-tag {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.2);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-space-mono), monospace;
+}
+
+/* ═══════════════════════════════════════════
+   UNIFIED CARD STYLE — all cards use the same
+   ═══════════════════════════════════════════ */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem; /* p-6 */
+  transition: all var(--duration-normal) var(--ease-out-quart);
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .card {
+    padding: 2rem; /* p-8 on desktop */
+  }
+}
+@media (hover: hover) {
+  .card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.02);
+  }
+}
+
 /* ═══════════════════════════════════════════
    LINK STYLES
    ═══════════════════════════════════════════ */
 .nav-link {
   position: relative;
-  transition: color 0.25s ease;
+  transition: color var(--duration-normal) var(--ease-out-quart);
 }
 .nav-link:hover {
   color: #FFFFFF;
@@ -161,7 +304,7 @@
   width: 0;
   height: 1px;
   background: #FFFFFF;
-  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: width 0.35s var(--ease-out-quart);
 }
 .nav-link:hover::after {
   width: 100%;
@@ -183,7 +326,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-in-up {
-  animation: fadeInUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: fadeInUp 0.7s var(--ease-out-expo) forwards;
 }
 
 @keyframes bounce-slow {
@@ -200,8 +343,8 @@
 }
 .accent-line {
   height: 2px;
-  background: #FFFFFF;
-  animation: expandLine 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  background: #8B9DAF;
+  animation: expandLine 0.8s var(--ease-out-quart) forwards;
 }
 
 @keyframes pulse-glow {
@@ -221,7 +364,7 @@
    VERTICAL ROW HOVER
    ═══════════════════════════════════════════ */
 .vertical-row {
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all var(--duration-normal) var(--ease-out-quart);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 .vertical-row:hover {
@@ -236,7 +379,7 @@
    GRADIENT TEXT
    ═══════════════════════════════════════════ */
 .gradient-text {
-  background: linear-gradient(135deg, #FFFFFF 0%, #999999 50%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #8B9DAF 50%, #FFFFFF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -246,44 +389,11 @@
    MENU OVERLAY
    ═══════════════════════════════════════════ */
 .menu-overlay-enter {
-  animation: menuOverlayIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: menuOverlayIn var(--duration-normal) var(--ease-out-quart) forwards;
 }
 @keyframes menuOverlayIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-/* ═══════════════════════════════════════════
-   CARD — Unified
-   ═══════════════════════════════════════════ */
-.card {
-  background: #141414;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.card:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-/* ═══════════════════════════════════════════
-   VERSION TAG
-   ═══════════════════════════════════════════ */
-.version-tag {
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.2);
-  font-variant-numeric: tabular-nums;
-  font-family: var(--font-space-mono), monospace;
-}
-
-/* ═══════════════════════════════════════════
-   DOT PATTERN BACKGROUND
-   ═══════════════════════════════════════════ */
-.dot-pattern {
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
-  background-size: 40px 40px;
 }
 
 /* ═══════════════════════════════════════════
@@ -298,7 +408,7 @@
 .hero-carousel-slide {
   position: absolute;
   inset: 0;
-  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 1s var(--ease-out-quart);
 }
 .hero-carousel-slide.active {
   opacity: 1;
@@ -336,10 +446,10 @@
   text-transform: uppercase;
   color: rgba(255,255,255,0.25);
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--border);
 }
 .data-table tbody tr {
-  transition: background 0.2s ease;
+  transition: background var(--duration-fast) var(--ease-out-quart);
   border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 .data-table tbody tr:hover {
@@ -379,7 +489,7 @@
   letter-spacing: 0.05em;
   padding: 8px 16px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform var(--duration-fast) var(--ease-out-quart);
 }
 .announcement-bar:hover {
   text-decoration: underline;
@@ -416,18 +526,11 @@
 }
 
 /* ═══════════════════════════════════════════
-   FONT MONO TAG
+   DOT PATTERN BACKGROUND
    ═══════════════════════════════════════════ */
-.font-mono-tag {
-  font-family: var(--font-space-mono), monospace;
-}
-
-/* ═══════════════════════════════════════════
-   STAT MONO
-   ═══════════════════════════════════════════ */
-.stat-mono {
-  font-family: var(--font-space-mono), monospace;
-  font-variant-numeric: tabular-nums;
+.dot-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 40px 40px;
 }
 
 /* ═══════════════════════════════════════════
@@ -441,26 +544,44 @@
 }
 
 /* ═══════════════════════════════════════════
-   HARCHAGRI — Precision Agriculture Styles
+   GENERIC ACCENT GLOW — accepts CSS variable color
+   Usage: --glow-color: #B8965A; then .accent-glow
    ═══════════════════════════════════════════ */
-.glow-green {
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3), 0 0 60px rgba(34, 197, 94, 0.1);
+.accent-glow {
+  box-shadow:
+    0 0 20px color-mix(in srgb, var(--glow-color, #8B9DAF) 30%, transparent),
+    0 0 60px color-mix(in srgb, var(--glow-color, #8B9DAF) 10%, transparent);
 }
-.glow-gold {
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3), 0 0 60px rgba(245, 158, 11, 0.1);
+
+/* ═══════════════════════════════════════════
+   WARNING/ACCENT UTILITY — muted gold #B8965A
+   ═══════════════════════════════════════════ */
+.text-warning {
+  color: #B8965A;
 }
-.grid-bg-agri {
-  background-image:
-    linear-gradient(rgba(34, 197, 94, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 197, 94, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+.bg-warning {
+  background-color: #B8965A;
 }
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+.border-warning {
+  border-color: #B8965A;
 }
-.shimmer {
-  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.08), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 3s ease-in-out infinite;
+
+/* ═══════════════════════════════════════════
+   SUCCESS UTILITY — sage green #4A7B5F
+   ═══════════════════════════════════════════ */
+.text-success {
+  color: #4A7B5F;
+}
+.bg-success {
+  background-color: #4A7B5F;
+}
+
+/* ═══════════════════════════════════════════
+   ERROR UTILITY — muted red #A0524B
+   ═══════════════════════════════════════════ */
+.text-error {
+  color: #A0524B;
+}
+.bg-error {
+  background-color: #A0524B;
 }

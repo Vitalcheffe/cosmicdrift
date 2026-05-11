@@ -213,7 +213,7 @@ export default function HarchOSPageClient() {
       {/* ═══════════════════════════════════════════
           SECTION 1: HERO — Full-screen immersive
           ═══════════════════════════════════════════ */}
-      <section className="relative h-screen min-h-[700px] overflow-hidden">
+      <section className="relative h-[100dvh] min-h-[700px] overflow-hidden">
         <Image
           src="/images/intelligence/harchos-hero.png"
           alt="HarchOS Data Center Infrastructure"

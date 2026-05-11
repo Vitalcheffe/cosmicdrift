@@ -1,6 +1,95 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+/* ═══════════════════════════════════════════════════════════════
+   COORDINATE PROJECTION
+   ViewBox: 0 0 800 900
+   Longitude -20 → 60  maps to x: 0 → 800
+   Latitude  40 → -40 maps to y: 0 → 900  (inverted so north is up)
+   This gives a simple equirectangular projection centred on Africa.
+   ═══════════════════════════════════════════════════════════════ */
+
+const VW = 800;
+const VH = 900;
+
+function geo(lat: number, lon: number): [number, number] {
+  const x = ((lon + 20) / 80) * VW;
+  const y = ((40 - lat) / 80) * VH;
+  return [+(x.toFixed(1)), +(y.toFixed(1))];
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AFRICA OUTLINE — [lon, lat] pairs, clockwise from Gibraltar
+   Simplified but recognisable: key features preserved —
+   West-African bulge, Horn of Africa, Cape, Gulf of Guinea.
+   ═══════════════════════════════════════════════════════════════ */
+
+const AFRICA: [number, number][] = [
+  // ── NW coast (Morocco → Western Sahara) ──
+  [-5.8, 35.8], [-6.5, 34], [-8, 33], [-10, 31.5],
+  [-13, 28], [-16, 24], [-17, 21], [-17.1, 18],
+  [-17, 15], [-16.7, 13.5],
+  // ── Upper Guinea (Senegal → Sierra Leone) ──
+  [-16.5, 12], [-15, 10.5], [-14, 9], [-12.5, 7.5],
+  [-10.5, 6], [-8, 5], [-5, 4.5],
+  // ── Lower Guinea / Gulf of Guinea (Ghana → Cameroon) ──
+  [-2, 5], [0, 5.5], [2.5, 6], [4, 4.5],
+  [7, 4.5], [9.5, 3.5], [10, 2], [9.5, 0.5],
+  // ── SW coast (Gabon → Namibia) ──
+  [10, -2], [12, -5], [12, -8],
+  [12.5, -12], [13, -17], [12, -22],
+  // ── South Africa ──
+  [15, -28], [17, -32], [18, -34],
+  [18.5, -34.8], [20, -35], [22, -34.5],
+  [25, -33], [27, -32], [28, -31],
+  // ── SE coast (Mozambique → Kenya) ──
+  [30, -29], [32, -27], [35, -23],
+  [38, -17], [40, -13], [40, -8],
+  [42, -4], [44, -1], [45.5, 1],
+  // ── Horn of Africa (Somalia) ──
+  [48, 3], [50, 5], [51.5, 8],
+  [51.5, 11], [50, 12], [48, 11],
+  [46, 10.5], [44, 10], [43, 11.5],
+  // ── Red Sea coast (Djibouti → Egypt) ──
+  [43, 14], [42, 15.5], [40, 18],
+  [37, 20], [35, 22],
+  [33, 24], [32.5, 27], [32, 30],
+  [34, 31.5], [30, 31],
+  // ── Mediterranean coast (Libya → Morocco) ──
+  [25, 32], [20, 32.5], [15, 33],
+  [12, 34], [10, 34.5], [8, 37],
+  [7, 37.5], [2, 36.5], [-2, 35.5],
+  [-5, 35],
+];
+
+const MADAGASCAR: [number, number][] = [
+  [44, -12.5], [47, -14], [49, -16], [50, -20],
+  [49, -24], [47, -25.5], [44, -24],
+  [43, -20], [43.5, -16],
+];
+
+/* Iberian Peninsula hint — just the southern tip for context near Gibraltar */
+const IBERIA: [number, number][] = [
+  [-9.5, 37], [-7, 37.5], [-6.5, 36.8], [-6, 36.2], [-5.6, 36],
+  [-7, 37], [-8.5, 37.5], [-9.5, 38],
+];
+
+function toPath(coords: [number, number][]): string {
+  return (
+    coords
+      .map((c, i) => {
+        const [x, y] = geo(c[1], c[0]); // c[0]=lon, c[1]=lat
+        return `${i === 0 ? 'M' : 'L'}${x},${y}`;
+      })
+      .join(' ') + ' Z'
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LOCATIONS — real lat/lon, projected at render time
+   ═══════════════════════════════════════════════════════════════ */
 
 interface MapLocation {
   id: string;
@@ -9,56 +98,106 @@ interface MapLocation {
   version: string;
   stat: string;
   desc: string;
-  x: number; // position in SVG viewBox (0-1000)
-  y: number; // position in SVG viewBox (0-1100)
+  lat: number;
+  lon: number;
   status: 'active' | 'engineering' | 'permitted' | 'design';
+  /** SVG label offsets so nearby names don't overlap */
+  labelDx: number;
+  labelDy: number;
 }
 
 const locations: MapLocation[] = [
-  { id: 'casa', name: 'Casablanca', vertical: 'HQ', version: '/0.0', stat: 'Global Operations', desc: 'Corporate HQ — Strategy & Capital', x: 295, y: 180, status: 'active' },
-  { id: 'dakhla', name: 'Dakhla', vertical: 'Intelligence', version: '/0.1', stat: '1,798 GPU Carbon-Aware Data Centers', desc: 'Hyperscale GPU Cluster — Sovereign Compute', x: 200, y: 340, status: 'engineering' },
-  { id: 'gambia', name: 'Banjul', vertical: 'Cement', version: '/0.2', stat: '500kT/yr Production', desc: 'Vertically Integrated Cement Plant', x: 280, y: 370, status: 'permitted' },
-  { id: 'sahel', name: 'Sahel', vertical: 'Energy', version: '/0.3', stat: '2GW+ Renewable Pipeline', desc: 'Solar, Wind & Green Hydrogen', x: 370, y: 380, status: 'active' },
-  { id: 'noudhibou', name: 'Nouadhibou', vertical: 'Mining', version: '/0.5', stat: '3 Strategic Minerals', desc: 'Phosphate, Cobalt & Rare Earths', x: 210, y: 300, status: 'engineering' },
-  { id: 'dakar', name: 'Dakar', vertical: 'Agri', version: '/0.6', stat: '$35B Market Access', desc: 'Precision IoT Farming Hub', x: 260, y: 350, status: 'design' },
-  { id: 'bamako', name: 'Bamako', vertical: 'Water', version: '/0.7', stat: '200M m³/yr', desc: 'AI-Optimized Desalination Network', x: 340, y: 410, status: 'design' },
+  {
+    id: 'casa', name: 'Casablanca', vertical: 'HQ', version: '/0.0',
+    stat: 'Global Operations', desc: 'Corporate HQ — Strategy & Capital',
+    lat: 33.57, lon: -7.59, status: 'active',
+    labelDx: 16, labelDy: -4,
+  },
+  {
+    id: 'dakhla', name: 'Dakhla', vertical: 'Intelligence', version: '/0.1',
+    stat: '1,798 GPU Carbon-Aware Data Centers', desc: 'Hyperscale GPU Cluster — Sovereign Compute',
+    lat: 23.68, lon: -15.96, status: 'engineering',
+    labelDx: 16, labelDy: 5,
+  },
+  {
+    id: 'banjul', name: 'Banjul', vertical: 'Cement', version: '/0.2',
+    stat: '500kT/yr Production', desc: 'Vertically Integrated Cement Plant',
+    lat: 13.45, lon: -16.57, status: 'permitted',
+    labelDx: 16, labelDy: 12,
+  },
+  {
+    id: 'nouakchott', name: 'Nouakchott', vertical: 'Mining', version: '/0.5',
+    stat: '3 Strategic Minerals', desc: 'Phosphate, Cobalt & Rare Earths',
+    lat: 18.07, lon: -15.98, status: 'engineering',
+    labelDx: 16, labelDy: -4,
+  },
+  {
+    id: 'dakar', name: 'Dakar', vertical: 'Agri', version: '/0.6',
+    stat: '$35B Market Access', desc: 'Precision IoT Farming Hub',
+    lat: 14.69, lon: -17.44, status: 'design',
+    labelDx: 16, labelDy: -6,
+  },
+  {
+    id: 'bamako', name: 'Bamako', vertical: 'Water', version: '/0.7',
+    stat: '200M m³/yr', desc: 'AI-Optimized Desalination Network',
+    lat: 12.64, lon: -8.00, status: 'design',
+    labelDx: 16, labelDy: 5,
+  },
+  {
+    id: 'sahel', name: 'Sahel', vertical: 'Energy', version: '/0.3',
+    stat: '2GW+ Renewable Pipeline', desc: 'Solar, Wind & Green Hydrogen',
+    lat: 15.0, lon: 0, status: 'active',
+    labelDx: 16, labelDy: 5,
+  },
 ];
 
 const connections = [
   { from: 'casa', to: 'dakhla', label: 'Fiber' },
-  { from: 'casa', to: 'gambia', label: 'Logistics' },
+  { from: 'casa', to: 'banjul', label: 'Logistics' },
   { from: 'casa', to: 'sahel', label: 'Power Grid' },
-  { from: 'dakhla', to: 'noudhibou', label: 'Data Link' },
-  { from: 'gambia', to: 'dakar', label: 'Supply Chain' },
+  { from: 'dakhla', to: 'nouakchott', label: 'Data Link' },
+  { from: 'banjul', to: 'dakar', label: 'Supply Chain' },
   { from: 'sahel', to: 'bamako', label: 'Water-Energy' },
 ];
 
-function getLocationById(id: string) {
-  return locations.find(l => l.id === id)!;
+function getLoc(id: string) {
+  return locations.find((l) => l.id === id)!;
 }
 
-// Simplified but recognizable Africa outline path
-const africaPath = `M480,10 L510,15 L530,30 L550,25 L570,35 L590,30 L600,45 L610,40 L625,50 L635,65 L645,60 L660,70 L670,85 L680,80 L690,95 L695,110 L700,105 L710,120 L715,140 L720,160 L715,180 L720,200 L725,220 L720,240 L710,260 L700,275 L690,290 L695,310 L700,330 L695,350 L685,370 L675,385 L665,400 L660,420 L655,440 L650,460 L640,475 L635,495 L640,515 L650,535 L660,555 L670,570 L680,585 L690,600 L700,620 L705,640 L700,660 L690,680 L680,695 L670,710 L660,725 L655,745 L650,765 L645,785 L640,800 L635,820 L630,840 L625,860 L620,880 L610,895 L600,910 L590,920 L575,930 L560,940 L545,950 L530,960 L520,970 L510,985 L500,1000 L490,1015 L480,1025 L470,1040 L460,1055 L450,1070 L445,1080 L440,1090 L435,1100 L425,1095 L420,1085 L415,1070 L420,1055 L425,1040 L430,1025 L435,1010 L440,995 L445,980 L440,965 L430,950 L420,940 L405,935 L390,930 L375,925 L360,920 L345,910 L330,900 L315,890 L300,880 L285,870 L275,855 L265,840 L255,825 L245,810 L240,795 L235,780 L230,765 L225,750 L220,735 L215,720 L210,705 L210,690 L215,675 L220,660 L225,645 L220,630 L215,615 L210,600 L205,585 L200,570 L195,555 L190,540 L185,525 L180,510 L175,495 L170,480 L168,465 L170,450 L175,435 L180,420 L185,405 L180,390 L175,375 L170,360 L168,345 L170,330 L175,315 L180,300 L175,285 L170,270 L168,255 L170,240 L175,225 L180,210 L185,195 L190,180 L195,165 L200,150 L210,135 L220,120 L235,110 L250,100 L265,90 L280,80 L295,70 L310,60 L325,55 L340,50 L355,45 L370,40 L385,38 L400,35 L415,30 L430,25 L445,20 L460,15 L475,12 Z`;
+const STATUS_COLORS: Record<string, string> = {
+  active: '#4A7B5F',
+  engineering: '#8B9DAF',
+  permitted: '#999999',
+  design: '#666666',
+};
 
-// Additional geographic details - Madagascar
-const madagascarPath = `M700,750 L710,745 L720,755 L725,770 L720,790 L715,810 L710,830 L700,845 L690,840 L685,825 L690,810 L695,790 L695,770 L698,755 Z`;
+/* ═══════════════════════════════════════════════════════════════
+   COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
 
 export function AfricaMap() {
   const [hovered, setHovered] = useState<string | null>(null);
 
-  const getStatusColor = (status: string) => {
-    switch(status) {
-      case 'active': return '#4A7B5F';
-      case 'engineering': return '#8B9DAF';
-      case 'permitted': return '#999999';
-      default: return '#666666';
-    }
-  };
+  /* Pre-compute paths and positions so we don't recalc on every render */
+  const africaPath = useMemo(() => toPath(AFRICA), []);
+  const madagascarPath = useMemo(() => toPath(MADAGASCAR), []);
+  const iberiaPath = useMemo(() => toPath(IBERIA), []);
+
+  const locPos = useMemo(() => {
+    const m = new Map<string, [number, number]>();
+    locations.forEach((l) => m.set(l.id, geo(l.lat, l.lon)));
+    return m;
+  }, []);
 
   return (
     <div className="relative w-full max-w-[900px] mx-auto">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-4 px-1">
+      {/* ── Header ── */}
+      <motion.div
+        className="flex items-center justify-between mb-4 px-1"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="flex items-center gap-3">
           <div className="flex gap-1">
             <div className="w-2 h-2 rounded-full bg-[rgba(139,157,175,0.3)]" />
@@ -70,140 +209,190 @@ export function AfricaMap() {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#4A7B5F]" style={{ boxShadow: '0 0 4px rgba(74,123,95,0.6)' }} />
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4A7B5F] opacity-60" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4A7B5F]" style={{ boxShadow: '0 0 6px rgba(74,123,95,0.7)' }} />
+          </span>
           <span className="text-[9px] text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">
-            LIVE — {locations.filter(l => l.status === 'active').length} ACTIVE
+            LIVE — {locations.filter((l) => l.status === 'active').length} ACTIVE
           </span>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Map container */}
-      <div className="relative rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#0D0D0D] overflow-hidden">
-        <div className="relative w-full" style={{ aspectRatio: '1000 / 1100' }}>
+      {/* ── Map Container ── */}
+      <motion.div
+        className="relative rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#0D0D0D] overflow-hidden"
+        initial={{ opacity: 0, scale: 0.97 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
+        <div className="relative w-full" style={{ aspectRatio: '800 / 900' }}>
           <svg
             className="absolute inset-0 w-full h-full"
-            viewBox="0 0 1000 1100"
+            viewBox={`0 0 ${VW} ${VH}`}
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              <filter id="map-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <filter id="dot-glow" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur stdDeviation="3" result="blur" />
                 <feComposite in="SourceGraphic" in2="blur" operator="over" />
               </filter>
-              <filter id="dot-glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-              </filter>
-              <radialGradient id="africaFill" cx="50%" cy="50%" r="60%">
-                <stop offset="0%" stopColor="rgba(139,157,175,0.06)" />
+              <radialGradient id="africaFill" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stopColor="rgba(139,157,175,0.08)" />
                 <stop offset="100%" stopColor="rgba(139,157,175,0.02)" />
               </radialGradient>
-              <linearGradient id="connectionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#8B9DAF" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="#8B9DAF" stopOpacity="0.1" />
-                <stop offset="100%" stopColor="#8B9DAF" stopOpacity="0.3" />
-              </linearGradient>
+              <radialGradient id="opsGlow" cx="50%" cy="40%" r="50%">
+                <stop offset="0%" stopColor="rgba(74,123,95,0.07)" />
+                <stop offset="100%" stopColor="rgba(74,123,95,0)" />
+              </radialGradient>
             </defs>
 
-            {/* Subtle grid lines */}
-            {Array.from({ length: 22 }, (_, i) => (
-              <line key={`gh-${i}`} x1="0" y1={i * 50} x2="1000" y2={i * 50} stroke="rgba(255,255,255,0.015)" strokeWidth="0.5" />
+            {/* ── Subtle grid lines ── */}
+            {Array.from({ length: 19 }, (_, i) => (
+              <line
+                key={`gh-${i}`}
+                x1="0" y1={i * 50} x2={VW} y2={i * 50}
+                stroke="rgba(255,255,255,0.018)" strokeWidth="0.5"
+              />
             ))}
-            {Array.from({ length: 20 }, (_, i) => (
-              <line key={`gv-${i}`} x1={i * 50} y1="0" x2={i * 50} y2="1100" stroke="rgba(255,255,255,0.015)" strokeWidth="0.5" />
+            {Array.from({ length: 17 }, (_, i) => (
+              <line
+                key={`gv-${i}`}
+                x1={i * 50} y1="0" x2={i * 50} y2={VH}
+                stroke="rgba(255,255,255,0.018)" strokeWidth="0.5"
+              />
             ))}
 
-            {/* Africa continent outline */}
+            {/* ── Operations-area glow (NW Africa) ── */}
+            <rect x="0" y="50" width="280" height="300" fill="url(#opsGlow)" />
+
+            {/* ── Iberian Peninsula hint ── */}
             <path
+              d={iberiaPath}
+              fill="rgba(139,157,175,0.03)"
+              stroke="rgba(139,157,175,0.06)"
+              strokeWidth="0.8"
+              strokeLinejoin="round"
+            />
+
+            {/* ── Africa continent outline ── */}
+            <motion.path
               d={africaPath}
               fill="url(#africaFill)"
-              stroke="rgba(139,157,175,0.15)"
+              stroke="rgba(139,157,175,0.18)"
               strokeWidth="1.5"
               strokeLinejoin="round"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.8, ease: 'easeOut' }}
             />
-            {/* Madagascar */}
-            <path
+
+            {/* ── Madagascar ── */}
+            <motion.path
               d={madagascarPath}
               fill="url(#africaFill)"
-              stroke="rgba(139,157,175,0.1)"
+              stroke="rgba(139,157,175,0.12)"
               strokeWidth="1"
               strokeLinejoin="round"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: 'easeOut' }}
             />
 
-            {/* Connection lines */}
+            {/* ── Connection lines ── */}
             {connections.map((conn, i) => {
-              const from = getLocationById(conn.from);
-              const to = getLocationById(conn.to);
-              const midX = (from.x + to.x) / 2;
-              const midY = (from.y + to.y) / 2 - 20;
+              const from = locPos.get(conn.from)!;
+              const to = locPos.get(conn.to)!;
+              const midX = (from[0] + to[0]) / 2;
+              const midY = (from[1] + to[1]) / 2 - 18;
               const isHighlighted = hovered === conn.from || hovered === conn.to;
+              const pathD = `M${from[0]},${from[1]} Q${midX},${midY} ${to[0]},${to[1]}`;
 
               return (
-                <g key={`conn-${i}`}>
+                <motion.g
+                  key={`conn-${i}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 1.0 + i * 0.08 }}
+                >
+                  {/* Base dashed line */}
                   <path
-                    d={`M${from.x},${from.y} Q${midX},${midY} ${to.x},${to.y}`}
+                    d={pathD}
                     fill="none"
-                    stroke={isHighlighted ? 'rgba(139,157,175,0.35)' : 'rgba(139,157,175,0.1)'}
+                    stroke={isHighlighted ? 'rgba(139,157,175,0.4)' : 'rgba(139,157,175,0.1)'}
                     strokeWidth={isHighlighted ? 1.5 : 0.8}
                     strokeDasharray="4,6"
                     className="transition-all duration-500"
                   />
+                  {/* Animated data packets on hover */}
                   {isHighlighted && (
-                    <circle r="2.5" fill="#8B9DAF" opacity="0.8" filter="url(#dot-glow)">
-                      <animateMotion
-                        dur="3s"
-                        repeatCount="indefinite"
-                        path={`M${from.x},${from.y} Q${midX},${midY} ${to.x},${to.y}`}
-                      />
-                    </circle>
+                    <>
+                      <circle r="2.5" fill="#8B9DAF" opacity="0.85" filter="url(#dot-glow)">
+                        <animateMotion dur="3s" repeatCount="indefinite" path={pathD} />
+                      </circle>
+                      <circle r="1.5" fill="#FFFFFF" opacity="0.5">
+                        <animateMotion dur="3s" repeatCount="indefinite" path={pathD} begin="1.5s" />
+                      </circle>
+                    </>
                   )}
-                </g>
+                </motion.g>
               );
             })}
 
-            {/* Location dots with pulse rings */}
+            {/* ── Location dots ── */}
             {locations.map((loc, idx) => {
+              const [x, y] = locPos.get(loc.id)!;
               const isHovered = hovered === loc.id;
-              const color = getStatusColor(loc.status);
+              const color = STATUS_COLORS[loc.status];
 
               return (
-                <g
+                <motion.g
                   key={loc.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.5 + idx * 0.08 }}
                   onMouseEnter={() => setHovered(loc.id)}
                   onMouseLeave={() => setHovered(null)}
                   className="cursor-pointer"
                 >
                   {/* Pulse ring 1 */}
-                  <circle cx={loc.x} cy={loc.y} r="6" fill="none" stroke={color} strokeWidth="1" opacity="0">
-                    <animate attributeName="r" values="6;25;6" dur="2.5s" repeatCount="indefinite" begin={`${idx * 0.35}s`} />
+                  <circle cx={x} cy={y} r="6" fill="none" stroke={color} strokeWidth="1" opacity="0">
+                    <animate attributeName="r" values="6;30;6" dur="2.5s" repeatCount="indefinite" begin={`${idx * 0.35}s`} />
                     <animate attributeName="opacity" values="0.4;0;0.4" dur="2.5s" repeatCount="indefinite" begin={`${idx * 0.35}s`} />
                     <animate attributeName="stroke-width" values="1;0.2;1" dur="2.5s" repeatCount="indefinite" begin={`${idx * 0.35}s`} />
                   </circle>
 
                   {/* Pulse ring 2 */}
-                  <circle cx={loc.x} cy={loc.y} r="6" fill="none" stroke={color} strokeWidth="0.6" opacity="0">
-                    <animate attributeName="r" values="6;18;6" dur="2.5s" repeatCount="indefinite" begin={`${idx * 0.35 + 0.8}s`} />
+                  <circle cx={x} cy={y} r="6" fill="none" stroke={color} strokeWidth="0.6" opacity="0">
+                    <animate attributeName="r" values="6;22;6" dur="2.5s" repeatCount="indefinite" begin={`${idx * 0.35 + 0.8}s`} />
                     <animate attributeName="opacity" values="0.25;0;0.25" dur="2.5s" repeatCount="indefinite" begin={`${idx * 0.35 + 0.8}s`} />
                   </circle>
 
                   {/* Main dot */}
                   <circle
-                    cx={loc.x}
-                    cy={loc.y}
-                    r={isHovered ? 6 : 4}
+                    cx={x}
+                    cy={y}
+                    r={isHovered ? 7 : 5}
                     fill={color}
                     opacity={isHovered ? 1 : 0.85}
-                    filter={isHovered ? 'url(#dot-glow)' : 'url(#map-glow)'}
+                    filter="url(#dot-glow)"
                     className="transition-all duration-300"
                   />
 
                   {/* Inner bright core */}
-                  <circle cx={loc.x} cy={loc.y} r="1.5" fill="#FFFFFF" opacity={isHovered ? 1 : 0.85} />
+                  <circle
+                    cx={x}
+                    cy={y}
+                    r="1.8"
+                    fill="#FFFFFF"
+                    opacity={isHovered ? 1 : 0.8}
+                    className="transition-opacity duration-300"
+                  />
 
                   {/* Name label */}
                   <text
-                    x={loc.x + 12}
-                    y={loc.y + 4}
+                    x={x + loc.labelDx}
+                    y={y + loc.labelDy}
                     fontSize="11"
                     fontWeight="600"
                     fill={isHovered ? '#8B9DAF' : 'rgba(255,255,255,0.5)'}
@@ -212,67 +401,85 @@ export function AfricaMap() {
                   >
                     {loc.name.toUpperCase()}
                   </text>
-                </g>
+                </motion.g>
               );
             })}
           </svg>
 
-          {/* HTML Tooltip panels (positioned absolutely over SVG) */}
-          {locations.map((loc) => {
-            const isHovered = hovered === loc.id;
-            if (!isHovered) return null;
-            const color = getStatusColor(loc.status);
-            // Calculate position percentages from SVG viewBox
-            const leftPct = (loc.x / 1000) * 100;
-            const topPct = (loc.y / 1100) * 100;
-            // Position tooltip to the right of dot, but flip if too close to right edge
-            const flipLeft = leftPct > 70;
-            
-            return (
-              <div
-                key={`tooltip-${loc.id}`}
-                className="absolute z-20 pointer-events-none"
-                style={{
-                  left: flipLeft ? `${leftPct - 22}%` : `${leftPct + 4}%`,
-                  top: `${topPct - 2}%`,
-                  transform: 'translateY(-50%)',
-                }}
-              >
-                <div className="bg-[#0D0D0D]/95 backdrop-blur-md border border-[rgba(139,157,175,0.2)] rounded-lg p-4 min-w-[200px] max-w-[260px]">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color, boxShadow: `0 0 6px ${color}60` }} />
-                    <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]" style={{ color }}>
-                      {loc.vertical} {loc.version}
-                    </span>
-                  </div>
-                  <p className="text-[13px] font-semibold text-white mb-1">{loc.stat}</p>
-                  <p className="text-[11px] text-[rgba(255,255,255,0.5)] leading-relaxed">{loc.desc}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+          {/* ── HTML Tooltip overlays (positioned as % over SVG) ── */}
+          <AnimatePresence>
+            {hovered &&
+              (() => {
+                const loc = getLoc(hovered);
+                const [x, y] = locPos.get(loc.id)!;
+                const color = STATUS_COLORS[loc.status];
+                const leftPct = (x / VW) * 100;
+                const topPct = (y / VH) * 100;
+                const flipLeft = leftPct > 50;
 
-      {/* Legend */}
-      <div className="flex items-center justify-center gap-6 mt-4 flex-wrap">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#4A7B5F', boxShadow: '0 0 4px rgba(74,123,95,0.6)' }} />
-          <span className="text-[9px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">ACTIVE</span>
+                return (
+                  <motion.div
+                    key={`tooltip-${loc.id}`}
+                    initial={{ opacity: 0, scale: 0.92, y: -6 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.92, y: -6 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute z-20 pointer-events-none"
+                    style={{
+                      left: flipLeft ? `${leftPct - 25}%` : `${leftPct + 4}%`,
+                      top: `${topPct - 2}%`,
+                      transform: 'translateY(-50%)',
+                    }}
+                  >
+                    <div className="bg-[#0D0D0D]/95 backdrop-blur-md border border-[rgba(139,157,175,0.2)] rounded-lg p-3 sm:p-4 min-w-[160px] sm:min-w-[200px] max-w-[220px] sm:max-w-[260px] shadow-xl">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span
+                          className="w-2 h-2 rounded-full shrink-0"
+                          style={{ backgroundColor: color, boxShadow: `0 0 6px ${color}60` }}
+                        />
+                        <span
+                          className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]"
+                          style={{ color }}
+                        >
+                          {loc.vertical} {loc.version}
+                        </span>
+                      </div>
+                      <p className="text-[13px] font-semibold text-white mb-1">{loc.stat}</p>
+                      <p className="text-[11px] text-[rgba(255,255,255,0.5)] leading-relaxed">
+                        {loc.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })()}
+          </AnimatePresence>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#8B9DAF', boxShadow: '0 0 4px rgba(139,157,175,0.4)' }} />
-          <span className="text-[9px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">ENGINEERING</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#999999', boxShadow: '0 0 4px rgba(153,153,153,0.3)' }} />
-          <span className="text-[9px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">PERMITTED</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#666666', boxShadow: '0 0 4px rgba(102,102,102,0.3)' }} />
-          <span className="text-[9px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">DESIGN</span>
-        </div>
-      </div>
+      </motion.div>
+
+      {/* ── Legend ── */}
+      <motion.div
+        className="flex items-center justify-center gap-6 mt-4 flex-wrap"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8, duration: 0.6 }}
+      >
+        {[
+          { color: '#4A7B5F', label: 'ACTIVE' },
+          { color: '#8B9DAF', label: 'ENGINEERING' },
+          { color: '#999999', label: 'PERMITTED' },
+          { color: '#666666', label: 'DESIGN' },
+        ].map(({ color, label }) => (
+          <div key={label} className="flex items-center gap-2">
+            <div
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: color, boxShadow: `0 0 4px ${color}60` }}
+            />
+            <span className="text-[9px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">
+              {label}
+            </span>
+          </div>
+        ))}
+      </motion.div>
     </div>
   );
 }

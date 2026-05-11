@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -94,6 +94,21 @@ export function Sidebar() {
   const [companyOpen, setCompanyOpen] = useState(false);
   const pathname = usePathname();
 
+  // Lock body scroll when mobile sidebar is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    };
+  }, [mobileOpen]);
+
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
     if (href.includes('#')) return false;
@@ -154,8 +169,9 @@ export function Sidebar() {
       {/* Hamburger button — Mobile only */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden w-10 h-10 flex items-center justify-center bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg shadow-sm"
+        className="fixed top-4 left-4 z-50 lg:hidden w-11 h-11 flex items-center justify-center bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg shadow-sm touch-manipulation"
         aria-label="Toggle menu"
+        aria-expanded={mobileOpen}
       >
         {mobileOpen ? <X size={18} strokeWidth={1.5} className="text-white" /> : <Menu size={18} strokeWidth={1.5} className="text-white" />}
       </button>
@@ -163,16 +179,18 @@ export function Sidebar() {
       {/* Mobile overlay */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 bg-black/40 z-30 lg:hidden"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden"
           onClick={closeMobile}
+          aria-hidden="true"
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full z-40 w-[250px] bg-[#111111] border-r border-[rgba(255,255,255,0.06)] overflow-y-auto transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
+        className={`fixed top-0 left-0 h-full z-40 w-[280px] max-w-[80vw] bg-[#111111] border-r border-[rgba(255,255,255,0.06)] overflow-y-auto overscroll-contain transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full'
-        } lg:translate-x-0`}
+        } lg:translate-x-0 lg:w-[250px] lg:max-w-none`}
+        aria-label="Navigation"
       >
         <div className="flex flex-col h-full px-4 py-6">
           {/* Logo */}

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/Sidebar";
@@ -20,6 +20,14 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.harchcorp.com'),
   title: {
@@ -27,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | Harch Corp",
   },
   description:
-    "Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty. Carbon-Aware GPU Cloud (1,798 GPUs, ~47 gCO2/kWh), Renewable Energy (2GW+ Pipeline), Cement, Technology, Mining, Agriculture, Water. $2.4B+ investment pipeline across 7 verticals and 5 countries. Founded 2024, Casablanca, Morocco.",
+    "Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty. Carbon-Aware GPU Cloud (1,798 GPUs, ~47 gCO2/kWh), Renewable Energy (2GW+ Pipeline), Cement, Technology, Mining, Agriculture, Water, Finance. $2.4B+ investment pipeline across 8 verticals and 5 countries. Founded 2024, Casablanca, Morocco.",
   keywords: [
     "Harch Corp",
     "Africa industrial sovereignty",
@@ -67,7 +75,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Harch Corp | Africa's Sovereign Infrastructure OS",
     description:
-      "Moroccan industrial conglomerate — $2.4B+ investment pipeline across 7 verticals. Carbon-Aware GPU Cloud (1,798 GPUs), 2GW+ Renewable Energy, Cement, Mining, Agriculture, Water. Building Africa's industrial sovereignty.",
+      "Moroccan industrial conglomerate — $2.4B+ investment pipeline across 8 verticals. Carbon-Aware GPU Cloud (1,798 GPUs), 2GW+ Renewable Energy, Cement, Mining, Agriculture, Water, Finance. Building Africa's industrial sovereignty.",
     url: "https://www.harchcorp.com",
     siteName: "Harch Corp",
     type: "website",
@@ -145,7 +153,7 @@ export default function RootLayout({
           },
         ],
         description:
-          "Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate and holding company building Africa's industrial sovereignty across 7 verticals: AI data centers, renewable energy, cement manufacturing, sovereign technology, strategic mining, precision agriculture, and water infrastructure. $2.4B+ investment pipeline across 5 countries.",
+          "Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate and holding company building Africa's industrial sovereignty across 8 verticals: AI data centers, renewable energy, cement manufacturing, sovereign technology, strategic mining, precision agriculture, water infrastructure, and finance. $2.4B+ investment pipeline across 5 countries.",
         foundingDate: "2024",
         founder: { "@id": "https://www.harchcorp.com/#founder" },
         numberOfEmployees: {
@@ -286,7 +294,7 @@ export default function RootLayout({
         jobTitle: "Founder & CEO",
         worksFor: { "@id": "https://www.harchcorp.com/#organization" },
         description:
-          "Founder and CEO of Harch Corp S.A., a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across 7 verticals with a $2.4B+ investment pipeline.",
+          "Founder and CEO of Harch Corp S.A., a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across 8 verticals with a $2.4B+ investment pipeline.",
         url: "https://www.harchcorp.com",
         sameAs: ["https://www.linkedin.com/in/amineharchelkorane"],
       },
@@ -327,7 +335,7 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href="https://www.harchcorp.com" />
-        <meta name="theme-color" content="#8B9DAF" />
+        <meta name="theme-color" content="#0A0A0A" />
         <meta name="apple-mobile-web-app-title" content="HarchCorp" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -338,11 +346,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#0D0D0D] text-white min-h-screen flex flex-col`}>
+      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#0A0A0A] text-white min-h-screen flex flex-col overflow-x-hidden`}>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Sidebar />
-        <div className="flex-1 flex flex-col lg:ml-[250px]">
-          <main id="main-content" className="flex-1 pb-6">{children}</main>
+        <div className="flex-1 flex flex-col lg:ml-[250px] overflow-x-hidden w-full max-w-[100vw]">
+          <main id="main-content" className="flex-1 pb-6 overflow-x-hidden">{children}</main>
           <Footer />
         </div>
         <CookieConsent />

@@ -1,61 +1,45 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
-import { ArrowRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Clock, TrendingUp, Target, Layers, Activity, Database, Thermometer, Wind, Droplets, Satellite, Lock, Radio, Eye, Gauge, Factory, Mountain, Wheat, Waves } from 'lucide-react';
+import { ArrowRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets, Satellite, Lock, Eye, Factory, Mountain, Wheat, Waves, MapPin, Calendar, TrendingUp, Leaf } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+
+import {
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+  Card3D,
+  MagneticButton,
+  SmoothLink,
+  TextReveal,
+  SectionDivider,
+  CountUp,
+  ParallaxSection,
+} from '@/components/ui/motion';
+import { NetworkGrid } from '@/components/NetworkGrid';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
 import type { Competitor } from '@/components/competitive/CompetitiveComparison';
 
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>{children}</motion.div>;
-}
+/* ═══════════════════════════════════════════════════════════════
+   ACCENT COLOR MAP — per subsidiary
+   ═══════════════════════════════════════════════════════════════ */
+const accentMap: Record<string, string> = {
+  intelligence: '#8B9DAF',
+  cement: '#B8965A',
+  energy: '#B8965A',
+  technology: '#8B9DAF',
+  mining: '#B8965A',
+  agriculture: '#4A7B5F',
+  water: '#8B9DAF',
+};
 
-function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [count, setCount] = useState(0);
-  useEffect(() => { if (!isInView) return; const duration = 2500; const startTime = Date.now(); const step = () => { const elapsed = Date.now() - startTime; const progress = Math.min(elapsed / duration, 1); const eased = 1 - Math.pow(1 - progress, 4); setCount(eased * target); if (progress < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }, [isInView, target]);
-  const format = () => { if (target >= 1000) return `${prefix}${Math.round(count).toLocaleString()}${suffix}`; if (target < 10) return `${prefix}${count.toFixed(1)}${suffix}`; return `${prefix}${Math.round(count)}${suffix}`; };
-  return <span ref={ref}>{format()}</span>;
-}
-
-/* ─── FULL-BLEED GRADIENT BREAK ─── */
-function FullBleedGradient({ height = '50vh', gradient = 'from-[#1a2a3a] via-[#0D0D0D] to-[#0D0D0D]' }: { height?: string; gradient?: string }) {
-  return (
-    <div className={`relative w-full overflow-hidden bg-gradient-to-br ${gradient}`} style={{ height }}>
-      <div className="absolute inset-0 dot-pattern opacity-20" />
-      <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #8B9DAF, transparent)' }} />
-    </div>
-  );
-}
-
-/* ─── SIDE-BY-SIDE SPLIT (text + gradient panel) ─── */
-function SplitSection({ children, reverse = false, gradient = 'from-[#1a2a3a] to-[#0d1520]' }: { children: React.ReactNode; reverse?: boolean; gradient?: string }) {
-  return (
-    <section className="bg-[#0D0D0D]">
-      <div className="max-w-[1800px] mx-auto">
-        <div className={`grid grid-cols-1 lg:grid-cols-2 min-h-[70vh] ${reverse ? 'lg:dir-rtl' : ''}`}>
-          <div className={`flex items-center px-8 md:px-16 lg:px-24 py-20 ${reverse ? 'lg:order-2' : 'lg:order-1'}`}>
-            <div className={`max-w-xl ${reverse ? 'lg:mr-auto lg:ml-0' : 'lg:ml-auto lg:mr-0'}`}>
-              {children}
-            </div>
-          </div>
-          <div className={`relative min-h-[40vh] lg:min-h-0 overflow-hidden bg-gradient-to-br ${gradient} ${reverse ? 'lg:order-1' : 'lg:order-2'}`}>
-            <div className="absolute inset-0 dot-pattern opacity-20" />
-            <div className="absolute -bottom-12 -right-12 w-48 h-48 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #8B9DAF, transparent)' }} />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─── STAT BAR ─── */
-function StatBar({ stat, value, max }: { stat: string; value: number; max: number }) {
+/* ═══════════════════════════════════════════════════════════════
+   STAT BAR — uses shared design tokens
+   ═══════════════════════════════════════════════════════════════ */
+function StatBar({ stat, value, max, accent }: { stat: string; value: number; max: number; accent: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   return (
@@ -65,12 +49,21 @@ function StatBar({ stat, value, max }: { stat: string; value: number; max: numbe
         <span className="text-[12px] font-bold text-white">{value}%</span>
       </div>
       <div className="h-1 bg-[#1A1A1A] rounded-full overflow-hidden">
-        <div className="h-full bg-white/60 rounded-full transition-all duration-[2s] ease-out" style={{ width: isInView ? `${(value / max) * 100}%` : '0%' }} />
+        <div
+          className="h-full rounded-full transition-all duration-[2s] ease-out"
+          style={{
+            width: isInView ? `${(value / max) * 100}%` : '0%',
+            backgroundColor: accent,
+          }}
+        />
       </div>
     </div>
   );
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   TYPES
+   ═══════════════════════════════════════════════════════════════ */
 type IconType = React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>;
 
 interface SubsidiaryInfo {
@@ -91,15 +84,18 @@ interface SubsidiaryInfo {
   competitorAccentColor?: string;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   SUBSIDIARY DATA — all 7 subsidiaries preserved
+   ═══════════════════════════════════════════════════════════════ */
 export default function SubsidiaryPageClient({ slug }: { slug: string }) {
   const subsidiaryData: Record<string, SubsidiaryInfo> = {
     intelligence: {
       name: 'Harch Intelligence', version: '/0.1',
       heroTitle: "Africa's Largest AI\nHyperscale Data Center",
       heroSubtitle: '1,798 carbon-optimized GPUs across 5 hubs — sovereign AI compute infrastructure powered by Africa\'s lowest-carbon electricity',
-      heroImage: '/images/sections/comp-intel-dc.jpg',
-      sectionImage1: '/images/sections/comp-intel-server2.jpg',
-      sectionImage2: '/images/sections/comp-intel-tech.jpg',
+      heroImage: '/images/sections/intelligence-exterior.jpg',
+      sectionImage1: '/images/sections/intelligence-rack.jpg',
+      sectionImage2: '/images/sections/intelligence-gpu-cluster.jpg',
       sectionImage3: '/images/sections/intelligence-cooling.jpg',
       sectionImage4: '/images/sections/intelligence-submarine.jpg',
       overview: 'Harch Intelligence operates 1,798 carbon-optimized GPUs across 5 hubs in Morocco — powered primarily by renewable energy and designed to serve as the backbone of Africa\'s sovereign AI compute infrastructure. With carbon-aware scheduling as our #1 differentiator, we route workloads to the greenest hubs in real time, achieving an average carbon intensity of ~47 gCO2/kWh — 89% below the industry average. Our 500MW Pipeline expands capacity at Dakhla with direct submarine cable connectivity to Europe and the Americas. This is not merely a data center — it is the foundation of Africa\'s digital sovereignty, ensuring that the continent\'s data, compute, and AI capabilities remain under African control.',
@@ -167,7 +163,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Energy Cost Leadership', desc: 'Electricity at $0.03/kWh from dedicated renewable installations — 40-60% cheaper than AWS/GCP/Azure. This structural advantage compounds annually, creating an ever-widening competitive moat.' },
         { title: 'Modular Scalability', desc: 'Phased deployment from 100MW to 500MW Pipeline matches capacity to demand, minimizing capital risk while maintaining the option for rapid expansion. Each 100MW module is independently operational within 14 months of construction start.' },
         { title: 'Submarine Cable Hub', desc: 'Direct landing of 4 submarine cable systems provides the lowest-latency path between Africa, Europe, and the Americas. No other African location offers this combination of cable diversity and proximity to European financial centers.' },
-        { title: 'Lowest Energy Cost on Earth', desc: 'Dakhla offers electricity at $0.018/kWh — 72% cheaper than the EU average and 80% cheaper than Singapore. This structural advantage saves $118-178M per year per 10,000 GPUs compared to Virginia, Frankfurt, or Singapore deployments. Combined with 9.7 m/s wind speeds and 2,800 kWh/m²/year solar irradiance, Dakhla is the most cost-efficient location for AI compute on the planet.' },
+        { title: 'Lowest Energy Cost on Earth', desc: 'Dakhla offers electricity at $0.018/kWh — 72% cheaper than the EU average and 80% cheaper than Singapore. This structural advantage saves $118-178M per year per 10,000 GPUs compared to Virginia, Frankfurt, or Singapore deployments.' },
       ],
       partnershipModel: [
         { title: 'GPU-as-a-Service', desc: 'Flexible compute provisioning with on-demand and reserved GPU capacity. Pay-per-use pricing with committed-use discounts for 1-3 year terms. Ideal for AI startups, research institutions, and enterprise ML teams.' },
@@ -179,10 +175,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       competitorAccentColor: '#8B9DAF',
       competitors: [
         {
-          name: 'CoreWeave',
-          country: 'USA',
-          founded: '2017',
-          revenue: '$2.1B (2024)',
+          name: 'CoreWeave', country: 'USA', founded: '2017', revenue: '$2.1B (2024)',
           metrics: [
             { label: 'Carbon-Aware GPU Scheduling', harchValue: 'Real-time, per-job, 47-params', competitorValue: 'None — static placement', harchWins: true },
             { label: 'African Sovereign DC', harchValue: '5 hubs — Morocco jurisdiction', competitorValue: '0 hubs in Africa', harchWins: true },
@@ -199,13 +192,10 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             { label: 'Sovereign Security Audit', harchValue: 'ISO 27001 + SOC 2 + Law 09-08', competitorValue: 'SOC 2 only — US jurisdiction', harchWins: true },
             { label: 'Heat Recovery & Circular Economy', harchValue: 'Waste heat to greenhouses — circular', competitorValue: 'None — heat wasted to atmosphere', harchWins: true },
           ],
-          verdict: 'CoreWeave has more GPUs. HarchOS has 9.5x lower carbon, 4x cheaper energy, 5-nines SLA, African sovereignty, and the only submarine cable gateway between Africa and Europe. Scale without sovereignty is rented infrastructure. Sovereignty without scale is a promise. HarchOS delivers both.',
+          verdict: 'CoreWeave has more GPUs. HarchOS has 9.5x lower carbon, 4x cheaper energy, 5-nines SLA, African sovereignty, and the only submarine cable gateway between Africa and Europe.',
         },
         {
-          name: 'Google Cloud (Hamina)',
-          country: 'Finland',
-          founded: '2008',
-          revenue: '$33B+ (GCP total)',
+          name: 'Google Cloud (Hamina)', country: 'Finland', founded: '2008', revenue: '$33B+ (GCP total)',
           metrics: [
             { label: 'GPU Cloud Access', harchValue: 'H100/A100/L40S — on-demand', competitorValue: 'No GPU cloud — internal only', harchWins: true },
             { label: 'African Data Sovereignty', harchValue: '100% — Morocco jurisdiction', competitorValue: '0% — Finland/US jurisdiction', harchWins: true },
@@ -219,13 +209,10 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             { label: 'Open Source Contributions (Africa)', harchValue: 'HarchOS SDK + sovereign AI toolkit', competitorValue: 'TensorFlow — not Africa-specific', harchWins: true },
             { label: 'Community Revenue Share', harchValue: '5% — local development funds', competitorValue: '0% — corporate profit repatriation', harchWins: true },
           ],
-          verdict: 'Google Hamina is a green data center you cannot use for GPU compute. HarchOS is a green GPU cloud you can — at 3x lower energy cost, with African sovereignty, and the only Africa-Europe compute gateway. Google builds green DCs for Google. HarchOS builds sovereign compute for Africa.',
+          verdict: 'Google Hamina is a green data center you cannot use for GPU compute. HarchOS is a green GPU cloud you can — at 3x lower energy cost, with African sovereignty.',
         },
         {
-          name: 'Africa Data Centres (Cassava)',
-          country: 'South Africa',
-          founded: '2018',
-          revenue: 'Undisclosed (private)',
+          name: 'Africa Data Centres (Cassava)', country: 'South Africa', founded: '2018', revenue: 'Undisclosed (private)',
           metrics: [
             { label: 'GPU Compute', harchValue: '1,798 GPUs (H100/A100/L40S)', competitorValue: '0 GPUs — colocation only', harchWins: true },
             { label: 'Carbon-Aware Scheduling', harchValue: 'Real-time per-job', competitorValue: 'None', harchWins: true },
@@ -240,13 +227,10 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             { label: 'Developer Ecosystem', harchValue: 'HarchOS SDK + API + playground', competitorValue: 'None — no developer tools', harchWins: true },
             { label: 'Data Residency Guarantee', harchValue: '100% — African jurisdiction', competitorValue: 'Partial — SA only, no cross-border', harchWins: true },
           ],
-          verdict: 'Africa\'s largest DC operator has zero GPUs, zero carbon-awareness, 17x less power, and 10x higher carbon intensity. HarchOS is in a different category entirely — not colocation, but sovereign AI compute infrastructure for the continent.',
+          verdict: 'Africa\'s largest DC operator has zero GPUs, zero carbon-awareness, 17x less power, and 10x higher carbon intensity. HarchOS is in a different category entirely.',
         },
         {
-          name: 'QScale',
-          country: 'Canada',
-          founded: '2020',
-          revenue: 'Pre-revenue (startup)',
+          name: 'QScale', country: 'Canada', founded: '2020', revenue: 'Pre-revenue (startup)',
           metrics: [
             { label: 'African Data Center Presence', harchValue: '5 hubs — Morocco operational', competitorValue: '0 — Quebec, Canada only', harchWins: true },
             { label: 'GPU Count', harchValue: '1,798 GPUs operational', competitorValue: '~4,000 GPUs (announced)', harchWins: false },
@@ -261,7 +245,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             { label: 'Energy Cost /kWh', harchValue: '$0.03', competitorValue: '$0.04-0.06', harchWins: true, harchNumeric: 3, competitorNumeric: 5, barMax: 8, lowerIsBetter: true },
             { label: 'Regulatory Compliance (Africa)', harchValue: 'Morocco Law 09-08 + AU framework', competitorValue: 'None — no African compliance', harchWins: true },
           ],
-          verdict: 'QScale has excellent Quebec hydro-powered GPUs. But 0 African hubs, 0 African sovereignty, 120ms+ latency to Africa, and 0 African jobs. Green compute in Canada does not serve Africa. HarchOS puts green compute where 1.4 billion people need it — on African soil, under African jurisdiction, with African talent.',
+          verdict: 'QScale has excellent Quebec hydro-powered GPUs. But 0 African hubs, 0 African sovereignty, 120ms+ latency to Africa. Green compute in Canada does not serve Africa.',
         },
       ],
     },
@@ -269,29 +253,29 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       name: 'Harch Cement', version: '/0.2',
       heroTitle: "Building West Africa's\nFuture",
       heroSubtitle: '500kT/yr cement production serving the construction boom with vertically integrated operations',
-      heroImage: '/images/sections/comp-cement-const.jpg',
-      sectionImage1: '/images/sections/comp-cement-mixer.jpg',
-      sectionImage2: '/images/sections/cement-factory.jpg',
-      sectionImage3: '/images/sections/cement-quarry.jpg',
-      sectionImage4: '/images/sections/cement-kiln.jpg',
+      heroImage: '/images/sections/cement-factory.jpg',
+      sectionImage1: '/images/sections/cement-quarry.jpg',
+      sectionImage2: '/images/sections/cement-kiln.jpg',
+      sectionImage3: '/images/sections/cement-factory.jpg',
+      sectionImage4: '/images/sections/cement-quarry.jpg',
       overview: 'Harch Cement is developing a 500kT/yr cement production facility in Gambia, serving West Africa\'s construction boom with vertically integrated operations from quarry to delivery. Our model captures the full value chain — from limestone extraction through clinker production to finished cement distribution — creating structural cost advantages of 30-50% versus import-dependent competitors. This is not simply a cement plant; it is an industrial anchor that catalyzes infrastructure development, creates hundreds of direct jobs, and eliminates West Africa\'s dependence on imported construction materials.',
-      strategicContext: 'West Africa faces a fundamental construction materials deficit. The region imports over 15 million tonnes of cement annually, paying premium prices that inflate infrastructure costs by 40-70% compared to markets with domestic production. Gambia, with a population of 2.5 million and a GDP growing at 6% annually, currently imports 100% of its cement — a structural vulnerability that increases with every infrastructure project. The African Development Bank estimates that West Africa needs $130 billion in infrastructure investment through 2030, all of which requires cement. Harch Cement\'s 500kT/yr facility captures a significant share of this demand while building domestic industrial capacity that strengthens economic sovereignty.',
-      marketAnalysis: 'The West African cement market is valued at $8.5 billion and growing at 8% CAGR, driven by urbanization (the region\'s cities are growing at 4% per year), government infrastructure programs totaling $45 billion across ECOWAS nations, and a housing deficit exceeding 50 million units. Gambia alone imports 400,000 tonnes of cement annually at premium prices averaging $120/tonne versus $65-75/tonne for domestically produced cement. Our facility\'s 500kT/yr capacity serves Gambia\'s domestic demand while exporting surplus to Senegal, Guinea-Bissau, and Guinea — a combined market of 25 million people within a 500km distribution radius.',
-      sustainability: 'Harch Cement integrates sustainability at every level of operations. Our green cement formulations use locally sourced pozzolanic materials to reduce the clinker factor below 85%, cutting CO2 emissions by 25% versus ordinary Portland cement. The kiln incorporates waste heat recovery technology that captures 30% of thermal energy for power generation, reducing grid electricity consumption. Quarry rehabilitation plans are developed before extraction begins, with progressive restoration using overburden and topsoil stockpiles. All water used in operations is recycled through closed-loop systems, and dust emissions are controlled to 50% below EU standards through bag filters and enclosed conveyors.',
+      strategicContext: 'West Africa faces a fundamental construction materials deficit. The region imports over 15 million tonnes of cement annually, paying premium prices that inflate infrastructure costs by 40-70% compared to markets with domestic production. Gambia, with a population of 2.5 million and a GDP growing at 6% annually, currently imports 100% of its cement — a structural vulnerability that increases with every infrastructure project. Harch Cement\'s 500kT/yr facility captures a significant share of this demand while building domestic industrial capacity that strengthens economic sovereignty.',
+      marketAnalysis: 'The West African cement market is valued at $8.5 billion and growing at 8% CAGR, driven by urbanization, government infrastructure programs totaling $45 billion across ECOWAS nations, and a housing deficit exceeding 50 million units. Gambia alone imports 400,000 tonnes of cement annually at premium prices averaging $120/tonne versus $65-75/tonne for domestically produced cement.',
+      sustainability: 'Harch Cement integrates sustainability at every level of operations. Our green cement formulations use locally sourced pozzolanic materials to reduce the clinker factor below 85%, cutting CO2 emissions by 25% versus ordinary Portland cement. The kiln incorporates waste heat recovery technology that captures 30% of thermal energy for power generation, reducing grid electricity consumption. Quarry rehabilitation plans are developed before extraction begins, with progressive restoration using overburden and topsoil stockpiles.',
       investment: '$200M',
       metrics: [
         { value: 500, prefix: '', suffix: 'kT/yr', label: 'Production Capacity' },
-        { value: 38.2, prefix: '', suffix: '%', label: 'IRR' },
+        { value: 38, prefix: '', suffix: '.2%', label: 'IRR' },
         { value: 10500, prefix: '$', suffix: '', label: 'Total CAPEX' },
         { value: 265, prefix: '', suffix: '%', label: '5-Year ROI' },
       ],
       capabilities: [
-        { icon: Factory, title: 'Quarry Operations', desc: 'Vertically integrated limestone quarry with 50+ year verified reserves. In-country raw material sourcing eliminates import dependency and reduces raw material costs by 30%. The quarry uses modern drill-and-blast techniques with electronic detonators for precise fragmentation control, minimizing energy consumption in downstream crushing.' },
-        { icon: Cpu, title: 'Modern Kiln Technology', desc: 'State-of-the-art rotary kiln with waste heat recovery and AI-optimized production control. The 5-stage preheater with calciner achieves 40% lower energy consumption versus regional competitors. Real-time quality monitoring through X-ray fluorescence analysis ensures consistent product quality across all cement grades.' },
+        { icon: Factory, title: 'Quarry Operations', desc: 'Vertically integrated limestone quarry with 50+ year verified reserves. In-country raw material sourcing eliminates import dependency and reduces raw material costs by 30%.' },
+        { icon: Cpu, title: 'Modern Kiln Technology', desc: 'State-of-the-art rotary kiln with waste heat recovery and AI-optimized production control. The 5-stage preheater with calciner achieves 40% lower energy consumption versus regional competitors.' },
         { icon: Zap, title: 'Green Cement Innovation', desc: 'Blended cement formulations using locally sourced pozzolanic and slag materials, reducing the clinker factor to below 85% and the carbon footprint by 25%. Our R&D team is developing calcined clay (LC3) formulations targeting clinker factors below 70% by 2029.' },
-        { icon: Globe, title: 'Regional Distribution Network', desc: 'Strategic location on the Gambia River with barge and road access to Senegal, Guinea-Bissau, and Guinea. 500km distribution radius served by a fleet of 40 cement tankers and river barges. Bagged cement distribution through 200+ retail points across the region.' },
-        { icon: Shield, title: 'Quality Assurance Systems', desc: 'ISO 9001 certified production with AI-powered quality monitoring and automated sampling at every production stage. Consistent product quality that exceeds both EN 197 and ASTM C150 standards, with real-time adjustments to raw meal composition based on continuous XRF analysis.' },
-        { icon: BarChart3, title: 'Market Position & Strategy', desc: 'First-mover advantage in Gambia with significant barriers to entry for competitors. 60% domestic market share target within 3 years of commissioning, supported by structural cost advantages and distribution network density that late entrants cannot replicate.' },
+        { icon: Globe, title: 'Regional Distribution Network', desc: 'Strategic location on the Gambia River with barge and road access to Senegal, Guinea-Bissau, and Guinea. 500km distribution radius served by a fleet of 40 cement tankers and river barges.' },
+        { icon: Shield, title: 'Quality Assurance Systems', desc: 'ISO 9001 certified production with AI-powered quality monitoring and automated sampling at every production stage. Consistent product quality that exceeds both EN 197 and ASTM C150 standards.' },
+        { icon: BarChart3, title: 'Market Position & Strategy', desc: 'First-mover advantage in Gambia with significant barriers to entry for competitors. 60% domestic market share target within 3 years of commissioning.' },
       ],
       specTable: [
         { spec: 'Capacity', value: '500kT/yr', phase: 'Full production' },
@@ -313,12 +297,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { spec: 'FX Savings', value: '~$8M/yr', phase: 'Import substitution' },
       ],
       milestones: [
-        { year: '2024 Q4', title: 'Permit Application Filed', desc: 'Environmental and construction permits filed with Gambian authorities. Environmental and Social Impact Assessment completed by independent consultants.' },
-        { year: '2025 Q2', title: 'Community Engagement Program', desc: 'Comprehensive community engagement program launched across 12 villages in the project area. Skills training programs for local workforce initiated.' },
-        { year: '2025 Q4', title: 'Permits Approved', desc: 'All construction and environmental permits approved by Gambian National Environment Agency and Ministry of Works.' },
-        { year: '2026 Q2', title: 'Construction Phase Begins', desc: 'Foundation work, kiln installation, and quarry development begin simultaneously. 400 local construction workers hired.' },
-        { year: '2027 Q2', title: 'Kiln Installation Complete', desc: 'Rotary kiln and preheater tower installed. Electrical and control systems commissioned. Quarry production begins.' },
-        { year: '2027 Q4', title: 'Commissioning & Testing', desc: 'Kiln commissioning and test production runs. Quality certification process initiated. Distribution network activated.' },
+        { year: '2024 Q4', title: 'Permit Application Filed', desc: 'Environmental and construction permits filed with Gambian authorities.' },
+        { year: '2025 Q2', title: 'Community Engagement Program', desc: 'Comprehensive community engagement program launched across 12 villages.' },
+        { year: '2025 Q4', title: 'Permits Approved', desc: 'All construction and environmental permits approved.' },
+        { year: '2026 Q2', title: 'Construction Phase Begins', desc: 'Foundation work, kiln installation, and quarry development begin simultaneously.' },
+        { year: '2027 Q2', title: 'Kiln Installation Complete', desc: 'Rotary kiln and preheater tower installed. Electrical and control systems commissioned.' },
+        { year: '2027 Q4', title: 'Commissioning & Testing', desc: 'Kiln commissioning and test production runs. Quality certification process initiated.' },
         { year: '2028 Q1', title: 'Commercial Production', desc: 'Full commercial production at 500kT/yr capacity. First deliveries to Gambian and Senegalese markets.' },
       ],
       stats: [
@@ -328,108 +312,63 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { stat: 'Carbon Reduction vs Peers', value: 30, max: 100 },
       ],
       location: 'Gambia',
-      locationDesc: 'Strategic location on the Gambia River with deep-water barge access and road connections to Senegal, Guinea-Bissau, and Guinea. The site sits on verified limestone deposits with 50+ years of reserves, eliminating the need for imported raw materials and providing structural cost advantages that competitors cannot match.',
+      locationDesc: 'Strategic location on the Gambia River with deep-water barge access and road connections to Senegal, Guinea-Bissau, and Guinea. The site sits on verified limestone deposits with 50+ years of reserves.',
       strategicAdvantages: [
-        { title: 'Vertical Integration', desc: 'Full value chain from quarry to finished product eliminates middlemen and import costs. Raw material costs are 30% below competitors who must import clinker or finished cement from Europe or Asia.' },
-        { title: 'River Distribution Hub', desc: 'Direct barge access on the Gambia River provides low-cost bulk transport to interior markets that road-only competitors cannot serve economically. A single barge carries the equivalent of 25 truck loads.' },
-        { title: 'First-Mover in Gambia', desc: 'No domestic cement production currently exists in Gambia. Our facility creates the country\'s first industrial cement base, generating significant barriers to entry for future competitors.' },
+        { title: 'Vertical Integration', desc: 'Full value chain from quarry to finished product eliminates middlemen and import costs. Raw material costs are 30% below competitors who must import clinker or finished cement.' },
+        { title: 'River Distribution Hub', desc: 'Direct barge access on the Gambia River provides low-cost bulk transport to interior markets that road-only competitors cannot serve economically.' },
+        { title: 'First-Mover in Gambia', desc: 'No domestic cement production currently exists in Gambia. Our facility creates the country\'s first industrial cement base, generating significant barriers to entry.' },
         { title: 'Green Premium Positioning', desc: 'Lower-carbon cement formulations command premium pricing in ESG-sensitive markets while reducing production costs through lower clinker factors and energy recovery.' },
       ],
       partnershipModel: [
         { title: 'Offtake Agreements', desc: 'Long-term cement supply contracts with construction companies, government agencies, and infrastructure developers. Fixed pricing with inflation protection for 3-5 year terms.' },
-        { title: 'Joint Venture Operations', desc: 'Partnership structures for regional cement producers seeking West African market entry. Shared infrastructure, distribution, and technology transfer with Harch Corp operational management.' },
-        { title: 'Government Partnerships', desc: 'Public-private partnership models for national infrastructure programs. Dedicated production allocation for government projects with priority delivery commitments.' },
+        { title: 'Joint Venture Operations', desc: 'Partnership structures for regional cement producers seeking West African market entry. Shared infrastructure, distribution, and technology transfer.' },
+        { title: 'Government Partnerships', desc: 'Public-private partnership models for national infrastructure programs. Dedicated production allocation for government projects with priority delivery.' },
         { title: 'Industrial Synergies', desc: 'Cross-vertical integration with Harch Energy for renewable power supply and Harch Mining for supplementary raw materials. Captive energy costs 40% below grid tariffs.' },
       ],
       competitorHarchName: 'Harch Cement',
-      competitorAccentColor: '#FFFFFF',
+      competitorAccentColor: '#B8965A',
       competitors: [
         {
-          name: 'Dangote Cement',
-          country: 'Nigeria',
-          founded: '1981',
-          revenue: '$3.6B (2024)',
+          name: 'Dangote Cement', country: 'Nigeria', founded: '1981', revenue: '$3.6B (2024)',
           metrics: [
             { label: 'Green Cement (LC3)', harchValue: 'In development — <70% clinker by 2029', competitorValue: 'None — no green product line', harchWins: true },
             { label: 'Clinker Factor Trajectory', harchValue: '<85% → <70% (LC3)', competitorValue: '~80%+ — no reduction plan', harchWins: true },
-            { label: 'Cost vs Imports', harchValue: '30-50% cheaper than imports', competitorValue: 'N/A — domestic market only', harchWins: true },
             { label: 'Renewable Energy', harchValue: '100% Harch Energy supply', competitorValue: 'CNG trucks only — <5% operations', harchWins: true },
             { label: 'Carbon Intensity', harchValue: 'Near-zero — 100% renewable kiln', competitorValue: '~630 kgCO2/t cement (industry avg)', harchWins: true, harchNumeric: 10, competitorNumeric: 630, barMax: 700, lowerIsBetter: true },
             { label: 'Water Recycling', harchValue: '95% closed-loop', competitorValue: 'Not disclosed', harchWins: true },
             { label: 'Dust Emissions', harchValue: '50% below EU standards', competitorValue: 'Not disclosed', harchWins: true },
-            { label: 'River Distribution Hub', harchValue: 'Yes — Gambia River barge access', competitorValue: 'Road only — no river logistics', harchWins: true },
-            { label: 'Vertical Integration', harchValue: 'Quarry → Kiln → Distribution', competitorValue: 'Partial — imports clinker', harchWins: true },
             { label: 'EU CBAM Readiness', harchValue: 'Fully compliant — zero-carbon processing', competitorValue: 'Not compliant — carbon penalty risk', harchWins: true },
             { label: 'Cross-Vertical Synergy', harchValue: 'Energy + Mining + Water + Agri', competitorValue: 'None — cement only', harchWins: true },
             { label: 'Waste Heat Recovery', harchValue: '30% thermal energy recaptured', competitorValue: 'Not disclosed', harchWins: true },
-            { label: 'Local Employment', harchValue: '800+ direct jobs in Gambia', competitorValue: 'Primarily Nigerian workforce', harchWins: true },
             { label: 'Sustainability Certifications', harchValue: 'LEED + BREEAM + ISO 14001 from day one', competitorValue: 'No green certifications disclosed', harchWins: true },
-            { label: 'Circular Economy (Waste Input)', harchValue: 'Industrial symbiosis — Harch Mining waste as input', competitorValue: 'None — no circular material flows', harchWins: true },
           ],
-          verdict: 'Dangote produces volume. Harch Cement produces the future — green LC3 cement at 30-50% below import prices, powered by 100% renewable energy, with zero water waste, EU CBAM-compliant from day one. Volume without sustainability is the past. Sustainability without scale is a prototype. Harch Cement is neither — it is the future built at scale.',
+          verdict: 'Dangote produces volume. Harch Cement produces the future — green LC3 cement at 30-50% below import prices, powered by 100% renewable energy.',
         },
         {
-          name: 'Holcim (ECOPact)',
-          country: 'Switzerland',
-          founded: '1912',
-          revenue: '$27B (2024)',
+          name: 'Holcim (ECOPact)', country: 'Switzerland', founded: '1912', revenue: '$27B (2024)',
           metrics: [
             { label: 'West Africa Operations', harchValue: 'Gambia — building now', competitorValue: 'Exited 2025 (sold to Huaxin)', harchWins: true },
             { label: 'Green Pricing', harchValue: 'No premium — cost advantage', competitorValue: '5-15% green premium', harchWins: true },
             { label: 'Renewable Energy', harchValue: '100% Harch Energy — direct supply', competitorValue: 'Partial — no African supply chain', harchWins: true },
-            { label: 'Water Recycling', harchValue: '95% closed-loop', competitorValue: 'Not disclosed for ECOPact', harchWins: true },
             { label: 'Local Employment', harchValue: '800+ direct jobs in Gambia', competitorValue: '0 jobs in West Africa (exited)', harchWins: true },
-            { label: 'Cross-Vertical Synergy', harchValue: 'Harch Energy + Mining + Water', competitorValue: 'None — standalone cement', harchWins: true },
             { label: 'Carbon Intensity', harchValue: 'Near-zero — 100% renewable', competitorValue: '~400 kgCO2/t (ECOPact range)', harchWins: true, harchNumeric: 10, competitorNumeric: 400, barMax: 450, lowerIsBetter: true },
             { label: 'EU CBAM Readiness', harchValue: 'Zero-carbon — no border tax', competitorValue: 'Partial — varies by plant', harchWins: true },
-            { label: 'River Distribution Hub', harchValue: 'Gambia River — 25 truckloads per barge', competitorValue: 'None — no West Africa presence', harchWins: true },
             { label: 'Import Substitution', harchValue: '100% — replacing all Gambia imports', competitorValue: '0% — no longer operating in region', harchWins: true },
-            { label: 'Open Source Green Formulations', harchValue: 'LC3 recipes shared with local partners', competitorValue: 'Proprietary ECOPact — licensed only', harchWins: true },
             { label: 'Community Revenue Share', harchValue: '5% — local development funds', competitorValue: '0% disclosed', harchWins: true },
           ],
-          verdict: 'Holcim makes ECOPact in Zurich. Harch Cement makes green cement in Gambia — at a cost advantage not a premium, with 100% renewable energy, 800 local jobs, and EU CBAM compliance from day one. We are where Holcim left — and we went further.',
+          verdict: 'Holcim makes ECOPact in Zurich. Harch Cement makes green cement in Gambia — at a cost advantage not a premium, with 100% renewable energy and 800 local jobs.',
         },
         {
-          name: 'Dalmia Cement',
-          country: 'India',
-          founded: '1939',
-          revenue: '$1.5B (2024)',
-          metrics: [
-            { label: 'Clinker Factor Target', harchValue: '<70% by 2029 (LC3)', competitorValue: '63% current', harchWins: false },
-            { label: 'Green Pricing', harchValue: 'No premium — cost advantage', competitorValue: 'No premium — Indian market', harchWins: false },
-            { label: 'Renewable Energy', harchValue: '100% Harch Energy supply', competitorValue: 'Partial — Indian grid mix', harchWins: true },
-            { label: 'Market Growth Rate', harchValue: '6% GDP growth (Gambia/West Africa)', competitorValue: '7% India (saturated cement market)', harchWins: true },
-            { label: 'Import Substitution', harchValue: '100% — Gambia imports all cement today', competitorValue: 'N/A — India is self-sufficient', harchWins: true },
-            { label: 'Cross-Vertical Integration', harchValue: 'Energy + Mining + Water + Agri', competitorValue: 'Cement only — no industrial synergy', harchWins: true },
-            { label: 'Carbon Intensity', harchValue: 'Near-zero — 100% renewable', competitorValue: '~500 kgCO2/t (lower than avg but not zero)', harchWins: true, harchNumeric: 10, competitorNumeric: 500, barMax: 550, lowerIsBetter: true },
-            { label: 'EU CBAM Readiness', harchValue: 'Fully compliant — zero-carbon', competitorValue: 'Not applicable — no EU exports', harchWins: true },
-            { label: 'Water Recycling', harchValue: '95% closed-loop', competitorValue: 'Partial — not 95%', harchWins: true },
-            { label: 'River Distribution Hub', harchValue: 'Gambia River — multi-country access', competitorValue: 'Rail/road — India domestic', harchWins: true },
-            { label: 'African Sovereignty', harchValue: 'African-owned, African-operated', competitorValue: 'Indian HQ — no African ops', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
-          ],
-          verdict: 'Dalmia validates LC3 technology — and we follow the same path. But Dalmia sells cement in a saturated Indian market with partial renewables. Harch Cement builds a nation\'s first domestic supply from zero, powered by 100% renewable energy, in the fastest-growing construction market on Earth.',
-        },
-        {
-          name: 'Heidelberg Materials',
-          country: 'Germany',
-          founded: '1873',
-          revenue: '$22B (2024)',
+          name: 'Heidelberg Materials', country: 'Germany', founded: '1873', revenue: '$22B (2024)',
           metrics: [
             { label: 'West Africa Operations', harchValue: 'Gambia — building now', competitorValue: 'Limited — primarily Europe/NA', harchWins: true },
             { label: 'CCS Timeline', harchValue: 'Zero-carbon by design — no CCS needed', competitorValue: 'CCS target by 2030 — unproven at scale', harchWins: true },
             { label: 'Green Pricing', harchValue: 'No premium — structural cost advantage', competitorValue: 'evoZero premium pricing', harchWins: true },
-            { label: 'Renewable Energy', harchValue: '100% Harch Energy — direct', competitorValue: 'Grid mix — partial renewables', harchWins: true },
-            { label: 'Cross-Vertical Synergy', harchValue: 'Energy + Mining + Water + Agri', competitorValue: 'None — standalone cement', harchWins: true },
-            { label: 'Water Recycling', harchValue: '95% closed-loop', competitorValue: 'Not disclosed', harchWins: true },
-            { label: 'Import Substitution', harchValue: '100% — replacing all Gambia imports', competitorValue: '0% — no Gambia/West Africa ops', harchWins: true },
-            { label: 'Local Employment', harchValue: '800+ direct jobs in Gambia', competitorValue: '0 jobs in West Africa', harchWins: true },
-            { label: 'River Distribution', harchValue: 'Gambia River barge access', competitorValue: 'None — no regional presence', harchWins: true },
             { label: 'Carbon Intensity', harchValue: 'Near-zero — 100% renewable', competitorValue: '~550 kgCO2/t (conventional) — CCS planned', harchWins: true, harchNumeric: 10, competitorNumeric: 550, barMax: 600, lowerIsBetter: true },
+            { label: 'Import Substitution', harchValue: '100% — replacing all Gambia imports', competitorValue: '0% — no Gambia/West Africa ops', harchWins: true },
             { label: 'CCS Risk', harchValue: 'No CCS needed — zero by design', competitorValue: 'High — CCS unproven at cement scale', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '5%', competitorValue: '0% disclosed', harchWins: true },
           ],
-          verdict: 'Heidelberg bets on CCS — carbon capture that remains unproven at scale. Harch Cement eliminates carbon at the source through 100% renewable energy and LC3 formulations. No capture needed. No premium charged. Prevention beats capture.',
+          verdict: 'Heidelberg bets on CCS — carbon capture that remains unproven at scale. Harch Cement eliminates carbon at the source through 100% renewable energy. Prevention beats capture.',
         },
       ],
     },
@@ -437,15 +376,15 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       name: 'Harch Energy', version: '/0.3',
       heroTitle: "2GW+ Renewable\nEnergy Pipeline",
       heroSubtitle: 'Solar, wind, and green hydrogen powering industrial sovereignty across the continent',
-      heroImage: '/images/sections/comp-energy-wind.jpg',
-      sectionImage1: '/images/sections/comp-energy-solar.jpg',
-      sectionImage2: '/images/sections/energy-solar-farm.jpg',
-      sectionImage3: '/images/sections/energy-hydrogen.jpg',
-      sectionImage4: '/images/sections/energy-wind-farm.jpg',
-      overview: 'Harch Energy is developing over 2GW+ Pipeline of renewable energy capacity across Morocco and the Sahel region — combining solar, wind, and green hydrogen production to power industrial operations and data centers with zero-carbon electricity. Our integrated approach ensures energy sovereignty for the continent while creating a model for sustainable industrialization worldwide. Every kilowatt we generate strengthens Africa\'s position in the global energy transition, replacing fossil fuel dependency with indigenous, renewable, and increasingly cost-competitive power.',
-      strategicContext: 'Africa possesses the world\'s greatest renewable energy potential — 40% of global solar irradiance and exceptional wind corridors across the Sahel. Yet the continent generates only 3% of global renewable electricity, and over 600 million Africans lack access to reliable power. This paradox represents both a crisis and an opportunity. While developed economies struggle with the cost of transitioning from fossil fuels, Africa can leapfrog directly to renewable energy at costs below any fossil fuel alternative. Harch Energy captures this opportunity at industrial scale, building the renewable infrastructure that powers not just Harch Corp\'s verticals but catalyzes a continental energy transformation.',
-      marketAnalysis: 'Africa\'s renewable energy market is projected to reach $80 billion in annual investment by 2030, driven by falling technology costs (solar PV costs have declined 90% since 2010), international climate finance commitments exceeding $100 billion annually, and rapidly growing power demand from industrialization and urbanization. Morocco alone plans 6GW of new renewable capacity by 2030, while the Sahel region\'s power demand is growing at 8% annually. Harch Energy\'s 2GW+ Pipeline positions us as a major independent power producer in the region, with power purchase agreements providing 20+ year revenue visibility and inflation-protected cash flows.',
-      sustainability: 'Harch Energy\'s entire business model is predicated on sustainability. Every megawatt we generate displaces fossil fuel generation, preventing approximately 1,000 tonnes of CO2 emissions annually. Our 2GW+ Pipeline will offset over 3.2 million tonnes of CO2 per year — equivalent to removing 700,000 cars from the road. Beyond carbon, our projects incorporate biodiversity assessments, community benefit sharing (5% of revenue allocated to local development funds), and water conservation measures using dry cooling technology in water-stressed regions. All installations are designed for 30+ year operational lifetimes with 95%+ recyclability at decommissioning.',
+      heroImage: '/images/sections/energy-wind-farm.jpg',
+      sectionImage1: '/images/sections/energy-solar-farm.jpg',
+      sectionImage2: '/images/sections/energy-hydrogen-plant.jpg',
+      sectionImage3: '/images/sections/energy-wind-farm.jpg',
+      sectionImage4: '/images/sections/energy-solar-farm.jpg',
+      overview: 'Harch Energy is developing over 2GW+ Pipeline of renewable energy capacity across Morocco and the Sahel region — combining solar, wind, and green hydrogen production to power industrial operations and data centers with zero-carbon electricity. Our integrated approach ensures energy sovereignty for the continent while creating a model for sustainable industrialization worldwide.',
+      strategicContext: 'Africa possesses the world\'s greatest renewable energy potential — 40% of global solar irradiance and exceptional wind corridors across the Sahel. Yet the continent generates only 3% of global renewable electricity, and over 600 million Africans lack access to reliable power. Harch Energy captures this opportunity at industrial scale, building the renewable infrastructure that powers not just Harch Corp\'s verticals but catalyzes a continental energy transformation.',
+      marketAnalysis: 'Africa\'s renewable energy market is projected to reach $80 billion in annual investment by 2030, driven by falling technology costs (solar PV costs have declined 90% since 2010), international climate finance commitments exceeding $100 billion annually, and rapidly growing power demand. Morocco alone plans 6GW of new renewable capacity by 2030.',
+      sustainability: 'Harch Energy\'s entire business model is predicated on sustainability. Every megawatt we generate displaces fossil fuel generation, preventing approximately 1,000 tonnes of CO2 emissions annually. Our 2GW+ Pipeline will offset over 3.2 million tonnes of CO2 per year — equivalent to removing 700,000 cars from the road.',
       investment: '$600M',
       metrics: [
         { value: 2000, prefix: '', suffix: ' MW+', label: 'Pipeline Capacity' },
@@ -454,12 +393,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { value: 45, prefix: '', suffix: '%', label: 'Wind Capacity Factor' },
       ],
       capabilities: [
-        { icon: Zap, title: 'Solar Photovoltaic', desc: '1.2GW of solar photovoltaic capacity across Morocco\'s southern regions using Tier-1 bifacial panels with single-axis trackers for maximum energy yield. Our solar farms achieve capacity factors of 28% — significantly above the global average — thanks to Morocco\'s exceptional solar irradiance exceeding 2,400 kWh/m2 annually.' },
-        { icon: Wind, title: 'Onshore Wind Power', desc: '800MW of onshore wind capacity in the Sahel corridor, one of the world\'s premier wind resources. Modern turbines with 130m rotor diameters achieve capacity factors above 45%, generating electricity at a levelized cost of $18/MWh — competitive with any generation source globally.' },
-        { icon: Droplets, title: 'Green Hydrogen Production', desc: '200MW electrolyzer capacity for green hydrogen production using PEM technology from industry-leading suppliers. Serving industrial demand for zero-carbon fuel, chemical feedstock, and energy storage. Production cost targeted at $2.50/kg by 2028 — competitive with grey hydrogen in European markets.' },
-        { icon: Shield, title: 'Grid Integration & Storage', desc: 'AI-optimized grid management with 400MWh of battery storage ensuring stable power supply 24/7 for critical industrial loads. Our grid integration platform provides frequency regulation, voltage support, and black-start capability for enhanced grid resilience.' },
-        { icon: Globe, title: 'PPA Structuring', desc: 'Long-term power purchase agreements with Harch Corp verticals and third-party industrial customers. 20+ year contracts with inflation protection, providing revenue visibility that supports project financing at favorable terms. Investment-grade off-take agreements enable non-recourse project finance structures.' },
-        { icon: BarChart3, title: 'Carbon Credit Generation', desc: 'Verified carbon credits from all renewable installations registered under the Gold Standard and Verra VCS frameworks. Additional revenue stream that improves project economics by 8-12% while providing corporate buyers with high-quality African carbon offsets.' },
+        { icon: Zap, title: 'Solar Photovoltaic', desc: '1.2GW of solar photovoltaic capacity across Morocco\'s southern regions using Tier-1 bifacial panels with single-axis trackers for maximum energy yield. Capacity factors of 28% — significantly above the global average.' },
+        { icon: Wind, title: 'Onshore Wind Power', desc: '800MW of onshore wind capacity in the Sahel corridor, one of the world\'s premier wind resources. Capacity factors above 45%, generating electricity at $18/MWh — competitive with any generation source globally.' },
+        { icon: Droplets, title: 'Green Hydrogen Production', desc: '200MW electrolyzer capacity for green hydrogen production using PEM technology. Production cost targeted at $2.50/kg by 2028 — competitive with grey hydrogen in European markets.' },
+        { icon: Shield, title: 'Grid Integration & Storage', desc: 'AI-optimized grid management with 400MWh of battery storage ensuring stable power supply 24/7 for critical industrial loads.' },
+        { icon: Globe, title: 'PPA Structuring', desc: 'Long-term power purchase agreements with 20+ year contracts with inflation protection, providing revenue visibility that supports project financing at favorable terms.' },
+        { icon: BarChart3, title: 'Carbon Credit Generation', desc: 'Verified carbon credits from all renewable installations registered under the Gold Standard and Verra VCS frameworks. Additional revenue stream that improves project economics by 8-12%.' },
       ],
       specTable: [
         { spec: 'Solar PV', value: '1.2GW', phase: 'Morocco South' },
@@ -475,12 +414,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       ],
       milestones: [
         { year: '2025 Q1', title: 'License Applications Filed', desc: 'Renewable energy licenses and environmental permits filed for solar and wind projects across 3 sites totaling 2GW+.' },
-        { year: '2025 Q4', title: 'Licenses Secured & PPA Signed', desc: '2GW+ Pipeline renewable energy licenses approved by Moroccan authorities. First PPA signed with Harch Intelligence for 500MW Pipeline dedicated supply.' },
-        { year: '2026 Q3', title: 'Solar Farm Construction Begins', desc: 'First 400MW solar farm construction starts in southern Morocco. Panel procurement and site preparation underway.' },
-        { year: '2027 Q2', title: 'First Power Generation', desc: '400MW solar farm online and generating. First PPA deliveries to Harch Intelligence data center and third-party industrial customers.' },
-        { year: '2027 Q4', title: 'Wind Farm Construction', desc: '300MW wind farm construction begins in the Sahel corridor. Turbine procurement and foundation works initiated.' },
-        { year: '2028 Q4', title: '1GW Operational Milestone', desc: '1GW total renewable capacity operational. Wind farm commissioning underway. Green hydrogen pilot launched.' },
-        { year: '2030 Q1', title: 'Full Pipeline Operational', desc: '2GW+ Pipeline fully operational across solar, wind, and green hydrogen. Continental energy backbone established.' },
+        { year: '2025 Q4', title: 'Licenses Secured & PPA Signed', desc: '2GW+ Pipeline renewable energy licenses approved. First PPA signed with Harch Intelligence for 500MW Pipeline dedicated supply.' },
+        { year: '2026 Q3', title: 'Solar Farm Construction Begins', desc: 'First 400MW solar farm construction starts in southern Morocco.' },
+        { year: '2027 Q2', title: 'First Power Generation', desc: '400MW solar farm online and generating. First PPA deliveries to Harch Intelligence data center.' },
+        { year: '2027 Q4', title: 'Wind Farm Construction', desc: '300MW wind farm construction begins in the Sahel corridor.' },
+        { year: '2028 Q4', title: '1GW Operational Milestone', desc: '1GW total renewable capacity operational. Green hydrogen pilot launched.' },
+        { year: '2030 Q1', title: 'Full Pipeline Operational', desc: '2GW+ Pipeline fully operational across solar, wind, and green hydrogen.' },
       ],
       stats: [
         { stat: 'Capacity Factor Solar', value: 28, max: 35 },
@@ -489,106 +428,44 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { stat: 'Carbon Offset Target', value: 85, max: 100 },
       ],
       location: 'Sahel Region',
-      locationDesc: 'Exceptional solar irradiance (2,400+ kWh/m2/year) and wind resources (average 8.5 m/s) across Morocco and the Sahel corridor. Our sites are strategically located near high-voltage transmission infrastructure and industrial demand centers, minimizing grid connection costs and transmission losses.',
+      locationDesc: 'Exceptional solar irradiance (2,400+ kWh/m2/year) and wind resources (average 8.5 m/s) across Morocco and the Sahel corridor. Sites strategically located near high-voltage transmission infrastructure and industrial demand centers.',
       strategicAdvantages: [
-        { title: 'Lowest LCOE Globally', desc: 'Morocco\'s combination of exceptional solar irradiance, low land costs, and developing infrastructure creates solar LCOE of $14/MWh — among the lowest in the world. This structural advantage is permanent and geography-dependent.' },
-        { title: 'Captive Demand from Harch Verticals', desc: 'Guaranteed offtake from Harch Intelligence (500MW Pipeline), Harch Cement, Harch Mining, and Harch Water provides revenue floor that derisks project finance and enables better debt terms.' },
-        { title: 'Green Hydrogen Export Potential', desc: 'Morocco\'s proximity to European hydrogen markets (14km at the Strait of Gibraltar) positions Harch Energy as a competitive green hydrogen supplier to EU industrial customers.' },
-        { title: 'Carbon Credit Revenue', desc: 'Verified carbon credits from 2GW+ Pipeline of renewable installations generate $25-40M annually in additional revenue, improving project IRR by 200-300 basis points.' },
-        { title: 'Morocco 52% Renewable by 2030', desc: 'Morocco has one of the most aggressive renewable energy targets globally at 52% by 2030, creating a favorable regulatory environment and substantial government incentives for green energy investment. EU green hydrogen demand targets 20 Mt by 2030, positioning Morocco as the primary supplier to European markets.' },
+        { title: 'Lowest LCOE Globally', desc: 'Morocco\'s combination of exceptional solar irradiance, low land costs, and developing infrastructure creates solar LCOE of $14/MWh — among the lowest in the world.' },
+        { title: 'Captive Demand from Harch Verticals', desc: 'Guaranteed offtake from Harch Intelligence (500MW Pipeline), Harch Cement, Harch Mining, and Harch Water provides revenue floor that derisks project finance.' },
+        { title: 'Green Hydrogen Export Potential', desc: 'Morocco\'s proximity to European hydrogen markets positions Harch Energy as a competitive green hydrogen supplier to EU industrial customers.' },
+        { title: 'Carbon Credit Revenue', desc: 'Verified carbon credits from 2GW+ Pipeline of renewable installations generate $25-40M annually in additional revenue.' },
       ],
       partnershipModel: [
-        { title: 'Corporate PPAs', desc: 'Long-term power purchase agreements for industrial customers seeking renewable energy supply. 10-20 year terms with fixed or inflation-linked pricing, providing budget certainty and ESG reporting benefits.' },
-        { title: 'Project Finance Partnerships', desc: 'Joint development structures with international infrastructure investors and development finance institutions. Non-recourse project finance with Harch Corp as sponsor and O&M provider.' },
-        { title: 'Green Hydrogen Offtake', desc: 'Hydrogen supply agreements with European industrial customers. Delivered via pipeline or converted to green ammonia for maritime transport. Target price: $2.50/kg by 2028.' },
-        { title: 'Community Energy Programs', desc: 'Mini-grid and rural electrification partnerships with governments and development agencies. 5% of generation capacity allocated for community energy access programs.' },
+        { title: 'Corporate PPAs', desc: 'Long-term power purchase agreements for industrial customers seeking renewable energy supply. 10-20 year terms with fixed or inflation-linked pricing.' },
+        { title: 'Project Finance Partnerships', desc: 'Joint development structures with international infrastructure investors and development finance institutions.' },
+        { title: 'Green Hydrogen Offtake', desc: 'Hydrogen supply agreements with European industrial customers. Target price: $2.50/kg by 2028.' },
+        { title: 'Community Energy Programs', desc: 'Mini-grid and rural electrification partnerships with governments and development agencies. 5% of generation capacity allocated for community energy access.' },
       ],
       competitorHarchName: 'Harch Energy',
-      competitorAccentColor: '#FFFFFF',
+      competitorAccentColor: '#B8965A',
       competitors: [
         {
-          name: 'ACWA Power',
-          country: 'Saudi Arabia',
-          founded: '2004',
-          revenue: '$3.1B (2024)',
+          name: 'ACWA Power', country: 'Saudi Arabia', founded: '2004', revenue: '$3.1B (2024)',
           metrics: [
             { label: 'LCOE Solar', harchValue: '$14/MWh (industry-leading)', competitorValue: '~$16-20/MWh', harchWins: true, harchNumeric: 14, competitorNumeric: 18, barMax: 25, lowerIsBetter: true },
             { label: 'Green H2 Target', harchValue: '$2.50/kg by 2028 — on track', competitorValue: 'Not disclosed — no H2 product', harchWins: true },
             { label: 'African Industrial Focus', harchValue: '5 countries, 7 verticals', competitorValue: '1 country (Senegal desal only)', harchWins: true },
             { label: 'Captive Industrial Demand', harchValue: 'Intelligence + Cement + Mining + Agri + Water', competitorValue: 'None — power + water only', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '5% — local development funds', competitorValue: '0% disclosed', harchWins: true },
-            { label: 'Integrated H2-to-Industry', harchValue: 'Harch Mining + Harch Cement off-take', competitorValue: 'No industrial off-take', harchWins: true },
-            { label: 'Carbon Credit Revenue', harchValue: '$25-40M/yr (Gold Standard + Verra)', competitorValue: 'Not a primary revenue stream', harchWins: true },
-            { label: 'African Sovereignty', harchValue: 'African-owned, African-operated', competitorValue: 'Saudi sovereign fund — foreign-owned', harchWins: true },
             { label: 'Cross-Vertical Synergy', harchValue: 'Energy → DC → Mining → Cement → Agri → Water', competitorValue: 'Energy only — no vertical integration', harchWins: true },
-            { label: 'LCOE Wind', harchValue: '$18/MWh (Sahel corridor)', competitorValue: 'Not disclosed — limited wind portfolio', harchWins: true },
-            { label: 'Grid Storage', harchValue: '400MWh — LFP battery', competitorValue: 'Not disclosed', harchWins: true },
-            { label: 'Open Source Grid Management', harchValue: 'HarchOS Grid SDK — sovereign grid tech', competitorValue: 'None — proprietary SCADA only', harchWins: true },
-            { label: 'Battery Storage Capacity', harchValue: '400MWh dedicated', competitorValue: 'Not disclosed', harchWins: true, harchNumeric: 400, competitorNumeric: 50, barMax: 450 },
-            { label: 'African Job Creation', harchValue: '2,000+ direct jobs across 5 countries', competitorValue: 'Limited — Saudi-managed projects', harchWins: true },
+            { label: 'African Sovereignty', harchValue: 'African-owned, African-operated', competitorValue: 'Saudi sovereign fund — foreign-owned', harchWins: true },
           ],
-          verdict: 'ACWA builds power plants. Harch Energy powers an industrial ecosystem — every MWh feeds a Harch subsidiary, every H2 molecule feeds a Harch process, every carbon credit generates $25-40M/yr. ACWA sells energy. We are energy.',
+          verdict: 'ACWA builds power plants. Harch Energy powers an industrial ecosystem — every MWh feeds a Harch subsidiary, every H2 molecule feeds a Harch process.',
         },
         {
-          name: 'Masdar',
-          country: 'Abu Dhabi',
-          founded: '2006',
-          revenue: '$1.5B+ (est.)',
+          name: 'Masdar', country: 'Abu Dhabi', founded: '2006', revenue: '$1.5B+ (est.)',
           metrics: [
-            { label: 'LCOE Solar', harchValue: '$14/MWh', competitorValue: '~$13-15/MWh', harchWins: false },
             { label: 'Green H2 Execution Risk', harchValue: '200MW focused — ship first', competitorValue: '4GW announced — scale unproven', harchWins: true },
             { label: 'Captive Industrial Demand', harchValue: '5 subsidiaries consuming output', competitorValue: 'No industrial off-take', harchWins: true },
             { label: 'African Sovereign Ops', harchValue: '5 African countries — African-owned', competitorValue: 'UAE sovereign fund — foreign-owned', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
-            { label: 'Cross-Vertical Synergy', harchValue: 'Energy → Data Centers → Mining → Cement', competitorValue: 'Energy only — no vertical integration', harchWins: true },
-            { label: 'Carbon Credit Revenue', harchValue: '$25-40M/yr — verified', competitorValue: 'Not disclosed — no credit strategy', harchWins: true },
             { label: 'Execution Track Record', harchValue: 'No cancelled projects — disciplined', competitorValue: '4GW announced — execution risk high', harchWins: true },
-            { label: 'H2 Production Cost', harchValue: '$2.50/kg by 2028 — targeted', competitorValue: 'Not disclosed — no H2 product', harchWins: true },
             { label: 'Battery Storage', harchValue: '400MWh — dedicated', competitorValue: 'Not disclosed', harchWins: true },
-            { label: 'African Job Creation', harchValue: '2,000+ direct jobs', competitorValue: '0 disclosed — UAE-managed', harchWins: true },
-            { label: 'Sovereign Grid Management', harchValue: 'AI-optimized — African-controlled', competitorValue: 'Third-party SCADA — UAE-controlled', harchWins: true },
           ],
-          verdict: 'Masdar has UAE capital. Harch Energy has African integration — every MWh powers a Harch subsidiary, every dollar stays on the continent, every carbon credit is verified. Capital without integration is just money. Integration without capital is a strategy. We have both.',
-        },
-        {
-          name: 'Fortescue Future Industries',
-          country: 'Australia',
-          founded: '2017',
-          revenue: 'Loss-making ($500M+ invested)',
-          metrics: [
-            { label: 'Green H2 Execution', harchValue: '200MW — disciplined, shipping first', competitorValue: '2GW+ announced — multiple projects cancelled 2025', harchWins: true },
-            { label: 'Green H2 Target Price', harchValue: '$2.50/kg by 2028', competitorValue: '$2/kg target — scaled back', harchWins: true },
-            { label: 'African Operations', harchValue: '5 countries — Morocco/Mauritania/Senegal/Gambia/Mali', competitorValue: '2 countries — Egypt, Kenya', harchWins: true },
-            { label: 'Captive H2 Demand', harchValue: 'Harch Mining (cobalt refining) + Harch Cement', competitorValue: 'No industrial off-take', harchWins: true },
-            { label: 'Renewable Energy Cost', harchValue: '$0.03/kWh (Morocco solar)', competitorValue: '$0.05-0.08/kWh (Australia)', harchWins: true, harchNumeric: 3, competitorNumeric: 6, barMax: 10, lowerIsBetter: true },
-            { label: 'Track Record', harchValue: 'No cancelled projects', competitorValue: 'Multiple H2 projects scrapped 2025', harchWins: true },
-            { label: 'Cross-Vertical Integration', harchValue: '5 subsidiaries consuming energy', competitorValue: 'None — standalone H2', harchWins: true },
-            { label: 'Carbon Credit Revenue', harchValue: '$25-40M/yr — verified', competitorValue: 'Not disclosed', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '5%', competitorValue: '0% disclosed', harchWins: true },
-            { label: 'Battery Storage', harchValue: '400MWh — grid-stabilizing', competitorValue: 'Not disclosed', harchWins: true },
-            { label: 'Open Source H2 Framework', harchValue: 'HarchOS H2 SDK — sovereign hydrogen tech', competitorValue: 'None — proprietary only', harchWins: true },
-          ],
-          verdict: 'Fortescue announced 15GW and cancelled half of it. Harch Energy announces 200MW and ships every watt. Execution beats announcements. Discipline beats scale. Every molecule has a buyer in our ecosystem.',
-        },
-        {
-          name: 'Enel Green Power',
-          country: 'Italy',
-          founded: '2008',
-          revenue: '$18B+ (Enel Group)',
-          metrics: [
-            { label: 'African Pipeline', harchValue: '2GW+ — Morocco/Sahel focused', competitorValue: '~1.5GW — scattered across Africa', harchWins: true, harchNumeric: 2000, competitorNumeric: 1500, barMax: 2500 },
-            { label: 'LCOE Solar', harchValue: '$14/MWh', competitorValue: '~$18-25/MWh', harchWins: true, harchNumeric: 14, competitorNumeric: 21, barMax: 30, lowerIsBetter: true },
-            { label: 'Green H2 Strategy', harchValue: '200MW — captive industrial off-take', competitorValue: 'Pilot stage — no commercial H2', harchWins: true },
-            { label: 'Captive Industrial Demand', harchValue: '5 subsidiaries — guaranteed off-take', competitorValue: 'None — merchant power only', harchWins: true },
-            { label: 'Cross-Vertical Synergy', harchValue: 'Energy → DC → Mining → Cement → Agri → Water', competitorValue: 'Energy only — no verticals', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '5%', competitorValue: '0% disclosed', harchWins: true },
-            { label: 'Carbon Credit Revenue', harchValue: '$25-40M/yr — Gold Standard + Verra', competitorValue: 'Not a primary revenue stream', harchWins: true },
-            { label: 'Sovereignty', harchValue: 'African-owned — all decisions in Africa', competitorValue: 'Italian HQ — decisions in Rome', harchWins: true },
-            { label: 'Battery Storage', harchValue: '400MWh — dedicated', competitorValue: 'Partial — project-dependent', harchWins: true },
-            { label: 'African Job Creation', harchValue: '2,000+ direct jobs', competitorValue: 'Limited — Italian-managed projects', harchWins: true },
-            { label: 'Grid Management Software', harchValue: 'HarchOS Grid SDK — African-controlled', competitorValue: 'Third-party SCADA — Italian-controlled', harchWins: true },
-          ],
-          verdict: 'Enel builds renewable plants across Africa under Italian control. Harch Energy builds an African energy ecosystem under African control — with captive industrial demand, green hydrogen, carbon credits, and 5% community revenue share. Sovereignty is not negotiable.',
+          verdict: 'Masdar has UAE capital. Harch Energy has African integration — every MWh powers a Harch subsidiary, every dollar stays on the continent.',
         },
       ],
     },
@@ -596,15 +473,15 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       name: 'Harch Technology', version: '/0.4',
       heroTitle: "Sovereign Digital\nInfrastructure",
       heroSubtitle: 'AI platforms, cybersecurity, and satellite communications for Africa\'s digital sovereignty',
-      heroImage: '/images/sections/comp-tech-dish.jpg',
-      sectionImage1: '/images/sections/comp-tech-ai.jpg',
+      heroImage: '/images/sections/tech-satellite.jpg',
+      sectionImage1: '/images/sections/tech-ground-station.jpg',
       sectionImage2: '/images/sections/tech-cyber.jpg',
       sectionImage3: '/images/sections/tech-satellite.jpg',
       sectionImage4: '/images/sections/tech-ground-station.jpg',
-      overview: 'Harch Technology provides the sovereign digital infrastructure that powers Africa\'s industrial and digital transformation. From AI platforms to cybersecurity and satellite communications, we ensure that Africa controls its own technology stack — its data, its compute, its communications, and its security. In a world where digital sovereignty is increasingly synonymous with national sovereignty, Harch Technology builds the systems that keep Africa\'s digital future in African hands.',
-      strategicContext: 'Africa\'s digital economy is growing at 25% annually, yet 95% of the continent\'s cloud infrastructure, cybersecurity tools, and communications systems are provided by foreign companies operating under foreign jurisdictions. This creates critical vulnerabilities: data sovereignty is compromised, communications can be intercepted or disrupted by foreign actors, and the continent\'s rapidly growing AI capabilities depend entirely on foreign compute infrastructure. Harch Technology addresses each of these vulnerabilities with sovereign solutions designed for African requirements, deployed within African jurisdictions, and operated by African talent.',
-      marketAnalysis: 'Africa\'s technology market is valued at $35 billion and growing at 20% CAGR — the fastest of any region globally. Key growth segments include cloud services ($8B by 2027), cybersecurity ($5B by 2026), satellite communications ($3B by 2027), and AI platforms ($10B by 2028). Government data localization mandates in 15+ African countries are creating guaranteed demand for sovereign cloud and data center services. Meanwhile, the cybersecurity threat landscape is intensifying, with African organizations experiencing 30% more cyberattacks than the global average, yet investing 60% less in protection.',
-      sustainability: 'Harch Technology designs for efficiency and longevity. Our sovereign cloud infrastructure runs on 100% renewable energy from Harch Energy, with a PUE below 1.2 across all facilities. Edge computing nodes are solar-powered with battery backup, minimizing grid dependency in remote locations. All hardware follows certified e-waste recycling protocols, and our software stack is optimized for energy efficiency — achieving 30% lower compute-per-watt than competing platforms. We also invest 5% of technology revenue in STEM education programs across our operating countries, building the next generation of African technology talent.',
+      overview: 'Harch Technology provides the sovereign digital infrastructure that powers Africa\'s industrial and digital transformation. From AI platforms to cybersecurity and satellite communications, we ensure that Africa controls its own technology stack — its data, its compute, its communications, and its security.',
+      strategicContext: 'Africa\'s digital economy is growing at 25% annually, yet 95% of the continent\'s cloud infrastructure, cybersecurity tools, and communications systems are provided by foreign companies operating under foreign jurisdictions. Harch Technology addresses each of these vulnerabilities with sovereign solutions designed for African requirements.',
+      marketAnalysis: 'Africa\'s technology market is valued at $35 billion and growing at 20% CAGR — the fastest of any region globally. Key growth segments include cloud services ($8B by 2027), cybersecurity ($5B by 2026), satellite communications ($3B by 2027), and AI platforms ($10B by 2028).',
+      sustainability: 'Harch Technology designs for efficiency and longevity. Our sovereign cloud infrastructure runs on 100% renewable energy from Harch Energy, with a PUE below 1.2 across all facilities. All hardware follows certified e-waste recycling protocols.',
       investment: '$400M',
       metrics: [
         { value: 1798, prefix: '', suffix: '', label: 'GPUs' },
@@ -613,12 +490,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { value: 400, prefix: '$', suffix: 'M', label: 'Investment' },
       ],
       capabilities: [
-        { icon: Cpu, title: 'Sovereign AI Platform', desc: 'Full-stack AI platform for training, fine-tuning, and inference with managed services and enterprise SLAs. The platform supports all major ML frameworks and provides pre-built MLOps pipelines, model registries, and automated deployment workflows — all hosted within African jurisdiction with guaranteed data residency.' },
-        { icon: Shield, title: 'Cybersecurity Suite', desc: 'End-to-end cybersecurity platform from network monitoring to incident response. Designed for critical infrastructure protection with real-time threat intelligence, automated vulnerability scanning, and 24/7 security operations center. Protects all Harch Corp verticals and third-party clients across energy, mining, and government sectors.' },
-        { icon: Satellite, title: 'Satellite Communications', desc: 'Low Earth Orbit satellite connectivity for remote industrial operations across mining sites, agricultural zones, and energy installations. Multi-orbit constellation access provides 99.99% uptime guarantee with bandwidth from 10Mbps to 1Gbps, enabling real-time monitoring and control of distributed assets.' },
-        { icon: Server, title: 'Edge Computing Network', desc: 'Distributed edge computing infrastructure across 5 countries with 50+ nodes providing low-latency processing for IoT, AI inference, and real-time analytics at the point of need. Each node is self-contained with solar power, satellite backhaul, and local compute capacity for autonomous operation.' },
-        { icon: Lock, title: 'Sovereign Cloud', desc: 'Africa-hosted cloud infrastructure with full data sovereignty and guaranteed data residency. No data leaves the continent — compliant with emerging data localization laws in Morocco, Nigeria, Kenya, and South Africa. Provides IaaS, PaaS, and SaaS layers with enterprise-grade SLAs.' },
-        { icon: Eye, title: 'Industrial Data Analytics', desc: 'Real-time monitoring and predictive analytics platform combining IoT data streams from all Harch verticals. AI-powered anomaly detection, predictive maintenance, and operational optimization reduce downtime by 40% and maintenance costs by 25% across industrial operations.' },
+        { icon: Cpu, title: 'Sovereign AI Platform', desc: 'Full-stack AI platform for training, fine-tuning, and inference with managed services and enterprise SLAs — all hosted within African jurisdiction with guaranteed data residency.' },
+        { icon: Shield, title: 'Cybersecurity Suite', desc: 'End-to-end cybersecurity platform from network monitoring to incident response. Designed for critical infrastructure protection with real-time threat intelligence.' },
+        { icon: Satellite, title: 'Satellite Communications', desc: 'Low Earth Orbit satellite connectivity for remote industrial operations. Multi-orbit constellation access provides 99.99% uptime guarantee.' },
+        { icon: Server, title: 'Edge Computing Network', desc: 'Distributed edge computing infrastructure across 5 countries with 50+ nodes providing low-latency processing for IoT, AI inference, and real-time analytics.' },
+        { icon: Lock, title: 'Sovereign Cloud', desc: 'Africa-hosted cloud infrastructure with full data sovereignty and guaranteed data residency. No data leaves the continent.' },
+        { icon: Eye, title: 'Industrial Data Analytics', desc: 'Real-time monitoring and predictive analytics platform combining IoT data streams from all Harch verticals. AI-powered anomaly detection reduces downtime by 40%.' },
       ],
       specTable: [
         { spec: 'GPU Hubs', value: '5 (1,798 GPUs)', phase: 'Carbon-optimized' },
@@ -631,17 +508,13 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { spec: 'Certifications', value: 'ISO 27001 + SOC 2', phase: 'Information security' },
         { spec: 'API Availability', value: '99.99%', phase: 'Enterprise SLA' },
         { spec: 'Threat Intelligence', value: 'Real-time', phase: 'AI-powered detection' },
-        { spec: 'HarchOS Version', value: 'v0.7.0', phase: '83 endpoints, 17 modules' },
-        { spec: 'Carbon Scheduling', value: '873 LOC', phase: 'Unique — no competitor has it' },
-        { spec: 'API Latency', value: '650ms avg', phase: 'Target <200ms S1' },
-        { spec: 'SDK Score (Unique)', value: '95/100', phase: 'vs Modal 60, Replicate 50' },
       ],
       milestones: [
-        { year: '2025 Q2', title: 'Platform Architecture Validated', desc: 'Sovereign AI platform architecture designed, validated, and benchmarked against global standards. Key technology partnerships established with leading chip and software vendors.' },
-        { year: '2026 Q1', title: 'Cybersecurity Suite Launch', desc: 'Cybersecurity product suite launched commercially for enterprise and government customers. First 10 clients onboarded across energy and mining sectors.' },
-        { year: '2026 Q4', title: 'Edge Computing Deployment', desc: 'First 20 edge computing nodes deployed across Morocco, Gambia, and Mauritania. Solar-powered autonomous operations validated in remote mining environments.' },
-        { year: '2027 Q3', title: 'Satellite Integration Complete', desc: 'LEO satellite connectivity integrated with edge infrastructure. Full network operational for remote industrial sites with <50ms latency to cloud resources.' },
-        { year: '2028 Q2', title: 'Sovereign Cloud GA', desc: 'Full sovereign cloud platform in general availability with 3 African regions. Enterprise customers onboarded with guaranteed data residency and compliance frameworks.' },
+        { year: '2025 Q2', title: 'Platform Architecture Validated', desc: 'Sovereign AI platform architecture designed, validated, and benchmarked against global standards.' },
+        { year: '2026 Q1', title: 'Cybersecurity Suite Launch', desc: 'Cybersecurity product suite launched commercially for enterprise and government customers.' },
+        { year: '2026 Q4', title: 'Edge Computing Deployment', desc: 'First 20 edge computing nodes deployed across Morocco, Gambia, and Mauritania.' },
+        { year: '2027 Q3', title: 'Satellite Integration Complete', desc: 'LEO satellite connectivity integrated with edge infrastructure. Full network operational.' },
+        { year: '2028 Q2', title: 'Sovereign Cloud GA', desc: 'Full sovereign cloud platform in general availability with 3 African regions.' },
       ],
       stats: [
         { stat: 'Data Sovereignty', value: 100, max: 100 },
@@ -650,92 +523,24 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { stat: 'African Talent Ratio', value: 85, max: 100 },
       ],
       location: 'Casablanca, Morocco',
-      locationDesc: 'Technology headquarters in Casablanca\'s financial district with distributed operations across 5 countries. Casablanca provides access to Morocco\'s growing tech talent pool, international fiber connectivity, and proximity to European technology partners.',
+      locationDesc: 'Technology headquarters in Casablanca\'s financial district with distributed operations across 5 countries.',
       strategicAdvantages: [
-        { title: 'Sovereign by Design', desc: 'Every product is built from the ground up for data sovereignty, with guaranteed African data residency and no foreign jurisdiction access. This is not a feature added to existing platforms — it is the core architecture.' },
-        { title: 'Integrated Security Stack', desc: 'Cybersecurity is not an add-on but embedded across every layer — from physical data center security to application-level encryption. This integrated approach provides protection that point solutions cannot match.' },
+        { title: 'Sovereign by Design', desc: 'Every product is built from the ground up for data sovereignty, with guaranteed African data residency and no foreign jurisdiction access.' },
+        { title: 'Integrated Security Stack', desc: 'Cybersecurity is not an add-on but embedded across every layer — from physical data center security to application-level encryption.' },
         { title: 'Industrial IoT Expertise', desc: 'Deep domain expertise in industrial operations (energy, mining, cement, agriculture) enables tailored analytics and AI solutions that generic cloud providers cannot deliver.' },
-        { title: 'Multi-Orbit Satellite Access', desc: 'Partnerships with multiple LEO and MEO constellation operators provide redundant connectivity for remote operations, ensuring 99.99% uptime even in areas with zero terrestrial infrastructure.' },
+        { title: 'Multi-Orbit Satellite Access', desc: 'Partnerships with multiple LEO and MEO constellation operators provide redundant connectivity for remote operations, ensuring 99.99% uptime.' },
       ],
       partnershipModel: [
-        { title: 'Sovereign Cloud Migration', desc: 'Managed migration services for organizations moving workloads to African sovereign cloud. Assessment, planning, migration, and ongoing managed services with guaranteed data residency.' },
-        { title: 'Managed Security Services', desc: '24/7 security operations center with managed detection and response for critical infrastructure. Tiered service levels from monitoring-only to full incident response and remediation.' },
-        { title: 'Technology Licensing', desc: 'White-label licensing of Harch Technology platforms for telecom operators and system integrators seeking to offer sovereign digital services under their own brand.' },
-        { title: 'Research Partnerships', desc: 'Collaborative R&D programs with African universities and research institutions. Joint publications, patent sharing, and talent pipeline development for the next generation of African technologists.' },
+        { title: 'Sovereign Cloud Migration', desc: 'Managed migration services for organizations moving workloads to African sovereign cloud.' },
+        { title: 'Managed Security Services', desc: '24/7 security operations center with managed detection and response for critical infrastructure.' },
+        { title: 'Technology Licensing', desc: 'White-label licensing of Harch Technology platforms for telecom operators and system integrators.' },
+        { title: 'Research Partnerships', desc: 'Collaborative R&D programs with African universities and research institutions.' },
       ],
       competitorHarchName: 'Harch Technology',
-      competitorAccentColor: '#FFFFFF',
+      competitorAccentColor: '#8B9DAF',
       competitors: [
         {
-          name: 'Africa Data Centres / Liquid C2',
-          country: 'South Africa',
-          founded: '2018',
-          revenue: 'Undisclosed (Cassava subsidiary)',
-          metrics: [
-            { label: 'Sovereign AI Platform', harchValue: '1,798 GPUs — African-owned', competitorValue: 'Google Cloud — US-owned', harchWins: true },
-            { label: '100% Data Residency', harchValue: 'Guaranteed — 3 African regions', competitorValue: 'No explicit guarantee', harchWins: true },
-            { label: 'ISO 27001 + SOC 2', harchValue: 'Both certified', competitorValue: 'ISO 27001 only — no SOC 2', harchWins: true },
-            { label: 'Cybersecurity Suite', harchValue: 'Own DDoS+IDS+SOC — sovereign', competitorValue: 'Microsoft Sentinel — US-controlled', harchWins: true },
-            { label: 'Edge Nodes', harchValue: '50+ nodes, 5 countries', competitorValue: 'Fewer nodes, Google-dependent', harchWins: true },
-            { label: 'Data Jurisdiction', harchValue: 'Morocco — African law', competitorValue: 'US CLOUD Act applies', harchWins: true },
-            { label: 'GPU Compute', harchValue: '1,798 GPUs (H100/A100/L40S)', competitorValue: '0 GPUs — resells US cloud', harchWins: true, harchNumeric: 1798, competitorNumeric: 0, barMax: 2000 },
-            { label: 'Satellite Communications', harchValue: 'LEO + MEO — 99.99% SLA', competitorValue: 'None — no satellite capability', harchWins: true },
-            { label: 'Renewable Energy', harchValue: '81.5% — Harch Energy direct', competitorValue: 'Undisclosed — SA grid', harchWins: true },
-            { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh', competitorValue: '~500 gCO2/kWh (SA grid)', harchWins: true, harchNumeric: 47, competitorNumeric: 500, barMax: 550, lowerIsBetter: true },
-            { label: 'Cross-Vertical Integration', harchValue: 'Intelligence + Energy + Mining + Cement + Agri + Water', competitorValue: 'None — standalone IT services', harchWins: true },
-            { label: 'Open Source Security Tools', harchValue: 'HarchOS Security SDK — sovereign tools', competitorValue: 'None — Microsoft Sentinel dependency', harchWins: true },
-            { label: 'African Developer Community', harchValue: 'HarchOS SDK + playground + docs', competitorValue: 'None — no developer ecosystem', harchWins: true },
-            { label: 'African Job Creation', harchValue: '1,500+ direct tech jobs', competitorValue: 'Limited — SA-only operations', harchWins: true },
-          ],
-          verdict: 'Liquid C2 resells Google Cloud under an African flag. Harch Technology builds sovereign infrastructure — every GPU, every byte, every policy under African control, with SOC 2 certification no African competitor holds, and 10x lower carbon intensity.',
-        },
-        {
-          name: 'Dimension Data / NTT Security',
-          country: 'South Africa',
-          founded: '1983',
-          revenue: '$8B+ (NTT Group)',
-          metrics: [
-            { label: 'African-Based SOC', harchValue: 'Morocco — 100% African ops', competitorValue: 'Global SOC (SA office)', harchWins: true },
-            { label: 'Sovereign AI Platform', harchValue: '1,798 GPUs — African-owned', competitorValue: '0 GPUs — resells NTT services', harchWins: true },
-            { label: 'Edge Computing', harchValue: '50+ nodes — own infrastructure', competitorValue: 'Via NTT global — not African-owned', harchWins: true },
-            { label: 'Satellite Communications', harchValue: 'LEO + MEO, 99.99% SLA', competitorValue: 'None — no satellite capability', harchWins: true },
-            { label: 'Data Jurisdiction', harchValue: '100% African — Morocco law', competitorValue: 'Japanese NTT jurisdiction', harchWins: true },
-            { label: 'GPU Compute', harchValue: '1,798 GPUs — sovereign', competitorValue: '0 GPUs — reseller only', harchWins: true, harchNumeric: 1798, competitorNumeric: 0, barMax: 2000 },
-            { label: 'Renewable Energy', harchValue: '81.5% — Harch Energy', competitorValue: 'Not disclosed — grid-dependent', harchWins: true },
-            { label: 'Cross-Vertical Synergy', harchValue: '5 Harch subsidiaries — integrated', competitorValue: 'None — IT services only', harchWins: true },
-            { label: 'Industrial IoT', harchValue: 'Built-in — Harch Mining/Agri/Energy', competitorValue: 'Third-party — no native IoT', harchWins: true },
-            { label: 'Open Source Security Tools', harchValue: 'HarchOS Security SDK — sovereign tools', competitorValue: 'None — NTT proprietary tools', harchWins: true },
-            { label: 'African Developer Community', harchValue: 'HarchOS SDK + playground + docs', competitorValue: 'None — no Africa-specific SDK', harchWins: true },
-            { label: 'African Job Creation', harchValue: '1,500+ direct tech jobs', competitorValue: '5,000+ — primarily SA', harchWins: true },
-          ],
-          verdict: 'Dimension Data has offices in 14 African countries. Harch Technology has the only African sovereign AI platform, the only African edge network, the only African satellite integration, and the only African-owned GPU compute. Presence without sovereignty is just real estate.',
-        },
-        {
-          name: 'Starlink',
-          country: 'USA (SpaceX)',
-          founded: '2019',
-          revenue: '$1.4B (2024)',
-          metrics: [
-            { label: 'Uptime SLA', harchValue: '99.99%', competitorValue: '99.7-99.9%', harchWins: true, harchNumeric: 99.99, competitorNumeric: 99.8, barMax: 100 },
-            { label: 'Orbit Coverage', harchValue: 'LEO + MEO — multi-orbit resilience', competitorValue: 'LEO only — single orbit risk', harchWins: true },
-            { label: 'African Sovereignty', harchValue: 'African-owned, African-operated', competitorValue: 'US-operated, US-jurisdiction', harchWins: true },
-            { label: 'Enterprise Stack', harchValue: 'Cloud + Edge + Satellite + Cyber', competitorValue: 'Internet bandwidth only', harchWins: true },
-            { label: 'Industrial IoT Integration', harchValue: 'Built-in — Harch Agri/Mining/Energy', competitorValue: 'None — consumer broadband only', harchWins: true },
-            { label: 'Data Compliance', harchValue: 'GDPR + Law 09-08 + African data residency', competitorValue: 'US jurisdiction — no African compliance', harchWins: true },
-            { label: 'GPU Compute', harchValue: '1,798 GPUs — sovereign', competitorValue: 'None — ISP only', harchWins: true },
-            { label: 'Cybersecurity', harchValue: 'Full suite — DDoS + IDS + SOC', competitorValue: 'None — no security offering', harchWins: true },
-            { label: 'Edge Computing', harchValue: '50+ nodes — 5 countries', competitorValue: 'None — no edge compute', harchWins: true },
-            { label: 'Open Source Security Tools', harchValue: 'HarchOS Security SDK — sovereign tools', competitorValue: 'None — consumer ISP only', harchWins: true },
-            { label: 'African Developer Community', harchValue: 'HarchOS SDK + playground + docs', competitorValue: 'None — no developer tools', harchWins: true },
-            { label: 'African Job Creation', harchValue: '1,500+ direct tech jobs', competitorValue: '0 — no African workforce', harchWins: true },
-          ],
-          verdict: 'Starlink gives you internet. Harch Technology gives you sovereignty — enterprise-grade satellite + cloud + edge + cybersecurity, all under African jurisdiction, with 10x the SLA and industrial IoT integration Starlink cannot touch.',
-        },
-        {
-          name: 'AWS Africa (Cape Town)',
-          country: 'USA',
-          founded: '2006',
-          revenue: '$105B (AWS total)',
+          name: 'AWS Africa (Cape Town)', country: 'USA', founded: '2006', revenue: '$105B (AWS total)',
           metrics: [
             { label: 'African GPU Compute', harchValue: '1,798 GPUs — Morocco', competitorValue: '0 GPUs in Africa — US/EU only', harchWins: true },
             { label: 'Data Sovereignty', harchValue: '100% African — Morocco law', competitorValue: 'US CLOUD Act — AWS can be compelled', harchWins: true },
@@ -743,35 +548,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh', competitorValue: '~400 gCO2/kWh (SA region)', harchWins: true, harchNumeric: 47, competitorNumeric: 400, barMax: 450, lowerIsBetter: true },
             { label: 'Edge Computing', harchValue: '50+ nodes — 5 countries', competitorValue: '2 Outposts — SA only', harchWins: true },
             { label: 'Satellite Integration', harchValue: 'LEO + MEO — 99.99% SLA', competitorValue: 'Ground Station — no LEO/MEO fleet', harchWins: true },
-            { label: 'Sovereign Compliance', harchValue: 'GDPR + ISO 27001 + SOC 2 + Law 09-08', competitorValue: 'SOC 2 + ISO — but US CLOUD Act overrides', harchWins: true },
-            { label: 'Cross-Vertical Integration', harchValue: '5 subsidiaries — end-to-end', competitorValue: 'None — standalone cloud', harchWins: true },
-            { label: 'Industrial IoT', harchValue: 'Native — Mining/Agri/Energy', competitorValue: 'AWS IoT Core — generic', harchWins: true },
-            { label: 'Energy Cost /kWh', harchValue: '$0.03 — Harch Energy', competitorValue: '$0.08-0.12 — commercial grid', harchWins: true, harchNumeric: 3, competitorNumeric: 10, barMax: 15, lowerIsBetter: true },
-            { label: 'Open Source Security Tools', harchValue: 'HarchOS Security SDK — sovereign tools', competitorValue: 'AWS security hub — US-controlled', harchWins: true },
-            { label: 'African Developer Community', harchValue: 'HarchOS SDK + playground + docs', competitorValue: 'AWS SDK — not Africa-specific', harchWins: true },
-            { label: 'African Job Creation', harchValue: '1,500+ direct tech jobs', competitorValue: '200+ — SA region only', harchWins: true },
           ],
-          verdict: 'AWS Cape Town is a US cloud region on South African soil. Harch Technology is an African sovereign platform on African soil — with GPU compute AWS lacks in Africa, 10x lower carbon, 100% data sovereignty, and industrial IoT no generic cloud can match.',
-        },
-        {
-          name: 'Orange Business Africa',
-          country: 'France',
-          founded: '2004',
-          revenue: '$50B+ (Orange Group)',
-          metrics: [
-            { label: 'Sovereign AI Platform', harchValue: '1,798 GPUs — African-owned', competitorValue: '0 GPUs — resells cloud services', harchWins: true },
-            { label: 'Data Sovereignty', harchValue: '100% — Morocco jurisdiction', competitorValue: 'French jurisdiction — EU data flows', harchWins: true },
-            { label: 'Satellite Communications', harchValue: 'LEO + MEO multi-orbit — 99.99%', competitorValue: 'GEO only — high latency', harchWins: true },
-            { label: 'Edge Computing', harchValue: '50+ nodes — own infrastructure', competitorValue: 'Limited — telecom edge', harchWins: true },
-            { label: 'Cybersecurity Suite', harchValue: 'Sovereign SOC — Morocco', competitorValue: 'French SOC — not sovereign', harchWins: true },
-            { label: 'Renewable Energy', harchValue: '81.5% — Harch Energy', competitorValue: 'Partial — French grid mix', harchWins: true },
-            { label: 'Cross-Vertical Integration', harchValue: '5 subsidiaries — end-to-end', competitorValue: 'None — telecom + IT services', harchWins: true },
-            { label: 'GPU Compute', harchValue: '1,798 GPUs (H100/A100/L40S)', competitorValue: '0 GPUs — no AI compute', harchWins: true, harchNumeric: 1798, competitorNumeric: 0, barMax: 2000 },
-            { label: 'Open Source Security Tools', harchValue: 'HarchOS Security SDK — sovereign tools', competitorValue: 'Orange Cyberdefense — French-controlled', harchWins: true },
-            { label: 'African Developer Community', harchValue: 'HarchOS SDK + playground + docs', competitorValue: 'Limited — no Africa SDK', harchWins: true },
-            { label: 'African Job Creation', harchValue: '1,500+ direct tech jobs', competitorValue: '3,000+ — primarily French-managed', harchWins: true },
-          ],
-          verdict: 'Orange is a telecom with IT services. Harch Technology is a sovereign digital infrastructure platform — with GPU compute, LEO+MEO satellite, 50+ edge nodes, and a Moroccan SOC. Telecom is one layer. We build the entire stack.',
+          verdict: 'AWS Cape Town is a US cloud region on South African soil. Harch Technology is an African sovereign platform on African soil — with GPU compute AWS lacks in Africa.',
         },
       ],
     },
@@ -779,15 +557,15 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       name: 'Harch Mining', version: '/0.5',
       heroTitle: "Capturing the\nValue Chain",
       heroSubtitle: 'Strategic mineral extraction and in-country processing for the energy transition',
-      heroImage: '/images/sections/comp-mining-site.jpg',
-      sectionImage1: '/images/sections/comp-mining-excavator.jpg',
-      sectionImage2: '/images/sections/comp-mining-heavy.jpg',
-      sectionImage3: '/images/sections/mining-smelter.jpg',
+      heroImage: '/images/sections/mining-open-pit.jpg',
+      sectionImage1: '/images/sections/mining-processing.jpg',
+      sectionImage2: '/images/sections/mining-smelter.jpg',
+      sectionImage3: '/images/sections/mining-open-pit.jpg',
       sectionImage4: '/images/sections/mining-processing.jpg',
-      overview: 'Harch Mining extracts and processes strategic minerals — phosphates, cobalt, and rare earths — building in-country processing capacity that captures the value chain for Africa. While the continent holds 30% of global mineral reserves, it captures less than 5% of the value. We change that equation by processing minerals where they are extracted, creating industrial jobs, generating export revenue from refined products, and building the supply chain independence that the energy transition demands.',
-      strategicContext: 'The global energy transition is creating unprecedented demand for critical minerals. Electric vehicle batteries require cobalt and rare earths; solar panels need silicon and tellurium; wind turbines depend on rare earth permanent magnets; and fertilizer production requires phosphate. Africa holds world-class reserves of all these minerals, yet the continent remains primarily a raw material exporter, shipping unprocessed ore to refineries in China, Europe, and North America. This extractive model captures less than 5% of the value chain for Africa while creating strategic supply chain vulnerabilities for the global energy transition.',
-      marketAnalysis: 'The global critical minerals market is valued at $320 billion and growing at 12% CAGR, driven by the energy transition. Cobalt demand is projected to quadruple by 2030 for EV batteries, rare earth demand is growing 15% annually for electronics and defense applications, and phosphate demand grows 3% annually with food security concerns. Africa\'s share of global reserves is staggering: 75% of phosphate (Morocco), 60% of cobalt (DRC), and significant rare earth deposits across multiple countries. Harch Mining\'s strategy of in-country processing captures 5-8x more value per tonne versus raw ore export, while creating supply chain security for strategic partners.',
-      sustainability: 'Harch Mining operates under a zero-harm environmental framework. All operations are ISO 14001 certified with zero tailings discharge through dry stacking technology that eliminates the risk of tailings dam failures. Progressive rehabilitation plans restore mined land to productive use — agriculture, forestry, or renewable energy installations — within 5 years of mine closure. All processing is powered by Harch Energy\'s renewable infrastructure, making our minerals among the lowest-carbon in the world. Water consumption is minimized through closed-loop recycling, and biodiversity offset programs invest 2% of revenue in conservation projects.',
+      overview: 'Harch Mining extracts and processes strategic minerals — phosphates, cobalt, and rare earths — building in-country processing capacity that captures the value chain for Africa. While the continent holds 30% of global mineral reserves, it captures less than 5% of the value. We change that equation by processing minerals where they are extracted.',
+      strategicContext: 'The global energy transition is creating unprecedented demand for critical minerals. Electric vehicle batteries require cobalt and rare earths; solar panels need silicon and tellurium; wind turbines depend on rare earth permanent magnets; and fertilizer production requires phosphate. Africa holds world-class reserves of all these minerals, yet remains primarily a raw material exporter.',
+      marketAnalysis: 'The global critical minerals market is valued at $320 billion and growing at 12% CAGR. Africa\'s share of global reserves is staggering: 75% of phosphate (Morocco), 60% of cobalt (DRC), and significant rare earth deposits. Harch Mining\'s strategy of in-country processing captures 5-8x more value per tonne versus raw ore export.',
+      sustainability: 'Harch Mining operates under a zero-harm environmental framework. All operations are ISO 14001 certified with zero tailings discharge through dry stacking technology. Progressive rehabilitation plans restore mined land within 5 years. All processing is powered by Harch Energy\'s renewable infrastructure.',
       investment: '$200M',
       metrics: [
         { value: 75, prefix: '', suffix: '%', label: 'World Phosphates (Morocco)' },
@@ -796,12 +574,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { value: 200, prefix: '$', suffix: 'M', label: 'Investment' },
       ],
       capabilities: [
-        { icon: Mountain, title: 'Phosphate Mining & Processing', desc: 'Large-scale phosphate extraction and processing for fertilizer production from Morocco\'s world-class deposits. Our integrated operation mines, beneficiates, and processes phosphate rock into merchant-grade phosphoric acid and fertilizer products — capturing 5x more value than raw ore export.' },
-        { icon: Cpu, title: 'Cobalt Extraction & Refining', desc: 'Cobalt extraction and refining for battery production from Mauritanian deposits. Our hydrometallurgical processing plant produces battery-grade cobalt sulfate and cobalt hydroxide — critical materials for the global electric vehicle and energy storage industries.' },
-        { icon: Globe, title: 'Rare Earth Element Processing', desc: 'Rare earth element extraction and separation for electronics and defense applications. In-country processing eliminates dependency on Chinese supply chains that control 85% of global refining capacity. Our separation plant produces individual rare earth oxides to 99.9% purity.' },
-        { icon: Shield, title: 'Environmental Stewardship', desc: 'ISO 14001 environmental management across all operations with zero tailings discharge through dry stacking technology. Progressive rehabilitation programs restore mined land within 5 years. All water recycled through closed-loop systems.' },
-        { icon: Zap, title: 'Renewable-Powered Processing', desc: 'All mining and processing powered by Harch Energy\'s renewable infrastructure. Zero-carbon minerals for the energy transition — our cobalt has 80% lower lifecycle emissions than Chinese-processed alternatives, commanding a green premium in European and North American markets.' },
-        { icon: BarChart3, title: 'Export Infrastructure', desc: 'Port and rail infrastructure for efficient mineral export to European and Asian markets. Direct shipping routes from Nouakchott and Casablanca ports reduce logistics costs by 30% versus inland competitors dependent on shared rail networks.' },
+        { icon: Mountain, title: 'Phosphate Mining & Processing', desc: 'Large-scale phosphate extraction and processing for fertilizer production from Morocco\'s world-class deposits. Integrated operation mines, beneficiates, and processes phosphate rock into merchant-grade products — capturing 5x more value than raw ore export.' },
+        { icon: Cpu, title: 'Cobalt Extraction & Refining', desc: 'Cobalt extraction and refining for battery production from Mauritanian deposits. Hydrometallurgical processing plant produces battery-grade cobalt sulfate and cobalt hydroxide.' },
+        { icon: Globe, title: 'Rare Earth Element Processing', desc: 'Rare earth element extraction and separation for electronics and defense applications. In-country processing eliminates dependency on Chinese supply chains. Separation plant produces individual rare earth oxides to 99.9% purity.' },
+        { icon: Shield, title: 'Environmental Stewardship', desc: 'ISO 14001 environmental management with zero tailings discharge through dry stacking technology. Progressive rehabilitation programs restore mined land within 5 years.' },
+        { icon: Zap, title: 'Renewable-Powered Processing', desc: 'All mining and processing powered by Harch Energy\'s renewable infrastructure. Zero-carbon minerals for the energy transition — 80% lower lifecycle emissions than Chinese-processed alternatives.' },
+        { icon: BarChart3, title: 'Export Infrastructure', desc: 'Port and rail infrastructure for efficient mineral export to European and Asian markets. Direct shipping routes reduce logistics costs by 30%.' },
       ],
       specTable: [
         { spec: 'Phosphate Output', value: '5M t/yr', phase: 'Morocco operations' },
@@ -816,12 +594,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { spec: 'Carbon vs Chinese Processing', value: '80% lower', phase: 'Green premium eligible' },
       ],
       milestones: [
-        { year: '2025 Q3', title: 'Exploration Rights Secured', desc: 'Mining exploration rights secured in Mauritania for cobalt deposits. Geological survey data acquired and validated by independent consultants.' },
-        { year: '2026 Q2', title: 'Resource Assessment Complete', desc: 'Full geological survey and JORC-compliant resource assessment completed. Measured and indicated resources exceed initial projections by 25%.' },
-        { year: '2027 Q1', title: 'Mining Permits Approved', desc: 'Extraction and processing permits approved by Mauritanian Ministry of Mines. Environmental and Social Impact Assessment approved with conditions.' },
-        { year: '2027 Q4', title: 'Processing Plant Construction', desc: 'Hydrometallurgical processing plant construction begins. Equipment procurement and civil works initiated simultaneously.' },
-        { year: '2028 Q2', title: 'Processing Plant Operational', desc: 'Mineral processing plant construction completed and commissioned. First cobalt sulfate and hydroxide production for battery manufacturers.' },
-        { year: '2029 Q1', title: 'Full Production Achieved', desc: 'All three minerals in production. Export operations via Nouakchott port fully operational. Revenue generation from refined product sales.' },
+        { year: '2025 Q3', title: 'Exploration Rights Secured', desc: 'Mining exploration rights secured in Mauritania for cobalt deposits.' },
+        { year: '2026 Q2', title: 'Resource Assessment Complete', desc: 'Full geological survey and JORC-compliant resource assessment completed. Resources exceed initial projections by 25%.' },
+        { year: '2027 Q1', title: 'Mining Permits Approved', desc: 'Extraction and processing permits approved by Mauritanian Ministry of Mines.' },
+        { year: '2027 Q4', title: 'Processing Plant Construction', desc: 'Hydrometallurgical processing plant construction begins.' },
+        { year: '2028 Q2', title: 'Processing Plant Operational', desc: 'Mineral processing plant construction completed and commissioned. First cobalt sulfate and hydroxide production.' },
+        { year: '2029 Q1', title: 'Full Production Achieved', desc: 'All three minerals in production. Export operations via Nouakchott port fully operational.' },
       ],
       stats: [
         { stat: 'Value Capture vs Raw Export', value: 85, max: 100 },
@@ -830,123 +608,61 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { stat: 'Supply Chain Independence', value: 75, max: 100 },
       ],
       location: 'Mauritania',
-      locationDesc: 'Rich mineral deposits in Mauritania\'s Archean greenstone belts with Atlantic port access at Nouakchott for efficient export. The country\'s mining code provides fiscal stability and 30-year mining conventions with guaranteed rights. Proximity to European markets reduces shipping time and costs versus Asian-processed alternatives.',
+      locationDesc: 'Rich mineral deposits in Mauritania\'s Archean greenstone belts with Atlantic port access at Nouakchott for efficient export. Proximity to European markets reduces shipping time and costs.',
       strategicAdvantages: [
         { title: 'In-Country Processing Premium', desc: 'Refining minerals where they are extracted captures 5-8x more value per tonne versus raw ore export. This model creates industrial jobs, generates tax revenue, and builds domestic processing expertise.' },
         { title: 'Zero-Carbon Minerals', desc: '100% renewable-powered processing gives Harch Mining an 80% carbon advantage versus Chinese-processed minerals, commanding green premiums of 10-15% in ESG-sensitive markets.' },
-        { title: 'Non-Chinese Supply Chain', desc: 'Rare earth and cobalt processing outside Chinese jurisdiction provides supply chain security for Western defense and technology customers seeking to reduce strategic dependencies.' },
+        { title: 'Non-Chinese Supply Chain', desc: 'Rare earth and cobalt processing outside Chinese jurisdiction provides supply chain security for Western defense and technology customers.' },
         { title: 'Integrated Harch Energy Supply', desc: 'Dedicated renewable energy from Harch Energy at $0.03/kWh eliminates energy cost volatility — the single largest operating cost in mineral processing.' },
       ],
       partnershipModel: [
-        { title: 'Strategic Mineral Offtake', desc: 'Long-term supply agreements with battery manufacturers, electronics companies, and defense contractors. Fixed-volume contracts with price corridors linked to LME benchmarks.' },
-        { title: 'Joint Mining Ventures', desc: 'Partnership structures with international mining companies seeking African market entry. Harch Corp provides local expertise, permits, and infrastructure; partners contribute technology and capital.' },
-        { title: 'Government Revenue Sharing', desc: 'Transparent revenue sharing with host governments exceeding industry standards. Royalties, taxes, and community development contributions structured for mutual long-term benefit.' },
-        { title: 'Circular Mineral Flows', desc: 'Partnerships with battery recyclers and electronics manufacturers for end-of-life mineral recovery. Closing the loop on critical minerals reduces demand for primary extraction.' },
+        { title: 'Strategic Mineral Offtake', desc: 'Long-term supply agreements with battery manufacturers, electronics companies, and defense contractors.' },
+        { title: 'Joint Mining Ventures', desc: 'Partnership structures with international mining companies seeking African market entry.' },
+        { title: 'Government Revenue Sharing', desc: 'Transparent revenue sharing with host governments exceeding industry standards.' },
+        { title: 'Circular Mineral Flows', desc: 'Partnerships with battery recyclers and electronics manufacturers for end-of-life mineral recovery.' },
       ],
       competitorHarchName: 'Harch Mining',
-      competitorAccentColor: '#FFFFFF',
+      competitorAccentColor: '#B8965A',
       competitors: [
         {
-          name: 'Glencore',
-          country: 'Switzerland',
-          founded: '1974',
-          revenue: '$230B (2024)',
+          name: 'Glencore', country: 'Switzerland', founded: '1974', revenue: '$230B (2024)',
           metrics: [
             { label: 'Renewable-Powered Processing', harchValue: '100% — Harch Energy', competitorValue: '<15% — mostly fossil', harchWins: true },
             { label: 'Carbon vs Chinese Processing', harchValue: '80% lower', competitorValue: 'Industry average — no advantage', harchWins: true, harchNumeric: 20, competitorNumeric: 100, barMax: 100, lowerIsBetter: true },
             { label: 'Value Capture per Tonne', harchValue: '5-8x vs raw ore export', competitorValue: '2-3x', harchWins: true },
             { label: 'Green Premium (EU CBAM)', harchValue: '10-15% premium eligible', competitorValue: 'No green premium — carbon penalty risk', harchWins: true },
-            { label: 'ESG Transparency', harchValue: 'ISO 14001 from day one', competitorValue: 'Evolving — multiple controversies', harchWins: true },
             { label: 'Energy Cost /kWh', harchValue: '$0.03 (Harch Energy)', competitorValue: '$0.06-0.10 (grid/market)', harchWins: true, harchNumeric: 3, competitorNumeric: 8, barMax: 12, lowerIsBetter: true },
-            { label: 'Non-Chinese Supply Chain', harchValue: 'Yes — Africa-to-EU direct', competitorValue: 'Mixed — significant China exposure', harchWins: true },
             { label: 'Tailings Management', harchValue: 'Dry stacking — zero discharge', competitorValue: 'Conventional — dam failure risk', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '2% — conservation programs', competitorValue: '0% disclosed', harchWins: true },
-            { label: 'Rehabilitation', harchValue: 'Progressive — 5-year restoration', competitorValue: 'End-of-life — delayed', harchWins: true },
             { label: 'Cross-Vertical Integration', harchValue: 'Energy + Technology + Water + Cement', competitorValue: 'None — mining only', harchWins: true },
-            { label: 'African Job Creation', harchValue: '1,500+ direct jobs across operations', competitorValue: '1,500 vs limited', harchWins: true },
-            { label: 'Open Source Mineral Tracking', harchValue: 'HarchOS Mineral SDK — transparent provenance', competitorValue: 'None — proprietary', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '2% — conservation + community', competitorValue: '0% disclosed', harchWins: true },
           ],
-          verdict: 'Glencore mines more cobalt. Harch Mining mines smarter — 100% renewable, 80% lower carbon, 5-8x value capture, green premium eligible from day one, zero tailings risk. Volume without ESG is a liability.',
+          verdict: 'Glencore mines more cobalt. Harch Mining mines smarter — 100% renewable, 80% lower carbon, 5-8x value capture, green premium eligible from day one.',
         },
         {
-          name: 'OCP Group',
-          country: 'Morocco',
-          founded: '1920',
-          revenue: '$11.4B (2025)',
+          name: 'OCP Group', country: 'Morocco', founded: '1920', revenue: '$11.4B (2025)',
           metrics: [
             { label: 'Green Processing', harchValue: '100% renewable — day one', competitorValue: '$13B green plan — target 2040', harchWins: true },
-            { label: 'Carbon Neutrality', harchValue: 'Year 1 (100% renewable energy)', competitorValue: '2040 (15 years away)', harchWins: true },
-            { label: 'Value-Added Products', harchValue: 'Cobalt + REE + Phosphate — 3 minerals', competitorValue: 'Phosphate + Fertilizers — 1 mineral family', harchWins: true },
             { label: 'Mineral Diversity', harchValue: '3 strategic minerals for energy transition', competitorValue: '1 mineral (phosphate) — food security only', harchWins: true },
             { label: 'EU CBAM Readiness', harchValue: 'Already compliant — zero-carbon processing', competitorValue: 'Transitioning — carbon penalties until 2040', harchWins: true },
             { label: 'Cobalt Processing', harchValue: 'Battery-grade cobalt sulfate — direct', competitorValue: 'None — phosphate only', harchWins: true },
             { label: 'Rare Earth Processing', harchValue: '99.9% purity — non-Chinese supply', competitorValue: 'None — no REE capability', harchWins: true },
-            { label: 'Energy Cost /kWh', harchValue: '$0.03 (Harch Energy)', competitorValue: '$0.06-0.10 (grid)', harchWins: true, harchNumeric: 3, competitorNumeric: 8, barMax: 12, lowerIsBetter: true },
-            { label: 'Cross-Vertical Synergy', harchValue: 'Energy + Technology + Water + Cement + Agri', competitorValue: 'Phosphate + fertilizers only', harchWins: true },
-            { label: 'African Job Creation', harchValue: '1,500+ direct jobs across operations', competitorValue: '35K+ — primarily Moroccan', harchWins: true },
-            { label: 'Open Source Mineral Tracking', harchValue: 'HarchOS Mineral SDK — transparent provenance', competitorValue: 'None — no SDK', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '2% — conservation + community', competitorValue: '2% — royal foundation programs', harchWins: true },
           ],
-          verdict: 'OCP dominates phosphate. Harch Mining dominates the energy transition mineral stack — cobalt for batteries, rare earths for defense, phosphate for food. OCP feeds the world. Harch powers it.',
-        },
-        {
-          name: 'Lynas Rare Earths',
-          country: 'Australia',
-          founded: '1983',
-          revenue: '$800M (2024)',
-          metrics: [
-            { label: 'REE Purity', harchValue: '99.9%', competitorValue: '99.5%+', harchWins: true, harchNumeric: 99.9, competitorNumeric: 99.5, barMax: 100 },
-            { label: 'Renewable-Powered', harchValue: '100% — Harch Energy', competitorValue: 'Partial — Australian grid mix', harchWins: true },
-            { label: 'Proximity to EU Markets', harchValue: '3-day shipping from Mauritania', competitorValue: '30+ day shipping from Australia', harchWins: true },
-            { label: 'Energy Cost /kWh', harchValue: '$0.03', competitorValue: '$0.06-0.10', harchWins: true, harchNumeric: 3, competitorNumeric: 8, barMax: 12, lowerIsBetter: true },
-            { label: 'EU CBAM Compliance', harchValue: 'Zero-carbon — no border tax', competitorValue: 'Carbon-intensive — EU border tax applies', harchWins: true },
-            { label: 'Non-Chinese Supply Chain', harchValue: 'Africa-EU direct — sovereign', competitorValue: 'Australia-Japan dependency', harchWins: true },
-            { label: 'Cobalt Processing', harchValue: 'Battery-grade — 10K t/yr', competitorValue: 'None — REE only', harchWins: true },
-            { label: 'Phosphate Operations', harchValue: '5M t/yr — Morocco', competitorValue: 'None — no phosphate', harchWins: true },
-            { label: 'Cross-Vertical Integration', harchValue: '5 subsidiaries — end-to-end', competitorValue: 'None — standalone REE', harchWins: true },
-            { label: 'African Job Creation', harchValue: '1,500+ direct jobs across operations', competitorValue: '~1,000 — Australian workforce', harchWins: true },
-            { label: 'Open Source Mineral Tracking', harchValue: 'HarchOS Mineral SDK — transparent provenance', competitorValue: 'None — no tracking', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '2% — conservation + community', competitorValue: '0% disclosed', harchWins: true },
-          ],
-          verdict: 'Lynas refines rare earths in Australia at 99.5% purity using fossil-fueled energy. Harch Mining refines at 99.9% purity using 100% renewable energy, 10x closer to European customers, at 50% lower energy cost. Purity + proximity + green power = unassailable.',
-        },
-        {
-          name: 'Vale',
-          country: 'Brazil',
-          founded: '1942',
-          revenue: '$45B (2024)',
-          metrics: [
-            { label: 'Renewable-Powered Processing', harchValue: '100% — Harch Energy', competitorValue: '~80% — Brazilian hydro (good but not 100%)', harchWins: true },
-            { label: 'EU CBAM Compliance', harchValue: 'Zero-carbon — no border tax', competitorValue: 'Partial — hydro helps but not zero', harchWins: true },
-            { label: 'Proximity to EU', harchValue: '3-day shipping — Mauritania', competitorValue: '14+ day shipping — Brazil', harchWins: true, harchNumeric: 3, competitorNumeric: 14, barMax: 20, lowerIsBetter: true },
-            { label: 'Proximity to Africa', harchValue: 'Direct — Mauritania/Morocco', competitorValue: 'Transatlantic — 10+ day shipping', harchWins: true },
-            { label: 'Cobalt Processing', harchValue: 'Battery-grade — 10K t/yr', competitorValue: 'Nickel-cobalt mix — not battery-grade', harchWins: true },
-            { label: 'REE Processing', harchValue: '99.9% purity — non-Chinese', competitorValue: 'None — no REE capability', harchWins: true },
-            { label: 'Energy Cost /kWh', harchValue: '$0.03', competitorValue: '$0.05-0.08', harchWins: true, harchNumeric: 3, competitorNumeric: 6.5, barMax: 10, lowerIsBetter: true },
-            { label: 'Cross-Vertical Synergy', harchValue: '5 subsidiaries — integrated ecosystem', competitorValue: 'Mining only — no verticals', harchWins: true },
-            { label: 'Tailings Safety', harchValue: 'Dry stacking — zero discharge', competitorValue: 'Dam failures (Brumadinho 2019 — 270 deaths)', harchWins: true },
-            { label: 'African Job Creation', harchValue: '1,500+ direct jobs across operations', competitorValue: '70K+ — primarily Brazilian', harchWins: true },
-            { label: 'Open Source Mineral Tracking', harchValue: 'HarchOS Mineral SDK — transparent provenance', competitorValue: 'None — no tracking', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '2% — conservation + community', competitorValue: '0% disclosed — Brumadinho legacy', harchWins: true },
-          ],
-          verdict: 'Vale has Brumadinho on its record — 270 lives lost to a tailings dam failure. Harch Mining uses zero-discharge dry stacking from day one. Safety is not a feature. It is the foundation. 100% renewable, 3-day EU shipping, battery-grade cobalt — no dam risk, no carbon risk, no ethics risk.',
+          verdict: 'OCP dominates phosphate. Harch Mining dominates the energy transition mineral stack — cobalt for batteries, rare earths for defense, phosphate for food.',
         },
       ],
     },
     agriculture: {
       name: 'Harch Agri', version: '/0.6',
       heroTitle: "Precision Agriculture\nfor Africa",
-      heroSubtitle: 'IoT, drones, vertical farms, and carbon credits — 5 countries, 11,800+ sensors, 25,000+ hectares of data-driven agriculture',
-      heroImage: '/images/sections/comp-agri-aerial.jpg',
-      sectionImage1: '/images/sections/comp-agri-green.jpg',
-      sectionImage2: '/images/sections/agri-drone.jpg',
+      heroSubtitle: 'IoT, drones, vertical farms, and carbon credits — 5 countries, 11,800+ sensors, 25,000+ hectares',
+      heroImage: '/images/sections/agri-aerial-drone.jpg',
+      sectionImage1: '/images/sections/agri-drone.jpg',
+      sectionImage2: '/images/sections/agri-iot-sensor.jpg',
       sectionImage3: '/images/sections/agri-vertical-farm.jpg',
-      sectionImage4: '/images/sections/agri-drone-field.jpg',
-      overview: 'Harch Agri deploys precision farming, IoT sensors, and vertical farming technology across Africa\'s 60% of the world\'s uncultivated arable land. Our approach combines cutting-edge technology with deep local knowledge to convert untapped potential into food security and export revenue. This is not traditional agriculture — it is data-driven, technology-enabled food production at continental scale, designed to feed Africa\'s growing population and supply global markets with premium produce.',
-      strategicContext: 'Africa holds 60% of the world\'s uncultivated arable land — approximately 600 million hectares — yet the continent remains a net food importer, spending $35 billion annually on food imports. This paradox results from low yields (African cereal yields average 1.5 tonnes/hectare versus 4 tonnes/hectare globally), limited irrigation (only 6% of cultivated land is irrigated versus 37% globally), and post-harvest losses exceeding 30%. Harch Agri addresses each of these constraints with technology-driven solutions that multiply yields while reducing resource consumption.',
-      marketAnalysis: 'Africa\'s agriculture and food market is valued at $280 billion and growing at 6% CAGR. The addressable opportunity includes $35 billion in current food import substitution, $50 billion in export potential for high-value crops, and $20 billion in agricultural technology services. Precision agriculture alone represents a $5 billion opportunity in Africa by 2028, growing at 25% CAGR. The Senegal River Valley, Harch Agri\'s initial deployment zone, offers ideal conditions with year-round growing seasons, reliable water access, and proximity to European export markets.',
-      sustainability: 'Sustainability is foundational to Harch Agri\'s business model. Our precision irrigation systems reduce water usage by 60% versus traditional flood irrigation while increasing yields by 30%. Drone-enabled precision spraying reduces chemical usage by 90% compared to conventional methods. Vertical farming operations use 95% less water and 99% less land than field agriculture. All energy for irrigation, processing, and cold chain is supplied by Harch Energy\'s renewable infrastructure. We practice regenerative soil management, building soil carbon and fertility rather than depleting it, and allocate 10% of farmland for biodiversity corridors.',
+      sectionImage4: '/images/sections/agri-green-crops-aerial.jpg',
+      overview: 'Harch Agri deploys precision farming, IoT sensors, and vertical farming technology across Africa\'s 60% of the world\'s uncultivated arable land. Our approach combines cutting-edge technology with deep local knowledge to convert untapped potential into food security and export revenue.',
+      strategicContext: 'Africa holds 60% of the world\'s uncultivated arable land — approximately 600 million hectares — yet the continent remains a net food importer, spending $35 billion annually on food imports. This paradox results from low yields, limited irrigation, and post-harvest losses exceeding 30%. Harch Agri addresses each of these constraints with technology-driven solutions.',
+      marketAnalysis: 'Africa\'s agriculture and food market is valued at $280 billion and growing at 6% CAGR. The addressable opportunity includes $35 billion in current food import substitution, $50 billion in export potential for high-value crops, and $20 billion in agricultural technology services.',
+      sustainability: 'Sustainability is foundational to Harch Agri\'s business model. Precision irrigation systems reduce water usage by 60% while increasing yields by 30%. Drone-enabled precision spraying reduces chemical usage by 90%. Vertical farming uses 95% less water and 99% less land than field agriculture. All energy is supplied by Harch Energy\'s renewable infrastructure.',
       investment: '$150M',
       metrics: [
         { value: 60, prefix: '', suffix: '%', label: 'Uncultivated Arable Land' },
@@ -955,12 +671,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { value: 150, prefix: '$', suffix: 'M', label: 'Investment' },
       ],
       capabilities: [
-        { icon: Cpu, title: 'Precision Farming Platform', desc: 'IoT sensor networks and AI-optimized crop management across thousands of hectares. Real-time monitoring of soil health, moisture levels, nutrient status, and crop growth enables precision application of water, fertilizer, and crop protection — reducing inputs by 40% while increasing yields by 30%.' },
-        { icon: Globe, title: 'Autonomous Drone Fleet', desc: 'Autonomous drone fleets for crop surveillance, pest detection, and precision spraying. Our 50+ drone fleet covers 5,000 hectares daily with multispectral imaging for early disease detection and targeted intervention. Drone spraying is 10x faster than traditional methods with 90% less chemical usage.' },
-        { icon: Wheat, title: 'Vertical Farming Facilities', desc: 'Indoor vertical farming facilities for high-value crops including herbs, leafy greens, and pharmaceutical plants. 95% less water, 10x yield per square meter, year-round production independent of weather or season. Our first 3 facilities target European export markets with premium organic produce.' },
-        { icon: Shield, title: 'Farm-to-Market Supply Chain', desc: 'Integrated supply chain infrastructure from farm gate to export market. Cold chain logistics, processing facilities, and export networks ensure maximum value capture. Our post-harvest loss rate is below 5% versus the African average of 30%+' },
-        { icon: Droplets, title: 'AI-Optimized Irrigation', desc: 'Smart irrigation systems reducing water usage by 60% while increasing yields by 30%. Powered by Harch Water desalination infrastructure and solar-powered pumps from Harch Energy. Soil moisture sensors and weather forecasting enable predictive irrigation scheduling.' },
-        { icon: BarChart3, title: 'Market Intelligence Platform', desc: 'AI-powered commodity pricing and demand forecasting enabling farmers to time sales for maximum revenue and plan crops for optimal market conditions. Real-time market data from 15 African and European commodity exchanges with predictive analytics for price trends.' },
+        { icon: Cpu, title: 'Precision Farming Platform', desc: 'IoT sensor networks and AI-optimized crop management. Real-time monitoring enables precision application of water, fertilizer, and crop protection — reducing inputs by 40% while increasing yields by 30%.' },
+        { icon: Globe, title: 'Autonomous Drone Fleet', desc: 'Autonomous drone fleets for crop surveillance, pest detection, and precision spraying. 50+ drone fleet covers 5,000 hectares daily with multispectral imaging. 10x faster than traditional methods with 90% less chemical usage.' },
+        { icon: Wheat, title: 'Vertical Farming Facilities', desc: 'Indoor vertical farming for high-value crops. 95% less water, 10x yield per square meter, year-round production. Our first 3 facilities target European export markets with premium organic produce.' },
+        { icon: Shield, title: 'Farm-to-Market Supply Chain', desc: 'Integrated supply chain infrastructure from farm gate to export market. Cold chain logistics, processing facilities, and export networks. Post-harvest loss rate below 5% versus African average of 30%+.' },
+        { icon: Droplets, title: 'AI-Optimized Irrigation', desc: 'Smart irrigation systems reducing water usage by 60% while increasing yields by 30%. Powered by Harch Water desalination infrastructure and solar-powered pumps.' },
+        { icon: BarChart3, title: 'Market Intelligence Platform', desc: 'AI-powered commodity pricing and demand forecasting enabling farmers to time sales for maximum revenue and plan crops for optimal market conditions.' },
       ],
       specTable: [
         { spec: 'Trial Area', value: '5,000 ha', phase: 'Senegal River Valley' },
@@ -975,12 +691,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { spec: 'Energy Source', value: '100% Renewable', phase: 'Harch Energy supply' },
       ],
       milestones: [
-        { year: '2025 Q2', title: 'Precision Farming Trial Launch', desc: '5,000-hectare precision farming trial launched in Senegal River Valley. IoT sensor deployment and baseline data collection initiated.' },
-        { year: '2026 Q1', title: 'IoT Network Fully Deployed', desc: '10,000+ IoT sensors deployed across trial farms. Data pipeline and AI analytics platform operational with first crop management recommendations.' },
-        { year: '2026 Q4', title: 'First Harvest Results', desc: 'First precision farming harvest demonstrates 25% yield improvement and 50% water savings versus control plots. Investor and partner confidence validated.' },
-        { year: '2027 Q2', title: 'Drone Fleet Operational', desc: 'Autonomous drone fleet operational for crop monitoring and precision spraying. Aerial survey coverage of 5,000 hectares every 48 hours.' },
-        { year: '2028 Q1', title: 'Vertical Farm Commissioning', desc: 'First vertical farming facility commissioned and producing. European export contracts for premium organic produce signed.' },
-        { year: '2029 Q2', title: 'Full Agricultural Operations', desc: 'All Agri systems operational at scale. Export revenue flowing. Second phase expansion to 20,000 hectares initiated.' },
+        { year: '2025 Q2', title: 'Precision Farming Trial Launch', desc: '5,000-hectare precision farming trial launched in Senegal River Valley.' },
+        { year: '2026 Q1', title: 'IoT Network Fully Deployed', desc: '10,000+ IoT sensors deployed. Data pipeline and AI analytics platform operational.' },
+        { year: '2026 Q4', title: 'First Harvest Results', desc: 'First precision farming harvest demonstrates 25% yield improvement and 50% water savings.' },
+        { year: '2027 Q2', title: 'Drone Fleet Operational', desc: 'Autonomous drone fleet operational for crop monitoring and precision spraying.' },
+        { year: '2028 Q1', title: 'Vertical Farm Commissioning', desc: 'First vertical farming facility commissioned and producing. European export contracts signed.' },
+        { year: '2029 Q2', title: 'Full Agricultural Operations', desc: 'All Agri systems operational at scale. Export revenue flowing. Second phase expansion initiated.' },
       ],
       stats: [
         { stat: 'Yield Improvement', value: 75, max: 100 },
@@ -989,50 +705,38 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { stat: 'Post-Harvest Loss Reduction', value: 83, max: 100 },
       ],
       location: 'Senegal',
-      locationDesc: 'Prime agricultural land in the Senegal River Valley with year-round growing seasons, reliable irrigation water from the Senegal River, and proximity to Dakar port for European export. The region offers 300+ growing days annually and established agricultural infrastructure.',
+      locationDesc: 'Prime agricultural land in the Senegal River Valley with year-round growing seasons, reliable irrigation water, and proximity to Dakar port for European export.',
       strategicAdvantages: [
-        { title: 'Technology-Driven Yield Gap Closure', desc: 'Africa\'s yield gap represents the largest untapped agricultural opportunity globally. Precision farming technology can close 60-80% of this gap within 3 growing seasons, creating immediate value from underperforming land.' },
+        { title: 'Technology-Driven Yield Gap Closure', desc: 'Africa\'s yield gap represents the largest untapped agricultural opportunity globally. Precision farming technology can close 60-80% of this gap within 3 growing seasons.' },
         { title: 'Integrated Water-Energy-Agri Nexus', desc: 'Harch Water provides desalinated irrigation water, Harch Energy supplies solar-powered pumps, and Harch Technology delivers IoT and AI analytics — an integrated stack no standalone agri company can replicate.' },
-        { title: 'European Export Proximity', desc: 'Senegal\'s location provides 4-day shipping to European markets versus 14+ days from Asian and South American competitors, enabling premium pricing for fresh produce.' },
-        { title: 'Food Security Mandate', desc: 'Government food security programs across West Africa provide guaranteed offtake and subsidy support for domestic food production, derisking agricultural investment.' },
+        { title: 'European Export Proximity', desc: 'Senegal\'s location provides 4-day shipping to European markets versus 14+ days from Asian and South American competitors.' },
+        { title: 'Food Security Mandate', desc: 'Government food security programs across West Africa provide guaranteed offtake and subsidy support for domestic food production.' },
       ],
       partnershipModel: [
-        { title: 'Contract Farming', desc: 'Managed farming services for landowners and investors. Harch Agri provides technology, expertise, and market access; partners provide land and capital. Guaranteed minimum returns with profit sharing above threshold.' },
-        { title: 'AgTech Licensing', desc: 'Precision farming platform licensing for agricultural cooperatives and development organizations. SaaS model with per-hectare pricing and technical support packages.' },
-        { title: 'Export Joint Ventures', desc: 'Partnerships with European food distributors and retailers for premium African produce. Shared branding, quality assurance, and supply chain management.' },
-        { title: 'Development Finance Partnerships', desc: 'Collaborative programs with IFAD, AfDB, and bilateral development agencies for smallholder farmer technology transfer and capacity building.' },
+        { title: 'Contract Farming', desc: 'Managed farming services for landowners and investors. Guaranteed minimum returns with profit sharing above threshold.' },
+        { title: 'AgTech Licensing', desc: 'Precision farming platform licensing for agricultural cooperatives and development organizations. SaaS model with per-hectare pricing.' },
+        { title: 'Export Joint Ventures', desc: 'Partnerships with European food distributors and retailers for premium African produce.' },
+        { title: 'Development Finance Partnerships', desc: 'Collaborative programs with IFAD, AfDB, and bilateral development agencies for smallholder farmer technology transfer.' },
       ],
       competitorHarchName: 'Harch Agri',
-      competitorAccentColor: '#22C55E',
+      competitorAccentColor: '#4A7B5F',
       competitors: [
         {
-          name: 'AeroFarms',
-          country: 'USA',
-          founded: '2004',
-          revenue: 'Post-Ch.11 restructuring',
+          name: 'AeroFarms', country: 'USA', founded: '2004', revenue: 'Post-Ch.11 restructuring',
           metrics: [
             { label: 'Integrated Product Stack', harchValue: '5 products (Drone+IoT+Vertical+Carbon+Kit)', competitorValue: '1 product (aeroponic farm only)', harchWins: true },
             { label: 'Financial Stability', harchValue: '$150M pipeline — growing', competitorValue: 'Chapter 11 in 2023 — rescued', harchWins: true },
             { label: 'African Operations', harchValue: 'Senegal + Morocco — building now', competitorValue: 'None — USA only', harchWins: true },
             { label: 'Energy Cost', harchValue: '$0.03/kWh (Harch Energy solar)', competitorValue: '$0.12-0.18/kWh (US grid)', harchWins: true, harchNumeric: 3, competitorNumeric: 15, barMax: 20, lowerIsBetter: true },
-            { label: 'Post-Harvest Loss', harchValue: '<5% (AI-optimized supply chain)', competitorValue: '10-15% (US distribution)', harchWins: true },
             { label: 'Carbon Credits Revenue', harchValue: 'Yes — Verra VCS + Gold Standard', competitorValue: 'None', harchWins: true },
             { label: 'Cross-Vertical Synergy', harchValue: 'Harch Energy + Water + Technology', competitorValue: 'None — standalone farm', harchWins: true },
-            { label: 'Market Size', harchValue: '30M smallholder farmers (Africa)', competitorValue: '331M US consumers (saturated)', harchWins: true },
-            { label: 'Farming Method', harchValue: 'Hydroponic — affordable, proven', competitorValue: 'Aeroponic — capital-intensive, failed', harchWins: true },
             { label: 'Drone Fleet', harchValue: '50+ autonomous drones', competitorValue: '0 — no drone capability', harchWins: true },
             { label: 'IoT Network', harchValue: '10,000+ sensors — real-time', competitorValue: '0 — no IoT capability', harchWins: true },
-            { label: 'Open Source AgTech SDK', harchValue: 'HarchOS Agri SDK — open developer tools', competitorValue: 'None — proprietary platform', harchWins: true },
-            { label: 'African Job Creation', harchValue: '500+ direct jobs across 5 sites', competitorValue: '0 — US operations only', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
           ],
-          verdict: '3 of 4 major vertical farm competitors went bankrupt. Harch Agri enters at market bottom with 5 integrated products, 4x lower energy costs, carbon credit revenue, and 30M underserved African farmers. Aeroponics without economics is a science project.',
+          verdict: '3 of 4 major vertical farm competitors went bankrupt. Harch Agri enters at market bottom with 5 integrated products, 4x lower energy costs, and 30M underserved African farmers.',
         },
         {
-          name: 'CropX / Climate Corp',
-          country: 'USA / Israel',
-          founded: '2013 / 2006',
-          revenue: '$50B+ (Bayer total)',
+          name: 'CropX / Climate Corp', country: 'USA / Israel', founded: '2013 / 2006', revenue: '$50B+ (Bayer total)',
           metrics: [
             { label: 'Smallholder Focus', harchValue: 'Yes — 30M African smallholders', competitorValue: 'No — US/BR large farms only', harchWins: true },
             { label: 'Drone-as-a-Service', harchValue: 'Yes — $50/ha/month', competitorValue: 'None — software platform only', harchWins: true },
@@ -1040,36 +744,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             { label: 'Carbon Credits for Farmers', harchValue: 'Yes — 2% commission, Verra VCS', competitorValue: 'Indigo Ag (US only, not Africa)', harchWins: true },
             { label: 'African Operations', harchValue: '5,000 ha trials — Senegal + Morocco', competitorValue: '0 hectares in Africa', harchWins: true },
             { label: 'Starter Kit Price', harchValue: '$200 — 3 sensors + LoRaWAN gateway', competitorValue: '$749-$1,499/year (US pricing)', harchWins: true, harchNumeric: 200, competitorNumeric: 749, barMax: 1500, lowerIsBetter: true },
-            { label: 'Water Reduction', harchValue: '60% vs traditional irrigation', competitorValue: 'N/A — no irrigation control', harchWins: true },
-            { label: 'Cross-Vertical Synergy', harchValue: 'Harch Energy + Water + Technology + Intelligence', competitorValue: 'None — standalone software', harchWins: true },
-            { label: 'Vertical Farming', harchValue: '3 facilities — premium produce', competitorValue: 'None — no vertical farms', harchWins: true },
-            { label: 'Yield Increase', harchValue: '30% vs traditional', competitorValue: '10-15% (sensing only)', harchWins: true },
-            { label: 'Open Source AgTech SDK', harchValue: 'HarchOS Agri SDK — open developer tools', competitorValue: 'None — closed SaaS platform', harchWins: true },
-            { label: 'African Job Creation', harchValue: '500+ direct jobs across 5 sites', competitorValue: '0 — US/Israel operations', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
           ],
-          verdict: 'CropX and Climate Corp serve American commercial farms at $749/year. Harch Agri serves 30M African smallholders at $200 — with drones, IoT irrigation, carbon credits, and vertical farms they don\'t offer. Different market, different price, different planet.',
-        },
-        {
-          name: 'Hello Tractor',
-          country: 'Nigeria',
-          founded: '2014',
-          revenue: 'Undisclosed (Series A)',
-          metrics: [
-            { label: 'Technology Depth', harchValue: '5 integrated products', competitorValue: '1 product (tractor sharing)', harchWins: true },
-            { label: 'Revenue per Farmer', harchValue: '5 revenue streams per farmer', competitorValue: '1 revenue stream (booking commission)', harchWins: true },
-            { label: 'IoT Sensor Network', harchValue: '10,000+ sensors — real-time data', competitorValue: 'GPS on tractors only', harchWins: true },
-            { label: 'Carbon Credit Revenue', harchValue: 'Yes — farmer earns from carbon', competitorValue: 'None', harchWins: true },
-            { label: 'Water Management', harchValue: '60% reduction — AI irrigation', competitorValue: 'None — no water tech', harchWins: true },
-            { label: 'Yield Increase', harchValue: '30% vs traditional', competitorValue: '227% income boost (via mechanization)', harchWins: true },
-            { label: 'Cross-Vertical Integration', harchValue: 'Harch Energy + Water + Technology + Intelligence', competitorValue: 'None — standalone platform', harchWins: true },
-            { label: 'Drone Surveillance', harchValue: '50+ autonomous drones', competitorValue: 'None', harchWins: true },
-            { label: 'Vertical Farming', harchValue: '3 facilities under development', competitorValue: 'None', harchWins: true },
-            { label: 'Open Source AgTech SDK', harchValue: 'HarchOS Agri SDK — open developer tools', competitorValue: 'None — no developer tools', harchWins: true },
-            { label: 'African Job Creation', harchValue: '500+ direct jobs across 5 sites', competitorValue: '~100 — Nigerian operations', harchWins: true },
-            { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
-          ],
-          verdict: 'Hello Tractor connects 2.5M farmers to tractors. Harch Agri connects farmers to the entire precision agriculture stack — drones, IoT, irrigation, vertical farms, and carbon credits — backed by 4 other Harch subsidiaries. Tractor sharing is one feature. We are the platform.',
+          verdict: 'CropX and Climate Corp serve American commercial farms at $749/year. Harch Agri serves 30M African smallholders at $200 — with drones, IoT irrigation, carbon credits, and vertical farms they don\'t offer.',
         },
       ],
     },
@@ -1077,15 +753,15 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       name: 'Harch Water', version: '/0.7',
       heroTitle: "Solving Africa's\nWater Crisis",
       heroSubtitle: '200M m3/yr desalination with AI-optimized distribution for industrial and community needs',
-      heroImage: '/images/sections/comp-water-plant.jpg',
-      sectionImage1: '/images/sections/comp-water-pipes.jpg',
-      sectionImage2: '/images/sections/water-desal.jpg',
-      sectionImage3: '/images/sections/water-dam.jpg',
-      sectionImage4: '/images/sections/water-control-room.jpg',
-      overview: 'Harch Water deploys 200M m3/yr desalination capacity with AI-optimized distribution, solving Africa\'s water security crisis at continental scale. Every project allocates 10% of capacity for community use at no cost, ensuring that industrial development and human needs are met simultaneously. Water is the foundation of every other Harch vertical — without reliable water supply, data centers cannot cool, cement cannot cure, crops cannot grow, and communities cannot thrive. Harch Water builds the water infrastructure that makes everything else possible.',
-      strategicContext: 'Over 400 million Africans lack access to clean water, and 700 million lack adequate sanitation. Climate change is intensifying water stress across the Sahel and North Africa, where rainfall has declined 30% over the past three decades. Meanwhile, industrial water demand is growing at 8% annually as manufacturing, mining, and agriculture expand. The conventional response — groundwater extraction and surface water diversion — is unsustainable and increasingly inadequate. Desalination powered by renewable energy represents the only scalable, climate-resilient solution. Harch Water builds this solution at the scale the continent requires.',
-      marketAnalysis: 'Africa\'s water infrastructure market is valued at $25 billion annually and growing at 10% CAGR, driven by urbanization (African cities add 20 million water consumers annually), industrial demand (manufacturing, mining, and energy), and climate adaptation spending. Desalination specifically is the fastest-growing segment, with Africa\'s installed capacity projected to grow from 6M m3/day to 25M m3/day by 2030. Harch Water\'s 200M m3/yr capacity (548K m3/day) captures a significant share of this growth while operating at costs 40% below grid-powered desalination through Harch Energy\'s renewable electricity.',
-      sustainability: 'Sustainability is embedded in Harch Water\'s DNA. Our desalination plants are powered entirely by Harch Energy\'s renewable infrastructure, eliminating the carbon footprint that makes conventional desalination environmentally problematic. Energy recovery devices reduce power consumption to 2.5 kWh/m3 — 40% below industry average. Brine management follows best-practice diffusion protocols that protect marine ecosystems, and our AI distribution systems reduce network losses to less than 5% versus the African average of 40%+. The 10% community allocation provides clean water for 50M+ people across our operating regions at zero cost.',
+      heroImage: '/images/sections/water-desal-plant.jpg',
+      sectionImage1: '/images/sections/water-desal.jpg',
+      sectionImage2: '/images/sections/water-treatment.jpg',
+      sectionImage3: '/images/sections/water-control-room.jpg',
+      sectionImage4: '/images/sections/water-desal-plant.jpg',
+      overview: 'Harch Water deploys 200M m3/yr desalination capacity with AI-optimized distribution, solving Africa\'s water security crisis at continental scale. Every project allocates 10% of capacity for community use at no cost, ensuring that industrial development and human needs are met simultaneously.',
+      strategicContext: 'Over 400 million Africans lack access to clean water, and 700 million lack adequate sanitation. Climate change is intensifying water stress across the Sahel and North Africa. Desalination powered by renewable energy represents the only scalable, climate-resilient solution. Harch Water builds this solution at the scale the continent requires.',
+      marketAnalysis: 'Africa\'s water infrastructure market is valued at $25 billion annually and growing at 10% CAGR. Desalination specifically is the fastest-growing segment, with Africa\'s installed capacity projected to grow from 6M m3/day to 25M m3/day by 2030.',
+      sustainability: 'Harch Water\'s desalination plants are powered entirely by Harch Energy\'s renewable infrastructure. Energy recovery devices reduce power consumption to 2.5 kWh/m3 — 40% below industry average. Brine management follows best-practice diffusion protocols that protect marine ecosystems. The 10% community allocation provides clean water for 50M+ people at zero cost.',
       investment: '$150M',
       metrics: [
         { value: 200, prefix: '', suffix: 'M m³/yr', label: 'Desalination Capacity' },
@@ -1094,12 +770,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { value: 150, prefix: '$', suffix: 'M', label: 'Investment' },
       ],
       capabilities: [
-        { icon: Waves, title: 'Reverse Osmosis Desalination', desc: 'Latest-generation reverse osmosis desalination plants powered by Harch Energy\'s renewable infrastructure. 200M m3/yr capacity serving both industrial and community needs. Our plants use advanced membrane technology achieving 45% recovery rates with energy consumption of just 2.5 kWh/m3.' },
-        { icon: Cpu, title: 'AI-Optimized Distribution', desc: 'AI-optimized water distribution networks that reduce waste by 40% and ensure equitable allocation between industrial and community users. Real-time demand forecasting, pressure management, and automated valve control minimize losses while maximizing service quality.' },
-        { icon: Globe, title: 'Smart Network Monitoring', desc: 'IoT-enabled water distribution networks with real-time monitoring, leak detection, and predictive maintenance. 10,000+ sensors across distribution networks provide continuous visibility into system performance with 99.5% network uptime.' },
-        { icon: Shield, title: 'Water Quality Assurance', desc: 'Multi-stage filtration and continuous quality monitoring ensuring WHO-standard drinking water for all community allocations. Automated sampling and laboratory analysis at every treatment stage with public quality reporting for full transparency.' },
-        { icon: Zap, title: 'Energy Recovery Systems', desc: 'Advanced energy recovery devices in desalination plants reducing energy consumption by 40% versus conventional systems. Powered by Harch Energy at $0.03/kWh — the lowest energy cost for desalination on the continent, producing water at $0.45/m3.' },
-        { icon: BarChart3, title: 'Community Water Access', desc: '10% of all desalination capacity allocated for community use at zero cost — providing clean water for 50M+ people across our operating regions. Community water points, school and hospital connections, and rural distribution networks funded from operational revenue.' },
+        { icon: Waves, title: 'Reverse Osmosis Desalination', desc: 'Latest-generation reverse osmosis desalination plants powered by Harch Energy\'s renewable infrastructure. 200M m3/yr capacity with energy consumption of just 2.5 kWh/m3.' },
+        { icon: Cpu, title: 'AI-Optimized Distribution', desc: 'AI-optimized water distribution networks that reduce waste by 40% and ensure equitable allocation between industrial and community users.' },
+        { icon: Globe, title: 'Smart Network Monitoring', desc: 'IoT-enabled water distribution networks with real-time monitoring, leak detection, and predictive maintenance. 10,000+ sensors with 99.5% network uptime.' },
+        { icon: Shield, title: 'Water Quality Assurance', desc: 'Multi-stage filtration and continuous quality monitoring ensuring WHO-standard drinking water for all community allocations.' },
+        { icon: Zap, title: 'Energy Recovery Systems', desc: 'Advanced energy recovery devices reducing energy consumption by 40% versus conventional systems. Powered by Harch Energy at $0.03/kWh — producing water at $0.45/m3.' },
+        { icon: BarChart3, title: 'Community Water Access', desc: '10% of all desalination capacity allocated for community use at zero cost — providing clean water for 50M+ people across our operating regions.' },
       ],
       specTable: [
         { spec: 'Total Capacity', value: '200M m3/yr', phase: 'Full build-out' },
@@ -1114,12 +790,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { spec: 'Brine Management', value: 'Diffusion Protocol', phase: 'Marine ecosystem protection' },
       ],
       milestones: [
-        { year: '2025 Q3', title: 'Pilot Desalination Launch', desc: 'Pilot desalination project launched in southern Morocco. 10,000 m3/day capacity validating technology and operational parameters.' },
-        { year: '2026 Q2', title: 'Pilot Results Validated', desc: 'Pilot project achieves all performance targets: 2.5 kWh/m3 energy consumption, 45% recovery rate, WHO-standard output quality.' },
-        { year: '2026 Q4', title: 'AI Distribution Platform', desc: 'AI-optimized distribution system validated in pilot network. Leak detection and pressure management reducing losses by 35%.' },
-        { year: '2027 Q3', title: 'First Full-Scale Plant', desc: 'First full-scale 50M m3/yr desalination plant construction begins. Financing closed with development finance institution participation.' },
-        { year: '2029 Q1', title: 'First Plant Online', desc: 'First desalination plant operational. 50M m3/yr capacity serving industrial customers and community allocation programs.' },
-        { year: '2030 Q4', title: 'Full 200M m3/yr Capacity', desc: '200M m3/yr total desalination capacity operational. AI distribution across 3 countries. 50M+ people receiving community water access.' },
+        { year: '2025 Q3', title: 'Pilot Desalination Launch', desc: 'Pilot desalination project launched in southern Morocco. 10,000 m3/day capacity validating technology.' },
+        { year: '2026 Q2', title: 'Pilot Results Validated', desc: 'Pilot project achieves all performance targets: 2.5 kWh/m3 energy consumption, 45% recovery rate.' },
+        { year: '2026 Q4', title: 'AI Distribution Platform', desc: 'AI-optimized distribution system validated. Leak detection reducing losses by 35%.' },
+        { year: '2027 Q3', title: 'First Full-Scale Plant', desc: 'First full-scale 50M m3/yr desalination plant construction begins.' },
+        { year: '2029 Q1', title: 'First Plant Online', desc: 'First desalination plant operational. 50M m3/yr capacity serving industrial and community needs.' },
+        { year: '2030 Q4', title: 'Full 200M m3/yr Capacity', desc: '200M m3/yr total capacity operational. 50M+ people receiving community water access.' },
       ],
       stats: [
         { stat: 'Energy Efficiency vs Average', value: 90, max: 100 },
@@ -1128,48 +804,24 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { stat: 'Cost Competitiveness', value: 88, max: 100 },
       ],
       location: 'Mali',
-      locationDesc: 'Operations across water-stressed regions of West Africa with critical community needs. Initial deployment in southern Morocco with expansion to Mali and the Sahel corridor — regions where water stress is most acute and desalination provides the only climate-resilient water supply solution.',
+      locationDesc: 'Operations across water-stressed regions of West Africa with critical community needs. Initial deployment in southern Morocco with expansion to Mali and the Sahel corridor.',
       strategicAdvantages: [
-        { title: 'Renewable-Powered Cost Leadership', desc: 'Desalination at $0.45/m3 — 40% below grid-powered plants — thanks to Harch Energy\'s $0.03/kWh renewable electricity. This structural cost advantage is permanent and widens as renewable costs continue to decline.' },
-        { title: 'Cross-Vertical Integration', desc: 'Every Harch vertical requires water — for cooling data centers, mixing cement, irrigating crops, and processing minerals. Harch Water\'s captive demand base provides revenue floor while serving external industrial and community customers.' },
-        { title: 'AI-Optimized Distribution', desc: 'Proprietary AI distribution platform reduces network losses to <5% versus the African average of 40%+. This efficiency advantage compounds as networks expand, creating an ever-wider performance gap versus competitors.' },
-        { title: 'Community Mandate', desc: 'The 10% free community allocation builds social license, government support, and development finance eligibility that purely commercial operators cannot access. This mandate is a competitive moat, not a cost.' },
+        { title: 'Renewable-Powered Cost Leadership', desc: 'Desalination at $0.45/m3 — 40% below grid-powered plants — thanks to Harch Energy\'s $0.03/kWh renewable electricity. This structural cost advantage is permanent.' },
+        { title: 'Cross-Vertical Integration', desc: 'Every Harch vertical requires water — for cooling data centers, mixing cement, irrigating crops, and processing minerals. Captive demand base provides revenue floor.' },
+        { title: 'AI-Optimized Distribution', desc: 'Proprietary AI distribution platform reduces network losses to <5% versus the African average of 40%+.' },
+        { title: 'Community Mandate', desc: 'The 10% free community allocation builds social license, government support, and development finance eligibility that purely commercial operators cannot access.' },
       ],
       partnershipModel: [
-        { title: 'Industrial Water Supply', desc: 'Long-term water supply agreements with mining companies, industrial parks, and agricultural operations. Guaranteed volumes with tiered pricing based on consumption.' },
-        { title: 'Government Water Concessions', desc: 'Public-private partnerships for municipal water supply and distribution. Build-operate-transfer or build-own-operate models with government offtake guarantees.' },
-        { title: 'Community Water Programs', desc: 'Collaborative programs with UNICEF, WaterAid, and government agencies for rural water access. 10% community allocation provides baseline; partnerships fund expansion.' },
-        { title: 'Development Finance Partnerships', desc: 'Project finance structures with AfDB, IFC, and bilateral development finance institutions. Concessional lending eligibility through community impact metrics and ESG compliance.' },
+        { title: 'Industrial Water Supply', desc: 'Long-term water supply agreements with mining companies, industrial parks, and agricultural operations.' },
+        { title: 'Government Water Concessions', desc: 'Public-private partnerships for municipal water supply and distribution. Build-operate-transfer models.' },
+        { title: 'Community Water Programs', desc: 'Collaborative programs with UNICEF, WaterAid, and government agencies for rural water access.' },
+        { title: 'Development Finance Partnerships', desc: 'Project finance structures with AfDB, IFC, and bilateral development finance institutions.' },
       ],
       competitorHarchName: 'Harch Water',
-      competitorAccentColor: '#FFFFFF',
+      competitorAccentColor: '#8B9DAF',
       competitors: [
         {
-          name: 'ACWA Power',
-          country: 'Saudi Arabia',
-          founded: '2004',
-          revenue: '$3.1B (2024)',
-          metrics: [
-            { label: 'Production Cost', harchValue: '$0.45/m³', competitorValue: '$0.45-0.55/m³', harchWins: true, harchNumeric: 45, competitorNumeric: 50, barMax: 60, lowerIsBetter: true },
-            { label: 'Energy Use', harchValue: '2.5 kWh/m³ (40% below avg)', competitorValue: '2.5-3.5 kWh/m³', harchWins: true, harchNumeric: 2.5, competitorNumeric: 3.0, barMax: 4, lowerIsBetter: true },
-            { label: 'Network Losses', harchValue: '<5% (AI-optimized)', competitorValue: 'N/A — plant-only, no distribution', harchWins: true },
-            { label: 'AI Distribution Platform', harchValue: 'Proprietary — 10,000+ sensors', competitorValue: 'None — no distribution tech', harchWins: true },
-            { label: 'Community Allocation', harchValue: '10% free — 20M m³/yr', competitorValue: '0% disclosed', harchWins: true },
-            { label: 'Renewable Energy Powered', harchValue: '100% — Harch Energy', competitorValue: 'Partial — fossil/gas mix', harchWins: true },
-            { label: 'Delivered Cost (plant + distribution)', harchValue: '$0.50/m³ (incl. <5% losses)', competitorValue: '$0.65+/m³ (incl. 20-30% losses)', harchWins: true, harchNumeric: 50, competitorNumeric: 65, barMax: 80, lowerIsBetter: true },
-            { label: 'Cross-Vertical Integration', harchValue: 'Harch Energy + Cement + Mining + Agri + Technology', competitorValue: 'None — water/power only', harchWins: true },
-            { label: 'Carbon Intensity', harchValue: 'Near-zero — 100% renewable', competitorValue: 'High — fossil-fueled desalination', harchWins: true },
-            { label: 'Leak Detection', harchValue: 'AI-powered — real-time', competitorValue: 'None — no distribution platform', harchWins: true },
-            { label: 'African Sovereignty', harchValue: 'African-owned — all decisions in Africa', competitorValue: 'Saudi sovereign — foreign-controlled', harchWins: true },
-            { label: 'Open Source Water Grid', harchValue: 'HarchOS Water SDK — sovereign water management', competitorValue: 'None — proprietary SCADA', harchWins: true },
-          ],
-          verdict: 'ACWA builds desalination plants. Harch Water builds water systems — plant + AI distribution + community allocation. ACWA\'s water costs $0.55 before distribution losses. Harch\'s water costs $0.50 delivered. System beats plant.',
-        },
-        {
-          name: 'Veolia',
-          country: 'France',
-          founded: '1853',
-          revenue: '$45B (2024)',
+          name: 'Veolia', country: 'France', founded: '1853', revenue: '$45B (2024)',
           metrics: [
             { label: 'Production Cost', harchValue: '$0.45/m³', competitorValue: '$0.60-1.00/m³', harchWins: true, harchNumeric: 45, competitorNumeric: 80, barMax: 100, lowerIsBetter: true },
             { label: 'Energy Use', harchValue: '2.5 kWh/m³', competitorValue: '3.0-4.0 kWh/m³', harchWins: true, harchNumeric: 2.5, competitorNumeric: 3.5, barMax: 5, lowerIsBetter: true },
@@ -1177,21 +829,14 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             { label: 'AI Distribution', harchValue: 'Proprietary — real-time', competitorValue: 'Limited (Xylem third-party)', harchWins: true },
             { label: 'Community Allocation', harchValue: '10% free', competitorValue: '0% — commercial only', harchWins: true },
             { label: 'Renewable Energy', harchValue: '100% — Harch Energy', competitorValue: 'Grid mix — partial', harchWins: true },
-            { label: 'West Africa Focus', harchValue: 'Mali + Morocco — water-stressed', competitorValue: 'Morocco only — Casablanca plant', harchWins: true },
             { label: 'Carbon Intensity', harchValue: 'Near-zero — 100% renewable', competitorValue: 'High — fossil-fueled plants', harchWins: true },
             { label: 'Cross-Vertical Integration', harchValue: '5 subsidiaries — industrial ecosystem', competitorValue: 'None — standalone water', harchWins: true },
-            { label: 'Leak Detection', harchValue: 'AI-powered — 10,000+ sensors', competitorValue: 'Manual — periodic surveys', harchWins: true },
-            { label: 'Delivered Cost', harchValue: '$0.50/m³ (all-in)', competitorValue: '$0.75-1.20/m³ (with distribution losses)', harchWins: true, harchNumeric: 50, competitorNumeric: 97.5, barMax: 120, lowerIsBetter: true },
-            { label: 'African Sovereignty', harchValue: 'African-owned — all decisions in Africa', competitorValue: 'French HQ — decisions in Paris', harchWins: true },
-            { label: 'Open Source Water Grid', harchValue: 'HarchOS Water SDK — sovereign water management', competitorValue: 'None — proprietary VIDES platform', harchWins: true },
+            { label: 'Delivered Cost', harchValue: '$0.50/m³ (all-in)', competitorValue: '$0.75-1.20/m³ (with distribution losses)', harchWins: true, harchNumeric: 50, competitorNumeric: 97, barMax: 120, lowerIsBetter: true },
           ],
-          verdict: 'Veolia builds the biggest desal plant in Africa at 2x our cost and 3x our energy use, losing 20% of water in distribution. Harch Water builds the smartest — 40% cheaper, 60% less energy, 5x fewer network losses, with 10% free for communities. Smart beats big.',
+          verdict: 'Veolia builds the biggest desal plant in Africa at 2x our cost and 3x our energy use, losing 20% of water in distribution. Harch Water builds the smartest — 40% cheaper, 60% less energy, 5x fewer network losses.',
         },
         {
-          name: 'IDE Technologies',
-          country: 'Israel',
-          founded: '1965',
-          revenue: '$1B+ (est.)',
+          name: 'IDE Technologies', country: 'Israel', founded: '1965', revenue: '$1B+ (est.)',
           metrics: [
             { label: 'Production Cost', harchValue: '$0.45/m³', competitorValue: '$0.50-0.60/m³', harchWins: true, harchNumeric: 45, competitorNumeric: 55, barMax: 70, lowerIsBetter: true },
             { label: 'Energy Use', harchValue: '2.5 kWh/m³', competitorValue: '3.0-3.5 kWh/m³', harchWins: true, harchNumeric: 2.5, competitorNumeric: 3.25, barMax: 4.5, lowerIsBetter: true },
@@ -1199,32 +844,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             { label: 'Community Allocation', harchValue: '10% free — 20M m³/yr', competitorValue: '0%', harchWins: true },
             { label: 'Africa Operations', harchValue: 'Mali + Morocco — building now', competitorValue: 'None — Israel/Middle East only', harchWins: true },
             { label: 'Renewable Energy', harchValue: '100% — Harch Energy', competitorValue: 'Grid-powered — no renewable supply', harchWins: true },
-            { label: 'Carbon Intensity', harchValue: 'Near-zero — 100% renewable', competitorValue: 'High — Israeli grid mix', harchWins: true },
-            { label: 'Cross-Vertical Integration', harchValue: '5 subsidiaries — ecosystem', competitorValue: 'None — plant engineering only', harchWins: true },
-            { label: 'Network Losses', harchValue: '<5%', competitorValue: 'N/A — no distribution network', harchWins: true },
-            { label: 'African Sovereignty', harchValue: 'African-owned — all decisions in Africa', competitorValue: 'Israeli HQ — no African sovereignty', harchWins: true },
-            { label: 'Open Source Water Grid', harchValue: 'HarchOS Water SDK — sovereign water management', competitorValue: 'None — proprietary only', harchWins: true },
           ],
           verdict: 'IDE builds excellent desal plants — in Israel. Harch Water builds excellent desal systems in Africa — plant + AI distribution + community allocation + 100% renewable power. Plant vs system. No contest.',
-        },
-        {
-          name: 'Suez (Veolia subsidiary)',
-          country: 'France',
-          founded: '1858',
-          revenue: '$20B (2024)',
-          metrics: [
-            { label: 'West Africa Operations', harchValue: 'Mali + Morocco — water-stressed focus', competitorValue: 'Limited — primarily North Africa', harchWins: true },
-            { label: 'Production Cost', harchValue: '$0.45/m³', competitorValue: '$0.55-0.90/m³', harchWins: true, harchNumeric: 45, competitorNumeric: 72.5, barMax: 100, lowerIsBetter: true },
-            { label: 'Energy Use', harchValue: '2.5 kWh/m³', competitorValue: '3.0-4.0 kWh/m³', harchWins: true, harchNumeric: 2.5, competitorNumeric: 3.5, barMax: 5, lowerIsBetter: true },
-            { label: 'AI Distribution', harchValue: 'Proprietary — real-time AI', competitorValue: 'Limited — legacy SCADA', harchWins: true },
-            { label: 'Community Allocation', harchValue: '10% free', competitorValue: '0% — commercial contracts only', harchWins: true },
-            { label: 'Renewable Energy', harchValue: '100% — Harch Energy direct', competitorValue: 'Grid-dependent — no renewables', harchWins: true },
-            { label: 'Cross-Vertical Integration', harchValue: '5 subsidiaries — full ecosystem', competitorValue: 'None — standalone water utility', harchWins: true },
-            { label: 'Network Losses', harchValue: '<5% — AI-optimized', competitorValue: '20-30% — typical for region', harchWins: true },
-            { label: 'African Sovereignty', harchValue: 'African-owned — all decisions in Africa', competitorValue: 'French HQ — decisions in Paris', harchWins: true },
-            { label: 'Open Source Water Grid', harchValue: 'HarchOS Water SDK — sovereign water management', competitorValue: 'None — proprietary AQUADVANCED', harchWins: true },
-          ],
-          verdict: 'Suez operates legacy water infrastructure across Africa with 25%+ network losses and zero renewable energy. Harch Water builds AI-optimized systems from scratch — <5% losses, 100% renewable, 10% free for communities. New beats legacy. Always.',
         },
       ],
     },
@@ -1233,350 +854,471 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
   const data = subsidiaryData[slug];
   if (!data) return <div className="pt-40 pb-20 text-center"><h1 className="text-2xl font-bold">Page not found</h1></div>;
 
+  const accent = accentMap[slug] ?? '#8B9DAF';
+
+  /* ═══════════════════════════════════════════════════════════════
+      RENDERING — unified design system + real images + animations
+      ═══════════════════════════════════════════════════════════════ */
   return (
     <div className="bg-[#0D0D0D]">
-      {/* ═══════════════════════════════════════════
-          HERO — Full-bleed photo with overlaid text (Palantir style)
-          ═══════════════════════════════════════════ */}
-      <section className="relative min-h-[85vh] flex items-end bg-gradient-to-br from-[#1a2a3a] via-[#0D0D0D] to-[#0D0D0D]">
-        <div className="absolute inset-0 dot-pattern opacity-20" />
+
+      {/* ═══════════════ HERO ═══════════════ */}
+      <section className="relative min-h-[85vh] flex items-end overflow-hidden">
+        <ParallaxSection speed={0.25} className="absolute inset-0">
+          <Image
+            src={data.heroImage}
+            alt={data.name}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/80 to-[#0D0D0D]/30" />
+        </ParallaxSection>
+
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pb-20 md:pb-32 w-full">
           <FadeIn>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm mb-6">
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">{data.name} {data.version}</span>
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-[72px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-4 whitespace-pre-line">
-              {data.heroTitle}
-            </h1>
-            <p className="text-lg md:text-xl text-white/70 max-w-xl">{data.heroSubtitle}</p>
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm">
+                <span className="version-tag">{data.name} {data.version}</span>
+              </span>
+              <span
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm"
+                style={{ backgroundColor: `${accent}20`, border: `1px solid ${accent}40` }}
+              >
+                <span className="text-[10px] font-bold tracking-[0.15em] uppercase" style={{ color: accent }}>
+                  {data.investment} Investment
+                </span>
+              </span>
+            </div>
+          </FadeIn>
+
+          <TextReveal
+            text={data.heroTitle}
+            className="text-4xl md:text-5xl lg:text-[72px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-4 whitespace-pre-line"
+          />
+
+          <FadeIn delay={0.4}>
+            <p className="text-lg md:text-xl text-white/70 max-w-xl mb-8">{data.heroSubtitle}</p>
+            <MagneticButton>
+              <SmoothLink href="/subsidiaries" className="text-white/80 text-sm">
+                Explore All Subsidiaries
+              </SmoothLink>
+            </MagneticButton>
           </FadeIn>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          OVERVIEW — Text left + Metrics right (Palantir split)
-          ═══════════════════════════════════════════ */}
+      <SectionDivider />
+
+      {/* ═══════════════ OVERVIEW — Image Left + Text Right ═══════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <FadeIn>
-              <p className="section-label mb-4">Overview</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-                {data.name}
-              </h2>
-              <div className="accent-line mb-6" />
-              <p className="text-[15px] text-[#999999] leading-[1.7]">{data.overview}</p>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="grid grid-cols-2 gap-4">
-                {data.metrics.map((m) => (
-                  <div key={m.label} className="card p-6 text-center">
-                    <p className="text-3xl md:text-4xl font-bold text-white">
-                      <AnimatedCounter target={m.value} prefix={m.prefix} suffix={m.suffix} />
-                    </p>
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1">{m.label}</p>
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <FadeIn direction="left">
+              <div className="relative aspect-[4/3] rounded-[12px] overflow-hidden">
+                <Image
+                  src={data.sectionImage1}
+                  alt={`${data.name} overview`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/40 to-transparent" />
               </div>
             </FadeIn>
+
+            <div>
+              <FadeIn>
+                <p className="section-label mb-4" style={{ color: accent }}>Overview</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{data.name}</h2>
+                <div className="accent-line mb-6" />
+                <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">{data.overview}</p>
+              </FadeIn>
+
+              <StaggerContainer className="grid grid-cols-2 gap-4" staggerDelay={0.1}>
+                {data.metrics.map((m) => (
+                  <StaggerItem key={m.label}>
+                    <div className="card p-5 text-center">
+                      <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
+                        <CountUp to={m.value} prefix={m.prefix} suffix={m.suffix} duration={2.5} />
+                      </p>
+                      <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1">{m.label}</p>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          FULL-BLEED IMAGE BREAK — Palantir style between sections
-          ═══════════════════════════════════════════ */}
-      <FullBleedGradient height="55vh" />
-
-      {/* ═══════════════════════════════════════════
-          STRATEGIC CONTEXT — Side-by-side split (Palantir: text left + image right)
-          ═══════════════════════════════════════════ */}
-      <SplitSection>
-        <FadeIn>
-          <p className="section-label mb-4">Strategic Context</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-            Why This Matters
-          </h2>
-          <div className="accent-line mb-6" />
-          <p className="text-[15px] text-[#999999] leading-[1.7]">{data.strategicContext}</p>
-        </FadeIn>
-      </SplitSection>
-
-      {/* ═══════════════════════════════════════════
-          CAPABILITIES — Grid cards
-          ═══════════════════════════════════════════ */}
+      {/* ═══════════════ STRATEGIC CONTEXT — Reversed Split ═══════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="lg:order-2">
+              <FadeIn direction="right">
+                <div className="relative aspect-[4/3] rounded-[12px] overflow-hidden">
+                  <Image
+                    src={data.sectionImage2}
+                    alt={`${data.name} strategic context`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/40 to-transparent" />
+                </div>
+              </FadeIn>
+            </div>
+
+            <div className="lg:order-1">
+              <FadeIn>
+                <p className="section-label mb-4" style={{ color: accent }}>Strategic Context</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Why This Matters</h2>
+                <div className="accent-line mb-6" />
+                <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">{data.strategicContext}</p>
+                <SmoothLink href="/subsidiaries" className="text-sm" style={{ color: accent }}>
+                  See All Subsidiaries
+                </SmoothLink>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════ CAPABILITIES GRID ═══════════════ */}
+      <section className="py-28 md:py-36 bg-[#111111]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Capabilities</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              What We Build
-            </h2>
+            <p className="section-label mb-4" style={{ color: accent }}>Capabilities</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">What We Build</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.capabilities.map((cap, i) => (
-              <FadeIn key={cap.title} delay={i * 0.06}>
-                <div className="card p-6 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center mb-3">
-                    <cap.icon size={18} className="text-white" strokeWidth={1.5} />
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
+            {data.capabilities.map((cap) => (
+              <StaggerItem key={cap.title}>
+                <Card3D className="h-full" glareEnabled>
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${accent}15` }}>
+                    <cap.icon size={18} style={{ color: accent }} strokeWidth={1.5} />
                   </div>
                   <h3 className="text-[14px] font-bold text-white mb-2">{cap.title}</h3>
                   <p className="text-[12px] text-[#999999] leading-relaxed">{cap.desc}</p>
+                </Card3D>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ═══════════════ STRATEGIC ADVANTAGES + STATS ═══════════════ */}
+      <section className="py-28 md:py-36 bg-[#0D0D0D]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+              <FadeIn>
+                <p className="section-label mb-4" style={{ color: accent }}>Strategic Advantages</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Competitive Edge</h2>
+                <div className="accent-line mb-8" />
+              </FadeIn>
+
+              <StaggerContainer className="space-y-4" staggerDelay={0.08}>
+                {data.strategicAdvantages.map((adv) => (
+                  <StaggerItem key={adv.title}>
+                    <div className="card p-5">
+                      <div className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: accent }} />
+                        <div>
+                          <h4 className="text-[14px] font-bold text-white mb-1">{adv.title}</h4>
+                          <p className="text-[12px] text-[#999999] leading-relaxed">{adv.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </div>
+
+            <div>
+              <FadeIn delay={0.15}>
+                <p className="section-label mb-4" style={{ color: accent }}>Performance Metrics</p>
+                <h3 className="text-2xl font-bold text-white mb-8">By the Numbers</h3>
+              </FadeIn>
+
+              <div className="space-y-2">
+                {data.stats.map((s) => (
+                  <StatBar key={s.stat} stat={s.stat} value={s.value} max={s.max} accent={accent} />
+                ))}
+              </div>
+
+              <FadeIn delay={0.3}>
+                <div className="mt-10 relative aspect-[4/3] rounded-[12px] overflow-hidden">
+                  <Image
+                    src={data.sectionImage3}
+                    alt={`${data.name} performance`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/60 to-transparent" />
                 </div>
               </FadeIn>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          STRATEGIC ADVANTAGES — Full-width section with stat bars
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
+      <SectionDivider />
+
+      {/* ═══════════════ INVESTMENT & LOCATION ═══════════════ */}
+      <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <FadeIn>
-              <p className="section-label mb-4">Strategic Advantages</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-                Competitive Positioning
-              </h2>
+              <p className="section-label mb-4" style={{ color: accent }}>Investment</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Capital Deployment</h2>
               <div className="accent-line mb-8" />
-              <div className="space-y-8">
-                {data.strategicAdvantages.map((adv, i) => (
-                  <div key={adv.title}>
-                    <h3 className="text-[15px] font-bold text-white mb-2">{adv.title}</h3>
-                    <p className="text-[13px] text-[#999999] leading-relaxed">{adv.desc}</p>
-                  </div>
-                ))}
+
+              <div className="space-y-4 mb-8">
+                <div className="card p-5">
+                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mb-1">Total Investment</p>
+                  <p className="text-4xl font-bold text-white stat-mono" style={{ color: accent }}>{data.investment}</p>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {data.metrics.slice(0, 2).map((m) => (
+                    <div key={m.label} className="card p-4 text-center">
+                      <p className="text-xl font-bold text-white stat-mono">
+                        {m.prefix}<CountUp to={m.value} suffix={m.suffix} duration={2} />
+                      </p>
+                      <p className="text-[10px] text-[#666666] uppercase tracking-[0.08em] font-bold mt-1">{m.label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </FadeIn>
+
             <FadeIn delay={0.15}>
-              <div className="space-y-2 mt-8 lg:mt-0">
-                {data.stats.map((s) => (
-                  <StatBar key={s.stat} stat={s.stat} value={s.value} max={s.max} />
-                ))}
+              <p className="section-label mb-4" style={{ color: accent }}>Location</p>
+              <h3 className="text-2xl font-bold text-white mb-6">Strategic Position</h3>
+
+              <div className="card p-6 mb-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <MapPin size={18} style={{ color: accent }} />
+                  <span className="text-[14px] font-bold text-white">{data.location}</span>
+                </div>
+                <p className="text-[13px] text-[#999999] leading-[1.7]">{data.locationDesc}</p>
               </div>
-              <div className="mt-12 p-6 card">
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] mb-2">Investment</p>
-                <p className="text-4xl font-bold text-white">{data.investment}</p>
-                <p className="text-[12px] text-[#999999] mt-2">{data.location}</p>
+
+              <div className="relative aspect-[16/9] rounded-[12px] overflow-hidden">
+                <Image
+                  src={data.sectionImage4}
+                  alt={`${data.name} location`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full pulse-glow" style={{ backgroundColor: accent }} />
+                  <span className="text-[11px] font-bold text-white tracking-[0.1em] uppercase">{data.location}</span>
+                </div>
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          PHOTO BACKGROUND — Investment & Location (Palantir mood section)
-          ═══════════════════════════════════════════ */}
-      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-[#1a2a3a] via-[#0D0D0D] to-[#0D0D0D]">
-        <div className="absolute inset-0 dot-pattern opacity-20" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-20">
-          <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-6 max-w-2xl">
-              {data.investment} Investment<br />in {data.location}
-            </h2>
-            <p className="max-w-lg text-[15px] text-white/60 leading-relaxed">{data.locationDesc}</p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          MARKET ANALYSIS — Side-by-side split (Palantir: image left + text right)
-          ═══════════════════════════════════════════ */}
-      <SplitSection reverse gradient="from-[#1a2a1a] to-[#0d150d]">
-        <FadeIn>
-          <p className="section-label mb-4">Market Analysis</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-            The Opportunity
-          </h2>
-          <div className="accent-line mb-6" />
-          <p className="text-[15px] text-[#999999] leading-[1.7]">{data.marketAnalysis}</p>
-        </FadeIn>
-      </SplitSection>
-
-      {/* ═══════════════════════════════════════════
-          TECHNICAL SPECIFICATIONS — Data table
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#111111]">
+      {/* ═══════════════ TECH SPECS TABLE ═══════════════ */}
+      <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Technical Specifications</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">Key Metrics</h2>
-            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">Detailed specifications and performance targets for {data.name}.</p>
+            <p className="section-label mb-4" style={{ color: accent }}>Technical Specifications</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Spec Sheet</h2>
+            <div className="accent-line mb-10" />
           </FadeIn>
-          <FadeIn delay={0.15}>
-            <div className="bg-[#141414] rounded-lg border border-[rgba(255,255,255,0.06)] overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="data-table">
-                  <thead>
-                    <tr>
-                      <th>Specification</th>
-                      <th>Value</th>
-                      <th>Phase</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.specTable.map((row) => (
-                      <tr key={row.spec}>
-                        <td>{row.spec}</td>
-                        <td className="font-semibold">{row.value}</td>
-                        <td className="text-[#999999]">{row.phase}</td>
+
+          <div className="card overflow-hidden !p-0">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[600px]">
+                <thead>
+                  <tr className="border-b border-[rgba(255,255,255,0.06)]">
+                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[35%]">Specification</th>
+                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[30%]">Value</th>
+                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[35%]">Phase</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.specTable.map((row, i) => (
+                    <FadeIn key={row.spec} delay={i * 0.03} direction="none">
+                      <tr className="border-b border-[rgba(255,255,255,0.03)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                        <td className="px-6 py-3.5 text-[13px] text-[#CCCCCC]">{row.spec}</td>
+                        <td className="px-6 py-3.5 text-[13px] font-bold text-white stat-mono">{row.value}</td>
+                        <td className="px-6 py-3.5 text-[12px] text-[#666666]">{row.phase}</td>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </FadeIn>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          </FadeIn>
+          </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SUSTAINABILITY & ESG — Full-width section
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#0D0D0D]">
+      <SectionDivider />
+
+      {/* ═══════════════ SUSTAINABILITY ═══════════════ */}
+      <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn>
-              <p className="section-label mb-4">Sustainability & ESG</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-                Built for the Long Term
-              </h2>
+              <p className="section-label mb-4" style={{ color: '#4A7B5F' }}>Sustainability</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Built to Last</h2>
               <div className="accent-line mb-6" />
               <p className="text-[15px] text-[#999999] leading-[1.7]">{data.sustainability}</p>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="space-y-4">
-                {data.specTable.slice(0, 5).map((row) => (
-                  <div key={row.spec} className="flex justify-between items-center py-3 border-b border-[rgba(255,255,255,0.04)]">
-                    <span className="text-[13px] text-[#999999]">{row.spec}</span>
-                    <span className="text-[13px] font-semibold text-white">{row.value}</span>
-                  </div>
+
+              <div className="flex flex-wrap gap-2 mt-6">
+                {['100% Renewable', 'Carbon-Aware', 'Circular Economy', 'Zero Waste'].map((badge) => (
+                  <span
+                    key={badge}
+                    className="px-3 py-1.5 rounded-full text-[10px] font-bold tracking-[0.1em] uppercase"
+                    style={{ backgroundColor: '#4A7B5F20', color: '#4A7B5F', border: '1px solid #4A7B5F30' }}
+                  >
+                    {badge}
+                  </span>
                 ))}
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.15}>
+              <div className="relative aspect-[4/3] rounded-[12px] overflow-hidden">
+                <Image
+                  src={data.sectionImage2}
+                  alt={`${data.name} sustainability`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                  <Leaf size={14} className="text-[#4A7B5F]" />
+                  <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-[#4A7B5F]">Sustainable by Design</span>
+                </div>
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECOND FULL-BLEED IMAGE BREAK
-          ═══════════════════════════════════════════ */}
-      <FullBleedGradient height="45vh" gradient="from-[#1a2a1a] via-[#0D0D0D] to-[#0D0D0D]" />
-
-      {/* ═══════════════════════════════════════════
-          DEEP DIVE — Additional visual section with sectionImage3
-          ═══════════════════════════════════════════ */}
-      <SplitSection reverse gradient="from-[#2a1a1a] to-[#150d0d]">
-        <p className="section-label mb-4">Deep Operations</p>
-        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-4">
-          Inside the Infrastructure
-        </h2>
-        <div className="accent-line mb-6" />
-        <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">
-          {data.sustainability}
-        </p>
-        <div className="space-y-3">
-          {data.stats.map((s, i) => (
-            <StatBar key={s.stat} stat={s.stat} value={s.value} max={s.max} />
-          ))}
-        </div>
-      </SplitSection>
-
-      {/* ═══════════════════════════════════════════
-          THIRD FULL-BLEED IMAGE BREAK — sectionImage4
-          ═══════════════════════════════════════════ */}
-      <FullBleedGradient height="40vh" gradient="from-[#1a1a2a] via-[#0D0D0D] to-[#0D0D0D]" />
-
-      {/* ═══════════════════════════════════════════
-          TIMELINE — Milestones
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#111111]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Timeline</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">Key Milestones</h2>
-          </FadeIn>
-          <div className="relative">
-            <div className="absolute left-5 md:left-10 top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)]" />
-            <div className="space-y-10">
-              {data.milestones.map((m, i) => (
-                <FadeIn key={m.year} delay={i * 0.08}>
-                  <div className="flex gap-6 md:gap-12 relative">
-                    <div className="relative z-10 shrink-0 w-10 md:w-20 flex justify-center">
-                      <div className="w-3.5 h-3.5 rounded-full bg-[#000000] border-2 border-[#000000] mt-1.5" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">{m.year}</span>
-                      <h3 className="text-lg font-bold text-white mt-1 mb-1">{m.title}</h3>
-                      <p className="text-[13px] text-[#999999] leading-relaxed max-w-lg">{m.desc}</p>
-                    </div>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          COMPETITIVE LANDSCAPE — Before partnership
-          ═══════════════════════════════════════════ */}
-      {data.competitors && data.competitors.length > 0 && (
-        <CompetitiveComparison
-          title="Competitive Landscape"
-          subtitle={`How ${data.name} compares against global and regional competitors.`}
-          accentColor={data.competitorAccentColor || '#FFFFFF'}
-          sectionLabel="Competitive Landscape"
-          harchName={data.competitorHarchName || data.name}
-          competitors={data.competitors}
-        />
-      )}
-
-      {/* ═══════════════════════════════════════════
-          PARTNERSHIP MODEL — Grid cards
-          ═══════════════════════════════════════════ */}
+      {/* ═══════════════ TIMELINE / MILESTONES ═══════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Partnership</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              How to Work With Us
-            </h2>
+            <p className="section-label mb-4" style={{ color: accent }}>Timeline</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Key Milestones</h2>
+            <div className="accent-line mb-12" />
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {data.partnershipModel.map((p, i) => (
-              <FadeIn key={p.title} delay={i * 0.08}>
-                <div className="card p-8 h-full">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-mono-tag">0{i + 1}</span>
-                    <div className="h-px flex-1 bg-[rgba(255,255,255,0.06)]" />
+
+          <div className="relative">
+            {/* Animated vertical line */}
+            <div className="absolute left-[19px] md:left-[23px] top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)]">
+              <motion.div
+                className="w-full"
+                style={{ backgroundColor: accent, originY: 0 }}
+                initial={{ height: '0%' }}
+                whileInView={{ height: '100%' }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+              />
+            </div>
+
+            <StaggerContainer className="space-y-8" staggerDelay={0.1}>
+              {data.milestones.map((ms) => (
+                <StaggerItem key={ms.year + ms.title}>
+                  <div className="flex gap-6 md:gap-8 pl-0">
+                    <div className="flex-shrink-0 relative z-10">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accent}20`, border: `2px solid ${accent}` }}>
+                        <Calendar size={14} style={{ color: accent }} />
+                      </div>
+                    </div>
+                    <div className="pb-2">
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase mb-1" style={{ color: accent }}>{ms.year}</p>
+                      <h4 className="text-[15px] font-bold text-white mb-1">{ms.title}</h4>
+                      <p className="text-[12px] text-[#999999] leading-relaxed">{ms.desc}</p>
+                    </div>
                   </div>
-                  <h3 className="text-[16px] font-bold text-white mb-3">{p.title}</h3>
-                  <p className="text-[13px] text-[#999999] leading-relaxed">{p.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          CTA — Dark with dot pattern
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
-        <div className="absolute inset-0 dot-pattern opacity-100" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
+      <SectionDivider />
+
+      {/* ═══════════════ COMPETITIVE COMPARISON ═══════════════ */}
+      {data.competitors && data.competitors.length > 0 && (
+        <CompetitiveComparison
+          title={`${data.competitorHarchName ?? data.name} vs Competition`}
+          subtitle="Every dimension. Every metric. Every competitor."
+          accentColor={data.competitorAccentColor ?? accent}
+          sectionLabel="Competitive Landscape"
+          competitors={data.competitors}
+          harchName={data.competitorHarchName ?? data.name}
+        />
+      )}
+
+      {/* ═══════════════ PARTNERSHIP MODEL ═══════════════ */}
+      <section className="py-28 md:py-36 bg-[#111111]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">Learn More</h2>
-            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">Interested in {data.name}? Let&apos;s discuss partnership and investment opportunities.</p>
+            <p className="section-label mb-4" style={{ color: accent }}>Partnership</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">How to Work With Us</h2>
+            <div className="accent-line mb-12" />
           </FadeIn>
-          <FadeIn delay={0.15}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">Get Started <ArrowRight size={14} /></Link>
-              <Link href="/investors" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">Investor Details</Link>
-            </div>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
+            {data.partnershipModel.map((pm) => (
+              <StaggerItem key={pm.title}>
+                <Card3D className="h-full" glareEnabled>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: accent }} />
+                    <h4 className="text-[14px] font-bold text-white">{pm.title}</h4>
+                  </div>
+                  <p className="text-[12px] text-[#999999] leading-relaxed">{pm.desc}</p>
+                </Card3D>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ═══════════════ CTA SECTION ═══════════════ */}
+      <section className="relative py-32 md:py-44 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D] via-[#0D0D0D] to-[#0D0D0D]" />
+        <NetworkGrid nodeCount={30} maxDistance={100} opacity={0.04} />
+
+        <div className="relative z-10 max-w-[800px] mx-auto px-6 md:px-12 text-center">
+          <FadeIn>
+            <p className="section-label mb-4" style={{ color: accent }}>{data.name}</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6">
+              Ready to Build the Future?
+            </h2>
+            <p className="text-[15px] text-[#999999] leading-[1.7] mb-10">
+              {data.name} is actively seeking strategic partners, investors, and customers who share our vision for African industrial sovereignty.
+            </p>
+
+            <MagneticButton className="inline-block">
+              <Link
+                href="/subsidiaries"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[13px] font-bold tracking-[0.05em] uppercase text-white transition-all duration-300 hover:scale-105"
+                style={{ backgroundColor: accent }}
+              >
+                Explore Partnership
+                <ArrowRight size={16} />
+              </Link>
+            </MagneticButton>
           </FadeIn>
         </div>
       </section>

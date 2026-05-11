@@ -23,6 +23,10 @@ export function CursorGlow() {
   const frameCount = useRef(0);
 
   useEffect(() => {
+    // Skip entirely on touch devices — no mouse cursor to follow
+    const hasHover = window.matchMedia('(hover: hover)').matches;
+    if (!hasHover) return;
+
     const handleMove = (e: MouseEvent) => {
       targetRef.current = { x: e.clientX, y: e.clientY };
       if (!visible) setVisible(true);
@@ -68,6 +72,7 @@ export function CursorGlow() {
     };
   }, [visible]);
 
+  // Don't render on touch devices (no mouse cursor)
   if (!visible) return null;
 
   return (

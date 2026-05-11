@@ -336,11 +336,14 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href="https://www.harchcorp.com" />
         <meta name="theme-color" content="#0A0A0A" />
-        <meta name="apple-mobile-web-app-title" content="HarchCorp" />
+        <meta name="application-name" content="Harch Corp" />
+        <meta name="apple-mobile-web-app-title" content="Harch Corp" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="google-site-verification" content="harchcorp-site-verification" />
+        <meta property="og:site_name" content="Harch Corp" />
+        <meta name="site_name" content="Harch Corp" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}

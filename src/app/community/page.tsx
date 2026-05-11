@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Community — Harch Corp',
     description: 'Join the Harch Corp developer community — Discord, GitHub, and more.',
-    url: 'https://harchcorp.com/community',
+    url: 'https://www.harchcorp.com/community',
   },
 };
 

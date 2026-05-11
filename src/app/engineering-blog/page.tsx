@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Engineering Blog — Harch Corp',
     description: 'Technical deep-dives and architecture breakdowns from Harch Corp engineering.',
-    url: 'https://harchcorp.com/engineering-blog',
+    url: 'https://www.harchcorp.com/engineering-blog',
   },
 };
 

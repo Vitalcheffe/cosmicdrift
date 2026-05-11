@@ -38,7 +38,7 @@ const thesisAreas = [
     icon: Cpu,
     title: 'Sovereign AI',
     description: 'AI infrastructure, models, and applications that keep African data on African soil. GPU cloud services, sovereign LLMs, and AI-powered solutions for African-specific problems.',
-    color: 'rgba(0, 200, 255, 0.7)',
+    color: 'rgba(199, 146, 62, 0.7)',
   },
   {
     icon: Zap,

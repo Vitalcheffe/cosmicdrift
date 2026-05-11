@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'The Thesis: Africa\'s Path to Industrial Sovereignty',
     description: 'Why Africa must stop exporting raw materials and start building its own industrial backbone. A manifesto by Harch Corp.',
     type: 'article',
-    url: 'https://harchcorp.com/thesis',
+    url: 'https://www.harchcorp.com/thesis',
     images: [{ url: '/images/og-harch-corp.png', width: 1200, height: 630 }],
   },
   twitter: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     images: ['/images/og-harch-corp.png'],
   },
   alternates: {
-    canonical: 'https://harchcorp.com/thesis',
+    canonical: 'https://www.harchcorp.com/thesis',
   },
 };
 

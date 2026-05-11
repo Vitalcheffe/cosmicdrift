@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'API Reference — HarchOS',
     description: 'Complete API reference for HarchOS platform. REST, gRPC, WebSocket endpoints with authentication and rate limiting.',
-    url: 'https://harchcorp.com/docs/api',
+    url: 'https://www.harchcorp.com/docs/api',
     siteName: 'Harch Corp',
     type: 'website',
   },

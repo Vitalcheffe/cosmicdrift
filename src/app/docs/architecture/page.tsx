@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Architecture Center — HarchOS',
     description: 'Deep dive into the HarchOS architecture. SENSE-THINK-ACT layers, reference architectures, and design patterns for sovereign AI infrastructure.',
-    url: 'https://harchcorp.com/docs/architecture',
+    url: 'https://www.harchcorp.com/docs/architecture',
     siteName: 'Harch Corp',
     type: 'website',
   },

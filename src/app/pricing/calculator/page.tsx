@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Cost Calculator — Carbon-Aware HarchOS Pricing',
     description: 'Calculate GPU compute costs. From $1.40/gpu-hr at ~47 gCO2/kWh. See 40-60% savings vs AWS, GCP, Azure.',
-    url: 'https://harchcorp.com/pricing/calculator',
+    url: 'https://www.harchcorp.com/pricing/calculator',
     siteName: 'Harch Corp',
     type: 'website',
   },

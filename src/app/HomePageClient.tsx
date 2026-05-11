@@ -256,7 +256,7 @@ export default function HomePageClient() {
           {/* ── Visual Card Grid — All 7 verticals visible at once ── */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-16">
             {verticals.map((v, i) => {
-              const accentColors = ['#00C8FF', '#F59E0B', '#10B981', '#8B5CF6', '#EF4444', '#22C55E', '#3B82F6'];
+              const accentColors = ['#C7923E', '#F59E0B', '#10B981', '#8B5CF6', '#EF4444', '#22C55E', '#3B82F6'];
               const sectionImages = [
                 '/images/sections/comp-intel-server2.jpg',
                 '/images/sections/comp-cement-mixer.jpg',
@@ -574,8 +574,8 @@ export default function HomePageClient() {
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div className="card p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <PulseIndicator size={5} speed={3} color="#00C8FF" />
-                    <span className="text-[8px] font-bold tracking-[0.15em] uppercase cmd-cyan font-[family-name:var(--font-space-mono)]">LIVE</span>
+                    <PulseIndicator size={5} speed={3} color="#C7923E" />
+                    <span className="text-[8px] font-bold tracking-[0.15em] uppercase cmd-amber font-[family-name:var(--font-space-mono)]">LIVE</span>
                   </div>
                   <p className={`text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-tight leading-none mb-2 stat-mono stat-jitter ${i === 1 ? '' : i === 2 ? 'stat-jitter-delay-1' : i === 3 ? 'stat-jitter-delay-2' : 'stat-jitter-delay-3'}`}>
                     <AnimatedCounter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />

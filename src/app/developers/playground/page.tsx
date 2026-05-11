@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'API Playground — HarchOS',
     description: 'Interactive API playground. Test endpoints, build requests, and generate code snippets.',
-    url: 'https://harchcorp.com/developers/playground',
+    url: 'https://www.harchcorp.com/developers/playground',
     siteName: 'Harch Corp',
     type: 'website',
   },

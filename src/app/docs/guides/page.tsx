@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How-to Guides — HarchOS',
     description: 'Step-by-step guides for building on HarchOS. From deploying your first model to configuring enterprise security.',
-    url: 'https://harchcorp.com/docs/guides',
+    url: 'https://www.harchcorp.com/docs/guides',
     siteName: 'Harch Corp',
     type: 'website',
   },

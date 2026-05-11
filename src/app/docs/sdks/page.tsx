@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'SDKs & Libraries — HarchOS',
     description: 'Native SDKs for Python, TypeScript, Go, and Rust. Install, configure, and start building on HarchOS.',
-    url: 'https://harchcorp.com/docs/sdks',
+    url: 'https://www.harchcorp.com/docs/sdks',
     siteName: 'Harch Corp',
     type: 'website',
   },

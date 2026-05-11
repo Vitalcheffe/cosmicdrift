@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Documentation — HarchOS Platform Docs',
     description: 'Everything you need to build on HarchOS. API reference, SDKs, architecture guides, and quickstart tutorials for sovereign AI infrastructure.',
-    url: 'https://harchcorp.com/docs',
+    url: 'https://www.harchcorp.com/docs',
     siteName: 'Harch Corp',
     type: 'website',
   },

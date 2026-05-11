@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Developer Center — Build on HarchOS',
     description: 'SDKs, CLI tools, API playground, and documentation for building on sovereign AI infrastructure.',
-    url: 'https://harchcorp.com/developers',
+    url: 'https://www.harchcorp.com/developers',
     siteName: 'Harch Corp',
     type: 'website',
   },

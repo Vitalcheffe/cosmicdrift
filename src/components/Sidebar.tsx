@@ -108,8 +108,8 @@ export function Sidebar() {
       onClick={closeMobile}
       className={`holo-link flex items-center justify-between text-[12px] font-medium pl-4 py-[7px] border-l-2 border-transparent rounded-r-md transition-all duration-300 ${
         isActive(href)
-          ? 'text-white bg-[rgba(0,200,255,0.04)] border-[rgba(0,200,255,0.3)]'
-          : 'text-[#999999] hover:text-white hover:bg-[rgba(0,200,255,0.02)]'
+          ? 'text-white bg-[rgba(199,146,62,0.04)] border-[rgba(199,146,62,0.3)]'
+          : 'text-[#999999] hover:text-white hover:bg-[rgba(199,146,62,0.02)]'
       }`}
     >
       <span className="holo-text">{label}</span>
@@ -241,11 +241,11 @@ export function Sidebar() {
           </nav>
 
           {/* ═══ Bottom: CTAs ═══ */}
-          <div className="mt-4 pt-5 border-t border-[rgba(0,200,255,0.08)] space-y-2">
+          <div className="mt-4 pt-5 border-t border-[rgba(199,146,62,0.08)] space-y-2">
             <Link
               href="/contact"
               onClick={closeMobile}
-              className="block w-full text-center border border-[rgba(0,200,255,0.35)] bg-[rgba(0,200,255,0.06)] text-[rgba(0,200,255,0.9)] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[rgba(0,200,255,0.12)] hover:border-[rgba(0,200,255,0.5)] hover:text-[#00C8FF] transition-colors font-[family-name:var(--font-space-mono)]"
+              className="block w-full text-center border border-[rgba(199,146,62,0.35)] bg-[rgba(199,146,62,0.06)] text-[rgba(199,146,62,0.9)] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[rgba(199,146,62,0.12)] hover:border-[rgba(199,146,62,0.5)] hover:text-[#C7923E] transition-colors font-[family-name:var(--font-space-mono)]"
             >
               Partner With Us
             </Link>
@@ -258,7 +258,7 @@ export function Sidebar() {
             </Link>
             <div className="flex items-center justify-center gap-2 pt-1">
               <span className="led-indicator led-green" style={{ width: 3, height: 3 }} />
-              <p className="text-[9px] cmd-cyan-dim font-[family-name:var(--font-space-mono)]">
+              <p className="text-[9px] cmd-amber-dim font-[family-name:var(--font-space-mono)]">
                 v0.2.0 — Casablanca
               </p>
             </div>

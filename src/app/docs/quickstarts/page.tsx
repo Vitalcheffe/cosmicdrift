@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Quickstart Guides — HarchOS',
     description: 'Go from zero to production in 5 minutes. Quickstart guides for every HarchOS use case.',
-    url: 'https://harchcorp.com/docs/quickstarts',
+    url: 'https://www.harchcorp.com/docs/quickstarts',
     siteName: 'Harch Corp',
     type: 'website',
   },

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Release Notes — HarchOS',
     description: 'Track HarchOS releases. New features, improvements, bug fixes, and breaking changes.',
-    url: 'https://harchcorp.com/docs/changelog',
+    url: 'https://www.harchcorp.com/docs/changelog',
     siteName: 'Harch Corp',
     type: 'website',
   },

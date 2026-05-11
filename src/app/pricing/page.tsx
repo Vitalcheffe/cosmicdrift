@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pricing — Transparent Carbon-Aware GPU Compute Pricing',
     description: 'Start free with 10 GPU hours/month. From $1.40/gpu-hr. 40-60% cheaper than AWS, GCP, and Azure. Carbon-aware at ~47 gCO2/kWh.',
-    url: 'https://harchcorp.com/pricing',
+    url: 'https://www.harchcorp.com/pricing',
     siteName: 'Harch Corp',
     type: 'website',
   },

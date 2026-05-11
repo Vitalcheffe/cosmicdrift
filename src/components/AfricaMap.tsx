@@ -54,7 +54,7 @@ export function AfricaMap() {
   const getStatusColor = (status: string) => {
     switch(status) {
       case 'active': return '#00C853';
-      case 'engineering': return '#00C8FF';
+      case 'engineering': return '#C7923E';
       case 'permitted': return '#FF8C00';
       default: return '#FF8C00';
     }
@@ -66,17 +66,17 @@ export function AfricaMap() {
       <div className="flex items-center justify-between mb-4 px-1">
         <div className="flex items-center gap-3">
           <div className="flex gap-1">
-            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(0, 200, 255, 0.3)' }} />
-            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(0, 200, 255, 0.2)' }} />
-            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(0, 200, 255, 0.1)' }} />
+            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(199, 146, 62, 0.3)' }} />
+            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(199, 146, 62, 0.2)' }} />
+            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(199, 146, 62, 0.1)' }} />
           </div>
-          <span className="text-[9px] font-bold tracking-[0.2em] uppercase cmd-cyan-dim font-[family-name:var(--font-space-mono)]">
+          <span className="text-[9px] font-bold tracking-[0.2em] uppercase cmd-amber-dim font-[family-name:var(--font-space-mono)]">
             Deployments / Real-Time
           </span>
         </div>
         <div className="flex items-center gap-2">
           <div className="led-indicator led-green" style={{ width: 6, height: 6 }} />
-          <span className="text-[9px] cmd-cyan font-[family-name:var(--font-space-mono)]">
+          <span className="text-[9px] cmd-amber font-[family-name:var(--font-space-mono)]">
             LIVE — {locations.filter(l => l.status === 'active').length} ACTIVE
           </span>
         </div>
@@ -114,9 +114,9 @@ export function AfricaMap() {
                 <feComposite in="SourceGraphic" in2="blur" operator="over" />
               </filter>
               <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#00C8FF" stopOpacity="0" />
-                <stop offset="50%" stopColor="#00C8FF" stopOpacity="0.06" />
-                <stop offset="100%" stopColor="#00C8FF" stopOpacity="0" />
+                <stop offset="0%" stopColor="#C7923E" stopOpacity="0" />
+                <stop offset="50%" stopColor="#C7923E" stopOpacity="0.06" />
+                <stop offset="100%" stopColor="#C7923E" stopOpacity="0" />
               </linearGradient>
               <filter id="dot-glow">
                 <feGaussianBlur stdDeviation="0.2" result="blur" />
@@ -155,13 +155,13 @@ export function AfricaMap() {
                   <path
                     d={`M${from.xPercent},${from.yPercent} Q${midX},${midY} ${to.xPercent},${to.yPercent}`}
                     fill="none"
-                    stroke={isHighlighted ? 'rgba(0,200,255,0.3)' : 'rgba(0,200,255,0.08)'}
+                    stroke={isHighlighted ? 'rgba(199,146,62,0.3)' : 'rgba(199,146,62,0.08)'}
                     strokeWidth={isHighlighted ? '0.15' : '0.08'}
                     strokeDasharray="0.5,1"
                     className="transition-all duration-500"
                   />
                   {isHighlighted && (
-                    <circle r="0.3" fill="#00C8FF" opacity="0.8" filter="url(#dot-glow)">
+                    <circle r="0.3" fill="#C7923E" opacity="0.8" filter="url(#dot-glow)">
                       <animateMotion
                         dur="3s"
                         repeatCount="indefinite"
@@ -219,7 +219,7 @@ export function AfricaMap() {
                     y={loc.yPercent + 0.4}
                     fontSize="0.85"
                     fontWeight="600"
-                    fill={isHovered ? '#00C8FF' : 'rgba(0,200,255,0.5)'}
+                    fill={isHovered ? '#C7923E' : 'rgba(199,146,62,0.5)'}
                     letterSpacing="0.06em"
                     className="transition-all duration-300 font-[family-name:var(--font-space-mono)]"
                   >
@@ -237,7 +237,7 @@ export function AfricaMap() {
                         height="3.2"
                         rx="0.3"
                         fill="rgba(0,0,0,0.85)"
-                        stroke="rgba(0,200,255,0.2)"
+                        stroke="rgba(199,146,62,0.2)"
                         strokeWidth="0.05"
                       />
                       {/* Vertical label */}
@@ -291,7 +291,7 @@ export function AfricaMap() {
           <span className="text-[9px] text-[#999999] font-[family-name:var(--font-space-mono)]">ACTIVE</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#00C8FF', boxShadow: '0 0 4px #00C8FF60' }} />
+          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C7923E', boxShadow: '0 0 4px #C7923E60' }} />
           <span className="text-[9px] text-[#999999] font-[family-name:var(--font-space-mono)]">ENGINEERING</span>
         </div>
         <div className="flex items-center gap-2">

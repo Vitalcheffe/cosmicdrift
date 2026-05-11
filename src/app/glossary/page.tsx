@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Glossary — Harch Corp',
     description: 'Cloud and technology glossary with 30+ definitions.',
-    url: 'https://harchcorp.com/glossary',
+    url: 'https://www.harchcorp.com/glossary',
   },
 };
 

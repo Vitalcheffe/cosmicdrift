@@ -21,7 +21,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://harch-corp.vercel.app'),
+  metadataBase: new URL('https://www.harchcorp.com'),
   title: {
     default: "Harch Corp | Africa's Sovereign Infrastructure OS",
     template: "%s | Harch Corp",
@@ -51,14 +51,18 @@ export const metadata: Metadata = {
   authors: [{ name: "Harch Corp S.A." }],
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180' },
     ],
   },
   openGraph: {
     title: "Harch Corp | Africa's Sovereign Infrastructure OS",
     description:
       "Carbon-Aware GPU Cloud with 1,798 GPUs at ~47 gCO2/kWh. Renewable Energy (2GW+ Pipeline). Sovereign AI infrastructure built in Morocco.",
-    url: "https://harchcorp.com",
+    url: "https://www.harchcorp.com",
     siteName: "Harch Corp",
     type: "website",
     locale: "en_US",
@@ -95,13 +99,13 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://harchcorp.com/#organization",
+        "@id": "https://www.harchcorp.com/#organization",
         name: "Harch Corp S.A.",
         legalName: "Harch Corp S.A.",
-        url: "https://harchcorp.com",
+        url: "https://www.harchcorp.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://harchcorp.com/favicon.svg",
+          url: "https://www.harchcorp.com/favicon.svg",
         },
         description:
           "Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across 7 verticals: AI data centers, renewable energy, cement, technology, mining, agriculture, and water.",
@@ -114,7 +118,7 @@ export default function RootLayout({
           addressCountry: "MA",
         },
         foundingDate: "2024",
-        founder: { "@id": "https://harchcorp.com/#founder" },
+        founder: { "@id": "https://www.harchcorp.com/#founder" },
         numberOfEmployees: {
           "@type": "QuantitativeValue",
           minValue: 1,
@@ -140,25 +144,25 @@ export default function RootLayout({
       },
       {
         "@type": "Person",
-        "@id": "https://harchcorp.com/#founder",
+        "@id": "https://www.harchcorp.com/#founder",
         name: "Amine Harch El Korane",
         jobTitle: "Founder & CEO",
-        worksFor: { "@id": "https://harchcorp.com/#organization" },
+        worksFor: { "@id": "https://www.harchcorp.com/#organization" },
         description: "Founder and CEO of Harch Corp S.A., a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty.",
-        url: "https://harchcorp.com",
+        url: "https://www.harchcorp.com",
         sameAs: [
           "https://linkedin.com/in/amineharchelkorane",
         ],
       },
       {
         "@type": "WebSite",
-        "@id": "https://harchcorp.com/#website",
-        url: "https://harchcorp.com",
+        "@id": "https://www.harchcorp.com/#website",
+        url: "https://www.harchcorp.com",
         name: "Harch Corp",
-        publisher: { "@id": "https://harchcorp.com/#organization" },
+        publisher: { "@id": "https://www.harchcorp.com/#organization" },
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://harchcorp.com/?q={search_term_string}",
+          target: "https://www.harchcorp.com/?q={search_term_string}",
           "query-input": "required name=search_term_string",
         },
       },

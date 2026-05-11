@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://harchcorp.com/sitemap.xml',
+    sitemap: 'https://www.harchcorp.com/sitemap.xml',
   };
 }

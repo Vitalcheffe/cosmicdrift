@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Open Source at Harch',
     description: 'Our open source projects for sovereign AI infrastructure. Contribute, fork, or audit every line.',
-    url: 'https://harchcorp.com/developers/open-source',
+    url: 'https://www.harchcorp.com/developers/open-source',
     siteName: 'Harch Corp',
     type: 'website',
   },

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'HarchOS — The Operating System for Sovereign AI Infrastructure',
     description: '5 hubs. 250MW. 100% renewable. The distributed AI compute mesh that powers Africa\'s sovereign intelligence.',
-    url: 'https://harchcorp.com/intelligence/harchos',
+    url: 'https://www.harchcorp.com/intelligence/harchos',
     siteName: 'Harch Corp',
     type: 'website',
     images: [

@@ -17,6 +17,7 @@ import {
   SectionDivider,
   CountUp,
 } from '@/components/ui/motion';
+import { InteractivePlatform } from '@/components/InteractivePlatform';
 import { AfricaMap } from '@/components/AfricaMap';
 import { LiveFeed } from '@/components/LiveFeed';
 import { DataStream } from '@/components/DataStream';
@@ -421,6 +422,13 @@ export default function HomePageClient() {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          S2.5: PLATFORM PREVIEW — Interactive HarchOS Console
+          ═══════════════════════════════════════════════════════════ */}
+      <InteractivePlatform slug="intelligence" accent="#8B9DAF" />
 
       <SectionDivider />
 

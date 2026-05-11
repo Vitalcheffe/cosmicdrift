@@ -7,6 +7,7 @@ import { ArrowRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets,
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
+import { InteractivePlatform } from '@/components/InteractivePlatform';
 import {
   FadeIn,
   StaggerContainer,
@@ -908,6 +909,11 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
           </FadeIn>
         </div>
       </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════ INTERACTIVE PLATFORM ═══════════════ */}
+      <InteractivePlatform slug={slug} accent={accent} />
 
       <SectionDivider />
 

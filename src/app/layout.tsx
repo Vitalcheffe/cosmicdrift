@@ -246,6 +246,14 @@ export default function RootLayout({
             description: "200M m³/yr desalination with AI-optimized distribution",
             industry: "Water Infrastructure",
           },
+          {
+            "@type": "Organization",
+            "@id": "https://www.harchcorp.com/subsidiaries/finance/#organization",
+            name: "Harch Finance",
+            url: "https://www.harchcorp.com/subsidiaries/finance",
+            description: "Green bonds, project finance, trade finance, and Islamic finance for sovereign infrastructure",
+            industry: "Financial Services",
+          },
         ],
         contactPoint: [
           {

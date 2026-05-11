@@ -20,6 +20,7 @@ const verticals = [
   { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', image: '/images/sections/comp-mining-site.jpg', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'In-Country Value Capture'] },
   { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', image: '/images/sections/comp-agri-aerial.jpg', outcomes: ['Precision IoT Farming', 'Drone Crop Monitoring', 'Vertical Farm Networks'] },
   { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', image: '/images/sections/comp-water-plant.jpg', outcomes: ['200M m³/yr Desalination', 'AI-Optimized Distribution', 'Continental Water Security'] },
+  { version: '/0.8', name: 'Finance', fullName: 'Harch Finance', desc: 'Green Bonds, Project Finance & Islamic Finance — Structuring capital flows for sovereign infrastructure. Green bonds, sustainability-linked loans, trade finance, and carbon credit monetization.', stat: '$2.4B+', href: '/subsidiaries/finance', image: '/images/real/hq-casablanca-new.jpg', outcomes: ['Green Bonds & Sukuk', 'Project Finance Structuring', 'Carbon Credit Monetization'] },
 ];
 
 const carouselSlides = [
@@ -62,6 +63,7 @@ const investmentTable = [
   { vertical: 'Mining', investment: '$200M', capacity: 'Phosphates / Cobalt / REE', timeline: '2029', status: 'Exploration' },
   { vertical: 'Agri', investment: '$150M', capacity: 'Precision IoT / Vertical', timeline: '2029', status: 'Planning' },
   { vertical: 'Water', investment: '$150M', capacity: '200M m³/yr Desal.', timeline: '2030', status: 'Feasibility' },
+  { vertical: 'Finance', investment: '$100M', capacity: 'Green Bonds / Sukuk', timeline: '2026', status: 'Active' },
 ];
 
 const testimonials = [
@@ -256,7 +258,7 @@ export default function HomePageClient() {
           {/* ── Visual Card Grid — All 7 verticals visible at once ── */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-16">
             {verticals.map((v, i) => {
-              const accentColors = ['#C7923E', '#F59E0B', '#10B981', '#8B5CF6', '#EF4444', '#22C55E', '#5B8FB9'];
+              const accentColors = ['#C7923E', '#F59E0B', '#10B981', '#8B5CF6', '#EF4444', '#22C55E', '#5B8FB9', '#C7923E'];
               const sectionImages = [
                 '/images/sections/comp-intel-server2.jpg',
                 '/images/sections/comp-cement-mixer.jpg',
@@ -265,6 +267,7 @@ export default function HomePageClient() {
                 '/images/sections/comp-mining-excavator.jpg',
                 '/images/sections/comp-agri-green.jpg',
                 '/images/sections/comp-water-pipes.jpg',
+                '/images/real/hq-casablanca-new.jpg',
               ];
               const color = accentColors[i];
               return (
@@ -411,7 +414,7 @@ export default function HomePageClient() {
         <div className="relative z-10 text-center">
           <FadeIn>
             <p className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-[-0.02em] mb-4">
-              7 Verticals. 5 Countries.
+              8 Verticals. 5 Countries.
             </p>
             <p className="text-2xl md:text-3xl font-light text-white/60">$2.4B Investment Pipeline</p>
           </FadeIn>

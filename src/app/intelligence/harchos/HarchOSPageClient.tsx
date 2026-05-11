@@ -72,7 +72,7 @@ const hubs = [
   },
   {
     id: 'tanger', name: 'Harch Tanger', location: 'Tanger', energy: 'Wind + Grid — 82.1% Renewable',
-    power: '200 GPUs', latency: '<5ms to Europe — Performance Tier', color: '#06B6D4',
+    power: '200 GPUs', latency: '<5ms to Europe — Performance Tier', color: '#C7923E',
     icon: Droplets, image: '/images/intelligence/harchos-facility-night.png',
     description: 'Lowest latency to Europe. 200 GPUs at 82.1% renewable, 95 gCO2/kWh. Wind + tidal combo for maximum availability. Ideal for latency-sensitive inference.',
   },
@@ -87,7 +87,7 @@ const hubs = [
 const architectureLayers = [
   {
     id: 'sense', name: 'SENSE', tag: 'Perception Layer',
-    icon: Eye, color: '#06B6D4',
+    icon: Eye, color: '#C7923E',
     description: '5,000+ data points per second. Real-time IoT monitoring, weather/energy forecasting, infrared sensors, satellite data and API ingestion. The SENSE layer is the eyes and ears of the mesh — capturing every signal before it becomes critical.',
     specs: [
       { label: 'Data ingestion', value: '5K+ pts/sec' },
@@ -226,11 +226,11 @@ export default function HarchOSPageClient() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/80 via-transparent to-transparent" />
         <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Harch Intelligence /0.1</p>
+            <p className="section-label mb-4 text-[#C7923E]">Harch Intelligence /0.1</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              HarchOS<span className="text-[#06B6D4]">™</span>
+              HarchOS<span className="text-[#C7923E]">™</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -278,7 +278,7 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-8 text-[#06B6D4]">Manifesto</p>
+            <p className="section-label mb-8 text-[#C7923E]">Manifesto</p>
             <blockquote className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white leading-[1.15] tracking-[-0.01em] max-w-4xl">
               &ldquo;Your compute infrastructure is the weapons system of the 21st century. Sovereignty is not negotiable.&rdquo;
             </blockquote>
@@ -326,7 +326,7 @@ export default function HarchOSPageClient() {
       <section id="architecture" className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Architecture</p>
+            <p className="section-label mb-4 text-[#C7923E]">Architecture</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Three Layers.<br/>One System.
             </h2>
@@ -417,7 +417,7 @@ export default function HarchOSPageClient() {
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Distributed Mesh</p>
+            <p className="section-label mb-4 text-[#C7923E]">Distributed Mesh</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               Five Hubs.<br/>One Mesh.
             </h2>
@@ -462,7 +462,7 @@ export default function HarchOSPageClient() {
                     <p className="text-[13px] text-[#666666] leading-[1.6] mb-2">
                       {hub.energy}
                     </p>
-                    <p className="text-[10px] text-[#06B6D4] font-[family-name:var(--font-space-mono)]">
+                    <p className="text-[10px] text-[#C7923E] font-[family-name:var(--font-space-mono)]">
                       {hub.latency}
                     </p>
                     {activeHub === hub.id && (
@@ -484,7 +484,7 @@ export default function HarchOSPageClient() {
           <FadeIn>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: 'Total GPUs', value: '1,798', accent: '#06B6D4' },
+                { label: 'Total GPUs', value: '1,798', accent: '#C7923E' },
                 { label: 'Avg Carbon', value: '~47 gCO2/kWh', accent: '#10B981' },
                 { label: 'Avg Renewable', value: '81.5%', accent: '#F59E0B' },
                 { label: 'Backbone', value: '400Gbps', accent: '#8B5CF6' },
@@ -507,7 +507,7 @@ export default function HarchOSPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <FadeIn>
               <div>
-                <p className="section-label mb-4 text-[#06B6D4]">Operations Center</p>
+                <p className="section-label mb-4 text-[#C7923E]">Operations Center</p>
                 <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
                   Real-Time<br/>Command & Control
                 </h2>
@@ -549,7 +549,7 @@ export default function HarchOSPageClient() {
       <section id="capabilities" className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Capabilities</p>
+            <p className="section-label mb-4 text-[#C7923E]">Capabilities</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
               What HarchOS<br/>Delivers
             </h2>
@@ -563,8 +563,8 @@ export default function HarchOSPageClient() {
             {capabilities.map((cap, i) => (
               <FadeIn key={cap.title} delay={i * 0.08}>
                 <div className="card p-8 h-full group">
-                  <div className="w-10 h-10 rounded-lg bg-[rgba(6,182,212,0.08)] flex items-center justify-center mb-5">
-                    <cap.icon size={18} className="text-[#06B6D4]" />
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center mb-5">
+                    <cap.icon size={18} className="text-[#C7923E]" />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-3">{cap.title}</h3>
                   <div className="accent-line mb-4" />
@@ -582,7 +582,7 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Specifications</p>
+            <p className="section-label mb-4 text-[#C7923E]">Specifications</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               Technical Deep Dive
             </h2>
@@ -616,7 +616,7 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Security</p>
+            <p className="section-label mb-4 text-[#C7923E]">Security</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               Sovereign Security<br/>by Design
             </h2>
@@ -631,8 +631,8 @@ export default function HarchOSPageClient() {
               <FadeIn key={feat.title} delay={i * 0.08}>
                 <div className="card p-8 h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[rgba(6,182,212,0.08)] flex items-center justify-center">
-                      <feat.icon size={18} className="text-[#06B6D4]" />
+                    <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
+                      <feat.icon size={18} className="text-[#C7923E]" />
                     </div>
                     <h3 className="text-lg font-bold text-white">{feat.title}</h3>
                   </div>
@@ -647,7 +647,7 @@ export default function HarchOSPageClient() {
           <FadeIn>
             <div className="mt-12 flex flex-wrap gap-3">
               {['GDPR', 'ISO 27001', 'SOC 2 Type II', 'Law 09-08', 'FIPS 140-2 L3', 'TLS 1.3'].map((cert) => (
-                <span key={cert} className="px-4 py-2 rounded-lg bg-[rgba(6,182,212,0.06)] border border-[rgba(6,182,212,0.15)] text-[11px] font-semibold text-[#06B6D4] font-[family-name:var(--font-space-mono)]">
+                <span key={cert} className="px-4 py-2 rounded-lg bg-[rgba(199,146,62,0.06)] border border-[rgba(199,146,62,0.15)] text-[11px] font-semibold text-[#C7923E] font-[family-name:var(--font-space-mono)]">
                   {cert}
                 </span>
               ))}
@@ -662,7 +662,7 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Developer Platform</p>
+            <p className="section-label mb-4 text-[#C7923E]">Developer Platform</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               Build on<br/>HarchOS
             </h2>
@@ -677,8 +677,8 @@ export default function HarchOSPageClient() {
               <FadeIn key={tool.title} delay={i * 0.08}>
                 <div className="card p-8 h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[rgba(6,182,212,0.08)] flex items-center justify-center">
-                      <tool.icon size={18} className="text-[#06B6D4]" />
+                    <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
+                      <tool.icon size={18} className="text-[#C7923E]" />
                     </div>
                     <h3 className="text-lg font-bold text-white">{tool.title}</h3>
                   </div>
@@ -726,7 +726,7 @@ export default function HarchOSPageClient() {
             <FadeIn>
               <div className="flex items-center px-8 md:px-16 lg:px-24 py-20">
                 <div className="max-w-xl">
-                  <p className="section-label mb-4 text-[#06B6D4]">Network</p>
+                  <p className="section-label mb-4 text-[#C7923E]">Network</p>
                   <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
                     400Gbps<br/>Continental Backbone
                   </h2>
@@ -765,7 +765,7 @@ export default function HarchOSPageClient() {
       <CompetitiveComparison
         title="Competitive Landscape"
         subtitle="HarchOS vs. the world's GPU infrastructure providers. We don't just run green — we schedule green. No competitor matches us on a single metric."
-        accentColor="#06B6D4"
+        accentColor="#C7923E"
         sectionLabel="Competitive Landscape"
         harchName="HarchOS"
         competitors={[
@@ -910,7 +910,7 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Roadmap</p>
+            <p className="section-label mb-4 text-[#C7923E]">Roadmap</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               Deployment Timeline
             </h2>
@@ -926,15 +926,15 @@ export default function HarchOSPageClient() {
                 <FadeIn key={phase.phase} delay={i * 0.08}>
                   <div className={`relative flex flex-col md:flex-row gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     {/* Timeline dot */}
-                    <div className="absolute left-4 md:left-1/2 w-2 h-2 bg-[#06B6D4] rounded-full -translate-x-1/2 mt-2" />
+                    <div className="absolute left-4 md:left-1/2 w-2 h-2 bg-[#C7923E] rounded-full -translate-x-1/2 mt-2" />
 
                     <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} pl-10 md:pl-0`}>
-                      <p className="text-[11px] text-[#06B6D4] font-[family-name:var(--font-space-mono)] font-bold mb-1">{phase.phase}</p>
+                      <p className="text-[11px] text-[#C7923E] font-[family-name:var(--font-space-mono)] font-bold mb-1">{phase.phase}</p>
                       <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
                       <ul className="space-y-2">
                         {phase.items.map((item) => (
                           <li key={item} className={`flex items-center gap-2 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
-                            <CheckCircle2 size={12} className="text-[#06B6D4] shrink-0" />
+                            <CheckCircle2 size={12} className="text-[#C7923E] shrink-0" />
                             <span className="text-[13px] text-[#999999]">{item}</span>
                           </li>
                         ))}
@@ -956,7 +956,7 @@ export default function HarchOSPageClient() {
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Deploy Now</p>
+            <p className="section-label mb-4 text-[#C7923E]">Deploy Now</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">
               Ready for Sovereign Compute?
             </h2>

@@ -129,7 +129,7 @@ export default function GlossaryPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Glossary</p>
+            <p className="section-label mb-4 text-[#C7923E]">Glossary</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Know the Language.
             </h1>
@@ -146,7 +146,7 @@ export default function GlossaryPageClient() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search terms..."
-                className="w-full pl-11 pr-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(6,182,212,0.3)] transition-colors"
+                className="w-full pl-11 pr-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(199,146,62,0.3)] transition-colors"
               />
             </div>
           </FadeIn>
@@ -232,8 +232,8 @@ export default function GlossaryPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
-              <BookOpen size={32} className="text-[#06B6D4] mx-auto mb-6" strokeWidth={1.5} />
-              <p className="section-label mb-4 text-[#06B6D4]">Documentation</p>
+              <BookOpen size={32} className="text-[#C7923E] mx-auto mb-6" strokeWidth={1.5} />
+              <p className="section-label mb-4 text-[#C7923E]">Documentation</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">Go Deeper</h2>
               <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
                 The glossary covers the concepts. The documentation covers the implementation. Explore guides, API references, and quickstarts for HarchOS, SENSE, and ACT.

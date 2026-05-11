@@ -22,7 +22,7 @@ const upcomingEvents = [
     date: 'November 10–12, 2026',
     location: 'Casablanca, Morocco',
     type: 'Annual Conference',
-    typeColor: 'bg-[rgba(6,182,212,0.08)] border-[rgba(6,182,212,0.15)] text-[#06B6D4]',
+    typeColor: 'bg-[rgba(199,146,62,0.08)] border-[rgba(199,146,62,0.15)] text-[#C7923E]',
     attendees: '2,000+',
     sessions: '50+',
     featured: true,
@@ -125,7 +125,7 @@ export default function EventsPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Events</p>
+            <p className="section-label mb-4 text-[#C7923E]">Events</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Where Infrastructure<br/>Meets Community
             </h1>
@@ -141,15 +141,15 @@ export default function EventsPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#06B6D4]">Flagship Event</p>
+            <p className="section-label mb-6 text-[#C7923E]">Flagship Event</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <div className="relative card p-8 md:p-12 lg:p-16 overflow-hidden group cursor-pointer">
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#06B6D4]" />
+              <div className="absolute top-0 left-0 w-1 h-full bg-[#C7923E]" />
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#06B6D4]">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">
                       <Presentation size={10} />Annual Conference
                     </span>
                     <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
@@ -167,24 +167,24 @@ export default function EventsPageClient() {
                   </p>
                   <div className="flex items-center gap-6 mb-8">
                     <div className="flex items-center gap-2">
-                      <Users size={16} className="text-[#06B6D4]" strokeWidth={1.5} />
+                      <Users size={16} className="text-[#C7923E]" strokeWidth={1.5} />
                       <span className="text-[13px] text-[#999999]">2,000+ Attendees</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Zap size={16} className="text-[#06B6D4]" strokeWidth={1.5} />
+                      <Zap size={16} className="text-[#C7923E]" strokeWidth={1.5} />
                       <span className="text-[13px] text-[#999999]">50+ Sessions</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Globe size={16} className="text-[#06B6D4]" strokeWidth={1.5} />
+                      <Globe size={16} className="text-[#C7923E]" strokeWidth={1.5} />
                       <span className="text-[13px] text-[#999999]">3 Days</span>
                     </div>
                   </div>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#06B6D4] group-hover:text-white transition-colors">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
                     Register Now <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
-                <div className="hidden md:flex flex-col items-center justify-center w-20 h-20 rounded-xl bg-[rgba(6,182,212,0.06)] border border-[rgba(6,182,212,0.12)] shrink-0">
-                  <span className="text-[10px] font-bold text-[#06B6D4] tracking-[0.1em] uppercase">2026</span>
+                <div className="hidden md:flex flex-col items-center justify-center w-20 h-20 rounded-xl bg-[rgba(199,146,62,0.06)] border border-[rgba(199,146,62,0.12)] shrink-0">
+                  <span className="text-[10px] font-bold text-[#C7923E] tracking-[0.1em] uppercase">2026</span>
                   <span className="text-xl font-bold text-white">NOV</span>
                 </div>
               </div>
@@ -248,7 +248,7 @@ export default function EventsPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Webinars</p>
+            <p className="section-label mb-4 text-[#C7923E]">Webinars</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">Upcoming Webinars</h2>
           </FadeIn>
 
@@ -257,7 +257,7 @@ export default function EventsPageClient() {
               <FadeIn key={webinar.name} delay={i * 0.08}>
                 <div className="card p-6 h-full flex flex-col group cursor-pointer">
                   <div className="flex items-center gap-2 mb-4">
-                    <MonitorPlay size={16} className="text-[#06B6D4]" strokeWidth={1.5} />
+                    <MonitorPlay size={16} className="text-[#C7923E]" strokeWidth={1.5} />
                     <span className="text-[10px] font-[family-name:var(--font-space-mono)] text-[#666666]">Webinar</span>
                   </div>
                   <h3 className="text-[16px] font-bold text-white group-hover:text-[#CCCCCC] transition-colors mb-3 leading-snug flex-1">
@@ -272,7 +272,7 @@ export default function EventsPageClient() {
                       <Mic size={9} />{webinar.speaker}
                     </span>
                   </div>
-                  <button className="w-full px-4 py-2.5 rounded-lg bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.15)] text-[11px] font-bold tracking-[0.08em] uppercase text-[#06B6D4] hover:bg-[rgba(6,182,212,0.15)] hover:text-white transition-all">
+                  <button className="w-full px-4 py-2.5 rounded-lg bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.15)] text-[11px] font-bold tracking-[0.08em] uppercase text-[#C7923E] hover:bg-[rgba(199,146,62,0.15)] hover:text-white transition-all">
                     Register
                   </button>
                 </div>
@@ -317,7 +317,7 @@ export default function EventsPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto">
             <FadeIn>
-              <p className="section-label mb-4 text-[#06B6D4]">Speaker Request</p>
+              <p className="section-label mb-4 text-[#C7923E]">Speaker Request</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">Request a Harch Corp Speaker</h2>
               <p className="text-[15px] text-[#999999] leading-[1.7] mb-10">
                 Looking for a speaker on sovereign AI, African industrial development, renewable energy, or distributed systems? Our leadership and engineering team regularly keynotes at conferences, corporate events, and academic institutions worldwide.
@@ -337,14 +337,14 @@ export default function EventsPageClient() {
                       placeholder="Your Name"
                       value={speakerForm.name}
                       onChange={(e) => setSpeakerForm(prev => ({ ...prev, name: e.target.value }))}
-                      className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(6,182,212,0.3)] transition-colors"
+                      className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(199,146,62,0.3)] transition-colors"
                     />
                     <input
                       type="email"
                       placeholder="Email Address"
                       value={speakerForm.email}
                       onChange={(e) => setSpeakerForm(prev => ({ ...prev, email: e.target.value }))}
-                      className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(6,182,212,0.3)] transition-colors"
+                      className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(199,146,62,0.3)] transition-colors"
                     />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -353,14 +353,14 @@ export default function EventsPageClient() {
                       placeholder="Organization"
                       value={speakerForm.organization}
                       onChange={(e) => setSpeakerForm(prev => ({ ...prev, organization: e.target.value }))}
-                      className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(6,182,212,0.3)] transition-colors"
+                      className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(199,146,62,0.3)] transition-colors"
                     />
                     <input
                       type="text"
                       placeholder="Event Name"
                       value={speakerForm.event}
                       onChange={(e) => setSpeakerForm(prev => ({ ...prev, event: e.target.value }))}
-                      className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(6,182,212,0.3)] transition-colors"
+                      className="px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(199,146,62,0.3)] transition-colors"
                     />
                   </div>
                   <input
@@ -368,14 +368,14 @@ export default function EventsPageClient() {
                     placeholder="Requested Topic"
                     value={speakerForm.topic}
                     onChange={(e) => setSpeakerForm(prev => ({ ...prev, topic: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(6,182,212,0.3)] transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(199,146,62,0.3)] transition-colors"
                   />
                   <textarea
                     placeholder="Additional details about the event, audience, and format..."
                     rows={4}
                     value={speakerForm.message}
                     onChange={(e) => setSpeakerForm(prev => ({ ...prev, message: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(6,182,212,0.3)] transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(199,146,62,0.3)] transition-colors resize-none"
                   />
                   <button
                     onClick={() => setSubmitted(true)}
@@ -396,24 +396,24 @@ export default function EventsPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FadeIn>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
-                <Calendar size={20} className="text-[#06B6D4] mb-4" strokeWidth={1.5} />
+                <Calendar size={20} className="text-[#C7923E] mb-4" strokeWidth={1.5} />
                 <h3 className="text-xl font-bold text-white mb-3">Register for Harch Summit 2026</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
                   Early bird pricing available until June 2026. Academic and community discounts available. Join 2,000+ attendees in Casablanca this November.
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#06B6D4] group-hover:text-white transition-colors">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
                   Register Now <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
-                <Building2 size={20} className="text-[#06B6D4] mb-4" strokeWidth={1.5} />
+                <Building2 size={20} className="text-[#C7923E] mb-4" strokeWidth={1.5} />
                 <h3 className="text-xl font-bold text-white mb-3">Sponsor an Event</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
                   Partner with Harch Corp to reach decision-makers in AI infrastructure, renewable energy, and industrial development across Africa. Sponsorship packages start at $5,000.
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#06B6D4] group-hover:text-white transition-colors">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
                   Learn About Sponsorship <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>

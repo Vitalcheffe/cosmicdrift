@@ -14,7 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const staticPages = [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 1.0 },
+    { 
+      url: baseUrl, 
+      lastModified: new Date(), 
+      changeFrequency: 'weekly' as const, 
+      priority: 1.0,
+      images: [`${baseUrl}/images/og-harch-corp.png`],
+    },
     { url: `${baseUrl}/thesis`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.95 },
     { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
     { url: `${baseUrl}/strategy`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
@@ -27,6 +33,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/newsroom`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${baseUrl}/intelligence`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.85 },
     { url: `${baseUrl}/intelligence/harchos`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.9 },
+    { url: `${baseUrl}/faq`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${baseUrl}/aegis`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.85 },
   ];
 
   // Trust Center
@@ -106,6 +114,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.85,
+    images: [`${baseUrl}/images/sections/comp-${v === 'intelligence' ? 'intel-dc' : v === 'agriculture' ? 'agri-aerial' : v}-const.jpg`],
   }));
 
   return [

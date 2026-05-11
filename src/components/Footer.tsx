@@ -11,6 +11,7 @@ const verticalLinks = [
   { name: 'Mining', version: '/0.5', href: '/subsidiaries/mining' },
   { name: 'Agri', version: '/0.6', href: '/subsidiaries/agriculture' },
   { name: 'Water', version: '/0.7', href: '/subsidiaries/water' },
+  { name: 'Aegis', version: '/0.9', href: '/aegis' },
 ];
 
 const companyLinks = [
@@ -45,6 +46,7 @@ const resourceLinks = [
   { name: 'Glossary', href: '/glossary' },
   { name: 'Status', href: '/status' },
   { name: 'Support', href: '/support' },
+  { name: 'FAQ', href: '/faq' },
 ];
 
 const trustLinks = [
@@ -73,9 +75,10 @@ const legalLinks = [
 ];
 
 const latestNews = [
-  { title: 'Harch Intelligence Deploys 1,798 Carbon-Optimized GPUs Across 5 Hubs', date: 'Mar 2026' },
-  { title: 'Harch Energy Reaches 2GW+ Renewable Pipeline Milestone', date: 'Feb 2026' },
-  { title: 'Harch Corp Announces $2.4B Investment Pipeline', date: 'Jan 2026' },
+  { title: 'Harch Intelligence: 500MW Dakhla Data Center Enters Engineering Phase', date: 'Mar 2026' },
+  { title: 'Harch Cement Secures Gambia Permits — 500kT/yr Facility Greenlit', date: 'Feb 2026' },
+  { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'Jan 2026' },
+  { title: 'Aegis Defense: Counter-UAS System Outperforms 10 Global Competitors', date: 'Jan 2026' },
 ];
 
 export function Footer() {
@@ -185,6 +188,11 @@ export function Footer() {
             <p className="text-[10px] text-white/15 tracking-wide">
               &copy; 2026 Harch Corp S.A. All rights reserved.
             </p>
+            <div className="flex items-center gap-4">
+              <a href="https://linkedin.com/company/harchcorp" target="_blank" rel="noopener noreferrer" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">LinkedIn</a>
+              <a href="https://twitter.com/harchcorp" target="_blank" rel="noopener noreferrer" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">Twitter</a>
+              <a href="https://github.com/HarchCorp" target="_blank" rel="noopener noreferrer" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">GitHub</a>
+            </div>
           </div>
           <div className="flex items-center gap-4 flex-wrap justify-center">
             {legalLinks.map((link) => (

@@ -15,6 +15,7 @@ const platformItems = [
   { name: 'Mining', version: '/0.6', href: '/subsidiaries/mining' },
   { name: 'Agri', version: '/0.7', href: '/subsidiaries/agriculture' },
   { name: 'Water', version: '/0.8', href: '/subsidiaries/water' },
+  { name: 'Aegis', version: '/0.9', href: '/aegis' },
 ];
 
 const missionItems = [
@@ -58,6 +59,7 @@ const resourceItems = [
   { name: 'Events', href: '/events' },
   { name: 'Learn & Certify', href: '/learn' },
   { name: 'Glossary', href: '/glossary' },
+  { name: 'FAQ', href: '/faq' },
   { name: 'Status', href: '/status' },
 ];
 

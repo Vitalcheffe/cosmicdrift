@@ -247,7 +247,7 @@ export default function SdksPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#06B6D4]">Developer Tools /0.1</p>
+            <p className="section-label mb-6 text-[#C7923E]">Developer Tools /0.1</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
@@ -268,7 +268,7 @@ export default function SdksPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Choose Your SDK</p>
+            <p className="section-label mb-4 text-[#C7923E]">Choose Your SDK</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Language SDKs
             </h2>
@@ -364,7 +364,7 @@ export default function SdksPageClient() {
                     ))}
                   </div>
                   <div className="mt-8 pt-6 border-t border-white/[0.04]">
-                    <Link href="/docs/api" className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#06B6D4] hover:text-white transition-colors">
+                    <Link href="/docs/api" className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#C7923E] hover:text-white transition-colors">
                       View full API reference <ArrowRight size={14} />
                     </Link>
                   </div>
@@ -381,7 +381,7 @@ export default function SdksPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">CLI Tool</p>
+            <p className="section-label mb-4 text-[#C7923E]">CLI Tool</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               HarchOS CLI
             </h2>
@@ -413,13 +413,13 @@ export default function SdksPageClient() {
           <FadeIn>
             <div className="card overflow-hidden">
               <div className="flex items-center gap-3 px-6 py-4 border-b border-white/[0.06]">
-                <Terminal size={16} className="text-[#06B6D4]" />
+                <Terminal size={16} className="text-[#C7923E]" />
                 <h3 className="text-base font-bold text-white">Command Reference</h3>
               </div>
               <div className="divide-y divide-white/[0.03]">
                 {cliCommands.map((cmd) => (
                   <div key={cmd.cmd} className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 px-6 py-3 hover:bg-white/[0.01] transition-colors">
-                    <code className="text-[13px] text-[#06B6D4] font-[family-name:var(--font-space-mono)] shrink-0">{cmd.cmd}</code>
+                    <code className="text-[13px] text-[#C7923E] font-[family-name:var(--font-space-mono)] shrink-0">{cmd.cmd}</code>
                     <span className="text-[12px] text-[#666666]">{cmd.desc}</span>
                   </div>
                 ))}
@@ -435,7 +435,7 @@ export default function SdksPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Feature Comparison</p>
+            <p className="section-label mb-4 text-[#C7923E]">Feature Comparison</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               SDK Comparison
             </h2>

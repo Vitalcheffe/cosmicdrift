@@ -51,27 +51,33 @@ export const metadata: Metadata = {
   authors: [{ name: "Harch Corp S.A." }],
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.ico', sizes: '48x48' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180' },
+    ],
+    shortcut: [
+      { url: '/favicon.ico' },
     ],
   },
   openGraph: {
     title: "Harch Corp | Africa's Sovereign Infrastructure OS",
     description:
-      "Carbon-Aware GPU Cloud with 1,798 GPUs at ~47 gCO2/kWh. Renewable Energy (2GW+ Pipeline). Sovereign AI infrastructure built in Morocco.",
+      "Moroccan industrial conglomerate — $2.4B+ investment pipeline across 7 verticals. Carbon-Aware GPU Cloud (1,798 GPUs), 2GW+ Renewable Energy, Cement, Mining, Agriculture, Water. Building Africa's industrial sovereignty.",
     url: "https://www.harchcorp.com",
     siteName: "Harch Corp",
     type: "website",
     locale: "en_US",
+    alternateLocale: ["fr_MA", "ar_MA"],
     images: [
       {
         url: "/images/og-harch-corp.png",
         width: 1200,
         height: 630,
         alt: "Harch Corp — Africa's Sovereign Infrastructure OS",
+        type: "image/png",
       },
     ],
   },
@@ -98,17 +104,41 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "Corporation"],
         "@id": "https://www.harchcorp.com/#organization",
         name: "Harch Corp S.A.",
+        alternateName: ["HarchCorp", "Harch Corporation", "HarchCorp Group"],
         legalName: "Harch Corp S.A.",
         url: "https://www.harchcorp.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://www.harchcorp.com/favicon.svg",
+          "@id": "https://www.harchcorp.com/#logo",
+          url: "https://www.harchcorp.com/images/og-harch-corp.png",
+          contentUrl: "https://www.harchcorp.com/images/og-harch-corp.png",
+          caption: "Harch Corp — Moroccan Industrial Conglomerate",
+          inLanguage: "en",
+          width: 1200,
+          height: 630,
+        },
+        image: {
+          "@type": "ImageObject",
+          "@id": "https://www.harchcorp.com/#og-image",
+          url: "https://www.harchcorp.com/images/og-harch-corp.png",
+          contentUrl: "https://www.harchcorp.com/images/og-harch-corp.png",
+          caption: "HarchCorp Headquarters, Casablanca, Morocco",
+          inLanguage: "en",
+          width: 1200,
+          height: 630,
         },
         description:
-          "Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across 7 verticals: AI data centers, renewable energy, cement, technology, mining, agriculture, and water.",
+          "Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate and holding company building Africa's industrial sovereignty across 7 verticals: AI data centers, renewable energy, cement manufacturing, sovereign technology, strategic mining, precision agriculture, and water infrastructure. $2.4B+ investment pipeline across 5 countries.",
+        foundingDate: "2024",
+        founder: { "@id": "https://www.harchcorp.com/#founder" },
+        numberOfEmployees: {
+          "@type": "QuantitativeValue",
+          minValue: 1,
+          maxValue: 10,
+        },
         address: {
           "@type": "PostalAddress",
           streetAddress: "123 Boulevard Mohammed V",
@@ -117,30 +147,112 @@ export default function RootLayout({
           postalCode: "20000",
           addressCountry: "MA",
         },
-        foundingDate: "2024",
-        founder: { "@id": "https://www.harchcorp.com/#founder" },
-        numberOfEmployees: {
-          "@type": "QuantitativeValue",
-          minValue: 1,
-          maxValue: 10,
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 33.5731,
+          longitude: -7.5898,
         },
-        sameAs: [
-          "https://linkedin.com/company/harchcorp",
-          "https://twitter.com/harchcorp",
+        telephone: "+212-522-000-000",
+        email: "contact@harchcorp.com",
+        areaServed: [
+          { "@type": "Country", name: "Morocco" },
+          { "@type": "Country", name: "Gambia" },
+          { "@type": "Country", name: "Senegal" },
+          { "@type": "Place", name: "Africa" },
+          { "@type": "Place", name: "MENA Region" },
         ],
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Industrial Verticals",
-          itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Data Centers — 1,798 GPUs Carbon-Optimized" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Renewable Energy — 2GW+ Pipeline" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cement Manufacturing — 500kT/yr" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sovereign Technology — Carbon-Aware GPU Cloud" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Strategic Mining — Phosphates, Cobalt, Rare Earths" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Precision Agriculture — IoT & Vertical Farms" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Water Infrastructure — 200M m³/yr Desalination" } },
-          ],
-        },
+        industry: "Conglomerate",
+        naics: "551112",
+        slogan: "Africa's Sovereign Infrastructure OS",
+        knowsLanguage: ["en", "fr", "ar"],
+        sameAs: [
+          "https://www.linkedin.com/company/harchcorp",
+          "https://twitter.com/harchcorp",
+          "https://www.instagram.com/harchcorp/",
+          "https://www.youtube.com/@harchcorp",
+          "https://www.crunchbase.com/organization/harchcorp",
+        ],
+        subOrganization: [
+          {
+            "@type": "Organization",
+            "@id": "https://www.harchcorp.com/subsidiaries/intelligence/#organization",
+            name: "Harch Intelligence",
+            url: "https://www.harchcorp.com/subsidiaries/intelligence",
+            description: "Carbon-Aware GPU Cloud — 1,798 GPUs across 5 Moroccan hubs at ~47 gCO2/kWh",
+            industry: "AI Infrastructure",
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.harchcorp.com/subsidiaries/cement/#organization",
+            name: "Harch Cement",
+            url: "https://www.harchcorp.com/subsidiaries/cement",
+            description: "500kT/yr cement production in Gambia",
+            industry: "Cement Manufacturing",
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.harchcorp.com/subsidiaries/energy/#organization",
+            name: "Harch Energy",
+            url: "https://www.harchcorp.com/subsidiaries/energy",
+            description: "2GW+ renewable energy pipeline — solar, wind, and green hydrogen",
+            industry: "Renewable Energy",
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.harchcorp.com/subsidiaries/technology/#organization",
+            name: "Harch Technology",
+            url: "https://www.harchcorp.com/subsidiaries/technology",
+            description: "Sovereign technology stack — carbon-aware GPU cloud, cybersecurity, satellite communications",
+            industry: "Technology",
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.harchcorp.com/subsidiaries/mining/#organization",
+            name: "Harch Mining",
+            url: "https://www.harchcorp.com/subsidiaries/mining",
+            description: "Strategic mineral extraction — phosphates, cobalt, and rare earths",
+            industry: "Mining",
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.harchcorp.com/subsidiaries/agriculture/#organization",
+            name: "Harch Agri",
+            url: "https://www.harchcorp.com/subsidiaries/agriculture",
+            description: "Precision agriculture — IoT, drone monitoring, vertical farming",
+            industry: "Agriculture",
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.harchcorp.com/subsidiaries/water/#organization",
+            name: "Harch Water",
+            url: "https://www.harchcorp.com/subsidiaries/water",
+            description: "200M m³/yr desalination with AI-optimized distribution",
+            industry: "Water Infrastructure",
+          },
+        ],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            contactType: "investor relations",
+            email: "ir@harchcorp.com",
+            telephone: "+212-522-000-001",
+            availableLanguage: ["English", "French", "Arabic"],
+          },
+          {
+            "@type": "ContactPoint",
+            contactType: "media relations",
+            email: "press@harchcorp.com",
+            telephone: "+212-522-000-002",
+            availableLanguage: ["English", "French", "Arabic"],
+          },
+          {
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            email: "contact@harchcorp.com",
+            telephone: "+212-522-000-000",
+            availableLanguage: ["English", "French", "Arabic"],
+          },
+        ],
       },
       {
         "@type": "Person",
@@ -148,21 +260,25 @@ export default function RootLayout({
         name: "Amine Harch El Korane",
         jobTitle: "Founder & CEO",
         worksFor: { "@id": "https://www.harchcorp.com/#organization" },
-        description: "Founder and CEO of Harch Corp S.A., a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty.",
+        description:
+          "Founder and CEO of Harch Corp S.A., a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across 7 verticals with a $2.4B+ investment pipeline.",
         url: "https://www.harchcorp.com",
-        sameAs: [
-          "https://linkedin.com/in/amineharchelkorane",
-        ],
+        sameAs: ["https://www.linkedin.com/in/amineharchelkorane"],
       },
       {
         "@type": "WebSite",
         "@id": "https://www.harchcorp.com/#website",
         url: "https://www.harchcorp.com",
         name: "Harch Corp",
+        alternateName: "HarchCorp — Africa's Sovereign Infrastructure OS",
         publisher: { "@id": "https://www.harchcorp.com/#organization" },
+        inLanguage: ["en", "fr", "ar"],
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://www.harchcorp.com/?q={search_term_string}",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://www.harchcorp.com/search?q={search_term_string}",
+          },
           "query-input": "required name=search_term_string",
         },
       },
@@ -172,6 +288,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#C7923E" />
+        <meta name="apple-mobile-web-app-title" content="HarchCorp" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}

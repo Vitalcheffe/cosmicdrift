@@ -106,7 +106,7 @@ const tiers = [
       { text: 'National compliance', included: true },
     ],
     cta: 'Contact Sales',
-    ctaStyle: 'border border-[rgba(6,182,212,0.3)] text-[#06B6D4] hover:bg-[rgba(6,182,212,0.06)]',
+    ctaStyle: 'border border-[rgba(199,146,62,0.3)] text-[#C7923E] hover:bg-[rgba(199,146,62,0.06)]',
     highlight: false,
     badge: 'Government',
   },
@@ -223,7 +223,7 @@ export default function PricingPageClient() {
                 <div className={`card p-8 h-full flex flex-col relative ${tier.highlight ? 'ring-1 ring-[#10B981]/30' : ''}`}>
                   {tier.badge && (
                     <span className={`absolute -top-3 left-6 px-3 py-1 rounded-full text-[10px] font-bold ${
-                      tier.badge === 'Most Popular' ? 'bg-[#10B981]/15 text-[#10B981]' : 'bg-[rgba(6,182,212,0.1)] text-[#06B6D4]'
+                      tier.badge === 'Most Popular' ? 'bg-[#10B981]/15 text-[#10B981]' : 'bg-[rgba(199,146,62,0.1)] text-[#C7923E]'
                     }`}>
                       {tier.badge}
                     </span>
@@ -418,7 +418,7 @@ export default function PricingPageClient() {
                         <td>
                           <span className={`px-2 py-1 rounded text-[10px] font-bold ${
                             plan.tier === 'Enterprise' ? 'bg-[rgba(16,185,129,0.1)] text-[#10B981]' :
-                            plan.tier === 'Performance' ? 'bg-[rgba(6,182,212,0.1)] text-[#06B6D4]' :
+                            plan.tier === 'Performance' ? 'bg-[rgba(199,146,62,0.1)] text-[#C7923E]' :
                             'bg-[rgba(255,255,255,0.04)] text-[#999999]'
                           }`}>
                             {plan.tier}

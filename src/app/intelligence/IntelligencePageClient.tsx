@@ -24,7 +24,7 @@ const products = [
     href: '/intelligence/harchos',
     desc: 'The OS that orchestrates the Harch Intelligence Distributed Mesh — 5 hubs, 1,798 GPUs, carbon-aware scheduling. SENSE, THINK, ACT architecture for sovereign AI compute.',
     icon: Cpu,
-    color: '#06B6D4',
+    color: '#C7923E',
   },
   {
     name: 'Hyperscale Data Centers',
@@ -53,7 +53,7 @@ export default function IntelligencePageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Harch Intelligence /0.1</p>
+            <p className="section-label mb-4 text-[#C7923E]">Harch Intelligence /0.1</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Sovereign AI<br/>Infrastructure
             </h1>

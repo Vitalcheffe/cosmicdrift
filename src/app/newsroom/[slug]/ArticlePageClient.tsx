@@ -61,7 +61,7 @@ export default function ArticlePageClient({ slug }: { slug: string }) {
           </FadeIn>
           <FadeIn delay={0.05}>
             <div className="flex items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#06B6D4]">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">
                 <Icon size={10} />
                 {article.tag}
               </span>
@@ -101,7 +101,7 @@ export default function ArticlePageClient({ slug }: { slug: string }) {
               <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] mb-3 font-[family-name:var(--font-space-mono)]">Related Topics</p>
               <div className="flex flex-wrap gap-2">
                 {article.seoKeywords.map((keyword) => (
-                  <span key={keyword} className="inline-block px-3 py-1.5 rounded-md bg-[rgba(6,182,212,0.04)] border border-[rgba(6,182,212,0.08)] text-[11px] font-medium text-[#06B6D4]">
+                  <span key={keyword} className="inline-block px-3 py-1.5 rounded-md bg-[rgba(199,146,62,0.04)] border border-[rgba(199,146,62,0.08)] text-[11px] font-medium text-[#C7923E]">
                     {keyword}
                   </span>
                 ))}
@@ -125,7 +125,7 @@ export default function ArticlePageClient({ slug }: { slug: string }) {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">More Dispatches</p>
+            <p className="section-label mb-4 text-[#C7923E]">More Dispatches</p>
             <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-8">Continue Reading</h2>
           </FadeIn>
           <div className="space-y-2">
@@ -135,7 +135,7 @@ export default function ArticlePageClient({ slug }: { slug: string }) {
                 <FadeIn key={a.slug} delay={i * 0.05}>
                   <Link href={`/newsroom/${a.slug}`} className="vertical-row group block p-6 hover:border-[rgba(255,255,255,0.12)]">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[rgba(6,182,212,0.06)] border border-[rgba(6,182,212,0.1)] text-[8px] font-bold tracking-[0.12em] uppercase text-[#06B6D4]">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[rgba(199,146,62,0.06)] border border-[rgba(199,146,62,0.1)] text-[8px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">
                         <AIcon size={8} />
                         {a.tag}
                       </span>

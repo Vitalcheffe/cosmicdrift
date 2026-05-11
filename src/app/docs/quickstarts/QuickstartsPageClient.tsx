@@ -28,7 +28,7 @@ const quickstarts = [
     description: 'Deploy your first inference endpoint on the sovereign AI mesh with carbon-aware scheduling.',
     time: '5 min',
     href: '#deploy-model',
-    accent: '#06B6D4',
+    accent: '#C7923E',
   },
   {
     icon: Database,
@@ -148,7 +148,7 @@ export default function QuickstartsPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#06B6D4]">Quickstart /0.1</p>
+            <p className="section-label mb-6 text-[#C7923E]">Quickstart /0.1</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
@@ -169,7 +169,7 @@ export default function QuickstartsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">5-Minute Quickstarts</p>
+            <p className="section-label mb-4 text-[#C7923E]">5-Minute Quickstarts</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Start in Minutes
             </h2>
@@ -183,13 +183,13 @@ export default function QuickstartsPageClient() {
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: `${qs.accent}12` }}>
                     <qs.icon size={18} style={{ color: qs.accent }} />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#06B6D4] transition-colors">{qs.title}</h3>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#C7923E] transition-colors">{qs.title}</h3>
                   <p className="text-[13px] text-[#999999] leading-[1.6] mb-4">{qs.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="flex items-center gap-1.5 text-[11px] text-[#666666]">
                       <Clock size={10} /> {qs.time}
                     </span>
-                    <ArrowRight size={14} className="text-[#333333] group-hover:text-[#06B6D4] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={14} className="text-[#333333] group-hover:text-[#C7923E] group-hover:translate-x-1 transition-all" />
                   </div>
                 </Link>
               </FadeIn>
@@ -204,7 +204,7 @@ export default function QuickstartsPageClient() {
       <section id="deploy-model" className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Tutorial</p>
+            <p className="section-label mb-4 text-[#C7923E]">Tutorial</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Deploy Your First AI Model on HarchOS
             </h2>
@@ -225,8 +225,8 @@ export default function QuickstartsPageClient() {
                 <div className="grid grid-cols-1 lg:grid-cols-[60px_1fr] gap-6 lg:gap-8">
                   {/* Step Number */}
                   <div className="hidden lg:flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.2)] flex items-center justify-center">
-                      <span className="text-[14px] font-bold text-[#06B6D4] font-[family-name:var(--font-space-mono)]">{step.step}</span>
+                    <div className="w-10 h-10 rounded-full bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.2)] flex items-center justify-center">
+                      <span className="text-[14px] font-bold text-[#C7923E] font-[family-name:var(--font-space-mono)]">{step.step}</span>
                     </div>
                     {i < deploySteps.length - 1 && (
                       <div className="w-px flex-1 bg-white/[0.06] mt-2" />
@@ -236,7 +236,7 @@ export default function QuickstartsPageClient() {
                   {/* Step Content */}
                   <div className="card p-6">
                     <div className="flex items-center gap-3 mb-3 lg:hidden">
-                      <span className="w-7 h-7 rounded-full bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.2)] flex items-center justify-center text-[12px] font-bold text-[#06B6D4] font-[family-name:var(--font-space-mono)]">{step.step}</span>
+                      <span className="w-7 h-7 rounded-full bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.2)] flex items-center justify-center text-[12px] font-bold text-[#C7923E] font-[family-name:var(--font-space-mono)]">{step.step}</span>
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
                     <p className="text-[14px] text-[#999999] leading-[1.7] mb-4">{step.description}</p>
@@ -258,10 +258,10 @@ export default function QuickstartsPageClient() {
 
           {/* Success Banner */}
           <FadeIn>
-            <div className="mt-12 card p-6 border-[rgba(6,182,212,0.2)]">
+            <div className="mt-12 card p-6 border-[rgba(199,146,62,0.2)]">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(6,182,212,0.08)] flex items-center justify-center shrink-0">
-                  <CheckCircle2 size={20} className="text-[#06B6D4]" />
+                <div className="w-10 h-10 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center shrink-0">
+                  <CheckCircle2 size={20} className="text-[#C7923E]" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-white mb-1">You did it!</h3>
@@ -283,7 +283,7 @@ export default function QuickstartsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Continue Learning</p>
+            <p className="section-label mb-4 text-[#C7923E]">Continue Learning</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Next Steps
             </h2>
@@ -295,14 +295,14 @@ export default function QuickstartsPageClient() {
               <FadeIn key={ns.title} delay={i * 0.08}>
                 <Link href={ns.href} className="card p-6 h-full block group hover:border-white/15">
                   <div className="flex items-start gap-4">
-                    <div className="w-9 h-9 rounded-lg bg-[rgba(6,182,212,0.08)] flex items-center justify-center shrink-0">
-                      <ns.icon size={16} className="text-[#06B6D4]" />
+                    <div className="w-9 h-9 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center shrink-0">
+                      <ns.icon size={16} className="text-[#C7923E]" />
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#06B6D4] transition-colors">{ns.title}</h3>
+                      <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#C7923E] transition-colors">{ns.title}</h3>
                       <p className="text-[13px] text-[#999999] leading-[1.6]">{ns.desc}</p>
                     </div>
-                    <ArrowRight size={14} className="text-[#333333] group-hover:text-[#06B6D4] shrink-0 mt-1 ml-auto group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={14} className="text-[#333333] group-hover:text-[#C7923E] shrink-0 mt-1 ml-auto group-hover:translate-x-1 transition-all" />
                   </div>
                 </Link>
               </FadeIn>

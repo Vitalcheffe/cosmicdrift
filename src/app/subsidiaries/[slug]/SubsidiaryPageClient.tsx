@@ -105,12 +105,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       strategicContext: 'The global AI infrastructure race is accelerating, with over $300 billion invested in data center capacity in 2024 alone. Yet Africa, home to 1.4 billion people and the world\'s fastest-growing digital economy, hosts less than 1% of global data center capacity. This structural deficit forces African enterprises, governments, and researchers to rely on foreign infrastructure — creating dependencies that compromise data sovereignty, increase latency, and extract capital from the continent. Harch Intelligence directly addresses this imbalance by building sovereign AI compute capacity at the scale the continent demands. Our 5 hubs across Morocco deliver 1,798 GPUs with carbon-aware scheduling, and our 500MW Pipeline in Dakhla positions Morocco as the gateway for AI compute between Europe and Africa, leveraging the country\'s exceptional renewable energy resources, strategic Atlantic coastline with submarine cable landing stations, and political stability.',
       marketAnalysis: 'Africa\'s cloud and data center market is projected to reach $15 billion by 2028, growing at 25% CAGR — the fastest growth rate globally. Key demand drivers include government data localization mandates sweeping across Nigeria, Kenya, South Africa, and Egypt; the explosive growth of African fintech processing over $500 billion annually; the expansion of AI-driven healthcare diagnostics serving 300 million patients; and the rise of sovereign AI initiatives from the African Union and regional bodies. Harch Intelligence\'s 1,798 GPUs across 5 hubs capture a significant share of this demand while operating at cost structures 40-60% cheaper than AWS/GCP/Azure, thanks to Dakhla\'s renewable energy costs of $0.03/kWh — among the lowest on the planet. Our carbon-aware scheduling achieves ~47 gCO2/kWh average carbon intensity, 89% below the industry average of ~450 gCO2/kWh.',
       sustainability: 'Every aspect of Harch Intelligence is designed for minimal environmental impact and maximum sustainability. The facility runs on 100% renewable energy from Harch Energy\'s solar and wind installations, eliminating scope 2 emissions entirely. Our hybrid liquid-air cooling system achieves a PUE below 1.15 — among the most efficient in the global industry — while using seawater for heat rejection to minimize freshwater consumption. Waste heat from GPU clusters is captured and directed to adjacent agricultural greenhouses, creating a circular energy model. The facility\'s construction uses 40% recycled steel and low-carbon concrete from Harch Cement, while all electronic waste follows certified recycling protocols. We target LEED Platinum and BREEAM Outstanding certifications.',
-      investment: '$800M',
+      investment: '$1.14B',
       metrics: [
-        { value: 1798, prefix: '', suffix: '', label: 'GPUs' },
-        { value: 5, prefix: '', suffix: '', label: 'GPU Hubs' },
+        { value: 1798, prefix: '', suffix: '', label: 'Current GPUs' },
+        { value: 100000, prefix: '', suffix: '+', label: 'Target GPUs' },
         { value: 47, prefix: '~', suffix: ' gCO2/kWh', label: 'Carbon Intensity' },
-        { value: 800, prefix: '$', suffix: 'M', label: 'Investment' },
+        { value: 1140, prefix: '$', suffix: 'M', label: 'Investment' },
       ],
       capabilities: [
         { icon: Server, title: 'Carbon-Aware Data Centers', desc: '5 GPU hubs across Morocco with carbon-aware scheduling as our #1 differentiator. Our 500MW Pipeline in Dakhla is designed for the most demanding compute workloads, with modular architecture allowing capacity to scale from 100MW to 500MW in phases. Each hub features redundant power paths, diverse fiber entrances, and N+1 cooling redundancy throughout. Every rack is pre-wired for liquid cooling, enabling deployment of next-generation GPUs without retrofitting.' },
@@ -134,6 +134,15 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { spec: 'Carbon Intensity', value: '~47 gCO2/kWh', phase: '89% below industry avg' },
         { spec: 'Backup Power', value: '200MWh', phase: 'Battery + Diesel' },
         { spec: 'Network', value: '4 Submarine Cables', phase: 'Dual diverse paths' },
+        { spec: 'Location', value: 'Dakhla, Morocco', phase: 'Atlantic coast — 9.7 m/s wind' },
+        { spec: 'Energy Cost', value: '$0.018/kWh', phase: '72% lower than EU' },
+        { spec: 'Solar Irradiance', value: '2,800 kWh/m²/yr', phase: '40% above S. Europe' },
+        { spec: 'Submarine Cables', value: '14 systems', phase: '>80 Tbps capacity' },
+        { spec: 'Latency to EU', value: '<30ms', phase: 'Financial center ready' },
+        { spec: 'Free Cooling', value: '~8,500 hrs/yr', phase: '22°C average temp' },
+        { spec: '5-Year Revenue', value: '$1.9B', phase: '137% CAGR' },
+        { spec: 'Base Case IRR', value: '24.7%', phase: '~30 month payback' },
+        { spec: 'NPV (12%)', value: '$2,850M', phase: '4.6x return' },
       ],
       milestones: [
         { year: '2025 Q1', title: 'Site Selection & Land Acquisition', desc: '50-hectare site secured in Dakhla Technology Park with options for 100-hectare expansion. Strategic location adjacent to submarine cable landing stations.' },
@@ -157,6 +166,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Energy Cost Leadership', desc: 'Electricity at $0.03/kWh from dedicated renewable installations — 40-60% cheaper than AWS/GCP/Azure. This structural advantage compounds annually, creating an ever-widening competitive moat.' },
         { title: 'Modular Scalability', desc: 'Phased deployment from 100MW to 500MW Pipeline matches capacity to demand, minimizing capital risk while maintaining the option for rapid expansion. Each 100MW module is independently operational within 14 months of construction start.' },
         { title: 'Submarine Cable Hub', desc: 'Direct landing of 4 submarine cable systems provides the lowest-latency path between Africa, Europe, and the Americas. No other African location offers this combination of cable diversity and proximity to European financial centers.' },
+        { title: 'Lowest Energy Cost on Earth', desc: 'Dakhla offers electricity at $0.018/kWh — 72% cheaper than the EU average and 80% cheaper than Singapore. This structural advantage saves $118-178M per year per 10,000 GPUs compared to Virginia, Frankfurt, or Singapore deployments. Combined with 9.7 m/s wind speeds and 2,800 kWh/m²/year solar irradiance, Dakhla is the most cost-efficient location for AI compute on the planet.' },
       ],
       partnershipModel: [
         { title: 'GPU-as-a-Service', desc: 'Flexible compute provisioning with on-demand and reserved GPU capacity. Pay-per-use pricing with committed-use discounts for 1-3 year terms. Ideal for AI startups, research institutions, and enterprise ML teams.' },
@@ -165,7 +175,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Strategic Partnerships', desc: 'Joint venture structures for sovereign wealth funds, development finance institutions, and strategic technology partners. Equity participation with preferred access to capacity and governance rights.' },
       ],
       competitorHarchName: 'HarchOS',
-      competitorAccentColor: '#06B6D4',
+      competitorAccentColor: '#C7923E',
       competitors: [
         {
           name: 'CoreWeave',
@@ -270,9 +280,9 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       investment: '$200M',
       metrics: [
         { value: 500, prefix: '', suffix: 'kT/yr', label: 'Production Capacity' },
-        { value: 30, prefix: '', suffix: '%', label: 'Cost Advantage' },
-        { value: 800, prefix: '', suffix: '+', label: 'Direct Jobs' },
-        { value: 200, prefix: '$', suffix: 'M', label: 'Investment' },
+        { value: 38.2, prefix: '', suffix: '%', label: 'IRR' },
+        { value: 10500, prefix: '$', suffix: '', label: 'Total CAPEX' },
+        { value: 265, prefix: '', suffix: '%', label: '5-Year ROI' },
       ],
       capabilities: [
         { icon: Factory, title: 'Quarry Operations', desc: 'Vertically integrated limestone quarry with 50+ year verified reserves. In-country raw material sourcing eliminates import dependency and reduces raw material costs by 30%. The quarry uses modern drill-and-blast techniques with electronic detonators for precise fragmentation control, minimizing energy consumption in downstream crushing.' },
@@ -293,6 +303,13 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { spec: 'Workforce', value: '800+ direct', phase: 'Local hiring priority' },
         { spec: 'Water Recycling', value: '95%', phase: 'Closed-loop systems' },
         { spec: 'Dust Emissions', value: '50% below EU', phase: 'Bag filter technology' },
+        { spec: 'CAPEX', value: '$10.5M', phase: 'Equipment 69.5%' },
+        { spec: 'Market CAGR', value: '12-14%', phase: 'Gambia construction boom' },
+        { spec: 'Import Duties', value: '500% increase', phase: 'Dec 2025 — local advantage' },
+        { spec: 'Payback Period', value: '2.8 years', phase: 'IRR 38.2%' },
+        { spec: '5-Year NPV', value: '$6.8M', phase: 'At 10% discount rate' },
+        { spec: 'Direct Jobs', value: '85-120', phase: '80% Gambian staff target' },
+        { spec: 'FX Savings', value: '~$8M/yr', phase: 'Import substitution' },
       ],
       milestones: [
         { year: '2024 Q4', title: 'Permit Application Filed', desc: 'Environmental and construction permits filed with Gambian authorities. Environmental and Social Impact Assessment completed by independent consultants.' },
@@ -430,10 +447,10 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       sustainability: 'Harch Energy\'s entire business model is predicated on sustainability. Every megawatt we generate displaces fossil fuel generation, preventing approximately 1,000 tonnes of CO2 emissions annually. Our 2GW+ Pipeline will offset over 3.2 million tonnes of CO2 per year — equivalent to removing 700,000 cars from the road. Beyond carbon, our projects incorporate biodiversity assessments, community benefit sharing (5% of revenue allocated to local development funds), and water conservation measures using dry cooling technology in water-stressed regions. All installations are designed for 30+ year operational lifetimes with 95%+ recyclability at decommissioning.',
       investment: '$600M',
       metrics: [
-        { value: 2, prefix: '', suffix: 'GW+', label: 'Total Pipeline' },
-        { value: 3, prefix: '', suffix: '', label: 'Energy Sources' },
-        { value: 100, prefix: '', suffix: '%', label: 'Zero Carbon' },
+        { value: 2000, prefix: '', suffix: ' MW+', label: 'Pipeline Capacity' },
         { value: 600, prefix: '$', suffix: 'M', label: 'Investment' },
+        { value: 53, prefix: '', suffix: ' kWh/m²/day', label: 'Solar Irradiance' },
+        { value: 45, prefix: '', suffix: '%', label: 'Wind Capacity Factor' },
       ],
       capabilities: [
         { icon: Zap, title: 'Solar Photovoltaic', desc: '1.2GW of solar photovoltaic capacity across Morocco\'s southern regions using Tier-1 bifacial panels with single-axis trackers for maximum energy yield. Our solar farms achieve capacity factors of 28% — significantly above the global average — thanks to Morocco\'s exceptional solar irradiance exceeding 2,400 kWh/m2 annually.' },
@@ -477,6 +494,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Captive Demand from Harch Verticals', desc: 'Guaranteed offtake from Harch Intelligence (500MW Pipeline), Harch Cement, Harch Mining, and Harch Water provides revenue floor that derisks project finance and enables better debt terms.' },
         { title: 'Green Hydrogen Export Potential', desc: 'Morocco\'s proximity to European hydrogen markets (14km at the Strait of Gibraltar) positions Harch Energy as a competitive green hydrogen supplier to EU industrial customers.' },
         { title: 'Carbon Credit Revenue', desc: 'Verified carbon credits from 2GW+ Pipeline of renewable installations generate $25-40M annually in additional revenue, improving project IRR by 200-300 basis points.' },
+        { title: 'Morocco 52% Renewable by 2030', desc: 'Morocco has one of the most aggressive renewable energy targets globally at 52% by 2030, creating a favorable regulatory environment and substantial government incentives for green energy investment. EU green hydrogen demand targets 20 Mt by 2030, positioning Morocco as the primary supplier to European markets.' },
       ],
       partnershipModel: [
         { title: 'Corporate PPAs', desc: 'Long-term power purchase agreements for industrial customers seeking renewable energy supply. 10-20 year terms with fixed or inflation-linked pricing, providing budget certainty and ESG reporting benefits.' },
@@ -612,6 +630,10 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { spec: 'Certifications', value: 'ISO 27001 + SOC 2', phase: 'Information security' },
         { spec: 'API Availability', value: '99.99%', phase: 'Enterprise SLA' },
         { spec: 'Threat Intelligence', value: 'Real-time', phase: 'AI-powered detection' },
+        { spec: 'HarchOS Version', value: 'v0.7.0', phase: '83 endpoints, 17 modules' },
+        { spec: 'Carbon Scheduling', value: '873 LOC', phase: 'Unique — no competitor has it' },
+        { spec: 'API Latency', value: '650ms avg', phase: 'Target <200ms S1' },
+        { spec: 'SDK Score (Unique)', value: '95/100', phase: 'vs Modal 60, Replicate 50' },
       ],
       milestones: [
         { year: '2025 Q2', title: 'Platform Architecture Validated', desc: 'Sovereign AI platform architecture designed, validated, and benchmarked against global standards. Key technology partnerships established with leading chip and software vendors.' },
@@ -767,9 +789,9 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       sustainability: 'Harch Mining operates under a zero-harm environmental framework. All operations are ISO 14001 certified with zero tailings discharge through dry stacking technology that eliminates the risk of tailings dam failures. Progressive rehabilitation plans restore mined land to productive use — agriculture, forestry, or renewable energy installations — within 5 years of mine closure. All processing is powered by Harch Energy\'s renewable infrastructure, making our minerals among the lowest-carbon in the world. Water consumption is minimized through closed-loop recycling, and biodiversity offset programs invest 2% of revenue in conservation projects.',
       investment: '$200M',
       metrics: [
-        { value: 3, prefix: '', suffix: '', label: 'Strategic Minerals' },
-        { value: 30, prefix: '', suffix: '%', label: 'Global Reserves' },
-        { value: 500, prefix: '', suffix: '+', label: 'Direct Jobs' },
+        { value: 75, prefix: '', suffix: '%', label: 'World Phosphates (Morocco)' },
+        { value: 70, prefix: '', suffix: '%', label: 'World Cobalt (DRC)' },
+        { value: 3, prefix: '', suffix: '', label: 'Target Minerals' },
         { value: 200, prefix: '$', suffix: 'M', label: 'Investment' },
       ],
       capabilities: [
@@ -926,9 +948,9 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       sustainability: 'Sustainability is foundational to Harch Agri\'s business model. Our precision irrigation systems reduce water usage by 60% versus traditional flood irrigation while increasing yields by 30%. Drone-enabled precision spraying reduces chemical usage by 90% compared to conventional methods. Vertical farming operations use 95% less water and 99% less land than field agriculture. All energy for irrigation, processing, and cold chain is supplied by Harch Energy\'s renewable infrastructure. We practice regenerative soil management, building soil carbon and fertility rather than depleting it, and allocate 10% of farmland for biodiversity corridors.',
       investment: '$150M',
       metrics: [
-        { value: 35, prefix: '$', suffix: 'B', label: 'Market Access' },
-        { value: 60, prefix: '', suffix: '%', label: 'Uncultivated Land' },
-        { value: 5, prefix: '', suffix: 'K ha', label: 'Active Trials' },
+        { value: 60, prefix: '', suffix: '%', label: 'Uncultivated Arable Land' },
+        { value: 50, prefix: '$', suffix: 'B/yr', label: 'Food Import Bill' },
+        { value: 100000, prefix: '', suffix: ' ha', label: 'Target by 2030' },
         { value: 150, prefix: '$', suffix: 'M', label: 'Investment' },
       ],
       capabilities: [
@@ -1065,9 +1087,9 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       sustainability: 'Sustainability is embedded in Harch Water\'s DNA. Our desalination plants are powered entirely by Harch Energy\'s renewable infrastructure, eliminating the carbon footprint that makes conventional desalination environmentally problematic. Energy recovery devices reduce power consumption to 2.5 kWh/m3 — 40% below industry average. Brine management follows best-practice diffusion protocols that protect marine ecosystems, and our AI distribution systems reduce network losses to less than 5% versus the African average of 40%+. The 10% community allocation provides clean water for 50M+ people across our operating regions at zero cost.',
       investment: '$150M',
       metrics: [
-        { value: 200, prefix: '', suffix: 'M m3/yr', label: 'Desalination Capacity' },
-        { value: 10, prefix: '', suffix: '%', label: 'Community Allocation' },
-        { value: 40, prefix: '', suffix: '%', label: 'Energy Reduction' },
+        { value: 200, prefix: '', suffix: 'M m³/yr', label: 'Desalination Capacity' },
+        { value: 400, prefix: '', suffix: 'M', label: 'People Without Safe Water' },
+        { value: 25, prefix: '', suffix: '', label: 'Water-Stressed Countries' },
         { value: 150, prefix: '$', suffix: 'M', label: 'Investment' },
       ],
       capabilities: [

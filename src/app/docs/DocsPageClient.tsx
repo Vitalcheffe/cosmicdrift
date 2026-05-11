@@ -28,7 +28,7 @@ const quickStartCards = [
     title: 'Get Started with HarchOS',
     description: 'Deploy your first workload on the sovereign AI mesh in under 5 minutes.',
     href: '/docs/quickstarts',
-    accent: '#06B6D4',
+    accent: '#C7923E',
   },
   {
     icon: Code2,
@@ -138,7 +138,7 @@ export default function DocsPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#06B6D4]">HarchOS Platform /0.1</p>
+            <p className="section-label mb-6 text-[#C7923E]">HarchOS Platform /0.1</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
@@ -171,7 +171,7 @@ export default function DocsPageClient() {
           <FadeIn delay={0.4}>
             <div className="mt-6 flex items-center gap-4 text-[13px]">
               <span className="text-[#666666]">Current version:</span>
-              <span className="font-[family-name:var(--font-space-mono)] text-[#06B6D4] font-semibold">v0.1.0</span>
+              <span className="font-[family-name:var(--font-space-mono)] text-[#C7923E] font-semibold">v0.1.0</span>
               <span className="text-[#333333]">|</span>
               <Link href="/docs/changelog" className="text-[#999999] hover:text-white transition-colors nav-link">View changelog</Link>
             </div>
@@ -185,7 +185,7 @@ export default function DocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Quick Start</p>
+            <p className="section-label mb-4 text-[#C7923E]">Quick Start</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Start Building
             </h2>
@@ -199,7 +199,7 @@ export default function DocsPageClient() {
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: `${card.accent}12` }}>
                     <card.icon size={18} style={{ color: card.accent }} />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#06B6D4] transition-colors">{card.title}</h3>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#C7923E] transition-colors">{card.title}</h3>
                   <p className="text-[13px] text-[#999999] leading-[1.6] mb-4">{card.description}</p>
                   <div className="flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: card.accent }}>
                     Get started <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
@@ -217,7 +217,7 @@ export default function DocsPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Browse by Category</p>
+            <p className="section-label mb-4 text-[#C7923E]">Browse by Category</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Documentation Categories
             </h2>
@@ -229,20 +229,20 @@ export default function DocsPageClient() {
               <FadeIn key={category.title} delay={i * 0.08}>
                 <div className="card p-6 h-full">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-9 h-9 rounded-lg bg-[rgba(6,182,212,0.08)] flex items-center justify-center">
-                      <category.icon size={16} className="text-[#06B6D4]" />
+                    <div className="w-9 h-9 rounded-lg bg-[rgba(199,146,62,0.08)] flex items-center justify-center">
+                      <category.icon size={16} className="text-[#C7923E]" />
                     </div>
                     <h3 className="text-lg font-bold text-white">{category.title}</h3>
                   </div>
                   <div className="space-y-0">
                     {category.items.map((item) => (
                       <Link key={item.name} href={item.href} className="flex items-start gap-3 py-3 border-b border-white/[0.04] last:border-0 group/item">
-                        <item.icon size={14} className="text-[#666666] mt-0.5 shrink-0 group-hover/item:text-[#06B6D4] transition-colors" />
+                        <item.icon size={14} className="text-[#666666] mt-0.5 shrink-0 group-hover/item:text-[#C7923E] transition-colors" />
                         <div className="min-w-0">
-                          <p className="text-[14px] font-semibold text-white group-hover/item:text-[#06B6D4] transition-colors">{item.name}</p>
+                          <p className="text-[14px] font-semibold text-white group-hover/item:text-[#C7923E] transition-colors">{item.name}</p>
                           <p className="text-[12px] text-[#666666] leading-[1.5] mt-0.5">{item.desc}</p>
                         </div>
-                        <ChevronRight size={12} className="text-[#333333] mt-1.5 shrink-0 group-hover/item:text-[#06B6D4] group-hover/item:translate-x-0.5 transition-all ml-auto" />
+                        <ChevronRight size={12} className="text-[#333333] mt-1.5 shrink-0 group-hover/item:text-[#C7923E] group-hover/item:translate-x-0.5 transition-all ml-auto" />
                       </Link>
                     ))}
                   </div>
@@ -259,7 +259,7 @@ export default function DocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Popular Guides</p>
+            <p className="section-label mb-4 text-[#C7923E]">Popular Guides</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
               Most-Read Guides
             </h2>
@@ -273,7 +273,7 @@ export default function DocsPageClient() {
                   <div className="flex items-start gap-4 min-w-0">
                     <span className="text-[12px] font-[family-name:var(--font-space-mono)] text-[#333333] mt-1 shrink-0 w-6 text-right">{String(i + 1).padStart(2, '0')}</span>
                     <div className="min-w-0">
-                      <h4 className="text-[15px] font-semibold text-white group-hover/guide:text-[#06B6D4] transition-colors">{guide.title}</h4>
+                      <h4 className="text-[15px] font-semibold text-white group-hover/guide:text-[#C7923E] transition-colors">{guide.title}</h4>
                       <p className="text-[13px] text-[#666666] mt-1 leading-[1.5]">{guide.desc}</p>
                     </div>
                   </div>
@@ -281,7 +281,7 @@ export default function DocsPageClient() {
                     <span className="flex items-center gap-1.5 text-[11px] text-[#666666]">
                       <Clock size={12} /> {guide.time}
                     </span>
-                    <ArrowRight size={14} className="text-[#333333] group-hover/guide:text-[#06B6D4] group-hover/guide:translate-x-1 transition-all" />
+                    <ArrowRight size={14} className="text-[#333333] group-hover/guide:text-[#C7923E] group-hover/guide:translate-x-1 transition-all" />
                   </div>
                 </Link>
               </FadeIn>
@@ -300,7 +300,7 @@ export default function DocsPageClient() {
             <FadeIn>
               <div className="card p-8 h-full">
                 <div className="flex items-center gap-3 mb-6">
-                  <Activity size={18} className="text-[#06B6D4]" />
+                  <Activity size={18} className="text-[#C7923E]" />
                   <h3 className="text-lg font-bold text-white">API Status</h3>
                 </div>
                 <div className="accent-line mb-6" />
@@ -334,7 +334,7 @@ export default function DocsPageClient() {
             <FadeIn delay={0.1}>
               <div className="card p-8 h-full">
                 <div className="flex items-center gap-3 mb-6">
-                  <BookOpen size={18} className="text-[#06B6D4]" />
+                  <BookOpen size={18} className="text-[#C7923E]" />
                   <h3 className="text-lg font-bold text-white">Current Release</h3>
                 </div>
                 <div className="accent-line mb-6" />
@@ -351,10 +351,10 @@ export default function DocsPageClient() {
                   ].map((link) => (
                     <Link key={link.label} href={link.href} className="flex items-center justify-between py-2.5 border-b border-white/[0.04] last:border-0 group/link">
                       <div className="flex items-center gap-2.5">
-                        <link.icon size={14} className="text-[#666666] group-hover/link:text-[#06B6D4] transition-colors" />
-                        <span className="text-[14px] text-white group-hover/link:text-[#06B6D4] transition-colors">{link.label}</span>
+                        <link.icon size={14} className="text-[#666666] group-hover/link:text-[#C7923E] transition-colors" />
+                        <span className="text-[14px] text-white group-hover/link:text-[#C7923E] transition-colors">{link.label}</span>
                       </div>
-                      <ChevronRight size={12} className="text-[#333333] group-hover/link:text-[#06B6D4] transition-colors" />
+                      <ChevronRight size={12} className="text-[#333333] group-hover/link:text-[#C7923E] transition-colors" />
                     </Link>
                   ))}
                 </div>

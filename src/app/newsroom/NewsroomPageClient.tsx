@@ -42,7 +42,7 @@ export default function NewsroomPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Newsroom</p>
+            <p className="section-label mb-4 text-[#C7923E]">Newsroom</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
               Dispatches from<br/>the Front Line
             </h1>
@@ -58,17 +58,17 @@ export default function NewsroomPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#06B6D4]">Featured</p>
+            <p className="section-label mb-6 text-[#C7923E]">Featured</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <Link href={`/newsroom/${featuredArticle.slug}`} className="group block">
               <div className="relative card p-8 md:p-12 lg:p-16 overflow-hidden">
                 {/* Accent glow */}
-                <div className="absolute top-0 left-0 w-1 h-full bg-[#06B6D4]" />
+                <div className="absolute top-0 left-0 w-1 h-full bg-[#C7923E]" />
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-6">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#06B6D4]">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(199,146,62,0.08)] border border-[rgba(199,146,62,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">
                         {(() => { const Icon = tagIcons[featuredArticle.tag]; return Icon ? <Icon size={10} /> : null; })()}
                         {featuredArticle.tag}
                       </span>
@@ -78,12 +78,12 @@ export default function NewsroomPageClient() {
                       {featuredArticle.title}
                     </h2>
                     <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredArticle.excerpt}</p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#06B6D4] group-hover:text-white transition-colors">
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#C7923E] group-hover:text-white transition-colors">
                       Read Full Dispatch <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
-                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(6,182,212,0.06)] border border-[rgba(6,182,212,0.12)] shrink-0">
-                    <ArrowUpRight size={24} className="text-[#06B6D4] group-hover:text-white transition-colors" />
+                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(199,146,62,0.06)] border border-[rgba(199,146,62,0.12)] shrink-0">
+                    <ArrowUpRight size={24} className="text-[#C7923E] group-hover:text-white transition-colors" />
                   </div>
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default function NewsroomPageClient() {
                         </div>
                         <div>
                           <div className="flex items-center gap-3">
-                            <span className="inline-block px-2 py-0.5 rounded-md bg-[rgba(6,182,212,0.06)] border border-[rgba(6,182,212,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#06B6D4]">{article.tag}</span>
+                            <span className="inline-block px-2 py-0.5 rounded-md bg-[rgba(199,146,62,0.06)] border border-[rgba(199,146,62,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#C7923E]">{article.tag}</span>
                             <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{article.date}</span>
                           </div>
                           <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-[#CCCCCC] transition-colors mt-1 leading-snug">{article.title}</h3>
@@ -136,14 +136,14 @@ export default function NewsroomPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#06B6D4]">Press</p>
+            <p className="section-label mb-4 text-[#C7923E]">Press</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">Media Kit</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pressResources.map((resource, i) => (
               <FadeIn key={resource.title} delay={i * 0.08}>
                 <div className="card p-6 h-full">
-                  <Tag size={16} className="text-[rgba(6,182,212,0.4)] mb-3" strokeWidth={1.5} />
+                  <Tag size={16} className="text-[rgba(199,146,62,0.4)] mb-3" strokeWidth={1.5} />
                   <h3 className="text-[14px] font-bold text-white mb-2">{resource.title}</h3>
                   <p className="text-[12px] text-[#999999] leading-relaxed">{resource.desc}</p>
                 </div>

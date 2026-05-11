@@ -33,10 +33,10 @@ const carouselSlides = [
 ];
 
 const stats = [
-  { value: 1798, prefix: '', suffix: '', label: 'GPUs Operational', desc: 'Across 5 carbon-optimized hubs in Morocco' },
-  { value: 47, prefix: '~', suffix: '', label: 'gCO2/kWh Avg', desc: 'Carbon intensity — 89% lower than industry avg' },
-  { value: 81.5, prefix: '', suffix: '%', label: 'Renewable Energy', desc: 'Average across all 5 GPU hubs' },
-  { value: 2.4, prefix: '$', suffix: 'B+', label: 'Investment Pipeline', desc: 'Active capital deployment across 7 verticals' },
+  { value: 2400, prefix: '$', suffix: 'M+', label: 'Investment Pipeline', desc: 'Active capital deployment across 7 industrial verticals and 5 countries' },
+  { value: 47, prefix: '~', suffix: '', label: 'gCO2/kWh Avg', desc: 'Carbon intensity — 89% lower than industry average of ~450 gCO2/kWh' },
+  { value: 81.5, prefix: '', suffix: '%', label: 'Renewable Energy', desc: 'Average across all 5 GPU hubs — targeting 100% by 2028' },
+  { value: 25000, prefix: '', suffix: '+', label: 'Jobs by 2030', desc: 'Direct employment target across all verticals' },
 ];
 
 const roadmap = [
@@ -49,19 +49,19 @@ const roadmap = [
 ];
 
 const africaStats = [
-  { value: '30%', desc: 'of the world\'s mineral reserves are in Africa — yet the continent captures less than 5% of the value chain. Harch Mining changes that equation by building processing and refining capacity in-country, ensuring that resource wealth stays on the continent.' },
-  { value: '60%', desc: 'of the world\'s uncultivated arable land is in Africa. Harch Agri deploys precision farming, IoT sensors, and vertical farming technology to convert this untapped potential into food security and export revenue at continental scale.' },
-  { value: '1.4B', desc: 'people — the youngest population on Earth with a median age of 19. Harch Technology provides the digital infrastructure — from AI compute to satellite connectivity — to educate, connect, and empower the next generation of African innovators.' },
+  { value: '30%', desc: 'of the world\'s mineral reserves are in Africa — yet the continent captures less than 5% of the value chain. Morocco alone holds 75% of global phosphate reserves, while the DRC produces 70% of the world\'s cobalt. Harch Mining builds in-country processing and refining capacity to ensure that resource wealth stays on the continent, converting raw extraction into industrial value.' },
+  { value: '60%', desc: 'of the world\'s uncultivated arable land is in Africa, yet the continent spends $50 billion annually on food imports. Harch Agri deploys precision IoT sensors, drone monitoring, and vertical farming technology across this untapped potential, converting it into food security and export revenue at continental scale — with an integrated carbon credit API that no competitor offers.' },
+  { value: '1.4B', desc: 'people — the youngest population on Earth with a median age of 19.7 years. Africa\'s digital economy is projected to grow from $115 billion to $712 billion by 2050, yet the continent hosts less than 1% of global data center capacity. Harch Intelligence provides the sovereign AI compute infrastructure — 1,798 GPUs scaling to 100,000+ — to educate, connect, and empower the next generation of African innovators.' },
 ];
 
 const investmentTable = [
-  { vertical: 'Intelligence', investment: '$800M', capacity: '1,798 GPUs', timeline: '2027', status: 'Engineering' },
-  { vertical: 'Cement', investment: '$200M', capacity: '500kT/yr', timeline: '2028', status: 'Permitted' },
+  { vertical: 'Intelligence', investment: '$800M', capacity: '500 MW / 100K+ GPUs', timeline: '2027', status: 'Engineering' },
   { vertical: 'Energy', investment: '$600M', capacity: '2GW+ Pipeline', timeline: '2027', status: 'Active' },
-  { vertical: 'Technology', investment: '$400M', capacity: '1,798 GPUs', timeline: '2028', status: 'Design' },
-  { vertical: 'Mining', investment: '$200M', capacity: '3 Minerals', timeline: '2029', status: 'Exploration' },
-  { vertical: 'Agri', investment: '$150M', capacity: '$35B Market', timeline: '2029', status: 'Planning' },
-  { vertical: 'Water', investment: '$150M', capacity: '200M m³/yr', timeline: '2030', status: 'Feasibility' },
+  { vertical: 'Technology', investment: '$400M', capacity: '50K+ GPUs / HarchOS', timeline: '2028', status: 'Design' },
+  { vertical: 'Cement', investment: '$200M', capacity: '500kT/yr — Gambia', timeline: '2028', status: 'Permitted' },
+  { vertical: 'Mining', investment: '$200M', capacity: 'Phosphates / Cobalt / REE', timeline: '2029', status: 'Exploration' },
+  { vertical: 'Agri', investment: '$150M', capacity: 'Precision IoT / Vertical', timeline: '2029', status: 'Planning' },
+  { vertical: 'Water', investment: '$150M', capacity: '200M m³/yr Desal.', timeline: '2030', status: 'Feasibility' },
 ];
 
 const testimonials = [
@@ -715,7 +715,7 @@ export default function HomePageClient() {
             <div className="text-center mb-12">
               <p className="section-label mb-4">Developer Platform</p>
               <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em]">
-                Build on HarchOS<span className="text-[#06B6D4]">.</span>
+                Build on HarchOS<span className="text-[#C7923E]">.</span>
               </h2>
               <p className="max-w-xl mx-auto mt-4 text-[15px] text-[#999999] leading-relaxed">
                 Native SDKs for Python and TypeScript. Carbon-aware scheduling, sovereign defaults, and zero-config onboarding.
@@ -746,22 +746,22 @@ export default function HomePageClient() {
                 </div>
                 <div className="bg-[#0D0D0D] rounded-lg p-4 font-mono text-[12px] leading-[1.9] overflow-x-auto">
                   <p className="text-[#666666]">{'# Install'}</p>
-                  <p><span className="text-[#06B6D4]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
+                  <p><span className="text-[#C7923E]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
                   <br/>
                   <p className="text-[#666666]">{'# Get carbon intensity for Morocco'}</p>
                   <p><span className="text-[#C678DD]">from</span> harchos <span className="text-[#C678DD]">import</span> <span className="text-[#E5C07B]">HarchOSClient</span></p>
                   <br/>
                   <p><span className="text-[#C678DD]">with</span> <span className="text-[#E5C07B]">HarchOSClient</span>(<span className="text-[#98C379]">api_key</span>=<span className="text-[#98C379]">&quot;hsk_...&quot;</span>) <span className="text-[#C678DD]">as</span> client:</p>
                   <p>&nbsp;&nbsp;carbon = client.carbon.get_intensity(<span className="text-[#98C379]">&quot;MA&quot;</span>)</p>
-                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Morocco: </span><span className="text-[#06B6D4]">{'{carbon.carbon_intensity_gco2_kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh&quot;</span>)</p>
-                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Renewable: </span><span className="text-[#06B6D4]">{'{carbon.renewable_percentage}'}</span><span className="text-[#98C379]">%&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Morocco: </span><span className="text-[#C7923E]">{'{carbon.carbon_intensity_gco2_kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Renewable: </span><span className="text-[#C7923E]">{'{carbon.renewable_percentage}'}</span><span className="text-[#98C379]">%&quot;</span>)</p>
                   <br/>
                   <p className="text-[#666666]">{'# Find the greenest hub'}</p>
                   <p>&nbsp;&nbsp;optimal = client.carbon.optimal_hub(</p>
                   <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#98C379]">region</span>=<span className="text-[#98C379]">&quot;morocco&quot;</span>,</p>
                   <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#98C379]">gpu_count</span>=<span className="text-[#D19A66]">4</span>,</p>
                   <p>&nbsp;&nbsp;)</p>
-                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Best hub: </span><span className="text-[#06B6D4]">{'{optimal.recommended_hub_name}'}</span><span className="text-[#98C379]">&quot;</span>)</p>
+                  <p>&nbsp;&nbsp;<span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Best hub: </span><span className="text-[#C7923E]">{'{optimal.recommended_hub_name}'}</span><span className="text-[#98C379]">&quot;</span>)</p>
                 </div>
               </div>
             </FadeIn>
@@ -783,22 +783,22 @@ export default function HomePageClient() {
                 </div>
                 <div className="bg-[#0D0D0D] rounded-lg p-4 font-mono text-[12px] leading-[1.9] overflow-x-auto">
                   <p className="text-[#666666]">{'// Install'}</p>
-                  <p><span className="text-[#06B6D4]">npm install</span> <span className="text-[#98C379]">@harchos/sdk</span></p>
+                  <p><span className="text-[#C7923E]">npm install</span> <span className="text-[#98C379]">@harchos/sdk</span></p>
                   <br/>
                   <p className="text-[#666666]">{'// Get carbon intensity for Morocco'}</p>
                   <p><span className="text-[#C678DD]">import</span> {'{'} <span className="text-[#E5C07B]">HarchOSClient</span> {'}'} <span className="text-[#C678DD]">from</span> <span className="text-[#98C379]">&quot;@harchos/sdk&quot;</span>;</p>
                   <br/>
                   <p><span className="text-[#C678DD]">const</span> client = <span className="text-[#C678DD]">new</span> <span className="text-[#E5C07B]">HarchOSClient</span>({'{'} <span className="text-[#98C379]">apiKey</span>: <span className="text-[#98C379]">&quot;hsk_...&quot;</span> {'}'});</p>
                   <p><span className="text-[#C678DD]">const</span> carbon = <span className="text-[#C678DD]">await</span> client.carbon.getIntensity(<span className="text-[#98C379]">&quot;MA&quot;</span>);</p>
-                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Morocco: </span><span className="text-[#06B6D4]">{'${carbon.carbon_intensity_gco2_kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh`</span>);</p>
-                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Renewable: </span><span className="text-[#06B6D4]">{'${carbon.renewable_percentage}'}</span><span className="text-[#98C379]">%`</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Morocco: </span><span className="text-[#C7923E]">{'${carbon.carbon_intensity_gco2_kwh}'}</span><span className="text-[#98C379]"> gCO2/kWh`</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Renewable: </span><span className="text-[#C7923E]">{'${carbon.renewable_percentage}'}</span><span className="text-[#98C379]">%`</span>);</p>
                   <br/>
                   <p className="text-[#666666]">{'// Find the greenest hub'}</p>
                   <p><span className="text-[#C678DD]">const</span> optimal = <span className="text-[#C678DD]">await</span> client.carbon.optimalHub({'{'}</p>
                   <p>&nbsp;&nbsp;<span className="text-[#98C379]">region</span>: <span className="text-[#98C379]">&quot;morocco&quot;</span>,</p>
                   <p>&nbsp;&nbsp;<span className="text-[#98C379]">gpu_count</span>: <span className="text-[#D19A66]">4</span>,</p>
                   <p>{'}'});</p>
-                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Best hub: </span><span className="text-[#06B6D4]">{'${optimal.recommended_hub_name}'}</span><span className="text-[#98C379]">`</span>);</p>
+                  <p>console.<span className="text-[#E5C07B]">log</span>(<span className="text-[#98C379]">`Best hub: </span><span className="text-[#C7923E]">{'${optimal.recommended_hub_name}'}</span><span className="text-[#98C379]">`</span>);</p>
                 </div>
               </div>
             </FadeIn>
@@ -806,7 +806,7 @@ export default function HomePageClient() {
 
           <FadeIn delay={0.2}>
             <div className="mt-8 text-center">
-              <Link href="/developers" className="inline-flex items-center gap-2 text-[14px] text-[#06B6D4] font-semibold hover:text-[#06B6D4]/80 transition-colors">
+              <Link href="/developers" className="inline-flex items-center gap-2 text-[14px] text-[#C7923E] font-semibold hover:text-[#C7923E]/80 transition-colors">
                 Full Developer Documentation <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

@@ -135,7 +135,7 @@ const versions = [
 ];
 
 const sectionConfig: Record<string, { icon: typeof Sparkles; label: string; color: string }> = {
-  newFeatures: { icon: Sparkles, label: 'New Features', color: '#06B6D4' },
+  newFeatures: { icon: Sparkles, label: 'New Features', color: '#C7923E' },
   improvements: { icon: Wrench, label: 'Improvements', color: '#8B5CF6' },
   bugFixes: { icon: Bug, label: 'Bug Fixes', color: '#F59E0B' },
   breakingChanges: { icon: AlertTriangle, label: 'Breaking Changes', color: '#EF4444' },
@@ -144,7 +144,7 @@ const sectionConfig: Record<string, { icon: typeof Sparkles; label: string; colo
 
 const statusStyles: Record<string, { bg: string; text: string; border: string }> = {
   upcoming: { bg: 'rgba(245,158,11,0.08)', text: '#F59E0B', border: 'rgba(245,158,11,0.2)' },
-  current: { bg: 'rgba(6,182,212,0.08)', text: '#06B6D4', border: 'rgba(6,182,212,0.2)' },
+  current: { bg: 'rgba(199,146,62,0.08)', text: '#C7923E', border: 'rgba(199,146,62,0.2)' },
   released: { bg: 'rgba(255,255,255,0.04)', text: '#999999', border: 'rgba(255,255,255,0.06)' },
 };
 
@@ -161,7 +161,7 @@ export default function ChangelogPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#06B6D4]">Changelog /0.1</p>
+            <p className="section-label mb-6 text-[#C7923E]">Changelog /0.1</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
@@ -176,7 +176,7 @@ export default function ChangelogPageClient() {
           <FadeIn delay={0.3}>
             <div className="flex items-center gap-4 text-[13px]">
               <span className="text-[#666666]">Latest version:</span>
-              <span className="font-[family-name:var(--font-space-mono)] text-[#06B6D4] font-semibold">v0.1.1</span>
+              <span className="font-[family-name:var(--font-space-mono)] text-[#C7923E] font-semibold">v0.1.1</span>
               <span className="text-[#333333]">|</span>
               <Link href="/docs" className="text-[#999999] hover:text-white transition-colors nav-link">Back to docs</Link>
             </div>

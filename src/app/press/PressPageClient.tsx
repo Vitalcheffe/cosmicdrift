@@ -30,12 +30,7 @@ const pressReleases = [
     excerpt: 'Moroccan industrial conglomerate Harch Corp S.A. has unveiled a $2.4 billion investment pipeline spanning seven industrial verticals: AI data centers, renewable energy, cement, sovereign technology, strategic mining, precision agriculture, and water infrastructure. The pipeline spans 5 countries and targets 25,000+ jobs by 2030.',
     category: 'Corporate',
   },
-  {
-    date: 'January 5, 2026',
-    title: 'Aegis Defense: Counter-UAS System Outperforms 10 Global Competitors',
-    excerpt: 'Harch Corp\'s Aegis defense subsidiary has completed independent validation testing of its counter-unmanned aerial system (C-UAS), demonstrating superior detection range, intercept accuracy, and multi-target tracking capability against 10 competing systems from the US, Israel, and Europe.',
-    category: 'Aegis',
-  },
+
   {
     date: 'December 10, 2025',
     title: 'Harch Energy Secures 2GW Renewable Energy Pipeline in Morocco',

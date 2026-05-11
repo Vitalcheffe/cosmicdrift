@@ -67,11 +67,7 @@ const faqItems: FaqItem[] = [
     question: 'What is the Harch Cement project in Gambia?',
     answer: 'Harch Cement is building a 500,000 T/yr cement grinding station in Gambia — the country\'s first domestic cement production facility. The project has an IRR of 38.2%, payback period of 2.8 years, and 5-year ROI of 265%. Gambia currently imports 100% of its cement (~640,000 T/yr), and new 500% import duties on bagged cement give local producers a massive competitive advantage. The facility creates 85-120 permanent direct jobs and 200-300 indirect jobs, with 80% Gambian staff target. Total CAPEX is $10.5M, with commercial production starting in Q1 2028.',
   },
-  {
-    category: 'Technology',
-    question: 'What is Aegis Defense Systems?',
-    answer: 'Aegis is Harch Corp\'s counter-UAS (Unmanned Aerial System) defense technology. It provides real-time detection, tracking, and neutralization of hostile drone swarms at a cost of $4,200 per unit — 6-8x cheaper than competitors like DroneShield ($25,000-35,000). Aegis processes at 50 Hz (10-50x faster than competitors), tracks 500 drones simultaneously, and features an exclusive Byzantine MAD filter for sensor fault tolerance. The global counter-UAS market is projected to grow from $2.5-5.1B in 2025 to $14.5-28B by 2030-2032 (20-26.5% CAGR).',
-  },
+
 ];
 
 const categories = ['All', 'Company', 'Technology', 'Investment', 'Infrastructure', 'ESG'];

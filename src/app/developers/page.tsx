@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     title: 'Developer Center — Build on HarchOS',
     description: 'SDKs, CLI tools, API playground, and documentation for building on sovereign AI infrastructure.',
   },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/developers',
+  },
 };
 
 export default function DevelopersPage() {

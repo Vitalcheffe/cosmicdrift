@@ -4,6 +4,9 @@ import FaqPageClient from './FaqPageClient';
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
   description: 'Common questions about Harch Corp — our verticals, investment pipeline, technology, and how to partner with us.',
+  alternates: {
+    canonical: 'https://www.harchcorp.com/faq',
+  },
   openGraph: {
     title: 'FAQ | Harch Corp',
     description: 'Common questions about Harch Corp — our verticals, investment pipeline, technology, and how to partner with us.',

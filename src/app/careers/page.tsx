@@ -4,6 +4,9 @@ import CareersPageClient from './CareersPageClient';
 export const metadata: Metadata = {
   title: 'Careers — Harch Corp',
   description: "Join Harch Corp and build Africa's industrial future. Explore career opportunities across data centers, energy, technology, and more.",
+  alternates: {
+    canonical: 'https://www.harchcorp.com/careers',
+  },
 };
 
 export default function CareersPage() {

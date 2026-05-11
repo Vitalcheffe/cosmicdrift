@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     description: '5 hubs. 250MW. 100% renewable. The distributed AI compute mesh that powers Africa\'s sovereign intelligence.',
     images: ['/images/intelligence/harchos-hero.png'],
   },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/intelligence/harchos',
+  },
 };
 
 export default function HarchOSPage() {

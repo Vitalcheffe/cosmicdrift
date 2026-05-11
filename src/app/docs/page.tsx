@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     'distributed compute mesh',
     'developer docs',
   ],
+  alternates: {
+    canonical: 'https://www.harchcorp.com/docs',
+  },
   openGraph: {
     title: 'Documentation — HarchOS Platform Docs',
     description: 'Everything you need to build on HarchOS. API reference, SDKs, architecture guides, and quickstart tutorials for sovereign AI infrastructure.',

@@ -11,6 +11,7 @@ const verticalLinks = [
   { name: 'Mining', version: '/0.5', href: '/subsidiaries/mining' },
   { name: 'Agri', version: '/0.6', href: '/subsidiaries/agriculture' },
   { name: 'Water', version: '/0.7', href: '/subsidiaries/water' },
+  { name: 'Finance', version: '/0.8', href: '/subsidiaries/finance' },
   { name: 'Aegis', version: '/0.9', href: '/aegis' },
 ];
 

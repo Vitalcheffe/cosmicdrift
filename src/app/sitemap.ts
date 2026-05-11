@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'mining',
     'agriculture',
     'water',
+    'finance',
   ];
 
   const staticPages = [

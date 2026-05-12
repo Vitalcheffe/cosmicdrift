@@ -2,8 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowRight, Cpu, Server, Zap, Globe, Shield, BarChart3 } from 'lucide-react';
+import { ArrowRight, Cpu, Server, Zap } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -33,7 +32,7 @@ const products = [
     href: '/subsidiaries/intelligence',
     desc: '1,798 Carbon-Optimized GPUs across 5 hubs with carbon-aware scheduling, submarine cable connectivity, and sovereign security framework.',
     icon: Server,
-    color: '#8B5CF6',
+    color: '#8B9DAF',
   },
   {
     name: 'Green GPU Cloud',
@@ -42,7 +41,7 @@ const products = [
     href: '/subsidiaries/intelligence',
     desc: 'GPU-as-a-Service 100% powered by renewable energy. H100/A100 clusters with carbon-aware scheduling (~47 gCO2/kWh), sovereign data residency, and pricing from $1.40-$2.35/gpu-hr.',
     icon: Zap,
-    color: '#10B981',
+    color: '#8B9DAF',
   },
 ];
 
@@ -65,7 +64,7 @@ export default function IntelligencePageClient() {
         </div>
       </section>
 
-      {/* Products */}
+      {/* Products — Pattern 1: Explore Solutions Cards */}
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
@@ -75,29 +74,43 @@ export default function IntelligencePageClient() {
             </h2>
           </FadeIn>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {products.map((product, i) => (
-              <FadeIn key={product.name} delay={i * 0.08}>
-                <Link href={product.href} className="vertical-row group block p-6 md:p-8 cursor-pointer">
-                  <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                    <div className="flex items-center gap-4 shrink-0">
-                      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${product.color}12` }}>
-                        <product.icon size={20} style={{ color: product.color }} />
-                      </div>
-                      <div>
-                        <div className="flex items-baseline gap-3">
-                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#CCCCCC] transition-colors">{product.name}</h3>
-                          <span className="version-tag">{product.version}</span>
-                        </div>
-                        <p className="text-[12px] font-semibold" style={{ color: product.color }}>{product.tag}</p>
+              <FadeIn key={product.name} delay={i * 0.1}>
+                <div className="bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg p-6 md:p-8 hover:border-[rgba(255,255,255,0.12)] transition-all duration-500">
+                  <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+                    {/* Icon + header */}
+                    <div className="shrink-0">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-[rgba(139,157,175,0.08)]">
+                        <product.icon size={22} className="text-[#8B9DAF]" />
                       </div>
                     </div>
+                    {/* Content */}
                     <div className="flex-1">
-                      <p className="text-[14px] text-[#999999] leading-relaxed">{product.desc}</p>
+                      <div className="flex items-baseline gap-3 mb-1">
+                        <h3 className="text-xl md:text-[20px] font-bold text-white">{product.name}</h3>
+                        <span className="version-tag">{product.version}</span>
+                      </div>
+                      <p className="text-[12px] font-semibold text-[#8B9DAF] tracking-[0.05em] uppercase mb-4">{product.tag}</p>
+                      <p className="text-[14px] text-[#999999] leading-relaxed mb-6">{product.desc}</p>
+                      {/* Pattern 1: Two buttons side by side */}
+                      <div className="flex flex-wrap gap-3">
+                        <Link
+                          href={product.href}
+                          className="inline-flex items-center gap-2 border border-white/12 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all"
+                        >
+                          Watch Demo
+                        </Link>
+                        <Link
+                          href={product.href}
+                          className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all"
+                        >
+                          Get Started <ArrowRight size={14} />
+                        </Link>
+                      </div>
                     </div>
-                    <ArrowRight size={16} className="vertical-arrow text-[rgba(255,255,255,0.1)] group-hover:text-white transition-all shrink-0 mt-2" />
                   </div>
-                </Link>
+                </div>
               </FadeIn>
             ))}
           </div>

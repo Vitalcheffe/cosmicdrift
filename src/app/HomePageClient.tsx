@@ -98,9 +98,9 @@ const operatorPrinciples = [
 ];
 
 const newsArticles = [
-  { title: 'Harch Intelligence Deploys 1,798 GPUs Across 5 Carbon-Optimized Hubs', date: 'March 2026', tag: 'Intelligence' },
-  { title: 'Harch Energy Reaches 2GW+ Renewable Pipeline Milestone', date: 'February 2026', tag: 'Energy' },
-  { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'January 2026', tag: 'Corporate' },
+  { title: 'Harch Intelligence Deploys 1,798 GPUs Across 5 Carbon-Optimized Hubs', date: 'March 2026', tag: 'Intelligence', desc: 'The largest sovereign AI compute deployment in Africa — carbon-aware scheduling, renewable energy, and zero foreign dependency.', image: '/images/sections/intelligence-gpu-cluster.jpg' },
+  { title: 'Harch Energy Reaches 2GW+ Renewable Pipeline Milestone', date: 'February 2026', tag: 'Energy', desc: 'Solar, wind, and green hydrogen projects across Morocco and the Sahel now exceed 2GW in combined capacity.', image: '/images/sections/energy-solar-farm.jpg' },
+  { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'January 2026', tag: 'Corporate', desc: 'A milestone in sovereign infrastructure development — the largest private industrial investment in African history.', image: '/images/sections/overview-casablanca.jpg' },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -278,57 +278,52 @@ export default function HomePageClient() {
             </div>
           </FadeIn>
 
-          {/* Card Grid — 4 col desktop, 2 tablet, 1 mobile */}
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" staggerDelay={0.08}>
+          {/* Card Grid — Pattern 1: Explore Solutions, 2 col desktop */}
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16" staggerDelay={0.08}>
             {verticals.map((v) => (
               <StaggerItem key={v.version}>
-                <Link href={v.href} className="group block">
-                  <Card3D className="bg-[#141414] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(255,255,255,0.12)] transition-all duration-500 p-0">
-                    {/* Image header */}
-                    <div className="relative h-[140px] md:h-[160px] overflow-hidden">
-                      <Image
-                        src={v.image}
-                        alt={v.fullName}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent" />
-                      {/* Version tag */}
-                      <div className="absolute top-3 left-3">
-                        <span
-                          className="px-2 py-1 rounded text-[9px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] bg-[rgba(0,0,0,0.5)] backdrop-blur-md"
-                          style={{ color: v.accent, border: `1px solid ${v.accent}30` }}
-                        >
-                          {v.version}
-                        </span>
-                      </div>
-                      {/* Stat badge */}
-                      <div className="absolute top-3 right-3">
-                        <span className="px-2.5 py-1 rounded text-[10px] font-bold tracking-[0.1em] stat-mono bg-[rgba(0,0,0,0.5)] text-white/70 backdrop-blur-md border border-[rgba(255,255,255,0.06)]">
-                          {v.stat}
-                        </span>
-                      </div>
+                <div className="bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-[8px] overflow-hidden hover:border-[rgba(255,255,255,0.12)] transition-all duration-500">
+                  {/* Full-width image at top */}
+                  <div className="relative h-[180px] md:h-[200px] overflow-hidden">
+                    <Image
+                      src={v.image}
+                      alt={v.fullName}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                    />
+                  </div>
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-[20px] font-bold text-white">{v.name}</h3>
+                      <span
+                        className="version-tag"
+                        style={{ color: v.accent }}
+                      >
+                        {v.version}
+                      </span>
                     </div>
-                    {/* Text content */}
-                    <div className="p-5">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: v.accent }} />
-                        <h3 className="text-base font-bold text-white tracking-tight">{v.name}</h3>
-                      </div>
-                      <p className="text-[13px] text-[rgba(255,255,255,0.45)] leading-relaxed mb-3 line-clamp-2">
-                        {v.desc}
-                      </p>
-                      {/* CTA */}
-                      <div className="pt-3 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
-                        <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]" style={{ color: `${v.accent}90` }}>
-                          Explore
-                        </span>
-                        <ArrowRight size={12} className="text-[rgba(255,255,255,0.25)] group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </div>
+                    <p className="text-[14px] text-[#999999] leading-relaxed mb-4 line-clamp-2">
+                      {v.desc}
+                    </p>
+                    {/* Pattern 1: Two buttons side by side */}
+                    <div className="flex gap-3">
+                      <Link
+                        href={v.href}
+                        className="inline-flex items-center gap-2 border border-white/12 text-white px-5 py-2.5 rounded-[8px] text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all"
+                      >
+                        Explore
+                      </Link>
+                      <Link
+                        href={v.href}
+                        className="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-[8px] text-sm font-semibold hover:bg-white/90 transition-all"
+                      >
+                        Learn More
+                      </Link>
                     </div>
-                  </Card3D>
-                </Link>
+                  </div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -546,25 +541,22 @@ export default function HomePageClient() {
             </h2>
           </FadeIn>
 
-          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.12}>
-            {stats.map((stat) => (
-              <StaggerItem key={stat.label}>
-                <Card3D className="card p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <PulseIndicator size={5} speed={3} color="#8B9DAF" />
-                    <span className="text-[8px] font-bold tracking-[0.15em] uppercase text-[rgba(139,157,175,0.7)] font-[family-name:var(--font-space-mono)]">LIVE</span>
-                  </div>
-                  <p className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight leading-none mb-2 stat-mono">
+          {/* Pattern 6: Large Stat Displays — 2x2 grid */}
+          <div className="grid grid-cols-2 gap-x-12 gap-y-10 md:gap-y-14">
+            {stats.map((stat, i) => (
+              <FadeIn key={stat.label} delay={i * 0.1}>
+                <div className="pb-6 border-b border-[rgba(255,255,255,0.04)]">
+                  <p className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white tracking-tight leading-none mb-4 stat-mono">
                     <CountUp to={stat.value} prefix={stat.prefix} suffix={stat.suffix} duration={2.5} />
                   </p>
-                  <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-1">
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-2">
                     {stat.label}
                   </p>
                   <p className="text-[13px] text-[rgba(255,255,255,0.35)] leading-relaxed">{stat.desc}</p>
-                </Card3D>
-              </StaggerItem>
+                </div>
+              </FadeIn>
             ))}
-          </StaggerContainer>
+          </div>
 
           <FadeIn delay={0.4}>
             <p className="mt-8 text-[11px] text-[rgba(255,255,255,0.25)] italic">
@@ -592,44 +584,40 @@ export default function HomePageClient() {
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <div className="bg-[#141414] rounded-lg border border-[rgba(255,255,255,0.06)] overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="data-table">
-                  <thead>
-                    <tr>
-                      <th>Vertical</th>
-                      <th>Investment</th>
-                      <th>Capacity</th>
-                      <th>Timeline</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {investmentTable.map((row, i) => (
-                      <motion.tr
-                        key={row.vertical}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.06, duration: 0.4 }}
-                        className="hover:bg-[rgba(255,255,255,0.02)] transition-colors"
-                      >
-                        <td>{row.vertical}</td>
-                        <td className="font-semibold">{row.investment}</td>
-                        <td>{row.capacity}</td>
-                        <td>{row.timeline}</td>
-                        <td>
-                          <span className={`status-badge ${getStatusBadgeClass(row.status)}`}>
-                            <span className="w-1.5 h-1.5 rounded-full bg-current" />
-                            {row.status}
-                          </span>
-                        </td>
-                      </motion.tr>
-                    ))}
-                  </tbody>
-                </table>
+            <div className="bg-[#111111] rounded-lg border border-[rgba(255,255,255,0.06)] overflow-hidden">
+              {/* Header divider */}
+              <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.06)]">
+                <div className="grid grid-cols-[1fr_120px_180px_80px_auto] gap-4">
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Vertical</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Investment</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)] hidden md:block">Capacity</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Timeline</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Status</span>
+                </div>
               </div>
-              <div className="px-6 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)]">
+              {/* Rows — Pattern 2: Vertical List */}
+              {investmentTable.map((row, i) => (
+                <motion.div
+                  key={row.vertical}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06, duration: 0.4 }}
+                  className="px-6 py-4 border-b border-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.02)] transition-colors"
+                >
+                  <div className="grid grid-cols-[1fr_120px_180px_80px_auto] gap-4 items-center">
+                    <span className="text-[14px] font-semibold text-white">{row.vertical}</span>
+                    <span className="text-[14px] font-semibold text-white stat-mono">{row.investment}</span>
+                    <span className="text-[13px] text-[#999999] hidden md:block">{row.capacity}</span>
+                    <span className="text-[13px] text-[#999999] stat-mono">{row.timeline}</span>
+                    <span className={`status-badge ${getStatusBadgeClass(row.status)}`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                      {row.status}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+              <div className="px-6 py-4 bg-[rgba(255,255,255,0.01)]">
                 <p className="text-[11px] text-[rgba(255,255,255,0.25)]">Total investment pipeline: $2.4B+ across 7 verticals. Data as of Q1 2026.</p>
               </div>
             </div>
@@ -1186,11 +1174,31 @@ export default function HomePageClient() {
             {newsArticles.map((article, i) => (
               <StaggerItem key={i}>
                 <Link href="/newsroom" className="group block">
-                  <Card3D className="card h-full">
-                    <span className="inline-block px-2.5 py-1 rounded-md bg-[rgba(255,255,255,0.04)] text-[9px] font-bold tracking-[0.12em] uppercase text-[rgba(255,255,255,0.4)] mb-3">{article.tag}</span>
-                    <h3 className="text-sm font-bold text-[rgba(255,255,255,0.7)] leading-snug mb-3 group-hover:text-white transition-colors">{article.title}</h3>
-                    <p className="text-[11px] text-[rgba(255,255,255,0.25)] tracking-wide">{article.date}</p>
-                  </Card3D>
+                  <div className="bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-[8px] overflow-hidden hover:border-[rgba(255,255,255,0.12)] transition-all duration-500">
+                    {/* Pattern 5: Image with text overlay at bottom */}
+                    <div className="relative h-[180px] overflow-hidden">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <span className="inline-block px-2 py-0.5 rounded text-[9px] font-bold tracking-[0.12em] uppercase text-white/70 bg-[rgba(0,0,0,0.5)] mb-1.5">{article.tag}</span>
+                        <h4 className="text-[14px] font-bold text-white leading-snug">{article.title}</h4>
+                        <p className="text-[12px] text-white/70 mt-0.5">{article.date}</p>
+                      </div>
+                    </div>
+                    {/* Below image */}
+                    <div className="p-5">
+                      <p className="text-[14px] text-[#999999] leading-relaxed mb-4 line-clamp-2">{article.desc}</p>
+                      <span className="text-[12px] text-[#8B9DAF] font-semibold flex items-center gap-1 group-hover:text-white transition-colors">
+                        Read More <ArrowRight size={12} />
+                      </span>
+                    </div>
+                  </div>
                 </Link>
               </StaggerItem>
             ))}

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Lock } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -34,11 +34,11 @@ export default function InvestorsPageClient() {
         </div>
       </section>
 
-      {/* Statement */}
+      {/* Statement — Pattern 4: Impact Study divider */}
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <div className="border-l-2 border-[rgba(139,157,175,0.3)] pl-8 md:pl-12 mb-16">
+            <div className="border-l-2 border-[rgba(139,157,175,0.3)] pl-8 md:pl-12 mb-8 pb-8 border-b border-[rgba(255,255,255,0.04)]">
               <p className="text-[20px] md:text-[24px] text-white leading-[1.6] font-light">
                 Institutional investors may request a briefing.
               </p>
@@ -46,7 +46,7 @@ export default function InvestorsPageClient() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="space-y-6 max-w-2xl">
+            <div className="space-y-6 max-w-2xl mt-8">
               <p className="text-[15px] text-[#999999] leading-[1.8]">
                 Harch Corp operates across eight verticals — intelligence, cement, energy, technology, mining, agriculture, water, and finance — with a combined investment pipeline exceeding $2.4 billion. Our vertically integrated model creates structural cost advantages that compound over time.
               </p>
@@ -61,13 +61,13 @@ export default function InvestorsPageClient() {
         </div>
       </section>
 
-      {/* Key Figures */}
+      {/* Key Figures — Pattern 6: Large Stat Display */}
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-10">Selected Figures</p>
+            <p className="section-label mb-12">Selected Figures</p>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
             {[
               { value: '$2.4B+', label: 'Investment Pipeline' },
               { value: '8', label: 'Verticals' },
@@ -75,9 +75,9 @@ export default function InvestorsPageClient() {
               { value: '20-25%', label: 'Weighted IRR' },
             ].map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.08}>
-                <div>
-                  <p className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-none mb-2">{stat.value}</p>
-                  <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-[#666666]">{stat.label}</p>
+                <div className="pb-8 border-b border-[rgba(255,255,255,0.04)]">
+                  <p className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white tracking-tight leading-none mb-4 stat-mono">{stat.value}</p>
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666]">{stat.label}</p>
                 </div>
               </FadeIn>
             ))}
@@ -85,26 +85,29 @@ export default function InvestorsPageClient() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 md:py-28 bg-[#121212]">
-        <div className="max-w-[900px] mx-auto px-6 md:px-12">
+      {/* CTA — Pattern 7: "There is so much left to build" style */}
+      <section className="py-28 md:py-36 bg-[#0D0D0D] relative overflow-hidden">
+        <div className="absolute inset-0 dot-pattern opacity-100" />
+        <div className="relative z-10 max-w-[900px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <div className="card p-8 md:p-12">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Request a Briefing</h3>
-              <p className="text-[14px] text-[#999999] leading-[1.7] mb-8 max-w-lg">
-                All investor inquiries are processed through our secure intake system. Provide your institutional details and our IR team will respond within 48 hours.
-              </p>
-              <div className="flex flex-col sm:flex-row items-start gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all"
-                >
-                  Request Briefing <ArrowRight size={14} />
-                </Link>
-                <span className="text-[11px] text-[#666666] flex items-center gap-2 py-4">
-                  <Lock size={10} /> Encrypted channel
-                </span>
-              </div>
+            <h2 className="text-[clamp(1.5rem,4vw,2rem)] font-bold text-white tracking-tight mb-12 leading-tight">
+              Ready to Build Sovereign Infrastructure?
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all"
+              >
+                Request Briefing <ArrowRight size={14} />
+              </Link>
+              <Link
+                href="/trust/security"
+                className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all"
+              >
+                View Trust Center
+              </Link>
             </div>
           </FadeIn>
         </div>

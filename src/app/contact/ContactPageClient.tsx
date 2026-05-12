@@ -126,37 +126,46 @@ export default function ContactPageClient() {
         </div>
       </section>
 
-      {/* Inquiry Type Selector */}
+      {/* Inquiry Type Selector — Pattern 2: Vertical List Rows */}
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-8">Select Inquiry Type</p>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          {/* 1px white divider between header and list */}
+          <div className="h-px bg-[rgba(255,255,255,0.06)] mb-2" />
+
+          <div>
             {inquiryTypes.map((type, i) => (
-              <FadeIn key={type.id} delay={i * 0.08}>
+              <FadeIn key={type.id} delay={i * 0.06}>
                 <button
                   onClick={() => setSelectedType(type.id)}
-                  className={`w-full text-left p-6 rounded-xl border transition-all duration-300 h-full ${
+                  className={`w-full text-left py-5 px-4 md:px-6 border-b border-[rgba(255,255,255,0.04)] transition-all duration-300 flex items-center gap-4 md:gap-6 ${
                     selectedType === type.id
-                      ? 'bg-[rgba(255,255,255,0.04)] border-[rgba(139,157,175,0.25)]'
-                      : 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.12)] hover:bg-[rgba(255,255,255,0.03)]'
+                      ? 'border-l-2 border-l-[#8B9DAF] bg-[rgba(255,255,255,0.02)]'
+                      : 'border-l-2 border-l-transparent hover:bg-[rgba(255,255,255,0.02)]'
                   }`}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                      selectedType === type.id
-                        ? 'bg-[rgba(139,157,175,0.08)]'
-                        : 'bg-[rgba(255,255,255,0.06)]'
-                    }`}>
-                      <type.icon size={18} className={selectedType === type.id ? 'text-[#8B9DAF]' : 'text-white'} strokeWidth={1.5} />
-                    </div>
-                    <span className="text-[9px] font-bold tracking-[0.12em] text-[#666666] font-[family-name:var(--font-space-mono)]">[{type.code}]</span>
+                  {/* Icon */}
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
+                    selectedType === type.id
+                      ? 'bg-[rgba(139,157,175,0.08)]'
+                      : 'bg-[rgba(255,255,255,0.04)]'
+                  }`}>
+                    <type.icon size={18} className={selectedType === type.id ? 'text-[#8B9DAF]' : 'text-[#666666]'} strokeWidth={1.5} />
                   </div>
-                  <h3 className={`text-[15px] font-bold mb-2 ${selectedType === type.id ? 'text-white' : 'text-[#999999]'}`}>
-                    {type.label}
-                  </h3>
-                  <p className="text-[12px] text-[#666666] leading-relaxed">{type.desc}</p>
+                  {/* Text */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3 mb-1">
+                      <h3 className={`text-[15px] font-bold ${selectedType === type.id ? 'text-white' : 'text-[#999999]'}`}>
+                        {type.label}
+                      </h3>
+                    </div>
+                    <p className="text-[12px] text-[#666666] leading-relaxed">{type.desc}</p>
+                  </div>
+                  {/* Code tag */}
+                  <span className="text-[9px] font-bold tracking-[0.12em] text-[#666666] font-[family-name:var(--font-space-mono)] shrink-0">[{type.code}]</span>
                 </button>
               </FadeIn>
             ))}
@@ -164,7 +173,7 @@ export default function ContactPageClient() {
         </div>
       </section>
 
-      {/* Secure Briefing Form */}
+      {/* Secure Briefing Form — Pattern 3: Clean Form */}
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
@@ -206,76 +215,108 @@ export default function ContactPageClient() {
                     <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">[{selectedInquiry?.code}]</span>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#666666] mb-2">Full Name</label>
-                        <input
-                          type="text"
-                          required
-                          value={formState.name}
-                          onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                          className="w-full px-4 py-3 bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors"
-                          placeholder="Your name"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#666666] mb-2">Email Address</label>
-                        <input
-                          type="email"
-                          required
-                          value={formState.email}
-                          onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                          className="w-full px-4 py-3 bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors"
-                          placeholder="secure@domain.com"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#666666] mb-2">Organization</label>
-                        <input
-                          type="text"
-                          required
-                          value={formState.organization}
-                          onChange={(e) => setFormState({ ...formState, organization: e.target.value })}
-                          className="w-full px-4 py-3 bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors"
-                          placeholder="Organization name"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#666666] mb-2">Designation</label>
-                        <input
-                          type="text"
-                          value={formState.designation}
-                          onChange={(e) => setFormState({ ...formState, designation: e.target.value })}
-                          className="w-full px-4 py-3 bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors"
-                          placeholder="Title / Role"
-                        />
-                      </div>
-                    </div>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Section: Personal Information */}
                     <div>
-                      <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#666666] mb-2">Country</label>
-                      <input
-                        type="text"
-                        value={formState.country}
-                        onChange={(e) => setFormState({ ...formState, country: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors"
-                        placeholder="Country of operation"
-                      />
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Personal Information</p>
+                      <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
+                            Full Name <span className="text-[#A0524B]">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={formState.name}
+                            onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                            className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
+                            placeholder="Your name"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
+                            Email Address <span className="text-[#A0524B]">*</span>
+                          </label>
+                          <input
+                            type="email"
+                            required
+                            value={formState.email}
+                            onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                            className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
+                            placeholder="secure@domain.com"
+                          />
+                        </div>
+                      </div>
                     </div>
+
+                    {/* Section: Organization */}
                     <div>
-                      <label className="block text-[11px] font-bold tracking-[0.1em] uppercase text-[#666666] mb-2">Briefing Description</label>
-                      <textarea
-                        required
-                        rows={5}
-                        value={formState.message}
-                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-lg text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors resize-none"
-                        placeholder="Describe the nature of your inquiry. Be as specific as possible."
-                      />
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Organization</p>
+                      <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
+                            Organization <span className="text-[#A0524B]">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={formState.organization}
+                            onChange={(e) => setFormState({ ...formState, organization: e.target.value })}
+                            className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
+                            placeholder="Organization name"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
+                            Designation
+                          </label>
+                          <input
+                            type="text"
+                            value={formState.designation}
+                            onChange={(e) => setFormState({ ...formState, designation: e.target.value })}
+                            className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
+                            placeholder="Title / Role"
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-start gap-3">
+
+                    {/* Section: Details */}
+                    <div>
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Briefing Details</p>
+                      <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
+                      <div className="space-y-6">
+                        <div>
+                          <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
+                            Country
+                          </label>
+                          <input
+                            type="text"
+                            value={formState.country}
+                            onChange={(e) => setFormState({ ...formState, country: e.target.value })}
+                            className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
+                            placeholder="Country of operation"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
+                            Briefing Description <span className="text-[#A0524B]">*</span>
+                          </label>
+                          <textarea
+                            required
+                            rows={5}
+                            value={formState.message}
+                            onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                            className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors resize-none placeholder:text-[#333333]"
+                            placeholder="Describe the nature of your inquiry. Be as specific as possible."
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 pt-2">
                       <input
                         type="checkbox"
                         checked={formState.nda}
@@ -307,7 +348,7 @@ export default function ContactPageClient() {
                       </div>
                     )}
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 pt-2">
                       <button
                         type="submit"
                         className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all"

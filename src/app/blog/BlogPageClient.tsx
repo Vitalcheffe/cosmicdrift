@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Calendar, Clock, Mail, Rss, PenLine, Search, Code2, Brain, Building2, Zap, Wheat, Cpu } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
@@ -36,6 +37,7 @@ interface BlogPost {
   readTime: string;
   slug: string;
   featured?: boolean;
+  image: string;
 }
 
 const blogPosts: BlogPost[] = [
@@ -47,6 +49,7 @@ const blogPosts: BlogPost[] = [
     readTime: '14 min read',
     slug: 'sovereign-ai-infrastructure-21st-century',
     featured: true,
+    image: '/images/sections/intelligence-server-room.jpg',
   },
   {
     title: 'Building HarchOS: Architecture Decisions Behind Africa\'s Sovereign Compute Platform',
@@ -55,6 +58,7 @@ const blogPosts: BlogPost[] = [
     category: 'Engineering',
     readTime: '18 min read',
     slug: 'building-harchos-architecture-decisions',
+    image: '/images/intelligence/harchos-architecture.png',
   },
   {
     title: 'The Economics of Renewable-Powered Data Centers in North Africa',
@@ -63,6 +67,7 @@ const blogPosts: BlogPost[] = [
     category: 'Infrastructure',
     readTime: '12 min read',
     slug: 'economics-renewable-data-centers-north-africa',
+    image: '/images/sections/energy-solar-farm.jpg',
   },
   {
     title: 'How We Achieved 23% Water Loss Reduction with AI-Optimized Distribution',
@@ -71,6 +76,7 @@ const blogPosts: BlogPost[] = [
     category: 'AI & ML',
     readTime: '10 min read',
     slug: '23-percent-water-loss-reduction-ai',
+    image: '/images/sections/water-control-room.jpg',
   },
   {
     title: 'From Raw Ore to Refined Value: Our Model for African Mineral Processing',
@@ -79,6 +85,7 @@ const blogPosts: BlogPost[] = [
     category: 'Company',
     readTime: '9 min read',
     slug: 'raw-ore-to-refined-value-african-mineral-processing',
+    image: '/images/sections/mining-processing.jpg',
   },
   {
     title: 'Training African Language Models: Challenges and Breakthroughs',
@@ -87,6 +94,7 @@ const blogPosts: BlogPost[] = [
     category: 'AI & ML',
     readTime: '16 min read',
     slug: 'training-african-language-models-challenges-breakthroughs',
+    image: '/images/sections/intelligence-gpu-cluster.jpg',
   },
   {
     title: 'The Green Hydrogen Play: Morocco\'s Strategic Position in the European Energy Transition',
@@ -95,6 +103,7 @@ const blogPosts: BlogPost[] = [
     category: 'Energy',
     readTime: '11 min read',
     slug: 'green-hydrogen-morocco-european-energy-transition',
+    image: '/images/sections/energy-hydrogen.jpg',
   },
   {
     title: 'Precision Agriculture at Scale: Lessons from 5,000 Hectares in Senegal',
@@ -103,6 +112,7 @@ const blogPosts: BlogPost[] = [
     category: 'Agriculture',
     readTime: '13 min read',
     slug: 'precision-agriculture-scale-senegal-5000-hectares',
+    image: '/images/sections/agri-precision.jpg',
   },
 ];
 
@@ -166,35 +176,51 @@ export default function BlogPageClient() {
               <p className="section-label mb-6 text-[#8B9DAF]">Featured</p>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <div className="relative card p-8 md:p-12 lg:p-16 overflow-hidden group cursor-pointer">
-                <div className="absolute top-0 left-0 w-1 h-full bg-[#8B9DAF]" />
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-6">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
-                        {(() => { const Icon = categoryIcons[featuredPost.category]; return Icon ? <Icon size={10} /> : null; })()}
-                        {featuredPost.category}
-                      </span>
-                      <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
-                        <Calendar size={10} />{featuredPost.date}
-                      </span>
-                      <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
-                        <Clock size={10} />{featuredPost.readTime}
+              <Link href={`/blog/${featuredPost.slug}`} className="block relative card overflow-hidden group cursor-pointer">
+                {/* Featured Image */}
+                {featuredPost.image && (
+                  <div className="relative w-full aspect-[21/9] overflow-hidden">
+                    <Image
+                      src={featuredPost.image}
+                      alt={featuredPost.title}
+                      fill
+                      className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 1400px"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/60 to-transparent" />
+                  </div>
+                )}
+                <div className="p-8 md:p-12 lg:p-16">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#8B9DAF]" />
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-6">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
+                          {(() => { const Icon = categoryIcons[featuredPost.category]; return Icon ? <Icon size={10} /> : null; })()}
+                          {featuredPost.category}
+                        </span>
+                        <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
+                          <Calendar size={10} />{featuredPost.date}
+                        </span>
+                        <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
+                          <Clock size={10} />{featuredPost.readTime}
+                        </span>
+                      </div>
+                      <h2 className="text-2xl md:text-3xl lg:text-[40px] font-bold text-white tracking-tight mb-5 leading-[1.15] group-hover:text-[#CCCCCC] transition-colors">
+                        {featuredPost.title}
+                      </h2>
+                      <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredPost.excerpt}</p>
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
+                        Read Article <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-3xl lg:text-[40px] font-bold text-white tracking-tight mb-5 leading-[1.15] group-hover:text-[#CCCCCC] transition-colors">
-                      {featuredPost.title}
-                    </h2>
-                    <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredPost.excerpt}</p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
-                      Read Article <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </div>
-                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] shrink-0">
-                    <ArrowUpRight size={24} className="text-[#8B9DAF] group-hover:text-white transition-colors" />
+                    <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] shrink-0">
+                      <ArrowUpRight size={24} className="text-[#8B9DAF] group-hover:text-white transition-colors" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </FadeIn>
           </div>
         </section>
@@ -215,25 +241,39 @@ export default function BlogPageClient() {
               const Icon = categoryIcons[post.category];
               return (
                 <FadeIn key={post.slug} delay={i * 0.06}>
-                  <div className="card p-6 h-full flex flex-col group cursor-pointer">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
-                        {Icon ? <Icon size={10} /> : null}
-                        {post.category}
-                      </span>
-                      <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{post.readTime}</span>
+                  <Link href={`/blog/${post.slug}`} className="block card overflow-hidden h-full flex flex-col group cursor-pointer">
+                    {/* Thumbnail */}
+                    {post.image && (
+                      <div className="relative w-full aspect-video overflow-hidden">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      </div>
+                    )}
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
+                          {Icon ? <Icon size={10} /> : null}
+                          {post.category}
+                        </span>
+                        <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{post.readTime}</span>
+                      </div>
+                      <h3 className="text-[16px] md:text-[18px] font-bold text-white group-hover:text-[#CCCCCC] transition-colors mb-3 leading-snug flex-1">
+                        {post.title}
+                      </h3>
+                      <p className="text-[13px] text-[#999999] leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
+                      <div className="flex items-center justify-between mt-auto pt-4 border-t border-[rgba(255,255,255,0.04)]">
+                        <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)] flex items-center gap-1">
+                          <Calendar size={9} />{post.date}
+                        </span>
+                        <ArrowRight size={14} className="text-[rgba(255,255,255,0.15)] group-hover:text-white group-hover:translate-x-1 transition-all" />
+                      </div>
                     </div>
-                    <h3 className="text-[16px] md:text-[18px] font-bold text-white group-hover:text-[#CCCCCC] transition-colors mb-3 leading-snug flex-1">
-                      {post.title}
-                    </h3>
-                    <p className="text-[13px] text-[#999999] leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
-                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-[rgba(255,255,255,0.04)]">
-                      <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)] flex items-center gap-1">
-                        <Calendar size={9} />{post.date}
-                      </span>
-                      <ArrowRight size={14} className="text-[rgba(255,255,255,0.15)] group-hover:text-white group-hover:translate-x-1 transition-all" />
-                    </div>
-                  </div>
+                  </Link>
                 </FadeIn>
               );
             })}

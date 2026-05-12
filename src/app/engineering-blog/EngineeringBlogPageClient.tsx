@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Calendar, Clock, Terminal, Server, Brain, Shield, GitBranch, Network, Rss, Users, Cpu, Code2, Layers, Lock, Zap, Activity } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
@@ -36,6 +37,7 @@ interface EngPost {
   slug: string;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   featured?: boolean;
+  image: string;
 }
 
 const engPosts: EngPost[] = [
@@ -48,6 +50,7 @@ const engPosts: EngPost[] = [
     slug: 'inside-harchos-distributed-ai-operating-system',
     difficulty: 'Advanced',
     featured: true,
+    image: '/images/intelligence/harchos-dashboard.png',
   },
   {
     title: 'Designing the SENSE Layer: Real-Time Data Ingestion at 10M Events/Second',
@@ -57,6 +60,7 @@ const engPosts: EngPost[] = [
     readTime: '19 min read',
     slug: 'designing-sense-layer-real-time-ingestion',
     difficulty: 'Advanced',
+    image: '/images/intelligence/harchos-ops-center.png',
   },
   {
     title: 'Our GPU Scheduling Algorithm: Balancing Throughput and Fairness Across 1,798 GPUs',
@@ -66,6 +70,7 @@ const engPosts: EngPost[] = [
     readTime: '16 min read',
     slug: 'gpu-scheduling-algorithm-throughput-fairness',
     difficulty: 'Advanced',
+    image: '/images/intelligence/harchos-gpu-cluster.png',
   },
   {
     title: 'Zero-Trust Networking in Multi-Tenant AI Infrastructure',
@@ -75,6 +80,7 @@ const engPosts: EngPost[] = [
     readTime: '14 min read',
     slug: 'zero-trust-networking-multi-tenant-ai',
     difficulty: 'Intermediate',
+    image: '/images/sections/tech-cyber.jpg',
   },
   {
     title: 'From Terraform to Production: Our Infrastructure-as-Code Journey',
@@ -84,6 +90,7 @@ const engPosts: EngPost[] = [
     readTime: '12 min read',
     slug: 'terraform-to-production-iac-journey',
     difficulty: 'Intermediate',
+    image: '/images/intelligence/harchos-facility-night.png',
   },
   {
     title: 'Latency Optimization: How We Achieved Sub-12ms Inference for African Markets',
@@ -93,6 +100,7 @@ const engPosts: EngPost[] = [
     readTime: '15 min read',
     slug: 'latency-optimization-sub-12ms-inference-africa',
     difficulty: 'Advanced',
+    image: '/images/sections/intelligence-cable.jpg',
   },
 ];
 
@@ -172,45 +180,61 @@ export default function EngineeringBlogPageClient() {
               <p className="section-label mb-6 text-[#8B9DAF]">Featured Technical Deep-Dive</p>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <div className="relative card p-8 md:p-12 lg:p-16 overflow-hidden group cursor-pointer">
-                <div className="absolute top-0 left-0 w-1 h-full bg-[#8B9DAF]" />
-                {/* Code-style decorative element */}
-                <div className="absolute top-6 right-6 md:top-8 md:right-8 hidden md:block">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[rgba(239,68,68,0.5)]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[rgba(234,179,8,0.5)]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[rgba(34,197,94,0.5)]" />
+              <Link href={`/engineering-blog/${featuredPost.slug}`} className="block relative card overflow-hidden group cursor-pointer">
+                {/* Featured Image */}
+                {featuredPost.image && (
+                  <div className="relative w-full aspect-[21/9] overflow-hidden">
+                    <Image
+                      src={featuredPost.image}
+                      alt={featuredPost.title}
+                      fill
+                      className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 1400px"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/60 to-transparent" />
                   </div>
-                </div>
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-6">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
-                        <Network size={10} />{featuredPost.category}
-                      </span>
-                      <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md border text-[9px] font-bold tracking-[0.08em] uppercase ${difficultyColors[featuredPost.difficulty]}`}>
-                        {featuredPost.difficulty}
-                      </span>
-                      <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
-                        <Calendar size={10} />{featuredPost.date}
-                      </span>
-                      <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
-                        <Clock size={10} />{featuredPost.readTime}
+                )}
+                <div className="p-8 md:p-12 lg:p-16">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-[#8B9DAF]" />
+                  {/* Code-style decorative element */}
+                  <div className="absolute top-6 right-6 md:top-8 md:right-8 hidden md:block">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[rgba(239,68,68,0.5)]" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[rgba(234,179,8,0.5)]" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[rgba(34,197,94,0.5)]" />
+                    </div>
+                  </div>
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-6">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
+                          <Network size={10} />{featuredPost.category}
+                        </span>
+                        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md border text-[9px] font-bold tracking-[0.08em] uppercase ${difficultyColors[featuredPost.difficulty]}`}>
+                          {featuredPost.difficulty}
+                        </span>
+                        <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
+                          <Calendar size={10} />{featuredPost.date}
+                        </span>
+                        <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
+                          <Clock size={10} />{featuredPost.readTime}
+                        </span>
+                      </div>
+                      <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-white tracking-tight mb-5 leading-[1.15] group-hover:text-[#CCCCCC] transition-colors">
+                        {featuredPost.title}
+                      </h2>
+                      <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredPost.excerpt}</p>
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
+                        Read Technical Deep-Dive <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-3xl lg:text-[36px] font-bold text-white tracking-tight mb-5 leading-[1.15] group-hover:text-[#CCCCCC] transition-colors">
-                      {featuredPost.title}
-                    </h2>
-                    <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredPost.excerpt}</p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
-                      Read Technical Deep-Dive <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </div>
-                  <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] shrink-0">
-                    <Terminal size={24} className="text-[#8B9DAF] group-hover:text-white transition-colors" />
+                    <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] shrink-0">
+                      <Terminal size={24} className="text-[#8B9DAF] group-hover:text-white transition-colors" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </FadeIn>
           </div>
         </section>
@@ -231,27 +255,32 @@ export default function EngineeringBlogPageClient() {
               const Icon = engCategoryIcons[post.category];
               return (
                 <FadeIn key={post.slug} delay={i * 0.04}>
-                  <div className="vertical-row group block p-6 md:p-8 cursor-pointer">
+                  <Link href={`/engineering-blog/${post.slug}`} className="block vertical-row group p-6 md:p-8 cursor-pointer">
                     <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                      <div className="flex items-center gap-4 shrink-0">
-                        <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
-                          {Icon ? <Icon size={18} className="text-white" strokeWidth={1.5} /> : <Code2 size={18} className="text-white" strokeWidth={1.5} />}
+                      {/* Thumbnail */}
+                      {post.image && (
+                        <div className="relative w-full md:w-48 lg:w-56 shrink-0 aspect-video rounded-lg overflow-hidden border border-[rgba(255,255,255,0.06)]">
+                          <Image
+                            src={post.image}
+                            alt={post.title}
+                            fill
+                            className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                            sizes="(max-width: 768px) 100vw, 224px"
+                          />
                         </div>
-                        <div>
-                          <div className="flex items-center gap-3">
-                            <span className="inline-block px-2 py-0.5 rounded-md bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{post.category}</span>
-                            <span className={`inline-block px-2 py-0.5 rounded-md border text-[8px] font-bold tracking-[0.08em] uppercase ${difficultyColors[post.difficulty]}`}>{post.difficulty}</span>
-                            <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{post.readTime}</span>
-                          </div>
-                          <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-[#CCCCCC] transition-colors mt-1 leading-snug">{post.title}</h3>
+                      )}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <span className="inline-block px-2 py-0.5 rounded-md bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{post.category}</span>
+                          <span className={`inline-block px-2 py-0.5 rounded-md border text-[8px] font-bold tracking-[0.08em] uppercase ${difficultyColors[post.difficulty]}`}>{post.difficulty}</span>
+                          <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{post.readTime}</span>
                         </div>
-                      </div>
-                      <div className="flex-1 md:pt-7">
-                        <p className="text-[14px] text-[#999999] leading-relaxed line-clamp-2">{post.excerpt}</p>
+                        <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-[#CCCCCC] transition-colors mt-1 leading-snug">{post.title}</h3>
+                        <p className="text-[14px] text-[#999999] leading-relaxed mt-2 line-clamp-2">{post.excerpt}</p>
                       </div>
                       <ArrowRight size={16} className="vertical-arrow text-[rgba(255,255,255,0.1)] group-hover:text-white transition-all shrink-0 mt-2 md:mt-8" />
                     </div>
-                  </div>
+                  </Link>
                 </FadeIn>
               );
             })}

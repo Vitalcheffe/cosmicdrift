@@ -133,7 +133,7 @@
   }
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   ::selection {
     background: #8B9DAF;
@@ -167,7 +167,23 @@
 @layer base {
   html, body {
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow-x: clip;
+  }
+  /* Allow tables and grids inside to scroll horizontally */
+  main, [data-scroll-container] {
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+  /* Prevent text overflow on mobile */
+  p, h1, h2, h3, h4, h5, h6, span, li, td, th {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  /* Tables should not break words — they scroll instead */
+  table td, table th {
+    hyphens: manual;
+    word-break: normal;
   }
   img, video, svg {
     max-width: 100%;

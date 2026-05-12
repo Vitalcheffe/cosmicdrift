@@ -1096,7 +1096,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                   {data.metrics.slice(0, 2).map((m) => (
                     <div key={m.label} className="card p-4 text-center">
                       <p className="text-xl font-bold text-white stat-mono">
-                        {m.prefix}<CountUp to={m.value} suffix={m.suffix} duration={2} />
+                        <CountUp to={m.value} prefix={m.prefix} suffix={m.suffix} duration={2} />
                       </p>
                       <p className="text-[10px] text-[#666666] uppercase tracking-[0.08em] font-bold mt-1">{m.label}</p>
                     </div>

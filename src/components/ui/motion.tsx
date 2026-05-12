@@ -83,6 +83,18 @@ interface AnimatedCounterProps {
   prefix?: string;
   suffix?: string;
   duration?: number;
+  decimals?: number;
+}
+
+/** Format a number with optional decimals and locale */
+function formatNumber(val: number, decimals: number): string {
+  if (decimals > 0) {
+    return val.toLocaleString(undefined, {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    });
+  }
+  return Math.round(val).toLocaleString();
 }
 
 export function AnimatedCounter({
@@ -90,6 +102,7 @@ export function AnimatedCounter({
   prefix = '',
   suffix = '',
   duration = 2,
+  decimals = 0,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -113,29 +126,28 @@ export function AnimatedCounter({
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / (duration * 1000), 1);
       const easedProgress = easeOutExpo(progress);
-      const current = Math.floor(easedProgress * value);
-      node.textContent = current.toLocaleString();
+      const current = easedProgress * value;
+      node.textContent = prefix + formatNumber(current, decimals) + suffix;
 
       if (progress < 1) {
         rafId = requestAnimationFrame(step);
       } else {
-        node.textContent = value.toLocaleString();
+        node.textContent = prefix + formatNumber(value, decimals) + suffix;
       }
     };
 
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
-  }, [isInView, value, duration]);
+  }, [isInView, value, duration, prefix, suffix, decimals]);
 
+  // Always render the final value — no "0" flash
   return (
     <span
       ref={ref}
       className="stat-mono"
       style={{ fontVariantNumeric: 'tabular-nums' }}
     >
-      {prefix}
-      {isInView ? value.toLocaleString() : '0'}
-      {suffix}
+      {prefix}{formatNumber(value, decimals)}{suffix}
     </span>
   );
 }
@@ -343,6 +355,7 @@ interface CountUpProps {
   prefix?: string;
   suffix?: string;
   className?: string;
+  decimals?: number;
 }
 
 export function CountUp({
@@ -352,6 +365,7 @@ export function CountUp({
   prefix = '',
   suffix = '',
   className,
+  decimals = 0,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -374,21 +388,20 @@ export function CountUp({
     const unsubscribe = motionValue.on('change', (latest) => {
       if (ref.current) {
         ref.current.textContent =
-          prefix + Math.round(latest).toLocaleString() + suffix;
+          prefix + formatNumber(latest, decimals) + suffix;
       }
     });
     return unsubscribe;
-  }, [motionValue, prefix, suffix]);
+  }, [motionValue, prefix, suffix, decimals]);
 
+  // Always render the target value — no "0" flash
   return (
     <span
       ref={ref}
       className={className ?? 'stat-mono'}
       style={{ fontVariantNumeric: 'tabular-nums' }}
     >
-      {prefix}
-      {from.toLocaleString()}
-      {suffix}
+      {prefix}{formatNumber(to, decimals)}{suffix}
     </span>
   );
 }

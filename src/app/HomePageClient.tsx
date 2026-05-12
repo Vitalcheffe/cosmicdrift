@@ -53,7 +53,7 @@ const carouselSlides = [
 const stats = [
   { value: 2400, prefix: '$', suffix: 'M+', label: 'Investment Pipeline', desc: 'Active capital deployment across 7 industrial verticals and 5 countries' },
   { value: 47, prefix: '~', suffix: '', label: 'gCO2/kWh Avg', desc: 'Carbon intensity — 89% lower than industry average of ~450 gCO2/kWh' },
-  { value: 81.5, prefix: '', suffix: '%', label: 'Renewable Energy', desc: 'Average across all 5 GPU hubs — targeting 100% by 2028' },
+  { value: 81.5, prefix: '', suffix: '%', label: 'Renewable Energy', desc: 'Average across all 5 GPU hubs — targeting 100% by 2028', decimals: 1 },
   { value: 25000, prefix: '', suffix: '+', label: 'Jobs by 2030', desc: 'Direct employment target across all verticals' },
 ];
 
@@ -551,7 +551,7 @@ export default function HomePageClient() {
               <FadeIn key={stat.label} delay={i * 0.1}>
                 <div className="pb-6 border-b border-[rgba(255,255,255,0.04)]">
                   <p className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white tracking-tight leading-none mb-4 stat-mono">
-                    <CountUp to={stat.value} prefix={stat.prefix} suffix={stat.suffix} duration={2.5} />
+                    <CountUp to={stat.value} prefix={stat.prefix} suffix={stat.suffix} duration={2.5} decimals={stat.decimals ?? 0} />
                   </p>
                   <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-2">
                     {stat.label}
@@ -588,13 +588,13 @@ export default function HomePageClient() {
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <div className="bg-[#111111] rounded-lg border border-[rgba(255,255,255,0.06)] overflow-hidden">
+            <div className="bg-[#111111] rounded-lg border border-[rgba(255,255,255,0.06)] overflow-x-auto -mx-6 md:mx-0">
               {/* Header divider */}
-              <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.06)]">
+              <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.06)] min-w-[600px] md:min-w-0">
                 <div className="grid grid-cols-[1fr_120px_180px_80px_auto] gap-4">
                   <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Vertical</span>
                   <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Investment</span>
-                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)] hidden md:block">Capacity</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Capacity</span>
                   <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Timeline</span>
                   <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Status</span>
                 </div>
@@ -607,12 +607,12 @@ export default function HomePageClient() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.06, duration: 0.4 }}
-                  className="px-6 py-4 border-b border-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.02)] transition-colors"
+                  className="px-6 py-4 border-b border-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.02)] transition-colors min-w-[600px] md:min-w-0"
                 >
                   <div className="grid grid-cols-[1fr_120px_180px_80px_auto] gap-4 items-center">
-                    <span className="text-[14px] font-semibold text-white">{row.vertical}</span>
+                    <span className="text-[14px] font-semibold text-white whitespace-nowrap">{row.vertical}</span>
                     <span className="text-[14px] font-semibold text-white stat-mono">{row.investment}</span>
-                    <span className="text-[13px] text-[#999999] hidden md:block">{row.capacity}</span>
+                    <span className="text-[13px] text-[#999999]">{row.capacity}</span>
                     <span className="text-[13px] text-[#999999] stat-mono">{row.timeline}</span>
                     <span className={`status-badge ${getStatusBadgeClass(row.status)}`}>
                       <span className="w-1.5 h-1.5 rounded-full bg-current" />
@@ -621,7 +621,7 @@ export default function HomePageClient() {
                   </div>
                 </motion.div>
               ))}
-              <div className="px-6 py-4 bg-[rgba(255,255,255,0.01)]">
+              <div className="px-6 py-4 bg-[rgba(255,255,255,0.01)] min-w-[600px] md:min-w-0">
                 <p className="text-[11px] text-[rgba(255,255,255,0.25)]">Total investment pipeline: $2.4B+ across 7 verticals. Data as of Q1 2026.</p>
               </div>
             </div>

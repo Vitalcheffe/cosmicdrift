@@ -453,11 +453,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#0A0A0A] text-white min-h-screen flex flex-col overflow-x-hidden`}>
+      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased bg-[#0A0A0A] text-white min-h-screen flex flex-col`}>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Sidebar />
-        <div className="flex-1 flex flex-col overflow-x-hidden w-full">
-          <main id="main-content" className="flex-1 pb-6 overflow-x-hidden">
+        <div className="flex-1 flex flex-col w-full">
+          <main id="main-content" className="flex-1 pb-6">
             <ClientLayout>{children}</ClientLayout>
           </main>
           <Footer />

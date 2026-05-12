@@ -313,8 +313,8 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden">
-              <table className="data-table">
+            <div className="border border-[rgba(255,255,255,0.06)] rounded-xl overflow-x-auto">
+              <table className="data-table min-w-[500px] md:min-w-0">
                 <thead>
                   <tr>
                     <th>Metric</th>

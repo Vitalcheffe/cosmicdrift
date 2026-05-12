@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
 import { useRef, useEffect, useState, useCallback, type ReactNode, type MouseEvent as ReactMouseEvent } from 'react';
 import Link from 'next/link';
 
@@ -48,8 +48,14 @@ export function FadeIn({
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const prefersReducedMotion = useReducedMotion();
 
   const offset = directionMap[direction];
+
+  // Skip animation entirely if user prefers reduced motion
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -151,6 +157,7 @@ export function StaggerContainer({
 }: StaggerContainerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <motion.div
@@ -161,7 +168,7 @@ export function StaggerContainer({
         hidden: {},
         visible: {
           transition: {
-            staggerChildren: staggerDelay,
+            staggerChildren: prefersReducedMotion ? 0 : staggerDelay,
           },
         },
       }}
@@ -305,12 +312,18 @@ export function ParallaxSection({
   offset = 0,
 }: ParallaxSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [offset, -offset * speed * 100]);
+
+  // Disable parallax effect when user prefers reduced motion
+  if (prefersReducedMotion) {
+    return <div ref={ref} className={className}>{children}</div>;
+  }
 
   return (
     <div ref={ref} className={className}>

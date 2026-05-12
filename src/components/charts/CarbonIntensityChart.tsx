@@ -39,8 +39,8 @@ interface CustomTooltipProps {
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-[#1a1a1a] px-3 py-2 shadow-xl">
-      <p className="font-[family-name:var(--font-space-mono)] text-xs text-[#999999]">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
+      <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
         {label}
       </p>
       <p className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
@@ -54,12 +54,12 @@ export function CarbonIntensityChart() {
   const data = useMemo(() => rawData, []);
 
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
           Carbon Intensity Trend
         </h3>
-        <p className="font-[family-name:var(--font-space-mono)] text-xs text-[#666666]">
+        <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
           gCO₂/kWh over time vs global average
         </p>
       </div>
@@ -81,12 +81,12 @@ export function CarbonIntensityChart() {
             />
             <XAxis
               dataKey="quarter"
-              tick={{ fill: '#666666', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
+              tick={{ fill: 'var(--text-dim)', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
               axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
               tickLine={false}
             />
             <YAxis
-              tick={{ fill: '#666666', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
+              tick={{ fill: 'var(--text-dim)', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
               axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
               tickLine={false}
               tickFormatter={(v: number) => `${v}`}

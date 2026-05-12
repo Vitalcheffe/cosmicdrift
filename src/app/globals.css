@@ -41,6 +41,20 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-surface-4: var(--surface-4);
+  --color-surface-5: var(--surface-5);
+  --color-surface-6: var(--surface-6);
+  --color-txt-primary: var(--text-primary);
+  --color-txt-secondary: var(--text-secondary);
+  --color-txt-dim: var(--text-dim);
+  --color-txt-muted: var(--text-muted);
+  --color-txt-faint: var(--text-faint);
+  --color-slate-accent: var(--color-accent-slate);
+  --color-sage: var(--color-success);
 }
 
 :root {
@@ -84,6 +98,22 @@
   --color-success: #4A7B5F;
   --color-warning: #4A5D6E;
   --color-error: #A0524B;
+
+  /* ── Surface Scale (dark backgrounds) ── */
+  --surface-0: #0A0A0A;       /* Deepest — root body */
+  --surface-1: #0D0D0D;       /* Main content sections */
+  --surface-2: #121212;       /* Alternate section bg */
+  --surface-3: #141414;       /* Card / chart bg */
+  --surface-4: #1A1A1A;       /* Secondary surface */
+  --surface-5: #1E1E1E;       /* Elevated card */
+  --surface-6: #252525;       /* Progress bar track */
+
+  /* ── Text Scale ── */
+  --text-primary: #FFFFFF;
+  --text-secondary: #999999;
+  --text-dim: #666666;
+  --text-muted: rgba(255,255,255,0.45);
+  --text-faint: rgba(255,255,255,0.25);
 
   /* ── Unified Animation Variables ── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -584,4 +614,30 @@
 }
 .bg-error {
   background-color: #A0524B;
+}
+
+/* ═══════════════════════════════════════════
+   REDUCED MOTION — respect user preferences
+   ═══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .accent-line {
+    animation: none;
+    width: 48px;
+  }
+
+  .blink-dot,
+  .pulse-glow,
+  .animate-fade-in-up,
+  .animate-bounce-slow {
+    animation: none;
+  }
 }

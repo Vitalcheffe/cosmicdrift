@@ -6,6 +6,9 @@ import { ArrowRight, Server, Zap, Factory, Mountain, Wheat, Droplets, Cpu, Landm
 import { FadeIn, StaggerContainer, StaggerItem, Card3D, SectionDivider } from '@/components/ui/motion';
 import ImmersiveHero from '@/components/ImmersiveHero';
 import NetworkOntology from '@/components/NetworkOntology';
+import { PortfolioDistributionChart } from '@/components/charts/PortfolioDistributionChart';
+import { InvestmentPipelineChart } from '@/components/charts/InvestmentPipelineChart';
+import { OperationalMetricsChart } from '@/components/charts/OperationalMetricsChart';
 
 const subsidiaries = [
   {
@@ -92,7 +95,7 @@ const subsidiaries = [
 
 export default function SubsidiariesPageClient() {
   return (
-    <div className="bg-[#0D0D0D]">
+    <div className="bg-surface-1">
       {/* Immersive Hero */}
       <ImmersiveHero
         title="VERTICALS"
@@ -102,7 +105,7 @@ export default function SubsidiariesPageClient() {
       />
 
       {/* Network Ontology */}
-      <section className="py-16 md:py-24 bg-[#0D0D0D]">
+      <section className="py-16 md:py-24 bg-surface-1">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <NetworkOntology />
         </div>
@@ -110,15 +113,51 @@ export default function SubsidiariesPageClient() {
 
       <SectionDivider />
 
+      {/* Data Visualization — Portfolio Overview */}
+      <section className="py-16 md:py-24 bg-surface-1">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <div className="mb-10">
+              <span className="section-label">Analytics</span>
+              <h2 className="section-title mt-2">Portfolio Intelligence</h2>
+              <p className="section-subtitle mt-2">
+                Real-time capital allocation and operational performance across all verticals.
+              </p>
+            </div>
+          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <FadeIn delay={0.1}>
+              <PortfolioDistributionChart />
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <InvestmentPipelineChart />
+            </FadeIn>
+          </div>
+          <div className="mt-6">
+            <FadeIn delay={0.3}>
+              <OperationalMetricsChart />
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
       <section className="py-16 md:py-24">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <div className="mb-10">
+              <span className="section-label">Operating Verticals</span>
+              <h2 className="section-title mt-2">8 Verticals. One Mission.</h2>
+            </div>
+          </FadeIn>
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
             {subsidiaries.map((sub) => {
               const Icon = sub.icon;
               return (
                 <StaggerItem key={sub.slug}>
                   <Link href={`/subsidiaries/${sub.slug}`} className="group block">
-                    <Card3D className="bg-[#141414] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(255,255,255,0.12)] transition-all duration-500">
+                    <Card3D className="bg-surface-3 border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(255,255,255,0.12)] transition-all duration-500">
                       <div className="relative h-[200px] overflow-hidden">
                         <Image src={sub.image} alt={sub.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/50 to-transparent" />

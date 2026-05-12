@@ -4,13 +4,14 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { FadeIn } from '@/components/ui/motion';
 import { InvestmentPipelineChart } from '@/components/charts/InvestmentPipelineChart';
-import { EnergyMixChart } from '@/components/charts/EnergyMixChart';
+import { RevenueChart } from '@/components/charts/RevenueChart';
+import { OperationalMetricsChart } from '@/components/charts/OperationalMetricsChart';
 
 export default function InvestorsPageClient() {
   return (
-    <div className="bg-[#1A1A1A]">
+    <div className="bg-surface-4">
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-44 md:pb-32 bg-[#1A1A1A]">
+      <section className="pt-32 pb-20 md:pt-44 md:pb-32 bg-surface-4">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-6">Investor Relations</p>
@@ -18,7 +19,7 @@ export default function InvestorsPageClient() {
               Investor Relations
             </h1>
             <div className="accent-line mb-8" />
-            <p className="text-[18px] md:text-[20px] text-[#999999] leading-[1.7] max-w-2xl">
+            <p className="text-[18px] md:text-[20px] text-txt-secondary leading-[1.7] max-w-2xl">
               Harch Corp is a privately held sovereign infrastructure company. We are not currently raising public capital.
             </p>
           </FadeIn>
@@ -26,7 +27,7 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Statement — Pattern 4: Impact Study divider */}
-      <section className="py-20 md:py-28 bg-[#121212]">
+      <section className="py-20 md:py-28 bg-surface-2">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="border-l-2 border-[rgba(139,157,175,0.3)] pl-8 md:pl-12 mb-8 pb-8 border-b border-[rgba(255,255,255,0.04)]">
@@ -38,13 +39,13 @@ export default function InvestorsPageClient() {
 
           <FadeIn delay={0.1}>
             <div className="space-y-6 max-w-2xl mt-8">
-              <p className="text-[15px] text-[#999999] leading-[1.8]">
+              <p className="text-[15px] text-txt-secondary leading-[1.8]">
                 Harch Corp operates across eight verticals — intelligence, cement, energy, technology, mining, agriculture, water, and finance — with a combined investment pipeline exceeding $2.4 billion. Our vertically integrated model creates structural cost advantages that compound over time.
               </p>
-              <p className="text-[15px] text-[#999999] leading-[1.8]">
+              <p className="text-[15px] text-txt-secondary leading-[1.8]">
                 We engage selectively with institutional partners who share our thesis: that Africa&apos;s industrial sovereignty is the defining opportunity of this decade. We do not pursue retail capital. We do not advertise returns. We build infrastructure.
               </p>
-              <p className="text-[15px] text-[#999999] leading-[1.8]">
+              <p className="text-[15px] text-txt-secondary leading-[1.8]">
                 If your institution has the mandate and the patience to invest in sovereign infrastructure at scale, we will make time for a conversation.
               </p>
             </div>
@@ -53,7 +54,7 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Key Figures — Pattern 6: Large Stat Display */}
-      <section className="py-20 md:py-28 bg-[#1A1A1A]">
+      <section className="py-20 md:py-28 bg-surface-4">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-12">Selected Figures</p>
@@ -68,7 +69,7 @@ export default function InvestorsPageClient() {
               <FadeIn key={stat.label} delay={i * 0.08}>
                 <div className="pb-8 border-b border-[rgba(255,255,255,0.04)]">
                   <p className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white tracking-tight leading-none mb-4 stat-mono">{stat.value}</p>
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666]">{stat.label}</p>
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-txt-dim">{stat.label}</p>
                 </div>
               </FadeIn>
             ))}
@@ -77,7 +78,7 @@ export default function InvestorsPageClient() {
       </section>
 
       {/* Investment Pipeline Visualization */}
-      <section className="py-20 md:py-28 bg-[#121212]">
+      <section className="py-20 md:py-28 bg-surface-2">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Capital Allocation</p>
@@ -90,14 +91,19 @@ export default function InvestorsPageClient() {
               <InvestmentPipelineChart />
             </FadeIn>
             <FadeIn delay={0.25}>
-              <EnergyMixChart />
+              <RevenueChart />
+            </FadeIn>
+          </div>
+          <div className="mt-6">
+            <FadeIn delay={0.35}>
+              <OperationalMetricsChart />
             </FadeIn>
           </div>
         </div>
       </section>
 
       {/* CTA — Pattern 7: "There is so much left to build" style */}
-      <section className="py-28 md:py-36 bg-[#0D0D0D] relative overflow-hidden">
+      <section className="py-28 md:py-36 bg-surface-1 relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[900px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>

@@ -32,8 +32,8 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
   if (!active || !payload?.length) return null;
   const data = payload[0].payload;
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-[#1a1a1a] px-3 py-2 shadow-xl">
-      <p className="font-[family-name:var(--font-space-mono)] text-xs text-[#999999]">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
+      <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
         {data.name}
       </p>
       <p className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
@@ -53,7 +53,7 @@ function CustomLegend({ payload }: { payload?: Array<{ value: string; color: str
             className="h-2.5 w-2.5 shrink-0 rounded-sm"
             style={{ backgroundColor: entry.color }}
           />
-          <span className="font-[family-name:var(--font-space-mono)] text-xs text-[#999999]">
+          <span className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
             {entry.value}
           </span>
         </div>
@@ -68,12 +68,12 @@ export function EnergyMixChart() {
   const data = useMemo(() => rawData, []);
 
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
           Energy Mix
         </h3>
-        <p className="font-[family-name:var(--font-space-mono)] text-xs text-[#666666]">
+        <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
           Renewable energy pipeline composition
         </p>
       </div>

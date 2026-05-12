@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/motion';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
 import { InteractivePlatform } from '@/components/InteractivePlatform';
+import IoTDashboard from '@/components/harchagri/IoTDashboard';
 
 /* ═══════════════════════════════════════════════════
    HARCHAGRI — HarchCorp Unified Design System
@@ -576,6 +577,27 @@ export default function HarchAgriPage() {
               </div>
               <p className="text-[12px] text-[#666666] mt-3">For {data.starterKit.target} — eliminates the price barrier to technology adoption.</p>
             </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════
+          IoT DASHBOARD — Live Sensor Network
+          ═══════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#0D0D0D]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4 text-[#4A7B5F]">Live Monitoring</p>
+            <TextReveal text="IoT Sensor Network" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <div className="accent-line mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
+              Real-time agricultural intelligence from 11,800+ solar-powered sensors across Morocco. Soil moisture, temperature, humidity, and carbon sequestration — updated every 2 seconds.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <IoTDashboard />
           </FadeIn>
         </div>
       </section>

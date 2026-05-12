@@ -66,8 +66,8 @@ interface CustomTooltipProps {
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-[#1a1a1a] px-3 py-2 shadow-xl">
-      <p className="font-[family-name:var(--font-space-mono)] mb-1 text-xs text-[#999999]">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
+      <p className="font-[family-name:var(--font-space-mono)] mb-1 text-xs text-txt-secondary">
         {label}
       </p>
       {payload.map((entry, index) => (
@@ -76,7 +76,7 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
             className="h-2 w-2 shrink-0 rounded-sm"
             style={{ backgroundColor: entry.color }}
           />
-          <span className="font-[family-name:var(--font-space-mono)] text-xs text-[#999999]">
+          <span className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
             {entry.name}:
           </span>
           <span className="font-[family-name:var(--font-space-mono)] text-xs font-bold text-white">
@@ -92,12 +92,12 @@ export function GPUUtilizationChart() {
   const data = useMemo(() => generateData(), []);
 
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
           GPU Utilization by Hub
         </h3>
-        <p className="font-[family-name:var(--font-space-mono)] text-xs text-[#666666]">
+        <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
           Hourly utilization across 5 Moroccan data center hubs
         </p>
       </div>
@@ -136,13 +136,13 @@ export function GPUUtilizationChart() {
             />
             <XAxis
               dataKey="hour"
-              tick={{ fill: '#666666', fontSize: 10, fontFamily: 'var(--font-space-mono)' }}
+              tick={{ fill: 'var(--text-dim)', fontSize: 10, fontFamily: 'var(--font-space-mono)' }}
               axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
               tickLine={false}
               interval={2}
             />
             <YAxis
-              tick={{ fill: '#666666', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
+              tick={{ fill: 'var(--text-dim)', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
               axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
               tickLine={false}
               tickFormatter={(v: number) => `${v}%`}

@@ -41,8 +41,8 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
   if (!active || !payload?.length) return null;
   const data = payload[0].payload;
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-[#1a1a1a] px-3 py-2 shadow-xl">
-      <p className="font-[family-name:var(--font-space-mono)] text-xs text-[#999999]">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
+      <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
         {data.vertical}
       </p>
       <p className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
@@ -58,12 +58,12 @@ export function InvestmentPipelineChart() {
   const data = useMemo(() => rawData, []);
 
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
           Investment Pipeline by Vertical
         </h3>
-        <p className="font-[family-name:var(--font-space-mono)] text-xs text-[#666666]">
+        <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
           Capital allocation across operating verticals ($M)
         </p>
       </div>
@@ -81,7 +81,7 @@ export function InvestmentPipelineChart() {
             />
             <XAxis
               type="number"
-              tick={{ fill: '#666666', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
+              tick={{ fill: 'var(--text-dim)', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
               axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
               tickLine={false}
               tickFormatter={(v: number) => `$${v}M`}
@@ -89,7 +89,7 @@ export function InvestmentPipelineChart() {
             <YAxis
               type="category"
               dataKey="vertical"
-              tick={{ fill: '#666666', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
+              tick={{ fill: 'var(--text-dim)', fontSize: 11, fontFamily: 'var(--font-space-mono)' }}
               axisLine={false}
               tickLine={false}
               width={80}
@@ -115,7 +115,7 @@ export function InvestmentPipelineChart() {
                 position="right"
                 formatter={(v: number) => `$${v}M`}
                 style={{
-                  fill: '#999999',
+                  fill: 'var(--text-secondary)',
                   fontSize: 11,
                   fontFamily: 'var(--font-space-mono)',
                 }}

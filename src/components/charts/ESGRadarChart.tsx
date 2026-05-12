@@ -35,8 +35,8 @@ interface CustomTooltipProps {
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-[#1a1a1a] px-3 py-2 shadow-xl">
-      <p className="font-[family-name:var(--font-space-mono)] text-xs text-[#999999]">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
+      <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
         {label}
       </p>
       <p className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
@@ -50,12 +50,12 @@ export function ESGRadarChart() {
   const data = useMemo(() => rawData, []);
 
   return (
-    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6">
+    <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
           ESG Performance
         </h3>
-        <p className="font-[family-name:var(--font-space-mono)] text-xs text-[#666666]">
+        <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
           Environmental, Social &amp; Governance metrics
         </p>
       </div>
@@ -74,7 +74,7 @@ export function ESGRadarChart() {
             <PolarAngleAxis
               dataKey="metric"
               tick={{
-                fill: '#999999',
+                fill: 'var(--text-secondary)',
                 fontSize: 10,
                 fontFamily: 'var(--font-space-mono)',
               }}
@@ -83,7 +83,7 @@ export function ESGRadarChart() {
               angle={90}
               domain={[0, 100]}
               tick={{
-                fill: '#666666',
+                fill: 'var(--text-dim)',
                 fontSize: 9,
                 fontFamily: 'var(--font-space-mono)',
               }}

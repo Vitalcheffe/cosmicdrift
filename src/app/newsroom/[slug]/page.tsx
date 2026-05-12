@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: article.title,
+    title: `${article.title} — Harch Corp Newsroom`,
     description: article.excerpt,
     keywords: article.seoKeywords,
     openGraph: {
@@ -25,7 +25,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: article.excerpt,
       type: 'article',
       publishedTime: article.date,
+      images: [
+        {
+          url: article.image,
+          width: 1200,
+          height: 630,
+          alt: article.imageAlt || article.title,
+        },
+      ],
       tags: article.seoKeywords,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt,
+      images: [article.image],
     },
   };
 }

@@ -147,24 +147,33 @@ export default function HomePageClient() {
     <div className="bg-[#0D0D0D]">
 
       {/* ═══════════════════════════════════════════════════════════
-          S1: HERO — Video background with text carousel
+          S1: HERO — Per-slide background images with text carousel
           ═══════════════════════════════════════════════════════════ */}
       <motion.section
         ref={heroRef}
         style={{ opacity: heroOpacity }}
         className="relative h-[100dvh] flex items-end overflow-hidden"
       >
-        {/* Video background — autoplay, muted, loop */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          poster="/images/sections/overview-casablanca.jpg"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
+        {/* Background images per slide — crossfade between them */}
+        {carouselSlides.map((slide, i) => (
+          <div
+            key={slide.title}
+            className="absolute inset-0 z-0"
+            style={{
+              opacity: i === activeSlide ? 1 : 0,
+              transition: 'opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+            }}
+          >
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority={i === 0}
+            />
+          </div>
+        ))}
 
         {/* Dark gradient overlay for text readability */}
         <div

@@ -1,17 +1,12 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { PageTransition } from '@/components/PageTransition';
 
 /**
- * ClientLayout — Thin client wrapper that provides PageTransition
- * around the main content area. Required because the root layout
- * is a server component and cannot use hooks like usePathname().
+ * ClientLayout — Thin client wrapper for the main content area.
+ * Page transitions removed — they caused a "PowerPoint" effect
+ * that made the site feel sluggish and blocked carousel interactions.
  */
 export function ClientLayout({ children }: { children: ReactNode }) {
-  return (
-    <PageTransition>
-      {children}
-    </PageTransition>
-  );
+  return <>{children}</>;
 }

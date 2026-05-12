@@ -64,9 +64,9 @@ const securityOverview = [
 ];
 
 const certifications = [
-  { name: 'SOC 2 Type II', scope: 'Security, Availability, Confidentiality', status: 'Achieved' as const, region: 'Global' },
-  { name: 'ISO 27001', scope: 'Information Security Management', status: 'Achieved' as const, region: 'Global' },
-  { name: 'ISO 22301', scope: 'Business Continuity Management', status: 'Achieved' as const, region: 'Global' },
+  { name: 'SOC 2 Type II', scope: 'Security, Availability, Confidentiality', status: 'In Progress' as const, region: 'Global' },
+  { name: 'ISO 27001', scope: 'Information Security Management — Aligned', status: 'In Progress' as const, region: 'Global' },
+  { name: 'ISO 22301', scope: 'Business Continuity Management', status: 'In Progress' as const, region: 'Global' },
   { name: 'GDPR', scope: 'EU Data Protection Regulation', status: 'Achieved' as const, region: 'EU' },
   { name: 'CCPA', scope: 'California Consumer Privacy Act', status: 'Achieved' as const, region: 'US' },
   { name: 'Moroccan DPA', scope: 'Law 09-08 Data Protection', status: 'Achieved' as const, region: 'Morocco' },
@@ -554,7 +554,7 @@ export default function TrustPageClient() {
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Contact Security Team <ArrowRight size={14} />
+                Request Briefing <ArrowRight size={14} />
               </Link>
               <a href="mailto:security@harchcorp.com" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
                 <Mail size={14} /> security@harchcorp.com

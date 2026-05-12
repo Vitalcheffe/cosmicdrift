@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
-  title: 'Contact — Harch Corp',
-  description: 'Contact Harch Corp for strategic partnerships, investment opportunities, business development, and media inquiries. Reach our teams across Africa and beyond.',
+  title: 'Request a Briefing — Harch Corp',
+  description: 'Request a secure briefing with Harch Corp. Government, industrial, investor, and talent inquiry channels. All communications encrypted end-to-end on sovereign infrastructure.',
   alternates: {
     canonical: 'https://www.harchcorp.com/contact',
   },

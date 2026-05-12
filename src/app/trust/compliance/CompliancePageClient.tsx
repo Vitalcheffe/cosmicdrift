@@ -47,34 +47,28 @@ const certifications: Certification[] = [
   {
     name: 'SOC 2 Type II',
     fullName: 'System and Organization Controls 2 Type II',
-    description: 'Independent audit of our security, availability, and confidentiality controls over a minimum 6-month observation period. Demonstrates continuous operational effectiveness.',
-    status: 'Achieved',
+    description: 'Independent audit of our security, availability, and confidentiality controls over a minimum 6-month observation period. Currently in the final audit phase with our auditor.',
+    status: 'In Progress',
     region: 'Global',
-    auditor: 'Deloitte & Touche',
-    lastAudit: 'Nov 2025',
-    nextAudit: 'Nov 2026',
+    nextAudit: 'Q3 2026',
     scope: 'HarchOS Platform, Harch Intelligence Infrastructure',
   },
   {
     name: 'ISO 27001',
-    fullName: 'ISO/IEC 27001:2022',
-    description: 'International standard for information security management systems (ISMS). Certified across all Harch Corp operating entities and data center facilities.',
-    status: 'Achieved',
+    fullName: 'ISO/IEC 27001:2022 — Aligned',
+    description: 'International standard for information security management systems (ISMS). Harch Corp is aligned with ISO 27001 controls and frameworks across all operating entities. Formal certification audit scheduled.',
+    status: 'In Progress',
     region: 'Global',
-    auditor: 'Bureau Veritas',
-    lastAudit: 'Sep 2025',
-    nextAudit: 'Sep 2026',
+    nextAudit: 'Q4 2026',
     scope: 'All Harch Corp S.A. Operations',
   },
   {
     name: 'ISO 22301',
     fullName: 'ISO 22301:2019 Business Continuity',
-    description: 'Business continuity management system certification ensuring Harch Corp maintains critical operations during disruptions, with tested recovery procedures.',
-    status: 'Achieved',
+    description: 'Business continuity management system certification ensuring Harch Corp maintains critical operations during disruptions. Currently in implementation phase with tested recovery procedures.',
+    status: 'In Progress',
     region: 'Global',
-    auditor: 'Bureau Veritas',
-    lastAudit: 'Oct 2025',
-    nextAudit: 'Oct 2026',
+    nextAudit: 'Q4 2026',
     scope: 'All Harch Corp S.A. Operations',
   },
   {
@@ -169,32 +163,31 @@ const regions = [
     name: 'Morocco',
     flag: 'MA',
     description: 'Primary operating jurisdiction. Full compliance with Moroccan Law 09-08, CNDP registration, and all local regulatory requirements.',
-    certs: ['Moroccan DPA', 'ISO 27001', 'SOC 2 Type II', 'ISO 22301'],
+    certs: ['Moroccan DPA', 'ISO 27001 (In Progress)', 'SOC 2 Type II (In Progress)', 'ISO 22301 (In Progress)'],
   },
   {
     name: 'European Union',
     flag: 'EU',
     description: 'GDPR compliance for EU data subjects. Standard contractual clauses for data transfers. Adequacy decision alignment for Morocco-EU transfers.',
-    certs: ['GDPR', 'ISO 27001', 'SOC 2 Type II', 'ISO 22301'],
+    certs: ['GDPR', 'ISO 27001 (In Progress)', 'SOC 2 Type II (In Progress)', 'ISO 22301 (In Progress)'],
   },
   {
     name: 'Africa',
     flag: 'AF',
     description: 'Alignment with emerging African data protection frameworks including Cote d\'Ivoire, Kenya, South Africa, and Nigeria regulations.',
-    certs: ['ISO 27001', 'SOC 2 Type II', 'ISO 22301', 'GDPR (as baseline)'],
+    certs: ['ISO 27001 (In Progress)', 'SOC 2 Type II (In Progress)', 'ISO 22301 (In Progress)', 'GDPR (as baseline)'],
   },
   {
     name: 'Global',
     flag: 'GL',
     description: 'International compliance programs for cross-border operations. Designed to meet the most stringent requirements across all operating jurisdictions.',
-    certs: ['SOC 2 Type II', 'ISO 27001', 'ISO 22301', 'CCPA', 'PCI DSS (In Progress)'],
+    certs: ['SOC 2 Type II (In Progress)', 'ISO 27001 (In Progress)', 'ISO 22301 (In Progress)', 'CCPA', 'PCI DSS (In Progress)'],
   },
 ];
 
 const auditReports = [
-  { name: 'SOC 2 Type II Report', period: 'May 2025 — Nov 2025', auditor: 'Deloitte & Touche', type: 'Audit Report', available: true },
-  { name: 'ISO 27001 Certificate', period: 'Sep 2025 — Sep 2026', auditor: 'Bureau Veritas', type: 'Certificate', available: true },
-  { name: 'ISO 22301 Certificate', period: 'Oct 2025 — Oct 2026', auditor: 'Bureau Veritas', type: 'Certificate', available: true },
+  { name: 'SOC 2 Type II Readiness Assessment', period: 'Q1 2026', auditor: 'Internal Audit', type: 'Readiness', available: true },
+  { name: 'ISO 27001 Gap Analysis', period: 'Q4 2025', auditor: 'Internal Audit', type: 'Assessment', available: true },
   { name: 'Penetration Test Summary', period: 'Q4 2025', auditor: 'NCC Group', type: 'Test Report', available: true },
   { name: 'Cloud Security Assessment', period: 'Q3 2025', auditor: 'NCC Group', type: 'Assessment', available: true },
   { name: 'GDPR DPIA Summary', period: 'Ongoing', auditor: 'Internal DPO', type: 'Assessment', available: true },
@@ -480,7 +473,7 @@ export default function CompliancePageClient() {
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Contact Compliance Team <ArrowRight size={14} />
+                Request Briefing <ArrowRight size={14} />
               </Link>
               <Link href="/trust" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
                 Back to Trust Center

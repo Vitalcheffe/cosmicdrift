@@ -239,7 +239,7 @@ export default function FaqPageClient() {
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
               <MessageSquare size={32} className="text-[#8B9DAF] mx-auto mb-6" strokeWidth={1.5} />
-              <p className="section-label mb-4 text-[#8B9DAF]">Get in Touch</p>
+              <p className="section-label mb-4 text-[#8B9DAF]">Request a Briefing</p>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">
                 Still Have Questions?
               </h2>
@@ -251,7 +251,7 @@ export default function FaqPageClient() {
                   href="/contact"
                   className="px-8 py-3 rounded-lg bg-white text-black text-[12px] font-bold tracking-[0.06em] uppercase hover:bg-[#CCCCCC] transition-colors inline-flex items-center gap-2"
                 >
-                  Contact Us <ArrowRight size={14} />
+                  Request Briefing <ArrowRight size={14} />
                 </Link>
                 <a
                   href="mailto:ir@harchcorp.com"

@@ -85,7 +85,7 @@ const companyItems = [
 
 const investorItems = [
   { name: 'Investor Relations', href: '/investors' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Request Briefing', href: '/contact' },
 ];
 
 export function Sidebar() {
@@ -287,9 +287,9 @@ export function Sidebar() {
                 <Link
                   href="/contact"
                   onClick={closeSidebar}
-                  className="block w-full text-center border border-[rgba(139,157,175,0.35)] bg-[rgba(139,157,175,0.06)] text-[rgba(139,157,175,0.9)] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[rgba(139,157,175,0.12)] hover:border-[rgba(139,157,175,0.5)] hover:text-[#8B9DAF] transition-colors font-[family-name:var(--font-space-mono)]"
+                  className="block w-full text-center bg-[#B8965A] text-black text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[#C9A84C] transition-colors font-[family-name:var(--font-space-mono)]"
                 >
-                  Partner With Us
+                  Request Briefing
                 </Link>
                 <Link
                   href="/careers"

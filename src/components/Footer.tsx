@@ -24,7 +24,7 @@ const companyLinks = [
   { name: 'Careers', href: '/careers' },
   { name: 'Partners', href: '/partners' },
   { name: 'Press & Media', href: '/press' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Request Briefing', href: '/contact' },
 ];
 
 const developerLinks = [
@@ -56,6 +56,8 @@ const trustLinks = [
   { name: 'Compliance', href: '/trust/compliance' },
   { name: 'AI Ethics', href: '/trust/ai-ethics' },
   { name: 'Vulnerability Disclosure', href: '/trust/vulnerability-disclosure' },
+  { name: 'Privacy Policy', href: '/privacy' },
+  { name: 'System Status', href: '/status' },
 ];
 
 const businessLinks = [
@@ -175,6 +177,41 @@ export function Footer() {
                 Casablanca, Morocco<br />
                 Capital: 100M MAD
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══ TRUST CENTER BAR ═══ */}
+      <div className="border-t border-[rgba(255,255,255,0.04)] bg-[rgba(74,123,95,0.03)]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-5">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#4A7B5F]" style={{ boxShadow: '0 0 6px rgba(74,123,95,0.5)' }} />
+                <Link href="/status" className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#4A7B5F] hover:text-[#5A9B7F] transition-colors">
+                  All Systems Operational
+                </Link>
+              </div>
+              <span className="text-[9px] text-white/10">|</span>
+              <span className="text-[10px] text-white/20 font-[family-name:var(--font-space-mono)]">99.98% Uptime</span>
+            </div>
+            <div className="flex items-center gap-4 flex-wrap justify-center">
+              <Link href="/trust/security" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
+                Security
+              </Link>
+              <Link href="/trust/compliance" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
+                Compliance
+              </Link>
+              <Link href="/privacy" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
+                Privacy Policy
+              </Link>
+              <Link href="/status" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
+                System Status
+              </Link>
+              <Link href="/trust" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
+                Trust Center
+              </Link>
             </div>
           </div>
         </div>

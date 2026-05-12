@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Target, TrendingUp, Shield, Zap, Globe, Building2, Layers, Cpu, Droplets, Wheat, Mountain, Factory } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import ImmersiveHero from '@/components/ImmersiveHero';
+import NetworkOntology from '@/components/NetworkOntology';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,19 +38,18 @@ const advantages = [
 export default function StrategyPageClient() {
   return (
     <div className="bg-[#1A1A1A]">
-      {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
+      {/* Immersive Hero */}
+      <ImmersiveHero
+        title="OPERATOR"
+        subtitle="The Operator Model"
+        version="/0.0"
+        metaLabel="STRATEGY"
+      />
+
+      {/* Network Ontology — Vertical Integration Model */}
+      <section className="py-16 md:py-24 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Strategy</p>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              The Operator<br />Model
-            </h1>
-            <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Harch Corp doesn&apos;t advise — we build. We own the entire value chain from raw materials to finished infrastructure. This is our strategy for converting Africa&apos;s potential into industrial power.
-            </p>
-          </FadeIn>
+          <NetworkOntology />
         </div>
       </section>
 

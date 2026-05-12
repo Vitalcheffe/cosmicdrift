@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Server, Zap, Factory, Mountain, Wheat, Droplets, Cpu, Landmark } from 'lucide-react';
 import { FadeIn, StaggerContainer, StaggerItem, Card3D, SectionDivider } from '@/components/ui/motion';
+import ImmersiveHero from '@/components/ImmersiveHero';
+import NetworkOntology from '@/components/NetworkOntology';
 
 const subsidiaries = [
   {
@@ -90,21 +92,19 @@ const subsidiaries = [
 
 export default function SubsidiariesPageClient() {
   return (
-    <div className="bg-[#0D0D0D] pt-24">
-      <section className="py-20 md:py-28">
+    <div className="bg-[#0D0D0D]">
+      {/* Immersive Hero */}
+      <ImmersiveHero
+        title="VERTICALS"
+        subtitle="8 Verticals. One Mission."
+        version="/0.8"
+        metaLabel="HARCH CORP SUBSIDIARIES"
+      />
+
+      {/* Network Ontology */}
+      <section className="py-16 md:py-24 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">Our Verticals</p>
-            <h1 className="text-[clamp(2rem,5vw,4rem)] font-bold text-white tracking-tight mb-6">
-              8 Verticals.<br />One Mission.
-            </h1>
-            <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-sm text-[rgba(255,255,255,0.5)] leading-[1.7]">
-              Harch Corp operates across 8 industrial verticals — each designed to build sovereign infrastructure
-              for Africa. From AI compute to renewable energy, cement to agriculture, every vertical is vertically
-              integrated and built for scale.
-            </p>
-          </FadeIn>
+          <NetworkOntology />
         </div>
       </section>
 

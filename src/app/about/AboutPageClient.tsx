@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { ArrowRight, Building2, Target, Shield, Zap, Users, Globe, Award, User } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { WorldMap } from '@/components/WorldMap';
+import ImmersiveHero from '@/components/ImmersiveHero';
+import LiveDashboard from '@/components/LiveDashboard';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,6 +18,13 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
     </motion.div>
   );
 }
+
+const aboutMetrics = [
+  { label: 'Investment Pipeline', value: 2400, unit: '$M', trend: 'up' as const, sparkline: [1800, 2000, 2100, 2300, 2350, 2400] },
+  { label: 'Verticals', value: 8, trend: 'stable' as const },
+  { label: 'Countries', value: 5, trend: 'up' as const, sparkline: [3, 4, 4, 5, 5, 5] },
+  { label: 'Jobs Target', value: 25000, unit: '+', trend: 'up' as const, sparkline: [10000, 14000, 18000, 21000, 24000, 25000] },
+];
 
 const values = [
   { icon: Shield, title: 'Sovereignty', desc: 'We build infrastructure that Africa owns, operates, and controls. No dependency, no extraction — just self-reliance.' },
@@ -38,19 +47,18 @@ const history = [
 export default function AboutPageClient() {
   return (
     <div className="bg-[#1A1A1A]">
-      {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
+      {/* Immersive Hero */}
+      <ImmersiveHero
+        title="HARCH CORP"
+        subtitle="Building Africa's Industrial Backbone"
+        version="/0.0"
+        metaLabel="ABOUT"
+      />
+
+      {/* Live Dashboard */}
+      <section className="py-16 md:py-24 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">About Harch Corp</p>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Building Africa&apos;s<br />Industrial Backbone
-            </h1>
-            <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Harch Corp is a Moroccan multi-sector industrial conglomerate building the critical infrastructure that enables Africa&apos;s self-reliance. From 1,798 carbon-optimized GPUs to a 2GW+ Renewable Pipeline, we convert the continent&apos;s potential into industrial power.
-            </p>
-          </FadeIn>
+          <LiveDashboard metrics={aboutMetrics} title="HARCH CORP // STATUS" />
         </div>
       </section>
 

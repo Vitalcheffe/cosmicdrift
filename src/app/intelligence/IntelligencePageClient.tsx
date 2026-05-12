@@ -4,6 +4,8 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Cpu, Server, Zap } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import ImmersiveHero from '@/components/ImmersiveHero';
+import LiveDashboard from '@/components/LiveDashboard';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -45,22 +47,30 @@ const products = [
   },
 ];
 
+const intelligenceMetrics = [
+  { label: 'Active GPUs', value: 1798, trend: 'up' as const, sparkline: [1650, 1700, 1720, 1760, 1780, 1798] },
+  { label: 'Carbon Intensity', value: 47, unit: 'gCO2/kWh', trend: 'down' as const, sparkline: [55, 52, 50, 49, 48, 47] },
+  { label: 'Renewable %', value: 81.5, unit: '%', trend: 'up' as const, decimals: 1, sparkline: [78, 79, 80, 80.5, 81, 81.5] },
+  { label: 'Avg Latency', value: 12, unit: 'ms', trend: 'stable' as const, sparkline: [12, 13, 12, 11, 12, 12] },
+  { label: 'Hubs Online', value: 5, unit: '/5', trend: 'stable' as const },
+  { label: 'Uptime', value: 99.97, unit: '%', trend: 'up' as const, decimals: 2, sparkline: [99.95, 99.96, 99.96, 99.97, 99.97, 99.97] },
+];
+
 export default function IntelligencePageClient() {
   return (
     <div className="bg-[#1A1A1A]">
-      {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
+      {/* Immersive Hero */}
+      <ImmersiveHero
+        title="INTELLIGENCE"
+        subtitle="Sovereign AI Infrastructure"
+        version="/0.1"
+        metaLabel="HARCH INTELLIGENCE"
+      />
+
+      {/* Live Dashboard */}
+      <section className="py-16 md:py-24 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Harch Intelligence /0.1</p>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Sovereign AI<br/>Infrastructure
-            </h1>
-            <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Harch Intelligence builds Africa&apos;s sovereign AI compute infrastructure — from the operating system to the data centers, from the GPU clusters to the submarine cables. Every layer owned, controlled, and operated from Africa.
-            </p>
-          </FadeIn>
+          <LiveDashboard metrics={intelligenceMetrics} title="HARCH OS // LIVE METRICS" />
         </div>
       </section>
 

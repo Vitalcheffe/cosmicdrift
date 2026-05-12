@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import ScrollRevealSection from '@/components/ScrollRevealSection';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -48,6 +49,23 @@ export default function ThesisClient() {
           </FadeIn>
         </div>
       </section>
+
+      {/* Scroll Reveal Sections */}
+      <ScrollRevealSection
+        imageSrc="/images/section-energy-1.jpg"
+        imageAlt="Renewable energy"
+        heading="The Extractive Model Has Failed"
+        description="For over a century, Africa has been the world's quarry. The continent holds 30% of the planet's mineral reserves — including 80% of global cobalt, 50% of manganese, and vast deposits of phosphates, lithium, and rare earth elements essential to the energy transition. Yet Africa captures less than 5% of the value chain. This is not a market failure — it is a structural design flaw that the current global system has no incentive to fix."
+        variant="diagonal-left"
+      />
+
+      <ScrollRevealSection
+        imageSrc="/images/section-intelligence-1.jpg"
+        imageAlt="AI infrastructure"
+        heading="Sovereign Compute"
+        description="The flagship of Harch Intelligence is a carbon-aware GPU cloud platform across Morocco — the largest sovereign AI compute infrastructure on African soil. Five hubs host 1,798 carbon-optimized GPUs with an average carbon intensity of ~47 gCO2/kWh, enabling African nations and enterprises to train and deploy AI models without routing data through foreign jurisdictions."
+        variant="diagonal-right"
+      />
 
       {/* ═══ ARTICLE BODY ═══ */}
       <article className="prose-article max-w-[800px] mx-auto px-6 md:px-12 py-20 md:py-28">

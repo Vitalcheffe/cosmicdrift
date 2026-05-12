@@ -1,8 +1,9 @@
 'use client';
 
-import { useRef, useState, useEffect, useMemo } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
 import {
   AreaChart,
   Area,
@@ -32,57 +33,6 @@ import {
   Clock,
   Lock,
 } from 'lucide-react';
-
-/* ═══════════════════════════════════════════════════════════════
-   ANIMATION HELPERS
-   ═══════════════════════════════════════════════════════════════ */
-
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   ANIMATED COUNTER
-   ═══════════════════════════════════════════════════════════════ */
-
-function AnimatedCounter({ target, decimals = 1, prefix = '', suffix = '' }: { target: number; decimals?: number; prefix?: string; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 2500;
-    const startTime = Date.now();
-    const step = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [isInView, target]);
-
-  const format = () => {
-    if (decimals === 0) return `${prefix}${Math.round(count).toLocaleString()}${suffix}`;
-    return `${prefix}${count.toFixed(decimals)}${suffix}`;
-  };
-
-  return <span ref={ref}>{format()}</span>;
-}
 
 /* ═══════════════════════════════════════════════════════════════
    LIVE TIMESTAMP HOOK
@@ -733,7 +683,7 @@ function CementAIPanel() {
           <div className="mb-6">
             <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)] mb-2">Energy Efficiency</p>
             <p className="text-5xl md:text-6xl font-bold text-white stat-mono leading-none">
-              <AnimatedCounter target={94.7} decimals={1} suffix="%" />
+              <AnimatedCounter value={94.7} decimals={1} suffix="%" />
             </p>
             <div className="flex items-center gap-2 mt-3">
               <span className="status-badge status-badge-active">
@@ -938,8 +888,7 @@ export default function PlatformPageClient() {
               ].map((stat) => (
                 <div key={stat.label} className="card p-5">
                   <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
-                    <AnimatedCounter
-                      target={stat.value}
+                    <AnimatedCounter value={stat.value}
                       decimals={stat.decimals ?? 0}
                       suffix={stat.suffix}
                     />

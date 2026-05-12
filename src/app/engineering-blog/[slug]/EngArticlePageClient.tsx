@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Calendar, Clock, User, Server, Network, Brain, GitBranch, Shield, Terminal, Tag } from 'lucide-react';

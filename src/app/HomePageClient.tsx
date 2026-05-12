@@ -147,45 +147,40 @@ export default function HomePageClient() {
     <div className="bg-[#0D0D0D]">
 
       {/* ═══════════════════════════════════════════════════════════
-          S1: HERO CAROUSEL — Real images, TextReveal, Parallax
+          S1: HERO — Video background with text carousel
           ═══════════════════════════════════════════════════════════ */}
       <motion.section
         ref={heroRef}
         style={{ opacity: heroOpacity }}
         className="relative h-[100dvh] flex items-end overflow-hidden"
       >
-        {/* Background images with crossfade */}
-        {carouselSlides.map((slide, i) => (
-          <div
-            key={i}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              i === activeSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
-          >
-            <Image
-              src={slide.image}
-              alt={slide.title}
-              fill
-              className="object-cover"
-              priority={i === 0}
-              sizes="100vw"
-            />
-            {/* Dark gradient overlay for text readability */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(to top, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.7) 40%, rgba(13,13,13,0.4) 70%, rgba(13,13,13,0.3) 100%)`,
-              }}
-            />
-            {/* Accent glow */}
-            <div
-              className="absolute inset-0 transition-opacity duration-1000"
-              style={{
-                background: `radial-gradient(ellipse at 30% 70%, ${slide.accent}10 0%, transparent 60%)`,
-              }}
-            />
-          </div>
-        ))}
+        {/* Video background — autoplay, muted, loop */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          poster="/images/sections/overview-casablanca.jpg"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark gradient overlay for text readability */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{
+            background: `linear-gradient(to top, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.7) 40%, rgba(13,13,13,0.4) 70%, rgba(13,13,13,0.3) 100%)`,
+          }}
+        />
+
+        {/* Accent glow — follows active slide */}
+        <div
+          className="absolute inset-0 z-[2] transition-opacity duration-1000"
+          style={{
+            background: `radial-gradient(ellipse at 30% 70%, ${carouselSlides[activeSlide].accent}10 0%, transparent 60%)`,
+          }}
+        />
 
         {/* Dot pattern overlay */}
         <div className="absolute inset-0 dot-pattern z-10 opacity-30" />

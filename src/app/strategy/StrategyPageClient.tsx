@@ -1,22 +1,13 @@
 'use client';
 
-import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Target, TrendingUp, Shield, Zap, Globe, Building2, Layers, Cpu, Droplets, Wheat, Mountain, Factory } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import { FadeIn } from '@/components/ui/motion';
 import ImmersiveHero from '@/components/ImmersiveHero';
 import NetworkOntology from '@/components/NetworkOntology';
-
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
+import { InvestmentPipelineChart } from '@/components/charts/InvestmentPipelineChart';
+import { EnergyMixChart } from '@/components/charts/EnergyMixChart';
 
 const verticalsDeep = [
   { icon: Cpu, name: 'Harch Intelligence', version: '/0.1', investment: '$800M', desc: '1,798 GPU carbon-aware data center platform across Morocco. Next-gen GPU clusters for sovereign AI compute, powered by 100% renewable energy with submarine cable connectivity to Europe and the Americas.', keyPoints: ['1,798 carbon-optimized GPUs', '2GW+ Renewable Pipeline', '100% renewable powered', 'Carbon-aware scheduling'], href: '/subsidiaries/intelligence' },
@@ -161,6 +152,26 @@ export default function StrategyPageClient() {
                 </div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Capital Deployment Visualization */}
+      <section className="py-20 md:py-28 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Capital Deployment</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-12">
+              Investment Pipeline Breakdown
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <FadeIn delay={0.1}>
+              <InvestmentPipelineChart />
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <EnergyMixChart />
+            </FadeIn>
           </div>
         </div>
       </section>

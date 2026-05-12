@@ -1,34 +1,11 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Leaf, Users, Shield, Droplets, Zap, Sun, Heart, Recycle, TreePine } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
-
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 2500; const startTime = Date.now();
-    const step = () => { const elapsed = Date.now() - startTime; const progress = Math.min(elapsed / duration, 1); const eased = 1 - Math.pow(1 - progress, 4); setCount(eased * target); if (progress < 1) requestAnimationFrame(step); };
-    requestAnimationFrame(step);
-  }, [isInView, target]);
-  const format = () => { if (target >= 1000) return `${prefix}${Math.round(count).toLocaleString()}${suffix}`; if (target < 10) return `${prefix}${count.toFixed(1)}${suffix}`; return `${prefix}${Math.round(count)}${suffix}`; };
-  return <span ref={ref}>{format()}</span>;
-}
+import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
+import { ESGRadarChart } from '@/components/charts/ESGRadarChart';
+import { CarbonIntensityChart } from '@/components/charts/CarbonIntensityChart';
 
 const envCommitments = [
   { icon: Sun, title: '100% Renewable Energy', desc: 'All Harch Corp operations — from data centers to manufacturing — are powered by renewable energy. Our 2GW+ Renewable Pipeline provides zero-carbon electricity at industrial scale, achieving 81.5% average renewable across our 5 GPU hubs.' },
@@ -97,6 +74,26 @@ export default function ESGPageClient() {
         </div>
       </section>
 
+      {/* ESG Performance Dashboard */}
+      <section className="py-20 md:py-28 bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Performance Metrics</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-12">
+              ESG Scorecard
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <FadeIn delay={0.1}>
+              <ESGRadarChart />
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <CarbonIntensityChart />
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Photo Section - Energy */}
       <section className="photo-section relative min-h-[60vh] flex items-center">
         <Image src="/images/hero-energy.jpg" alt="Renewable Energy" fill className="object-cover" />
@@ -130,7 +127,7 @@ export default function ESGPageClient() {
               <FadeIn key={item.label} delay={i * 0.1}>
                 <div className="card p-6">
                   <p className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-none mb-2">
-                    <AnimatedCounter target={item.stat} prefix={item.prefix} suffix={item.suffix} />
+                    <AnimatedCounter value={item.stat} prefix={item.prefix} suffix={item.suffix} />
                   </p>
                   <p className="text-[11px] font-bold tracking-[0.12em] uppercase text-white mb-2">{item.label}</p>
                   <p className="text-[12px] text-[#666666] leading-relaxed">{item.desc}</p>

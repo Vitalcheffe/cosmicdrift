@@ -1,21 +1,12 @@
 'use client';
 
-import { useRef } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Cpu, Server, Zap } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import { FadeIn } from '@/components/ui/motion';
 import ImmersiveHero from '@/components/ImmersiveHero';
 import LiveDashboard from '@/components/LiveDashboard';
-
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
+import { GPUUtilizationChart } from '@/components/charts/GPUUtilizationChart';
+import { CarbonIntensityChart } from '@/components/charts/CarbonIntensityChart';
 
 const products = [
   {
@@ -71,6 +62,26 @@ export default function IntelligencePageClient() {
       <section className="py-16 md:py-24 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <LiveDashboard metrics={intelligenceMetrics} title="HARCH OS // LIVE METRICS" />
+        </div>
+      </section>
+
+      {/* Data Visualizations */}
+      <section className="py-20 md:py-28 bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Performance Analytics</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-12">
+              Real-Time Insights
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <FadeIn delay={0.1}>
+              <GPUUtilizationChart />
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <CarbonIntensityChart />
+            </FadeIn>
+          </div>
         </div>
       </section>
 

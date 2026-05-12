@@ -1,19 +1,10 @@
 'use client';
 
-import { useRef } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
-
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
+import { FadeIn } from '@/components/ui/motion';
+import { InvestmentPipelineChart } from '@/components/charts/InvestmentPipelineChart';
+import { EnergyMixChart } from '@/components/charts/EnergyMixChart';
 
 export default function InvestorsPageClient() {
   return (
@@ -81,6 +72,26 @@ export default function InvestorsPageClient() {
                 </div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Pipeline Visualization */}
+      <section className="py-20 md:py-28 bg-[#121212]">
+        <div className="max-w-[900px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Capital Allocation</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">
+              Investment by Vertical
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <FadeIn delay={0.15}>
+              <InvestmentPipelineChart />
+            </FadeIn>
+            <FadeIn delay={0.25}>
+              <EnergyMixChart />
+            </FadeIn>
           </div>
         </div>
       </section>

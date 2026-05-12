@@ -5,6 +5,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
 import { CursorGlow } from "@/components/CursorGlow";
+import { ClientLayout } from "@/components/ClientLayout";
 
 
 const inter = Inter({
@@ -456,7 +457,9 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Sidebar />
         <div className="flex-1 flex flex-col overflow-x-hidden w-full">
-          <main id="main-content" className="flex-1 pb-6 overflow-x-hidden">{children}</main>
+          <main id="main-content" className="flex-1 pb-6 overflow-x-hidden">
+            <ClientLayout>{children}</ClientLayout>
+          </main>
           <Footer />
         </div>
         <CookieConsent />

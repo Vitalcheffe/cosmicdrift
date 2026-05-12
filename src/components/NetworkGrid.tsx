@@ -27,8 +27,29 @@ export function NetworkGrid({ className = '', nodeCount = 40, maxDistance = 120,
     if (!ctx) return;
 
     let animId: number;
+    let isVisible = true;
     let nodes: Node[] = [];
     let mouse = { x: -1000, y: -1000 };
+
+    // IntersectionObserver — pause animation when offscreen
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
+
+    // Reduced motion — skip animation entirely
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      const resize = () => {
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = canvas.offsetWidth * dpr;
+        canvas.height = canvas.offsetHeight * dpr;
+        ctx.scale(dpr, dpr);
+      };
+      resize();
+      return () => observer.disconnect();
+    }
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -61,6 +82,12 @@ export function NetworkGrid({ className = '', nodeCount = 40, maxDistance = 120,
     };
 
     const draw = () => {
+      // Pause when offscreen to save GPU/CPU
+      if (!isVisible) {
+        animId = requestAnimationFrame(draw);
+        return;
+      }
+
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
@@ -140,6 +167,7 @@ export function NetworkGrid({ className = '', nodeCount = 40, maxDistance = 120,
       cancelAnimationFrame(animId);
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
+      observer.disconnect();
     };
   }, [nodeCount, maxDistance, opacity]);
 

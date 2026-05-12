@@ -19,9 +19,30 @@ export function DataStream({ className = '', opacity = 0.03, speed = 0.5, count 
     if (!ctx) return;
 
     let animId: number;
+    let isVisible = true;
     let streams: { x: number; y: number; speed: number; chars: string[]; opacity: number }[] = [];
 
     const chars = '01HARCHCORP∞→↓▲█▓░/$MWGWKT'.split('');
+
+    // IntersectionObserver — pause animation when offscreen
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(canvas);
+
+    // Reduced motion — skip animation entirely
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      // Draw one static frame and stop
+      const resize = () => {
+        canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+        canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      };
+      resize();
+      return () => observer.disconnect();
+    }
 
     const resize = () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;
@@ -45,6 +66,12 @@ export function DataStream({ className = '', opacity = 0.03, speed = 0.5, count 
     };
 
     const draw = () => {
+      // Pause when offscreen to save GPU/CPU
+      if (!isVisible) {
+        animId = requestAnimationFrame(draw);
+        return;
+      }
+
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
@@ -81,6 +108,7 @@ export function DataStream({ className = '', opacity = 0.03, speed = 0.5, count 
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener('resize', resize);
+      observer.disconnect();
     };
   }, [opacity, speed, count]);
 

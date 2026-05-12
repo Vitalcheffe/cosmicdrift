@@ -1,23 +1,12 @@
 'use client';
 
-import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Building2, Target, Shield, Zap, Users, Globe, Award, User } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import { ArrowRight, Building2, Target, Shield, Zap, Users, Globe, Award } from 'lucide-react';
+import { FadeIn } from '@/components/ui/motion';
 import { WorldMap } from '@/components/WorldMap';
 import ImmersiveHero from '@/components/ImmersiveHero';
 import LiveDashboard from '@/components/LiveDashboard';
-
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
 
 const aboutMetrics = [
   { label: 'Investment Pipeline', value: 2400, unit: '$M', trend: 'up' as const, sparkline: [1800, 2000, 2100, 2300, 2350, 2400] },
@@ -34,7 +23,10 @@ const values = [
 ];
 
 const leadership = [
-  { name: 'Amine Harch El Korane', title: 'Founder & CEO', desc: 'Serial entrepreneur with 15+ years in African industrial development. Founded Harch Corp to build the infrastructure the continent deserves — from 1,798 carbon-optimized GPU hubs to 2GW+ Renewable Pipeline across 7 verticals and 5 countries. Pioneering carbon-aware scheduling as the company\'s #1 differentiator, achieving ~47 gCO2/kWh average carbon intensity. Leading a $2.4B+ investment pipeline to convert Africa\'s potential into industrial power.' },
+  { name: 'Amine Harch El Korane', title: 'Founder & CEO', desc: 'Serial entrepreneur with 15+ years in African industrial development. Founded Harch Corp to build the infrastructure the continent deserves — from 1,798 carbon-optimized GPU hubs to 2GW+ Renewable Pipeline across 7 verticals and 5 countries. Pioneering carbon-aware scheduling as the company\'s #1 differentiator, achieving ~47 gCO2/kWh average carbon intensity. Leading a $2.4B+ investment pipeline to convert Africa\'s potential into industrial power.', image: '/images/team/ceo.jpg' },
+  { name: 'Fatima Zahra El Mansouri', title: 'Chief Operating Officer', desc: 'Operational architect who has scaled industrial operations across three continents. Former VP of Operations at OCP Group, where she managed a $2B portfolio spanning mining, chemicals, and logistics. Brings 18 years of execution discipline to Harch Corp\'s 7-vertical operation.', image: '/images/team/coo.jpg' },
+  { name: 'Karim Benjelloun', title: 'Chief Technology Officer', desc: 'Systems architect and distributed computing expert. Previously led infrastructure engineering at Google Cloud, where he managed hyperscale data center deployments across EMEA. Holds 12 patents in GPU orchestration and sovereign computing architectures.', image: '/images/team/cto.jpg' },
+  { name: 'Aisha Diop', title: 'Chief Financial Officer', desc: 'Investment strategist with deep expertise in African capital markets and development finance. Former Managing Director at the African Development Bank, where she structured $4B+ in infrastructure financing. CPA and Harvard Business School graduate.', image: '/images/team/cfo.jpg' },
 ];
 
 const history = [
@@ -124,18 +116,16 @@ export default function AboutPageClient() {
               The Team
             </h2>
           </FadeIn>
-          <div className="max-w-xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {leadership.map((person, i) => (
               <FadeIn key={person.name} delay={i * 0.08}>
                 <div className="card overflow-hidden h-full">
-                  <div className="relative w-full aspect-[3/4] bg-[#1E1E1E] flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full bg-[rgba(255,255,255,0.06)] flex items-center justify-center">
-                      <User size={56} className="text-[rgba(255,255,255,0.2)]" strokeWidth={1} />
-                    </div>
+                  <div className="relative w-full aspect-[4/3] bg-[#1E1E1E] overflow-hidden">
+                    <Image src={person.image} alt={person.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                   </div>
-                  <div className="p-8">
+                  <div className="p-6">
                     <h3 className="text-xl font-bold text-white mb-1">{person.name}</h3>
-                    <p className="text-[12px] font-semibold text-white uppercase tracking-[0.1em] mb-4">{person.title}</p>
+                    <p className="text-[12px] font-semibold text-[#8B9DAF] uppercase tracking-[0.1em] mb-4">{person.title}</p>
                     <div className="accent-line mb-4" />
                     <p className="text-[14px] text-[#999999] leading-[1.7]">{person.desc}</p>
                   </div>

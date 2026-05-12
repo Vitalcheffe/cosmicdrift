@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -10,45 +10,10 @@ import {
   CloudCog, FileCode2, GitBranch, Boxes, Eye, Rocket, CheckCircle2,
   Sun, Droplets, MapPin
 } from 'lucide-react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
+import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
 import type { Competitor } from '@/components/competitive/CompetitiveComparison';
-
-/* ─── ANIMATION HELPERS ─── */
-function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }} transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-function AnimatedCounter({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 2500;
-    const startTime = Date.now();
-    const step = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [isInView, target]);
-  const format = () => {
-    if (target >= 1000) return `${prefix}${Math.round(count).toLocaleString()}${suffix}`;
-    if (target < 10) return `${prefix}${count.toFixed(1)}${suffix}`;
-    return `${prefix}${Math.round(count)}${suffix}`;
-  };
-  return <span ref={ref}>{format()}</span>;
-}
 
 /* ─── DATA ─── */
 const hubs = [
@@ -262,7 +227,7 @@ export default function HarchOSPageClient() {
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
-                    <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   </p>
                   <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1 font-[family-name:var(--font-space-mono)]">{stat.label}</p>
                 </div>
@@ -524,7 +489,7 @@ export default function HarchOSPageClient() {
                   ].map((stat) => (
                     <div key={stat.label} className="card p-5">
                       <p className="text-2xl font-bold text-white stat-mono">
-                        <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                       </p>
                       <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1 font-[family-name:var(--font-space-mono)]">{stat.label}</p>
                     </div>

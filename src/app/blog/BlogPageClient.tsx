@@ -3,8 +3,9 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ArrowUpRight, Calendar, Clock, Mail, Rss, PenLine, Search, Code2, Brain, Building2, Zap, Wheat, Cpu } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Calendar, Clock, Mail, Rss, PenLine, Search, Code2, Brain, Building2, Zap, Wheat, Cpu, Landmark, Droplets } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import { blogArticles } from '@/data/blog-articles';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,9 +17,9 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
   );
 }
 
-type Category = 'All' | 'Engineering' | 'AI & ML' | 'Infrastructure' | 'Energy' | 'Agriculture' | 'Company';
+type Category = 'All' | 'Engineering' | 'AI & ML' | 'Infrastructure' | 'Energy' | 'Agriculture' | 'Company' | 'Finance';
 
-const categories: Category[] = ['All', 'Engineering', 'AI & ML', 'Infrastructure', 'Energy', 'Agriculture', 'Company'];
+const categories: Category[] = ['All', 'Engineering', 'AI & ML', 'Infrastructure', 'Energy', 'Agriculture', 'Company', 'Finance'];
 
 const categoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
   Engineering: Code2,
@@ -27,6 +28,7 @@ const categoryIcons: Record<string, React.ComponentType<{ size?: number; classNa
   Energy: Zap,
   Agriculture: Wheat,
   Company: Cpu,
+  Finance: Landmark,
 };
 
 interface BlogPost {
@@ -38,83 +40,21 @@ interface BlogPost {
   slug: string;
   featured?: boolean;
   image: string;
+  imageAlt?: string;
 }
 
-const blogPosts: BlogPost[] = [
-  {
-    title: 'Why Sovereign AI Infrastructure Is the Most Important Infrastructure of the 21st Century',
-    excerpt: 'Nations that cannot train and run their own AI models will be dependent on foreign infrastructure for the most transformative technology since electricity. We explain why sovereign compute is a matter of national security.',
-    date: 'March 2026',
-    category: 'Engineering',
-    readTime: '14 min read',
-    slug: 'sovereign-ai-infrastructure-21st-century',
-    featured: true,
-    image: '/images/sections/intelligence-server-room.jpg',
-  },
-  {
-    title: 'Building HarchOS: Architecture Decisions Behind Africa\'s Sovereign Compute Platform',
-    excerpt: 'From distributed scheduling to GPU-aware orchestration, we walk through the key technical choices that shaped HarchOS and why we rejected conventional cloud architectures.',
-    date: 'March 2026',
-    category: 'Engineering',
-    readTime: '18 min read',
-    slug: 'building-harchos-architecture-decisions',
-    image: '/images/intelligence/harchos-architecture.png',
-  },
-  {
-    title: 'The Economics of Renewable-Powered Data Centers in North Africa',
-    excerpt: 'Solar irradiance, wind corridors, and proximity to European fiber make North Africa uniquely positioned for green compute. We ran the numbers on a 200MW facility outside Tangier.',
-    date: 'February 2026',
-    category: 'Infrastructure',
-    readTime: '12 min read',
-    slug: 'economics-renewable-data-centers-north-africa',
-    image: '/images/sections/energy-solar-farm.jpg',
-  },
-  {
-    title: 'How We Achieved 23% Water Loss Reduction with AI-Optimized Distribution',
-    excerpt: 'Using the SENSE layer to ingest real-time pressure and flow data from 12,000 sensors, our ACT system reduced non-revenue water in Casablanca by nearly a quarter in six months.',
-    date: 'January 2026',
-    category: 'AI & ML',
-    readTime: '10 min read',
-    slug: '23-percent-water-loss-reduction-ai',
-    image: '/images/sections/water-control-room.jpg',
-  },
-  {
-    title: 'From Raw Ore to Refined Value: Our Model for African Mineral Processing',
-    excerpt: 'Exporting raw minerals is a colonial-era extractive model. Harch Mining is building processing capacity that keeps value creation on the continent — and the economics are compelling.',
-    date: 'January 2026',
-    category: 'Company',
-    readTime: '9 min read',
-    slug: 'raw-ore-to-refined-value-african-mineral-processing',
-    image: '/images/sections/mining-processing.jpg',
-  },
-  {
-    title: 'Training African Language Models: Challenges and Breakthroughs',
-    excerpt: 'Most LLMs perform poorly on African languages. We discuss the data scarcity problem, our synthetic augmentation approach, and early results on Amazigh, Wolof, and Swahili benchmarks.',
-    date: 'December 2025',
-    category: 'AI & ML',
-    readTime: '16 min read',
-    slug: 'training-african-language-models-challenges-breakthroughs',
-    image: '/images/sections/intelligence-gpu-cluster.jpg',
-  },
-  {
-    title: 'The Green Hydrogen Play: Morocco\'s Strategic Position in the European Energy Transition',
-    excerpt: 'With the EU targeting 10Mt of green hydrogen imports by 2030, Morocco\'s solar resources and geographic proximity make it the natural supplier. Here\'s our project pipeline.',
-    date: 'November 2025',
-    category: 'Energy',
-    readTime: '11 min read',
-    slug: 'green-hydrogen-morocco-european-energy-transition',
-    image: '/images/sections/energy-hydrogen.jpg',
-  },
-  {
-    title: 'Precision Agriculture at Scale: Lessons from 5,000 Hectares in Senegal',
-    excerpt: 'IoT sensors, satellite imagery, and drone-based intervention across 5,000 hectares of millet and groundnut fields. Yields increased 31% while water usage dropped 18%.',
-    date: 'October 2025',
-    category: 'Agriculture',
-    readTime: '13 min read',
-    slug: 'precision-agriculture-scale-senegal-5000-hectares',
-    image: '/images/sections/agri-precision.jpg',
-  },
-];
+// Derive blog posts from the centralized data source
+const blogPosts: BlogPost[] = blogArticles.map((a, i) => ({
+  title: a.title,
+  excerpt: a.excerpt,
+  date: a.date,
+  category: a.category as Category,
+  readTime: a.readTime,
+  slug: a.slug,
+  featured: i === 0,
+  image: a.image,
+  imageAlt: a.imageAlt,
+}));
 
 export default function BlogPageClient() {
   const [activeCategory, setActiveCategory] = useState<Category>('All');
@@ -182,7 +122,7 @@ export default function BlogPageClient() {
                   <div className="relative w-full aspect-[21/9] overflow-hidden">
                     <Image
                       src={featuredPost.image}
-                      alt={featuredPost.title}
+                      alt={featuredPost.imageAlt || featuredPost.title}
                       fill
                       className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, 1400px"
@@ -247,7 +187,7 @@ export default function BlogPageClient() {
                       <div className="relative w-full aspect-video overflow-hidden">
                         <Image
                           src={post.image}
-                          alt={post.title}
+                          alt={post.imageAlt || post.title}
                           fill
                           className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

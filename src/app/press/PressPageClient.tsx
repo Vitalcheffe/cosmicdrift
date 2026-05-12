@@ -2,7 +2,8 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { Download, Mail, Phone, Calendar, FileText, Image, Globe } from 'lucide-react';
+import Image from 'next/image';
+import { Download, Mail, Phone, Calendar, FileText, Image as ImageIcon, Globe } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -13,35 +14,53 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 
 const pressReleases = [
   {
+    date: 'April 14, 2026',
+    title: 'Harch Finance Launches $500M Green Bond Program for Sovereign Infrastructure',
+    excerpt: 'Harch Corp S.A. announces the launch of a $500 million green bond program through its Harch Finance subsidiary, targeting sovereign infrastructure projects across Africa. The program is the largest green bond issuance by an African industrial conglomerate and has received an independent second-party opinion from Sustainalytics confirming alignment with ICMA Green Bond Principles.',
+    category: 'Finance',
+    image: '/images/finance/green-bonds-africa.jpg',
+  },
+  {
     date: 'March 12, 2026',
     title: 'Harch Intelligence: 500MW Dakhla Data Center Enters Engineering Phase',
     excerpt: 'Harch Corp S.A. announces the commencement of engineering design for the 500MW Dakhla AI Hyperscale Data Center, set to become Africa\'s largest sovereign AI compute facility. The facility will house over 100,000 GPUs powered by 97%+ renewable energy, with direct submarine cable connectivity to Europe and the Americas.',
     category: 'Intelligence',
+    image: '/images/blog/dakhla-data-center-construction.jpg',
   },
   {
     date: 'February 28, 2026',
     title: 'Harch Cement Secures Gambia Permits — 500kT/yr Facility Greenlit',
     excerpt: 'Harch Corp S.A. has received all environmental and construction permits for its 500kT/yr cement production facility in Gambia. The $200M investment represents Gambia\'s first domestic cement manufacturing operation, creating 800+ direct jobs and eliminating the country\'s 100% import dependency.',
     category: 'Cement',
+    image: '/images/case-studies/gambia-cement-operations.jpg',
   },
   {
     date: 'January 15, 2026',
     title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals',
     excerpt: 'Moroccan industrial conglomerate Harch Corp S.A. has unveiled a $2.4 billion investment pipeline spanning seven industrial verticals: AI data centers, renewable energy, cement, sovereign technology, strategic mining, precision agriculture, and water infrastructure. The pipeline spans 5 countries and targets 25,000+ jobs by 2030.',
     category: 'Corporate',
+    image: '/images/company/hq-casablanca.jpg',
   },
-
+  {
+    date: 'December 18, 2025',
+    title: 'Harch Corp Publishes Inaugural ESG Report: Carbon Intensity 89% Below Industry Average',
+    excerpt: 'Harch Corp S.A. has published its inaugural Environmental, Social, and Governance report, documenting carbon intensity of ~47 gCO2/kWh across its GPU cloud operations — 89% below the global data center industry average. The report covers environmental performance, community impact, governance practices, and workforce development across all eight subsidiaries.',
+    category: 'Corporate',
+    image: '/images/esg/esg-report-2025.jpg',
+  },
   {
     date: 'December 10, 2025',
     title: 'Harch Energy Secures 2GW Renewable Energy Pipeline in Morocco',
     excerpt: 'Harch Energy has secured licensing and land rights for over 2 gigawatts of renewable energy capacity across Morocco, including solar CSP, photovoltaic, onshore wind, and green hydrogen production facilities. The pipeline positions Morocco as a leading green energy exporter to Europe.',
     category: 'Energy',
+    image: '/images/blog/energy-2gw-pipeline.jpg',
   },
   {
     date: 'November 20, 2025',
     title: 'HarchOS SDK v0.2 Released: Carbon-Aware AI Workload Orchestration',
     excerpt: 'Harch Intelligence has released HarchOS SDK v0.2, introducing real-time carbon-aware workload scheduling across all 5 GPU hubs. The SDK enables developers to deploy AI workloads with automatic routing to the lowest-carbon hub, achieving an average of ~47 gCO2/kWh — 89% below the industry average.',
     category: 'Technology',
+    image: '/images/blog/carbon-aware-gpu-cloud.jpg',
   },
 ];
 
@@ -101,6 +120,19 @@ export default function PressPageClient() {
             {pressReleases.map((release, i) => (
               <FadeIn key={i} delay={i * 0.06}>
                 <div className="card p-6 md:p-8">
+                  {/* Image */}
+                  {release.image && (
+                    <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden mb-6 border border-[rgba(255,255,255,0.06)]">
+                      <Image
+                        src={release.image}
+                        alt={release.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 900px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent" />
+                    </div>
+                  )}
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
                       {release.category}
@@ -165,7 +197,7 @@ export default function PressPageClient() {
                 <div className="card p-6">
                   <div className="flex items-center gap-3 mb-3">
                     {asset.format === 'SVG' || asset.format === 'PNG' ? (
-                      <Image size={18} className="text-[#8B9DAF]" />
+                      <ImageIcon size={18} className="text-[#8B9DAF]" />
                     ) : asset.format === 'PDF' ? (
                       <FileText size={18} className="text-[#8B9DAF]" />
                     ) : (

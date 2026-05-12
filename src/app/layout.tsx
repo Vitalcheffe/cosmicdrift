@@ -304,9 +304,107 @@ export default function RootLayout({
         "@id": "https://www.harchcorp.com/#website",
         url: "https://www.harchcorp.com",
         name: "Harch Corp",
-        alternateName: "HarchCorp — Africa's Sovereign Infrastructure OS",
+        alternateName: ["HarchCorp", "Harch Corp S.A.", "Harch Corporation", "harchcorp.com"],
         publisher: { "@id": "https://www.harchcorp.com/#organization" },
         inLanguage: ["en", "fr", "ar"],
+        image: [
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/og-harch-corp.png",
+            contentUrl: "https://www.harchcorp.com/images/og-harch-corp.png",
+            caption: "Harch Corp — Africa's Sovereign Infrastructure OS",
+            width: 1200,
+            height: 630,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/blog/sovereign-ai-infrastructure.jpg",
+            contentUrl: "https://www.harchcorp.com/images/blog/sovereign-ai-infrastructure.jpg",
+            caption: "Sovereign AI Infrastructure by Harch Intelligence",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/blog/renewable-data-center-north-africa.jpg",
+            contentUrl: "https://www.harchcorp.com/images/blog/renewable-data-center-north-africa.jpg",
+            caption: "Renewable-powered data center in North Africa by Harch Energy",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/blog/dakhla-data-center-construction.jpg",
+            contentUrl: "https://www.harchcorp.com/images/blog/dakhla-data-center-construction.jpg",
+            caption: "Dakhla AI Data Center under construction by Harch Intelligence",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/blog/green-hydrogen-morocco.jpg",
+            contentUrl: "https://www.harchcorp.com/images/blog/green-hydrogen-morocco.jpg",
+            caption: "Green hydrogen production in Morocco by Harch Energy",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/blog/precision-agriculture-senegal.jpg",
+            contentUrl: "https://www.harchcorp.com/images/blog/precision-agriculture-senegal.jpg",
+            caption: "Precision agriculture in Senegal by Harch Agri",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/blog/solar-energy-benchmark-morocco.jpg",
+            contentUrl: "https://www.harchcorp.com/images/blog/solar-energy-benchmark-morocco.jpg",
+            caption: "Solar energy benchmark in Morocco by Harch Energy",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/company/hq-casablanca.jpg",
+            contentUrl: "https://www.harchcorp.com/images/company/hq-casablanca.jpg",
+            caption: "Harch Corp headquarters in Casablanca, Morocco",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/company/industrial-portfolio.jpg",
+            contentUrl: "https://www.harchcorp.com/images/company/industrial-portfolio.jpg",
+            caption: "Harch Corp industrial portfolio across Africa",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/finance/green-bonds-africa.jpg",
+            contentUrl: "https://www.harchcorp.com/images/finance/green-bonds-africa.jpg",
+            caption: "Green bonds for African infrastructure by Harch Finance",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/esg/esg-report-2025.jpg",
+            contentUrl: "https://www.harchcorp.com/images/esg/esg-report-2025.jpg",
+            caption: "Harch Corp ESG sustainability report 2025",
+            width: 1344,
+            height: 768,
+          },
+          {
+            "@type": "ImageObject",
+            url: "https://www.harchcorp.com/images/case-studies/casablanca-water-optimization.jpg",
+            contentUrl: "https://www.harchcorp.com/images/case-studies/casablanca-water-optimization.jpg",
+            caption: "AI-optimized water distribution in Casablanca by Harch Water",
+            width: 1344,
+            height: 768,
+          },
+        ],
         potentialAction: {
           "@type": "SearchAction",
           target: {
@@ -346,6 +444,9 @@ export default function RootLayout({
         <meta name="google-site-verification" content="harchcorp-site-verification" />
         <meta property="og:site_name" content="Harch Corp" />
         <meta name="site_name" content="Harch Corp" />
+        {/* Google reads the first visible H1/element with site name for site name identification */}
+        {/* Hidden semantic element for Google site name extraction */}
+        <span itemProp="name" style={{position:'absolute',clip:'rect(1px,1px,1px,1px)',overflow:'hidden',height:'1px',width:'1px'}}>Harch Corp</span>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}

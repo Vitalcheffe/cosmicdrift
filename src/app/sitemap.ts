@@ -1,4 +1,6 @@
 import { MetadataRoute } from 'next';
+import { blogArticles } from '@/data/blog-articles';
+import { articles } from '@/data/articles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.harchcorp.com';
@@ -102,7 +104,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Resource Pages
   const resourcePages = [
-    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.75 },
+    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.75, images: [`${baseUrl}/images/blog/sovereign-ai-infrastructure.jpg`] },
     { url: `${baseUrl}/engineering-blog`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${baseUrl}/community`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.65 },
     { url: `${baseUrl}/events`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.65 },
@@ -110,6 +112,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/glossary`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.5 },
     { url: `${baseUrl}/status`, lastModified: now, changeFrequency: 'daily' as const, priority: 0.6 },
   ];
+
+  // Blog article pages with images for Google Image indexing
+  const blogPages = blogArticles.map((article) => ({
+    url: `${baseUrl}/blog/${article.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+    images: [`${baseUrl}${article.image}`],
+  }));
+
+  // Newsroom article pages with images for Google Image indexing
+  const newsroomPages = articles.map((article) => ({
+    url: `${baseUrl}/newsroom/${article.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.65,
+    images: [`${baseUrl}${article.image}`],
+  }));
 
   const verticalImages: Record<string, string> = {
     intelligence: 'comp-intel-dc',
@@ -139,6 +159,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...businessPages,
     ...companyPages,
     ...resourcePages,
+    ...blogPages,
+    ...newsroomPages,
     ...verticalPages,
   ];
 }

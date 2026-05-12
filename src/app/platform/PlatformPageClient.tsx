@@ -862,7 +862,7 @@ export default function PlatformPageClient() {
   const liveTime = useLiveTimestamp();
 
   return (
-    <div className="bg-[#0A0A0A]">
+    <div className="bg-[#0D0D0D]">
       {/* ═══════════════════════════════════════════
           HERO / HEADER BAR
           ═══════════════════════════════════════════ */}
@@ -955,7 +955,7 @@ export default function PlatformPageClient() {
       {/* ═══════════════════════════════════════════
           GLOBAL THREAT MONITOR MAP
           ═══════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.06)]">
+      <section className="py-20 md:py-28 bg-[#111111] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Global Monitor</p>
@@ -1001,7 +1001,7 @@ export default function PlatformPageClient() {
       {/* ═══════════════════════════════════════════
           INFRASTRUCTURE HEALTH CHARTS
           ═══════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.06)]">
+      <section className="py-20 md:py-28 bg-[#0D0D0D] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Infrastructure Health</p>
@@ -1021,7 +1021,7 @@ export default function PlatformPageClient() {
       {/* ═══════════════════════════════════════════
           CEMENT FACTORY AI OPTIMIZATION PANEL
           ═══════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.06)]">
+      <section className="py-20 md:py-28 bg-[#111111] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <p className="section-label mb-4">Industrial AI</p>
@@ -1043,7 +1043,7 @@ export default function PlatformPageClient() {
       {/* ═══════════════════════════════════════════
           CTA — Request Platform Access
           ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.06)] relative overflow-hidden">
+      <section className="py-28 md:py-36 bg-[#0D0D0D] border-t border-[rgba(255,255,255,0.06)] relative overflow-hidden">
         {/* Subtle glow */}
         <div
           className="absolute inset-0 pointer-events-none"

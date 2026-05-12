@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Lock, Shield } from 'lucide-react';
+import { ArrowRight, Lock } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 function FadeIn({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -17,33 +17,28 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 
 export default function InvestorsPageClient() {
   return (
-    <div className="bg-[#0C0F1A]">
-      {/* ═══ HERO ═══ */}
-      <section className="pt-32 pb-20 md:pt-44 md:pb-32 bg-[#0C0F1A]">
+    <div className="bg-[#1A1A1A]">
+      {/* Hero */}
+      <section className="pt-32 pb-20 md:pt-44 md:pb-32 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-[rgba(184,150,90,0.06)] border border-[rgba(184,150,90,0.15)] rounded">
-                <Lock size={10} className="text-[#B8965A]" />
-                <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#B8965A]">Restricted</span>
-              </div>
-            </div>
+            <p className="section-label mb-6">Investor Relations</p>
             <h1 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-8">
               Investor Relations
             </h1>
             <div className="accent-line mb-8" />
-            <p className="text-[18px] md:text-[20px] text-[#8B9DAF] leading-[1.7] max-w-2xl">
+            <p className="text-[18px] md:text-[20px] text-[#999999] leading-[1.7] max-w-2xl">
               Harch Corp is a privately held sovereign infrastructure company. We are not currently raising public capital.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* ═══ STATEMENT ═══ */}
-      <section className="py-20 md:py-28 bg-[#0C0F1A]">
+      {/* Statement */}
+      <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <div className="border-l-2 border-[rgba(184,150,90,0.3)] pl-8 md:pl-12 mb-16">
+            <div className="border-l-2 border-[rgba(139,157,175,0.3)] pl-8 md:pl-12 mb-16">
               <p className="text-[20px] md:text-[24px] text-white leading-[1.6] font-light">
                 Institutional investors may request a briefing.
               </p>
@@ -66,11 +61,11 @@ export default function InvestorsPageClient() {
         </div>
       </section>
 
-      {/* ═══ KEY FIGURES ═══ */}
-      <section className="py-20 md:py-28 bg-[#0A0D17]">
+      {/* Key Figures */}
+      <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] mb-10">Selected Figures</p>
+            <p className="section-label mb-10">Selected Figures</p>
           </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -90,15 +85,11 @@ export default function InvestorsPageClient() {
         </div>
       </section>
 
-      {/* ═══ CTA ═══ */}
-      <section className="py-20 md:py-28 bg-[#0C0F1A]">
+      {/* CTA */}
+      <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <div className="card p-8 md:p-12 border-[rgba(184,150,90,0.12)]">
-              <div className="flex items-center gap-3 mb-6">
-                <Shield size={16} className="text-[#B8965A]" strokeWidth={1.5} />
-                <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#B8965A]">Institutional Briefing</span>
-              </div>
+            <div className="card p-8 md:p-12">
               <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Request a Briefing</h3>
               <p className="text-[14px] text-[#999999] leading-[1.7] mb-8 max-w-lg">
                 All investor inquiries are processed through our secure intake system. Provide your institutional details and our IR team will respond within 48 hours.
@@ -106,7 +97,7 @@ export default function InvestorsPageClient() {
               <div className="flex flex-col sm:flex-row items-start gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2.5 bg-[#B8965A] text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#C9A84C] transition-all"
+                  className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all"
                 >
                   Request Briefing <ArrowRight size={14} />
                 </Link>

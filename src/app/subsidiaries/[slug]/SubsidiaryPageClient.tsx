@@ -29,10 +29,10 @@ import type { Competitor } from '@/components/competitive/CompetitiveComparison'
    ═══════════════════════════════════════════════════════════════ */
 const accentMap: Record<string, string> = {
   intelligence: '#8B9DAF',
-  cement: '#B8965A',
-  energy: '#B8965A',
+  cement: '#8B9DAF',
+  energy: '#8B9DAF',
   technology: '#8B9DAF',
-  mining: '#B8965A',
+  mining: '#8B9DAF',
   agriculture: '#4A7B5F',
   water: '#8B9DAF',
 };
@@ -327,7 +327,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Industrial Synergies', desc: 'Cross-vertical integration with Harch Energy for renewable power supply and Harch Mining for supplementary raw materials. Captive energy costs 40% below grid tariffs.' },
       ],
       competitorHarchName: 'Harch Cement',
-      competitorAccentColor: '#B8965A',
+      competitorAccentColor: '#8B9DAF',
       competitors: [
         {
           name: 'Dangote Cement', country: 'Nigeria', founded: '1981', revenue: '$3.6B (2024)',
@@ -443,7 +443,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Community Energy Programs', desc: 'Mini-grid and rural electrification partnerships with governments and development agencies. 5% of generation capacity allocated for community energy access.' },
       ],
       competitorHarchName: 'Harch Energy',
-      competitorAccentColor: '#B8965A',
+      competitorAccentColor: '#8B9DAF',
       competitors: [
         {
           name: 'ACWA Power', country: 'Saudi Arabia', founded: '2004', revenue: '$3.1B (2024)',
@@ -623,7 +623,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         { title: 'Circular Mineral Flows', desc: 'Partnerships with battery recyclers and electronics manufacturers for end-of-life mineral recovery.' },
       ],
       competitorHarchName: 'Harch Mining',
-      competitorAccentColor: '#B8965A',
+      competitorAccentColor: '#8B9DAF',
       competitors: [
         {
           name: 'Glencore', country: 'Switzerland', founded: '1974', revenue: '$230B (2024)',

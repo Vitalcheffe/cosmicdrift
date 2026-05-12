@@ -82,7 +82,7 @@
   --color-accent-slate: #8B9DAF;
   --color-accent-slate-dark: #4A5D6E;
   --color-success: #4A7B5F;
-  --color-warning: #B8965A;
+  --color-warning: #4A5D6E;
   --color-error: #A0524B;
 
   /* ── Unified Animation Variables ── */
@@ -545,7 +545,7 @@
 
 /* ═══════════════════════════════════════════
    GENERIC ACCENT GLOW — accepts CSS variable color
-   Usage: --glow-color: #B8965A; then .accent-glow
+   Usage: --glow-color: #8B9DAF; then .accent-glow
    ═══════════════════════════════════════════ */
 .accent-glow {
   box-shadow:
@@ -554,16 +554,16 @@
 }
 
 /* ═══════════════════════════════════════════
-   WARNING/ACCENT UTILITY — muted gold #B8965A
+   WARNING/ACCENT UTILITY — slate accent #8B9DAF
    ═══════════════════════════════════════════ */
 .text-warning {
-  color: #B8965A;
+  color: #8B9DAF;
 }
 .bg-warning {
-  background-color: #B8965A;
+  background-color: #8B9DAF;
 }
 .border-warning {
-  border-color: #B8965A;
+  border-color: #8B9DAF;
 }
 
 /* ═══════════════════════════════════════════

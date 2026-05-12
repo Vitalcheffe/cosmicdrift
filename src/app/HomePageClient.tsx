@@ -33,11 +33,11 @@ const verticals = [
   { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'Carbon-Aware GPU Cloud — 1,798 GPUs across 5 hubs in Morocco, powered by ~81.5% renewable energy at ~47 gCO2/kWh average. Carbon-aware scheduling with zero competitors in Africa.', stat: '1,798 GPUs', href: '/subsidiaries/intelligence', gradient: 'from-[#1a2a3a] to-[#0d1520]', accent: '#8B9DAF', outcomes: ['1,798 GPUs Carbon-Optimized', 'Carbon-Aware Scheduling', '~47 gCO2/kWh Average'], image: '/images/sections/intelligence-gpu-cluster.jpg', deepDiveImage: '/images/sections/intelligence-exterior.jpg' },
   { version: '/0.2', name: 'Cement', fullName: 'Harch Cement', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', gradient: 'from-[#2a2420] to-[#151210]', accent: '#A08878', outcomes: ['500kT/yr Production Output', 'Quarry-to-Delivery Integration', 'West Africa Supply Chain'], image: '/images/sections/cement-kiln.jpg', deepDiveImage: '/images/sections/cement-quarry.jpg' },
   { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+ Pipeline', href: '/subsidiaries/energy', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6B9F6B', outcomes: ['2GW+ Pipeline', 'Green Hydrogen Export', 'Grid Stabilization'], image: '/images/sections/energy-wind-farm.jpg', deepDiveImage: '/images/sections/energy-hydrogen-plant.jpg' },
-  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'Carbon-Aware GPU Cloud, Cyber & Satellite — Sovereign tech stack with the world\'s most carbon-efficient GPU cloud. Cybersecurity, satellite communications, and AI orchestration.', stat: '1,798 GPUs', href: '/subsidiaries/technology', gradient: 'from-[#1a1a2a] to-[#0d0d15]', accent: '#7888A8', outcomes: ['Carbon-Aware GPU Cloud', 'Cybersecurity Platforms', 'Satellite Communications'], image: '/images/sections/tech-ground-station.jpg', deepDiveImage: '/images/sections/tech-cyber.jpg' },
+  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'Carbon-Aware GPU Cloud, Cyber & Satellite — Sovereign tech stack with the world\'s most carbon-efficient GPU cloud. Cybersecurity, satellite communications, and AI orchestration.', stat: '1,798 GPUs', href: '/subsidiaries/technology', gradient: 'from-[#1a1a2a] to-[#0d0f14]', accent: '#7888A8', outcomes: ['Carbon-Aware GPU Cloud', 'Cybersecurity Platforms', 'Satellite Communications'], image: '/images/sections/tech-ground-station.jpg', deepDiveImage: '/images/sections/tech-cyber.jpg' },
   { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', gradient: 'from-[#2a1a1a] to-[#150d0d]', accent: '#A87878', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'In-Country Value Capture'], image: '/images/sections/mining-smelter.jpg', deepDiveImage: '/images/sections/mining-processing.jpg' },
   { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6BAF6B', outcomes: ['Precision IoT Farming', 'Drone Crop Monitoring', 'Vertical Farm Networks'], image: '/images/sections/agri-vertical-farm.jpg', deepDiveImage: '/images/sections/agri-iot-sensor.jpg' },
   { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', gradient: 'from-[#1a2030] to-[#0d1018]', accent: '#6888A8', outcomes: ['200M m³/yr Desalination', 'AI-Optimized Distribution', 'Continental Water Security'], image: '/images/sections/water-treatment.jpg', deepDiveImage: '/images/sections/water-desal-plant.jpg' },
-  { version: '/0.8', name: 'Finance', fullName: 'Harch Finance', desc: 'Green Bonds, Project Finance & Islamic Finance — Structuring capital flows for sovereign infrastructure. Green bonds, sustainability-linked loans, trade finance, and carbon credit monetization.', stat: '$2.4B+', href: '/subsidiaries/finance', gradient: 'from-[#2a2a1a] to-[#15150d]', accent: '#A8A068', outcomes: ['Green Bonds & Sukuk', 'Project Finance Structuring', 'Carbon Credit Monetization'], image: '/images/sections/finance-trading.jpg', deepDiveImage: '/images/sections/finance-district.jpg' },
+  { version: '/0.8', name: 'Finance', fullName: 'Harch Finance', desc: 'Green Bonds, Project Finance & Islamic Finance — Structuring capital flows for sovereign infrastructure. Green bonds, sustainability-linked loans, trade finance, and carbon credit monetization.', stat: '$2.4B+', href: '/subsidiaries/finance', gradient: 'from-[#1a1a2a] to-[#0d0f14]', accent: '#8B9DAF', outcomes: ['Green Bonds & Sukuk', 'Project Finance Structuring', 'Carbon Credit Monetization'], image: '/images/sections/finance-trading.jpg', deepDiveImage: '/images/sections/finance-district.jpg' },
 ];
 
 const carouselSlides = [
@@ -1004,7 +1004,7 @@ export default function HomePageClient() {
               className="text-[clamp(1.25rem,3vw,2rem)] font-light text-white leading-[1.4] mb-10"
             />
             <div className="flex items-center gap-4">
-              <div className="w-12 h-px bg-[#B8965A]" />
+              <div className="w-12 h-px bg-[#8B9DAF]" />
               <div>
                 <p className="text-sm text-white font-semibold">Amine Harch El Korane</p>
                 <p className="text-[11px] text-[rgba(255,255,255,0.25)] mt-0.5">Founder &amp; CEO, Harch Corp</p>
@@ -1078,9 +1078,9 @@ export default function HomePageClient() {
                     <div className="relative z-10 shrink-0 w-10 md:w-20 flex justify-center">
                       {item.status === 'active' ? (
                         <div className="relative">
-                          <PulseIndicator size={14} color="#B8965A" speed={2} />
+                          <PulseIndicator size={14} color="#8B9DAF" speed={2} />
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-2.5 h-2.5 rounded-full bg-[#B8965A]" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#8B9DAF]" />
                           </div>
                         </div>
                       ) : (
@@ -1092,7 +1092,7 @@ export default function HomePageClient() {
                     </div>
                     <div className="pb-2">
                       <span className={`text-[10px] font-bold tracking-[0.2em] uppercase font-[family-name:var(--font-space-mono)] ${
-                        item.status === 'active' ? 'text-[#B8965A]' :
+                        item.status === 'active' ? 'text-[#8B9DAF]' :
                         item.status === 'completed' ? 'text-white/50' :
                         'text-[rgba(255,255,255,0.25)]'
                       }`}>

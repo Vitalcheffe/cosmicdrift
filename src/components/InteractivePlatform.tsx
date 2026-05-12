@@ -848,7 +848,7 @@ const agricultureConfig: DashboardConfig = {
 
 // ═══════════════════════════════════════════════════════════════
 // ENERGY — HarchEnergy Grid
-// Power grid aesthetic, amber/gold accents, animated energy flows
+// Power grid aesthetic, slate accents, animated energy flows
 // ═══════════════════════════════════════════════════════════════
 const energyConfig: DashboardConfig = {
   platformName: 'HarchEnergy Grid',
@@ -1095,8 +1095,8 @@ const energyConfig: DashboardConfig = {
 const miningConfig: DashboardConfig = {
   platformName: 'HarchMine Ops',
   platformVersion: '0.5',
-  accent: '#B8965A',
-  bgGradient: 'from-[#120D05] to-[#0D0905]',
+  accent: '#8B9DAF',
+  bgGradient: 'from-[#120D05] to-[#0D0F14]',
   sidebar: [
     { icon: <HardDrive size={13} />, label: 'Operations' },
     { icon: <Mountain size={13} />, label: 'Geological Map' },
@@ -1121,7 +1121,7 @@ const miningConfig: DashboardConfig = {
   renderMain: (accent) => (
     <div id="mining-map" className="space-y-3">
       {/* Geological Cross-Section */}
-      <div className="bg-[#0D0905] border border-[rgba(184,150,90,0.15)] rounded-none p-4">
+      <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-4">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Geological Cross-Section</span>
         <svg viewBox="0 0 320 100" className="w-full h-auto">
           {/* Rock layers */}
@@ -1137,10 +1137,10 @@ const miningConfig: DashboardConfig = {
           <text x="5" y="73" fill="#3D312080" fontSize="5">CLAY</text>
           <text x="5" y="93" fill="#2A221880" fontSize="5">BASEMENT</text>
           {/* Mineral deposits */}
-          <circle cx="80" cy="47" r="6" fill="#B8965A40" stroke="#B8965A" strokeWidth="0.5" />
-          <text x="80" y="49" textAnchor="middle" fill="#B8965A" fontSize="4">P2O5</text>
-          <circle cx="160" cy="42" r="8" fill="#B8965A50" stroke="#B8965A" strokeWidth="0.5" />
-          <text x="160" y="44" textAnchor="middle" fill="#B8965A" fontSize="4">PHOS</text>
+          <circle cx="80" cy="47" r="6" fill="#8B9DAF40" stroke="#8B9DAF" strokeWidth="0.5" />
+          <text x="80" y="49" textAnchor="middle" fill="#8B9DAF" fontSize="4">P2O5</text>
+          <circle cx="160" cy="42" r="8" fill="#8B9DAF50" stroke="#8B9DAF" strokeWidth="0.5" />
+          <text x="160" y="44" textAnchor="middle" fill="#8B9DAF" fontSize="4">PHOS</text>
           <circle cx="240" cy="50" r="5" fill="#22C55E30" stroke="#22C55E" strokeWidth="0.5" />
           <text x="240" y="52" textAnchor="middle" fill="#22C55E" fontSize="4">Co</text>
           {/* Depth markers */}
@@ -1153,7 +1153,7 @@ const miningConfig: DashboardConfig = {
       </div>
 
       {/* Processing Flow Chart */}
-      <div className="bg-[#0D0905] border border-[rgba(184,150,90,0.15)] rounded-none p-4">
+      <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-4">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Mineral Processing Pipeline</span>
         <div className="flex items-center gap-1">
           {[
@@ -1165,23 +1165,23 @@ const miningConfig: DashboardConfig = {
             { stage: 'Export', pct: 85, icon: <Truck size={10} /> },
           ].map((s, i) => (
             <div key={s.stage} className="flex items-center gap-1 flex-1">
-              <div className="flex-1 bg-[rgba(184,150,90,0.06)] border border-[rgba(184,150,90,0.12)] rounded-none p-1.5 text-center hover:bg-[rgba(184,150,90,0.1)] transition-colors cursor-pointer">
-                <div className="flex justify-center mb-0.5 text-[#B8965A50]">{s.icon}</div>
+              <div className="flex-1 bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] rounded-none p-1.5 text-center hover:bg-[rgba(139,157,175,0.1)] transition-colors cursor-pointer">
+                <div className="flex justify-center mb-0.5 text-[#8B9DAF50]">{s.icon}</div>
                 <p className="text-[8px] text-white/40">{s.stage}</p>
                 <p className="text-[9px] text-white/60 mt-0.5">{s.pct}%</p>
               </div>
-              {i < 5 && <ArrowRight size={8} className="text-[#B8965A30] flex-shrink-0" />}
+              {i < 5 && <ArrowRight size={8} className="text-[#8B9DAF30] flex-shrink-0" />}
             </div>
           ))}
         </div>
       </div>
 
       {/* Inventory Levels */}
-      <div className="bg-[#0D0905] border border-[rgba(184,150,90,0.15)] rounded-none p-4">
+      <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-4">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Inventory by Mineral</span>
         <div className="space-y-2">
           {[
-            { mineral: 'Phosphate Rock', qty: '320kT', capacity: 85, color: '#B8965A' },
+            { mineral: 'Phosphate Rock', qty: '320kT', capacity: 85, color: '#8B9DAF' },
             { mineral: 'Cobalt Concentrate', qty: '4.2kT', capacity: 62, color: '#3B82F6' },
             { mineral: 'Rare Earth Oxides', qty: '0.8kT', capacity: 28, color: '#22C55E' },
             { mineral: 'Fluorite', qty: '18kT', capacity: 71, color: '#A855F7' },
@@ -1203,7 +1203,7 @@ const miningConfig: DashboardConfig = {
   renderSidebar: (accent) => (
     <div className="space-y-3">
       {/* Safety Dashboard */}
-      <div className="bg-[#0D0905] border border-[rgba(184,150,90,0.15)] rounded-none p-3">
+      <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-3">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Safety Metrics</span>
         {[
           { metric: 'Gas Levels', value: 'Normal', icon: <Wind size={9} />, ok: true },
@@ -1211,9 +1211,9 @@ const miningConfig: DashboardConfig = {
           { metric: 'Air Quality', value: '98/100', icon: <Leaf size={9} />, ok: true },
           { metric: 'Incidents (YTD)', value: '0', icon: <Shield size={9} />, ok: true },
         ].map(s => (
-          <div key={s.metric} className="flex items-center justify-between py-1.5 border-b border-[rgba(184,150,90,0.05)] last:border-0">
+          <div key={s.metric} className="flex items-center justify-between py-1.5 border-b border-[rgba(139,157,175,0.05)] last:border-0">
             <div className="flex items-center gap-1.5">
-              <span className="text-[#B8965A40]">{s.icon}</span>
+              <span className="text-[#8B9DAF40]">{s.icon}</span>
               <span className="text-[9px] text-white/30">{s.metric}</span>
             </div>
             <div className="flex items-center gap-1.5">
@@ -1224,7 +1224,7 @@ const miningConfig: DashboardConfig = {
         ))}
       </div>
       {/* Commodity Price Ticker */}
-      <div className="bg-[#0D0905] border border-[rgba(184,150,90,0.15)] rounded-none p-3">
+      <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-3">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Commodity Prices</span>
         {[
           { name: 'Phosphate Rock', price: '$135/T', ch: '+3.2%' },
@@ -1232,7 +1232,7 @@ const miningConfig: DashboardConfig = {
           { name: 'Neodymium', price: '$85/kg', ch: '+7.1%' },
           { name: 'Fluorite', price: '$320/T', ch: '+1.5%' },
         ].map((c) => (
-          <div key={c.name} className="flex justify-between py-1 border-b border-[rgba(184,150,90,0.04)] last:border-0">
+          <div key={c.name} className="flex justify-between py-1 border-b border-[rgba(139,157,175,0.04)] last:border-0">
             <span className="text-[9px] text-white/30">{c.name}</span>
             <div className="flex items-center gap-1.5">
               <span className="text-[9px] text-white/50">{c.price}</span>
@@ -1779,13 +1779,13 @@ const technologyConfig: DashboardConfig = {
 
 // ═══════════════════════════════════════════════════════════════
 // FINANCE — HarchFinance Terminal
-// Bloomberg/professional fintech aesthetic, warm gold accent, mono fonts
+// Bloomberg/professional fintech aesthetic, slate accent, mono fonts
 // ═══════════════════════════════════════════════════════════════
 const financeConfig: DashboardConfig = {
   platformName: 'HarchFinance Terminal',
   platformVersion: '0.8',
-  accent: '#C9A84C',
-  bgGradient: 'from-[#0A0A12] to-[#0D0D15]',
+  accent: '#8B9DAF',
+  bgGradient: 'from-[#0A0A12] to-[#0D0F14]',
   sidebar: [
     { icon: <BarChart3 size={13} />, label: 'Portfolio' },
     { icon: <Layers size={13} />, label: 'Pipeline' },
@@ -1832,7 +1832,7 @@ const financeConfig: DashboardConfig = {
       { sector: 'Energy', pct: 35, color: '#D4A843' },
       { sector: 'Intelligence', pct: 22, color: '#8B9DAF' },
       { sector: 'Water', pct: 18, color: '#4A9EB5' },
-      { sector: 'Mining', pct: 10, color: '#B8965A' },
+      { sector: 'Mining', pct: 10, color: '#8B9DAF' },
       { sector: 'Cement', pct: 8, color: '#C8903A' },
       { sector: 'Agri', pct: 7, color: '#4A7B5F' },
     ];
@@ -1860,7 +1860,7 @@ const financeConfig: DashboardConfig = {
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-[#0D0D15] border border-[rgba(201,168,76,0.2)] rounded-sm p-4"
+            className="bg-[#0D0F14] border border-[rgba(139,157,175,0.2)] rounded-sm p-4"
           >
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
@@ -1873,7 +1873,7 @@ const financeConfig: DashboardConfig = {
                     ? 'bg-emerald-500/15 text-emerald-400'
                     : selectedDeal.status === 'Funding' || selectedDeal.status === 'Launching'
                     ? 'bg-amber-500/15 text-amber-400'
-                    : 'bg-[rgba(201,168,76,0.1)] text-[#C9A84C]'
+                    : 'bg-[rgba(139,157,175,0.1)] text-[#8B9DAF]'
                 }`}>{selectedDeal.status}</span>
                 <button onClick={() => setSelectedHub(null)} className="text-white/20 hover:text-white/50 transition-colors cursor-pointer">
                   <X size={12} />
@@ -1882,7 +1882,7 @@ const financeConfig: DashboardConfig = {
             </div>
             <div className="grid grid-cols-4 gap-3">
               <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Amount</p><p className="text-sm font-bold text-white">{selectedDeal.amount}</p></div>
-              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">{selectedDeal.irr.includes('%') && parseFloat(selectedDeal.irr) < 10 ? 'Coupon' : 'IRR'}</p><p className="text-sm font-bold text-[#C9A84C]">{selectedDeal.irr}</p></div>
+              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">{selectedDeal.irr.includes('%') && parseFloat(selectedDeal.irr) < 10 ? 'Coupon' : 'IRR'}</p><p className="text-sm font-bold text-[#8B9DAF]">{selectedDeal.irr}</p></div>
               <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Country</p><p className="text-sm font-bold text-white">{selectedDeal.country}</p></div>
               <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Risk</p><p className="text-sm font-bold text-emerald-400">LOW</p></div>
             </div>
@@ -1891,32 +1891,32 @@ const financeConfig: DashboardConfig = {
 
         {/* Investment Pipeline Table */}
         {(activeTab === 0 || activeTab === 1) && (
-          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm overflow-hidden">
-            <div className="px-3 py-2 border-b border-[rgba(201,168,76,0.08)] flex items-center justify-between">
+          <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm overflow-hidden">
+            <div className="px-3 py-2 border-b border-[rgba(139,157,175,0.08)] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Layers size={11} style={{ color: accent }} />
                 <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Investment Pipeline</span>
               </div>
               <span className="text-[8px] text-emerald-400/50">7 DEALS</span>
             </div>
-            <div className="divide-y divide-[rgba(201,168,76,0.05)]">
+            <div className="divide-y divide-[rgba(139,157,175,0.05)]">
               {deals.map((deal, i) => (
                 <button
                   key={deal.name}
                   onClick={() => setSelectedHub(i)}
-                  className={`w-full px-3 py-2 flex items-center justify-between hover:bg-[rgba(201,168,76,0.04)] transition-colors cursor-pointer text-left ${selectedHub === i ? 'bg-[rgba(201,168,76,0.06)]' : ''}`}
+                  className={`w-full px-3 py-2 flex items-center justify-between hover:bg-[rgba(139,157,175,0.04)] transition-colors cursor-pointer text-left ${selectedHub === i ? 'bg-[rgba(139,157,175,0.06)]' : ''}`}
                 >
                   <div className="flex items-center gap-2">
                     <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
                       deal.status === 'Active' || deal.status === 'Committed' ? 'bg-emerald-400' :
                       deal.status === 'Funding' || deal.status === 'Launching' ? 'bg-amber-400' :
-                      deal.status === 'Term Sheet' ? 'bg-[#C9A84C]' : 'bg-white/20'
+                      deal.status === 'Term Sheet' ? 'bg-[#8B9DAF]' : 'bg-white/20'
                     }`} />
                     <span className="text-[10px] text-white/60">{deal.name}</span>
                   </div>
                   <div className="flex items-center gap-4 text-[8px]">
                     <span className="text-white/50 w-14 text-right">{deal.amount}</span>
-                    <span className="text-[#C9A84C] w-10 text-right">{deal.irr}</span>
+                    <span className="text-[#8B9DAF] w-10 text-right">{deal.irr}</span>
                     <span className="text-white/25 w-16 text-right">{deal.country}</span>
                     <span className={`w-16 text-right ${
                       deal.status === 'Active' || deal.status === 'Committed' ? 'text-emerald-400/60' :
@@ -1932,10 +1932,10 @@ const financeConfig: DashboardConfig = {
 
         {/* Bond Yield Curve */}
         {(activeTab === 2 || activeTab === 0) && (
-          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+          <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Bond Yield Curve</span>
-              <span className="text-[8px] text-[#C9A84C]/50">CBI CERTIFIED</span>
+              <span className="text-[8px] text-[#8B9DAF]/50">CBI CERTIFIED</span>
             </div>
             <svg viewBox="0 0 300 80" className="w-full h-auto">
               {/* Grid lines */}
@@ -1948,7 +1948,7 @@ const financeConfig: DashboardConfig = {
               {/* Curve */}
               <motion.path
                 d="M 50 58 Q 100 48 140 38 Q 180 30 220 24 Q 250 20 280 14"
-                stroke="#C9A84C"
+                stroke="#8B9DAF"
                 strokeWidth="2"
                 fill="none"
                 initial={{ pathLength: 0 }}
@@ -1965,8 +1965,8 @@ const financeConfig: DashboardConfig = {
               />
               <defs>
                 <linearGradient id="yieldGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#C9A84C" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#C9A84C" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#8B9DAF" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#8B9DAF" stopOpacity="0" />
                 </linearGradient>
               </defs>
               {/* Data points */}
@@ -1977,15 +1977,15 @@ const financeConfig: DashboardConfig = {
                   <g key={point.tenor}>
                     <motion.circle
                       cx={x} cy={y} r="3"
-                      fill="#0D0D15"
-                      stroke="#C9A84C"
+                      fill="#0D0F14"
+                      stroke="#8B9DAF"
                       strokeWidth="1.5"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.3 + i * 0.15 }}
                     />
                     <text x={x} y={y + 14} fill="rgba(255,255,255,0.3)" fontSize="6" textAnchor="middle">{point.tenor}</text>
-                    <text x={x} y={y - 6} fill="#C9A84C" fontSize="6" textAnchor="middle" fontWeight="bold">{point.yield}%</text>
+                    <text x={x} y={y - 6} fill="#8B9DAF" fontSize="6" textAnchor="middle" fontWeight="bold">{point.yield}%</text>
                   </g>
                 );
               })}
@@ -1995,11 +1995,11 @@ const financeConfig: DashboardConfig = {
 
         {/* Portfolio Allocation */}
         {(activeTab === 0 || activeTab === 3) && (
-          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+          <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
             <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Portfolio Allocation</span>
             <div className="space-y-1.5">
               {allocations.map((a) => (
-                <div key={a.sector} className="group cursor-pointer hover:bg-[rgba(201,168,76,0.03)] transition-colors rounded-sm px-1 py-0.5">
+                <div key={a.sector} className="group cursor-pointer hover:bg-[rgba(139,157,175,0.03)] transition-colors rounded-sm px-1 py-0.5">
                   <div className="flex items-center justify-between mb-0.5">
                     <span className="text-[9px] text-white/40">{a.sector}</span>
                     <span className="text-[9px] text-white/55 font-bold">{a.pct}%</span>
@@ -2021,7 +2021,7 @@ const financeConfig: DashboardConfig = {
 
         {/* Deal Flow Funnel */}
         {activeTab === 1 && (
-          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+          <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
             <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Deal Flow Funnel</span>
             <div className="space-y-1.5">
               {funnelStages.map((s, i) => {
@@ -2034,7 +2034,7 @@ const financeConfig: DashboardConfig = {
                   >
                     <div className="flex items-center justify-between mb-0.5">
                       <span className="text-[9px] text-white/40 group-hover:text-white/60 transition-colors">{s.stage}</span>
-                      <span className="text-[9px] text-[#C9A84C] font-bold">{s.count}</span>
+                      <span className="text-[9px] text-[#8B9DAF] font-bold">{s.count}</span>
                     </div>
                     <div className="h-[6px] bg-[rgba(255,255,255,0.03)] rounded-sm overflow-hidden">
                       <motion.div
@@ -2054,27 +2054,27 @@ const financeConfig: DashboardConfig = {
 
         {/* Transaction Feed */}
         {(activeSidebar === 4 || activeTab === 0) && (
-          <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm overflow-hidden">
-            <div className="px-3 py-2 border-b border-[rgba(201,168,76,0.08)] flex items-center justify-between">
+          <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm overflow-hidden">
+            <div className="px-3 py-2 border-b border-[rgba(139,157,175,0.08)] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <ArrowRight size={10} style={{ color: accent }} />
                 <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Transaction Feed</span>
               </div>
               <span className="text-[8px] text-emerald-400/50 animate-pulse">LIVE</span>
             </div>
-            <div className="max-h-32 overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#C9A84C20 transparent' }}>
+            <div className="max-h-32 overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#8B9DAF20 transparent' }}>
               {transactions.map((tx, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06 }}
-                  className="px-3 py-1.5 flex items-center justify-between border-b border-[rgba(201,168,76,0.03)] hover:bg-[rgba(201,168,76,0.03)] transition-colors cursor-pointer"
+                  className="px-3 py-1.5 flex items-center justify-between border-b border-[rgba(139,157,175,0.03)] hover:bg-[rgba(139,157,175,0.03)] transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-2">
                     <span className="text-[7px] text-white/15 w-12">{tx.time}</span>
                     <span className={`px-1 py-0.5 rounded-sm text-[6px] font-bold ${
-                      tx.type === 'BOND' ? 'bg-[#C9A84C]/10 text-[#C9A84C]/70' :
+                      tx.type === 'BOND' ? 'bg-[#8B9DAF]/10 text-[#8B9DAF]/70' :
                       tx.type === 'TRANSFER' ? 'bg-amber-500/10 text-amber-400/60' :
                       tx.type === 'TRADE' ? 'bg-emerald-500/10 text-emerald-400/60' :
                       'bg-[#4A9EB5]/10 text-[#4A9EB5]/60'
@@ -2096,7 +2096,7 @@ const financeConfig: DashboardConfig = {
   renderSidebar: (accent) => (
     <div className="space-y-3 font-mono">
       {/* Risk Score Matrix */}
-      <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+      <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
         <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Risk Score Matrix</span>
         <div className="grid grid-cols-4 gap-1">
           <div />
@@ -2127,7 +2127,7 @@ const financeConfig: DashboardConfig = {
       </div>
 
       {/* Currency Rates */}
-      <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+      <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
         <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Currency Rates</span>
         {[
           { code: 'MAD', rate: '10.05/$', change: '+0.3%', up: true },
@@ -2135,7 +2135,7 @@ const financeConfig: DashboardConfig = {
           { code: 'USD', rate: '1.00', change: '0%', up: true },
           { code: 'GBP', rate: '0.79/$', change: '+0.2%', up: true },
         ].map(c => (
-          <div key={c.code} className="flex items-center justify-between py-1 border-b border-[rgba(201,168,76,0.04)] last:border-0 cursor-pointer hover:bg-[rgba(201,168,76,0.03)] transition-colors rounded-sm px-1">
+          <div key={c.code} className="flex items-center justify-between py-1 border-b border-[rgba(139,157,175,0.04)] last:border-0 cursor-pointer hover:bg-[rgba(139,157,175,0.03)] transition-colors rounded-sm px-1">
             <span className="text-[9px] text-white/40 font-bold w-8">{c.code}</span>
             <span className="text-[9px] text-white/55">{c.rate}</span>
             <span className={`text-[8px] ${c.up ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{c.change}</span>
@@ -2144,14 +2144,14 @@ const financeConfig: DashboardConfig = {
       </div>
 
       {/* Compliance Status */}
-      <div className="bg-[#0D0D15] border border-[rgba(201,168,76,0.12)] rounded-sm p-3">
+      <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
         <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Compliance Status</span>
         {[
           { label: 'Sharia (OIC)', status: 'Compliant', icon: <CheckCircle size={8} /> },
           { label: 'MIGA Coverage', status: 'Active', icon: <Shield size={8} /> },
           { label: 'DFI Alignment', status: 'Verified', icon: <CheckCircle size={8} /> },
         ].map(c => (
-          <div key={c.label} className="flex items-center justify-between py-1 border-b border-[rgba(201,168,76,0.04)] last:border-0">
+          <div key={c.label} className="flex items-center justify-between py-1 border-b border-[rgba(139,157,175,0.04)] last:border-0">
             <div className="flex items-center gap-1.5">
               <span className="text-emerald-400/50">{c.icon}</span>
               <span className="text-[8px] text-white/35">{c.label}</span>
@@ -2310,7 +2310,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
           {/* Main Content Area */}
           <div className="flex flex-col md:flex-row">
             {/* Sidebar */}
-            <div className={`w-full md:w-48 border-b md:border-b-0 md:border-r border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]/50' : isAgriculture ? 'bg-[#0A120A]/50' : isEnergy ? 'bg-[#0D0A05]/50' : isMining ? 'bg-[#0D0905]/50' : isCement ? 'bg-[#0D0802]/50' : isWater ? 'bg-[#030D14]/50' : isTech ? 'bg-[#0A0D1A]/50' : isFinance ? 'bg-[#0A0A12]/50' : 'bg-[#0A0A0A]/50'}`}>
+            <div className={`w-full md:w-48 border-b md:border-b-0 md:border-r border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]/50' : isAgriculture ? 'bg-[#0A120A]/50' : isEnergy ? 'bg-[#0D0A05]/50' : isMining ? 'bg-[#0D0F14]/50' : isCement ? 'bg-[#0D0802]/50' : isWater ? 'bg-[#030D14]/50' : isTech ? 'bg-[#0A0D1A]/50' : isFinance ? 'bg-[#0A0A12]/50' : 'bg-[#0A0A0A]/50'}`}>
               <nav className="py-2">
                 {config.sidebar.map((item, i) => (
                   <button
@@ -2331,7 +2331,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
             </div>
 
             {/* Main Panel */}
-            <div className={`flex-1 p-4 md:p-5 ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0905]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : ''}`}>
+            <div className={`flex-1 p-4 md:p-5 ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0F14]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : ''}`}>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <div className="lg:col-span-2">
                   <AnimatePresence mode="wait">
@@ -2364,7 +2364,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
           </div>
 
           {/* Bottom Status Bar */}
-          <div className={`flex items-center justify-between px-4 py-2 border-t border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0905]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : 'bg-[#0A0A0A]'}`}>
+          <div className={`flex items-center justify-between px-4 py-2 border-t border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0F14]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : 'bg-[#0A0A0A]'}`}>
             <div className="flex items-center gap-3">
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />

@@ -23,7 +23,7 @@ const subsidiaries = [
     desc: '500kT/yr cement production in Gambia — vertically integrated from quarry to delivery, serving West Africa\'s construction boom.',
     stat: '500kT/yr',
     icon: Factory,
-    accent: '#B8965A',
+    accent: '#8B9DAF',
     image: '/images/sections/cement-factory.jpg',
   },
   {
@@ -83,7 +83,7 @@ const subsidiaries = [
     desc: 'Green bonds, project finance, trade finance, and Islamic finance for sovereign infrastructure across the continent.',
     stat: '$2.4B+',
     icon: Landmark,
-    accent: '#A8A068',
+    accent: '#8B9DAF',
     image: '/images/sections/finance-trading.jpg',
   },
 ];

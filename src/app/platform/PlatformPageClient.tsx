@@ -191,7 +191,7 @@ const hubs: HubLocation[] = [
 
 const STATUS_COLORS: Record<string, string> = {
   operational: '#4A7B5F',
-  engineering: '#B8965A',
+  engineering: '#8B9DAF',
   planned: '#8B9DAF',
 };
 
@@ -293,7 +293,7 @@ function ThreatMonitorMap() {
         <div className="flex items-center gap-3">
           <div className="flex gap-1">
             <div className="w-2 h-2 rounded-full bg-[rgba(74,123,95,0.5)]" />
-            <div className="w-2 h-2 rounded-full bg-[rgba(184,150,90,0.3)]" />
+            <div className="w-2 h-2 rounded-full bg-[rgba(139,157,175,0.3)]" />
             <div className="w-2 h-2 rounded-full bg-[rgba(139,157,175,0.2)]" />
           </div>
           <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">
@@ -535,7 +535,7 @@ function ThreatMonitorMap() {
       >
         {[
           { color: '#4A7B5F', label: 'OPERATIONAL' },
-          { color: '#B8965A', label: 'ENGINEERING' },
+          { color: '#8B9DAF', label: 'ENGINEERING' },
           { color: '#8B9DAF', label: 'PLANNED' },
         ].map(({ color, label }) => (
           <div key={label} className="flex items-center gap-2">
@@ -620,8 +620,8 @@ function InfrastructureCharts() {
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">GPU Utilization</p>
               <p className="text-[13px] font-semibold text-white mt-1">Data Center Load (%)</p>
             </div>
-            <div className="w-8 h-8 rounded-lg bg-[rgba(184,150,90,0.1)] flex items-center justify-center">
-              <Cpu size={14} className="text-[#B8965A]" />
+            <div className="w-8 h-8 rounded-lg bg-[rgba(139,157,175,0.1)] flex items-center justify-center">
+              <Cpu size={14} className="text-[#8B9DAF]" />
             </div>
           </div>
           <div className="h-[220px]">
@@ -643,7 +643,7 @@ function InfrastructureCharts() {
                 <Tooltip content={<ChartTooltip />} />
                 <Bar
                   dataKey="util"
-                  fill="#B8965A"
+                  fill="#8B9DAF"
                   radius={[4, 4, 0, 0]}
                   maxBarSize={40}
                   fillOpacity={0.85}
@@ -748,7 +748,7 @@ function CementAIPanel() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
-                <Thermometer size={12} className="text-[#B8965A]" />
+                <Thermometer size={12} className="text-[#8B9DAF]" />
                 <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">Kiln Temp</span>
               </div>
               <p className="text-lg font-bold text-white stat-mono">1,423<span className="text-[13px] text-[#666666] ml-1">C</span></p>
@@ -835,10 +835,10 @@ function CementAIPanel() {
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#B8965A]" style={{ boxShadow: '0 0 4px rgba(184,150,90,0.5)' }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#8B9DAF]" style={{ boxShadow: '0 0 4px rgba(139,157,175,0.5)' }} />
                 <span className="text-[11px] text-[rgba(255,255,255,0.5)]">Bearing #3</span>
               </div>
-              <span className="text-[11px] text-[#B8965A] font-[family-name:var(--font-space-mono)] font-semibold">MONITOR</span>
+              <span className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] font-semibold">MONITOR</span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -934,7 +934,7 @@ export default function PlatformPageClient() {
                 { value: 1798, suffix: '', label: 'GPUs Active', color: '#4A7B5F' },
                 { value: 94.7, suffix: '%', label: 'Energy Efficiency', color: '#4A7B5F', decimals: 1 },
                 { value: 14.2, suffix: ' ms', label: 'Avg Latency', color: '#8B9DAF', decimals: 1 },
-                { value: 2847, suffix: '', label: 'Active Sensors', color: '#B8965A' },
+                { value: 2847, suffix: '', label: 'Active Sensors', color: '#8B9DAF' },
               ].map((stat) => (
                 <div key={stat.label} className="card p-5">
                   <p className="text-2xl md:text-3xl font-bold text-white stat-mono">

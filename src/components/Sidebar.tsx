@@ -287,7 +287,7 @@ export function Sidebar() {
                 <Link
                   href="/contact"
                   onClick={closeSidebar}
-                  className="block w-full text-center bg-[#B8965A] text-black text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-[#C9A84C] transition-colors font-[family-name:var(--font-space-mono)]"
+                  className="block w-full text-center bg-white text-black text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-white/90 transition-colors font-[family-name:var(--font-space-mono)]"
                 >
                   Request Briefing
                 </Link>

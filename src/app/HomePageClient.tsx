@@ -640,6 +640,133 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
+          S6.5: PROVEN IMPACT — Case Studies Preview
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="py-28 md:py-36 bg-[#0D0D0D]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">Proven Impact</p>
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-4">
+              Proof, Not Promises
+            </h2>
+            <p className="max-w-xl text-sm text-[rgba(255,255,255,0.5)] leading-relaxed mb-16">
+              Real deployments. Real metrics. Real sovereignty. See how Harch Corp infrastructure delivers measurable outcomes across industrial and government sectors.
+            </p>
+          </FadeIn>
+
+          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-6" staggerDelay={0.12}>
+            {/* Case Study 1: Industrial */}
+            <StaggerItem>
+              <Link href="/case-studies/tanger-cement-predictive-maintenance" className="group block">
+                <div className="relative rounded-xl overflow-hidden border border-[rgba(255,255,255,0.06)] hover:border-[rgba(74,125,95,0.3)] transition-all duration-500 bg-[#141414]">
+                  <div className="relative h-[200px] md:h-[240px] overflow-hidden">
+                    <Image
+                      src="/images/sections/cement-kiln.jpg"
+                      alt="Tanger Cement Predictive Maintenance"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[rgba(20,20,20,0.5)] to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 rounded text-[9px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] bg-[rgba(74,125,95,0.15)] border border-[rgba(74,125,95,0.3)] text-[#4A7B5F]">
+                        Industrial
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[rgba(74,125,95,0.9)] transition-colors">
+                      Predictive Maintenance at Tanger Cement
+                    </h3>
+                    <p className="text-[13px] text-[rgba(255,255,255,0.45)] leading-relaxed mb-4">
+                      AI-driven kiln optimization with 2,400 IoT sensors. 99.7% prediction accuracy. $4.2M annual savings.
+                    </p>
+                    <div className="flex items-center gap-6 mb-4">
+                      <div>
+                        <p className="text-xl font-bold text-[#4A7B5F] stat-mono">-20%</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Energy</p>
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold text-[#4A7B5F] stat-mono">+15%</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Uptime</p>
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold text-[#4A7B5F] stat-mono">$4.2M</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Saved/yr</p>
+                      </div>
+                    </div>
+                    <div className="pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
+                      <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] text-[rgba(74,125,95,0.7)]">Read Case Study</span>
+                      <ArrowRight size={12} className="text-[rgba(255,255,255,0.25)] group-hover:translate-x-1 group-hover:text-[#4A7B5F] transition-all" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </StaggerItem>
+
+            {/* Case Study 2: Government */}
+            <StaggerItem>
+              <Link href="/case-studies/west-african-alliance-sovereign-infrastructure" className="group block">
+                <div className="relative rounded-xl overflow-hidden border border-[rgba(255,255,255,0.06)] hover:border-[rgba(139,157,175,0.3)] transition-all duration-500 bg-[#141414]">
+                  <div className="relative h-[200px] md:h-[240px] overflow-hidden">
+                    <Image
+                      src="/images/sections/intelligence-exterior.jpg"
+                      alt="West African Alliance Sovereign Infrastructure"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[rgba(20,20,20,0.5)] to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 rounded text-[9px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] bg-[rgba(139,157,175,0.15)] border border-[rgba(139,157,175,0.3)] text-[#8B9DAF]">
+                        Government
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[rgba(139,157,175,0.9)] transition-colors">
+                      Sovereign Data Infrastructure for West African Alliance
+                    </h3>
+                    <p className="text-[13px] text-[rgba(255,255,255,0.45)] leading-relaxed mb-4">
+                      100% data localization across 5 nations. Quantum-resistant encryption. Zero security breaches in 24 months.
+                    </p>
+                    <div className="flex items-center gap-6 mb-4">
+                      <div>
+                        <p className="text-xl font-bold text-[#8B9DAF] stat-mono">100%</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Localized</p>
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold text-[#8B9DAF] stat-mono">5</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Nations</p>
+                      </div>
+                      <div>
+                        <p className="text-xl font-bold text-[#8B9DAF] stat-mono">&lt;8ms</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Latency</p>
+                      </div>
+                    </div>
+                    <div className="pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
+                      <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] text-[rgba(139,157,175,0.7)]">Read Case Study</span>
+                      <ArrowRight size={12} className="text-[rgba(255,255,255,0.25)] group-hover:translate-x-1 group-hover:text-[#8B9DAF] transition-all" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </StaggerItem>
+          </StaggerContainer>
+
+          <FadeIn delay={0.3}>
+            <div className="mt-12 text-center">
+              <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm font-semibold text-[rgba(255,255,255,0.6)] hover:text-white transition-colors">
+                View All Case Studies <ArrowRight size={14} />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
           S7: IMPACT STUDY — Intelligence (IMAGE + TEXT)
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">

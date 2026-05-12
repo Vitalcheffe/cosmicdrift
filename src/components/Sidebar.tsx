@@ -8,6 +8,7 @@ import { HarchLogo } from '@/components/HarchLogo';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const platformItems = [
+  { name: 'Platform Demo', version: '/0.0', href: '/platform' },
   { name: 'HarchOS', version: '/0.1', href: '/intelligence/harchos' },
   { name: 'Intelligence', version: '/0.2', href: '/subsidiaries/intelligence' },
   { name: 'Cement', version: '/0.3', href: '/subsidiaries/cement' },
@@ -29,6 +30,7 @@ const missionItems = [
 
 const deploymentItems = [
   { name: 'Global Presence', href: '/#global-presence' },
+  { name: 'Case Studies', href: '/case-studies' },
   { name: 'Careers', href: '/careers' },
   { name: 'Partners', href: '/partners' },
   { name: 'Newsroom', href: '/newsroom' },

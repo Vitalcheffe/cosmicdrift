@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { blogArticles } from '@/data/blog-articles';
 import { articles } from '@/data/articles';
+import { caseStudies } from '@/data/case-studies';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.harchcorp.com';
@@ -25,12 +26,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
       images: [`${baseUrl}/images/og-harch-corp.png`, `${baseUrl}/logo-512x512.png`],
     },
+    { url: `${baseUrl}/platform`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.95 },
     { url: `${baseUrl}/thesis`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.95 },
     { url: `${baseUrl}/about`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85 },
     { url: `${baseUrl}/strategy`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
     { url: `${baseUrl}/esg`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.75 },
     { url: `${baseUrl}/careers`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${baseUrl}/careers/hiring-process`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.6 },
+    { url: `${baseUrl}/case-studies`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.9 },
     { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.65 },
     { url: `${baseUrl}/partners`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.6 },
     { url: `${baseUrl}/investors`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.9 },
@@ -150,6 +153,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     images: [`${baseUrl}/images/sections/${verticalImages[v]}.jpg`],
   }));
 
+  // Case study pages
+  const caseStudyPages = caseStudies.map((cs) => ({
+    url: `${baseUrl}/case-studies/${cs.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+    images: [`${baseUrl}${cs.heroImage}`],
+  }));
+
   return [
     ...staticPages,
     ...trustPages,
@@ -162,5 +174,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPages,
     ...newsroomPages,
     ...verticalPages,
+    ...caseStudyPages,
   ];
 }

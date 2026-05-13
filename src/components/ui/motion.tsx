@@ -105,46 +105,42 @@ export function AnimatedCounter({
   decimals = 0,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const hasAnimated = useRef(false);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const [display, setDisplay] = useState(0);
+  const hasStarted = useRef(false);
 
-  // Keep latest formatting props in a ref so the rAF callback always
-  // reads the current values without needing to re-create the effect.
-  const formatRef = useRef({ prefix, suffix, decimals, value, duration });
-  formatRef.current = { prefix, suffix, decimals, value, duration };
-
+  // Animation effect — uses React state so it's 100% reliable
   useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    const node = ref.current;
-    if (!node) return;
+    if (!isInView || hasStarted.current) return;
+    hasStarted.current = true;
 
     let startTime: number | null = null;
     let rafId: number;
+    const ms = duration * 1000;
 
-    const easeOutExpo = (t: number): number =>
-      t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
 
     const step = (timestamp: number) => {
-      const { prefix, suffix, decimals, value, duration } = formatRef.current;
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / (duration * 1000), 1);
-      const easedProgress = easeOutExpo(progress);
-      const current = easedProgress * value;
-      node.textContent = prefix + formatNumber(current, decimals) + suffix;
-
+      const progress = Math.min(elapsed / ms, 1);
+      const eased = easeOutCubic(progress);
+      setDisplay(eased * value);
       if (progress < 1) {
         rafId = requestAnimationFrame(step);
-      } else {
-        node.textContent = prefix + formatNumber(value, decimals) + suffix;
       }
     };
 
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
-  }, [isInView]); // Only re-run when isInView changes — formatRef gives us latest props
+  }, [isInView, value, duration]);
+
+  // Safety fallback: if animation never completed, show target after 4s
+  useEffect(() => {
+    if (!isInView) return;
+    const timer = setTimeout(() => setDisplay(value), 4000);
+    return () => clearTimeout(timer);
+  }, [isInView, value]);
 
   return (
     <span
@@ -153,7 +149,7 @@ export function AnimatedCounter({
       style={{ fontVariantNumeric: 'tabular-nums' }}
       aria-label={`${prefix}${formatNumber(value, decimals)}${suffix}`}
     >
-      {prefix}{formatNumber(0, decimals)}{suffix}
+      {prefix}{formatNumber(display, decimals)}{suffix}
     </span>
   );
 }
@@ -374,41 +370,42 @@ export function CountUp({
   decimals = 0,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const hasAnimated = useRef(false);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const [display, setDisplay] = useState(from);
+  const hasStarted = useRef(false);
 
-  // Use framer-motion's spring-based motion value
-  const motionValue = useSpring(from, {
-    stiffness: 40,
-    damping: 20,
-    mass: 1,
-  });
-
-  // Keep latest formatting props in a ref so the change callback always
-  // reads the current values without needing to re-subscribe.
-  const formatRef = useRef({ prefix, suffix, decimals });
-  formatRef.current = { prefix, suffix, decimals };
-
+  // Animation effect — uses React state so it's 100% reliable
   useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
-    hasAnimated.current = true;
-    motionValue.set(to);
-  }, [isInView, motionValue, to]);
+    if (!isInView || hasStarted.current) return;
+    hasStarted.current = true;
 
-  // Subscribe to spring value changes with a stable subscription.
-  // Only depends on [motionValue] so we never re-subscribe due to
-  // formatting prop changes (which would unsubscribe and schedule a
-  // frame.read() check that could stop the spring animation).
-  useEffect(() => {
-    const unsubscribe = motionValue.on('change', (latest) => {
-      if (ref.current) {
-        const { prefix, suffix, decimals } = formatRef.current;
-        ref.current.textContent =
-          prefix + formatNumber(latest, decimals) + suffix;
+    let startTime: number | null = null;
+    let rafId: number;
+    const ms = duration * 1000;
+
+    const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / ms, 1);
+      const eased = easeOutCubic(progress);
+      setDisplay(from + eased * (to - from));
+      if (progress < 1) {
+        rafId = requestAnimationFrame(step);
       }
-    });
-    return unsubscribe;
-  }, [motionValue]);
+    };
+
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
+  }, [isInView, from, to, duration]);
+
+  // Safety fallback: if animation never completed, show target after 4s
+  useEffect(() => {
+    if (!isInView) return;
+    const timer = setTimeout(() => setDisplay(to), 4000);
+    return () => clearTimeout(timer);
+  }, [isInView, to]);
 
   return (
     <span
@@ -417,7 +414,7 @@ export function CountUp({
       style={{ fontVariantNumeric: 'tabular-nums' }}
       aria-label={`${prefix}${formatNumber(to, decimals)}${suffix}`}
     >
-      {prefix}{formatNumber(from, decimals)}{suffix}
+      {prefix}{formatNumber(display, decimals)}{suffix}
     </span>
   );
 }

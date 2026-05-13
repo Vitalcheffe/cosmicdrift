@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState, useCallback } from 'react';
-import { motion, useInView, useSpring } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { ArrowUp, ArrowDown, Minus } from 'lucide-react';
 
 interface Metric {
@@ -19,36 +19,46 @@ interface LiveDashboardProps {
 }
 
 function useCountUp(target: number, isActive: boolean, decimals: number = 0) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const spring = useSpring(0, { stiffness: 40, damping: 20, mass: 1 });
+  const [display, setDisplay] = useState(0);
   const hasStarted = useRef(false);
-
-  // Keep latest formatting config in a ref so the change callback always
-  // reads the current value without needing to re-subscribe (which can
-  // schedule a frame.read() check that stops the spring animation).
-  const formatRef = useRef({ decimals });
-  formatRef.current = { decimals };
 
   useEffect(() => {
     if (!isActive || hasStarted.current) return;
     hasStarted.current = true;
-    spring.set(target);
-  }, [isActive, spring, target]);
 
-  useEffect(() => {
-    const unsubscribe = spring.on('change', (latest) => {
-      if (ref.current) {
-        const { decimals } = formatRef.current;
-        ref.current.textContent =
-          decimals > 0
-            ? latest.toFixed(decimals)
-            : Math.round(latest).toLocaleString();
+    let startTime: number | null = null;
+    let rafId: number;
+    const duration = 2000;
+
+    const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutCubic(progress);
+      setDisplay(eased * target);
+      if (progress < 1) {
+        rafId = requestAnimationFrame(step);
       }
-    });
-    return unsubscribe;
-  }, [spring]);
+    };
 
-  return ref;
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
+  }, [isActive, target]);
+
+  // Safety fallback
+  useEffect(() => {
+    if (!isActive) return;
+    const timer = setTimeout(() => setDisplay(target), 4000);
+    return () => clearTimeout(timer);
+  }, [isActive, target]);
+
+  const formatted = decimals > 0
+    ? display.toFixed(decimals)
+    : Math.round(display).toLocaleString();
+
+  return { display: formatted };
 }
 
 function SparklineChart({ data, color = '#8B9DAF' }: { data: number[]; color?: string }) {
@@ -196,7 +206,7 @@ function MetricCard({
   index: number;
   isInView: boolean;
 }) {
-  const countRef = useCountUp(metric.value, isInView, metric.decimals || 0);
+  const { display } = useCountUp(metric.value, isInView, metric.decimals || 0);
 
   return (
     <motion.div
@@ -217,11 +227,10 @@ function MetricCard({
       {/* Value row */}
       <div className="flex items-baseline gap-1 mb-2">
         <span
-          ref={countRef}
           className="stat-mono text-2xl md:text-3xl font-bold text-white"
           style={{ fontVariantNumeric: 'tabular-nums' }}
         >
-          0
+          {display}
         </span>
         {metric.unit && (
           <span className="text-[11px] text-white/40 font-medium">{metric.unit}</span>

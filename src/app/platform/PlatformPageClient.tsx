@@ -665,10 +665,10 @@ function InfrastructureCharts() {
 
 function CementAIPanel() {
   return (
-    <div className="card p-6 md:p-8 overflow-hidden">
-      <div className="flex flex-col lg:flex-row gap-8">
+    <div className="card p-4 md:p-6 lg:p-8 overflow-hidden">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
         {/* Left — Main metrics */}
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-lg bg-[rgba(74,123,95,0.1)] flex items-center justify-center">
               <Gauge size={18} className="text-[#4A7B5F]" />
@@ -695,7 +695,7 @@ function CementAIPanel() {
           </div>
 
           {/* Sub-metrics row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Thermometer size={12} className="text-[#8B9DAF]" />
@@ -729,7 +729,7 @@ function CementAIPanel() {
         </div>
 
         {/* Right — Sparkline chart */}
-        <div className="lg:w-[340px] flex-shrink-0">
+        <div className="lg:w-[340px] flex-shrink-0 min-w-0">
           <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)] mb-3">Efficiency Trend (12h)</p>
           <div className="h-[160px]">
             <ResponsiveContainer width="100%" height="100%">

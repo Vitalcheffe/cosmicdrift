@@ -115,7 +115,7 @@ const intelligenceConfig: DashboardConfig = {
                 {hub.status}
               </span>
             </div>
-            <div className="grid grid-cols-3 gap-4 mb-4">
+            <div className="grid grid-cols-3 gap-3 md:gap-4 mb-4">
               <div>
                 <p className="text-[9px] text-white/30 uppercase tracking-wider mb-1">GPUs</p>
                 <p className="text-xl font-bold text-white font-mono">{hub.gpus}</p>
@@ -156,10 +156,10 @@ const intelligenceConfig: DashboardConfig = {
 
     return (
       <div id="intel-hub-map" className="space-y-4 font-mono">
-        {/* Server Rack Visualization — Left panel on Overview */}
-        <div className="flex gap-3">
-          {/* Server Rack */}
-          <div className="w-16 flex-shrink-0 bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-2 space-y-1.5">
+        {/* Server Rack Visualization — hidden on mobile, shown as row on desktop */}
+        <div className="flex flex-col md:flex-row gap-3">
+          {/* Server Rack — desktop only */}
+          <div className="hidden md:block w-16 flex-shrink-0 bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-2 space-y-1.5">
             <span className="text-[7px] text-white/25 uppercase tracking-widest text-center block mb-1">RACK</span>
             {hubs.map((hub, i) => (
               <button
@@ -187,7 +187,7 @@ const intelligenceConfig: DashboardConfig = {
           </div>
 
           {/* Main Content */}
-          <div className="flex-1 space-y-3">
+          <div className="flex-1 min-w-0 space-y-3">
             {/* Terminal with carbon routing logs */}
             {(activeTab === 0 || activeTab === 3) && (
               <div className="bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg overflow-hidden">
@@ -223,7 +223,7 @@ const intelligenceConfig: DashboardConfig = {
 
             {/* Hub Status Grid */}
             {(activeTab === 0 || activeTab === 1) && (
-              <div className="grid grid-cols-5 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
                 {hubs.map((hub, i) => (
                   <button
                     key={hub.name}
@@ -294,24 +294,26 @@ const intelligenceConfig: DashboardConfig = {
                   <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Active Workloads</span>
                   <span className="text-[8px] text-emerald-400/50">12 running</span>
                 </div>
-                <div className="divide-y divide-[rgba(139,157,175,0.05)]">
-                  {[
-                    { name: 'LLM Training v3.1', type: 'Training', gpus: 128, hub: 'Casablanca', carbon: 'Optimal' },
-                    { name: 'Inference API — Production', type: 'Inference', gpus: 64, hub: 'Rabat', carbon: 'Low' },
-                    { name: 'Fine-tuning HarchGPT', type: 'Fine-tune', gpus: 256, hub: 'Tangier', carbon: 'Optimal' },
-                  ].map((wl) => (
-                    <div key={wl.name} className="px-3 py-2 flex items-center justify-between hover:bg-[rgba(139,157,175,0.04)] transition-colors cursor-pointer">
-                      <div className="flex items-center gap-2">
-                        <span className={`w-1.5 h-1.5 rounded-full ${wl.carbon === 'Optimal' ? 'bg-emerald-400' : 'bg-amber-400'}`} />
-                        <span className="text-[10px] text-white/60">{wl.name}</span>
+                <div className="overflow-x-auto">
+                  <div className="divide-y divide-[rgba(139,157,175,0.05)] min-w-[300px]">
+                    {[
+                      { name: 'LLM Training v3.1', type: 'Training', gpus: 128, hub: 'Casablanca', carbon: 'Optimal' },
+                      { name: 'Inference API — Production', type: 'Inference', gpus: 64, hub: 'Rabat', carbon: 'Low' },
+                      { name: 'Fine-tuning HarchGPT', type: 'Fine-tune', gpus: 256, hub: 'Tangier', carbon: 'Optimal' },
+                    ].map((wl) => (
+                      <div key={wl.name} className="px-3 py-2 flex items-center justify-between hover:bg-[rgba(139,157,175,0.04)] transition-colors cursor-pointer">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${wl.carbon === 'Optimal' ? 'bg-emerald-400' : 'bg-amber-400'}`} />
+                          <span className="text-[10px] text-white/60 truncate">{wl.name}</span>
+                        </div>
+                        <div className="flex items-center gap-2 md:gap-3 text-[8px] text-white/25 flex-shrink-0 ml-2">
+                          <span className="hidden sm:inline">{wl.type}</span>
+                          <span className="text-white/40">{wl.gpus} GPU</span>
+                          <span className="hidden sm:inline">{wl.hub}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-3 text-[8px] text-white/25">
-                        <span>{wl.type}</span>
-                        <span className="text-white/40">{wl.gpus} GPU</span>
-                        <span>{wl.hub}</span>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
@@ -435,7 +437,7 @@ const agricultureConfig: DashboardConfig = {
             </div>
           </div>
           <div className="p-3">
-            <div className="grid grid-cols-8 gap-1">
+            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
               {plotData.map((plot) => {
                 const color = plot.health > 0.7 ? '#4A7B5F' : plot.health > 0.4 ? '#EAB308' : '#EF4444';
                 return (
@@ -469,7 +471,7 @@ const agricultureConfig: DashboardConfig = {
               className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-4"
             >
               <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Irrigation Zone Controls</span>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {['Zone A — North', 'Zone B — East', 'Zone C — South', 'Zone D — West', 'Zone E — Central', 'Zone F — Perimeter'].map((zone, i) => (
                   <div key={zone} className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.12)] rounded-lg p-2.5 flex items-center justify-between">
                     <div>
@@ -500,7 +502,7 @@ const agricultureConfig: DashboardConfig = {
                   {Math.round(selectedPlotData.health * 100)}% health
                 </span>
               </div>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <div>
                   <p className="text-[8px] text-white/25 uppercase tracking-wider">Soil Moisture</p>
                   <p className="text-sm font-bold text-white mt-0.5">{selectedPlotData.soilMoisture}%</p>
@@ -569,7 +571,7 @@ const agricultureConfig: DashboardConfig = {
         {(activeTab === 0 || activeSidebar === 5) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
             <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Supply Chain — Farm to Market</span>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
               {[
                 { stage: 'Harvest', status: 'complete', throughput: '94%', icon: <Wheat size={10} /> },
                 { stage: 'Sorting', status: 'complete', throughput: '98%', icon: <Package size={10} /> },
@@ -602,6 +604,7 @@ const agricultureConfig: DashboardConfig = {
               <Leaf size={10} className="text-emerald-400/30" />
             </div>
             <div className="grid grid-cols-3 gap-2 mb-2">
+              {/* carbon credit cards - ok at grid-cols-3 even on mobile */}
               <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
                 <p className="text-sm font-bold text-white">12,450</p>
                 <p className="text-[7px] text-white/25 uppercase">tCO2 Total</p>
@@ -942,7 +945,7 @@ const energyConfig: DashboardConfig = {
       </div>
 
       {/* Solar Output Curve */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Solar Output</span>
@@ -997,7 +1000,7 @@ const energyConfig: DashboardConfig = {
       </div>
 
       {/* Battery + Green H2 */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center gap-2 mb-2">
             <Battery size={10} className="text-[#D4A84360]" />
@@ -1155,7 +1158,7 @@ const miningConfig: DashboardConfig = {
       {/* Processing Flow Chart */}
       <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-4">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Mineral Processing Pipeline</span>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
           {[
             { stage: 'Extraction', pct: 98, icon: <Mountain size={10} /> },
             { stage: 'Crushing', pct: 96, icon: <Settings size={10} /> },
@@ -1279,9 +1282,9 @@ const cementConfig: DashboardConfig = {
   renderMain: (accent) => (
     <div id="cement-supply" className="space-y-3">
       {/* Factory Floor Production Line Diagram */}
-      <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-4">
+      <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-3 md:p-4">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Production Line — Live</span>
-        <div className="flex items-center gap-0.5 overflow-x-auto pb-1">
+        <div className="flex items-center gap-0.5 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
           {[
             { stage: 'Quarry', output: '1,200 T/day', status: 'active', icon: <Mountain size={12} /> },
             { stage: 'Crusher', output: '1,150 T/day', status: 'active', icon: <Settings size={12} /> },
@@ -1305,7 +1308,7 @@ const cementConfig: DashboardConfig = {
       </div>
 
       {/* Kiln Temperature Gauge + Daily Production */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {/* Kiln Temperature Gauge */}
         <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-3">
           <div className="flex items-center gap-2 mb-2">
@@ -1360,7 +1363,7 @@ const cementConfig: DashboardConfig = {
       </div>
 
       {/* Delivery Fleet Tracker */}
-      <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-4">
+      <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-3 md:p-4">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Delivery Fleet</span>
         <div className="space-y-1.5">
           {[
@@ -1368,14 +1371,14 @@ const cementConfig: DashboardConfig = {
             { route: 'Banjul → Brikama', status: 'Loading', eta: '—', load: '38T', progress: 20 },
             { route: 'Banjul → Farafenni', status: 'Scheduled', eta: '6h 15m', load: '45T', progress: 0 },
           ].map(d => (
-            <div key={d.route} className="flex items-center justify-between py-1.5 border-b border-[rgba(200,144,58,0.05)] last:border-0">
-              <div className="flex items-center gap-2">
-                <span className={`w-1.5 h-1.5 rounded-full ${d.status === 'In Transit' ? 'bg-emerald-400' : d.status === 'Loading' ? 'bg-amber-400' : 'bg-white/15'}`} />
-                <span className="text-[9px] text-white/50">{d.route}</span>
+            <div key={d.route} className="flex items-center justify-between py-1.5 border-b border-[rgba(200,144,58,0.05)] last:border-0 gap-2">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${d.status === 'In Transit' ? 'bg-emerald-400' : d.status === 'Loading' ? 'bg-amber-400' : 'bg-white/15'}`} />
+                <span className="text-[9px] text-white/50 truncate">{d.route}</span>
               </div>
-              <div className="flex items-center gap-2 text-[8px] text-white/25">
+              <div className="flex items-center gap-2 text-[8px] text-white/25 flex-shrink-0">
                 <span>{d.load}</span>
-                <span className="text-white/40">ETA {d.eta}</span>
+                <span className="text-white/40 hidden sm:inline">ETA {d.eta}</span>
               </div>
             </div>
           ))}
@@ -1463,7 +1466,7 @@ const waterConfig: DashboardConfig = {
       {/* Desalination Process Flow */}
       <div className="bg-[#030D14] border border-[rgba(74,158,181,0.15)] rounded-lg p-4">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Desalination Process</span>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
           {[
             { stage: 'Intake', detail: 'Seawater', icon: <Waves size={11} /> },
             { stage: 'Pre-treat', detail: 'Filtration', icon: <Filter size={11} /> },
@@ -1527,7 +1530,7 @@ const waterConfig: DashboardConfig = {
       </div>
 
       {/* Reservoir Levels */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {[
           { name: 'Casablanca', level: 78, capacity: '156K m3' },
           { name: 'Dakhla', level: 65, capacity: '98K m3' },
@@ -1645,17 +1648,17 @@ const technologyConfig: DashboardConfig = {
             { method: 'PUT', path: '/v1/scheduler/config', latency: '22ms', status: '200' },
             { method: 'DELETE', path: '/v1/workloads/{id}', latency: '15ms', status: '200' },
           ].map((ep) => (
-            <div key={ep.path} className="px-3 py-2 flex items-center justify-between hover:bg-[rgba(124,140,245,0.03)] transition-colors cursor-pointer">
-              <div className="flex items-center gap-2">
-                <span className={`px-1.5 py-0.5 rounded text-[7px] font-bold ${
+            <div key={ep.path} className="px-3 py-2 flex items-center justify-between hover:bg-[rgba(124,140,245,0.03)] transition-colors cursor-pointer gap-2">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className={`px-1.5 py-0.5 rounded text-[7px] font-bold flex-shrink-0 ${
                   ep.method === 'GET' ? 'bg-emerald-500/10 text-emerald-400' :
                   ep.method === 'POST' ? 'bg-blue-500/10 text-blue-400' :
                   ep.method === 'PUT' ? 'bg-amber-500/10 text-amber-400' :
                   'bg-red-500/10 text-red-400'
                 }`}>{ep.method}</span>
-                <span className="text-[10px] text-white/50">{ep.path}</span>
+                <span className="text-[10px] text-white/50 truncate">{ep.path}</span>
               </div>
-              <div className="flex items-center gap-2 text-[8px]">
+              <div className="flex items-center gap-2 text-[8px] flex-shrink-0">
                 <span className="text-white/25">{ep.latency}</span>
                 <span className="text-emerald-400/40">{ep.status}</span>
               </div>
@@ -1667,7 +1670,7 @@ const technologyConfig: DashboardConfig = {
       {/* Deployment Pipeline Visualization */}
       <div className="bg-[#0D0F1C] border border-[rgba(124,140,245,0.12)] rounded-lg p-4">
         <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Deployment Pipeline</span>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
           {[
             { stage: 'Code', status: 'done', icon: <Code size={10} /> },
             { stage: 'Build', status: 'done', icon: <Settings size={10} /> },
@@ -1880,7 +1883,7 @@ const financeConfig: DashboardConfig = {
                 </button>
               </div>
             </div>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Amount</p><p className="text-sm font-bold text-white">{selectedDeal.amount}</p></div>
               <div><p className="text-[8px] text-white/25 uppercase tracking-wider">{selectedDeal.irr.includes('%') && parseFloat(selectedDeal.irr) < 10 ? 'Coupon' : 'IRR'}</p><p className="text-sm font-bold text-[#8B9DAF]">{selectedDeal.irr}</p></div>
               <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Country</p><p className="text-sm font-bold text-white">{selectedDeal.country}</p></div>
@@ -1899,33 +1902,35 @@ const financeConfig: DashboardConfig = {
               </div>
               <span className="text-[8px] text-emerald-400/50">7 DEALS</span>
             </div>
-            <div className="divide-y divide-[rgba(139,157,175,0.05)]">
-              {deals.map((deal, i) => (
-                <button
-                  key={deal.name}
-                  onClick={() => setSelectedHub(i)}
-                  className={`w-full px-3 py-2 flex items-center justify-between hover:bg-[rgba(139,157,175,0.04)] transition-colors cursor-pointer text-left ${selectedHub === i ? 'bg-[rgba(139,157,175,0.06)]' : ''}`}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                      deal.status === 'Active' || deal.status === 'Committed' ? 'bg-emerald-400' :
-                      deal.status === 'Funding' || deal.status === 'Launching' ? 'bg-amber-400' :
-                      deal.status === 'Term Sheet' ? 'bg-[#8B9DAF]' : 'bg-white/20'
-                    }`} />
-                    <span className="text-[10px] text-white/60">{deal.name}</span>
-                  </div>
-                  <div className="flex items-center gap-4 text-[8px]">
-                    <span className="text-white/50 w-14 text-right">{deal.amount}</span>
-                    <span className="text-[#8B9DAF] w-10 text-right">{deal.irr}</span>
-                    <span className="text-white/25 w-16 text-right">{deal.country}</span>
-                    <span className={`w-16 text-right ${
-                      deal.status === 'Active' || deal.status === 'Committed' ? 'text-emerald-400/60' :
-                      deal.status === 'Funding' || deal.status === 'Launching' ? 'text-amber-400/60' :
-                      'text-white/30'
-                    }`}>{deal.status}</span>
-                  </div>
-                </button>
-              ))}
+            <div className="overflow-x-auto">
+              <div className="divide-y divide-[rgba(139,157,175,0.05)] min-w-[300px]">
+                {deals.map((deal, i) => (
+                  <button
+                    key={deal.name}
+                    onClick={() => setSelectedHub(i)}
+                    className={`w-full px-3 py-2 flex items-center justify-between hover:bg-[rgba(139,157,175,0.04)] transition-colors cursor-pointer text-left ${selectedHub === i ? 'bg-[rgba(139,157,175,0.06)]' : ''}`}
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                        deal.status === 'Active' || deal.status === 'Committed' ? 'bg-emerald-400' :
+                        deal.status === 'Funding' || deal.status === 'Launching' ? 'bg-amber-400' :
+                        deal.status === 'Term Sheet' ? 'bg-[#8B9DAF]' : 'bg-white/20'
+                      }`} />
+                      <span className="text-[10px] text-white/60 truncate">{deal.name}</span>
+                    </div>
+                    <div className="flex items-center gap-2 md:gap-4 text-[8px] flex-shrink-0 ml-2">
+                      <span className="text-white/50">{deal.amount}</span>
+                      <span className="text-[#8B9DAF] hidden sm:inline">{deal.irr}</span>
+                      <span className="text-white/25 hidden md:inline">{deal.country}</span>
+                      <span className={`hidden sm:inline ${
+                        deal.status === 'Active' || deal.status === 'Committed' ? 'text-emerald-400/60' :
+                        deal.status === 'Funding' || deal.status === 'Launching' ? 'text-amber-400/60' :
+                        'text-white/30'
+                      }`}>{deal.status}</span>
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}
@@ -2071,17 +2076,17 @@ const financeConfig: DashboardConfig = {
                   transition={{ delay: i * 0.06 }}
                   className="px-3 py-1.5 flex items-center justify-between border-b border-[rgba(139,157,175,0.03)] hover:bg-[rgba(139,157,175,0.03)] transition-colors cursor-pointer"
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="text-[7px] text-white/15 w-12">{tx.time}</span>
-                    <span className={`px-1 py-0.5 rounded-sm text-[6px] font-bold ${
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="text-[7px] text-white/15 w-12 flex-shrink-0">{tx.time}</span>
+                    <span className={`px-1 py-0.5 rounded-sm text-[6px] font-bold flex-shrink-0 ${
                       tx.type === 'BOND' ? 'bg-[#8B9DAF]/10 text-[#8B9DAF]/70' :
                       tx.type === 'TRANSFER' ? 'bg-amber-500/10 text-amber-400/60' :
                       tx.type === 'TRADE' ? 'bg-emerald-500/10 text-emerald-400/60' :
                       'bg-[#4A9EB5]/10 text-[#4A9EB5]/60'
                     }`}>{tx.type}</span>
-                    <span className="text-[8px] text-white/40">{tx.desc}</span>
+                    <span className="text-[8px] text-white/40 truncate">{tx.desc}</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-shrink-0 ml-1">
                     <span className={`text-[8px] font-bold ${tx.amount.startsWith('+') ? 'text-emerald-400/70' : 'text-white/30'}`}>{tx.amount}</span>
                     <span className={`w-1 h-1 rounded-full ${tx.status === 'settled' ? 'bg-emerald-400/50' : 'bg-amber-400/50'}`} />
                   </div>
@@ -2221,8 +2226,8 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
   const monoFont = (isIntelligence || isTech || isFinance) ? 'font-mono' : '';
 
   return (
-    <section className={`py-20 md:py-28 bg-gradient-to-b ${config.bgGradient}`}>
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section className={`py-12 md:py-20 lg:py-28 bg-gradient-to-b ${config.bgGradient}`}>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -2255,21 +2260,40 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
           className={`bg-[#0D0D0D] border border-[rgba(255,255,255,0.08)] ${borderRadius} overflow-hidden shadow-2xl`}
         >
           {/* Top Bar with Traffic Lights */}
-          <div className={`flex items-center justify-between px-4 py-3 border-b border-[rgba(255,255,255,0.06)] bg-[#0A0A0A]`}>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+          <div className={`px-4 py-3 border-b border-[rgba(255,255,255,0.06)] bg-[#0A0A0A]`}>
+            <div className="flex items-center justify-between mb-2 md:mb-0">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
+                </div>
+                <span className={`text-[10px] text-white/30 ${monoFont} truncate max-w-[180px]`}>{config.platformName} — v{config.platformVersion}</span>
               </div>
-              <span className={`text-[10px] text-white/30 ${monoFont}`}>{config.platformName} — v{config.platformVersion}</span>
+              {/* Desktop tabs */}
+              <div className="hidden md:flex items-center gap-1.5">
+                {config.headerTabs.map((tab, i) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(i)}
+                    className={`px-3 py-1.5 text-[9px] font-bold tracking-[0.1em] uppercase ${isMining ? 'rounded-none' : 'rounded'} transition-all duration-200 ${
+                      i === activeTab
+                        ? 'bg-white/10 text-white'
+                        : 'text-white/25 hover:text-white/50'
+                    } ${monoFont}`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center gap-1.5">
+            {/* Mobile tabs — scrollable */}
+            <div className="flex md:hidden items-center gap-1 overflow-x-auto -mx-1 px-1 pb-0.5" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
               {config.headerTabs.map((tab, i) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(i)}
-                  className={`px-3 py-1.5 text-[9px] font-bold tracking-[0.1em] uppercase ${isMining ? 'rounded-none' : 'rounded'} transition-all duration-200 ${
+                  className={`px-2.5 py-1.5 text-[9px] font-bold tracking-[0.1em] uppercase whitespace-nowrap ${isMining ? 'rounded-none' : 'rounded'} transition-all duration-200 ${
                     i === activeTab
                       ? 'bg-white/10 text-white'
                       : 'text-white/25 hover:text-white/50'
@@ -2291,13 +2315,13 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
-                className="bg-[#0D0D0D] p-4 hover:bg-[rgba(255,255,255,0.02)] transition-colors cursor-pointer"
+                className="bg-[#0D0D0D] p-3 md:p-4 hover:bg-[rgba(255,255,255,0.02)] transition-colors cursor-pointer min-w-0"
               >
                 <div className="flex items-center gap-1.5 mb-1">
                   {card.icon && <span style={{ color: `${accent}60` }}>{card.icon}</span>}
                   <p className={`text-[9px] font-bold tracking-[0.12em] uppercase text-white/25`}>{card.label}</p>
                 </div>
-                <p className={`text-xl font-bold text-white ${monoFont}`}>{card.value}</p>
+                <p className={`text-lg md:text-xl font-bold text-white ${monoFont}`}>{card.value}</p>
                 {card.change && (
                   <p className={`text-[10px] mt-1 ${card.changeUp ? 'text-emerald-400/60' : 'text-red-400/60'}`}>
                     {card.change}
@@ -2309,9 +2333,28 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
 
           {/* Main Content Area */}
           <div className="flex flex-col md:flex-row">
-            {/* Sidebar */}
+            {/* Sidebar — horizontal scrollable pills on mobile, vertical on desktop */}
             <div className={`w-full md:w-48 border-b md:border-b-0 md:border-r border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]/50' : isAgriculture ? 'bg-[#0A120A]/50' : isEnergy ? 'bg-[#0D0A05]/50' : isMining ? 'bg-[#0D0F14]/50' : isCement ? 'bg-[#0D0802]/50' : isWater ? 'bg-[#030D14]/50' : isTech ? 'bg-[#0A0D1A]/50' : isFinance ? 'bg-[#0A0A12]/50' : 'bg-[#0A0A0A]/50'}`}>
-              <nav className="py-2">
+              {/* Mobile: horizontal scrollable pills */}
+              <nav className="md:hidden py-2 px-3 flex items-center gap-1.5 overflow-x-auto" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
+                {config.sidebar.map((item, i) => (
+                  <button
+                    key={item.label}
+                    onClick={() => { setActiveSidebar(i); setSelectedHub(null); setSelectedPlot(null); }}
+                    className={`flex items-center gap-1.5 px-2.5 py-1.5 text-[10px] whitespace-nowrap rounded-md transition-all duration-200 ${
+                      i === activeSidebar
+                        ? 'text-white bg-[rgba(255,255,255,0.08)]'
+                        : 'text-white/35 hover:text-white/60 hover:bg-[rgba(255,255,255,0.03)]'
+                    }`}
+                    style={i === activeSidebar ? { borderBottom: `2px solid ${accent}` } : {}}
+                  >
+                    <span style={{ color: i === activeSidebar ? accent : 'rgba(255,255,255,0.3)' }}>{item.icon}</span>
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+              {/* Desktop: vertical sidebar */}
+              <nav className="hidden md:block py-2">
                 {config.sidebar.map((item, i) => (
                   <button
                     key={item.label}
@@ -2365,15 +2408,15 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
 
           {/* Bottom Status Bar */}
           <div className={`flex items-center justify-between px-4 py-2 border-t border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0F14]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : 'bg-[#0A0A0A]'}`}>
-            <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1.5">
+            <div className="flex items-center gap-2 md:gap-3 min-w-0 overflow-hidden">
+              <span className="flex items-center gap-1.5 flex-shrink-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className={`text-[8px] text-white/25 ${monoFont}`}>ALL SYSTEMS NOMINAL</span>
+                <span className={`text-[8px] text-white/25 ${monoFont} hidden sm:inline`}>ALL SYSTEMS NOMINAL</span>
               </span>
-              <span className="text-[8px] text-white/15">|</span>
-              <span className={`text-[8px] text-white/20 ${monoFont}`}>{config.statusBarText}</span>
+              <span className="text-[8px] text-white/15 hidden sm:inline">|</span>
+              <span className={`text-[8px] text-white/20 ${monoFont} truncate`}>{config.statusBarText}</span>
             </div>
-            <span className={`text-[8px] text-white/15 ${monoFont}`}>v{config.platformVersion} — LIVE</span>
+            <span className={`text-[8px] text-white/15 ${monoFont} flex-shrink-0 ml-2`}>v{config.platformVersion} — LIVE</span>
           </div>
         </motion.div>
 

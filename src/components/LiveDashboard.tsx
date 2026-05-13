@@ -151,7 +151,7 @@ export default function LiveDashboard({ metrics, title = 'LIVE METRICS' }: LiveD
   return (
     <div
       ref={containerRef}
-      className="relative bg-[#0A0A0A] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden"
+      className="relative bg-[#0A0A0A] border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden max-w-full"
     >
       <div className="p-4 md:p-6">
         {/* Header bar */}
@@ -184,7 +184,7 @@ export default function LiveDashboard({ metrics, title = 'LIVE METRICS' }: LiveD
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-6 pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
+        <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between gap-2 flex-wrap">
           <span className="font-[family-name:var(--font-space-mono)] text-[8px] uppercase tracking-[0.15em] text-white/15">
             LAST UPDATED: {lastUpdated}
           </span>
@@ -217,7 +217,7 @@ function MetricCard({
         delay: 0.3 + index * 0.08,
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
-      className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] rounded-lg p-4"
+      className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] rounded-lg p-3 md:p-4 min-w-0"
     >
       {/* Label */}
       <p className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.15em] text-white/25 mb-2">
@@ -227,7 +227,7 @@ function MetricCard({
       {/* Value row */}
       <div className="flex items-baseline gap-1 mb-2">
         <span
-          className="stat-mono text-2xl md:text-3xl font-bold text-white"
+          className="stat-mono text-xl md:text-2xl lg:text-3xl font-bold text-white"
           style={{ fontVariantNumeric: 'tabular-nums' }}
         >
           {display}

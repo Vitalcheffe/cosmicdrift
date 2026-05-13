@@ -43,5 +43,23 @@ export const metadata: Metadata = {
 };
 
 export default function HarchOSPage() {
-  return <HarchOSPageClient />;
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.harchcorp.com' },
+      { '@type': 'ListItem', position: 2, name: 'Intelligence', item: 'https://www.harchcorp.com/intelligence' },
+      { '@type': 'ListItem', position: 3, name: 'HarchOS', item: 'https://www.harchcorp.com/intelligence/harchos' },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <HarchOSPageClient />
+    </>
+  );
 }

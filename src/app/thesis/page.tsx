@@ -35,5 +35,22 @@ export const metadata: Metadata = {
 };
 
 export default function ThesisPage() {
-  return <ThesisClient />;
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.harchcorp.com' },
+      { '@type': 'ListItem', position: 2, name: 'Thesis', item: 'https://www.harchcorp.com/thesis' },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <ThesisClient />
+    </>
+  );
 }

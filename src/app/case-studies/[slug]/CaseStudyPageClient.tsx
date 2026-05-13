@@ -10,6 +10,8 @@ import {
   Clock,
   Factory,
   Landmark,
+  Zap,
+  Building2,
   Quote,
   CheckCircle2,
   TrendingUp,
@@ -86,6 +88,8 @@ function AnimatedNumber({ value, active }: { value: number; active: boolean }) {
 const typeIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
   Industrial: Factory,
   Government: Landmark,
+  Energy: Zap,
+  Infrastructure: Building2,
 };
 
 const typeColors: Record<string, { bg: string; border: string; text: string; accent: string }> = {
@@ -100,6 +104,18 @@ const typeColors: Record<string, { bg: string; border: string; text: string; acc
     border: 'rgba(139,157,175,0.2)',
     text: '#8B9DAF',
     accent: '#8B9DAF',
+  },
+  Energy: {
+    bg: 'rgba(180,140,80,0.08)',
+    border: 'rgba(180,140,80,0.2)',
+    text: '#B48C50',
+    accent: '#B48C50',
+  },
+  Infrastructure: {
+    bg: 'rgba(110,130,160,0.08)',
+    border: 'rgba(110,130,160,0.2)',
+    text: '#6E82A0',
+    accent: '#6E82A0',
   },
 };
 

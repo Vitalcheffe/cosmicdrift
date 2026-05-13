@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Harch Corp",
   },
   description:
-    "Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty. Carbon-Aware GPU Cloud (1,798 GPUs, ~47 gCO2/kWh), Renewable Energy (2GW+ Pipeline), Cement, Technology, Mining, Agriculture, Water, Finance. $2.4B+ investment pipeline across 8 verticals and 5 countries. Founded 2024, Casablanca, Morocco.",
+    "Harch Corp S.A. is a Moroccan industrial conglomerate building Africa's industrial sovereignty. Carbon-Aware GPU Cloud (1,798 GPUs), 2GW+ Renewable Energy, Cement, Technology, Mining, Agriculture, Water, Finance.",
   keywords: [
     "Harch Corp",
     "Africa industrial sovereignty",
@@ -414,18 +414,6 @@ export default function RootLayout({
           },
           "query-input": "required name=search_term_string",
         },
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.harchcorp.com/#breadcrumb",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://www.harchcorp.com",
-          },
-        ],
       },
     ],
   };

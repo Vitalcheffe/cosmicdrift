@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, ArrowUpRight, MapPin, Clock, Factory, Landmark } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, MapPin, Clock, Factory, Landmark, Zap, Building2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { caseStudies } from '@/data/case-studies';
 
@@ -11,6 +11,8 @@ import { FadeIn } from '@/components/ui/motion';
 const typeIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
   Industrial: Factory,
   Government: Landmark,
+  Energy: Zap,
+  Infrastructure: Building2,
 };
 
 const typeColors: Record<string, { bg: string; border: string; text: string; glow: string }> = {
@@ -25,6 +27,18 @@ const typeColors: Record<string, { bg: string; border: string; text: string; glo
     border: 'rgba(139,157,175,0.2)',
     text: '#8B9DAF',
     glow: 'rgba(139,157,175,0.06)',
+  },
+  Energy: {
+    bg: 'rgba(180,140,80,0.08)',
+    border: 'rgba(180,140,80,0.2)',
+    text: '#B48C50',
+    glow: 'rgba(180,140,80,0.06)',
+  },
+  Infrastructure: {
+    bg: 'rgba(110,130,160,0.08)',
+    border: 'rgba(110,130,160,0.2)',
+    text: '#6E82A0',
+    glow: 'rgba(110,130,160,0.06)',
   },
 };
 

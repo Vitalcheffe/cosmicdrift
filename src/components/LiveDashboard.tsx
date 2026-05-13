@@ -23,6 +23,12 @@ function useCountUp(target: number, isActive: boolean, decimals: number = 0) {
   const spring = useSpring(0, { stiffness: 40, damping: 20, mass: 1 });
   const hasStarted = useRef(false);
 
+  // Keep latest formatting config in a ref so the change callback always
+  // reads the current value without needing to re-subscribe (which can
+  // schedule a frame.read() check that stops the spring animation).
+  const formatRef = useRef({ decimals });
+  formatRef.current = { decimals };
+
   useEffect(() => {
     if (!isActive || hasStarted.current) return;
     hasStarted.current = true;
@@ -32,6 +38,7 @@ function useCountUp(target: number, isActive: boolean, decimals: number = 0) {
   useEffect(() => {
     const unsubscribe = spring.on('change', (latest) => {
       if (ref.current) {
+        const { decimals } = formatRef.current;
         ref.current.textContent =
           decimals > 0
             ? latest.toFixed(decimals)
@@ -39,7 +46,7 @@ function useCountUp(target: number, isActive: boolean, decimals: number = 0) {
       }
     });
     return unsubscribe;
-  }, [spring, decimals]);
+  }, [spring]);
 
   return ref;
 }

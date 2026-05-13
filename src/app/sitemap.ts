@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { blogArticles } from '@/data/blog-articles';
 import { articles } from '@/data/articles';
 import { caseStudies } from '@/data/case-studies';
+import { engArticles } from '@/data/eng-articles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.harchcorp.com';
@@ -30,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/thesis`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.95 },
     { url: `${baseUrl}/about`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85 },
     { url: `${baseUrl}/strategy`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${baseUrl}/subsidiaries`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.9 },
     { url: `${baseUrl}/esg`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.75 },
     { url: `${baseUrl}/careers`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.7 },
     { url: `${baseUrl}/careers/hiring-process`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.6 },
@@ -134,6 +136,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     images: [`${baseUrl}${article.image}`],
   }));
 
+  // Engineering blog article pages with images for Google Image indexing
+  const engBlogPages = engArticles.map((article) => ({
+    url: `${baseUrl}/engineering-blog/${article.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+    images: [`${baseUrl}${article.image}`],
+  }));
+
   const verticalImages: Record<string, string> = {
     intelligence: 'comp-intel-dc',
     cement: 'comp-cement-mixer',
@@ -173,6 +184,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...resourcePages,
     ...blogPages,
     ...newsroomPages,
+    ...engBlogPages,
     ...verticalPages,
     ...caseStudyPages,
   ];

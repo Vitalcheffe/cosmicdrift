@@ -108,6 +108,11 @@ export function AnimatedCounter({
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const hasAnimated = useRef(false);
 
+  // Keep latest formatting props in a ref so the rAF callback always
+  // reads the current values without needing to re-create the effect.
+  const formatRef = useRef({ prefix, suffix, decimals, value, duration });
+  formatRef.current = { prefix, suffix, decimals, value, duration };
+
   useEffect(() => {
     if (!isInView || hasAnimated.current) return;
     hasAnimated.current = true;
@@ -122,6 +127,7 @@ export function AnimatedCounter({
       t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
 
     const step = (timestamp: number) => {
+      const { prefix, suffix, decimals, value, duration } = formatRef.current;
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / (duration * 1000), 1);
@@ -138,16 +144,16 @@ export function AnimatedCounter({
 
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
-  }, [isInView, value, duration, prefix, suffix, decimals]);
+  }, [isInView]); // Only re-run when isInView changes — formatRef gives us latest props
 
-  // Always render the final value — no "0" flash
   return (
     <span
       ref={ref}
       className="stat-mono"
       style={{ fontVariantNumeric: 'tabular-nums' }}
+      aria-label={`${prefix}${formatNumber(value, decimals)}${suffix}`}
     >
-      {prefix}{formatNumber(value, decimals)}{suffix}
+      {prefix}{formatNumber(0, decimals)}{suffix}
     </span>
   );
 }
@@ -378,30 +384,40 @@ export function CountUp({
     mass: 1,
   });
 
+  // Keep latest formatting props in a ref so the change callback always
+  // reads the current values without needing to re-subscribe.
+  const formatRef = useRef({ prefix, suffix, decimals });
+  formatRef.current = { prefix, suffix, decimals };
+
   useEffect(() => {
     if (!isInView || hasAnimated.current) return;
     hasAnimated.current = true;
     motionValue.set(to);
   }, [isInView, motionValue, to]);
 
+  // Subscribe to spring value changes with a stable subscription.
+  // Only depends on [motionValue] so we never re-subscribe due to
+  // formatting prop changes (which would unsubscribe and schedule a
+  // frame.read() check that could stop the spring animation).
   useEffect(() => {
     const unsubscribe = motionValue.on('change', (latest) => {
       if (ref.current) {
+        const { prefix, suffix, decimals } = formatRef.current;
         ref.current.textContent =
           prefix + formatNumber(latest, decimals) + suffix;
       }
     });
     return unsubscribe;
-  }, [motionValue, prefix, suffix, decimals]);
+  }, [motionValue]);
 
-  // Always render the target value — no "0" flash
   return (
     <span
       ref={ref}
       className={className ?? 'stat-mono'}
       style={{ fontVariantNumeric: 'tabular-nums' }}
+      aria-label={`${prefix}${formatNumber(to, decimals)}${suffix}`}
     >
-      {prefix}{formatNumber(to, decimals)}{suffix}
+      {prefix}{formatNumber(from, decimals)}{suffix}
     </span>
   );
 }

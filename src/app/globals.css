@@ -185,6 +185,26 @@
     hyphens: manual;
     word-break: normal;
   }
+  /* Code blocks and pre elements — scroll horizontally instead of overflowing */
+  pre, code {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  pre {
+    -webkit-overflow-scrolling: touch; /* Smooth inertial scrolling on iOS */
+  }
+  /* Links with long URLs should break */
+  a {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  /* Scrollable containers should have smooth touch scrolling */
+  [class*="overflow-x-auto"],
+  [class*="overflow-x-scroll"],
+  .overflow-x-auto,
+  .overflow-x-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
   img, video, svg {
     max-width: 100%;
     height: auto;
@@ -482,6 +502,7 @@
    ═══════════════════════════════════════════ */
 .data-table {
   width: 100%;
+  min-width: 500px; /* Ensures table overflows on mobile, activating overflow-x-auto scroll */
   border-collapse: collapse;
 }
 .data-table thead th {
@@ -493,6 +514,7 @@
   color: rgba(255,255,255,0.25);
   padding: 12px 16px;
   border-bottom: 1px solid var(--border);
+  white-space: nowrap; /* Prevent header wrapping — table scrolls instead */
 }
 .data-table tbody tr {
   transition: background var(--duration-fast) var(--ease-out-quart);
@@ -505,6 +527,8 @@
   padding: 16px;
   font-size: 14px;
   color: #FFFFFF;
+  /* Allow long content to wrap inside cells on wider screens */
+  overflow-wrap: break-word;
 }
 .data-table tbody td:first-child {
   font-weight: 600;

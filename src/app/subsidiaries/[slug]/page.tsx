@@ -107,6 +107,28 @@ export function generateStaticParams() {
   return Object.keys(subsidiaryMeta).map((slug) => ({ slug }));
 }
 
-export default function SubsidiaryPage() {
-  return <SubsidiaryWrapper />;
+export default async function SubsidiaryPage({ params }: PageProps) {
+  const { slug } = await params;
+  const meta = subsidiaryMeta[slug];
+  const pageTitle = meta?.title || 'Subsidiaries';
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.harchcorp.com' },
+      { '@type': 'ListItem', position: 2, name: 'Subsidiaries', item: 'https://www.harchcorp.com/subsidiaries' },
+      { '@type': 'ListItem', position: 3, name: pageTitle, item: `https://www.harchcorp.com/subsidiaries/${slug}` },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <SubsidiaryWrapper />
+    </>
+  );
 }

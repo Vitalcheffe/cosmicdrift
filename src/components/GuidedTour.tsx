@@ -150,21 +150,21 @@ export function GuidedTour({ steps, storageKey, accent = '#8B9DAF' }: GuidedTour
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 4, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="fixed z-[70] w-[280px]"
+            className="fixed z-[70] w-[280px] max-w-[calc(100vw-24px)]"
             style={{
               top: currentStep.position === 'bottom'
-                ? currentRect.bottom + 12
+                ? Math.min(currentRect.bottom + 12, window.innerHeight - 200)
                 : currentStep.position === 'top'
-                  ? currentRect.top - 12
+                  ? Math.max(12, currentRect.top - 160)
                   : currentRect.top,
               left: currentStep.position === 'left'
-                ? currentRect.left - 292
+                ? Math.max(12, currentRect.left - 292)
                 : currentStep.position === 'right'
-                  ? currentRect.right + 12
-                  : Math.max(12, currentRect.left + currentRect.width / 2 - 140),
+                  ? Math.min(currentRect.right + 12, window.innerWidth - 292)
+                  : Math.max(12, Math.min(currentRect.left + currentRect.width / 2 - 140, window.innerWidth - 292)),
             }}
           >
-            <div className="bg-[#1A1A1A] border border-[rgba(255,255,255,0.1)] rounded-xl p-4 shadow-2xl backdrop-blur-xl">
+            <div className="bg-[#1A1A1A] border border-[rgba(255,255,255,0.1)] rounded-xl p-3 sm:p-4 shadow-2xl backdrop-blur-xl">
               {/* Header */}
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
@@ -181,7 +181,7 @@ export function GuidedTour({ steps, storageKey, accent = '#8B9DAF' }: GuidedTour
                 </button>
               </div>
               {/* Description */}
-              <p className="text-[12px] text-[rgba(255,255,255,0.55)] leading-[1.6] mb-3">
+              <p className="text-[13px] sm:text-[12px] text-[rgba(255,255,255,0.55)] leading-[1.6] mb-3">
                 {currentStep.description}
               </p>
               {/* Navigation */}

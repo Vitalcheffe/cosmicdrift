@@ -2,11 +2,16 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { ArrowRight, Building2, Target, Shield, Zap, Users, Globe, Award } from 'lucide-react';
 import { FadeIn } from '@/components/ui/motion';
 import { WorldMap } from '@/components/WorldMap';
 import ImmersiveHero from '@/components/ImmersiveHero';
-import LiveDashboard from '@/components/LiveDashboard';
+
+const LiveDashboard = dynamic(
+  () => import('@/components/LiveDashboard'),
+  { ssr: false, loading: () => <div className="h-[200px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
+);
 
 const aboutMetrics = [
   { label: 'Investment Pipeline', value: 2400, unit: '$M', trend: 'up' as const, sparkline: [1800, 2000, 2100, 2300, 2350, 2400] },

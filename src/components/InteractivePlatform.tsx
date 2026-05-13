@@ -111,7 +111,7 @@ const intelligenceConfig: DashboardConfig = {
                 <Server size={16} style={{ color: accent }} />
                 <span className="text-sm font-bold text-white font-mono">{hub.name} Hub</span>
               </div>
-              <span className={`px-2 py-0.5 rounded text-[9px] font-bold uppercase ${hub.status === 'online' ? 'bg-emerald-500/15 text-emerald-400' : 'bg-amber-500/15 text-amber-400'}`}>
+              <span className={`px-2 py-0.5 rounded text-[10px] sm:text-[9px] font-bold uppercase ${hub.status === 'online' ? 'bg-emerald-500/15 text-emerald-400' : 'bg-amber-500/15 text-amber-400'}`}>
                 {hub.status}
               </span>
             </div>
@@ -231,7 +231,7 @@ const intelligenceConfig: DashboardConfig = {
                     className={`bg-[#0C1220] border rounded-lg p-2.5 hover:border-[rgba(139,157,175,0.25)] transition-all duration-200 cursor-pointer text-left group ${selectedHub === i ? 'border-[#8B9DAF]' : 'border-[rgba(139,157,175,0.1)]'}`}
                   >
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-[9px] font-bold text-white/60 group-hover:text-white transition-colors">{hub.name}</span>
+                      <span className="text-[10px] sm:text-[9px] font-bold text-white/60 group-hover:text-white transition-colors">{hub.name}</span>
                       <span className={`w-1.5 h-1.5 rounded-full ${hub.status === 'online' ? 'bg-emerald-400' : 'bg-amber-400'}`} />
                     </div>
                     <p className="text-base font-bold text-white">{hub.gpus}</p>
@@ -424,14 +424,14 @@ const agricultureConfig: DashboardConfig = {
               <Layout size={11} style={{ color: accent }} />
               <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-white/30">Farm Plot Map</span>
             </div>
-            <div className="flex items-center gap-3 text-[8px]">
+            <div className="flex items-center gap-1.5 sm:gap-3 text-[10px] sm:text-[8px] min-w-0">
               {[
                 { color: '#4A7B5F', label: 'Healthy' },
                 { color: '#EAB308', label: 'Warning' },
                 { color: '#EF4444', label: 'Critical' },
               ].map(l => (
-                <span key={l.label} className="flex items-center gap-1 text-white/25">
-                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: l.color }} /> {l.label}
+                <span key={l.label} className="flex items-center gap-1 text-white/25 whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: l.color }} /> {l.label}
                 </span>
               ))}
             </div>
@@ -480,9 +480,9 @@ const agricultureConfig: DashboardConfig = {
                     </div>
                     <button
                       onClick={() => toggleIrrigation(i)}
-                      className={`w-8 h-4 rounded-full transition-all duration-300 relative ${irrigationState[i] ? 'bg-emerald-500/40' : 'bg-[rgba(255,255,255,0.08)]'}`}
+                      className={`w-10 h-5 sm:w-8 sm:h-4 rounded-full transition-all duration-300 relative ${irrigationState[i] ? 'bg-emerald-500/40' : 'bg-[rgba(255,255,255,0.08)]'}`}
                     >
-                      <span className={`absolute top-0.5 w-3 h-3 rounded-full transition-all duration-300 ${irrigationState[i] ? 'left-4.5 bg-emerald-400' : 'left-0.5 bg-white/30'}`} />
+                      <span className={`absolute top-0.5 sm:top-0.5 w-4 h-4 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${irrigationState[i] ? 'left-5 sm:left-4.5 bg-emerald-400' : 'left-0.5 bg-white/30'}`} />
                     </button>
                   </div>
                 ))}
@@ -498,7 +498,7 @@ const agricultureConfig: DashboardConfig = {
             >
               <div className="flex items-center justify-between mb-3">
                 <span className="text-[11px] font-bold text-white/70">Plot {selectedPlotData.id + 1} — {selectedPlotData.crop}</span>
-                <span className={`px-2 py-0.5 rounded text-[8px] font-bold ${selectedPlotData.health > 0.7 ? 'bg-emerald-500/15 text-emerald-400' : selectedPlotData.health > 0.4 ? 'bg-amber-500/15 text-amber-400' : 'bg-red-500/15 text-red-400'}`}>
+                <span className={`px-2 py-0.5 rounded text-[10px] sm:text-[8px] font-bold ${selectedPlotData.health > 0.7 ? 'bg-emerald-500/15 text-emerald-400' : selectedPlotData.health > 0.4 ? 'bg-amber-500/15 text-amber-400' : 'bg-red-500/15 text-red-400'}`}>
                   {Math.round(selectedPlotData.health * 100)}% health
                 </span>
               </div>
@@ -529,7 +529,7 @@ const agricultureConfig: DashboardConfig = {
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Yield Forecast (T/ha)</span>
-              <span className="text-[8px] text-[#4A7B5F]/50">vs ACTUAL</span>
+              <span className="text-[10px] sm:text-[8px] text-[#4A7B5F]/50">vs ACTUAL</span>
             </div>
             <div className="space-y-1.5">
               {[
@@ -618,7 +618,7 @@ const agricultureConfig: DashboardConfig = {
                 <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">Pending</p>
               </div>
             </div>
-            <div className="flex items-center justify-between text-[8px]">
+            <div className="flex items-center justify-between text-[10px] sm:text-[8px]">
               <span className="text-white/25">Revenue</span>
               <span className="text-emerald-400/60 font-bold">$82,000</span>
             </div>
@@ -667,11 +667,11 @@ const agricultureConfig: DashboardConfig = {
                 { plot: 'Plots 17-24', current: 'Rice', next: 'Barley', season: 'Fall 2025' },
               ].map(r => (
                 <div key={r.plot} className="flex items-center gap-3 py-1.5 border-b border-[rgba(74,123,95,0.06)] last:border-0">
-                  <span className="text-[9px] text-white/40 w-20 flex-shrink-0">{r.plot}</span>
-                  <span className="px-2 py-0.5 rounded text-[8px] bg-[rgba(74,123,95,0.15)] text-[#4A7B5F]">{r.current}</span>
+                  <span className="text-[10px] sm:text-[9px] text-white/40 w-20 flex-shrink-0">{r.plot}</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] sm:text-[8px] bg-[rgba(74,123,95,0.15)] text-[#4A7B5F]">{r.current}</span>
                   <ArrowRight size={10} className="text-white/15" />
-                  <span className="px-2 py-0.5 rounded text-[8px] bg-[rgba(234,179,8,0.1)] text-amber-400/70">{r.next}</span>
-                  <span className="text-[8px] text-white/20 ml-auto">{r.season}</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] sm:text-[8px] bg-[rgba(234,179,8,0.1)] text-amber-400/70">{r.next}</span>
+                  <span className="text-[10px] sm:text-[8px] text-white/20 ml-auto">{r.season}</span>
                 </div>
               ))}
             </div>
@@ -695,9 +695,9 @@ const agricultureConfig: DashboardConfig = {
                   <div className="flex items-center gap-2">
                     <span className={`w-1.5 h-1.5 rounded-full ${d.status === 'Completed' ? 'bg-emerald-400' : d.status === 'In Flight' ? 'bg-amber-400 animate-pulse' : 'bg-white/15'}`} />
                     <span className="text-[10px] sm:text-[9px] text-white/50">{d.drone}</span>
-                    <span className="text-[8px] text-white/25">{d.area}</span>
+                    <span className="text-[10px] sm:text-[8px] text-white/25">{d.area}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-[8px]">
+                  <div className="flex items-center gap-2 text-[10px] sm:text-[8px]">
                     <span className="text-white/30">{d.findings}</span>
                     <span className="text-white/20">{d.lastScan}</span>
                   </div>
@@ -718,7 +718,7 @@ const agricultureConfig: DashboardConfig = {
           <span className="text-2xl font-light text-white">28</span>
           <div className="text-right">
             <p className="text-[10px] text-white/40">Partly Cloudy</p>
-            <p className="text-[8px] text-white/20">Humidity 45%</p>
+            <p className="text-[10px] sm:text-[8px] text-white/20">Humidity 45%</p>
           </div>
         </div>
         <div className="grid grid-cols-4 sm:grid-cols-7 gap-1">
@@ -728,7 +728,7 @@ const agricultureConfig: DashboardConfig = {
               <div key={d} className="text-center cursor-pointer hover:bg-[rgba(74,123,95,0.06)] rounded transition-colors py-0.5">
                 <span className="text-[10px] sm:text-[7px] text-white/25 block">{d}</span>
                 {i === 2 || i === 5 ? <CloudRain size={8} className="mx-auto text-amber-400/50 my-0.5" /> : <Sun size={8} className="mx-auto text-amber-400/30 my-0.5" />}
-                <span className="text-[8px] text-white/40 block">{26 + i}</span>
+                <span className="text-[10px] sm:text-[8px] text-white/40 block">{26 + i}</span>
                 <span className="text-[10px] sm:text-[6px] text-blue-400/40 block">{rain}%</span>
               </div>
             );
@@ -752,7 +752,7 @@ const agricultureConfig: DashboardConfig = {
           const points = m.data.map((v, i) => `${i * 12},${18 - ((v - min) / range) * 14}`).join(' ');
           return (
             <div key={m.crop} className="flex items-center justify-between py-1 border-b border-[rgba(74,123,95,0.05)] last:border-0 cursor-pointer hover:bg-[rgba(74,123,95,0.04)] transition-colors rounded px-1">
-              <span className="text-[9px] text-white/40 w-14">{m.crop}</span>
+              <span className="text-[10px] sm:text-[9px] text-white/40 w-14">{m.crop}</span>
               <svg viewBox="0 0 60 20" className="w-14 h-4 flex-shrink-0">
                 <motion.polyline
                   points={points}
@@ -767,8 +767,8 @@ const agricultureConfig: DashboardConfig = {
                   opacity={0.5}
                 />
               </svg>
-              <span className="text-[9px] text-white/55 w-12 text-right">{m.price}</span>
-              <span className={`text-[8px] w-10 text-right ${m.up ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{m.change}</span>
+              <span className="text-[10px] sm:text-[9px] text-white/55 w-12 text-right">{m.price}</span>
+              <span className={`text-[10px] sm:text-[8px] w-10 text-right ${m.up ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{m.change}</span>
             </div>
           );
         })}
@@ -785,8 +785,8 @@ const agricultureConfig: DashboardConfig = {
         ].map(s => (
           <div key={s.nutrient} className="mb-1.5 cursor-pointer hover:bg-[rgba(74,123,95,0.04)] transition-colors rounded px-1">
             <div className="flex items-center justify-between mb-0.5">
-              <span className="text-[8px] text-white/35">{s.nutrient}</span>
-              <span className="text-[8px] text-white/50">{s.value}</span>
+              <span className="text-[10px] sm:text-[8px] text-white/35">{s.nutrient}</span>
+              <span className="text-[10px] sm:text-[8px] text-white/50">{s.value}</span>
             </div>
             <div className="h-[2px] bg-[rgba(255,255,255,0.04)] rounded-full overflow-hidden">
               <motion.div className="h-full rounded-full" style={{ backgroundColor: s.color, width: `${s.level}%` }} initial={{ width: 0 }} animate={{ width: `${s.level}%` }} transition={{ duration: 0.8, delay: 0.2 }} />
@@ -805,7 +805,7 @@ const agricultureConfig: DashboardConfig = {
           ].map((a, i) => (
             <div key={i} className={`flex items-center gap-2 p-1.5 rounded cursor-pointer hover:opacity-80 transition-opacity ${a.severity === 'warning' ? 'bg-amber-500/5 border border-amber-500/10' : 'bg-[rgba(74,123,95,0.04)] border border-[rgba(74,123,95,0.08)]'}`}>
               <span className={a.severity === 'warning' ? 'text-amber-400/60' : 'text-white/25'}>{a.icon}</span>
-              <span className={`text-[8px] ${a.severity === 'warning' ? 'text-amber-400/50' : 'text-white/30'}`}>{a.text}</span>
+              <span className={`text-[10px] sm:text-[8px] ${a.severity === 'warning' ? 'text-amber-400/50' : 'text-white/30'}`}>{a.text}</span>
             </div>
           ))}
         </div>
@@ -820,7 +820,7 @@ const agricultureConfig: DashboardConfig = {
             { label: 'Export Report', icon: <FileCode size={10} /> },
             { label: 'Irrigate All', icon: <Droplets size={10} /> },
           ].map(a => (
-            <button key={a.label} onClick={() => {}} className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-[9px] text-white/35 hover:text-white/60 hover:bg-[rgba(74,123,95,0.08)] transition-all cursor-pointer">
+            <button key={a.label} onClick={() => {}} className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-[10px] sm:text-[9px] text-white/35 hover:text-white/60 hover:bg-[rgba(74,123,95,0.08)] transition-all cursor-pointer">
               <span style={{ color: '#4A7B5F60' }}>{a.icon}</span>
               {a.label}
             </button>
@@ -1014,7 +1014,7 @@ const energyConfig: DashboardConfig = {
               animate={{ width: '73%' }}
               transition={{ duration: 1.5 }}
             />
-            <span className="absolute inset-0 flex items-center justify-center text-[9px] text-white/60">438 / 600 MWh</span>
+            <span className="absolute inset-0 flex items-center justify-center text-[10px] sm:text-[9px] text-white/60">438 / 600 MWh</span>
           </div>
           <div className="flex justify-between mt-1.5 text-[10px] sm:text-[8px] text-white/20">
             <span>Charging</span>
@@ -1038,7 +1038,7 @@ const energyConfig: DashboardConfig = {
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
         <div className="flex items-center justify-between mb-2">
           <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Grid Frequency</span>
-          <span className="text-[9px] text-emerald-400/60 font-mono">50.02 Hz</span>
+          <span className="text-[10px] sm:text-[9px] text-emerald-400/60 font-mono">50.02 Hz</span>
         </div>
         <div className="flex items-end gap-px h-8">
           {Array.from({ length: 30 }, (_, i) => {
@@ -1083,8 +1083,8 @@ const energyConfig: DashboardConfig = {
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
         <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Export Capacity</span>
         <p className="text-lg font-bold text-white">1.2 <span className="text-[10px] text-white/30">GW</span></p>
-        <p className="text-[8px] text-white/20 mt-1">Morocco → Spain: 700 MW</p>
-        <p className="text-[8px] text-white/20">Morocco → Mauritania: 500 MW</p>
+        <p className="text-[10px] sm:text-[8px] text-white/20 mt-1">Morocco → Spain: 700 MW</p>
+        <p className="text-[10px] sm:text-[8px] text-white/20">Morocco → Mauritania: 500 MW</p>
       </div>
     </div>
   ),
@@ -1170,8 +1170,8 @@ const miningConfig: DashboardConfig = {
             <div key={s.stage} className="flex items-center gap-1 flex-1">
               <div className="flex-1 bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] rounded-none p-1.5 text-center hover:bg-[rgba(139,157,175,0.1)] transition-colors cursor-pointer">
                 <div className="flex justify-center mb-0.5 text-[#8B9DAF50]">{s.icon}</div>
-                <p className="text-[8px] text-white/40">{s.stage}</p>
-                <p className="text-[9px] text-white/60 mt-0.5">{s.pct}%</p>
+                <p className="text-[10px] sm:text-[8px] text-white/40">{s.stage}</p>
+                <p className="text-[10px] sm:text-[9px] text-white/60 mt-0.5">{s.pct}%</p>
               </div>
               {i < 5 && <ArrowRight size={8} className="text-[#8B9DAF30] flex-shrink-0" />}
             </div>
@@ -1239,7 +1239,7 @@ const miningConfig: DashboardConfig = {
             <span className="text-[10px] sm:text-[9px] text-white/30">{c.name}</span>
             <div className="flex items-center gap-1.5">
               <span className="text-[10px] sm:text-[9px] text-white/50">{c.price}</span>
-              <span className={`text-[8px] ${c.ch.startsWith('+') ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{c.ch}</span>
+              <span className={`text-[10px] sm:text-[8px] ${c.ch.startsWith('+') ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{c.ch}</span>
             </div>
           </div>
         ))}
@@ -1297,8 +1297,8 @@ const cementConfig: DashboardConfig = {
             <div key={s.stage} className="flex items-center gap-0.5 flex-1 min-w-0">
               <div className="flex-1 bg-[rgba(200,144,58,0.06)] border border-[rgba(200,144,58,0.12)] rounded-lg p-2 text-center hover:bg-[rgba(200,144,58,0.1)] transition-colors cursor-pointer">
                 <div className="flex justify-center mb-1 text-[#C8903A50]">{s.icon}</div>
-                <p className="text-[8px] text-white/40 font-bold">{s.stage}</p>
-                <p className="text-[9px] text-white/55 mt-0.5">{s.output}</p>
+                <p className="text-[10px] sm:text-[8px] text-white/40 font-bold">{s.stage}</p>
+                <p className="text-[10px] sm:text-[9px] text-white/55 mt-0.5">{s.output}</p>
                 <span className="inline-block w-1 h-1 rounded-full bg-emerald-400 mt-1" />
               </div>
               {i < 6 && <ArrowRight size={7} className="text-[#C8903A25] flex-shrink-0" />}
@@ -1358,7 +1358,7 @@ const cementConfig: DashboardConfig = {
               </div>
             </div>
           </div>
-          <p className="text-[8px] text-[#C8903A60] mt-2">94.7% of daily target</p>
+          <p className="text-[10px] sm:text-[8px] text-[#C8903A60] mt-2">94.7% of daily target</p>
         </div>
       </div>
 
@@ -1376,7 +1376,7 @@ const cementConfig: DashboardConfig = {
                 <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${d.status === 'In Transit' ? 'bg-emerald-400' : d.status === 'Loading' ? 'bg-amber-400' : 'bg-white/15'}`} />
                 <span className="text-[10px] sm:text-[9px] text-white/50 truncate">{d.route}</span>
               </div>
-              <div className="flex items-center gap-2 text-[8px] text-white/25 flex-shrink-0">
+              <div className="flex items-center gap-2 text-[10px] sm:text-[8px] text-white/25 flex-shrink-0">
                 <span>{d.load}</span>
                 <span className="text-white/40 hidden sm:inline">ETA {d.eta}</span>
               </div>
@@ -1477,7 +1477,7 @@ const waterConfig: DashboardConfig = {
             <div key={s.stage} className="flex items-center gap-1 flex-1">
               <div className="flex-1 bg-[rgba(74,158,181,0.06)] border border-[rgba(74,158,181,0.12)] rounded-lg p-2 text-center hover:bg-[rgba(74,158,181,0.1)] transition-colors cursor-pointer">
                 <div className="flex justify-center mb-1 text-[#4A9EB550]">{s.icon}</div>
-                <p className="text-[8px] text-white/40 font-bold">{s.stage}</p>
+                <p className="text-[10px] sm:text-[8px] text-white/40 font-bold">{s.stage}</p>
                 <p className="text-[10px] sm:text-[7px] text-white/20 mt-0.5">{s.detail}</p>
               </div>
               {i < 4 && <ArrowRight size={7} className="text-[#4A9EB525] flex-shrink-0" />}
@@ -1548,7 +1548,7 @@ const waterConfig: DashboardConfig = {
               />
               <span className="absolute inset-0 flex items-center justify-center text-[10px] text-white/60">{r.level}%</span>
             </div>
-            <p className="text-[8px] text-white/20 mt-1">{r.capacity}</p>
+            <p className="text-[10px] sm:text-[8px] text-white/20 mt-1">{r.capacity}</p>
           </div>
         ))}
       </div>
@@ -1567,7 +1567,7 @@ const waterConfig: DashboardConfig = {
           { param: 'Bacteria', value: '0 CFU/100mL', ok: true },
         ].map(q => (
           <div key={q.param} className="flex items-center justify-between py-1 border-b border-[rgba(74,158,181,0.04)] last:border-0">
-            <span className="text-[9px] text-white/30">{q.param}</span>
+            <span className="text-[10px] sm:text-[9px] text-white/30">{q.param}</span>
             <div className="flex items-center gap-1.5">
               <span className="text-[10px] sm:text-[9px] text-white/50">{q.value}</span>
               <CheckCircle size={7} className="text-emerald-400/60" />
@@ -1587,7 +1587,7 @@ const waterConfig: DashboardConfig = {
             <div key={l.zone} className="flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 <span className={`w-1.5 h-1.5 rounded-full ${l.severity === 'ok' ? 'bg-emerald-400' : 'bg-amber-400'}`} />
-                <span className="text-[8px] text-white/35">{l.zone}</span>
+                <span className="text-[10px] sm:text-[8px] text-white/35">{l.zone}</span>
               </div>
               <span className={`text-[10px] sm:text-[7px] ${l.severity === 'ok' ? 'text-emerald-400/50' : 'text-amber-400/50'}`}>{l.status}</span>
             </div>
@@ -1658,7 +1658,7 @@ const technologyConfig: DashboardConfig = {
                 }`}>{ep.method}</span>
                 <span className="text-[10px] text-white/50 truncate">{ep.path}</span>
               </div>
-              <div className="flex items-center gap-2 text-[8px] flex-shrink-0">
+              <div className="flex items-center gap-2 text-[10px] sm:text-[8px] flex-shrink-0">
                 <span className="text-white/25">{ep.latency}</span>
                 <span className="text-emerald-400/40">{ep.status}</span>
               </div>
@@ -1685,7 +1685,7 @@ const technologyConfig: DashboardConfig = {
                 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.05)]'
               }`}>
                 <div className="flex justify-center mb-0.5" style={{ color: s.status === 'done' ? '#22C55E60' : s.status === 'active' ? '#7C8CF580' : '#ffffff20' }}>{s.icon}</div>
-                <p className="text-[8px] text-white/40">{s.stage}</p>
+                <p className="text-[10px] sm:text-[8px] text-white/40">{s.stage}</p>
               </div>
               {i < 4 && <ArrowRight size={7} className="text-white/10 flex-shrink-0" />}
             </div>
@@ -1740,11 +1740,11 @@ const technologyConfig: DashboardConfig = {
         ].map(s => (
           <div key={s.lang} className="flex items-center justify-between py-1 border-b border-[rgba(124,140,245,0.04)] last:border-0">
             <div>
-              <span className="text-[9px] text-white/40">{s.lang}</span>
-              <span className="text-[8px] text-white/15 ml-1">{s.pkg}</span>
+              <span className="text-[10px] sm:text-[9px] text-white/40">{s.lang}</span>
+              <span className="text-[10px] sm:text-[8px] text-white/15 ml-1">{s.pkg}</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="text-[9px] text-white/50">{s.downloads}</span>
+              <span className="text-[10px] sm:text-[9px] text-white/50">{s.downloads}</span>
               <span className="text-[10px] sm:text-[8px] text-emerald-400/50">{s.trend}</span>
             </div>
           </div>
@@ -1754,8 +1754,8 @@ const technologyConfig: DashboardConfig = {
       <div className="bg-[#0D0F1C] border border-[rgba(124,140,245,0.12)] rounded-lg p-3">
         <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Security Score</span>
         <p className="text-xl font-bold text-white">A+</p>
-        <p className="text-[8px] text-white/25 mt-1">0 vulnerabilities</p>
-        <p className="text-[8px] text-white/20">SOC 2 Type II Certified</p>
+        <p className="text-[10px] sm:text-[8px] text-white/25 mt-1">0 vulnerabilities</p>
+        <p className="text-[10px] sm:text-[8px] text-white/20">SOC 2 Type II Certified</p>
       </div>
       {/* Recent Deploy Log */}
       <div className="bg-[#0D0F1C] border border-[rgba(124,140,245,0.12)] rounded-lg p-3">
@@ -1768,7 +1768,7 @@ const technologyConfig: DashboardConfig = {
           <div key={d.app} className="flex items-center justify-between py-0.5 border-b border-[rgba(124,140,245,0.03)] last:border-0">
             <div className="flex items-center gap-1">
               <CheckCircle size={7} className="text-emerald-400/50" />
-              <span className="text-[8px] text-white/40">{d.app}</span>
+              <span className="text-[10px] sm:text-[8px] text-white/40">{d.app}</span>
               <span className="text-[10px] sm:text-[7px] text-white/20">{d.ver}</span>
             </div>
             <span className="text-[10px] sm:text-[7px] text-white/15">{d.time}</span>
@@ -1871,7 +1871,7 @@ const financeConfig: DashboardConfig = {
                 <span className="text-[11px] font-bold text-white">{selectedDeal.name}</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className={`px-2 py-0.5 rounded-sm text-[8px] font-bold uppercase ${
+                <span className={`px-2 py-0.5 rounded-sm text-[10px] sm:text-[8px] font-bold uppercase ${
                   selectedDeal.status === 'Active' || selectedDeal.status === 'Committed'
                     ? 'bg-emerald-500/15 text-emerald-400'
                     : selectedDeal.status === 'Funding' || selectedDeal.status === 'Launching'
@@ -1940,7 +1940,7 @@ const financeConfig: DashboardConfig = {
           <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Bond Yield Curve</span>
-              <span className="text-[8px] text-[#8B9DAF]/50">CBI CERTIFIED</span>
+              <span className="text-[10px] sm:text-[8px] text-[#8B9DAF]/50">CBI CERTIFIED</span>
             </div>
             <svg viewBox="0 0 300 80" className="w-full h-auto">
               {/* Grid lines */}
@@ -2006,8 +2006,8 @@ const financeConfig: DashboardConfig = {
               {allocations.map((a) => (
                 <div key={a.sector} className="group cursor-pointer hover:bg-[rgba(139,157,175,0.03)] transition-colors rounded-sm px-1 py-0.5">
                   <div className="flex items-center justify-between mb-0.5">
-                    <span className="text-[9px] text-white/40">{a.sector}</span>
-                    <span className="text-[9px] text-white/55 font-bold">{a.pct}%</span>
+                    <span className="text-[10px] sm:text-[9px] text-white/40">{a.sector}</span>
+                    <span className="text-[10px] sm:text-[9px] text-white/55 font-bold">{a.pct}%</span>
                   </div>
                   <div className="h-[3px] bg-[rgba(255,255,255,0.04)] rounded-sm overflow-hidden">
                     <motion.div
@@ -2038,8 +2038,8 @@ const financeConfig: DashboardConfig = {
                     className="w-full cursor-pointer group"
                   >
                     <div className="flex items-center justify-between mb-0.5">
-                      <span className="text-[9px] text-white/40 group-hover:text-white/60 transition-colors">{s.stage}</span>
-                      <span className="text-[9px] text-[#8B9DAF] font-bold">{s.count}</span>
+                      <span className="text-[10px] sm:text-[9px] text-white/40 group-hover:text-white/60 transition-colors">{s.stage}</span>
+                      <span className="text-[10px] sm:text-[9px] text-[#8B9DAF] font-bold">{s.count}</span>
                     </div>
                     <div className="h-[6px] bg-[rgba(255,255,255,0.03)] rounded-sm overflow-hidden">
                       <motion.div
@@ -2141,9 +2141,9 @@ const financeConfig: DashboardConfig = {
           { code: 'GBP', rate: '0.79/$', change: '+0.2%', up: true },
         ].map(c => (
           <div key={c.code} className="flex items-center justify-between py-1 border-b border-[rgba(139,157,175,0.04)] last:border-0 cursor-pointer hover:bg-[rgba(139,157,175,0.03)] transition-colors rounded-sm px-1">
-            <span className="text-[9px] text-white/40 font-bold w-8">{c.code}</span>
-            <span className="text-[9px] text-white/55">{c.rate}</span>
-            <span className={`text-[8px] ${c.up ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{c.change}</span>
+            <span className="text-[10px] sm:text-[9px] text-white/40 font-bold w-8">{c.code}</span>
+            <span className="text-[10px] sm:text-[9px] text-white/55">{c.rate}</span>
+            <span className={`text-[10px] sm:text-[8px] ${c.up ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{c.change}</span>
           </div>
         ))}
       </div>
@@ -2159,9 +2159,9 @@ const financeConfig: DashboardConfig = {
           <div key={c.label} className="flex items-center justify-between py-1 border-b border-[rgba(139,157,175,0.04)] last:border-0">
             <div className="flex items-center gap-1.5">
               <span className="text-emerald-400/50">{c.icon}</span>
-              <span className="text-[8px] text-white/35">{c.label}</span>
+              <span className="text-[10px] sm:text-[8px] text-white/35">{c.label}</span>
             </div>
-            <span className="text-[8px] text-emerald-400/60 font-bold">{c.status}</span>
+            <span className="text-[10px] sm:text-[8px] text-emerald-400/60 font-bold">{c.status}</span>
           </div>
         ))}
       </div>
@@ -2238,7 +2238,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
         >
           <div className="flex items-center gap-3 mb-3">
             <span
-              className={`px-2.5 py-1 ${isMining ? 'rounded-none' : 'rounded'} text-[9px] font-bold tracking-[0.2em] uppercase ${monoFont}`}
+              className={`px-2.5 py-1 ${isMining ? 'rounded-none' : 'rounded'} text-[10px] sm:text-[9px] font-bold tracking-[0.2em] uppercase ${monoFont}`}
               style={{ backgroundColor: `${accent}15`, color: accent, border: `1px solid ${accent}30` }}
             >
               Platform
@@ -2319,7 +2319,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
               >
                 <div className="flex items-center gap-1.5 mb-1">
                   {card.icon && <span style={{ color: `${accent}60` }}>{card.icon}</span>}
-                  <p className={`text-[10px] md:text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25`}>{card.label}</p>
+                  <p className={`text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25`}>{card.label}</p>
                 </div>
                 <p className={`text-base md:text-lg lg:text-xl font-bold text-white ${monoFont} truncate`}>{card.value}</p>
                 {card.change && (

@@ -30,10 +30,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.harchcorp.com'),
+  metadataBase: new URL('https://harchcorp.com'),
   title: {
-    default: "Harch Corp | Africa's Sovereign Infrastructure OS",
-    template: "%s | Harch Corp",
+    default: "Harch Corp — Africa's Sovereign Infrastructure OS",
+    template: "%s — Harch Corp",
   },
   description:
     "Harch Corp S.A. is a Moroccan industrial conglomerate building Africa's industrial sovereignty. Carbon-Aware GPU Cloud (1,798 GPUs), 2GW+ Renewable Energy, Cement, Technology, Mining, Agriculture, Water, Finance.",
@@ -59,6 +59,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Harch Corp S.A." }],
   applicationName: "Harch Corp",
+  creator: "Harch Corp S.A.",
+  publisher: "Harch Corp S.A.",
+  alternates: {
+    canonical: 'https://harchcorp.com',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
@@ -75,10 +80,10 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Harch Corp | Africa's Sovereign Infrastructure OS",
+    title: "Harch Corp — Africa's Sovereign Infrastructure OS",
     description:
       "Moroccan industrial conglomerate — $2.4B+ investment pipeline across 8 verticals. Carbon-Aware GPU Cloud (1,798 GPUs), 2GW+ Renewable Energy, Cement, Mining, Agriculture, Water, Finance. Building Africa's industrial sovereignty.",
-    url: "https://www.harchcorp.com",
+    url: "https://harchcorp.com",
     siteName: "Harch Corp",
     type: "website",
     locale: "en_US",
@@ -95,10 +100,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harch Corp | Africa's Sovereign Infrastructure OS",
+    title: "Harch Corp — Africa's Sovereign Infrastructure OS",
     description:
       "Carbon-Aware GPU Cloud — 1,798 GPUs at ~47 gCO2/kWh. 2GW+ Renewable Energy Pipeline. Sovereign AI from Morocco.",
     images: ["/images/og-harch-corp.png"],
+    site: "@harchcorp",
+    creator: "@harchcorp",
   },
   robots: {
     index: true,
@@ -422,13 +429,23 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="canonical" href="https://www.harchcorp.com" />
+        <link rel="canonical" href="https://harchcorp.com" />
+        <link rel="alternate" href="https://harchcorp.com" hrefLang="en" />
+        <link rel="alternate" href="https://harchcorp.com" hrefLang="fr" />
+        <link rel="alternate" href="https://harchcorp.com" hrefLang="ar" />
+        <link rel="alternate" href="https://harchcorp.com" hrefLang="x-default" />
         <meta name="theme-color" content="#0A0A0A" />
         <meta name="application-name" content="Harch Corp" />
         <meta name="apple-mobile-web-app-title" content="Harch Corp" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=no" />
+        <meta name="geo.region" content="MA" />
+        <meta name="geo.placename" content="Casablanca" />
+        <meta name="geo.position" content="33.5731;-7.5898" />
+        <meta name="ICBM" content="33.5731, -7.5898" />
+        <meta property="og:site_name" content="Harch Corp" />
+        <meta name="news_keywords" content="Harch Corp, Africa infrastructure, sovereign AI, GPU cloud, renewable energy" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}

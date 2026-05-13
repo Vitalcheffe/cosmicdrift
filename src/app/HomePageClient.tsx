@@ -1,8 +1,9 @@
 'use client';
 
-import { useRef, useEffect, useState, useCallback } from 'react';
+import { useRef, useEffect, useState, useCallback, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
@@ -17,13 +18,34 @@ import {
   SectionDivider,
   CountUp,
 } from '@/components/ui/motion';
-import { InteractivePlatform } from '@/components/InteractivePlatform';
-import { AfricaMap } from '@/components/AfricaMap';
-import { LiveFeed } from '@/components/LiveFeed';
-import { DataStream } from '@/components/DataStream';
 import { PulseIndicator } from '@/components/PulseIndicator';
-import { NetworkGrid } from '@/components/NetworkGrid';
 import { TypingText } from '@/components/PulseIndicator';
+
+/* ─── Dynamic imports for below-fold / heavy components ─── */
+const InteractivePlatform = dynamic(
+  () => import('@/components/InteractivePlatform').then((mod) => mod.InteractivePlatform),
+  { ssr: false, loading: () => <div className="h-[600px] bg-[#0A0A0A] animate-pulse" /> }
+);
+
+const AfricaMap = dynamic(
+  () => import('@/components/AfricaMap').then((mod) => mod.AfricaMap),
+  { ssr: false, loading: () => <div className="h-[400px] bg-[#0A0A0A] animate-pulse rounded-lg" /> }
+);
+
+const LiveFeed = dynamic(
+  () => import('@/components/LiveFeed').then((mod) => mod.LiveFeed),
+  { ssr: false, loading: () => <div className="h-[200px] bg-[#141414] animate-pulse rounded-lg" /> }
+);
+
+const DataStream = dynamic(
+  () => import('@/components/DataStream').then((mod) => mod.DataStream),
+  { ssr: false }
+);
+
+const NetworkGrid = dynamic(
+  () => import('@/components/NetworkGrid').then((mod) => mod.NetworkGrid),
+  { ssr: false }
+);
 
 /* ═══════════════════════════════════════════════════════════════
    DATA — All existing data preserved, images added
@@ -295,6 +317,7 @@ export default function HomePageClient() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 640px) 100vw, 50vw"
+                      loading="lazy"
                     />
                   </div>
                   {/* Content */}
@@ -372,6 +395,7 @@ export default function HomePageClient() {
                   fill
                   className="object-cover"
                   sizes="100vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.95)] via-[rgba(13,13,13,0.6)] to-[rgba(13,13,13,0.3)]" />
                 <div
@@ -441,6 +465,7 @@ export default function HomePageClient() {
           fill
           className="object-cover"
           sizes="100vw"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-[rgba(13,13,13,0.8)]" />
         <div className="absolute inset-0 dot-pattern opacity-20" />
@@ -658,6 +683,7 @@ export default function HomePageClient() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[rgba(20,20,20,0.5)] to-transparent" />
                     <div className="absolute top-3 left-3">
@@ -707,6 +733,7 @@ export default function HomePageClient() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[rgba(20,20,20,0.5)] to-transparent" />
                     <div className="absolute top-3 left-3">
@@ -776,6 +803,7 @@ export default function HomePageClient() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.6)] to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-md px-4 py-2 rounded-md border border-[rgba(255,255,255,0.06)]">
@@ -867,6 +895,7 @@ export default function HomePageClient() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.6)] to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-md px-4 py-2 rounded-md border border-[rgba(255,255,255,0.06)]">
@@ -1187,6 +1216,7 @@ export default function HomePageClient() {
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 33vw"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-transparent to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4">

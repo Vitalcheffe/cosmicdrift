@@ -12,7 +12,12 @@ import {
   CountUp, ParallaxSection,
 } from '@/components/ui/motion';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
-import { InteractivePlatform } from '@/components/InteractivePlatform';
+import dynamic from 'next/dynamic';
+
+const InteractivePlatform = dynamic(
+  () => import('@/components/InteractivePlatform').then((mod) => mod.InteractivePlatform),
+  { ssr: false, loading: () => <div className="h-[600px] bg-[#0A0A0A] animate-pulse" /> }
+);
 import IoTDashboard from '@/components/harchagri/IoTDashboard';
 
 /* ═══════════════════════════════════════════════════

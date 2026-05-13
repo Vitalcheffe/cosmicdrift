@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     'Harch Corp S.A.',
   ],
   alternates: {
-    canonical: 'https://www.harchcorp.com',
+    canonical: 'https://harchcorp.com',
   },
   openGraph: {
     title: "Harch Corp — Africa's Sovereign Infrastructure OS",
     description:
       "Moroccan industrial conglomerate building Africa's industrial sovereignty. $2.4B+ pipeline across 8 verticals. Carbon-Aware GPU Cloud, 2GW+ Renewable Energy, Cement, Mining, Agriculture, Water.",
-    url: 'https://www.harchcorp.com',
+    url: 'https://harchcorp.com',
     siteName: 'Harch Corp',
     type: 'website',
     locale: 'en_US',

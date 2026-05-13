@@ -13,7 +13,12 @@ import {
   Card3D, MagneticButton, SmoothLink, TextReveal, SectionDivider,
   CountUp, ParallaxSection,
 } from '@/components/ui/motion';
-import { InteractivePlatform } from '@/components/InteractivePlatform';
+import dynamic from 'next/dynamic';
+
+const InteractivePlatform = dynamic(
+  () => import('@/components/InteractivePlatform').then((mod) => mod.InteractivePlatform),
+  { ssr: false, loading: () => <div className="h-[600px] bg-[#0A0A0A] animate-pulse" /> }
+);
 
 /* ═══════════════════════════════════════════════════
    HARCH FINANCE — HarchCorp Unified Design System

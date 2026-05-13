@@ -2,13 +2,18 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { ArrowRight, Server, Zap, Factory, Mountain, Wheat, Droplets, Cpu, Landmark } from 'lucide-react';
 import { FadeIn, StaggerContainer, StaggerItem, Card3D, SectionDivider } from '@/components/ui/motion';
 import ImmersiveHero from '@/components/ImmersiveHero';
-import NetworkOntology from '@/components/NetworkOntology';
 import { PortfolioDistributionChart } from '@/components/charts/PortfolioDistributionChart';
 import { InvestmentPipelineChart } from '@/components/charts/InvestmentPipelineChart';
 import { OperationalMetricsChart } from '@/components/charts/OperationalMetricsChart';
+
+const NetworkOntology = dynamic(
+  () => import('@/components/NetworkOntology'),
+  { ssr: false, loading: () => <div className="h-[400px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
+);
 
 const subsidiaries = [
   {

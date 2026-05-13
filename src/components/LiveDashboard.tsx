@@ -18,44 +18,51 @@ interface LiveDashboardProps {
   title?: string;
 }
 
-function useCountUp(target: number, isActive: boolean, decimals: number = 0) {
-  // Start with null = "not yet animated" → will render the target value immediately
-  const [animatedValue, setAnimatedValue] = useState<number | null>(null);
+function useCountUp(
+  target: number,
+  isActive: boolean,
+  decimals: number = 0,
+  elementRef: React.RefObject<HTMLSpanElement | null>
+) {
   const hasStarted = useRef(false);
 
   useEffect(() => {
     if (!isActive || hasStarted.current) return;
     hasStarted.current = true;
 
+    const el = elementRef.current;
+    if (!el) return;
+
     let startTime: number | null = null;
     let rafId: number;
     const duration = 2000;
-
     const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
+
+    const formatVal = (v: number) =>
+      decimals > 0 ? v.toFixed(decimals) : Math.round(v).toLocaleString();
 
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = easeOutCubic(progress);
-      setAnimatedValue(eased * target);
+      // Direct DOM write — no React state, no re-render, no flash of 0
+      el.textContent = formatVal(eased * target);
       if (progress < 1) {
         rafId = requestAnimationFrame(step);
       } else {
-        setAnimatedValue(target);
+        el.textContent = formatVal(target);
       }
     };
 
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
-  }, [isActive, target]);
+  }, [isActive, target, decimals, elementRef]);
 
-  // Always show the target value if animation hasn't started/completed
-  const displayValue = animatedValue !== null ? animatedValue : target;
-
+  // Return the formatted target value for the initial SSR render
   const formatted = decimals > 0
-    ? displayValue.toFixed(decimals)
-    : Math.round(displayValue).toLocaleString();
+    ? target.toFixed(decimals)
+    : Math.round(target).toLocaleString();
 
   return { display: formatted };
 }
@@ -205,7 +212,8 @@ function MetricCard({
   index: number;
   isInView: boolean;
 }) {
-  const { display } = useCountUp(metric.value, isInView, metric.decimals || 0);
+  const valueRef = useRef<HTMLSpanElement>(null);
+  const { display } = useCountUp(metric.value, isInView, metric.decimals || 0, valueRef);
 
   return (
     <motion.div
@@ -226,6 +234,7 @@ function MetricCard({
       {/* Value row */}
       <div className="flex items-baseline gap-1 mb-2">
         <span
+          ref={valueRef}
           className="stat-mono text-xl md:text-2xl lg:text-3xl font-bold text-white"
           style={{ fontVariantNumeric: 'tabular-nums' }}
         >

@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { ArrowRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets, Satellite, Lock, Eye, Factory, Mountain, Wheat, Waves, MapPin, Calendar, TrendingUp, Leaf } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import dynamic from 'next/dynamic';
 
-import { InteractivePlatform } from '@/components/InteractivePlatform';
 import {
   FadeIn,
   StaggerContainer,
@@ -20,7 +20,16 @@ import {
   CountUp,
   ParallaxSection,
 } from '@/components/ui/motion';
-import { NetworkGrid } from '@/components/NetworkGrid';
+
+const InteractivePlatform = dynamic(
+  () => import('@/components/InteractivePlatform').then((mod) => mod.InteractivePlatform),
+  { ssr: false, loading: () => <div className="h-[600px] bg-[#0A0A0A] animate-pulse" /> }
+);
+
+const NetworkGrid = dynamic(
+  () => import('@/components/NetworkGrid').then((mod) => mod.NetworkGrid),
+  { ssr: false }
+);
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
 import type { Competitor } from '@/components/competitive/CompetitiveComparison';
 

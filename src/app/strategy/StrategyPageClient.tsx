@@ -2,12 +2,17 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { ArrowRight, Target, TrendingUp, Shield, Zap, Globe, Building2, Layers, Cpu, Droplets, Wheat, Mountain, Factory } from 'lucide-react';
 import { FadeIn } from '@/components/ui/motion';
 import ImmersiveHero from '@/components/ImmersiveHero';
-import NetworkOntology from '@/components/NetworkOntology';
 import { InvestmentPipelineChart } from '@/components/charts/InvestmentPipelineChart';
 import { EnergyMixChart } from '@/components/charts/EnergyMixChart';
+
+const NetworkOntology = dynamic(
+  () => import('@/components/NetworkOntology'),
+  { ssr: false, loading: () => <div className="h-[400px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
+);
 
 const verticalsDeep = [
   { icon: Cpu, name: 'Harch Intelligence', version: '/0.1', investment: '$800M', desc: '1,798 GPU carbon-aware data center platform across Morocco. Next-gen GPU clusters for sovereign AI compute, powered by 100% renewable energy with submarine cable connectivity to Europe and the Americas.', keyPoints: ['1,798 carbon-optimized GPUs', '2GW+ Renewable Pipeline', '100% renewable powered', 'Carbon-aware scheduling'], href: '/subsidiaries/intelligence' },

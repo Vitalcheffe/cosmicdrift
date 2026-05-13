@@ -1,12 +1,17 @@
 'use client';
 
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { ArrowRight, Cpu, Server, Zap } from 'lucide-react';
 import { FadeIn } from '@/components/ui/motion';
 import ImmersiveHero from '@/components/ImmersiveHero';
-import LiveDashboard from '@/components/LiveDashboard';
 import { GPUUtilizationChart } from '@/components/charts/GPUUtilizationChart';
 import { CarbonIntensityChart } from '@/components/charts/CarbonIntensityChart';
+
+const LiveDashboard = dynamic(
+  () => import('@/components/LiveDashboard'),
+  { ssr: false, loading: () => <div className="h-[200px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
+);
 
 const products = [
   {

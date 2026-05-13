@@ -19,7 +19,8 @@ interface LiveDashboardProps {
 }
 
 function useCountUp(target: number, isActive: boolean, decimals: number = 0) {
-  const [display, setDisplay] = useState(0);
+  // Start with null = "not yet animated" → will render the target value immediately
+  const [animatedValue, setAnimatedValue] = useState<number | null>(null);
   const hasStarted = useRef(false);
 
   useEffect(() => {
@@ -37,9 +38,11 @@ function useCountUp(target: number, isActive: boolean, decimals: number = 0) {
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = easeOutCubic(progress);
-      setDisplay(eased * target);
+      setAnimatedValue(eased * target);
       if (progress < 1) {
         rafId = requestAnimationFrame(step);
+      } else {
+        setAnimatedValue(target);
       }
     };
 
@@ -47,16 +50,12 @@ function useCountUp(target: number, isActive: boolean, decimals: number = 0) {
     return () => cancelAnimationFrame(rafId);
   }, [isActive, target]);
 
-  // Safety fallback
-  useEffect(() => {
-    if (!isActive) return;
-    const timer = setTimeout(() => setDisplay(target), 4000);
-    return () => clearTimeout(timer);
-  }, [isActive, target]);
+  // Always show the target value if animation hasn't started/completed
+  const displayValue = animatedValue !== null ? animatedValue : target;
 
   const formatted = decimals > 0
-    ? display.toFixed(decimals)
-    : Math.round(display).toLocaleString();
+    ? displayValue.toFixed(decimals)
+    : Math.round(displayValue).toLocaleString();
 
   return { display: formatted };
 }

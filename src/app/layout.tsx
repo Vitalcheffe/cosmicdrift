@@ -421,7 +421,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>Harch Corp | Africa's Sovereign Infrastructure OS</title>
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href="https://www.harchcorp.com" />
         <meta name="theme-color" content="#0A0A0A" />
@@ -430,12 +429,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="google-site-verification" content="harchcorp-site-verification" />
-        <meta property="og:site_name" content="Harch Corp" />
-        <meta name="site_name" content="Harch Corp" />
-        {/* Google reads the first visible H1/element with site name for site name identification */}
-        {/* Hidden semantic element for Google site name extraction */}
-        <span itemProp="name" style={{position:'absolute',clip:'rect(1px,1px,1px,1px)',overflow:'hidden',height:'1px',width:'1px'}}>Harch Corp</span>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}

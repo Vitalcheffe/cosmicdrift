@@ -115,17 +115,17 @@ const intelligenceConfig: DashboardConfig = {
                 {hub.status}
               </span>
             </div>
-            <div className="grid grid-cols-3 gap-3 md:gap-4 mb-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-4">
               <div>
-                <p className="text-[9px] text-white/30 uppercase tracking-wider mb-1">GPUs</p>
+                <p className="text-[10px] sm:text-[9px] text-white/30 uppercase tracking-wider mb-1">GPUs</p>
                 <p className="text-xl font-bold text-white font-mono">{hub.gpus}</p>
               </div>
               <div>
-                <p className="text-[9px] text-white/30 uppercase tracking-wider mb-1">Load</p>
+                <p className="text-[10px] sm:text-[9px] text-white/30 uppercase tracking-wider mb-1">Load</p>
                 <p className="text-xl font-bold text-white font-mono">{hub.load}%</p>
               </div>
               <div>
-                <p className="text-[9px] text-white/30 uppercase tracking-wider mb-1">Carbon</p>
+                <p className="text-[10px] sm:text-[9px] text-white/30 uppercase tracking-wider mb-1">Carbon</p>
                 <p className="text-xl font-bold text-white font-mono">{hub.carbon}g</p>
               </div>
             </div>
@@ -137,7 +137,7 @@ const intelligenceConfig: DashboardConfig = {
               { name: 'Available', gpus: hub.gpus - 288, pct: 100 - 75 },
             ].map(w => (
               <div key={w.name} className="mb-2">
-                <div className="flex justify-between text-[9px] mb-0.5">
+                <div className="flex justify-between text-[10px] sm:text-[9px] mb-0.5">
                   <span className="text-white/40 font-mono">{w.name}</span>
                   <span className="text-white/50 font-mono">{w.gpus} GPU</span>
                 </div>
@@ -160,7 +160,7 @@ const intelligenceConfig: DashboardConfig = {
         <div className="flex flex-col md:flex-row gap-3">
           {/* Server Rack — desktop only */}
           <div className="hidden md:block w-16 flex-shrink-0 bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-2 space-y-1.5">
-            <span className="text-[7px] text-white/25 uppercase tracking-widest text-center block mb-1">RACK</span>
+            <span className="text-[10px] sm:text-[7px] text-white/25 uppercase tracking-widest text-center block mb-1">RACK</span>
             {hubs.map((hub, i) => (
               <button
                 key={hub.name}
@@ -180,7 +180,7 @@ const intelligenceConfig: DashboardConfig = {
                     <span className={`w-1 h-1 rounded-full ${hub.status === 'online' ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
                     <span className={`w-1 h-1 rounded-full ${hub.load > 70 ? 'bg-amber-400' : 'bg-emerald-400'}`} style={{ animationDelay: '0.5s' }} />
                   </div>
-                  <span className="absolute bottom-0.5 left-1 text-[6px] text-white/40 group-hover:text-white/70 transition-colors">{hub.name.slice(0, 3).toUpperCase()}</span>
+                  <span className="absolute bottom-0.5 left-1 text-[10px] sm:text-[6px] text-white/40 group-hover:text-white/70 transition-colors">{hub.name.slice(0, 3).toUpperCase()}</span>
                 </div>
               </button>
             ))}
@@ -194,9 +194,9 @@ const intelligenceConfig: DashboardConfig = {
                 <div className="px-3 py-2 border-b border-[rgba(139,157,175,0.08)] flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <TerminalIcon size={11} style={{ color: accent }} />
-                    <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/30">Carbon Routing Log</span>
+                    <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/30">Carbon Routing Log</span>
                   </div>
-                  <span className="text-[8px] text-emerald-400/50">LIVE</span>
+                  <span className="text-[10px] sm:text-[8px] text-emerald-400/50">LIVE</span>
                 </div>
                 <div className="p-3 max-h-36 overflow-y-auto space-y-1" style={{ scrollbarWidth: 'thin', scrollbarColor: '#8B9DAF20 transparent' }}>
                   {terminalLines.map((line, i) => (
@@ -205,7 +205,7 @@ const intelligenceConfig: DashboardConfig = {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.08 }}
-                      className="flex gap-2 text-[9px]"
+                      className="flex gap-2 text-[10px] sm:text-[9px]"
                     >
                       <span className="text-white/20 flex-shrink-0">{line.time}</span>
                       <span className={
@@ -235,9 +235,9 @@ const intelligenceConfig: DashboardConfig = {
                       <span className={`w-1.5 h-1.5 rounded-full ${hub.status === 'online' ? 'bg-emerald-400' : 'bg-amber-400'}`} />
                     </div>
                     <p className="text-base font-bold text-white">{hub.gpus}</p>
-                    <p className="text-[7px] text-white/20 uppercase tracking-wider mb-1.5">GPUs</p>
+                    <p className="text-[10px] sm:text-[7px] text-white/20 uppercase tracking-wider mb-1.5">GPUs</p>
                     <div className="space-y-0.5">
-                      <div className="flex justify-between text-[7px]">
+                      <div className="flex justify-between text-[10px] sm:text-[7px]">
                         <span className="text-white/25">Load</span>
                         <span className="text-white/40">{hub.load}%</span>
                       </div>
@@ -253,7 +253,7 @@ const intelligenceConfig: DashboardConfig = {
             {/* Submarine Cable Map — simplified SVG */}
             {activeTab === 1 && (
               <div className="bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-3">
-                <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Submarine Cable — Morocco to Europe</span>
+                <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Submarine Cable — Morocco to Europe</span>
                 <svg viewBox="0 0 280 80" className="w-full h-auto">
                   <rect x="0" y="0" width="280" height="80" fill="transparent" />
                   {/* Morocco coast */}
@@ -291,8 +291,8 @@ const intelligenceConfig: DashboardConfig = {
             {(activeTab === 0 || activeTab === 2) && (
               <div className="bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg overflow-hidden">
                 <div className="px-3 py-2 border-b border-[rgba(139,157,175,0.08)] flex items-center justify-between">
-                  <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Active Workloads</span>
-                  <span className="text-[8px] text-emerald-400/50">12 running</span>
+                  <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Active Workloads</span>
+                  <span className="text-[10px] sm:text-[8px] text-emerald-400/50">12 running</span>
                 </div>
                 <div className="overflow-x-auto">
                   <div className="divide-y divide-[rgba(139,157,175,0.05)] min-w-[300px]">
@@ -306,7 +306,7 @@ const intelligenceConfig: DashboardConfig = {
                           <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${wl.carbon === 'Optimal' ? 'bg-emerald-400' : 'bg-amber-400'}`} />
                           <span className="text-[10px] text-white/60 truncate">{wl.name}</span>
                         </div>
-                        <div className="flex items-center gap-2 md:gap-3 text-[8px] text-white/25 flex-shrink-0 ml-2">
+                        <div className="flex items-center gap-2 md:gap-3 text-[10px] sm:text-[8px] text-white/25 flex-shrink-0 ml-2">
                           <span className="hidden sm:inline">{wl.type}</span>
                           <span className="text-white/40">{wl.gpus} GPU</span>
                           <span className="hidden sm:inline">{wl.hub}</span>
@@ -326,8 +326,8 @@ const intelligenceConfig: DashboardConfig = {
     <div className="space-y-3 font-mono">
       {/* Carbon Intensity Heatmap */}
       <div className="bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-3">
-        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Carbon Intensity (24h)</span>
-        <div className="grid grid-cols-12 gap-0.5">
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Carbon Intensity (24h)</span>
+        <div className="grid grid-cols-8 sm:grid-cols-12 gap-0.5">
           {Array.from({ length: 24 }, (_, i) => {
             const v = [42, 38, 55, 44, 36, 48, 35, 51, 43, 37, 45, 39, 41, 52, 38, 44, 36, 49, 34, 46, 40, 37, 43, 38][i];
             const intensity = v < 40 ? 0.9 : v < 45 ? 0.6 : v < 50 ? 0.35 : 0.15;
@@ -344,13 +344,13 @@ const intelligenceConfig: DashboardConfig = {
             );
           })}
         </div>
-        <div className="flex justify-between mt-1.5 text-[6px] text-white/15">
+        <div className="flex justify-between mt-1.5 text-[10px] sm:text-[6px] text-white/15">
           <span>00:00</span><span>12:00</span><span>Now</span>
         </div>
       </div>
       {/* Energy Mix */}
       <div className="bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-3">
-        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Energy Mix</span>
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Energy Mix</span>
         {[
           { source: 'Solar', pct: 42, color: '#F59E0B' },
           { source: 'Wind', pct: 35, color: '#3B82F6' },
@@ -358,7 +358,7 @@ const intelligenceConfig: DashboardConfig = {
           { source: 'Grid', pct: 18.5, color: '#6B7280' },
         ].map((e) => (
           <div key={e.source} className="mb-1.5">
-            <div className="flex justify-between text-[8px] mb-0.5">
+            <div className="flex justify-between text-[10px] sm:text-[8px] mb-0.5">
               <span className="text-white/30">{e.source}</span>
               <span className="text-white/45">{e.pct}%</span>
             </div>
@@ -437,7 +437,7 @@ const agricultureConfig: DashboardConfig = {
             </div>
           </div>
           <div className="p-3">
-            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1">
               {plotData.map((plot) => {
                 const color = plot.health > 0.7 ? '#4A7B5F' : plot.health > 0.4 ? '#EAB308' : '#EF4444';
                 return (
@@ -451,7 +451,7 @@ const agricultureConfig: DashboardConfig = {
                     style={{ backgroundColor: `${color}25`, border: `1px solid ${color}35` }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-[6px] text-white/30 group-hover:text-white/70 transition-colors">{plot.crop.slice(0, 2)}</span>
+                      <span className="text-[10px] sm:text-[6px] text-white/30 group-hover:text-white/70 transition-colors">{plot.crop.slice(0, 2)}</span>
                     </div>
                   </motion.button>
                 );
@@ -470,13 +470,13 @@ const agricultureConfig: DashboardConfig = {
               exit={{ opacity: 0, y: -4 }}
               className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-4"
             >
-              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Irrigation Zone Controls</span>
+              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Irrigation Zone Controls</span>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {['Zone A — North', 'Zone B — East', 'Zone C — South', 'Zone D — West', 'Zone E — Central', 'Zone F — Perimeter'].map((zone, i) => (
                   <div key={zone} className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.12)] rounded-lg p-2.5 flex items-center justify-between">
                     <div>
-                      <p className="text-[9px] text-white/50">{zone}</p>
-                      <p className="text-[8px] text-white/25 mt-0.5">Moisture: {55 + i * 5}%</p>
+                      <p className="text-[10px] sm:text-[9px] text-white/50">{zone}</p>
+                      <p className="text-[10px] sm:text-[8px] text-white/25 mt-0.5">Moisture: {55 + i * 5}%</p>
                     </div>
                     <button
                       onClick={() => toggleIrrigation(i)}
@@ -504,19 +504,19 @@ const agricultureConfig: DashboardConfig = {
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <div>
-                  <p className="text-[8px] text-white/25 uppercase tracking-wider">Soil Moisture</p>
+                  <p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">Soil Moisture</p>
                   <p className="text-sm font-bold text-white mt-0.5">{selectedPlotData.soilMoisture}%</p>
                 </div>
                 <div>
-                  <p className="text-[8px] text-white/25 uppercase tracking-wider">Last Irrigation</p>
+                  <p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">Last Irrigation</p>
                   <p className="text-sm font-bold text-white mt-0.5">{selectedPlotData.lastIrrigation}</p>
                 </div>
                 <div>
-                  <p className="text-[8px] text-white/25 uppercase tracking-wider">Zone</p>
+                  <p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">Zone</p>
                   <p className="text-sm font-bold text-white mt-0.5">Zone {String.fromCharCode(65 + selectedPlotData.zone)}</p>
                 </div>
                 <div>
-                  <p className="text-[8px] text-white/25 uppercase tracking-wider">Next Action</p>
+                  <p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">Next Action</p>
                   <p className="text-sm font-bold text-white mt-0.5">{selectedPlotData.health < 0.5 ? 'Irrigate' : 'Monitor'}</p>
                 </div>
               </div>
@@ -528,7 +528,7 @@ const agricultureConfig: DashboardConfig = {
         {(activeTab === 0 || activeSidebar === 2) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Yield Forecast (T/ha)</span>
+              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Yield Forecast (T/ha)</span>
               <span className="text-[8px] text-[#4A7B5F]/50">vs ACTUAL</span>
             </div>
             <div className="space-y-1.5">
@@ -541,8 +541,8 @@ const agricultureConfig: DashboardConfig = {
               ].map(c => (
                 <div key={c.crop} className="cursor-pointer hover:bg-[rgba(74,123,95,0.04)] transition-colors rounded px-1 py-0.5">
                   <div className="flex items-center justify-between mb-0.5">
-                    <span className="text-[8px] text-white/40">{c.crop}</span>
-                    <div className="flex items-center gap-2 text-[7px]">
+                    <span className="text-[10px] sm:text-[8px] text-white/40">{c.crop}</span>
+                    <div className="flex items-center gap-2 text-[10px] sm:text-[7px]">
                       <span className="text-[#4A7B5F]/70">{c.forecast}T</span>
                       <span className="text-white/25">{c.actual}T</span>
                     </div>
@@ -570,7 +570,7 @@ const agricultureConfig: DashboardConfig = {
         {/* Supply Chain Tracker */}
         {(activeTab === 0 || activeSidebar === 5) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Supply Chain — Farm to Market</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Supply Chain — Farm to Market</span>
             <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
               {[
                 { stage: 'Harvest', status: 'complete', throughput: '94%', icon: <Wheat size={10} /> },
@@ -586,8 +586,8 @@ const agricultureConfig: DashboardConfig = {
                     'border-[rgba(74,123,95,0.08)] group-hover:bg-[rgba(74,123,95,0.04)]'
                   }`}>
                     <div className="flex justify-center mb-1" style={{ color: s.status === 'complete' ? '#22C55E80' : s.status === 'active' ? '#4A7B5F80' : 'rgba(255,255,255,0.15)' }}>{s.icon}</div>
-                    <p className="text-[7px] text-white/40 group-hover:text-white/60 transition-colors">{s.stage}</p>
-                    <p className={`text-[7px] font-bold mt-0.5 ${s.status === 'complete' ? 'text-emerald-400/60' : s.status === 'active' ? 'text-[#4A7B5F]/70' : 'text-white/15'}`}>{s.throughput}</p>
+                    <p className="text-[10px] sm:text-[7px] text-white/40 group-hover:text-white/60 transition-colors">{s.stage}</p>
+                    <p className={`text-[10px] sm:text-[7px] font-bold mt-0.5 ${s.status === 'complete' ? 'text-emerald-400/60' : s.status === 'active' ? 'text-[#4A7B5F]/70' : 'text-white/15'}`}>{s.throughput}</p>
                   </div>
                   {i < 4 && <div className="flex justify-center mt-0.5"><ArrowRight size={8} className="text-white/10" /></div>}
                 </div>
@@ -600,22 +600,22 @@ const agricultureConfig: DashboardConfig = {
         {(activeTab === 0 || activeSidebar === 2) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Carbon Credits</span>
+              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Carbon Credits</span>
               <Leaf size={10} className="text-emerald-400/30" />
             </div>
             <div className="grid grid-cols-3 gap-2 mb-2">
               {/* carbon credit cards - ok at grid-cols-3 even on mobile */}
               <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
                 <p className="text-sm font-bold text-white">12,450</p>
-                <p className="text-[7px] text-white/25 uppercase">tCO2 Total</p>
+                <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">tCO2 Total</p>
               </div>
               <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
                 <p className="text-sm font-bold text-emerald-400">8,200</p>
-                <p className="text-[7px] text-white/25 uppercase">Certified</p>
+                <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">Certified</p>
               </div>
               <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
                 <p className="text-sm font-bold text-amber-400/70">4,250</p>
-                <p className="text-[7px] text-white/25 uppercase">Pending</p>
+                <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">Pending</p>
               </div>
             </div>
             <div className="flex items-center justify-between text-[8px]">
@@ -628,7 +628,7 @@ const agricultureConfig: DashboardConfig = {
         {/* Vertical Farming Container Status */}
         {(activeTab === 0 || activeSidebar === 0) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Vertical Farm Containers</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Vertical Farm Containers</span>
             <div className="grid grid-cols-2 gap-2">
               {[
                 { id: 'VFC-01', crop: 'Lettuce', temp: '22C', humidity: '68%', day: 18, eta: '7d', status: 'growing' },
@@ -638,17 +638,17 @@ const agricultureConfig: DashboardConfig = {
               ].map(c => (
                 <button key={c.id} onClick={() => {}} className="bg-[rgba(74,123,95,0.04)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-left hover:bg-[rgba(74,123,95,0.08)] transition-colors cursor-pointer group">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[8px] text-white/50 font-bold">{c.id}</span>
+                    <span className="text-[10px] sm:text-[8px] text-white/50 font-bold">{c.id}</span>
                     <span className={`w-1.5 h-1.5 rounded-full ${c.status === 'ready' ? 'bg-emerald-400' : c.status === 'growing' ? 'bg-[#4A7B5F]' : 'bg-amber-400/50'}`} />
                   </div>
-                  <p className="text-[9px] text-white/60 group-hover:text-white/80 transition-colors">{c.crop}</p>
-                  <div className="flex items-center gap-2 mt-1 text-[7px] text-white/25">
+                  <p className="text-[10px] sm:text-[9px] text-white/60 group-hover:text-white/80 transition-colors">{c.crop}</p>
+                  <div className="flex items-center gap-2 mt-1 text-[10px] sm:text-[7px] text-white/25">
                     <span>{c.temp}</span>
                     <span>{c.humidity}</span>
                   </div>
                   <div className="flex items-center justify-between mt-1">
-                    <span className="text-[7px] text-white/20">Day {c.day}</span>
-                    <span className={`text-[7px] font-bold ${c.status === 'ready' ? 'text-emerald-400/60' : 'text-white/25'}`}>{c.eta}</span>
+                    <span className="text-[10px] sm:text-[7px] text-white/20">Day {c.day}</span>
+                    <span className={`text-[10px] sm:text-[7px] font-bold ${c.status === 'ready' ? 'text-emerald-400/60' : 'text-white/25'}`}>{c.eta}</span>
                   </div>
                 </button>
               ))}
@@ -659,7 +659,7 @@ const agricultureConfig: DashboardConfig = {
         {/* Crop Rotation Timeline */}
         {(activeTab === 3 || activeSidebar === 2) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-4">
-            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Crop Rotation Timeline</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Crop Rotation Timeline</span>
             <div className="space-y-2">
               {[
                 { plot: 'Plots 1-8', current: 'Wheat', next: 'Soy', season: 'Spring 2025' },
@@ -682,7 +682,7 @@ const agricultureConfig: DashboardConfig = {
         {(activeSidebar === 4 || activeTab === 3) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-4">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Drone Scan Schedule</span>
+              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Drone Scan Schedule</span>
               <Eye size={11} className="text-white/20" />
             </div>
             <div className="space-y-1.5">
@@ -694,7 +694,7 @@ const agricultureConfig: DashboardConfig = {
                 <div key={d.drone} className="flex items-center justify-between py-1.5 border-b border-[rgba(74,123,95,0.05)] last:border-0">
                   <div className="flex items-center gap-2">
                     <span className={`w-1.5 h-1.5 rounded-full ${d.status === 'Completed' ? 'bg-emerald-400' : d.status === 'In Flight' ? 'bg-amber-400 animate-pulse' : 'bg-white/15'}`} />
-                    <span className="text-[9px] text-white/50">{d.drone}</span>
+                    <span className="text-[10px] sm:text-[9px] text-white/50">{d.drone}</span>
                     <span className="text-[8px] text-white/25">{d.area}</span>
                   </div>
                   <div className="flex items-center gap-2 text-[8px]">
@@ -713,7 +713,7 @@ const agricultureConfig: DashboardConfig = {
     <div className="space-y-3">
       {/* 7-Day Weather Forecast with Rain Probability */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">7-Day Forecast — Casablanca</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">7-Day Forecast — Casablanca</span>
         <div className="flex items-center justify-between mb-2">
           <span className="text-2xl font-light text-white">28</span>
           <div className="text-right">
@@ -721,15 +721,15 @@ const agricultureConfig: DashboardConfig = {
             <p className="text-[8px] text-white/20">Humidity 45%</p>
           </div>
         </div>
-        <div className="grid grid-cols-7 gap-1">
+        <div className="grid grid-cols-4 sm:grid-cols-7 gap-1">
           {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((d, i) => {
             const rain = i === 2 ? 70 : i === 5 ? 45 : i === 3 ? 20 : 5;
             return (
               <div key={d} className="text-center cursor-pointer hover:bg-[rgba(74,123,95,0.06)] rounded transition-colors py-0.5">
-                <span className="text-[7px] text-white/25 block">{d}</span>
+                <span className="text-[10px] sm:text-[7px] text-white/25 block">{d}</span>
                 {i === 2 || i === 5 ? <CloudRain size={8} className="mx-auto text-amber-400/50 my-0.5" /> : <Sun size={8} className="mx-auto text-amber-400/30 my-0.5" />}
                 <span className="text-[8px] text-white/40 block">{26 + i}</span>
-                <span className="text-[6px] text-blue-400/40 block">{rain}%</span>
+                <span className="text-[10px] sm:text-[6px] text-blue-400/40 block">{rain}%</span>
               </div>
             );
           })}
@@ -738,7 +738,7 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Market Prices with Sparklines */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Market Prices</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Market Prices</span>
         {[
           { crop: 'Wheat', price: '$285/T', change: '+2.3%', up: true, data: [270, 275, 278, 282, 280, 285] },
           { crop: 'Corn', price: '$198/T', change: '-1.1%', up: false, data: [205, 202, 200, 198, 199, 198] },
@@ -776,7 +776,7 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Soil Composition */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Soil Composition</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Soil Composition</span>
         {[
           { nutrient: 'pH', value: '6.8', level: 68, color: '#4A7B5F' },
           { nutrient: 'Nitrogen', value: '42 ppm', level: 52, color: '#22C55E' },
@@ -797,7 +797,7 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Active Weather Alerts */}
       <div className="bg-[#0D120D] border border-[rgba(234,179,8,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-amber-400/40 mb-2 block">Weather Alerts</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-amber-400/40 mb-2 block">Weather Alerts</span>
         <div className="space-y-1.5">
           {[
             { severity: 'warning', text: 'Heavy rain expected Wed — 70% probability', icon: <CloudRain size={9} /> },
@@ -813,7 +813,7 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Quick Actions */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Quick Actions</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Quick Actions</span>
         <div className="space-y-1.5">
           {[
             { label: 'Run Drone Scan', icon: <Plane size={10} /> },
@@ -830,7 +830,7 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Soil Moisture Overview */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Soil Moisture</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Soil Moisture</span>
         <div className="flex items-end gap-0.5 h-12">
           {[67, 72, 55, 80, 45, 68, 75, 58, 82, 60, 70, 52].map((v, i) => (
             <motion.div
@@ -884,8 +884,8 @@ const energyConfig: DashboardConfig = {
       {/* Power Flow Map — SVG with animated dots */}
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-4">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Power Flow Grid</span>
-          <span className="text-[8px] text-emerald-400/50">BALANCED</span>
+          <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Power Flow Grid</span>
+          <span className="text-[10px] sm:text-[8px] text-emerald-400/50">BALANCED</span>
         </div>
         <svg viewBox="0 0 320 120" className="w-full h-auto">
           {/* Generation sites */}
@@ -948,7 +948,7 @@ const energyConfig: DashboardConfig = {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Solar Output</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Solar Output</span>
             <Sun size={10} className="text-[#D4A84360]" />
           </div>
           <div className="flex items-end gap-px h-16">
@@ -966,7 +966,7 @@ const energyConfig: DashboardConfig = {
               );
             })}
           </div>
-          <div className="flex justify-between mt-1 text-[6px] text-white/15">
+          <div className="flex justify-between mt-1 text-[10px] sm:text-[6px] text-white/15">
             <span>00</span><span>06</span><span>12</span><span>18</span><span>Now</span>
           </div>
         </div>
@@ -974,7 +974,7 @@ const energyConfig: DashboardConfig = {
         {/* Wind Speed Gauge */}
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Wind Speed</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Wind Speed</span>
             <Wind size={10} className="text-[#3B82F660]" />
           </div>
           <div className="flex items-center justify-center">
@@ -1004,7 +1004,7 @@ const energyConfig: DashboardConfig = {
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center gap-2 mb-2">
             <Battery size={10} className="text-[#D4A84360]" />
-            <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Battery</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Battery</span>
           </div>
           <div className="h-6 bg-[rgba(255,255,255,0.03)] rounded overflow-hidden relative">
             <motion.div
@@ -1016,7 +1016,7 @@ const energyConfig: DashboardConfig = {
             />
             <span className="absolute inset-0 flex items-center justify-center text-[9px] text-white/60">438 / 600 MWh</span>
           </div>
-          <div className="flex justify-between mt-1.5 text-[8px] text-white/20">
+          <div className="flex justify-between mt-1.5 text-[10px] sm:text-[8px] text-white/20">
             <span>Charging</span>
             <span className="text-emerald-400/50">+12 MW</span>
           </div>
@@ -1024,12 +1024,12 @@ const energyConfig: DashboardConfig = {
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center gap-2 mb-2">
             <Droplets size={10} className="text-[#22C55E60]" />
-            <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Green H2</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Green H2</span>
           </div>
           <p className="text-lg font-bold text-white">12.3 <span className="text-[10px] text-white/30">kT/yr</span></p>
           <div className="flex items-center gap-1 mt-1">
             <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[8px] text-white/25">Electrolysis active — 45 MW</span>
+            <span className="text-[10px] sm:text-[8px] text-white/25">Electrolysis active — 45 MW</span>
           </div>
         </div>
       </div>
@@ -1037,7 +1037,7 @@ const energyConfig: DashboardConfig = {
       {/* Grid Frequency Monitor */}
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Grid Frequency</span>
+          <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Grid Frequency</span>
           <span className="text-[9px] text-emerald-400/60 font-mono">50.02 Hz</span>
         </div>
         <div className="flex items-end gap-px h-8">
@@ -1062,7 +1062,7 @@ const energyConfig: DashboardConfig = {
   renderSidebar: (accent) => (
     <div className="space-y-3">
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Energy Mix</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Energy Mix</span>
         {[
           { source: 'Solar', pct: 52, color: '#D4A843' },
           { source: 'Wind', pct: 35, color: '#3B82F6' },
@@ -1070,7 +1070,7 @@ const energyConfig: DashboardConfig = {
           { source: 'Grid', pct: 5, color: '#6B7280' },
         ].map((e) => (
           <div key={e.source} className="mb-1.5">
-            <div className="flex justify-between text-[8px] mb-0.5">
+            <div className="flex justify-between text-[10px] sm:text-[8px] mb-0.5">
               <span className="text-white/30">{e.source}</span>
               <span className="text-white/45">{e.pct}%</span>
             </div>
@@ -1081,7 +1081,7 @@ const energyConfig: DashboardConfig = {
         ))}
       </div>
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Export Capacity</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Export Capacity</span>
         <p className="text-lg font-bold text-white">1.2 <span className="text-[10px] text-white/30">GW</span></p>
         <p className="text-[8px] text-white/20 mt-1">Morocco → Spain: 700 MW</p>
         <p className="text-[8px] text-white/20">Morocco → Mauritania: 500 MW</p>
@@ -1125,7 +1125,7 @@ const miningConfig: DashboardConfig = {
     <div id="mining-map" className="space-y-3">
       {/* Geological Cross-Section */}
       <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-4">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Geological Cross-Section</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Geological Cross-Section</span>
         <svg viewBox="0 0 320 100" className="w-full h-auto">
           {/* Rock layers */}
           <rect x="0" y="0" width="320" height="15" fill="#8B735520" />
@@ -1157,7 +1157,7 @@ const miningConfig: DashboardConfig = {
 
       {/* Processing Flow Chart */}
       <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-4">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Mineral Processing Pipeline</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Mineral Processing Pipeline</span>
         <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
           {[
             { stage: 'Extraction', pct: 98, icon: <Mountain size={10} /> },
@@ -1181,7 +1181,7 @@ const miningConfig: DashboardConfig = {
 
       {/* Inventory Levels */}
       <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-4">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Inventory by Mineral</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Inventory by Mineral</span>
         <div className="space-y-2">
           {[
             { mineral: 'Phosphate Rock', qty: '320kT', capacity: 85, color: '#8B9DAF' },
@@ -1190,7 +1190,7 @@ const miningConfig: DashboardConfig = {
             { mineral: 'Fluorite', qty: '18kT', capacity: 71, color: '#A855F7' },
           ].map(m => (
             <div key={m.mineral}>
-              <div className="flex justify-between text-[8px] mb-0.5">
+              <div className="flex justify-between text-[10px] sm:text-[8px] mb-0.5">
                 <span className="text-white/35">{m.mineral}</span>
                 <span className="text-white/50">{m.qty} ({m.capacity}%)</span>
               </div>
@@ -1207,7 +1207,7 @@ const miningConfig: DashboardConfig = {
     <div className="space-y-3">
       {/* Safety Dashboard */}
       <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Safety Metrics</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Safety Metrics</span>
         {[
           { metric: 'Gas Levels', value: 'Normal', icon: <Wind size={9} />, ok: true },
           { metric: 'Seismic Activity', value: '0.1 mm/s', icon: <Activity size={9} />, ok: true },
@@ -1217,10 +1217,10 @@ const miningConfig: DashboardConfig = {
           <div key={s.metric} className="flex items-center justify-between py-1.5 border-b border-[rgba(139,157,175,0.05)] last:border-0">
             <div className="flex items-center gap-1.5">
               <span className="text-[#8B9DAF40]">{s.icon}</span>
-              <span className="text-[9px] text-white/30">{s.metric}</span>
+              <span className="text-[10px] sm:text-[9px] text-white/30">{s.metric}</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="text-[9px] text-white/55">{s.value}</span>
+              <span className="text-[10px] sm:text-[9px] text-white/55">{s.value}</span>
               <CheckCircle size={8} className="text-emerald-400/50" />
             </div>
           </div>
@@ -1228,7 +1228,7 @@ const miningConfig: DashboardConfig = {
       </div>
       {/* Commodity Price Ticker */}
       <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.15)] rounded-none p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Commodity Prices</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Commodity Prices</span>
         {[
           { name: 'Phosphate Rock', price: '$135/T', ch: '+3.2%' },
           { name: 'Cobalt', price: '$33,500/T', ch: '-1.8%' },
@@ -1236,9 +1236,9 @@ const miningConfig: DashboardConfig = {
           { name: 'Fluorite', price: '$320/T', ch: '+1.5%' },
         ].map((c) => (
           <div key={c.name} className="flex justify-between py-1 border-b border-[rgba(139,157,175,0.04)] last:border-0">
-            <span className="text-[9px] text-white/30">{c.name}</span>
+            <span className="text-[10px] sm:text-[9px] text-white/30">{c.name}</span>
             <div className="flex items-center gap-1.5">
-              <span className="text-[9px] text-white/50">{c.price}</span>
+              <span className="text-[10px] sm:text-[9px] text-white/50">{c.price}</span>
               <span className={`text-[8px] ${c.ch.startsWith('+') ? 'text-emerald-400/60' : 'text-red-400/60'}`}>{c.ch}</span>
             </div>
           </div>
@@ -1283,7 +1283,7 @@ const cementConfig: DashboardConfig = {
     <div id="cement-supply" className="space-y-3">
       {/* Factory Floor Production Line Diagram */}
       <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-3 md:p-4">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Production Line — Live</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Production Line — Live</span>
         <div className="flex items-center gap-0.5 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
           {[
             { stage: 'Quarry', output: '1,200 T/day', status: 'active', icon: <Mountain size={12} /> },
@@ -1313,7 +1313,7 @@ const cementConfig: DashboardConfig = {
         <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-3">
           <div className="flex items-center gap-2 mb-2">
             <Thermometer size={10} className="text-[#C8903A60]" />
-            <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Kiln Temperature</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Kiln Temperature</span>
           </div>
           <div className="flex items-center justify-center">
             <svg viewBox="0 0 80 50" className="w-28 h-auto">
@@ -1337,10 +1337,10 @@ const cementConfig: DashboardConfig = {
 
         {/* Daily Production vs Target */}
         <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-3">
-          <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-white/20 mb-2 block">Daily vs Target</span>
+          <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20 mb-2 block">Daily vs Target</span>
           <div className="space-y-2">
             <div>
-              <div className="flex justify-between text-[8px] mb-0.5">
+              <div className="flex justify-between text-[10px] sm:text-[8px] mb-0.5">
                 <span className="text-white/30">Today</span>
                 <span className="text-white/50">1,420 T</span>
               </div>
@@ -1349,7 +1349,7 @@ const cementConfig: DashboardConfig = {
               </div>
             </div>
             <div>
-              <div className="flex justify-between text-[8px] mb-0.5">
+              <div className="flex justify-between text-[10px] sm:text-[8px] mb-0.5">
                 <span className="text-white/30">Target</span>
                 <span className="text-white/40">1,500 T</span>
               </div>
@@ -1364,7 +1364,7 @@ const cementConfig: DashboardConfig = {
 
       {/* Delivery Fleet Tracker */}
       <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-3 md:p-4">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Delivery Fleet</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Delivery Fleet</span>
         <div className="space-y-1.5">
           {[
             { route: 'Banjul → Serekunda', status: 'In Transit', eta: '2h 30m', load: '42T', progress: 65 },
@@ -1374,7 +1374,7 @@ const cementConfig: DashboardConfig = {
             <div key={d.route} className="flex items-center justify-between py-1.5 border-b border-[rgba(200,144,58,0.05)] last:border-0 gap-2">
               <div className="flex items-center gap-2 min-w-0">
                 <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${d.status === 'In Transit' ? 'bg-emerald-400' : d.status === 'Loading' ? 'bg-amber-400' : 'bg-white/15'}`} />
-                <span className="text-[9px] text-white/50 truncate">{d.route}</span>
+                <span className="text-[10px] sm:text-[9px] text-white/50 truncate">{d.route}</span>
               </div>
               <div className="flex items-center gap-2 text-[8px] text-white/25 flex-shrink-0">
                 <span>{d.load}</span>
@@ -1390,7 +1390,7 @@ const cementConfig: DashboardConfig = {
     <div className="space-y-3">
       {/* Quality Test Results */}
       <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Quality Lab Results</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Quality Lab Results</span>
         {[
           { test: 'Compressive Strength', value: '42.5 MPa', pass: true },
           { test: 'Setting Time', value: '45 min', pass: true },
@@ -1398,9 +1398,9 @@ const cementConfig: DashboardConfig = {
           { test: 'Soundness', value: '0.8 mm', pass: true },
         ].map(q => (
           <div key={q.test} className="flex items-center justify-between py-1 border-b border-[rgba(200,144,58,0.04)] last:border-0">
-            <span className="text-[9px] text-white/30">{q.test}</span>
+            <span className="text-[10px] sm:text-[9px] text-white/30">{q.test}</span>
             <div className="flex items-center gap-1.5">
-              <span className="text-[9px] text-white/50">{q.value}</span>
+              <span className="text-[10px] sm:text-[9px] text-white/50">{q.value}</span>
               <CheckCircle size={8} className="text-emerald-400/60" />
             </div>
           </div>
@@ -1408,7 +1408,7 @@ const cementConfig: DashboardConfig = {
       </div>
       {/* Raw Material Inventory */}
       <div className="bg-[#0D0802] border border-[rgba(200,144,58,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Raw Materials</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Raw Materials</span>
         {[
           { mat: 'Limestone', pct: 78, color: '#C8903A' },
           { mat: 'Clay', pct: 62, color: '#8B7355' },
@@ -1416,7 +1416,7 @@ const cementConfig: DashboardConfig = {
           { mat: 'Iron Ore', pct: 88, color: '#6B5B3E' },
         ].map(m => (
           <div key={m.mat} className="mb-1.5">
-            <div className="flex justify-between text-[8px] mb-0.5">
+            <div className="flex justify-between text-[10px] sm:text-[8px] mb-0.5">
               <span className="text-white/30">{m.mat}</span>
               <span className="text-white/40">{m.pct}%</span>
             </div>
@@ -1465,7 +1465,7 @@ const waterConfig: DashboardConfig = {
     <div id="water-network" className="space-y-3">
       {/* Desalination Process Flow */}
       <div className="bg-[#030D14] border border-[rgba(74,158,181,0.15)] rounded-lg p-4">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Desalination Process</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Desalination Process</span>
         <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
           {[
             { stage: 'Intake', detail: 'Seawater', icon: <Waves size={11} /> },
@@ -1478,7 +1478,7 @@ const waterConfig: DashboardConfig = {
               <div className="flex-1 bg-[rgba(74,158,181,0.06)] border border-[rgba(74,158,181,0.12)] rounded-lg p-2 text-center hover:bg-[rgba(74,158,181,0.1)] transition-colors cursor-pointer">
                 <div className="flex justify-center mb-1 text-[#4A9EB550]">{s.icon}</div>
                 <p className="text-[8px] text-white/40 font-bold">{s.stage}</p>
-                <p className="text-[7px] text-white/20 mt-0.5">{s.detail}</p>
+                <p className="text-[10px] sm:text-[7px] text-white/20 mt-0.5">{s.detail}</p>
               </div>
               {i < 4 && <ArrowRight size={7} className="text-[#4A9EB525] flex-shrink-0" />}
             </div>
@@ -1488,7 +1488,7 @@ const waterConfig: DashboardConfig = {
 
       {/* Pipeline Network with Flow */}
       <div className="bg-[#030D14] border border-[rgba(74,158,181,0.15)] rounded-lg p-4">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Pipeline Network — Flow Rates</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Pipeline Network — Flow Rates</span>
         <svg viewBox="0 0 320 100" className="w-full h-auto">
           {/* Pipeline lines */}
           <line x1="30" y1="30" x2="150" y2="30" stroke="#4A9EB530" strokeWidth="2" />
@@ -1537,7 +1537,7 @@ const waterConfig: DashboardConfig = {
           { name: 'Agadir', level: 82, capacity: '120K m3' },
         ].map(r => (
           <div key={r.name} className="bg-[#030D14] border border-[rgba(74,158,181,0.15)] rounded-lg p-3">
-            <span className="text-[8px] text-white/25 uppercase tracking-wider">{r.name}</span>
+            <span className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">{r.name}</span>
             <div className="h-12 bg-[rgba(74,158,181,0.05)] rounded mt-1.5 relative overflow-hidden">
               <motion.div
                 className="absolute bottom-0 left-0 right-0 rounded"
@@ -1558,7 +1558,7 @@ const waterConfig: DashboardConfig = {
     <div className="space-y-3">
       {/* Water Quality Dashboard */}
       <div className="bg-[#030D14] border border-[rgba(74,158,181,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Quality Parameters</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Quality Parameters</span>
         {[
           { param: 'pH Level', value: '7.2', ok: true },
           { param: 'Turbidity', value: '0.3 NTU', ok: true },
@@ -1569,7 +1569,7 @@ const waterConfig: DashboardConfig = {
           <div key={q.param} className="flex items-center justify-between py-1 border-b border-[rgba(74,158,181,0.04)] last:border-0">
             <span className="text-[9px] text-white/30">{q.param}</span>
             <div className="flex items-center gap-1.5">
-              <span className="text-[9px] text-white/50">{q.value}</span>
+              <span className="text-[10px] sm:text-[9px] text-white/50">{q.value}</span>
               <CheckCircle size={7} className="text-emerald-400/60" />
             </div>
           </div>
@@ -1577,7 +1577,7 @@ const waterConfig: DashboardConfig = {
       </div>
       {/* Leak Detection */}
       <div className="bg-[#030D14] border border-[rgba(74,158,181,0.15)] rounded-lg p-3">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Leak Detection</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Leak Detection</span>
         <div className="space-y-1.5">
           {[
             { zone: 'Zone 3 — Casablanca North', status: 'No leaks', severity: 'ok' },
@@ -1589,7 +1589,7 @@ const waterConfig: DashboardConfig = {
                 <span className={`w-1.5 h-1.5 rounded-full ${l.severity === 'ok' ? 'bg-emerald-400' : 'bg-amber-400'}`} />
                 <span className="text-[8px] text-white/35">{l.zone}</span>
               </div>
-              <span className={`text-[7px] ${l.severity === 'ok' ? 'text-emerald-400/50' : 'text-amber-400/50'}`}>{l.status}</span>
+              <span className={`text-[10px] sm:text-[7px] ${l.severity === 'ok' ? 'text-emerald-400/50' : 'text-amber-400/50'}`}>{l.status}</span>
             </div>
           ))}
         </div>
@@ -1636,9 +1636,9 @@ const technologyConfig: DashboardConfig = {
         <div className="px-3 py-2 border-b border-[rgba(124,140,245,0.06)] flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Code size={10} style={{ color: accent }} />
-            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">API Endpoints</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">API Endpoints</span>
           </div>
-          <span className="text-[8px] text-emerald-400/50">ALL HEALTHY</span>
+          <span className="text-[10px] sm:text-[8px] text-emerald-400/50">ALL HEALTHY</span>
         </div>
         <div className="divide-y divide-[rgba(124,140,245,0.04)]">
           {[
@@ -1650,7 +1650,7 @@ const technologyConfig: DashboardConfig = {
           ].map((ep) => (
             <div key={ep.path} className="px-3 py-2 flex items-center justify-between hover:bg-[rgba(124,140,245,0.03)] transition-colors cursor-pointer gap-2">
               <div className="flex items-center gap-2 min-w-0">
-                <span className={`px-1.5 py-0.5 rounded text-[7px] font-bold flex-shrink-0 ${
+                <span className={`px-1.5 py-0.5 rounded text-[10px] sm:text-[7px] font-bold flex-shrink-0 ${
                   ep.method === 'GET' ? 'bg-emerald-500/10 text-emerald-400' :
                   ep.method === 'POST' ? 'bg-blue-500/10 text-blue-400' :
                   ep.method === 'PUT' ? 'bg-amber-500/10 text-amber-400' :
@@ -1669,7 +1669,7 @@ const technologyConfig: DashboardConfig = {
 
       {/* Deployment Pipeline Visualization */}
       <div className="bg-[#0D0F1C] border border-[rgba(124,140,245,0.12)] rounded-lg p-4">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Deployment Pipeline</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Deployment Pipeline</span>
         <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
           {[
             { stage: 'Code', status: 'done', icon: <Code size={10} /> },
@@ -1695,9 +1695,9 @@ const technologyConfig: DashboardConfig = {
 
       {/* Service Health Matrix */}
       <div className="bg-[#0D0F1C] border border-[rgba(124,140,245,0.12)] rounded-lg p-4">
-        <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Service Health Matrix</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Service Health Matrix</span>
         <div className="overflow-x-auto">
-          <table className="w-full text-[8px]">
+          <table className="w-full text-[10px] sm:text-[8px]">
             <thead>
               <tr>
                 <th className="text-left text-white/15 pb-1.5 pr-3">Service</th>
@@ -1732,7 +1732,7 @@ const technologyConfig: DashboardConfig = {
     <div className="space-y-3 font-mono">
       {/* SDK Downloads */}
       <div className="bg-[#0D0F1C] border border-[rgba(124,140,245,0.12)] rounded-lg p-3">
-        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">SDK Downloads</span>
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">SDK Downloads</span>
         {[
           { lang: 'Python', pkg: 'harchos', downloads: '8.2K', trend: '+12%' },
           { lang: 'TypeScript', pkg: '@harchos/sdk', downloads: '4.8K', trend: '+28%' },
@@ -1745,21 +1745,21 @@ const technologyConfig: DashboardConfig = {
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-[9px] text-white/50">{s.downloads}</span>
-              <span className="text-[8px] text-emerald-400/50">{s.trend}</span>
+              <span className="text-[10px] sm:text-[8px] text-emerald-400/50">{s.trend}</span>
             </div>
           </div>
         ))}
       </div>
       {/* Security Score */}
       <div className="bg-[#0D0F1C] border border-[rgba(124,140,245,0.12)] rounded-lg p-3">
-        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Security Score</span>
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Security Score</span>
         <p className="text-xl font-bold text-white">A+</p>
         <p className="text-[8px] text-white/25 mt-1">0 vulnerabilities</p>
         <p className="text-[8px] text-white/20">SOC 2 Type II Certified</p>
       </div>
       {/* Recent Deploy Log */}
       <div className="bg-[#0D0F1C] border border-[rgba(124,140,245,0.12)] rounded-lg p-3">
-        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Recent Deploys</span>
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Recent Deploys</span>
         {[
           { app: 'harchos-api', ver: 'v2.3.1', time: '2m ago', status: 'success' },
           { app: 'scheduler', ver: 'v1.8.0', time: '14m ago', status: 'success' },
@@ -1769,9 +1769,9 @@ const technologyConfig: DashboardConfig = {
             <div className="flex items-center gap-1">
               <CheckCircle size={7} className="text-emerald-400/50" />
               <span className="text-[8px] text-white/40">{d.app}</span>
-              <span className="text-[7px] text-white/20">{d.ver}</span>
+              <span className="text-[10px] sm:text-[7px] text-white/20">{d.ver}</span>
             </div>
-            <span className="text-[7px] text-white/15">{d.time}</span>
+            <span className="text-[10px] sm:text-[7px] text-white/15">{d.time}</span>
           </div>
         ))}
       </div>
@@ -1884,10 +1884,10 @@ const financeConfig: DashboardConfig = {
               </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Amount</p><p className="text-sm font-bold text-white">{selectedDeal.amount}</p></div>
-              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">{selectedDeal.irr.includes('%') && parseFloat(selectedDeal.irr) < 10 ? 'Coupon' : 'IRR'}</p><p className="text-sm font-bold text-[#8B9DAF]">{selectedDeal.irr}</p></div>
-              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Country</p><p className="text-sm font-bold text-white">{selectedDeal.country}</p></div>
-              <div><p className="text-[8px] text-white/25 uppercase tracking-wider">Risk</p><p className="text-sm font-bold text-emerald-400">LOW</p></div>
+              <div><p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">Amount</p><p className="text-sm font-bold text-white">{selectedDeal.amount}</p></div>
+              <div><p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">{selectedDeal.irr.includes('%') && parseFloat(selectedDeal.irr) < 10 ? 'Coupon' : 'IRR'}</p><p className="text-sm font-bold text-[#8B9DAF]">{selectedDeal.irr}</p></div>
+              <div><p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">Country</p><p className="text-sm font-bold text-white">{selectedDeal.country}</p></div>
+              <div><p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">Risk</p><p className="text-sm font-bold text-emerald-400">LOW</p></div>
             </div>
           </motion.div>
         )}
@@ -1898,9 +1898,9 @@ const financeConfig: DashboardConfig = {
             <div className="px-3 py-2 border-b border-[rgba(139,157,175,0.08)] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Layers size={11} style={{ color: accent }} />
-                <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Investment Pipeline</span>
+                <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Investment Pipeline</span>
               </div>
-              <span className="text-[8px] text-emerald-400/50">7 DEALS</span>
+              <span className="text-[10px] sm:text-[8px] text-emerald-400/50">7 DEALS</span>
             </div>
             <div className="overflow-x-auto">
               <div className="divide-y divide-[rgba(139,157,175,0.05)] min-w-[300px]">
@@ -1918,7 +1918,7 @@ const financeConfig: DashboardConfig = {
                       }`} />
                       <span className="text-[10px] text-white/60 truncate">{deal.name}</span>
                     </div>
-                    <div className="flex items-center gap-2 md:gap-4 text-[8px] flex-shrink-0 ml-2">
+                    <div className="flex items-center gap-2 md:gap-4 text-[10px] sm:text-[8px] flex-shrink-0 ml-2">
                       <span className="text-white/50">{deal.amount}</span>
                       <span className="text-[#8B9DAF] hidden sm:inline">{deal.irr}</span>
                       <span className="text-white/25 hidden md:inline">{deal.country}</span>
@@ -1939,7 +1939,7 @@ const financeConfig: DashboardConfig = {
         {(activeTab === 2 || activeTab === 0) && (
           <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Bond Yield Curve</span>
+              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Bond Yield Curve</span>
               <span className="text-[8px] text-[#8B9DAF]/50">CBI CERTIFIED</span>
             </div>
             <svg viewBox="0 0 300 80" className="w-full h-auto">
@@ -2001,7 +2001,7 @@ const financeConfig: DashboardConfig = {
         {/* Portfolio Allocation */}
         {(activeTab === 0 || activeTab === 3) && (
           <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
-            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Portfolio Allocation</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Portfolio Allocation</span>
             <div className="space-y-1.5">
               {allocations.map((a) => (
                 <div key={a.sector} className="group cursor-pointer hover:bg-[rgba(139,157,175,0.03)] transition-colors rounded-sm px-1 py-0.5">
@@ -2027,7 +2027,7 @@ const financeConfig: DashboardConfig = {
         {/* Deal Flow Funnel */}
         {activeTab === 1 && (
           <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
-            <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Deal Flow Funnel</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Deal Flow Funnel</span>
             <div className="space-y-1.5">
               {funnelStages.map((s, i) => {
                 const width = (s.count / 14) * 100;
@@ -2063,9 +2063,9 @@ const financeConfig: DashboardConfig = {
             <div className="px-3 py-2 border-b border-[rgba(139,157,175,0.08)] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <ArrowRight size={10} style={{ color: accent }} />
-                <span className="text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Transaction Feed</span>
+                <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Transaction Feed</span>
               </div>
-              <span className="text-[8px] text-emerald-400/50 animate-pulse">LIVE</span>
+              <span className="text-[10px] sm:text-[8px] text-emerald-400/50 animate-pulse">LIVE</span>
             </div>
             <div className="max-h-32 overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#8B9DAF20 transparent' }}>
               {transactions.map((tx, i) => (
@@ -2077,17 +2077,17 @@ const financeConfig: DashboardConfig = {
                   className="px-3 py-1.5 flex items-center justify-between border-b border-[rgba(139,157,175,0.03)] hover:bg-[rgba(139,157,175,0.03)] transition-colors cursor-pointer"
                 >
                   <div className="flex items-center gap-2 min-w-0">
-                    <span className="text-[7px] text-white/15 w-12 flex-shrink-0">{tx.time}</span>
-                    <span className={`px-1 py-0.5 rounded-sm text-[6px] font-bold flex-shrink-0 ${
+                    <span className="text-[10px] sm:text-[7px] text-white/15 w-12 flex-shrink-0">{tx.time}</span>
+                    <span className={`px-1 py-0.5 rounded-sm text-[10px] sm:text-[6px] font-bold flex-shrink-0 ${
                       tx.type === 'BOND' ? 'bg-[#8B9DAF]/10 text-[#8B9DAF]/70' :
                       tx.type === 'TRANSFER' ? 'bg-amber-500/10 text-amber-400/60' :
                       tx.type === 'TRADE' ? 'bg-emerald-500/10 text-emerald-400/60' :
                       'bg-[#4A9EB5]/10 text-[#4A9EB5]/60'
                     }`}>{tx.type}</span>
-                    <span className="text-[8px] text-white/40 truncate">{tx.desc}</span>
+                    <span className="text-[10px] sm:text-[8px] text-white/40 truncate">{tx.desc}</span>
                   </div>
                   <div className="flex items-center gap-2 flex-shrink-0 ml-1">
-                    <span className={`text-[8px] font-bold ${tx.amount.startsWith('+') ? 'text-emerald-400/70' : 'text-white/30'}`}>{tx.amount}</span>
+                    <span className={`text-[10px] sm:text-[8px] font-bold ${tx.amount.startsWith('+') ? 'text-emerald-400/70' : 'text-white/30'}`}>{tx.amount}</span>
                     <span className={`w-1 h-1 rounded-full ${tx.status === 'settled' ? 'bg-emerald-400/50' : 'bg-amber-400/50'}`} />
                   </div>
                 </motion.div>
@@ -2102,11 +2102,11 @@ const financeConfig: DashboardConfig = {
     <div className="space-y-3 font-mono">
       {/* Risk Score Matrix */}
       <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
-        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Risk Score Matrix</span>
-        <div className="grid grid-cols-4 gap-1">
-          <div />
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Risk Score Matrix</span>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1">
+          <div className="hidden sm:block" />
           {['EN', 'AG', 'MIN'].map(s => (
-            <span key={s} className="text-[6px] text-white/15 text-center">{s}</span>
+            <span key={s} className="text-[10px] sm:text-[6px] text-white/15 text-center hidden sm:block">{s}</span>
           ))}
           {[
             { region: 'MA', scores: ['#22C55E', '#22C55E', '#EAB308'] },
@@ -2115,7 +2115,7 @@ const financeConfig: DashboardConfig = {
             { region: 'KE', scores: ['#EAB308', '#EAB308', '#EF4444'] },
           ].map(row => (
             <React.Fragment key={row.region}>
-              <span className="text-[6px] text-white/20 flex items-center">{row.region}</span>
+              <span className="text-[10px] sm:text-[6px] text-white/20 flex items-center">{row.region}</span>
               {row.scores.map((color, j) => (
                 <div key={j} className="h-4 rounded-sm cursor-pointer hover:opacity-80 transition-opacity" style={{ backgroundColor: `${color}30`, border: `1px solid ${color}40` }} />
               ))}
@@ -2124,7 +2124,7 @@ const financeConfig: DashboardConfig = {
         </div>
         <div className="flex items-center gap-3 mt-2">
           {[{ color: '#22C55E', label: 'Low' }, { color: '#EAB308', label: 'Med' }, { color: '#EF4444', label: 'High' }].map(l => (
-            <span key={l.label} className="flex items-center gap-1 text-[6px] text-white/15">
+            <span key={l.label} className="flex items-center gap-1 text-[10px] sm:text-[6px] text-white/15">
               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: l.color }} /> {l.label}
             </span>
           ))}
@@ -2133,7 +2133,7 @@ const financeConfig: DashboardConfig = {
 
       {/* Currency Rates */}
       <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
-        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Currency Rates</span>
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Currency Rates</span>
         {[
           { code: 'MAD', rate: '10.05/$', change: '+0.3%', up: true },
           { code: 'EUR', rate: '0.92/$', change: '-0.1%', up: false },
@@ -2150,7 +2150,7 @@ const financeConfig: DashboardConfig = {
 
       {/* Compliance Status */}
       <div className="bg-[#0D0F14] border border-[rgba(139,157,175,0.12)] rounded-sm p-3">
-        <span className="text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Compliance Status</span>
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Compliance Status</span>
         {[
           { label: 'Sharia (OIC)', status: 'Compliant', icon: <CheckCircle size={8} /> },
           { label: 'MIGA Coverage', status: 'Active', icon: <Shield size={8} /> },
@@ -2276,7 +2276,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
                   <button
                     key={tab}
                     onClick={() => setActiveTab(i)}
-                    className={`px-3 py-1.5 text-[9px] font-bold tracking-[0.1em] uppercase ${isMining ? 'rounded-none' : 'rounded'} transition-all duration-200 ${
+                    className={`px-3 py-1.5 text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase ${isMining ? 'rounded-none' : 'rounded'} transition-all duration-200 ${
                       i === activeTab
                         ? 'bg-white/10 text-white'
                         : 'text-white/25 hover:text-white/50'
@@ -2293,7 +2293,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
                 <button
                   key={tab}
                   onClick={() => setActiveTab(i)}
-                  className={`px-2.5 py-1.5 text-[9px] font-bold tracking-[0.1em] uppercase whitespace-nowrap ${isMining ? 'rounded-none' : 'rounded'} transition-all duration-200 ${
+                  className={`px-2.5 py-1.5 text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase whitespace-nowrap ${isMining ? 'rounded-none' : 'rounded'} transition-all duration-200 ${
                     i === activeTab
                       ? 'bg-white/10 text-white'
                       : 'text-white/25 hover:text-white/50'
@@ -2319,9 +2319,9 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
               >
                 <div className="flex items-center gap-1.5 mb-1">
                   {card.icon && <span style={{ color: `${accent}60` }}>{card.icon}</span>}
-                  <p className={`text-[9px] font-bold tracking-[0.12em] uppercase text-white/25`}>{card.label}</p>
+                  <p className={`text-[10px] md:text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25`}>{card.label}</p>
                 </div>
-                <p className={`text-lg md:text-xl font-bold text-white ${monoFont}`}>{card.value}</p>
+                <p className={`text-base md:text-lg lg:text-xl font-bold text-white ${monoFont} truncate`}>{card.value}</p>
                 {card.change && (
                   <p className={`text-[10px] mt-1 ${card.changeUp ? 'text-emerald-400/60' : 'text-red-400/60'}`}>
                     {card.change}
@@ -2336,12 +2336,12 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
             {/* Sidebar — horizontal scrollable pills on mobile, vertical on desktop */}
             <div className={`w-full md:w-48 border-b md:border-b-0 md:border-r border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]/50' : isAgriculture ? 'bg-[#0A120A]/50' : isEnergy ? 'bg-[#0D0A05]/50' : isMining ? 'bg-[#0D0F14]/50' : isCement ? 'bg-[#0D0802]/50' : isWater ? 'bg-[#030D14]/50' : isTech ? 'bg-[#0A0D1A]/50' : isFinance ? 'bg-[#0A0A12]/50' : 'bg-[#0A0A0A]/50'}`}>
               {/* Mobile: horizontal scrollable pills */}
-              <nav className="md:hidden py-2 px-3 flex items-center gap-1.5 overflow-x-auto" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
+              <nav className="md:hidden py-2 px-3 flex items-center gap-1.5 overflow-x-auto snap-x snap-mandatory" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
                 {config.sidebar.map((item, i) => (
                   <button
                     key={item.label}
                     onClick={() => { setActiveSidebar(i); setSelectedHub(null); setSelectedPlot(null); }}
-                    className={`flex items-center gap-1.5 px-2.5 py-1.5 text-[10px] whitespace-nowrap rounded-md transition-all duration-200 ${
+                    className={`flex items-center gap-1.5 px-3 py-2.5 text-[10px] whitespace-nowrap rounded-md transition-all duration-200 snap-start ${
                       i === activeSidebar
                         ? 'text-white bg-[rgba(255,255,255,0.08)]'
                         : 'text-white/35 hover:text-white/60 hover:bg-[rgba(255,255,255,0.03)]'
@@ -2407,16 +2407,16 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
           </div>
 
           {/* Bottom Status Bar */}
-          <div className={`flex items-center justify-between px-4 py-2 border-t border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0F14]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : 'bg-[#0A0A0A]'}`}>
+          <div className={`flex items-center justify-between px-3 md:px-4 py-2 border-t border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0F14]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : 'bg-[#0A0A0A]'}`}>
             <div className="flex items-center gap-2 md:gap-3 min-w-0 overflow-hidden">
               <span className="flex items-center gap-1.5 flex-shrink-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className={`text-[8px] text-white/25 ${monoFont} hidden sm:inline`}>ALL SYSTEMS NOMINAL</span>
+                <span className={`text-[10px] sm:text-[8px] text-white/25 ${monoFont} hidden sm:inline`}>ALL SYSTEMS NOMINAL</span>
               </span>
-              <span className="text-[8px] text-white/15 hidden sm:inline">|</span>
-              <span className={`text-[8px] text-white/20 ${monoFont} truncate`}>{config.statusBarText}</span>
+              <span className="text-[10px] sm:text-[8px] text-white/15 hidden sm:inline">|</span>
+              <span className={`text-[10px] sm:text-[8px] text-white/20 ${monoFont} truncate`}>{config.statusBarText}</span>
             </div>
-            <span className={`text-[8px] text-white/15 ${monoFont} flex-shrink-0 ml-2`}>v{config.platformVersion} — LIVE</span>
+            <span className={`text-[10px] sm:text-[8px] text-white/15 ${monoFont} flex-shrink-0 ml-2`}>v{config.platformVersion} — LIVE</span>
           </div>
         </motion.div>
 

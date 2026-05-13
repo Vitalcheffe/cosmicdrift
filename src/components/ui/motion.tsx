@@ -75,7 +75,8 @@ export function FadeIn({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   2. AnimatedCounter — Animated number counter with rAF
+   2. AnimatedCounter — Always shows target value; animation is
+   purely a visual enhancement. NEVER shows "0" on initial render.
    ═══════════════════════════════════════════════════════════════ */
 
 interface AnimatedCounterProps {
@@ -106,13 +107,12 @@ export function AnimatedCounter({
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const [display, setDisplay] = useState(0);
-  const hasStarted = useRef(false);
+  const hasAnimated = useRef(false);
+  const [animatedValue, setAnimatedValue] = useState<number | null>(null);
 
-  // Animation effect — uses React state so it's 100% reliable
   useEffect(() => {
-    if (!isInView || hasStarted.current) return;
-    hasStarted.current = true;
+    if (!isInView || hasAnimated.current) return;
+    hasAnimated.current = true;
 
     let startTime: number | null = null;
     let rafId: number;
@@ -125,9 +125,11 @@ export function AnimatedCounter({
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / ms, 1);
       const eased = easeOutCubic(progress);
-      setDisplay(eased * value);
+      setAnimatedValue(eased * value);
       if (progress < 1) {
         rafId = requestAnimationFrame(step);
+      } else {
+        setAnimatedValue(value);
       }
     };
 
@@ -135,12 +137,9 @@ export function AnimatedCounter({
     return () => cancelAnimationFrame(rafId);
   }, [isInView, value, duration]);
 
-  // Safety fallback: if animation never completed, show target after 4s
-  useEffect(() => {
-    if (!isInView) return;
-    const timer = setTimeout(() => setDisplay(value), 4000);
-    return () => clearTimeout(timer);
-  }, [isInView, value]);
+  // Always render the target value. If animation is running, show animated value.
+  // This ensures the correct number is always visible, even if JS animation fails.
+  const displayValue = animatedValue !== null ? animatedValue : value;
 
   return (
     <span
@@ -149,7 +148,7 @@ export function AnimatedCounter({
       style={{ fontVariantNumeric: 'tabular-nums' }}
       aria-label={`${prefix}${formatNumber(value, decimals)}${suffix}`}
     >
-      {prefix}{formatNumber(display, decimals)}{suffix}
+      {prefix}{formatNumber(displayValue, decimals)}{suffix}
     </span>
   );
 }
@@ -347,7 +346,8 @@ export function ParallaxSection({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   7. CountUp — Number that counts up with spring physics
+   7. CountUp — Always shows target value; animation is enhancement.
+   NEVER shows "0" or the `from` value on initial render.
    ═══════════════════════════════════════════════════════════════ */
 
 interface CountUpProps {
@@ -371,10 +371,9 @@ export function CountUp({
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
-  const [display, setDisplay] = useState(from);
   const hasStarted = useRef(false);
+  const [animatedValue, setAnimatedValue] = useState<number | null>(null);
 
-  // Animation effect — uses React state so it's 100% reliable
   useEffect(() => {
     if (!isInView || hasStarted.current) return;
     hasStarted.current = true;
@@ -390,9 +389,11 @@ export function CountUp({
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / ms, 1);
       const eased = easeOutCubic(progress);
-      setDisplay(from + eased * (to - from));
+      setAnimatedValue(from + eased * (to - from));
       if (progress < 1) {
         rafId = requestAnimationFrame(step);
+      } else {
+        setAnimatedValue(to);
       }
     };
 
@@ -400,12 +401,8 @@ export function CountUp({
     return () => cancelAnimationFrame(rafId);
   }, [isInView, from, to, duration]);
 
-  // Safety fallback: if animation never completed, show target after 4s
-  useEffect(() => {
-    if (!isInView) return;
-    const timer = setTimeout(() => setDisplay(to), 4000);
-    return () => clearTimeout(timer);
-  }, [isInView, to]);
+  // Always render the target value by default; animation overrides when running
+  const displayValue = animatedValue !== null ? animatedValue : to;
 
   return (
     <span
@@ -414,7 +411,7 @@ export function CountUp({
       style={{ fontVariantNumeric: 'tabular-nums' }}
       aria-label={`${prefix}${formatNumber(to, decimals)}${suffix}`}
     >
-      {prefix}{formatNumber(display, decimals)}{suffix}
+      {prefix}{formatNumber(displayValue, decimals)}{suffix}
     </span>
   );
 }

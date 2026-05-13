@@ -2196,6 +2196,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
   const [selectedHub, setSelectedHub] = useState<number | null>(null);
   const [selectedPlot, setSelectedPlot] = useState<number | null>(null);
   const [irrigationState, setIrrigationState] = useState<boolean[]>([true, false, true, false, true, false]);
+  const [showSidebarDetails, setShowSidebarDetails] = useState(false);
 
   const toggleIrrigation = useCallback((zone: number) => {
     setIrrigationState(prev => {
@@ -2226,8 +2227,8 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
   const monoFont = (isIntelligence || isTech || isFinance) ? 'font-mono' : '';
 
   return (
-    <section className={`py-12 md:py-20 lg:py-28 bg-gradient-to-b ${config.bgGradient}`}>
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12">
+    <section className={`py-12 md:py-20 lg:py-28 bg-gradient-to-b ${config.bgGradient} max-w-full overflow-hidden`}>
+      <div className="max-w-[1400px] mx-auto px-3 md:px-6 lg:px-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -2257,10 +2258,10 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className={`bg-[#0D0D0D] border border-[rgba(255,255,255,0.08)] ${borderRadius} overflow-hidden shadow-2xl`}
+          className={`bg-[#0D0D0D] border border-[rgba(255,255,255,0.08)] ${borderRadius} overflow-hidden shadow-2xl max-w-full`}
         >
           {/* Top Bar with Traffic Lights */}
-          <div className={`px-4 py-3 border-b border-[rgba(255,255,255,0.06)] bg-[#0A0A0A]`}>
+          <div className={`px-3 md:px-4 py-2.5 md:py-3 border-b border-[rgba(255,255,255,0.06)] bg-[#0A0A0A]`}>
             <div className="flex items-center justify-between mb-2 md:mb-0">
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-1.5">
@@ -2288,7 +2289,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
               </div>
             </div>
             {/* Mobile tabs — scrollable */}
-            <div className="flex md:hidden items-center gap-1 overflow-x-auto -mx-1 px-1 pb-0.5" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
+            <div className="flex md:hidden items-center gap-1 overflow-x-auto flex-nowrap -mx-1 px-1 pb-0.5" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
               {config.headerTabs.map((tab, i) => (
                 <button
                   key={tab}
@@ -2315,7 +2316,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
-                className="bg-[#0D0D0D] p-3 md:p-4 hover:bg-[rgba(255,255,255,0.02)] transition-colors cursor-pointer min-w-0"
+                className="bg-[#0D0D0D] p-3 md:p-4 hover:bg-[rgba(255,255,255,0.02)] transition-colors cursor-pointer min-w-0 overflow-hidden"
               >
                 <div className="flex items-center gap-1.5 mb-1">
                   {card.icon && <span style={{ color: `${accent}60` }}>{card.icon}</span>}
@@ -2335,13 +2336,14 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
           <div className="flex flex-col md:flex-row">
             {/* Sidebar — horizontal scrollable pills on mobile, vertical on desktop */}
             <div className={`w-full md:w-48 border-b md:border-b-0 md:border-r border-[rgba(255,255,255,0.04)] ${isIntelligence ? 'bg-[#0A0F1E]/50' : isAgriculture ? 'bg-[#0A120A]/50' : isEnergy ? 'bg-[#0D0A05]/50' : isMining ? 'bg-[#0D0F14]/50' : isCement ? 'bg-[#0D0802]/50' : isWater ? 'bg-[#030D14]/50' : isTech ? 'bg-[#0A0D1A]/50' : isFinance ? 'bg-[#0A0A12]/50' : 'bg-[#0A0A0A]/50'}`}>
-              {/* Mobile: horizontal scrollable pills */}
-              <nav className="md:hidden py-2 px-3 flex items-center gap-1.5 overflow-x-auto snap-x snap-mandatory" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
+              {/* Mobile: icon-only sidebar with horizontal scroll */}
+              <nav className="md:hidden py-2 px-2 flex items-center gap-1 overflow-x-auto snap-x snap-mandatory" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
                 {config.sidebar.map((item, i) => (
                   <button
                     key={item.label}
                     onClick={() => { setActiveSidebar(i); setSelectedHub(null); setSelectedPlot(null); }}
-                    className={`flex items-center gap-1.5 px-3 py-2.5 text-[10px] whitespace-nowrap rounded-md transition-all duration-200 snap-start ${
+                    title={item.label}
+                    className={`flex items-center justify-center w-10 h-10 rounded-md transition-all duration-200 snap-start ${
                       i === activeSidebar
                         ? 'text-white bg-[rgba(255,255,255,0.08)]'
                         : 'text-white/35 hover:text-white/60 hover:bg-[rgba(255,255,255,0.03)]'
@@ -2349,7 +2351,6 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
                     style={i === activeSidebar ? { borderBottom: `2px solid ${accent}` } : {}}
                   >
                     <span style={{ color: i === activeSidebar ? accent : 'rgba(255,255,255,0.3)' }}>{item.icon}</span>
-                    {item.label}
                   </button>
                 ))}
               </nav>
@@ -2374,9 +2375,9 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
             </div>
 
             {/* Main Panel */}
-            <div className={`flex-1 p-4 md:p-5 ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0F14]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : ''}`}>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                <div className="lg:col-span-2">
+            <div className={`flex-1 p-3 md:p-5 min-w-0 overflow-x-hidden ${isIntelligence ? 'bg-[#0A0F1E]' : isAgriculture ? 'bg-[#0A120A]' : isEnergy ? 'bg-[#0D0A05]' : isMining ? 'bg-[#0D0F14]' : isCement ? 'bg-[#0D0802]' : isWater ? 'bg-[#030D14]' : isTech ? 'bg-[#0A0D1A]' : isFinance ? 'bg-[#0A0A12]' : ''}`}>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-4 min-w-0">
+                <div className="lg:col-span-2 min-w-0">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={`${activeTab}-${activeSidebar}`}
@@ -2389,7 +2390,8 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
                     </motion.div>
                   </AnimatePresence>
                 </div>
-                <div>
+                {/* Sidebar details — hidden on mobile by default, toggleable */}
+                <div className={`${showSidebarDetails ? 'block' : 'hidden'} lg:block`}>
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={`${activeTab}-${activeSidebar}-sidebar`}
@@ -2402,6 +2404,13 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
                     </motion.div>
                   </AnimatePresence>
                 </div>
+                {/* Mobile toggle for sidebar details */}
+                <button
+                  className="lg:hidden w-full py-2.5 text-[10px] font-bold tracking-[0.1em] uppercase text-white/30 hover:text-white/50 border border-[rgba(255,255,255,0.06)] rounded-md transition-colors cursor-pointer"
+                  onClick={() => setShowSidebarDetails(!showSidebarDetails)}
+                >
+                  {showSidebarDetails ? 'Hide Details' : 'Show Details'}
+                </button>
               </div>
             </div>
           </div>

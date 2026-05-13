@@ -12,12 +12,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!article) {
     return {
-      title: 'Article Not Found — Harch Corp',
+      title: 'Article Not Found  | Harch Corp',
     };
   }
 
   return {
-    title: `${article.title} — Harch Corp Engineering Blog`,
+    title: `${article.title} | Harch Corp Engineering Blog`,
     description: article.excerpt,
     keywords: article.seoKeywords,
     alternates: {

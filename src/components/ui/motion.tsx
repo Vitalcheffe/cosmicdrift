@@ -77,8 +77,7 @@ export function FadeIn({
 /* ═══════════════════════════════════════════════════════════════
    2. AnimatedCounter — Always shows target value; animation is
    purely a visual enhancement. NEVER shows "0" on initial render.
-   Uses direct DOM manipulation via ref to avoid React state
-   re-renders that cause the "flash of 0" bug.
+   Uses React state with requestAnimationFrame for reliable updates.
    ═══════════════════════════════════════════════════════════════ */
 
 interface AnimatedCounterProps {
@@ -107,17 +106,15 @@ export function AnimatedCounter({
   duration = 2,
   decimals = 0,
 }: AnimatedCounterProps) {
+  // Start with the target value so SSR/initial render shows the correct value
+  const [displayValue, setDisplayValue] = useState<number>(value);
   const spanRef = useRef<HTMLSpanElement>(null);
   const isInView = useInView(spanRef, { once: true, margin: '-50px' });
   const hasAnimated = useRef(false);
 
-  // Direct DOM animation — avoids React state re-renders that cause "flash of 0"
   useEffect(() => {
     if (!isInView || hasAnimated.current) return;
     hasAnimated.current = true;
-
-    const el = spanRef.current;
-    if (!el) return;
 
     let startTime: number | null = null;
     let rafId: number;
@@ -129,21 +126,20 @@ export function AnimatedCounter({
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / ms, 1);
       const eased = easeOutCubic(progress);
-      // Direct DOM write — no React state, no re-render, no flash
-      el.textContent = `${prefix}${formatNumber(eased * value, decimals)}${suffix}`;
+      setDisplayValue(eased * value);
       if (progress < 1) {
         rafId = requestAnimationFrame(step);
       } else {
-        el.textContent = `${prefix}${formatNumber(value, decimals)}${suffix}`;
+        setDisplayValue(value);
       }
     };
 
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
-  }, [isInView, value, duration, prefix, suffix, decimals]);
+  }, [isInView, value, duration]);
 
-  // Server-render the final value. Client hydration matches because
-  // the animation hasn't started yet during hydration.
+  const formatted = `${prefix}${formatNumber(displayValue, decimals)}${suffix}`;
+
   return (
     <span
       ref={spanRef}
@@ -151,7 +147,7 @@ export function AnimatedCounter({
       style={{ fontVariantNumeric: 'tabular-nums' }}
       aria-label={`${prefix}${formatNumber(value, decimals)}${suffix}`}
     >
-      {prefix}{formatNumber(value, decimals)}{suffix}
+      {formatted}
     </span>
   );
 }
@@ -351,8 +347,7 @@ export function ParallaxSection({
 /* ═══════════════════════════════════════════════════════════════
    7. CountUp — Always shows target value; animation is enhancement.
    NEVER shows "0" or the `from` value on initial render.
-   Uses direct DOM manipulation via ref to avoid React state
-   re-renders that cause the "flash of 0" bug.
+   Uses React state with requestAnimationFrame for reliable updates.
    ═══════════════════════════════════════════════════════════════ */
 
 interface CountUpProps {
@@ -374,17 +369,15 @@ export function CountUp({
   className,
   decimals = 0,
 }: CountUpProps) {
+  // Start with the target value so SSR/initial render shows the correct value
+  const [displayValue, setDisplayValue] = useState<number>(to);
   const spanRef = useRef<HTMLSpanElement>(null);
   const isInView = useInView(spanRef, { once: true, margin: '-50px' });
   const hasStarted = useRef(false);
 
-  // Direct DOM animation — avoids React state re-renders that cause "flash of 0"
   useEffect(() => {
     if (!isInView || hasStarted.current) return;
     hasStarted.current = true;
-
-    const el = spanRef.current;
-    if (!el) return;
 
     let startTime: number | null = null;
     let rafId: number;
@@ -396,21 +389,20 @@ export function CountUp({
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / ms, 1);
       const eased = easeOutCubic(progress);
-      // Direct DOM write — no React state, no re-render, no flash
-      el.textContent = `${prefix}${formatNumber(from + eased * (to - from), decimals)}${suffix}`;
+      setDisplayValue(from + eased * (to - from));
       if (progress < 1) {
         rafId = requestAnimationFrame(step);
       } else {
-        el.textContent = `${prefix}${formatNumber(to, decimals)}${suffix}`;
+        setDisplayValue(to);
       }
     };
 
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
-  }, [isInView, from, to, duration, prefix, suffix, decimals]);
+  }, [isInView, from, to, duration]);
 
-  // Server-render the final value. Client hydration matches because
-  // the animation hasn't started yet during hydration.
+  const formatted = `${prefix}${formatNumber(displayValue, decimals)}${suffix}`;
+
   return (
     <span
       ref={spanRef}
@@ -418,7 +410,7 @@ export function CountUp({
       style={{ fontVariantNumeric: 'tabular-nums' }}
       aria-label={`${prefix}${formatNumber(to, decimals)}${suffix}`}
     >
-      {prefix}{formatNumber(to, decimals)}{suffix}
+      {formatted}
     </span>
   );
 }

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${cs.title} — Harch Corp Case Studies`,
+    title: `${cs.title} | Harch Corp Case Studies`,
     description: cs.subtitle,
     alternates: {
       canonical: `https://www.harchcorp.com/case-studies/${slug}`,

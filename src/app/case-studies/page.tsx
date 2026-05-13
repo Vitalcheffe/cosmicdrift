@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.harchcorp.com/case-studies',
   },
   openGraph: {
-    title: 'Case Studies — Harch Corp Proof of Impact',
+    title: 'Case Studies | Harch Corp Proof of Impact',
     description:
       'Verified results across industrial, government, and infrastructure deployments in Africa. See how Harch Corp delivers measurable outcomes.',
     url: 'https://www.harchcorp.com/case-studies',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Case Studies — Harch Corp Proof of Impact',
+    title: 'Case Studies | Harch Corp Proof of Impact',
     description: 'Verified results across industrial, government, and infrastructure deployments in Africa.',
     images: ['/images/og-harch-corp.png'],
   },

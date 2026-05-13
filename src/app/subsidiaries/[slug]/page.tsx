@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!meta) {
     return {
-      title: 'Subsidiaries — Harch Corp',
+      title: 'Subsidiaries  | Harch Corp',
       description: "Explore Harch Corp's 8 industrial verticals — AI data centers, renewable energy, cement, technology, mining, agriculture, water, and finance.",
     };
   }

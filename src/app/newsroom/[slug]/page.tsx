@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${article.title} — Harch Corp Newsroom`,
+    title: `${article.title} | Harch Corp Newsroom`,
     description: article.excerpt,
     keywords: article.seoKeywords,
     alternates: {
@@ -30,6 +30,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://www.harchcorp.com/newsroom/${slug}`,
       siteName: 'Harch Corp',
       publishedTime: article.date,
+      section: article.tag,
+      tags: article.seoKeywords,
       images: [
         {
           url: article.image,
@@ -38,7 +40,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           alt: article.imageAlt || article.title,
         },
       ],
-      tags: article.seoKeywords,
     },
     twitter: {
       card: 'summary_large_image',
@@ -69,12 +70,57 @@ export default async function ArticlePage({ params }: PageProps) {
     ],
   };
 
+  // NewsArticle JSON-LD for Google News & Search
+  const newsArticleSchema = article ? {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: article.title,
+    description: article.excerpt,
+    image: {
+      '@type': 'ImageObject',
+      url: `https://www.harchcorp.com${article.image}`,
+      width: 1344,
+      height: 768,
+    },
+    datePublished: article.date,
+    dateModified: article.date,
+    author: {
+      '@type': 'Organization',
+      name: 'Harch Corp S.A.',
+      url: 'https://www.harchcorp.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Harch Corp S.A.',
+      url: 'https://www.harchcorp.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.harchcorp.com/logo-512x512.png',
+        width: 512,
+        height: 512,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://www.harchcorp.com/newsroom/${slug}`,
+    },
+    articleSection: article.tag,
+    keywords: article.seoKeywords?.join(', '),
+    isAccessibleForFree: true,
+  } : null;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {newsArticleSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(newsArticleSchema) }}
+        />
+      )}
       <ArticlePageClient slug={slug} />
     </>
   );

@@ -54,9 +54,9 @@ export const articles: Article[] = [
 <p>"This isn't a data center — it's the end of a dependency," said Amine Harch El Korane, Founder and CEO of Harch Corp. "For decades, Africa's compute has been a tenant on someone else's infrastructure. Harch Intelligence makes Africa the landlord. The continent's data, its models, its intelligence — they stay here. Permanently."</p>
 
 <p>The global AI compute market will exceed $400 billion by 2030. The question was never whether Africa would participate — the question was on whose terms. Harch Intelligence's Dakhla facility answers that question definitively: on Africa's terms, on African soil, with African infrastructure.</p>`,
-    seoKeywords: ['Data Center Africa', 'AI Compute', 'Sovereign AI', 'Industrial Infrastructure Africa'],
+    seoKeywords: ['Dakhla data center', 'Dakhla 500MW', 'Igoudar Dakhla', '500 MW data center Morocco', 'Data Center Africa', 'AI Compute', 'Sovereign AI', 'green data center Morocco', 'hyperscale data center Africa', 'Morocco AI infrastructure'],
     image: '/images/sections/intelligence-exterior.jpg',
-    imageAlt: 'Harch Intelligence Dakhla Data Center exterior at sunset',
+    imageAlt: 'Harch Intelligence Dakhla 500MW Data Center — Africa largest AI compute installation',
     author: 'Harch Corp Communications',
     readTime: '7 min',
   },

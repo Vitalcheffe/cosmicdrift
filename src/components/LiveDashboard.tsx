@@ -18,53 +18,64 @@ interface LiveDashboardProps {
   title?: string;
 }
 
+/**
+ * useCountUp — Animated counter hook that NEVER shows "0" on initial render.
+ *
+ * Strategy:
+ * 1. SSR/initial render: Show the target value (correct, no flash)
+ * 2. On client mount: Keep showing the target value
+ * 3. When isInView becomes true: Start animation from 0 → target
+ * 4. During animation: Update React state via useState (NOT direct DOM)
+ * 5. After animation completes: State holds the target value
+ *
+ * The key insight: We use `hasStarted` ref to ensure the animation
+ * only starts once, and we only update state from the animation loop,
+ * never resetting to 0 outside of the animation's first frame.
+ */
 function useCountUp(
   target: number,
   isActive: boolean,
   decimals: number = 0,
-  elementRef: React.RefObject<HTMLSpanElement | null>
 ) {
+  // Start with the target value so SSR and initial render show correct value
+  const [displayValue, setDisplayValue] = useState<number>(target);
   const hasStarted = useRef(false);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
     if (!isActive || hasStarted.current) return;
     hasStarted.current = true;
 
-    const el = elementRef.current;
-    if (!el) return;
-
     let startTime: number | null = null;
-    let rafId: number;
     const duration = 2000;
     const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
-
-    const formatVal = (v: number) =>
-      decimals > 0 ? v.toFixed(decimals) : Math.round(v).toLocaleString();
 
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = easeOutCubic(progress);
-      // Direct DOM write — no React state, no re-render, no flash of 0
-      el.textContent = formatVal(eased * target);
+      const current = eased * target;
+
+      setDisplayValue(current);
+
       if (progress < 1) {
-        rafId = requestAnimationFrame(step);
+        rafRef.current = requestAnimationFrame(step);
       } else {
-        el.textContent = formatVal(target);
+        setDisplayValue(target);
       }
     };
 
-    rafId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(rafId);
-  }, [isActive, target, decimals, elementRef]);
+    rafRef.current = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [isActive, target, decimals]);
 
-  // Return the formatted target value for the initial SSR render
+  // Format the display value
   const formatted = decimals > 0
-    ? target.toFixed(decimals)
-    : Math.round(target).toLocaleString();
+    ? displayValue.toFixed(decimals)
+    : Math.round(displayValue).toLocaleString();
 
-  return { display: formatted };
+  return { formatted };
 }
 
 function SparklineChart({ data, color = '#8B9DAF' }: { data: number[]; color?: string }) {
@@ -212,8 +223,7 @@ function MetricCard({
   index: number;
   isInView: boolean;
 }) {
-  const valueRef = useRef<HTMLSpanElement>(null);
-  const { display } = useCountUp(metric.value, isInView, metric.decimals || 0, valueRef);
+  const { formatted } = useCountUp(metric.value, isInView, metric.decimals || 0);
 
   return (
     <motion.div
@@ -234,11 +244,10 @@ function MetricCard({
       {/* Value row */}
       <div className="flex items-baseline gap-1 mb-2">
         <span
-          ref={valueRef}
           className="stat-mono text-xl md:text-2xl lg:text-3xl font-bold text-white"
           style={{ fontVariantNumeric: 'tabular-nums' }}
         >
-          {display}
+          {formatted}
         </span>
         {metric.unit && (
           <span className="text-[11px] text-white/40 font-medium">{metric.unit}</span>

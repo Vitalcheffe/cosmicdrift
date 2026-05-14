@@ -224,19 +224,21 @@ export default function HomePageClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
+            {/* SEO: Static H1 — always visible to Google, never hidden */}
+            <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-extrabold text-white leading-[1.02] tracking-[-0.02em] mb-2">
+              Harch Corp
+            </h1>
+
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.06)] backdrop-blur-sm mb-6">
               <Globe size={12} className="text-[rgba(255,255,255,0.5)]" />
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">Building Africa&apos;s Industrial Sovereignty</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">Africa&apos;s Sovereign Infrastructure OS</span>
             </span>
 
-            <div className="mb-4">
-              <TextReveal
-                text={carouselSlides[activeSlide].title}
-                className="text-[clamp(2rem,6vw,5.25rem)] font-extrabold text-white leading-[1.02] tracking-[-0.02em]"
-              />
-            </div>
+            <h2 className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-white/80 leading-[1.05] tracking-[-0.01em] mb-2">
+              {carouselSlides[activeSlide].title}
+            </h2>
 
-            <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/80 tracking-tight mb-3">
+            <p className="text-lg md:text-xl lg:text-2xl font-light text-white/60 tracking-tight mb-3">
               {carouselSlides[activeSlide].subtitle}
             </p>
 

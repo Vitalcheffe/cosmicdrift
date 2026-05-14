@@ -74,11 +74,6 @@ const ergs = [
     members: '200+',
   },
   {
-    name: 'Pride@Harch',
-    description: 'Creating an inclusive and supportive environment for LGBTQ+ employees and allies. Advocating for equitable policies and fostering belonging through community events and awareness campaigns.',
-    members: '80+',
-  },
-  {
     name: 'Veterans@Harch',
     description: 'Supporting military veterans transitioning to civilian careers in technology and industrial infrastructure. Leveraging the discipline and leadership skills gained in service to strengthen our operations.',
     members: '60+',

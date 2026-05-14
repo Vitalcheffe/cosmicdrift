@@ -6,12 +6,13 @@ import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Calendar, Clock, Mail, Rss, PenLine, Search, Code2, Brain, Building2, Zap, Wheat, Cpu, Landmark, Droplets } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { blogArticles } from '@/data/blog-articles';
+import { seoArticles } from '@/data/seo-articles';
 
 import { FadeIn } from '@/components/ui/motion';
 
-type Category = 'All' | 'Engineering' | 'AI & ML' | 'Infrastructure' | 'Energy' | 'Agriculture' | 'Company' | 'Finance';
+type Category = 'All' | 'Engineering' | 'AI & ML' | 'Infrastructure' | 'Energy' | 'Agriculture' | 'Company' | 'Finance' | 'Industry' | 'Technology' | 'Mining';
 
-const categories: Category[] = ['All', 'Engineering', 'AI & ML', 'Infrastructure', 'Energy', 'Agriculture', 'Company', 'Finance'];
+const categories: Category[] = ['All', 'Engineering', 'AI & ML', 'Infrastructure', 'Energy', 'Agriculture', 'Industry', 'Mining', 'Technology', 'Finance', 'Company'];
 
 const categoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
   Engineering: Code2,
@@ -19,6 +20,9 @@ const categoryIcons: Record<string, React.ComponentType<{ size?: number; classNa
   Infrastructure: Building2,
   Energy: Zap,
   Agriculture: Wheat,
+  Industry: Building2,
+  Mining: Landmark,
+  Technology: Cpu,
   Company: Cpu,
   Finance: Landmark,
 };
@@ -35,8 +39,10 @@ interface BlogPost {
   imageAlt?: string;
 }
 
+const allBlogData = [...blogArticles, ...seoArticles];
+
 // Derive blog posts from the centralized data source
-const blogPosts: BlogPost[] = blogArticles.map((a, i) => ({
+const blogPosts: BlogPost[] = allBlogData.map((a, i) => ({
   title: a.title,
   excerpt: a.excerpt,
   date: a.date,

@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import { blogArticles } from '@/data/blog-articles';
+import { seoArticles } from '@/data/seo-articles';
 import BlogArticlePageClient from './BlogArticlePageClient';
+
+const allArticles = [...blogArticles, ...seoArticles];
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -8,7 +11,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = blogArticles.find(a => a.slug === slug);
+  const article = allArticles.find(a => a.slug === slug);
 
   if (!article) {
     return {
@@ -50,14 +53,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export function generateStaticParams() {
-  return blogArticles.map((article) => ({
+  return allArticles.map((article) => ({
     slug: article.slug,
   }));
 }
 
 export default async function BlogArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const article = blogArticles.find(a => a.slug === slug);
+  const article = allArticles.find(a => a.slug === slug);
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',

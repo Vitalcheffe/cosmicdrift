@@ -1,8 +1,11 @@
 import { MetadataRoute } from 'next';
 import { blogArticles } from '@/data/blog-articles';
+import { seoArticles } from '@/data/seo-articles';
 import { articles } from '@/data/articles';
 import { caseStudies } from '@/data/case-studies';
 import { engArticles } from '@/data/eng-articles';
+
+const allBlogArticles = [...blogArticles, ...seoArticles];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.harchcorp.com';
@@ -119,7 +122,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Blog article pages with images for Google Image indexing
-  const blogPages = blogArticles.map((article) => ({
+  const blogPages = allBlogArticles.map((article) => ({
     url: `${baseUrl}/blog/${article.slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,

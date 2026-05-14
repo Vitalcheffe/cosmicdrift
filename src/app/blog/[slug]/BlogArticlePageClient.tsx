@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { ArrowLeft, Calendar, Clock, User, Code2, Brain, Building2, Zap, Wheat, Cpu, Tag } from 'lucide-react';
 import { FadeIn } from '@/components/ui/motion';
 import { blogArticles } from '@/data/blog-articles';
+import { seoArticles } from '@/data/seo-articles';
+
+const allArticles = [...blogArticles, ...seoArticles];
 
 const categoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
   Engineering: Code2,
@@ -16,7 +19,7 @@ const categoryIcons: Record<string, React.ComponentType<{ size?: number; classNa
 };
 
 export default function BlogArticlePageClient({ slug }: { slug: string }) {
-  const article = blogArticles.find(a => a.slug === slug);
+  const article = allArticles.find(a => a.slug === slug);
 
   if (!article) {
     return (
@@ -35,7 +38,7 @@ export default function BlogArticlePageClient({ slug }: { slug: string }) {
 
   const Icon = categoryIcons[article.category] || Tag;
 
-  const relatedArticles = blogArticles
+  const relatedArticles = allArticles
     .filter(a => a.slug !== slug)
     .slice(0, 3);
 

@@ -72,12 +72,58 @@ export default async function BlogArticlePage({ params }: PageProps) {
     ],
   };
 
+  // Article JSON-LD for Google Search rich results
+  const articleSchema = article ? {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    image: {
+      '@type': 'ImageObject',
+      url: `https://www.harchcorp.com${article.image}`,
+      width: 1344,
+      height: 768,
+    },
+    datePublished: article.date,
+    dateModified: article.date,
+    author: {
+      '@type': article.author?.includes('Engineering') ? 'Organization' : 'Organization',
+      name: article.author || 'Harch Corp S.A.',
+      url: 'https://www.harchcorp.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Harch Corp S.A.',
+      url: 'https://www.harchcorp.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.harchcorp.com/logo-512x512.png',
+        width: 512,
+        height: 512,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://www.harchcorp.com/blog/${slug}`,
+    },
+    articleSection: article.category,
+    keywords: article.seoKeywords?.join(', '),
+    wordCount: article.body?.replace(/<[^>]*>/g, '').split(/\s+/).length || 800,
+    isAccessibleForFree: true,
+  } : null;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {articleSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+      )}
       <BlogArticlePageClient slug={slug} />
     </>
   );

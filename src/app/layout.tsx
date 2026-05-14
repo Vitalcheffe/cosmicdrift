@@ -435,10 +435,8 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href="https://www.harchcorp.com" />
-        <link rel="alternate" href="https://www.harchcorp.com" hrefLang="en" />
-        <link rel="alternate" href="https://www.harchcorp.com" hrefLang="fr" />
-        <link rel="alternate" href="https://www.harchcorp.com" hrefLang="ar" />
-        <link rel="alternate" href="https://www.harchcorp.com" hrefLang="x-default" />
+        <link rel="alternate" type="application/rss+xml" title="Harch Corp Blog RSS Feed" href="https://www.harchcorp.com/feed.xml" />
+        <link rel="alternate" type="application/atom+xml" title="Harch Corp Newsroom Feed" href="https://www.harchcorp.com/feed.xml" />
         <meta name="theme-color" content="#0A0A0A" />
         <meta name="application-name" content="Harch Corp" />
         <meta name="apple-mobile-web-app-title" content="Harch Corp" />

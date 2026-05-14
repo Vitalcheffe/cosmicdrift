@@ -19,25 +19,25 @@ const nextSteps = [
   {
     step: '01',
     title: 'Verification',
-    desc: 'Notre equipe verifie votre identite et vos references organisationnelles.',
+    desc: 'Our team verifies your identity and organizational credentials.',
     icon: Shield,
   },
   {
     step: '02',
     title: 'Classification',
-    desc: 'Votre demande est classee et routed vers la division competente parmi nos 8 verticales.',
+    desc: 'Your request is classified and routed to the appropriate division across our 8 verticals.',
     icon: FileText,
   },
   {
     step: '03',
-    title: 'Devis Detaille',
-    desc: 'Un devis complet est elabore par nos experts sectoriels avec specifications techniques et financieres.',
+    title: 'Detailed Quote',
+    desc: 'A comprehensive quote is prepared by our sector experts with full technical and financial specifications.',
     icon: Building2,
   },
   {
     step: '04',
-    title: 'Canal Securise',
-    desc: 'Un canal de communication chiffre est etabli dans les 24 heures pour finaliser les termes.',
+    title: 'Secure Channel',
+    desc: 'An encrypted communication channel is established within 24 hours to finalize terms.',
     icon: Phone,
   },
 ];
@@ -80,15 +80,14 @@ export default function QuoteReceivedClient() {
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-                Demande de Devis Recue
+                Quote Request Received
               </h1>
 
               <div className="accent-line mb-6" />
 
               <p className="text-[16px] text-[#999999] leading-[1.7] mb-8">
-                Votre demande de devis chiffree a ete transmise avec succes. Notre equipe
-                dedicacee examinera votre projet et vous contactera dans les 24 heures via un
-                canal securise.
+                Your encrypted quote request has been transmitted successfully. Our dedicated team
+                will review your project and respond within 24 hours through a secure channel.
               </p>
 
               {/* Reference badge */}
@@ -114,7 +113,7 @@ export default function QuoteReceivedClient() {
               <div className="flex items-center gap-2 text-[#666666]">
                 <Clock size={14} strokeWidth={1.5} />
                 <span className="text-[13px]">
-                  Delai de reponse estime : <span className="text-[#8B9DAF] font-semibold">24 heures</span>
+                  Estimated response time: <span className="text-[#8B9DAF] font-semibold">24 hours</span>
                 </span>
               </div>
             </div>
@@ -126,9 +125,9 @@ export default function QuoteReceivedClient() {
       <section className="py-20 md:py-28 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Prochaines Etapes</p>
+            <p className="section-label mb-4">Next Steps</p>
             <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-12">
-              Ce qui se passe maintenant
+              What happens next
             </h2>
           </FadeIn>
 
@@ -161,16 +160,15 @@ export default function QuoteReceivedClient() {
               <div className="flex items-start gap-4">
                 <Shield size={18} className="text-[#8B9DAF] shrink-0 mt-0.5" strokeWidth={1.5} />
                 <div>
-                  <h3 className="text-[14px] font-bold text-white mb-2">Souverainete des Donnees</h3>
+                  <h3 className="text-[14px] font-bold text-white mb-2">Data Sovereignty</h3>
                   <p className="text-[13px] text-[#999999] leading-[1.7] mb-4">
-                    Vos donnees sont traitees sur une infrastructure souveraine situee sur le
-                    territoire marocain. Nous ne partageons aucune information avec des tiers.
-                    Toutes les communications sont chiffrees en AES-256 au repos et TLS 1.3 en
-                    transit, conformement a la loi 09-08 relative a la protection des donnees
-                    personnelles.
+                    Your data is processed on sovereign infrastructure located within Moroccan
+                    borders. We do not share any information with third parties. All communications
+                    are encrypted with AES-256 at rest and TLS 1.3 in transit, in compliance with
+                    Moroccan Law 09-08 on the protection of personal data.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['SOC 2 Type II', 'ISO 27001', 'GDPR', 'CNDP Maroc', 'AES-256', 'TLS 1.3'].map(
+                    {['SOC 2 Type II', 'ISO 27001', 'GDPR', 'CNDP Morocco', 'AES-256', 'TLS 1.3'].map(
                       (badge) => (
                         <span
                           key={badge}
@@ -195,10 +193,10 @@ export default function QuoteReceivedClient() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-3xl mx-auto">
               <div>
                 <h3 className="text-xl font-bold text-white mb-2">
-                  En savoir plus sur Harch Corp
+                  Learn more about Harch Corp
                 </h3>
                 <p className="text-[14px] text-[#666666]">
-                  Decouvrez notre infrastructure souveraine a travers l&apos;Afrique.
+                  Explore our sovereign infrastructure across Africa.
                 </p>
               </div>
               <div className="flex items-center gap-4">
@@ -206,13 +204,13 @@ export default function QuoteReceivedClient() {
                   href="/"
                   className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all"
                 >
-                  Retour a l&apos;Accueil <ArrowRight size={14} />
+                  Back to Home <ArrowRight size={14} />
                 </Link>
                 <Link
                   href="/subsidiaries"
                   className="inline-flex items-center gap-2.5 border border-[rgba(255,255,255,0.1)] text-white px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[rgba(255,255,255,0.04)] transition-all"
                 >
-                  Nos Verticales
+                  Our Verticals
                 </Link>
               </div>
             </div>

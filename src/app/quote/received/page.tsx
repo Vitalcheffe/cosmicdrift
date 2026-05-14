@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import QuoteReceivedClient from './QuoteReceivedClient';
 
 export const metadata: Metadata = {
-  title: 'Demande de Devis Recue | Harch Corp',
+  title: 'Quote Request Received | Harch Corp',
   description:
-    'Votre demande de devis a ete recue. Notre equipe vous contactera dans les 24 heures via un canal securise. Harch Corp — Infrastructure Souveraine Africaine.',
+    'Your quote request has been received. Our team will contact you within 24 hours through a secure channel. Harch Corp — Africa\'s Sovereign Infrastructure OS.',
   robots: {
     index: false,
     follow: false,
@@ -21,7 +21,7 @@ export default function QuoteReceivedPage() {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.harchcorp.com' },
       { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://www.harchcorp.com/contact' },
-      { '@type': 'ListItem', position: 3, name: 'Demande Recue', item: 'https://www.harchcorp.com/quote/received' },
+      { '@type': 'ListItem', position: 3, name: 'Quote Received', item: 'https://www.harchcorp.com/quote/received' },
     ],
   };
 

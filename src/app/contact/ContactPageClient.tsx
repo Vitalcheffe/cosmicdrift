@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ArrowRight, Shield, Lock, Eye, Building2, Users, Landmark, Cpu, CheckCircle2, Radio } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -79,6 +80,7 @@ export default function ContactPageClient() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [transmitStep, setTransmitStep] = useState(0);
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,7 +92,8 @@ export default function ContactPageClient() {
     setTimeout(() => {
       setSubmitted(true);
       setTransmitStep(0);
-    }, 2400);
+      router.push('/quote/received');
+    }, 2600);
   };
 
   const selectedInquiry = inquiryTypes.find(t => t.id === selectedType);

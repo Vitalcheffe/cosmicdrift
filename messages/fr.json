@@ -13,7 +13,148 @@
     "close": "Fermer",
     "menu": "Menu",
     "language": "Langue",
-    "switchLanguage": "Changer de langue"
+    "switchLanguage": "Changer de langue",
+    "encrypted": "Chiffré",
+    "sovereign": "Souverain",
+    "carbonAware": "Conscient du carbone",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "confirm": "Confirmer",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "back": "Retour",
+    "continue": "Continuer",
+    "finish": "Terminer",
+    "yes": "Oui",
+    "no": "Non",
+    "or": "ou",
+    "and": "et",
+    "of": "de",
+    "in": "en",
+    "for": "pour",
+    "with": "avec",
+    "from": "de",
+    "to": "à",
+    "by": "par",
+    "on": "sur",
+    "at": "à",
+    "all": "Tout",
+    "none": "Aucun",
+    "other": "Autre",
+    "required": "Requis",
+    "optional": "Optionnel",
+    "enabled": "Activé",
+    "disabled": "Désactivé",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "pending": "En attente",
+    "completed": "Terminé",
+    "failed": "Échoué",
+    "success": "Succès",
+    "error": "Erreur",
+    "warning": "Avertissement",
+    "info": "Information",
+    "status": "Statut",
+    "details": "Détails",
+    "overview": "Aperçu",
+    "dashboard": "Tableau de bord",
+    "settings": "Paramètres",
+    "profile": "Profil",
+    "account": "Compte",
+    "notifications": "Notifications",
+    "help": "Aide",
+    "support": "Support",
+    "documentation": "Documentation",
+    "version": "Version",
+    "copyright": "Copyright",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "cookies": "Cookies",
+    "accessibility": "Accessibilité",
+    "sitemap": "Plan du site",
+    "subscribe": "S'abonner",
+    "unsubscribe": "Se désabonner",
+    "download": "Télécharger",
+    "upload": "Téléverser",
+    "export": "Exporter",
+    "import": "Importer",
+    "share": "Partager",
+    "print": "Imprimer",
+    "copy": "Copier",
+    "paste": "Coller",
+    "selected": "Sélectionné",
+    "available": "Disponible",
+    "unavailable": "Indisponible",
+    "online": "En ligne",
+    "offline": "Hors ligne",
+    "live": "En direct",
+    "beta": "Bêta",
+    "new": "Nouveau",
+    "updated": "Mis à jour",
+    "comingSoon": "Prochainement",
+    "featured": "En vedette",
+    "popular": "Populaire",
+    "recommended": "Recommandé",
+    "trending": "Tendance",
+    "latest": "Dernier",
+    "earliest": "Le plus tôt",
+    "ascending": "Croissant",
+    "descending": "Décroissant",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "grid": "Grille",
+    "list": "Liste",
+    "table": "Tableau",
+    "chart": "Graphique",
+    "map": "Carte",
+    "calendar": "Calendrier",
+    "timeline": "Chronologie",
+    "categories": "Catégories",
+    "tags": "Étiquettes",
+    "related": "Connexe",
+    "similar": "Similaire",
+    "seeAlso": "Voir aussi",
+    "moreLikeThis": "Plus comme ceci",
+    "noResults": "Aucun résultat",
+    "resultsFound": "Résultats trouvés",
+    "showing": "Affichage",
+    "of": "de",
+    "items": "éléments",
+    "perPage": "par page",
+    "page": "Page",
+    "goToPage": "Aller à la page",
+    "previousPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "firstPage": "Première page",
+    "lastPage": "Dernière page",
+    "total": "Total",
+    "average": "Moyenne",
+    "minimum": "Minimum",
+    "maximum": "Maximum",
+    "range": "Plage",
+    "currency": "Devise",
+    "amount": "Montant",
+    "quantity": "Quantité",
+    "rate": "Taux",
+    "percentage": "Pourcentage",
+    "dimension": "Dimension",
+    "weight": "Poids",
+    "volume": "Volume",
+    "capacity": "Capacité",
+    "power": "Puissance",
+    "energy": "Énergie",
+    "efficiency": "Efficacité",
+    "performance": "Performance",
+    "reliability": "Fiabilité",
+    "security": "Sécurité",
+    "compliance": "Conformité",
+    "governance": "Gouvernance",
+    "sustainability": "Durabilité",
+    "scalability": "Évolutivité",
+    "interoperability": "Interopérabilité"
   },
   "nav": {
     "home": "Accueil",
@@ -26,7 +167,26 @@
     "docs": "Documentation",
     "blog": "Blog",
     "contact": "Contact",
-    "quote": "Demander un devis"
+    "quote": "Demander un devis",
+    "thesis": "Thèse",
+    "strategy": "Stratégie",
+    "community": "Communauté",
+    "news": "Actualités",
+    "press": "Presse",
+    "support": "Support",
+    "faq": "FAQ",
+    "trust": "Confiance",
+    "security": "Sécurité",
+    "compliance": "Conformité",
+    "legal": "Juridique",
+    "status": "Statut",
+    "intelligence": "Intelligence",
+    "resources": "Ressources",
+    "events": "Événements",
+    "learn": "Apprendre",
+    "glossary": "Glossaire",
+    "mission": "Mission",
+    "deployments": "Déploiements"
   },
   "footer": {
     "company": "Entreprise",
@@ -38,13 +198,1683 @@
     "termsOfService": "Conditions d'utilisation",
     "cookiePolicy": "Politique des cookies",
     "allRightsReserved": "Tous droits réservés.",
-    "madeIn": "Fabriqué au Maroc"
+    "madeIn": "Fabriqué au Maroc",
+    "capital": "Capital 100 M MAD",
+    "location": "Casablanca, Maroc",
+    "allSystemsOperational": "Tous les systèmes opérationnels",
+    "about": "À propos",
+    "careers": "Carrières",
+    "press": "Presse",
+    "blog": "Blog",
+    "investors": "Investisseurs",
+    "subsidiaries": "Filiales",
+    "platform": "Plateforme",
+    "harchos": "HarchOS",
+    "intelligence": "Intelligence",
+    "pricing": "Tarifs",
+    "documentation": "Documentation",
+    "apiReference": "Référence API",
+    "guides": "Guides",
+    "support": "Support",
+    "status": "Statut",
+    "community": "Communauté",
+    "security": "Sécurité",
+    "compliance": "Conformité",
+    "contact": "Contact",
+    "partners": "Partenaires",
+    "sitemap": "Plan du site",
+    "accessibility": "Accessibilité",
+    "terms": "Conditions",
+    "privacy": "Confidentialité",
+    "cookies": "Cookies",
+    "socialMedia": "Réseaux sociaux",
+    "newsletter": "Newsletter",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "address": "Adresse"
   },
   "home": {
+    "heroBadge": "L'OS d'Infrastructure Souveraine de l'Afrique",
     "heroTitle": "L'OS d'Infrastructure Souveraine de l'Afrique",
     "heroSubtitle": "Construire la souveraineté industrielle de l'Afrique par l'IA, l'énergie et la technologie.",
     "ctaPrimary": "Explorer la plateforme",
-    "ctaSecondary": "Relations investisseurs"
+    "ctaSecondary": "Relations investisseurs",
+    "sectionLabels": {
+      "verticals": "Nos Filiales",
+      "infrastructure": "Infrastructure pour le Siècle Prochain",
+      "deepDive": "Plongeon Profond",
+      "eightVerticals": "8 Filiales. 5 Pays.",
+      "investmentPipeline": "Pipeline d'investissement de 2,4 Md$",
+      "deployments": "Déploiements / Temps Réel",
+      "operations": "Opérations à travers l'Afrique",
+      "scaleAndImpact": "Échelle et Impact",
+      "inNumbers": "En Chiffres",
+      "investment": "Pipeline d'Investissement",
+      "capitalDeployment": "Déploiement de Capital",
+      "roadmap": "Feuille de Route",
+      "africaFocus": "L'Afrique en Chiffres",
+      "testimonials": "Témoignages",
+      "news": "Actualités",
+      "principles": "Principes de l'Opérateur",
+      "systemHealth": "Santé du Système",
+      "cta": "Prêt à Construire"
+    },
+    "verticals": {
+      "intelligence": {
+        "name": "Harch Intelligence",
+        "tagline": "Cloud GPU Conscient du Carbone",
+        "description": "Cloud GPU Conscient du Carbone — 1 798 GPU sur 5 hubs marocains à ~47 gCO2/kWh. Calcul IA souverain avec planification consciente du carbone.",
+        "stat": "1 798 GPU",
+        "outcomes": {
+          "title": "Résultats Clés",
+          "items": [
+            "Inference IA à faible latence pour les marchés africains",
+            "Planification de charge sensible au carbone en temps réel",
+            "Conformité souveraine des données avec hébergement local"
+          ]
+        }
+      },
+      "cement": {
+        "name": "Harch Cement",
+        "tagline": "Production de Ciment Industrielle",
+        "description": "Production de ciment industrielle — 500kT/an au service du boom de la construction en Afrique de l'Ouest. Intégration verticale de la carrière à la livraison.",
+        "stat": "500kT/an",
+        "outcomes": {
+          "title": "Résultats Clés",
+          "items": [
+            "Intégration verticale complète de la carrière à la livraison",
+            "Approvisionnement en ciment pour les projets d'infrastructure",
+            "Production à faible intensité carbone avec captage du CO2"
+          ]
+        }
+      },
+      "energy": {
+        "name": "Harch Energy",
+        "tagline": "Énergie Renouvelable et Hydrogène Vert",
+        "description": "Énergie renouvelable et hydrogène vert — Pipeline de 2GW+ solaire, éolien et hydrogène vert au Maroc et au Sahel. Électricité industrielle zéro carbone.",
+        "stat": "2GW+ Pipeline",
+        "outcomes": {
+          "title": "Résultats Clés",
+          "items": [
+            "Électricité industrielle zéro carbone à prix compétitif",
+            "Production d'hydrogène vert pour l'export et l'usage local",
+            "Stabilisation du réseau par stockage par batteries à l'échelle du réseau"
+          ]
+        }
+      },
+      "technology": {
+        "name": "Harch Technology",
+        "tagline": "Pile Technologique Souveraine",
+        "description": "Pile technologique souveraine — Cloud GPU conscient du carbone, cybersécurité et communications par satellite.",
+        "stat": "1 798 GPU",
+        "outcomes": {
+          "title": "Résultats Clés",
+          "items": [
+            "Cloud GPU conscient du carbone avec hébergement souverain",
+            "Opérations de cybersécurité 24/7/365",
+            "Couverture satellite pour les zones non desservies"
+          ]
+        }
+      },
+      "mining": {
+        "name": "Harch Mining",
+        "tagline": "Extraction Minière Stratégique",
+        "description": "Extraction minière stratégique — Phosphates, cobalt et terres rares. Capturer l'ensemble de la chaîne de valeur.",
+        "stat": "3 Minéraux",
+        "outcomes": {
+          "title": "Résultats Clés",
+          "items": [
+            "Chaîne de valeur minière intégrée de l'extraction au raffinage",
+            "Accès stratégique aux minéraux critiques pour la transition énergétique",
+            "Pratiques d'extraction responsables avec réhabilitation environnementale"
+          ]
+        }
+      },
+      "agriculture": {
+        "name": "Harch Agri",
+        "tagline": "Agriculture de Précision et Fermes Verticales",
+        "description": "Agriculture de précision et fermes verticales — Déploiement d'IoT, surveillance par drones et agriculture verticale sur 60% des terres arables non cultivées du monde.",
+        "stat": "Marché de 35 Md$",
+        "outcomes": {
+          "title": "Résultats Clés",
+          "items": [
+            "Agriculture de précision pilotée par l'IA avec surveillance par IoT",
+            "Capacité de ferme verticale pour la sécurité alimentaire urbaine",
+            "Chaîne d'approvisionnement de la ferme à la table optimisée par la technologie"
+          ]
+        }
+      },
+      "water": {
+        "name": "Harch Water",
+        "tagline": "Dessalement et Réseaux d'Eau Intelligents",
+        "description": "Dessalement et réseaux d'eau intelligents — Capacité de dessalement de 200M m³/an avec distribution optimisée par IA. Résoudre la crise de sécurité hydrique de l'Afrique.",
+        "stat": "200M m³/an",
+        "outcomes": {
+          "title": "Résultats Clés",
+          "items": [
+            "Dessalement alimenté par l'énergie solaire à coût compétitif",
+            "Distribution d'eau optimisée par IA avec détection de fuites",
+            "Sécurité hydrique pour les zones urbaines et rurales"
+          ]
+        }
+      },
+      "finance": {
+        "name": "Harch Finance",
+        "tagline": "Obligations Vertes et Financement de Projets",
+        "description": "Obligations vertes, financement de projets et finance islamique — Structuration des flux de capitaux pour les infrastructures souveraines. Obligations vertes, prêts liés au développement durable, financement du commerce et monétisation des crédits carbone.",
+        "stat": "2,4 Md$+",
+        "outcomes": {
+          "title": "Résultats Clés",
+          "items": [
+            "Obligations vertes et instruments de finance islamique",
+            "Monétisation des crédits carbone sur les marchés mondiaux",
+            "Structuration de financement de bout en bout pour les mégaprojets"
+          ]
+        }
+      }
+    },
+    "carouselSlides": {
+      "slide1": {
+        "title": "Cloud GPU Conscient du Carbone",
+        "description": "1 798 GPU répartis sur 5 hubs au Maroc, alimentés par une énergie renouvelable à ~47 gCO2/kWh. Calcul IA souverain avec planification de charge sensible au carbone en temps réel."
+      },
+      "slide2": {
+        "title": "Énergie Renouvelable à l'Échelle du GW",
+        "description": "Pipeline de 2GW+ d'énergie solaire, éolienne et d'hydrogène vert au Maroc et au Sahel. Électricité industrielle zéro carbone à des prix compétitifs pour les entreprises et les grilles nationales."
+      },
+      "slide3": {
+        "title": "Intégration Minière Verticale",
+        "description": "Phosphates, cobalt et terres rares — de l'extraction au raffinage. Capturer l'ensemble de la chaîne de valeur pour les minéraux critiques de la transition énergétique mondiale."
+      },
+      "slide4": {
+        "title": "Sécurité Hydrique pour l'Afrique",
+        "description": "200M m³/an de capacité de dessalement alimentée par l'énergie solaire avec distribution optimisée par IA. Résoudre la crise de sécurité hydrique de l'Afrique par la technologie et l'infrastructure."
+      },
+      "slide5": {
+        "title": "Agriculture de Précision à l'Échelle",
+        "description": "IoT, drones et agriculture verticale déployés sur les 60% de terres arables non cultivées du monde. Sécurité alimentaire par la technologie, de la ferme à la table."
+      },
+      "slide6": {
+        "title": "Ciment pour le Boom de la Construction",
+        "description": "500kT/an de production cimentière intégrant verticalement de la carrière à la livraison. Approvisionner le plus grand boom de construction d'Afrique de l'Ouest."
+      },
+      "slide7": {
+        "title": "Finance pour les Infrastructures Souveraines",
+        "description": "Obligations vertes, finance islamique et monétisation des crédits carbone. Structurer les flux de capitaux pour les mégaprojets d'infrastructure du continent."
+      }
+    },
+    "stats": {
+      "investmentPipeline": {
+        "label": "Pipeline d'investissement",
+        "value": "2 400 M$",
+        "description": "Engagement de capital à travers 8 filiales verticales"
+      },
+      "carbonIntensity": {
+        "label": "Intensité carbone",
+        "value": "~47 gCO2/kWh",
+        "description": "Moyenne du réseau marocain — parmi les plus basses au monde"
+      },
+      "renewableEnergy": {
+        "label": "Énergie renouvelable",
+        "value": "81,5 %",
+        "description": "Part du réseau marocain issue de sources renouvelables"
+      },
+      "employment2030": {
+        "label": "Emploi d'ici 2030",
+        "value": "25 000+",
+        "description": "Emplois directs et indirects à travers toutes les filiales"
+      }
+    },
+    "roadmap": {
+      "2024": {
+        "year": "2024",
+        "title": "Fondation",
+        "description": "Création de l'entreprise, constitution de l'équipe fondatrice et premières licences opérationnelles."
+      },
+      "2025": {
+        "year": "2025",
+        "title": "Conception et Ingénierie",
+        "description": "Achèvement de la conception technique détaillée, études de faisabilité et accords de partenariat."
+      },
+      "2026": {
+        "year": "2026",
+        "title": "Permis Énergétiques",
+        "description": "Obtention des permis de production d'énergie et début de la construction des parcs solaires et éoliens."
+      },
+      "2027": {
+        "year": "2027",
+        "title": "Premier Module Actif",
+        "description": "Mise en service du premier centre de données GPU et du premier module de dessalement."
+      },
+      "2028": {
+        "year": "2028",
+        "title": "Cimenterie en Ligne",
+        "description": "Lancement de la production cimentière et des opérations minières à pleine capacité."
+      },
+      "2030": {
+        "year": "2030",
+        "title": "Échelle Continentale",
+        "description": "Opérations dans 5+ pays, 25 000+ emplois et statut de champion continental des infrastructures."
+      }
+    },
+    "africaStats": {
+      "mineralReserves": {
+        "label": "Réserves Minérales",
+        "value": "30 %",
+        "description": "L'Afrique détient 30% des réserves minérales mondiales, y compris le cobalt, les phosphates et les terres rares."
+      },
+      "arableLand": {
+        "label": "Terres Arables",
+        "value": "60 %",
+        "description": "60% des terres arables non cultivées du monde se trouvent en Afrique — un potentiel agricole inégalé."
+      },
+      "population": {
+        "label": "Population",
+        "value": "1,4 Md",
+        "description": "La plus jeune population du monde avec un âge médian de 19 ans — le prochain grand marché de main-d'œuvre."
+      }
+    },
+    "investmentTable": {
+      "headers": {
+        "vertical": "Filiale",
+        "investment": "Investissement",
+        "capacity": "Capacité",
+        "timeline": "Calendrier",
+        "status": "Statut"
+      },
+      "rows": {
+        "intelligence": {
+          "vertical": "Harch Intelligence",
+          "investment": "320 M$",
+          "capacity": "1 798 GPU",
+          "timeline": "2025-2027",
+          "status": "En développement"
+        },
+        "energy": {
+          "vertical": "Harch Energy",
+          "investment": "890 M$",
+          "capacity": "2GW+",
+          "timeline": "2025-2029",
+          "status": "Permis en cours"
+        },
+        "cement": {
+          "vertical": "Harch Cement",
+          "investment": "280 M$",
+          "capacity": "500kT/an",
+          "timeline": "2026-2028",
+          "status": "Planifié"
+        },
+        "water": {
+          "vertical": "Harch Water",
+          "investment": "410 M$",
+          "capacity": "200M m³/an",
+          "timeline": "2026-2029",
+          "status": "Planifié"
+        },
+        "mining": {
+          "vertical": "Harch Mining",
+          "investment": "195 M$",
+          "capacity": "3 Minéraux",
+          "timeline": "2027-2030",
+          "status": "Prospection"
+        },
+        "agriculture": {
+          "vertical": "Harch Agri",
+          "investment": "145 M$",
+          "capacity": "Marché de 35 Md$",
+          "timeline": "2026-2029",
+          "status": "Planifié"
+        },
+        "finance": {
+          "vertical": "Harch Finance",
+          "investment": "95 M$",
+          "capacity": "2,4 Md$+",
+          "timeline": "2024-2030",
+          "status": "Actif"
+        },
+        "technology": {
+          "vertical": "Harch Technology",
+          "investment": "65 M$",
+          "capacity": "1 798 GPU",
+          "timeline": "2025-2027",
+          "status": "En développement"
+        }
+      }
+    },
+    "testimonials": {
+      "testimonial1": {
+        "quote": "Harch Corp représente le type d'investissement en infrastructure souveraine que l'Afrique needs — intégré verticalement, conscient du carbone et construit à l'échelle continentale.",
+        "author": "Dr. Amina Benali",
+        "title": "Directrice, Institut Africain des Infrastructures",
+        "organization": "Institut Africain des Infrastructures"
+      },
+      "testimonial2": {
+        "quote": "L'approche de Harch en matière de cloud GPU conscient du carbone est exactement ce dont le marché africain a besoin — une infrastructure IA qui ne compromet pas la durabilité environnementale.",
+        "author": "Jean-Pierre Kouassi",
+        "title": "Directeur Technique, Banque de Développement Ouest-Africaine",
+        "organization": "Banque de Développement Ouest-Africaine"
+      },
+      "testimonial3": {
+        "quote": "Le pipeline d'hydrogène vert de Harch Energy pourrait positionner le Maroc comme un acteur majeur dans l'export d'énergie propre vers l'Europe.",
+        "author": "Fatima El Amrani",
+        "title": "Analyste Énergie, Centre de Recherche Énergétique Méditerranéen",
+        "organization": "Centre de Recherche Énergétique Méditerranéen"
+      },
+      "testimonial4": {
+        "quote": "La vision d'intégration minière verticale de Harch Mining garantit que les nations africaines capturent la valeur complète de leurs ressources minérales stratégiques.",
+        "author": "Ousmane Diallo",
+        "title": "Secrétaire Général, Alliance des Pays Miniers Africains",
+        "organization": "Alliance des Pays Miniers Africains"
+      }
+    },
+    "operatorPrinciples": {
+      "verticalIntegration": {
+        "title": "Intégration Verticale",
+        "description": "Nous contrôlons l'ensemble de la chaîne de valeur — de la matière première au produit fini. Cela élimine les dépendances externes et maximise la valeur capturée."
+      },
+      "sovereignByDesign": {
+        "title": "Souverain par Conception",
+        "description": "Chaque système est conçu avec la souveraineté des données et l'autonomie opérationnelle comme principes fondamentaux, et non comme des réflexions après coup."
+      },
+      "speedAtScale": {
+        "title": "Vitesse à Grande Échelle",
+        "description": "Nous opérons à la vitesse des startups avec l'exécution des conglomérats. Démonter rapidement, déployer rapidement, itérer rapidement."
+      },
+      "worldClassStandards": {
+        "title": "Standards de Classe Mondiale",
+        "description": "Conformité ISO, certifications SOC 2 et adhésion aux meilleures pratiques internationales. Pas de raccourcis sur la qualité."
+      }
+    },
+    "newsArticles": {
+      "article1": {
+        "title": "Harch Corp annonce un pipeline d'investissement de 2,4 Md$ à travers 8 filiales verticales",
+        "excerpt": "Le conglomérat d'infrastructure marocain dévoile son plan ambitieux pour construire la souveraineté industrielle de l'Afrique par l'IA, l'énergie et la technologie.",
+        "date": "15 janvier 2025",
+        "category": "Annonce"
+      },
+      "article2": {
+        "title": "Harch Intelligence lance un cloud GPU conscient du carbone avec 1 798 GPU au Maroc",
+        "excerpt": "Le premier cloud IA souverain d'Afrique avec planification de charge sensible au carbone en temps réel, alimenté par l'énergie renouvelable marocaine.",
+        "date": "28 février 2025",
+        "category": "Produit"
+      },
+      "article3": {
+        "title": "Harch Energy obtient les permis pour un parc solaire de 500MW dans le sud du Maroc",
+        "excerpt": "Le parc solaire alimentera les centres de données Harch Intelligence et produira de l'hydrogène vert pour l'export vers les marchés européens.",
+        "date": "10 mars 2025",
+        "category": "Réglementaire"
+      }
+    },
+    "systemHealth": {
+      "title": "Santé du Système",
+      "allOperational": "Tous les systèmes opérationnels",
+      "partialOutage": "Panne partielle",
+      "majorOutage": "Panne majeure",
+      "degradedPerformance": "Performance dégradée",
+      "maintenance": "Maintenance planifiée",
+      "lastChecked": "Dernière vérification",
+      "uptime": "Disponibilité",
+      "services": {
+        "gpuCloud": "Cloud GPU",
+        "energyGrid": "Réseau Énergétique",
+        "waterSystem": "Système d'Eau",
+        "cementPlant": "Cimenterie",
+        "dataPlatform": "Plateforme de Données",
+        "satelliteComm": "Communications Satellite"
+      }
+    },
+    "footnote": {
+      "text": "Harch Corp est un conglomérat d'infrastructure souverain basé à Casablanca, Maroc. Toutes les projections financières sont des estimations et ne constituent pas des garanties de rendement. Investir comporte des risques.",
+      "disclaimer": "Les chiffres présentés sont basés sur les projections actuelles et sont susceptibles de changer. Le pipeline d'investissement de 2,4 Md$ est un engagement de capital planifié sur la période 2024-2030."
+    }
+  },
+  "about": {
+    "title": "À Propos de Harch Corp",
+    "subtitle": "Construire la souveraineté industrielle de l'Afrique, une filiale à la fois.",
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Harch Corp est un conglomérat d'infrastructure souverain fondé à Casablanca, Maroc, avec une mission claire : construire la souveraineté industrielle de l'Afrique par l'intégration verticale de l'IA, de l'énergie et de la technologie. Nous opérons à travers 8 filiales dans 5 pays, contrôlant l'ensemble de la chaîne de valeur — de la matière première au produit fini."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "sovereignty": {
+        "title": "Souveraineté",
+        "description": "Chaque système que nous construisons est conçu avec la souveraineté des données et l'autonomie opérationnelle comme principes fondamentaux. Les nations africaines doivent contrôler leur propre infrastructure."
+      },
+      "speed": {
+        "title": "Vitesse",
+        "description": "Nous opérons à la vitesse des startups avec l'exécution des conglomérats. Démonter rapidement, déployer rapidement, itérer rapidement — le continent ne peut pas attendre."
+      },
+      "integration": {
+        "title": "Intégration",
+        "description": "L'intégration verticale est notre avantage stratégique. En contrôlant l'ensemble de la chaîne de valeur, nous éliminons les dépendances externes et maximisons la valeur capturée localement."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "Conformité ISO, certifications SOC 2 et adhésion aux meilleures pratiques internationales. Nous ne faisons aucun compromis sur la qualité, la sécurité ou la transparence."
+      }
+    },
+    "leadership": {
+      "title": "Direction",
+      "description": "Une équipe de dirigeants expérimentés issus de l'infrastructure, de la technologie et de la finance, unis par une vision commune de la souveraineté africaine."
+    },
+    "history": {
+      "title": "Notre Histoire",
+      "description": "Fondé en 2024, Harch Corp est né de la conviction que l'Afrique mérite une infrastructure souveraine de classe mondiale — conçue, construite et exploitée par des Africains, pour l'Afrique.",
+      "milestones": {
+        "2024": "Fondation de Harch Corp à Casablanca, Maroc",
+        "2025": "Lancement de Harch Intelligence et du cloud GPU conscient du carbone",
+        "2026": "Permis énergétiques et début de la construction du parc solaire",
+        "2027": "Premier centre de données GPU opérationnel",
+        "2028": "Cimenterie en ligne et opérations minières lancées",
+        "2030": "Opérations continentales à travers 5+ pays"
+      }
+    },
+    "partners": {
+      "title": "Partenaires Stratégiques",
+      "description": "Nous collaborons avec des leaders mondiaux en technologie, finance et industrie pour fournir une infrastructure de classe mondiale."
+    },
+    "cta": {
+      "title": "Rejoignez Notre Mission",
+      "subtitle": "Construisez l'avenir de l'infrastructure africaine avec nous.",
+      "primary": "Voir les Opportunités",
+      "secondary": "Relations Investisseurs"
+    }
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Canal Sécurisé",
+    "description": "Toutes les communications sont chiffrées de bout en bout. Nous répondons dans les 24 heures ouvrées.",
+    "requestBriefing": "Demander un Briefing",
+    "consultationTypes": {
+      "title": "Type de Consultation",
+      "government": {
+        "label": "Gouvernement / Défense",
+        "description": "Pour les agences gouvernementales et les organisations de défense cherchant des solutions d'infrastructure souveraine."
+      },
+      "industrial": {
+        "label": "Partenaire Industriel",
+        "description": "Pour les entreprises cherchant des partenariats stratégiques ou des solutions d'approvisionnement."
+      },
+      "investor": {
+        "label": "Investisseur",
+        "description": "Pour les investisseurs institutionnels et privés intéressés par les opportunités d'infrastructure africaine."
+      },
+      "talent": {
+        "label": "Talent",
+        "description": "Pour les professionnels exceptionnels cherchant à rejoindre notre mission de souveraineté industrielle."
+      }
+    },
+    "form": {
+      "name": "Nom complet",
+      "email": "Adresse e-mail",
+      "organization": "Organisation",
+      "consultationType": "Type de consultation",
+      "message": "Message",
+      "messagePlaceholder": "Décrivez votre demande en détail...",
+      "clearance": "Niveau d'habilitation",
+      "clearanceNone": "Aucune",
+      "clearanceBasic": "Basique",
+      "clearanceSecret": "Secret",
+      "clearanceTopSecret": "Très Secret",
+      "submit": "Envoyer le message chiffré",
+      "submitting": "Envoi en cours...",
+      "success": "Message envoyé avec succès. Nous répondrons dans les 24 heures ouvrées.",
+      "error": "Échec de l'envoi du message. Veuillez réessayer."
+    },
+    "onboarding": {
+      "title": "Processus d'Accueil",
+      "step1": {
+        "title": "Soumission",
+        "description": "Soumettez votre demande via notre canal chiffré."
+      },
+      "step2": {
+        "title": "Vérification",
+        "description": "Notre équipe vérifie votre identité et vos habilitations."
+      },
+      "step3": {
+        "title": "Briefing",
+        "description": "Recevez un briefing personnalisé avec notre équipe spécialisée."
+      },
+      "step4": {
+        "title": "Intégration",
+        "description": "Début de l'intégration dans l'écosystème Harch."
+      }
+    },
+    "compliance": {
+      "title": "Conformité et Sécurité",
+      "description": "Toutes les communications sont chiffrées de bout en bout avec un chiffrement AES-256. Nous sommes conformes au RGPD, ISO 27001 et SOC 2 Type II. Les données sont hébergées exclusivement au Maroc.",
+      "certifications": "Certifications",
+      "encryption": "Chiffrement AES-256",
+      "dataResidency": "Résidence des données au Maroc",
+      "gdpr": "Conforme au RGPD",
+      "iso": "ISO 27001",
+      "soc2": "SOC 2 Type II"
+    }
+  },
+  "quote": {
+    "title": "Demander un Devis",
+    "subtitle": "Recevez une proposition personnalisée pour votre projet d'infrastructure souveraine.",
+    "step1": {
+      "title": "Sélectionner une Filiale",
+      "description": "Choisissez la filiale Harch qui correspond le mieux à votre projet.",
+      "verticals": {
+        "intelligence": {
+          "name": "Harch Intelligence",
+          "description": "Cloud GPU conscient du carbone et calcul IA souverain"
+        },
+        "energy": {
+          "name": "Harch Energy",
+          "description": "Énergie renouvelable, hydrogène vert et stockage d'énergie"
+        },
+        "cement": {
+          "name": "Harch Cement",
+          "description": "Production de ciment industrielle et matériaux de construction"
+        },
+        "water": {
+          "name": "Harch Water",
+          "description": "Dessalement et réseaux d'eau intelligents"
+        },
+        "mining": {
+          "name": "Harch Mining",
+          "description": "Extraction minière stratégique et traitement des minéraux"
+        },
+        "agriculture": {
+          "name": "Harch Agri",
+          "description": "Agriculture de précision et fermes verticales"
+        },
+        "finance": {
+          "name": "Harch Finance",
+          "description": "Obligations vertes, financement de projets et finance islamique"
+        },
+        "technology": {
+          "name": "Harch Technology",
+          "description": "Cybersécurité, communications satellite et pile technologique souveraine"
+        }
+      }
+    },
+    "step2": {
+      "title": "Détails du Projet",
+      "description": "Fournissez des informations sur la portée et les exigences de votre projet.",
+      "projectType": "Type de projet",
+      "projectTypes": {
+        "newInfrastructure": "Nouvelle infrastructure",
+        "expansion": "Expansion d'infrastructure existante",
+        "consulting": "Consultation et planification",
+        "managedService": "Service géré",
+        "integration": "Intégration de systèmes",
+        "research": "Recherche et développement"
+      },
+      "budgetRange": "Fourchette de budget",
+      "budgetRanges": {
+        "under1M": "Moins de 1 M$",
+        "1Mto5M": "1 M$ — 5 M$",
+        "5Mto25M": "5 M$ — 25 M$",
+        "25Mto100M": "25 M$ — 100 M$",
+        "100Mto500M": "100 M$ — 500 M$",
+        "over500M": "Plus de 500 M$"
+      },
+      "timeline": "Calendrier souhaité",
+      "timelines": {
+        "immediate": "Immédiat (0-3 mois)",
+        "shortTerm": "Court terme (3-6 mois)",
+        "mediumTerm": "Moyen terme (6-12 mois)",
+        "longTerm": "Long terme (1-2 ans)",
+        "extended": "Étendu (2+ ans)"
+      },
+      "description": "Description du projet",
+      "descriptionPlaceholder": "Décrivez votre projet, ses objectifs et les exigences spécifiques...",
+      "country": "Pays de déploiement",
+      "countries": {
+        "morocco": "Maroc",
+        "gambia": "Gambie",
+        "senegal": "Sénégal",
+        "mauritania": "Mauritanie",
+        "algeria": "Algérie",
+        "tunisia": "Tunisie",
+        "egypt": "Égypte",
+        "nigeria": "Nigeria",
+        "kenya": "Kenya",
+        "southAfrica": "Afrique du Sud",
+        "ghana": "Ghana",
+        "ivoryCoast": "Côte d'Ivoire",
+        "other": "Autre"
+      }
+    },
+    "step3": {
+      "title": "Informations de Contact",
+      "description": "Fournissez vos coordonnées pour que nous puissions vous répondre.",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "email": "Adresse e-mail professionnelle",
+      "phone": "Téléphone",
+      "organization": "Organisation",
+      "jobTitle": "Fonction",
+      "governmentAgency": "Agence gouvernementale",
+      "clearanceLevel": "Niveau d'habilitation",
+      "referralSource": "Comment nous avez-vous connus ?",
+      "referralSources": {
+        "website": "Site web",
+        "referral": "Recommandation",
+        "conference": "Conférence ou événement",
+        "press": "Article de presse",
+        "socialMedia": "Réseaux sociaux",
+        "government": "Appel d'offres gouvernemental",
+        "other": "Autre"
+      }
+    },
+    "step4": {
+      "title": "Réviser et Soumettre",
+      "description": "Vérifiez les informations de votre demande avant de la soumettre.",
+      "review": "Récapitulatif de votre demande",
+      "selectedVertical": "Filiale sélectionnée",
+      "projectDetails": "Détails du projet",
+      "contactInfo": "Informations de contact",
+      "edit": "Modifier",
+      "submit": "Soumettre la demande chiffrée",
+      "submitting": "Soumission en cours...",
+      "disclaimer": "En soumettant cette demande, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité. Toutes les communications sont chiffrées de bout en bout."
+    },
+    "progress": {
+      "step": "Étape",
+      "of": "sur",
+      "completed": "Terminée",
+      "current": "En cours",
+      "upcoming": "À venir"
+    }
+  },
+  "quoteReceived": {
+    "title": "Demande Reçue",
+    "subtitle": "Votre demande de devis a été soumise avec succès.",
+    "reference": "Numéro de Référence",
+    "message": "Merci pour votre intérêt. Notre équipe analysera votre demande et vous contactera dans les 24 à 48 heures ouvrées avec une proposition personnalisée.",
+    "nextSteps": {
+      "title": "Prochaines Étapes",
+      "step1": {
+        "title": "Confirmation",
+        "description": "Vous recevrez un e-mail de confirmation avec votre numéro de référence."
+      },
+      "step2": {
+        "title": "Analyse",
+        "description": "Notre équipe analysera les exigences de votre projet et identifiera la meilleure approche."
+      },
+      "step3": {
+        "title": "Proposition",
+        "description": "Vous recevrez une proposition détaillée incluant la portée, le calendrier et les tarifs."
+      },
+      "step4": {
+        "title": "Briefing",
+        "description": "Un briefing approfondi avec notre équipe technique sera planifié."
+      }
+    },
+    "actions": {
+      "scheduleBriefing": "Planifier un Briefing",
+      "downloadSummary": "Télécharger le Récapitulatif",
+      "backToHome": "Retour à l'Accueil"
+    },
+    "security": {
+      "title": "Sécurité et Confidentialité",
+      "description": "Votre demande est chiffrée de bout en bout et stockée sur nos serveurs souverains au Maroc. Seul le personnel autorisé y a accès."
+    }
+  },
+  "thesis": {
+    "title": "Notre Thèse",
+    "subtitle": "La voie de l'Afrique vers la souveraineté industrielle",
+    "introduction": {
+      "title": "Le Cas pour la Souveraineté Infrastructurelle Africaine",
+      "description": "L'Afrique se trouve à un point d'inflexion historique. Avec 1,4 milliard d'habitants, la population la plus jeune du monde et les plus vastes réserves de ressources non exploitées, le continent possède les fondements de la transformation industrielle. Pourtant, il reste structurellement dépendant des chaînes d'approvisionnement étrangères pour ses besoins les plus critiques — énergie, technologie, matériaux de construction et sécurité alimentaire."
+    },
+    "theProblem": {
+      "title": "Le Problème",
+      "description": "L'Afrique importe plus de 80% de sa technologie, dépend de combustibles fossiles importés pour son électricité et ne traite qu'une fraction de ses propres ressources minérales. Cette dépendance structurelle sape la souveraineté économique, crée des vulnérabilités de sécurité et perpétue l'extraction de valeur du continent.",
+      "dependencies": {
+        "technology": {
+          "title": "Dépendance Technologique",
+          "description": "Plus de 80% de l'infrastructure cloud africaine est hébergée en dehors du continent, créant des risques de souveraineté des données et une latence pour les applications critiques."
+        },
+        "energy": {
+          "title": "Insécurité Énergétique",
+          "description": "600 millions d'Africains n'ont pas accès à l'électricité. Ceux qui en ont paient des tarifs parmi les plus élevés au monde pour une fiabilité parmi les plus faibles."
+        },
+        "materials": {
+          "title": "Fuite de Matériaux",
+          "description": "L'Afrique exporte ses minéraux bruts et réimporte les produits finis à 10-100x le prix, capturant une fraction de la chaîne de valeur."
+        },
+        "food": {
+          "title": "Insécurité Alimentaire",
+          "description": "Malgré 60% des terres arables non cultivées du monde, l'Afrique importe 35 milliards de dollars de nourriture chaque année."
+        }
+      }
+    },
+    "theSolution": {
+      "title": "Notre Solution",
+      "description": "Harch Corp aborde ces défis par l'intégration verticale — contrôlant l'ensemble de la chaîne de valeur de la matière première au produit fini. Nos 8 filiales couvrent les piliers critiques de l'infrastructure : calcul IA, énergie, ciment, eau, minéraux, agriculture, finance et technologie.",
+      "pillars": {
+        "compute": {
+          "title": "Calcul Souverain",
+          "description": "Cloud GPU conscient du carbone avec hébergement local de données. L'IA africaine sur une infrastructure africaine."
+        },
+        "energy": {
+          "title": "Énergie Renouvelable",
+          "description": "Pipeline de 2GW+ en solaire, éolien et hydrogène vert. Électricité industrielle zéro carbone à prix compétitif."
+        },
+        "materials": {
+          "title": "Matériaux Intégrés",
+          "description": "Du ciment à l'extraction minière, contrôle vertical de la matière première à la livraison."
+        },
+        "water": {
+          "title": "Sécurité Hydrique",
+          "description": "Dessalement alimenté par l'énergie solaire et réseaux intelligents. Résoudre la crise de l'eau."
+        },
+        "food": {
+          "title": "Sécurité Alimentaire",
+          "description": "Agriculture de précision et fermes verticales. Nourrir le continent par la technologie."
+        },
+        "finance": {
+          "title": "Architecture Financière",
+          "description": "Obligations vertes, finance islamique et crédits carbone. Structurer les capitaux pour les mégaprojets."
+        }
+      }
+    },
+    "competitiveAdvantage": {
+      "title": "Avantage Concurrentiel",
+      "description": "Le modèle intégré de Harch Corp crée des effets de réseau qui sont impossibles à répliquer par des entreprises mono-ligne. Notre cimenterie alimente nos chantiers de construction. Notre énergie alimente nos centres de données. Notre finance structure les capitaux pour nos filiales. Chaque filiale renforce les autres.",
+      "moats": {
+        "verticalIntegration": {
+          "title": "Intégration Verticale",
+          "description": "Contrôle de bout en bout de la chaîne de valeur élimine les dépendances externes et maximise les marges."
+        },
+        "carbonAdvantage": {
+          "title": "Avantage Carbone",
+          "description": "Le réseau marocain à ~47 gCO2/kWh offre un avantage de coût et de conformité pour les opérations sensibles au carbone."
+        },
+        "sovereignData": {
+          "title": "Données Souveraines",
+          "description": "Hébergement local des données avec conformité RGPD et ISO 27001. Les données africaines restent en Afrique."
+        },
+        "geographicPosition": {
+          "title": "Position Géographique",
+          "description": "Le Maroc est la passerelle entre l'Afrique et l'Europe, avec un accès maritime, des accords de libre-échange et une proximité avec les marchés européens."
+        }
+      }
+    },
+    "marketOpportunity": {
+      "title": "Opportunité de Marché",
+      "description": "Le déficit d'infrastructure de l'Afrique est estimé entre 68 et 108 milliards de dollars par an. C'est un problème massif — et une opportunité massive. Harch Corp est positionnée pour capturer une part significative de ce marché par son approche intégrée.",
+      "tam": {
+        "label": "Marché Adressable Total",
+        "value": "2 000 Md$+",
+        "description": "Déficit d'infrastructure cumulé de l'Afrique sur la prochaine décennie"
+      },
+      "sam": {
+        "label": "Marché Adressable de Service",
+        "value": "120 Md$+",
+        "description": "Marché d'infrastructure dans nos secteurs et géographies cibles"
+      },
+      "som": {
+        "label": "Marché Objet de Service",
+        "value": "2,4 Md$+",
+        "description": "Notre pipeline d'investissement initial à travers 8 filiales"
+      }
+    },
+    "cta": {
+      "title": "Investir dans la Souveraineté Africaine",
+      "subtitle": "Rejoignez les investisseurs institutionnels qui financent l'infrastructure de la prochaine génération de l'Afrique.",
+      "primary": "Relations Investisseurs",
+      "secondary": "Lire la Thèse Complète"
+    }
+  },
+  "platform": {
+    "title": "Plateforme HarchOS",
+    "subtitle": "Le Centre des Opérations pour l'Infrastructure Souveraine",
+    "description": "HarchOS est le système d'exploitation unifié qui gère l'ensemble du portefeuille d'infrastructure de Harch Corp — des centres de données GPU aux parcs solaires, des réseaux d'eau aux cimenteries.",
+    "architecture": {
+      "title": "Architecture HarchOS",
+      "description": "Une architecture en trois couches conçue pour la souveraineté, la vitesse et la fiabilité."
+    },
+    "capabilities": {
+      "title": "Capacités",
+      "realTimeMonitoring": {
+        "title": "Surveillance en Temps Réel",
+        "description": "Visibilité complète de l'ensemble du portefeuille d'infrastructure avec surveillance en temps réel, alertes et analyses prédictives."
+      },
+      "carbonAwareScheduling": {
+        "title": "Planification Consciente du Carbone",
+        "description": "Optimisation automatique de la charge de travail en fonction de l'intensité carbone du réseau, minimisant l'empreinte carbone opérationnelle."
+      },
+      "predictiveMaintenance": {
+        "title": "Maintenance Prédictive",
+        "description": "IA et apprentissage automatique pour prévoir les défaillances d'équipement avant qu'elles ne se produisent, réduisant les temps d'arrêt de 40%."
+      },
+      "resourceOptimization": {
+        "title": "Optimisation des Ressources",
+        "description": "Allocation intelligente des ressources à travers toutes les filiales, maximisant l'efficacité et minimisant le gaspillage."
+      },
+      "securityOperations": {
+        "title": "Opérations de Sécurité",
+        "description": "Centre des opérations de sécurité 24/7/365 avec détection des menaces, réponse aux incidents et conformité automatisée."
+      },
+      "complianceAutomation": {
+        "title": "Automatisation de la Conformité",
+        "description": "Conformité automatisée pour RGPD, ISO 27001 et SOC 2 avec rapports et pistes d'audit en temps réel."
+      }
+    },
+    "integrations": {
+      "title": "Intégrations",
+      "description": "HarchOS s'intègre nativement avec l'ensemble du portefeuille Harch Corp.",
+      "intelligence": "Harch Intelligence — Orchestration GPU et planification de charge",
+      "energy": "Harch Energy — Gestion du réseau et stockage d'énergie",
+      "cement": "Harch Cement — Contrôle de processus industriel et logistique",
+      "water": "Harch Water — Qualité de l'eau et optimisation de la distribution",
+      "mining": "Harch Mining — Suivi de l'extraction et optimisation du traitement",
+      "agriculture": "Harch Agri — Surveillance des cultures et gestion IoT",
+      "finance": "Harch Finance — Traçabilité des flux de capitaux et conformité",
+      "technology": "Harch Technology — Communications satellite et cybersécurité"
+    },
+    "api": {
+      "title": "API HarchOS",
+      "description": "API complète pour l'intégration avec vos systèmes existants.",
+      "documentation": "Documentation API",
+      "endpoints": "Points de terminaison",
+      "rateLimits": "Limites de débit",
+      "authentication": "Authentification",
+      "webhooks": "Webhooks"
+    },
+    "cta": {
+      "title": "Commencer avec HarchOS",
+      "subtitle": "Demandez un accès à la plateforme et découvrez comment HarchOS peut transformer vos opérations d'infrastructure.",
+      "primary": "Demander un Accès",
+      "secondary": "Voir la Documentation"
+    }
+  },
+  "subsidiaries": {
+    "title": "Nos Filiales",
+    "subtitle": "8 Filiales. 5 Pays. 1 Vision.",
+    "description": "Chaque filiale Harch est conçue pour opérer de manière autonome tout en bénéficiant de l'écosystème intégré. Ensemble, elles forment le système d'infrastructure souverain le plus complet d'Afrique.",
+    "viewDetails": "Voir les détails",
+    "requestQuote": "Demander un devis",
+    "filterBy": "Filtrer par secteur",
+    "allSectors": "Tous les secteurs",
+    "sectors": {
+      "technology": "Technologie",
+      "energy": "Énergie",
+      "industrial": "Industrie",
+      "resources": "Ressources",
+      "finance": "Finance"
+    },
+    "statusLabels": {
+      "active": "Actif",
+      "inDevelopment": "En développement",
+      "planned": "Planifié",
+      "permitting": "Permis en cours",
+      "prospecting": "Prospection"
+    }
+  },
+  "subsidiaryDetail": {
+    "title": "Détails de la Filiale",
+    "backToSubsidiaries": "Retour aux Filiales",
+    "overview": "Aperçu",
+    "keyMetrics": "Indicateurs Clés",
+    "capabilities": "Capacités",
+    "leadership": "Direction",
+    "projects": "Projets",
+    "timeline": "Chronologie",
+    "requestQuote": "Demander un Devis",
+    "contactTeam": "Contacter l'Équipe",
+    "relatedSubsidiaries": "Filiales Connexes",
+    "investmentDetails": "Détails de l'Investissement",
+    "capacity": "Capacité",
+    "status": "Statut",
+    "location": "Localisation",
+    "founded": "Fondée",
+    "employees": "Employés"
+  },
+  "intelligence": {
+    "title": "Harch Intelligence",
+    "subtitle": "Cloud GPU Conscient du Carbone pour l'Afrique",
+    "description": "Le premier cloud IA souverain d'Afrique avec planification de charge sensible au carbone en temps réel. 1 798 GPU répartis sur 5 hubs au Maroc, alimentés par une énergie renouvelable à ~47 gCO2/kWh.",
+    "heroBadge": "Cloud GPU Conscient du Carbone",
+    "keyFeatures": {
+      "title": "Caractéristiques Clés",
+      "carbonAware": {
+        "title": "Planification Consciente du Carbone",
+        "description": "Orchestration automatique des charges de travail IA en fonction de l'intensité carbone du réseau en temps réel, minimisant l'empreinte environnementale."
+      },
+      "sovereignHosting": {
+        "title": "Hébergement Souverain",
+        "description": "Données hébergées exclusivement au Maroc avec conformité RGPD, ISO 27001 et résidence des données garantie."
+      },
+      "lowLatency": {
+        "title": "Faible Latence Africaine",
+        "description": "Hubs d'inference locaux conçus pour les marchés africains, offrant des latences 5-10x inférieures aux fournisseurs cloud européens ou américains."
+      },
+      "gpuClusters": {
+        "title": "Clusters GPU de Pointe",
+        "description": "Accès aux derniers GPU NVIDIA avec mise à l'échelle élastique et facturation à la seconde près."
+      }
+    },
+    "pricing": {
+      "title": "Tarification GPU",
+      "description": "Tarification transparente et compétitive pour le calcul IA souverain.",
+      "perHour": "/heure",
+      "perMonth": "/mois",
+      "onDemand": "À la demande",
+      "reserved": "Réservé",
+      "spot": "Spot"
+    },
+    "specs": {
+      "title": "Spécifications",
+      "totalGpus": "Total GPU",
+      "hubs": "Hubs",
+      "carbonIntensity": "Intensité Carbone",
+      "renewableShare": "Part Renouvelable",
+      "latency": "Latence",
+      "uptime": "Disponibilité",
+      "encryption": "Chiffrement",
+      "compliance": "Conformité"
+    },
+    "useCases": {
+      "title": "Cas d'Usage",
+      "government": {
+        "title": "Gouvernement et Défense",
+        "description": "Calcul IA souverain pour les applications gouvernementales critiques et de défense nationale."
+      },
+      "enterprise": {
+        "title": "Entreprise",
+        "description": "Cloud GPU pour l'entraînement et l'inference de modèles IA avec conformité des données garantie."
+      },
+      "research": {
+        "title": "Recherche Académique",
+        "description": "Accès abordable au calcul GPU pour les institutions de recherche africaines."
+      },
+      "startup": {
+        "title": "Startups IA",
+        "description": "Infrastructure GPU évolutive pour les startups IA africaines en croissance rapide."
+      }
+    },
+    "cta": {
+      "title": "Commencer avec Harch Intelligence",
+      "primary": "Demander un Accès",
+      "secondary": "Voir la Documentation API"
+    }
+  },
+  "harchos": {
+    "title": "HarchOS",
+    "subtitle": "Le Système d'Exploitation de l'Infrastructure Souveraine",
+    "description": "HarchOS est le système nerveux central du portefeuille Harch Corp — unifiant la surveillance, la prise de décision et l'exécution à travers 8 filiales d'infrastructure.",
+    "architecture": {
+      "title": "Architecture SENSE-THINK-ACT",
+      "sense": {
+        "title": "SENSE",
+        "subtitle": "Perception",
+        "description": "Capteurs IoT, flux de télémétrie et agrégation de données en temps réel à travers toutes les filiales. Plus de 50 000 points de données surveillés en continu.",
+        "capabilities": [
+          "Surveillance IoT à l'échelle du réseau",
+          "Ingestion de données en temps réel",
+          "Détection d'anomalies automatisée",
+          "Télémétrie satellite et au sol"
+        ]
+      },
+      "think": {
+        "title": "THINK",
+        "subtitle": "Analyse",
+        "description": "Moteurs d'IA et d'apprentissage automatique pour l'analyse prédictive, l'optimisation et la prise de décision autonome. Planification consciente du carbone et allocation des ressources.",
+        "capabilities": [
+          "Maintenance prédictive par IA",
+          "Planification consciente du carbone",
+          "Optimisation des ressources multi-filiales",
+          "Modélisation et simulation prédictive"
+        ]
+      },
+      "act": {
+        "title": "ACT",
+        "subtitle": "Exécution",
+        "description": "Commandes automatisées, basculement de charge et réponse aux incidents en temps réel. De la détection à la résolution en secondes, pas en heures.",
+        "capabilities": [
+          "Basculement de charge automatisé",
+          "Réponse aux incidents en temps réel",
+          "Contrôle de processus industriel",
+          "Évacuation de charge sensible au carbone"
+        ]
+      }
+    },
+    "features": {
+      "title": "Caractéristiques",
+      "dashboard": {
+        "title": "Tableau de Bord Unifié",
+        "description": "Vue unique de l'ensemble du portefeuille d'infrastructure avec surveillance en temps réel, alertes et indicateurs de performance."
+      },
+      "carbonAware": {
+        "title": "Orchestration Consciente du Carbone",
+        "description": "Optimisation automatique de la charge de travail en fonction de l'intensité carbone du réseau, déplaçant les charges vers les périodes et régions les plus propres."
+      },
+      "security": {
+        "title": "Centre des Opérations de Sécurité",
+        "description": "Opérations de sécurité 24/7/365 avec détection des menaces pilotée par l'IA, réponse automatisée aux incidents et rapports de conformité."
+      },
+      "compliance": {
+        "title": "Conformité Automatisée",
+        "description": "Surveillance et rapports de conformité continus pour RGPD, ISO 27001 et SOC 2 avec pistes d'audit et preuves automatisées."
+      },
+      "api": {
+        "title": "API Complète",
+        "description": "API RESTful complète avec authentification OAuth 2.0, limites de débit et documentation interactive pour l'intégration avec les systèmes existants."
+      },
+      "mobile": {
+        "title": "Application Mobile",
+        "description": "Surveillance et gestion mobiles avec alertes push, approbations et commandes vocales pour les opérateurs en déplacement."
+      }
+    },
+    "specs": {
+      "title": "Spécifications Techniques",
+      "uptime": "Disponibilité SLA 99,99 %",
+      "latency": "Latence de détection < 100 ms",
+      "dataPoints": "50 000+ points de données surveillés",
+      "integrations": "8 intégrations filiales natives",
+      "encryption": "Chiffrement AES-256 de bout en bout",
+      "compliance": "RGPD, ISO 27001, SOC 2 Type II"
+    },
+    "cta": {
+      "title": "Accéder à HarchOS",
+      "subtitle": "Demandez une démonstration et découvrez comment HarchOS unifie les opérations d'infrastructure souveraine.",
+      "primary": "Demander une Démonstration",
+      "secondary": "Documentation API"
+    }
+  },
+  "investors": {
+    "title": "Relations Investisseurs",
+    "subtitle": "Investir dans la souveraineté infrastructurelle de l'Afrique",
+    "description": "Harch Corp offre aux investisseurs institutionnels un accès unique au plus grand déficit d'infrastructure du monde, structuré à travers un conglomérat intégré verticalement avec des avantages concurrentiels défendables.",
+    "keyFigures": {
+      "title": "Chiffres Clés",
+      "investmentPipeline": {
+        "label": "Pipeline d'Investissement",
+        "value": "2,4 Md$",
+        "description": "Engagement de capital à travers 8 filiales"
+      },
+      "renewableShare": {
+        "label": "Part Renouvelable",
+        "value": "81,5 %",
+        "description": "Part du réseau marocain issue de sources renouvelables"
+      },
+      "targetMarkets": {
+        "label": "Marchés Cibles",
+        "value": "5+",
+        "description": "Pays à travers l'Afrique du Nord et de l'Ouest"
+      },
+      "employmentTarget": {
+        "label": "Objectif d'Emploi",
+        "value": "25 000+",
+        "description": "Emplois directs et indirects d'ici 2030"
+      }
+    },
+    "capitalAllocation": {
+      "title": "Allocation du Capital",
+      "description": "Répartition stratégique du capital à travers les filiales pour maximiser les synergies inter-filiales et les rendements ajustés au risque.",
+      "intelligence": "Intelligence — 320 M$",
+      "energy": "Énergie — 890 M$",
+      "cement": "Ciment — 280 M$",
+      "water": "Eau — 410 M$",
+      "mining": "Mines — 195 M$",
+      "agriculture": "Agriculture — 145 M$",
+      "finance": "Finance — 95 M$",
+      "technology": "Technologie — 65 M$"
+    },
+    "thesis": {
+      "title": "Thèse d'Investissement",
+      "description": "Le déficit d'infrastructure de l'Afrique est estimé entre 68 et 108 milliards de dollars par an. Harch Corp capture cette opportunité par l'intégration verticale, l'avantage carbone et la souveraineté des données.",
+      "readFullThesis": "Lire la Thèse Complète"
+    },
+    "governance": {
+      "title": "Gouvernance",
+      "description": "Harch Corp est régie par un conseil d'administration indépendant avec des comités d'audit, de rémunération et de gouvernance. Nous adhérons aux normes de gouvernance d'entreprise les plus élevées.",
+      "boardIndependence": "Indépendance du Conseil",
+      "auditCommittee": "Comité d'Audit",
+      "compensationCommittee": "Comité de Rémunération",
+      "governanceCommittee": "Comité de Gouvernance"
+    },
+    "documents": {
+      "title": "Documents Investisseurs",
+      "description": "Accédez aux rapports financiers, présentations et documents réglementaires.",
+      "annualReport": "Rapport Annuel",
+      "quarterlyUpdate": "Mise à Jour Trimestrielle",
+      "investorPresentation": "Présentation Investisseurs",
+      "financialStatements": "États Financiers",
+      "esgReport": "Rapport ESG",
+      "factSheet": "Fiche Synoptique"
+    },
+    "cta": {
+      "title": "Devenir Investisseur",
+      "subtitle": "Rejoignez les investisseurs institutionnels qui financent l'infrastructure de la prochaine génération de l'Afrique.",
+      "primary": "Planifier un Briefing Investisseur",
+      "secondary": "Télécharger la Fiche Synoptique"
+    }
+  },
+  "careers": {
+    "title": "Carrières",
+    "subtitle": "Construisez la Souveraineté. Pas un CV.",
+    "description": "Harch Corp ne recrute pas des employés — nous recrutons des opérateurs. Des personnes qui pensent en systèmes, exécutent avec discipline et sont déterminées par la mission de souveraineté africaine.",
+    "culture": {
+      "title": "Culture Opérateur",
+      "description": "Nous opérons comme une unité d'élite — discipline, autonomie et responsabilité. Pas de bureaucratie, pas de comités, pas de courriels sans fin. Juste mission, exécution et résultats.",
+      "principles": [
+        "Penser en systèmes, pas en tâches",
+        "La vitesse est une caractéristique, pas un luxe",
+        "La propriété signifie la responsabilité du résultat final",
+        "La hiérarchie sert la mission, pas l'ego"
+      ]
+    },
+    "openRoles": {
+      "title": "Postes Ouverts",
+      "description": "Postes ouverts à travers toutes les filiales et fonctions. Nous recrutons sur la compétence, pas sur les titres.",
+      "noRoles": "Aucun poste ouvert pour le moment. Revenez bientôt ou envoyez une candidature spontanée.",
+      "viewRole": "Voir le poste",
+      "apply": "Postuler",
+      "locations": "Localisations",
+      "remote": "Télétravail",
+      "onsite": "Sur site",
+      "hybrid": "Hybride",
+      "fullTime": "Temps plein",
+      "contract": "Contrat"
+    },
+    "benefits": {
+      "title": "Avantages",
+      "description": "Une rémunération qui reflète la valeur que vous créez.",
+      "items": [
+        "Rémunération concurrentielle au niveau du marché avec participation aux bénéfices",
+        "Couverture santé complète pour vous et votre famille",
+        "Équipement de qualité professionnelle — choisissez vos outils",
+        "Budget de formation annuel de 5 000 $",
+        "Politique de congés flexible — les résultats comptent, pas les heures",
+        "Accès à l'infrastructure IA pour les projets personnels"
+      ]
+    },
+    "values": {
+      "title": "Ce que Nous Valorisons",
+      "description": "Nous ne cherchons pas des employés modèles. Nous cherchons des opérateurs.",
+      "traits": [
+        "Pensée systémique — Vous voyez les interconnexions, pas seulement les composants",
+        "Biais d'action — Vous préférez l'exécution imparfaite à la planification parfaite",
+        "Résilience — Vous prospérez dans l'ambiguïté et l'incertitude",
+        "Alignement missionnaire — Vous êtes motivé par la souveraineté africaine"
+      ]
+    },
+    "cta": {
+      "title": "Rejoindre la Mission",
+      "subtitle": "Vous ne trouvez pas le poste qui vous correspond ? Envoyez-nous une candidature spontanée.",
+      "primary": "Voir les Postes Ouverts",
+      "secondary": "Candidature Spontanée"
+    }
+  },
+  "hiringProcess": {
+    "title": "Processus de Recrutement",
+    "subtitle": "Transparence totale, zéro bureaucratie.",
+    "description": "Notre processus de recrutement est conçu pour être rapide, transparent et respectueux de votre temps. Pas d'entretiens interminables, pas de devoirs non rémunérés, pas de silence radio.",
+    "steps": {
+      "title": "6 Étapes. 2 Semaines. Zéro BS.",
+      "step1": {
+        "title": "Candidature",
+        "description": "Soumettez votre candidature en ligne. Pas de lettre de motivation — juste vos réalisations et votre réflexion."
+      },
+      "step2": {
+        "title": "Examen du Dossier",
+        "description": "Notre équipe examine votre candidature dans les 48 heures. Critères : compétence, alignement missionnaire et pensée systémique."
+      },
+      "step3": {
+        "title": "Appel de Découverte",
+        "description": "Conversation de 30 minutes avec un responsable d'équipe. Pas de quiz, pas de tests de codage en direct — juste une discussion réelle sur votre parcours."
+      },
+      "step4": {
+        "title": "Exercice Pratique",
+        "description": "Un exercice pratique rémunéré lié à votre rôle. Durée : 2-4 heures. Vous êtes rémunéré pour votre temps et votre travail."
+      },
+      "step5": {
+        "title": "Entretien Panel",
+        "description": "Discussion de 60 minutes avec 2-3 membres de l'équipe. Axée sur la résolution de problèmes, pas sur les questions comportementales."
+      },
+      "step6": {
+        "title": "Offre",
+        "description": "Décision dans les 48 heures suivant le panel. Offre détaillée avec rémunération, avantages et date de début."
+      }
+    },
+    "traits": {
+      "title": "Ce que Nous Recherchons",
+      "description": "Nous évaluons les candidats sur quatre dimensions, pas sur des mots-clés de CV.",
+      "systemsThinking": {
+        "title": "Pensée Systémique",
+        "description": "Capacité à voir les interconnexions et les émergences, pas seulement les composants isolés."
+      },
+      "actionBias": {
+        "title": "Biais d'Action",
+        "description": "Préférence pour l'exécution rapide sur la délibération prolongée. Faites d'abord, optimisez ensuite."
+      },
+      "resilience": {
+        "title": "Résilience",
+        "description": "Capacité à prospérer dans l'ambiguïté, l'incertitude et le changement rapide."
+      },
+      "missionAlignment": {
+        "title": "Alignement Missionnaire",
+        "description": "Motivation authentique par la souveraineté industrielle africaine, pas seulement par la rémunération."
+      }
+    },
+    "tips": {
+      "title": "Conseils pour les Candidats",
+      "description": "Comment se démarquer dans notre processus.",
+      "items": [
+        "Montrez, ne dites pas — Liens vers votre travail, pas des descriptions",
+        "Pensez en systèmes — Montrez comment vous comprenez les interconnexions",
+        "Soyez direct — Nous valorisons la concision et la clarté",
+        "Posez des questions difficiles — Les meilleurs candidats nous testent aussi",
+        "Ne vous excusez pas pour ce que vous ne savez pas — Dites-nous comment vous l'apprendrez"
+      ]
+    },
+    "accommodations": {
+      "title": "Aménagements",
+      "description": "Nous accueillons les candidats de tous horizons et offrons des aménagements raisonnables à chaque étape du processus. Si vous avez besoin d'un aménagement, n'hésitez pas à nous en informer — cela n'affectera pas votre candidature.",
+      "contact": "Aménagements du processus de recrutement"
+    }
+  },
+  "pricing": {
+    "title": "Tarifs",
+    "subtitle": "Infrastructure transparente. Tarification transparente.",
+    "description": "Des tarifs simples et prévisibles pour l'infrastructure souveraine. Pas de frais cachés, pas de surprises, pas de verrouillage fournisseur.",
+    "tiers": {
+      "starter": {
+        "name": "Starter",
+        "subtitle": "Gratuit",
+        "price": "0 $",
+        "period": "/mois",
+        "description": "Parfait pour explorer la plateforme et les projets personnels.",
+        "features": [
+          "5 heures GPU / mois",
+          "Surveillance basique de l'infrastructure",
+          "Accès à la documentation API",
+          "Support communautaire",
+          "1 projet"
+        ],
+        "cta": "Commencer Gratuitement",
+        "popular": false
+      },
+      "professional": {
+        "name": "Professional",
+        "subtitle": "Pour les équipes en croissance",
+        "price": "2 500 $",
+        "period": "/mois",
+        "description": "Pour les équipes qui ont besoin de calcul IA sérieux et d'un support dédié.",
+        "features": [
+          "500 heures GPU / mois",
+          "Surveillance complète de l'infrastructure",
+          "Accès API complet",
+          "Support prioritaire par e-mail",
+          "Projets illimités",
+          "Planification consciente du carbone",
+          "Rapports de conformité",
+          "SLA 99,9 %"
+        ],
+        "cta": "Commencer l'Essai",
+        "popular": true
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "subtitle": "Sur mesure",
+        "price": "Sur mesure",
+        "period": "",
+        "description": "Pour les organisations qui ont besoin d'une infrastructure souveraine à l'échelle.",
+        "features": [
+          "Heures GPU illimitées",
+          "Centre des opérations dédié",
+          "API dédiée + intégrations",
+          "Support dédié 24/7",
+          "Projets illimités",
+          "Planification consciente du carbone avancée",
+          "Conformité personnalisée (RGPD, ISO, SOC 2)",
+          "SLA 99,99 %",
+          "Hébergement souverain des données",
+          "Directeur de compte dédié"
+        ],
+        "cta": "Contacter les Ventes",
+        "popular": false
+      },
+      "sovereign": {
+        "name": "Sovereign",
+        "subtitle": "Gouvernement et Défense",
+        "price": "Classifié",
+        "period": "",
+        "description": "Infrastructure classifiée pour les agences gouvernementales et les organisations de défense.",
+        "features": [
+          "Infrastructure classifiée",
+          "Hébergement souverain des données",
+          "Centre des opérations de sécurité dédié",
+          "Support militaire 24/7/365",
+          "Habilitation de sécurité requise",
+          "Conformité réglementaire complète",
+          "Communications chiffrées",
+          "Architecture air-gap disponible"
+        ],
+        "cta": "Demander un Briefing",
+        "popular": false
+      }
+    },
+    "calculator": {
+      "title": "Calculateur de Coûts GPU",
+      "description": "Estimez vos coûts en fonction de votre utilisation GPU.",
+      "gpuType": "Type de GPU",
+      "hoursPerMonth": "Heures par mois",
+      "estimatedCost": "Coût estimé",
+      "carbonSavings": "Économies carbone vs moyenne du réseau",
+      "calculate": "Calculer"
+    },
+    "gpuPricing": {
+      "title": "Tarification GPU Détaillée",
+      "description": "Tarification transparente à la demande pour tous les types de GPU.",
+      "gpu": "GPU",
+      "vram": "VRAM",
+      "onDemandPrice": "Prix à la demande",
+      "reservedPrice": "Prix réservé (1 an)",
+      "spotPrice": "Prix spot"
+    },
+    "faq": {
+      "title": "Questions Fréquentes sur les Tarifs",
+      "items": {
+        "q1": {
+          "question": "Y a-t-il des frais cachés ?",
+          "answer": "Non. Tous les prix sont transparents et affichés clairement. Pas de frais de bande passante, pas de frais de stockage cachés, pas de surprises."
+        },
+        "q2": {
+          "question": "Puis-je changer de plan à tout moment ?",
+          "answer": "Oui. Vous pouvez évoluer vers un plan supérieur à tout moment. Les rétrogradages prennent effet à la fin de votre période de facturation en cours."
+        },
+        "q3": {
+          "question": "Comment fonctionne la planification consciente du carbone ?",
+          "answer": "Notre orchestrateur surveille l'intensité carbone du réseau en temps réel et déplace automatiquement les charges de travail vers les périodes et régions les plus propres, réduisant votre empreinte carbone jusqu'à 40%."
+        },
+        "q4": {
+          "question": "Qu'est-ce que l'hébergement souverain des données ?",
+          "answer": "Vos données restent exclusivement au Maroc sur une infrastructure que nous contrôlons. Pas de transfert de données transfrontalier, pas de dépendance vis-à-vis de fournisseurs cloud étrangers."
+        },
+        "q5": {
+          "question": "Quelles options de paiement acceptez-vous ?",
+          "answer": "Nous acceptons les virements bancaires, les cartes de crédit professionnelles et les paiements en monnaie locale pour les clients marocains et africains."
+        }
+      }
+    },
+    "cta": {
+      "title": "Besoin d'une Solution Personnalisée ?",
+      "subtitle": "Contactez notre équipe commerciale pour une proposition sur mesure.",
+      "primary": "Demander un Devis",
+      "secondary": "Comparer les Plans"
+    }
+  },
+  "press": {
+    "title": "Presse",
+    "subtitle": "Ressources pour les Médias",
+    "description": "Accédez aux communiqués de presse, à la fiche synoptique, aux ressources de marque et aux contacts médias pour Harch Corp.",
+    "newsroom": {
+      "title": "Rédaction",
+      "description": "Les dernières nouvelles et annonces de Harch Corp.",
+      "latestReleases": "Derniers Communiqués",
+      "viewAll": "Voir tous les communiqués"
+    },
+    "factSheet": {
+      "title": "Fiche Synoptique",
+      "description": "Informations clés sur Harch Corp en un coup d'œil.",
+      "founded": "Fondée",
+      "headquarters": "Siège Social",
+      "capital": "Capital",
+      "verticals": "Filiales",
+      "countries": "Pays",
+      "employees": "Employés",
+      "downloadPdf": "Télécharger le PDF"
+    },
+    "brandAssets": {
+      "title": "Ressources de Marque",
+      "description": "Téléchargez les logos, les directives de marque et les ressources visuelles.",
+      "logoKit": "Kit Logo",
+      "brandGuidelines": "Directives de Marque",
+      "colorPalette": "Palette de Couleurs",
+      "typography": "Typographie",
+      "imagery": "Banque d'Images",
+      "downloadAll": "Tout Télécharger"
+    },
+    "mediaContact": {
+      "title": "Contact Médias",
+      "description": "Pour les demandes de presse, les interviews et les opportunités média.",
+      "name": "Équipe Relations Publiques",
+      "email": "presse@harchcorp.com",
+      "phone": "+212 5XX-XXXXXX",
+      "responseTime": "Nous répondons aux demandes de presse dans les 4 heures ouvrées."
+    }
+  },
+  "partners": {
+    "title": "Partenaires",
+    "subtitle": "Écosystème de Partenaires",
+    "description": "Harch Corp collabore avec des leaders mondiaux en technologie, finance, industrie et gouvernement pour délivrer une infrastructure souveraine de classe mondiale.",
+    "categories": {
+      "technology": {
+        "title": "Partenaires Technologiques",
+        "description": "Leaders en matériel, logiciel et IA qui alimentent notre pile technologique."
+      },
+      "financial": {
+        "title": "Partenaires Financiers",
+        "description": "Institutions de financement du développement, banques d'investissement et fonds de private equity."
+      },
+      "industrial": {
+        "title": "Partenaires Industriels",
+        "description": "Entreprises de construction, d'ingénierie et d'approvisionnement pour la construction d'infrastructure."
+      },
+      "government": {
+        "title": "Partenaires Gouvernementaux",
+        "description": "Agences gouvernementales et institutions multilatérales soutenant le développement des infrastructures."
+      }
+    },
+    "becomePartner": {
+      "title": "Devenir Partenaire",
+      "description": "Rejoignez l'écosystème de partenaires Harch Corp et aidez à construire l'infrastructure souveraine de l'Afrique.",
+      "benefits": {
+        "title": "Avantages Partenaires",
+        "items": [
+          "Accès anticipé à la plateforme HarchOS",
+          "Co-développement et intégration conjointe",
+          "Pipeline de référencement mutuel",
+          "Co-marketing et événements conjoints",
+          "Support technique dédié"
+        ]
+      },
+      "cta": "Demander le Statut de Partenaire"
+    }
+  },
+  "support": {
+    "title": "Support",
+    "subtitle": "Centre d'Aide Harch",
+    "description": "Trouvez des réponses, résolvez des problèmes et obtenez l'aide dont vous avez besoin pour votre infrastructure souveraine.",
+    "tiers": {
+      "community": {
+        "title": "Support Communautaire",
+        "description": "Gratuit pour tous les utilisateurs. Forums communautaires, documentation et questions fréquentes.",
+        "features": [
+          "Forums communautaires",
+          "Documentation et guides",
+          "FAQ et base de connaissances",
+          "Réponses de la communauté"
+        ]
+      },
+      "professional": {
+        "title": "Support Professionnel",
+        "description": "Pour les équipes qui ont besoin de réponses garanties et d'un support dédié.",
+        "features": [
+          "Support par e-mail avec SLA de 4 heures",
+          "Support chat avec SLA de 1 heure",
+          "Accès prioritaire aux mises à jour",
+          "Gestion de compte dédiée"
+        ]
+      },
+      "enterprise": {
+        "title": "Support Enterprise",
+        "description": "Support premium 24/7 pour les infrastructures critiques avec ingénieurs dédiés.",
+        "features": [
+          "Support téléphonique 24/7/365",
+          "Ingénieur dédié assigné",
+          "SLA de réponse de 15 minutes",
+          "Escalade prioritaire",
+          "Revue de santé trimestrielle",
+          "Planification d'incidents personnalisée"
+        ]
+      }
+    },
+    "knowledgeBase": {
+      "title": "Base de Connaissances",
+      "description": "Articles, guides et tutoriels pour vous aider à tirer le meilleur parti de votre infrastructure.",
+      "search": "Rechercher dans la base de connaissances...",
+      "popularArticles": "Articles Populaires",
+      "categories": "Catégories",
+      "recentlyUpdated": "Récemment Mis à Jour"
+    },
+    "ticketSystem": {
+      "title": "Système de Tickets",
+      "description": "Soumettez et suivez vos demandes de support.",
+      "createTicket": "Créer un Ticket",
+      "ticketNumber": "Numéro de Ticket",
+      "subject": "Sujet",
+      "description": "Description",
+      "priority": "Priorité",
+      "priorities": {
+        "low": "Faible",
+        "medium": "Moyenne",
+        "high": "Élevée",
+        "critical": "Critique"
+      },
+      "status": "Statut",
+      "statuses": {
+        "open": "Ouvert",
+        "inProgress": "En cours",
+        "waitingForCustomer": "En attente du client",
+        "resolved": "Résolu",
+        "closed": "Fermé"
+      },
+      "submitTicket": "Soumettre le Ticket",
+      "viewTickets": "Voir les Tickets"
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "subtitle": "Réponses aux questions les plus courantes sur Harch Corp.",
+    "description": "Trouvez des réponses rapides aux questions les plus posées sur notre entreprise, nos produits et nos services.",
+    "categories": {
+      "general": "Général",
+      "technology": "Technologie",
+      "security": "Sécurité",
+      "pricing": "Tarifs",
+      "partnerships": "Partenariats"
+    },
+    "items": {
+      "q1": {
+        "question": "Qu'est-ce que Harch Corp ?",
+        "answer": "Harch Corp est un conglomérat d'infrastructure souverain basé à Casablanca, Maroc. Nous opérons à travers 8 filiales verticales couvrant le calcul IA, l'énergie renouvelable, la production de ciment, le dessalement, l'extraction minière, l'agriculture, la finance et la technologie."
+      },
+      "q2": {
+        "question": "Que signifie « souverain » ?",
+        "answer": "Souverain signifie que nos systèmes sont conçus avec la souveraineté des données et l'autonomie opérationnelle comme principes fondamentaux. Les données sont hébergées localement au Maroc, les communications sont chiffrées de bout en bout, et nous ne dépendons d'aucune infrastructure étrangère."
+      },
+      "q3": {
+        "question": "Où sont hébergées les données ?",
+        "answer": "Toutes les données sont hébergées exclusivement au Maroc sur une infrastructure que nous contrôlons. Aucun transfert de données transfrontalier, aucune dépendance vis-à-vis de fournisseurs cloud étrangers."
+      },
+      "q4": {
+        "question": "Qu'est-ce que le cloud GPU conscient du carbone ?",
+        "answer": "Notre cloud GPU est alimenté par l'énergie renouvelable marocaine à ~47 gCO2/kWh — parmi les plus basses au monde. Notre orchestrateur déplace automatiquement les charges de travail vers les périodes et régions les plus propres, réduisant l'empreinte carbone jusqu'à 40%."
+      },
+      "q5": {
+        "question": "Dans quels pays opérez-vous ?",
+        "answer": "Nous opérons actuellement au Maroc avec des déploiements prévus en Gambie, au Sénégal, en Mauritanie et en Algérie. Notre objectif est d'étendre nos opérations à 5+ pays d'ici 2030."
+      },
+      "q6": {
+        "question": "Comment puis-je investir dans Harch Corp ?",
+        "answer": "Harch Corp travaille avec des investisseurs institutionnels qualifiés. Veuillez visiter notre page Relations Investisseurs pour en savoir plus ou demander un briefing investisseur."
+      },
+      "q7": {
+        "question": "Quelles certifications de sécurité possédez-vous ?",
+        "answer": "Nous sommes conformes RGPD, certifiés ISO 27001 et SOC 2 Type II. Toutes les communications sont chiffrées avec AES-256 et nos opérations de sécurité fonctionnent 24/7/365."
+      },
+      "q8": {
+        "question": "Comment devenir partenaire ?",
+        "answer": "Nous accueillons les partenariats technologiques, financiers, industriels et gouvernementaux. Veuillez visiter notre page Partenaires pour en savoir plus ou soumettre une demande de statut de partenaire."
+      },
+      "q9": {
+        "question": "Qu'est-ce que HarchOS ?",
+        "answer": "HarchOS est notre système d'exploitation unifié qui gère l'ensemble du portefeuille d'infrastructure. Il utilise une architecture SENSE-THINK-ACT pour la surveillance en temps réel, l'analyse par IA et l'exécution automatisée à travers toutes les filiales."
+      },
+      "q10": {
+        "question": "Comment puis-je postuler chez Harch Corp ?",
+        "answer": "Visitez notre page Carrières pour voir les postes ouverts ou soumettre une candidature spontanée. Notre processus de recrutement est conçu pour être rapide et transparent — 6 étapes, 2 semaines, zéro bureaucratie."
+      },
+      "q11": {
+        "question": "Quels types de GPU sont disponibles ?",
+        "answer": "Nous proposons une gamme de GPU NVIDIA incluant les séries H100, A100 et L40S. Tous sont alimentés par de l'énergie renouvelable et sont disponibles à la demande, en réservation ou au prix spot."
+      },
+      "q12": {
+        "question": "Proposez-vous des solutions gouvernementales classifiées ?",
+        "answer": "Oui, notre plan Sovereign offre une infrastructure classifiée pour les agences gouvernementales et les organisations de défense, avec hébergement souverain des données, centre des opérations de sécurité dédié et architecture air-gap disponible."
+      }
+    },
+    "contact": {
+      "title": "Vous n'avez pas trouvé votre réponse ?",
+      "description": "Notre équipe est là pour vous aider.",
+      "cta": "Contacter le Support"
+    }
+  },
+  "sidebar": {
+    "title": "Navigation",
+    "sections": {
+      "main": "Principal",
+      "company": "Entreprise",
+      "products": "Produits",
+      "resources": "Ressources",
+      "legal": "Juridique",
+      "account": "Compte"
+    },
+    "labels": {
+      "home": "Accueil",
+      "about": "À propos",
+      "platform": "Plateforme",
+      "subsidiaries": "Filiales",
+      "investors": "Investisseurs",
+      "careers": "Carrières",
+      "pricing": "Tarifs",
+      "docs": "Documentation",
+      "blog": "Blog",
+      "contact": "Contact",
+      "quote": "Demander un Devis",
+      "thesis": "Thèse",
+      "strategy": "Stratégie",
+      "community": "Communauté",
+      "news": "Actualités",
+      "press": "Presse",
+      "support": "Support",
+      "faq": "FAQ",
+      "trust": "Confiance",
+      "security": "Sécurité",
+      "compliance": "Conformité",
+      "legal": "Juridique",
+      "status": "Statut",
+      "intelligence": "Intelligence",
+      "harchos": "HarchOS",
+      "events": "Événements",
+      "learn": "Apprendre",
+      "glossary": "Glossaire",
+      "mission": "Mission",
+      "deployments": "Déploiements",
+      "partners": "Partenaires",
+      "hiringProcess": "Processus de Recrutement",
+      "settings": "Paramètres",
+      "profile": "Profil",
+      "signOut": "Déconnexion"
+    },
+    "ctas": {
+      "quote": "Demander un Devis",
+      "demo": "Demander une Démonstration",
+      "briefing": "Planifier un Briefing",
+      "investor": "Relations Investisseurs"
+    }
   },
   "cookieConsent": {
     "title": "Nous respectons votre vie privée",
@@ -54,6 +1884,9 @@
     "customize": "Personnaliser",
     "necessary": "Nécessaires",
     "analytics": "Analytique",
-    "marketing": "Marketing"
+    "marketing": "Marketing",
+    "necessaryDescription": "Ces cookies sont nécessaires au fonctionnement du site et ne peuvent pas être désactivés.",
+    "analyticsDescription": "Ces cookies nous permettent de compter les visites et les sources de trafic afin de mesurer et d'améliorer les performances de notre site.",
+    "marketingDescription": "Ces cookies peuvent être définis par nos partenaires publicitaires via notre site pour créer un profil de vos intérêts et vous montrer des publicités pertinentes."
   }
 }

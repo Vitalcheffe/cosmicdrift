@@ -78,3 +78,125 @@ Stage Summary:
 - Glossary expanded from 30+ to 43+ terms with SEO-targeted definitions
 - GitHub repos optimized with descriptions, topics, homepage links
 - Two commits pushed: e2be983 and dc7947e
+
+---
+Task ID: 7
+Agent: Subagent (general-purpose)
+Task: Extract Quote page translations (QuotePageClient.tsx + QuoteReceivedClient.tsx)
+
+Work Log:
+- Read /home/z/my-project/src/app/[locale]/quote/QuotePageClient.tsx (932 lines) completely
+- Read /home/z/my-project/src/app/[locale]/quote/received/QuoteReceivedClient.tsx (223 lines) completely
+- Extracted ALL user-facing English text from both files
+- Organized into "quote" and "quoteReceived" namespaces
+- Translated all text to professional French (business/formal tone for Moroccan infrastructure company)
+- Brand names kept unchanged (Harch Corp, Harch Intelligence, etc.)
+- Technical terms kept unchanged (GPU, MW, kWh, AES-256, TLS 1.3, SOC 2, ISO 27001, etc.)
+- Country names adapted for French audience
+- Comprehensive coverage: hero, steps, verticals data, project types, budgets, timelines, form labels, placeholders, validation, review section, transmit animation, received confirmation, next steps, data sovereignty, CTA
+
+---
+Task ID: 10
+Agent: Subagent (general-purpose)
+Task: Extract Investors+Careers+Pricing translations (4 page components)
+
+Work Log:
+- Read /home/z/my-project/src/app/[locale]/investors/InvestorsPageClient.tsx (134 lines)
+- Read /home/z/my-project/src/app/[locale]/careers/CareersPageClient.tsx (300 lines)
+- Read /home/z/my-project/src/app/[locale]/careers/hiring-process/HiringProcessPageClient.tsx (357 lines)
+- Read /home/z/my-project/src/app/[locale]/pricing/PricingPageClient.tsx (583 lines)
+- Extracted ALL user-facing English text from all 4 files (total ~1,374 lines)
+- Organized into 4 namespaces: "investors", "careers", "hiringProcess", "pricing"
+- Translated all text to professional French (business/formal tone for Moroccan infrastructure company)
+- Brand names kept unchanged (Harch Corp, HarchOS, Harch Ouarzazate)
+- Technical terms kept unchanged (GPU, SLA, SOC 2, ISO 27001, FIPS 140-2, NVMe, API, etc.)
+- Country/city names adapted for French (Morocco → Maroc, Gambia → Gambie, Mauritania → Mauritanie, Senegal → Sénégal)
+- Currency formatting adapted (2.4B+ → 2,4 Md$+, $0.50 → 0,50 $)
+- Position titles translated to French equivalents
+- Department names translated (Mining → Mines, Agri → Agri, etc.)
+- Coverage: hero sections, stat displays, position listings, selection processes, culture cards, benefits, hiring process steps, traits, tips, accommodations, pricing tiers, feature lists, GPU pricing table, carbon savings, cost optimization, FAQ, CTAs
+
+## Task 9: Extract Subsidiaries Translations
+**Date**: 2026-03-04
+**Status**: In Progress
+
+### Files Read:
+1. `/src/app/[locale]/subsidiaries/SubsidiariesPageClient.tsx` (199 lines)
+2. `/src/app/[locale]/subsidiaries/[slug]/SubsidiaryPageClient.tsx` (1357 lines)
+3. `/src/app/[locale]/subsidiaries/agriculture/HarchAgriPage.tsx` (1250 lines)
+4. `/src/app/[locale]/subsidiaries/finance/HarchFinancePage.tsx` (835 lines)
+
+### Scope:
+- 8 subsidiary listing cards (SubsidiariesPageClient)
+- 7 subsidiary detail pages with full data (SubsidiaryPageClient): Intelligence, Cement, Energy, Technology, Mining, Agriculture, Water
+- Custom agriculture page with 4 products, pricing, partnerships, roadmap, risks, competitive analysis
+- Custom finance page with 6 instruments, pipeline, partnership models, strategic advantages, risk management, roadmap
+
+### User-facing strings extracted:
+- Hero titles/subtitles, section labels, headings, descriptions
+- Metric labels, capability titles/descriptions, spec table entries
+- Milestone titles/descriptions, strategic advantage titles/descriptions
+- Partnership model titles/descriptions, competitor data
+- CTA text, button labels, badge text, alt text
+- Sustainability badges, form labels, table headers
+- Product data (agriculture), instrument data (finance)
+- Roadmap phases, risk entries, pipeline entries
+
+### Next: Write translation JSON
+
+---
+
+## Task 11-12: Extract Intelligence+Press+Partners+Support+FAQ Translations
+**Date**: 2026-03-05
+**Status**: Completed
+
+### Files Read:
+1. `/src/app/[locale]/intelligence/IntelligencePageClient.tsx` (168 lines)
+2. `/src/app/[locale]/intelligence/harchos/HarchOSPageClient.tsx` (948 lines)
+3. `/src/app/[locale]/press/PressPageClient.tsx` (277 lines)
+4. `/src/app/[locale]/partners/PartnersPageClient.tsx` (113 lines)
+5. `/src/app/[locale]/support/SupportPageClient.tsx` (436 lines)
+6. `/src/app/[locale]/faq/FaqPageClient.tsx` (264 lines)
+
+### Namespaces: intelligence, harchos, press, partners, support, faq
+
+### Scope:
+- **intelligence**: Hero, live dashboard metrics, data visualizations, 3 product cards (HarchOS, Hyperscale DCs, Green GPU Cloud), CTA
+- **harchos**: Full-screen hero, manifesto, infrastructure photo break, SENSE/THINK/ACT architecture (3 layers with specs), 5 hub distributed mesh with descriptions, ops center dashboard, 6 capabilities, 4 technical spec categories, 4 security features, 4 dev platform tools, network infrastructure, competitive landscape (7 competitors), 6-phase roadmap, CTA
+- **press**: Hero, 7 press releases with dates/titles/excerpts/categories, fact sheet (14 items), 6 brand assets, media contact (press inquiries + interview requests)
+- **partners**: Hero, 4 partner categories (Technology, Financial, Industrial, Government) with 5 partner types each, CTA
+- **support**: Hero, 3 support tiers (Community/Professional/Enterprise) with features, 4 quick actions, 6 knowledge base categories, ticket form (subject/priority/description/attachment), customer success (4 items), system status banner, CTA
+- **faq**: Breadcrumbs, hero, 6 category filters, 9 FAQ items with full Q&A, still-have-questions CTA
+
+### Translation approach:
+- Professional French (business/formal tone appropriate for Moroccan infrastructure company)
+- Brand names unchanged (HarchOS, Harch Corp, Harch Intelligence, etc.)
+- Technical terms unchanged (GPU, MW, kWh, PUE, SLA, GDPR, ISO 27001, SOC 2, etc.)
+- Proper nouns unchanged (Ouarzazate, Dakhla, Benguerir, Tanger, Casablanca, Gambia, etc.)
+- Competitive landscape competitor data kept as-is (product/company names, metric labels)
+- Quarter notation adapted: Q1→T1, Q3→T3
+- Currency formatting adapted where appropriate ($→$ kept for USD, MAD kept)
+
+### Translation JSON completed
+- Extracted ~500+ unique user-facing strings across 4 pages
+- Organized under: subsidiaries, subsidiaryDetail, agriculture, finance
+- French translations use professional/formal business tone
+- Brand names preserved: Harch Corp, Harch Intelligence, Harch Cement, Harch Energy, Harch Technology, Harch Mining, Harch Agri, Harch Water, Harch Finance, HarchAgri, HarchOS
+- Technical terms preserved: GPU, MW, kWh, IoT, CAGR, IRR, NPV, PUE, LCOE, PPA, DaaS, SaaS, LC3, PEM, LFP, REE, JORC, DFI, ECA, MIGA, SPV, LTV, DSCR, DTA, FTA, SDG, ACMI, VCS, AMMC, OHI, DIFC, etc.
+
+---
+Task ID: 8
+Agent: Subagent (general-purpose)
+Task: Extract Thesis+Platform translations
+
+Work Log:
+- Read /home/z/my-project/src/app/[locale]/thesis/ThesisClient.tsx (224 lines) completely
+- Read /home/z/my-project/src/app/[locale]/platform/PlatformPageClient.tsx (1051 lines) completely
+- Extracted ALL user-facing English text from both files
+- Organized into "thesis" and "platform" namespaces
+- Thesis page: hero, 2 ScrollReveal sections, 8 article sections, 3 image alts, CTA with 2 buttons
+- Platform page: hero header bar with status indicators, quick stats, global monitor map with 6 hub data, map legend, infrastructure health charts (3 charts with labels/footers), cement AI panel (big metric, 4 submetrics, efficiency trend, 4 status indicators), CTA with trust badges
+- Translated all text to professional French (business/formal tone for Moroccan infrastructure company)
+- Brand names kept unchanged (Harch Corp, Harch Intelligence, Harch Energy, Harch Mining, Harch Technology, Harch Water, Harch Cement, Harch Agri, HarchOS)
+- Technical terms kept unchanged (GPU, MW, kWh, gCO2/kWh, IoT, CO2, etc.)
+- City names kept as-is (Ouarzazate, Dakhla, Benguerir, Tanger, Casablanca, Kolwezi, etc.)

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     description: 'Harch Summit, workshops, webinars, and developer days.',
     url: 'https://www.harchcorp.com/events',
   },
+  alternates: { canonical: 'https://www.harchcorp.com/events' },
 };
 
 export default function EventsPage() {

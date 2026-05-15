@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     siteName: 'Harch Corp',
     type: 'website',
   },
+  alternates: { canonical: 'https://www.harchcorp.com/docs/sdks' },
 };
 
 export default function SdksPage() {

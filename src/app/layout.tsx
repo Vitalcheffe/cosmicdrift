@@ -440,7 +440,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="canonical" href="https://www.harchcorp.com" />
+        {/* Canonical URLs are managed per-page via metadata exports — DO NOT add a global canonical here */}
         <link rel="alternate" type="application/rss+xml" title="Harch Corp Blog RSS Feed" href="https://www.harchcorp.com/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="Harch Corp Newsroom Feed" href="https://www.harchcorp.com/feed.xml" />
         <meta name="theme-color" content="#0A0A0A" />

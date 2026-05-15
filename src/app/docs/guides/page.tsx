@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     siteName: 'Harch Corp',
     type: 'website',
   },
+  alternates: { canonical: 'https://www.harchcorp.com/docs/guides' },
 };
 
 export default function GuidesPage() {

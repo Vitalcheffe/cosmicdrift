@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     title: 'Cost Calculator — Carbon-Aware HarchOS Pricing',
     description: 'Calculate GPU compute costs. From $1.40/gpu-hr at ~47 gCO2/kWh. See 40-60% savings vs AWS, GCP, Azure.',
   },
+  alternates: { canonical: 'https://www.harchcorp.com/pricing/calculator' },
 };
 
 export default function CalculatorPage() {

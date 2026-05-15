@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     title: 'API Playground — HarchOS',
     description: 'Interactive API playground. Test endpoints, build requests, and generate code snippets.',
   },
+  alternates: { canonical: 'https://www.harchcorp.com/developers/playground' },
 };
 
 export default function PlaygroundPage() {

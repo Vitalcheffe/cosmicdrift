@@ -116,6 +116,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: 'GOOGLE_VERIFICATION_CODE_PLACEHOLDER',
+  },
+  other: {
+    'google-site-verification': 'GOOGLE_VERIFICATION_CODE_PLACEHOLDER',
+  },
 };
 
 export default function RootLayout({

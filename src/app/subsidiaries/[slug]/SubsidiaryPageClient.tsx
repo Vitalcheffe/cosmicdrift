@@ -1329,16 +1329,26 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
               {data.name} is actively seeking strategic partners, investors, and customers who share our vision for African industrial sovereignty.
             </p>
 
-            <MagneticButton className="inline-block">
-              <Link
-                href="/subsidiaries"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[13px] font-bold tracking-[0.05em] uppercase text-white transition-all duration-300 hover:scale-105"
-                style={{ backgroundColor: accent }}
-              >
-                Explore Partnership
-                <ArrowRight size={16} />
-              </Link>
-            </MagneticButton>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <MagneticButton className="inline-block">
+                <Link
+                  href={`/quote?vertical=${slug}`}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[13px] font-bold tracking-[0.05em] uppercase text-black bg-white transition-all duration-300 hover:scale-105"
+                >
+                  Request a Quote
+                  <ArrowRight size={16} />
+                </Link>
+              </MagneticButton>
+              <MagneticButton className="inline-block">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[13px] font-bold tracking-[0.05em] uppercase text-white border border-[rgba(255,255,255,0.15)] hover:border-[rgba(255,255,255,0.3)] transition-all duration-300 hover:scale-105"
+                >
+                  Request Briefing
+                  <ArrowRight size={16} />
+                </Link>
+              </MagneticButton>
+            </div>
           </FadeIn>
         </div>
       </section>

@@ -1264,8 +1264,13 @@ export default function HomePageClient() {
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticButton className="inline-block">
-                <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all duration-300">
-                  Get Started <ArrowRight size={14} />
+                <Link href="/quote" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all duration-300">
+                  Request a Quote <ArrowRight size={14} />
+                </Link>
+              </MagneticButton>
+              <MagneticButton className="inline-block">
+                <Link href="/contact" className="inline-flex items-center gap-2.5 border border-[rgba(139,157,175,0.2)] bg-[rgba(139,157,175,0.04)] text-[#8B9DAF] px-8 py-4 rounded-lg text-sm font-semibold hover:border-[rgba(139,157,175,0.3)] hover:text-white transition-all duration-300">
+                  Request Briefing
                 </Link>
               </MagneticButton>
               <MagneticButton className="inline-block">

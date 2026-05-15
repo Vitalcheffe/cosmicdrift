@@ -24,6 +24,7 @@ const companyLinks = [
   { name: 'Careers', href: '/careers' },
   { name: 'Partners', href: '/partners' },
   { name: 'Press & Media', href: '/press' },
+  { name: 'Request a Quote', href: '/quote' },
   { name: 'Request Briefing', href: '/contact' },
 ];
 

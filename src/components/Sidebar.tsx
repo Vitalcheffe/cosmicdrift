@@ -285,9 +285,16 @@ export function Sidebar() {
               {/* Bottom: CTAs */}
               <div className="mt-4 pt-5 border-t border-[rgba(139,157,175,0.08)] space-y-2">
                 <Link
-                  href="/contact"
+                  href="/quote"
                   onClick={closeSidebar}
                   className="block w-full text-center bg-white text-black text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-white/90 transition-colors font-[family-name:var(--font-space-mono)]"
+                >
+                  Request a Quote
+                </Link>
+                <Link
+                  href="/contact"
+                  onClick={closeSidebar}
+                  className="block w-full text-center border border-[rgba(139,157,175,0.2)] bg-[rgba(139,157,175,0.04)] text-[#8B9DAF] text-[9px] tracking-[0.1em] uppercase px-4 py-2 rounded-md font-semibold hover:border-[rgba(139,157,175,0.3)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)]"
                 >
                   Request Briefing
                 </Link>

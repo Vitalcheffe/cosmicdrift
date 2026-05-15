@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.harchcorp.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'harchcorp.com',
+      },
     ],
   },
   async headers() {
@@ -45,6 +49,10 @@ const nextConfig: NextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
           },
         ],
       },
@@ -74,6 +82,21 @@ const nextConfig: NextConfig = {
             value: 'public, max-age=3600',
           },
         ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'harchcorp.com',
+          },
+        ],
+        destination: 'https://www.harchcorp.com/:path*',
+        permanent: true,
       },
     ];
   },

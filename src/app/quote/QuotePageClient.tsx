@@ -155,7 +155,9 @@ const projectTypes: Record<string, { label: string; examples: string[] }[]> = {
 };
 
 const budgetRanges = [
-  'Under $1M',
+  'Under $100K',
+  '$100K — $500K',
+  '$500K — $1M',
   '$1M — $10M',
   '$10M — $50M',
   '$50M — $100M',
@@ -661,27 +663,64 @@ export default function QuotePageClient() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                          Country
+                          Country <span className="text-[#A0524B]">*</span>
                         </label>
-                        <input
-                          type="text"
+                        <select
                           value={formState.country}
                           onChange={(e) => setFormState({ ...formState, country: e.target.value })}
-                          className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                          placeholder="Country of operation"
-                        />
+                          className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-[#1A1A1A]">Select your country</option>
+                          <option value="Morocco" className="bg-[#1A1A1A]">Morocco (Maroc)</option>
+                          <option value="Senegal" className="bg-[#1A1A1A]">Senegal (Senegal)</option>
+                          <option value="Gambia" className="bg-[#1A1A1A]">Gambia</option>
+                          <option value="Cote d'Ivoire" className="bg-[#1A1A1A]">Cote d&apos;Ivoire</option>
+                          <option value="Nigeria" className="bg-[#1A1A1A]">Nigeria</option>
+                          <option value="Ghana" className="bg-[#1A1A1A]">Ghana</option>
+                          <option value="Mali" className="bg-[#1A1A1A]">Mali</option>
+                          <option value="Guinea" className="bg-[#1A1A1A]">Guinea</option>
+                          <option value="Burkina Faso" className="bg-[#1A1A1A]">Burkina Faso</option>
+                          <option value="Tunisia" className="bg-[#1A1A1A]">Tunisia</option>
+                          <option value="Algeria" className="bg-[#1A1A1A]">Algeria</option>
+                          <option value="Egypt" className="bg-[#1A1A1A]">Egypt</option>
+                          <option value="Mauritania" className="bg-[#1A1A1A]">Mauritania</option>
+                          <option value="UAE" className="bg-[#1A1A1A]">United Arab Emirates</option>
+                          <option value="Saudi Arabia" className="bg-[#1A1A1A]">Saudi Arabia</option>
+                          <option value="France" className="bg-[#1A1A1A]">France</option>
+                          <option value="United Kingdom" className="bg-[#1A1A1A]">United Kingdom</option>
+                          <option value="United States" className="bg-[#1A1A1A]">United States</option>
+                          <option value="Other" className="bg-[#1A1A1A]">Other</option>
+                        </select>
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                          Phone
+                          Phone / WhatsApp
                         </label>
                         <input
                           type="tel"
                           value={formState.phone}
                           onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                           className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                          placeholder="+212 XX XXX XXXX"
+                          placeholder="+212 / +221 / +220 ..."
                         />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* WhatsApp Direct Contact */}
+                  <div className="mt-8 p-4 border border-[rgba(74,123,95,0.15)] bg-[rgba(74,123,95,0.03)] rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <span className="text-[13px]">💬</span>
+                      <div>
+                        <p className="text-[12px] text-white/70">Prefer WhatsApp? Reach us directly</p>
+                        <a
+                          href="https://wa.me/212522000000?text=Hello%20Harch%20Corp%2C%20I%27d%20like%20to%20discuss%20a%20project."
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[12px] text-[#4A7B5F] hover:text-[#5A9B7F] font-semibold transition-colors"
+                        >
+                          +212 522 000 000 on WhatsApp →
+                        </a>
                       </div>
                     </div>
                   </div>

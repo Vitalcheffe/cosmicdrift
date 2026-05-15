@@ -227,6 +227,7 @@ export function Footer() {
               &copy; 2026 Harch Corp S.A. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
+              <a href="https://wa.me/212522000000" target="_blank" rel="noopener noreferrer" aria-label="Contact Harch Corp on WhatsApp" className="text-[10px] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1">WhatsApp</a>
               <a href="https://linkedin.com/company/harchcorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp LinkedIn" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">LinkedIn</a>
               <a href="https://twitter.com/harchcorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp Twitter" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">Twitter</a>
               <a href="https://github.com/HarchCorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp GitHub — Open Source" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">GitHub</a>

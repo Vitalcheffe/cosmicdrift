@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
 import { CursorGlow } from "@/components/CursorGlow";
 import { ClientLayout } from "@/components/ClientLayout";
+import { LanguageDetector, GoogleTranslateScript } from "@/components/LanguageDetector";
 
 
 const inter = Inter({
@@ -68,6 +69,12 @@ export const metadata: Metadata = {
   publisher: "Harch Corp S.A.",
   alternates: {
     canonical: 'https://www.harchcorp.com',
+    languages: {
+      'en': 'https://www.harchcorp.com',
+      'fr': 'https://www.harchcorp.com/?lang=fr',
+      'ar': 'https://www.harchcorp.com/?lang=ar',
+      'x-default': 'https://www.harchcorp.com',
+    },
   },
   icons: {
     icon: [
@@ -441,6 +448,10 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         {/* Canonical URLs are managed per-page via metadata exports — DO NOT add a global canonical here */}
+        <link rel="alternate" hrefLang="en" href="https://www.harchcorp.com" />
+        <link rel="alternate" hrefLang="fr" href="https://www.harchcorp.com/?lang=fr" />
+        <link rel="alternate" hrefLang="ar" href="https://www.harchcorp.com/?lang=ar" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.harchcorp.com" />
         <link rel="alternate" type="application/rss+xml" title="Harch Corp Blog RSS Feed" href="https://www.harchcorp.com/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="Harch Corp Newsroom Feed" href="https://www.harchcorp.com/feed.xml" />
         <meta name="theme-color" content="#0A0A0A" />
@@ -470,6 +481,8 @@ export default function RootLayout({
           <Footer />
         </div>
         <CookieConsent />
+        <LanguageDetector />
+        <GoogleTranslateScript />
         <CursorGlow />
       </body>
     </html>

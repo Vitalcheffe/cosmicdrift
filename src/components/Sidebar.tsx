@@ -6,89 +6,15 @@ import { usePathname } from 'next/navigation';
 import { Menu, ChevronDown, PanelLeftClose } from 'lucide-react';
 import { HarchLogo } from '@/components/HarchLogo';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
-const platformItems = [
-  { name: 'Platform Demo', version: '/0.0', href: '/platform' },
-  { name: 'HarchOS', version: '/0.1', href: '/intelligence/harchos' },
-  { name: 'Intelligence', version: '/0.2', href: '/subsidiaries/intelligence' },
-  { name: 'Cement', version: '/0.3', href: '/subsidiaries/cement' },
-  { name: 'Energy', version: '/0.4', href: '/subsidiaries/energy' },
-  { name: 'Technology', version: '/0.5', href: '/subsidiaries/technology' },
-  { name: 'Mining', version: '/0.6', href: '/subsidiaries/mining' },
-  { name: 'Agri', version: '/0.7', href: '/subsidiaries/agriculture' },
-  { name: 'Water', version: '/0.8', href: '/subsidiaries/water' },
-  { name: 'Finance', version: '/0.8', href: '/subsidiaries/finance' },
-];
+// Navigation items are now built inside the component using translations
+// to support the current locale dynamically.
 
-const missionItems = [
-  { name: 'Home', href: '/' },
-  { name: 'The Thesis', href: '/thesis' },
-  { name: 'About', href: '/about' },
-  { name: 'Strategy', href: '/strategy' },
-  { name: 'ESG', href: '/esg' },
-];
-
-const deploymentItems = [
-  { name: 'Global Presence', href: '/#global-presence' },
-  { name: 'Case Studies', href: '/case-studies' },
-  { name: 'Careers', href: '/careers' },
-  { name: 'Partners', href: '/partners' },
-  { name: 'Newsroom', href: '/newsroom' },
-  { name: 'Press & Media', href: '/press' },
-];
-
-const developerItems = [
-  { name: 'Developer Center', href: '/developers' },
-  { name: 'API Playground', href: '/developers/playground' },
-  { name: 'Open Source', href: '/developers/open-source' },
-  { name: 'Documentation', href: '/docs' },
-  { name: 'API Reference', href: '/docs/api' },
-  { name: 'SDKs', href: '/docs/sdks' },
-  { name: 'Architecture', href: '/docs/architecture' },
-  { name: 'Changelog', href: '/docs/changelog' },
-];
-
-const trustItems = [
-  { name: 'Trust Center', href: '/trust' },
-  { name: 'Security', href: '/trust/security' },
-  { name: 'Compliance', href: '/trust/compliance' },
-  { name: 'AI Ethics', href: '/trust/ai-ethics' },
-  { name: 'Vulnerability Disclosure', href: '/trust/vulnerability-disclosure' },
-];
-
-const resourceItems = [
-  { name: 'Blog', href: '/blog' },
-  { name: 'Engineering Blog', href: '/engineering-blog' },
-  { name: 'Community', href: '/community' },
-  { name: 'Events', href: '/events' },
-  { name: 'Learn & Certify', href: '/learn' },
-  { name: 'Glossary', href: '/glossary' },
-  { name: 'FAQ', href: '/faq' },
-  { name: 'Status', href: '/status' },
-];
-
-const businessItems = [
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'Calculator', href: '/pricing/calculator' },
-  { name: 'Customers', href: '/customers' },
-  { name: 'Support', href: '/support' },
-  { name: 'Startup Program', href: '/startup-program' },
-];
-
-const companyItems = [
-  { name: 'Leadership', href: '/company/leadership' },
-  { name: 'DEI', href: '/company/dei' },
-  { name: 'Harch Ventures', href: '/company/ventures' },
-  { name: 'Hiring Process', href: '/careers/hiring-process' },
-  { name: 'Legal Hub', href: '/legal/hub' },
-];
-
-const investorItems = [
-  { name: 'Investor Relations', href: '/investors' },
-  { name: 'Request Briefing', href: '/contact' },
-];
+type NavItem = { name: string; version?: string; href: string };
 
 export function Sidebar() {
+  const t = useTranslations('sidebar');
   const [isOpen, setIsOpen] = useState(false);
   const [platformsOpen, setPlatformsOpen] = useState(true);
   const [developersOpen, setDevelopersOpen] = useState(false);
@@ -96,6 +22,87 @@ export function Sidebar() {
   const [businessOpen, setBusinessOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const pathname = usePathname();
+
+  const platformItems: NavItem[] = [
+    { name: t('platformDemo'), version: '/0.0', href: '/platform' },
+    { name: t('harchos'), version: '/0.1', href: '/intelligence/harchos' },
+    { name: t('intelligence'), version: '/0.2', href: '/subsidiaries/intelligence' },
+    { name: t('cement'), version: '/0.3', href: '/subsidiaries/cement' },
+    { name: t('energy'), version: '/0.4', href: '/subsidiaries/energy' },
+    { name: t('technology'), version: '/0.5', href: '/subsidiaries/technology' },
+    { name: t('mining'), version: '/0.6', href: '/subsidiaries/mining' },
+    { name: t('agri'), version: '/0.7', href: '/subsidiaries/agriculture' },
+    { name: t('water'), version: '/0.8', href: '/subsidiaries/water' },
+    { name: t('finance'), version: '/0.8', href: '/subsidiaries/finance' },
+  ];
+
+  const missionItems: NavItem[] = [
+    { name: t('home'), href: '/' },
+    { name: t('thesis'), href: '/thesis' },
+    { name: t('about'), href: '/about' },
+    { name: t('strategy'), href: '/strategy' },
+    { name: t('esg'), href: '/esg' },
+  ];
+
+  const deploymentItems: NavItem[] = [
+    { name: t('globalPresence'), href: '/#global-presence' },
+    { name: t('caseStudies'), href: '/case-studies' },
+    { name: t('careers'), href: '/careers' },
+    { name: t('partners'), href: '/partners' },
+    { name: t('newsroom'), href: '/newsroom' },
+    { name: t('pressMedia'), href: '/press' },
+  ];
+
+  const developerItems: NavItem[] = [
+    { name: t('developerCenter'), href: '/developers' },
+    { name: t('apiPlayground'), href: '/developers/playground' },
+    { name: t('openSource'), href: '/developers/open-source' },
+    { name: t('documentation'), href: '/docs' },
+    { name: t('apiReference'), href: '/docs/api' },
+    { name: t('sdks'), href: '/docs/sdks' },
+    { name: t('architecture'), href: '/docs/architecture' },
+    { name: t('changelog'), href: '/docs/changelog' },
+  ];
+
+  const trustItems: NavItem[] = [
+    { name: t('trustCenter'), href: '/trust' },
+    { name: t('security'), href: '/trust/security' },
+    { name: t('compliance'), href: '/trust/compliance' },
+    { name: t('aiEthics'), href: '/trust/ai-ethics' },
+    { name: t('vulnerabilityDisclosure'), href: '/trust/vulnerability-disclosure' },
+  ];
+
+  const resourceItems: NavItem[] = [
+    { name: t('blog'), href: '/blog' },
+    { name: t('engineeringBlog'), href: '/engineering-blog' },
+    { name: t('community'), href: '/community' },
+    { name: t('events'), href: '/events' },
+    { name: t('learnCertify'), href: '/learn' },
+    { name: t('glossary'), href: '/glossary' },
+    { name: t('faq'), href: '/faq' },
+    { name: t('status'), href: '/status' },
+  ];
+
+  const businessItems: NavItem[] = [
+    { name: t('pricing'), href: '/pricing' },
+    { name: t('calculator'), href: '/pricing/calculator' },
+    { name: t('customers'), href: '/customers' },
+    { name: t('support'), href: '/support' },
+    { name: t('startupProgram'), href: '/startup-program' },
+  ];
+
+  const companyItems: NavItem[] = [
+    { name: t('leadership'), href: '/company/leadership' },
+    { name: t('dei'), href: '/company/dei' },
+    { name: t('harchVentures'), href: '/company/ventures' },
+    { name: t('hiringProcess'), href: '/careers/hiring-process' },
+    { name: t('legalHub'), href: '/legal/hub' },
+  ];
+
+  const investorItems: NavItem[] = [
+    { name: t('investorRelations'), href: '/investors' },
+    { name: t('requestBriefing'), href: '/contact' },
+  ];
 
   // Lock body scroll when sidebar is open
   useEffect(() => {
@@ -189,7 +196,7 @@ export function Sidebar() {
         onClick={toggleSidebar}
         style={{ left: isOpen ? 280 : 16 }}
         className="fixed top-5 z-50 w-9 h-9 flex items-center justify-center bg-[#111111]/90 backdrop-blur-md border border-[rgba(255,255,255,0.08)] rounded-lg shadow-lg touch-manipulation transition-all duration-300 ease-out hover:bg-[#111111] hover:border-[rgba(255,255,255,0.15)]"
-        aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
+        aria-label={isOpen ? t('closeNav') : t('openNav')}
         aria-expanded={isOpen}
       >
         {isOpen ? (
@@ -233,12 +240,12 @@ export function Sidebar() {
 
               {/* Navigation */}
               <nav className="flex-1 space-y-5 overflow-y-auto">
-                {collapsibleSection('Platforms', '#4A7B5F', platformItems, platformsOpen, setPlatformsOpen)}
+                {collapsibleSection(t('platforms'), '#4A7B5F', platformItems, platformsOpen, setPlatformsOpen)}
 
                 <div>
                   <p className={sectionLabel}>
                     <span className="inline-block w-1 h-1 rounded-full" style={{ backgroundColor: '#8B9DAF' }} />
-                    Mission
+                    {t('mission')}
                   </p>
                   <div className="space-y-0.5 mt-1">
                     {missionItems.map((item) => navLink(item.href, item.name))}
@@ -248,33 +255,33 @@ export function Sidebar() {
                 <div>
                   <p className={sectionLabel}>
                     <span className="inline-block w-1 h-1 rounded-full" style={{ backgroundColor: '#8B9DAF' }} />
-                    Deployments
+                    {t('deployments')}
                   </p>
                   <div className="space-y-0.5 mt-1">
                     {deploymentItems.map((item) => navLink(item.href, item.name))}
                   </div>
                 </div>
 
-                {collapsibleSection('Developers', '#8B9DAF', developerItems, developersOpen, setDevelopersOpen)}
+                {collapsibleSection(t('developers'), '#8B9DAF', developerItems, developersOpen, setDevelopersOpen)}
 
                 <div>
                   <p className={sectionLabel}>
                     <span className="inline-block w-1 h-1 rounded-full" style={{ backgroundColor: '#8B9DAF' }} />
-                    Trust
+                    {t('trust')}
                   </p>
                   <div className="space-y-0.5 mt-1">
                     {trustItems.map((item) => navLink(item.href, item.name))}
                   </div>
                 </div>
 
-                {collapsibleSection('Resources', '#666666', resourceItems, resourcesOpen, setResourcesOpen)}
-                {collapsibleSection('Business', '#666666', businessItems, businessOpen, setBusinessOpen)}
-                {collapsibleSection('Company', '#666666', companyItems, companyOpen, setCompanyOpen)}
+                {collapsibleSection(t('resources'), '#666666', resourceItems, resourcesOpen, setResourcesOpen)}
+                {collapsibleSection(t('business'), '#666666', businessItems, businessOpen, setBusinessOpen)}
+                {collapsibleSection(t('company'), '#666666', companyItems, companyOpen, setCompanyOpen)}
 
                 <div>
                   <p className={sectionLabel}>
                     <span className="inline-block w-1 h-1 rounded-full" style={{ backgroundColor: '#666666' }} />
-                    Investors
+                    {t('investors')}
                   </p>
                   <div className="space-y-0.5 mt-1">
                     {investorItems.map((item) => navLink(item.href, item.name))}
@@ -289,26 +296,26 @@ export function Sidebar() {
                   onClick={closeSidebar}
                   className="block w-full text-center bg-white text-black text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:bg-white/90 transition-colors font-[family-name:var(--font-space-mono)]"
                 >
-                  Request a Quote
+                  {t('ctas.quote')}
                 </Link>
                 <Link
                   href="/contact"
                   onClick={closeSidebar}
                   className="block w-full text-center border border-[rgba(139,157,175,0.2)] bg-[rgba(139,157,175,0.04)] text-[#8B9DAF] text-[9px] tracking-[0.1em] uppercase px-4 py-2 rounded-md font-semibold hover:border-[rgba(139,157,175,0.3)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)]"
                 >
-                  Request Briefing
+                  {t('ctas.briefing')}
                 </Link>
                 <Link
                   href="/careers"
                   onClick={closeSidebar}
                   className="block w-full text-center border border-[rgba(255,255,255,0.1)] bg-transparent text-[rgba(255,255,255,0.5)] text-[9px] tracking-[0.1em] uppercase px-4 py-2 rounded-md font-semibold hover:border-[rgba(255,255,255,0.2)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)]"
                 >
-                  Join the Team
+                  {t('joinTeam')}
                 </Link>
                 <div className="flex items-center justify-center gap-2 pt-1">
                   <span className="inline-block w-0.5 h-0.5 rounded-full bg-[#4A7B5F]" />
                   <p className="text-[9px] text-[rgba(255,255,255,0.2)] font-[family-name:var(--font-space-mono)]">
-                    v0.2.0 — Casablanca
+                    v0.2.0 — {t('casablanca')}
                   </p>
                 </div>
               </div>

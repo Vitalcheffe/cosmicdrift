@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import {
   ArrowRight, Landmark, TrendingUp, Shield, Globe, FileText,
   Leaf, Handshake, Building2, Scale, PiggyBank, BarChart3,
@@ -32,131 +33,134 @@ const ACCENT_RGB = '139,157,175';
    DATA — Strictly Harch Finance content
    ═══════════════════════════════════════════════════ */
 
+export default function HarchFinancePage() {
+  const t = useTranslations('subsidiaries');
+
 const data = {
-  name: 'Harch Finance',
+  name: t('finance.title'),
   version: '/0.8',
-  heroTitle: "Financing Africa's\nIndustrial\nTransformation",
-  heroSubtitle: "Structuring capital flows for sovereign infrastructure — from green bonds to project finance across 7 verticals",
+  heroTitle: t('finance.heroTitle'),
+  heroSubtitle: t('finance.heroSubtitle'),
   heroImage: '/images/sections/finance-district.jpg',
 
-  overview: "Africa's infrastructure financing gap exceeds $100 billion annually. Traditional development finance institutions and commercial banks struggle to structure instruments that match the continent's unique risk profiles — political volatility, currency exposure, and long project horizons deter conventional capital. Harch Finance exists to bridge this gap. As the financial engine of Harch Corp's 7-vertical industrial conglomerate, we structure capital flows that transform sovereign ambition into built reality — from green bonds funding renewable energy installations to sukuk instruments mobilizing Islamic capital for cement plants. Our cross-vertical integration enables risk management no standalone financial institution can replicate: revenue streams from energy, mining, cement, agriculture, and water operations create natural hedges that de-risk individual projects and attract capital at lower cost.",
+  overview: t('finance.overview'),
 
-  investmentPhilosophy: "Our philosophy is rooted in a single principle: sovereign capital for sovereign infrastructure. Africa does not need charity — it needs financial architecture that respects national sovereignty while attracting global capital at competitive rates. Harch Finance structures every instrument around this principle: local currency financing where possible, sovereign wealth fund partnerships that align interests, and ECA-backed structures that reduce political risk without surrendering control. The result is a financing model where capital serves infrastructure, not the other way around. Every bond we issue, every trade facility we structure, every sukuk we originate creates productive assets on African soil — generating returns for investors while building the industrial base the continent requires.",
+  investmentPhilosophy: t('finance.investmentPhilosophy'),
 
   metrics: [
-    { value: 2400, prefix: '$', suffix: 'M', label: 'Investment Pipeline', display: '$2.4B' },
-    { value: 7, prefix: '', suffix: '', label: 'Verticals Covered', display: '7' },
-    { value: 5, prefix: '', suffix: '', label: 'Countries Active', display: '5' },
-    { value: 25000, prefix: '', suffix: '+', label: 'Jobs Target', display: '25,000+' },
+    { value: 2400, prefix: '$', suffix: 'M', label: t('finance.metrics.investmentPipeline'), display: '$2.4B' },
+    { value: 7, prefix: '', suffix: '', label: t('finance.metrics.verticalsCovered'), display: '7' },
+    { value: 5, prefix: '', suffix: '', label: t('finance.metrics.countriesActive'), display: '5' },
+    { value: 25000, prefix: '', suffix: '+', label: t('finance.metrics.jobsTarget'), display: '25,000+' },
   ],
 
   financialInstruments: [
     {
       icon: Leaf,
-      name: 'Green Bonds',
-      tagline: 'Climate-Linked Debt Origination',
-      description: "IGB-certified green bonds funding renewable energy, sustainable cement, and low-carbon agriculture across Harch Corp's verticals. Each bond is backed by verifiable ESG metrics — from Harch Energy's 81.5% renewable generation to HarchAgri's carbon credit revenue. Our green bond framework aligns with ICMA Green Bond Principles and is verified by independent second-party opinions, enabling access to the $500+ billion global green bond market at favorable spreads.",
+      name: t('finance.instruments.greenBonds.name'),
+      tagline: t('finance.instruments.greenBonds.tagline'),
+      description: t('finance.instruments.greenBonds.description'),
       features: [
-        'ICMA Green Bond Principles aligned',
-        'Independent second-party verification',
-        'ESG-linked coupon step-downs',
-        'Cross-vertical revenue backing',
-        'Annual impact reporting with KPIs',
+        t('finance.instruments.greenBonds.features.0'),
+        t('finance.instruments.greenBonds.features.1'),
+        t('finance.instruments.greenBonds.features.2'),
+        t('finance.instruments.greenBonds.features.3'),
+        t('finance.instruments.greenBonds.features.4'),
       ],
       stats: [
-        { label: 'Market Size', value: '$500B+' },
-        { label: 'Spread Advantage', value: '15-25bps' },
-        { label: 'Tenor', value: '5-15yr' },
+        { label: t('finance.instruments.greenBonds.stats.marketSize.label'), value: '$500B+' },
+        { label: t('finance.instruments.greenBonds.stats.spreadAdvantage.label'), value: '15-25bps' },
+        { label: t('finance.instruments.greenBonds.stats.tenor.label'), value: '5-15yr' },
       ],
     },
     {
       icon: Landmark,
-      name: 'Project Finance',
-      tagline: 'Non-Recourse Structured Finance',
-      description: "Non-recourse and limited-recourse project finance structures for Harch Corp's capital-intensive verticals — cement plants, mining operations, data centers, and water infrastructure. Each SPV is ring-fenced with dedicated revenue streams, off-take agreements, and insurance wraps. Our project finance expertise spans the full lifecycle: from financial modeling and due diligence through syndication, closing, and post-financing covenant management.",
+      name: t('finance.instruments.projectFinance.name'),
+      tagline: t('finance.instruments.projectFinance.tagline'),
+      description: t('finance.instruments.projectFinance.description'),
       features: [
-        'Non-recourse SPV structures',
-        'Off-take agreement backing',
-        'MIGA political risk insurance',
-        'Phased drawdown mechanisms',
-        'Dedicated escrow and reserve accounts',
+        t('finance.instruments.projectFinance.features.0'),
+        t('finance.instruments.projectFinance.features.1'),
+        t('finance.instruments.projectFinance.features.2'),
+        t('finance.instruments.projectFinance.features.3'),
+        t('finance.instruments.projectFinance.features.4'),
       ],
       stats: [
-        { label: 'Avg Tenor', value: '7-12yr' },
-        { label: 'LTV Ratio', value: '60-75%' },
-        { label: 'DSCR Target', value: '>1.3x' },
+        { label: t('finance.instruments.projectFinance.stats.avgTenor.label'), value: '7-12yr' },
+        { label: t('finance.instruments.projectFinance.stats.ltvRatio.label'), value: '60-75%' },
+        { label: t('finance.instruments.projectFinance.stats.dscrTarget.label'), value: '>1.3x' },
       ],
     },
     {
       icon: CreditCard,
-      name: 'Trade Finance',
-      tagline: 'Cross-Border Commodity Finance',
-      description: "End-to-end trade finance facilities for Harch Corp's import and export operations — from cement and clinker shipments to agricultural commodity flows. Letters of credit, documentary collections, and supply chain financing structured through Moroccan and international banking partners. Morocco's double taxation treaties with 60+ countries and its growing network of free trade agreements create unique structural advantages for trade finance origination.",
+      name: t('finance.instruments.tradeFinance.name'),
+      tagline: t('finance.instruments.tradeFinance.tagline'),
+      description: t('finance.instruments.tradeFinance.description'),
       features: [
-        'LC issuance and confirmation',
-        'Supply chain financing programs',
-        'Commodity hedging integration',
-        '60+ DTA network leverage',
-        'Morocco FTA advantages',
+        t('finance.instruments.tradeFinance.features.0'),
+        t('finance.instruments.tradeFinance.features.1'),
+        t('finance.instruments.tradeFinance.features.2'),
+        t('finance.instruments.tradeFinance.features.3'),
+        t('finance.instruments.tradeFinance.features.4'),
       ],
       stats: [
-        { label: 'DTA Network', value: '60+' },
-        { label: 'Facility Size', value: '$50-200M' },
-        { label: 'Settlement', value: 'T+1' },
+        { label: t('finance.instruments.tradeFinance.stats.dtaNetwork.label'), value: '60+' },
+        { label: t('finance.instruments.tradeFinance.stats.facilitySize.label'), value: '$50-200M' },
+        { label: t('finance.instruments.tradeFinance.stats.settlement.label'), value: 'T+1' },
       ],
     },
     {
       icon: Coins,
-      name: 'Islamic Finance (Sukuk)',
-      tagline: 'Sharia-Compliant Capital Markets',
-      description: "Sukuk structures that mobilize Islamic capital — an estimated $4 trillion global pool — for African infrastructure. Ijarah (lease-backed), Musharakah (joint venture), and Murabahah (cost-plus) sukuk tailored to each vertical's cash flow profile. Morocco's 2015 Islamic finance legislation and the establishment of participatory banks create a domestic regulatory framework for sukuk origination, positioning Harch Finance as a bridge between Gulf Islamic capital and African industrial opportunity.",
+      name: t('finance.instruments.islamicFinance.name'),
+      tagline: t('finance.instruments.islamicFinance.tagline'),
+      description: t('finance.instruments.islamicFinance.description'),
       features: [
-        'Ijarah, Musharakah, Murabahah structures',
-        'Sharia supervisory board oversight',
-        'Morocco participatory bank framework',
-        'GCC investor roadshow capability',
-        'Dual-listing (Casablanca + Dubai)',
+        t('finance.instruments.islamicFinance.features.0'),
+        t('finance.instruments.islamicFinance.features.1'),
+        t('finance.instruments.islamicFinance.features.2'),
+        t('finance.instruments.islamicFinance.features.3'),
+        t('finance.instruments.islamicFinance.features.4'),
       ],
       stats: [
-        { label: 'Global Pool', value: '$4T' },
-        { label: 'Target Coupon', value: '5-7%' },
-        { label: 'Tenor', value: '5-10yr' },
+        { label: t('finance.instruments.islamicFinance.stats.globalPool.label'), value: '$4T' },
+        { label: t('finance.instruments.islamicFinance.stats.targetCoupon.label'), value: '5-7%' },
+        { label: t('finance.instruments.islamicFinance.stats.tenor.label'), value: '5-10yr' },
       ],
     },
     {
       icon: Target,
-      name: 'Impact Investment',
-      tagline: 'SDG-Aligned Return Optimization',
-      description: "Impact-first investment vehicles that generate measurable social and environmental returns alongside competitive financial returns. Every Harch Finance impact vehicle is mapped to specific UN Sustainable Development Goals — SDG 7 (Clean Energy), SDG 8 (Decent Work), SDG 9 (Industry & Infrastructure), SDG 13 (Climate Action) — with quarterly impact reporting and independent verification. Our 25,000+ jobs target is not aspirational; it is a covenant in every impact vehicle we structure.",
+      name: t('finance.instruments.impactInvestment.name'),
+      tagline: t('finance.instruments.impactInvestment.tagline'),
+      description: t('finance.instruments.impactInvestment.description'),
       features: [
-        'SDG-aligned impact frameworks',
-        'Quarterly impact reporting',
-        'IMP/NLP impact measurement',
-        'Jobs covenant — 25,000+ target',
-        'Independent impact verification',
+        t('finance.instruments.impactInvestment.features.0'),
+        t('finance.instruments.impactInvestment.features.1'),
+        t('finance.instruments.impactInvestment.features.2'),
+        t('finance.instruments.impactInvestment.features.3'),
+        t('finance.instruments.impactInvestment.features.4'),
       ],
       stats: [
-        { label: 'SDGs Mapped', value: '4' },
-        { label: 'Jobs Covenant', value: '25K+' },
-        { label: 'IRR Target', value: '15-20%' },
+        { label: t('finance.instruments.impactInvestment.stats.sdgsMapped.label'), value: '4' },
+        { label: t('finance.instruments.impactInvestment.stats.jobsCovenant.label'), value: '25K+' },
+        { label: t('finance.instruments.impactInvestment.stats.irrTarget.label'), value: '15-20%' },
       ],
     },
     {
       icon: Banknote,
-      name: 'Carbon Credit Monetization',
-      tagline: 'Emissions-to-Revenue Pipeline',
-      description: "Forward monetization of carbon credits generated across Harch Corp's verticals — from Harch Energy's renewable generation offsets to HarchAgri's agricultural sequestration credits. The Carbon API calculates, certifies, and tokenizes credits via Verra (VCS) and Gold Standard registries, enabling forward sale agreements and carbon-backed securitization. With the ACMI initiative targeting 20x growth in African carbon credits by 2030, Harch Finance's carbon credit monetization desk transforms emissions reductions into upfront capital for project development.",
+      name: t('finance.instruments.carbonCredit.name'),
+      tagline: t('finance.instruments.carbonCredit.tagline'),
+      description: t('finance.instruments.carbonCredit.description'),
       features: [
-        'Native Carbon API integration',
-        'Verra VCS + Gold Standard certified',
-        'Forward sale agreements',
-        'Carbon-backed securitization',
-        'ACMI-aligned — 20x growth by 2030',
+        t('finance.instruments.carbonCredit.features.0'),
+        t('finance.instruments.carbonCredit.features.1'),
+        t('finance.instruments.carbonCredit.features.2'),
+        t('finance.instruments.carbonCredit.features.3'),
+        t('finance.instruments.carbonCredit.features.4'),
       ],
       stats: [
-        { label: 'Credit Value/yr', value: '$2M+' },
-        { label: 'Growth Target', value: '20x' },
-        { label: 'Standards', value: 'VCS+GS' },
+        { label: t('finance.instruments.carbonCredit.stats.creditValue.label'), value: '$2M+' },
+        { label: t('finance.instruments.carbonCredit.stats.growthTarget.label'), value: '20x' },
+        { label: t('finance.instruments.carbonCredit.stats.standards.label'), value: 'VCS+GS' },
       ],
     },
   ],
@@ -164,151 +168,147 @@ const data = {
   partnershipModels: [
     {
       icon: Handshake,
-      title: 'Co-Investment',
-      desc: "Joint investment alongside strategic partners — sovereign wealth funds, DFIs, and institutional investors — with Harch Finance as anchor originator and co-investor. Our co-investment model aligns interests: Harch Corp contributes operational expertise and cross-vertical synergies, while partners bring capital and global networks. Profit-sharing mechanisms ensure that returns are distributed proportionally to risk and contribution.",
+      title: t('finance.partnershipModels.coinvestment.title'),
+      desc: t('finance.partnershipModels.coinvestment.desc'),
     },
     {
       icon: Shield,
-      title: 'ECA-Backed Financing',
-      desc: "Export credit agency-backed financing structures that de-risk projects for commercial lenders and investors. ECA coverage — from institutions like Euler Hermes, SACE, and COFACE — provides political risk insurance and payment guarantees that reduce spreads by 50-100 basis points and extend tenors to 12+ years. Morocco's strategic relationships with European ECAs create a privileged channel for originating ECA-backed facilities.",
+      title: t('finance.partnershipModels.ecaBacked.title'),
+      desc: t('finance.partnershipModels.ecaBacked.desc'),
     },
     {
       icon: Building2,
-      title: 'Sovereign Wealth Fund Partnerships',
-      desc: "Strategic partnerships with Gulf and Asian sovereign wealth funds seeking African infrastructure exposure. Long-duration, patient capital that matches the 10-20 year horizon of industrial infrastructure. Harch Finance structures dedicated co-investment vehicles with preferred return waterfalls, governance rights, and quarterly reporting. Target partners include UAE (Mubadala/ADIA), Saudi Arabia (PIF), and Singapore (GIC/Temasek).",
+      title: t('finance.partnershipModels.swfPartnerships.title'),
+      desc: t('finance.partnershipModels.swfPartnerships.desc'),
     },
     {
       icon: Globe,
-      title: 'DFI Partnerships',
-      desc: "Development finance institution partnerships that provide concessional capital, technical assistance, and catalytic first-loss tranches. IFC, AfDB, EBRD, FMO, and CDC/British International Investment each bring unique advantages — from IFC's global network to AfDB's African mandate. Harch Finance layers DFI capital beneath commercial tranches to optimize the capital stack and reduce blended cost of capital by 200-400 basis points.",
+      title: t('finance.partnershipModels.dfiPartnerships.title'),
+      desc: t('finance.partnershipModels.dfiPartnerships.desc'),
     },
   ],
 
   strategicAdvantages: [
     {
       icon: Scale,
-      title: "Morocco's Regulatory Framework",
-      desc: "Morocco's financial regulatory environment is Africa's most advanced for structured finance. The country's 2015 Islamic finance legislation created a legal framework for participatory banks and sukuk origination. AMMC (Autorité Marocaine du Marché des Capitaux) securities regulation aligns with EU standards, enabling dual-listing on Casablanca and European exchanges. Bank Al-Maghrib's prudent supervision provides investor confidence without the over-regulation that stifles innovation in other jurisdictions.",
+      title: t('finance.strategicAdvantages.regulatoryFramework.title'),
+      desc: t('finance.strategicAdvantages.regulatoryFramework.desc'),
     },
     {
       icon: FileText,
-      title: 'Double Taxation Treaties',
-      desc: "Morocco maintains double taxation agreements with 60+ countries — the most extensive network in North Africa. These treaties eliminate withholding tax on interest and dividend payments, creating significant tax efficiency for international investors. For a green bond issued through a Moroccan SPV, the DTA network can reduce investor tax drag by 15-30%, translating directly into lower coupon requirements and reduced cost of capital for Harch Corp's projects.",
+      title: t('finance.strategicAdvantages.doubleTaxationTreaties.title'),
+      desc: t('finance.strategicAdvantages.doubleTaxationTreaties.desc'),
     },
     {
       icon: ShieldCheck,
-      title: 'MIGA Coverage',
-      desc: "World Bank MIGA (Multilateral Investment Guarantee Agency) political risk insurance is available for projects in Morocco and across our target markets. MIGA coverage eliminates political risk — expropriation, currency inconvertibility, war & civil disturbance — that otherwise adds 200-400 basis points to the cost of capital. Harch Finance integrates MIGA applications into every project finance structure, converting political risk premium into lower borrowing costs.",
+      title: t('finance.strategicAdvantages.migaCoverage.title'),
+      desc: t('finance.strategicAdvantages.migaCoverage.desc'),
     },
     {
       icon: Landmark,
-      title: 'OHI Compliance',
-      desc: "Compliance with the Organisation for Islamic Cooperation's (OIC) Islamic finance standards positions Harch Finance to access the $4 trillion global Islamic capital pool. Morocco's membership in the OIC and its domestic Islamic finance legislation create a compliant origination platform. OHI compliance is not merely regulatory — it is a market access strategy that unlocks Gulf and Southeast Asian institutional capital unavailable to conventional-only financial institutions.",
+      title: t('finance.strategicAdvantages.ohiCompliance.title'),
+      desc: t('finance.strategicAdvantages.ohiCompliance.desc'),
     },
   ],
 
   riskManagement: [
     {
       icon: Shield,
-      title: 'Political Risk Insurance',
-      desc: "Comprehensive political risk coverage through MIGA, sovereign guarantee programs, and private market insurers (AXA XL, Chubb). Coverage includes expropriation, currency inconvertibility, political violence, and breach of contract. Every cross-border investment is wrapped in political risk insurance appropriate to the jurisdiction, reducing the risk premium embedded in required returns by 200-400 basis points.",
-      riskLevel: 'Covered',
+      title: t('finance.riskManagement.politicalRisk.title'),
+      desc: t('finance.riskManagement.politicalRisk.desc'),
+      riskLevel: t('finance.riskManagement.politicalRisk.riskLevel'),
     },
     {
       icon: BarChart3,
-      title: 'Currency Hedging',
-      desc: "Structured hedging programs that mitigate FX exposure across our 5-country operating footprint. Forward contracts, cross-currency swaps, and natural hedging through local revenue generation in each operating currency. Morocco's pegged dirham (to a euro-dollar basket) provides a stable base currency, while NDF markets for West African currencies (CFA franc is already euro-pegged) reduce hedging costs versus floating-rate African currencies.",
-      riskLevel: 'Actively Managed',
+      title: t('finance.riskManagement.currencyHedging.title'),
+      desc: t('finance.riskManagement.currencyHedging.desc'),
+      riskLevel: t('finance.riskManagement.currencyHedging.riskLevel'),
     },
     {
       icon: FileText,
-      title: 'Off-Take Agreements',
-      desc: "Binding off-take agreements with creditworthy counterparties that guarantee revenue streams for project-financed SPVs. Cement off-take with government infrastructure agencies, energy PPAs with utility counterparts, agricultural purchase agreements with food processors — each off-take agreement converts projected revenue into contractual cash flows, enabling non-recourse financing at lower spreads and higher LTV ratios.",
-      riskLevel: 'Contracted',
+      title: t('finance.riskManagement.offtakeAgreements.title'),
+      desc: t('finance.riskManagement.offtakeAgreements.desc'),
+      riskLevel: t('finance.riskManagement.offtakeAgreements.riskLevel'),
     },
     {
       icon: Lock,
-      title: 'Cross-Vertical Risk Diversification',
-      desc: "Harch Finance's unique advantage: revenue diversification across 7 verticals creates a natural hedge no standalone financial institution can replicate. When commodity prices fall, infrastructure demand rises. When energy costs increase, our own renewable generation offsets the impact. When currency depreciates in one market, exports from another become more competitive. This cross-vertical diversification reduces portfolio volatility by 30-40% versus single-sector investment.",
-      riskLevel: 'Structural Advantage',
+      title: t('finance.riskManagement.crossVertical.title'),
+      desc: t('finance.riskManagement.crossVertical.desc'),
+      riskLevel: t('finance.riskManagement.crossVertical.riskLevel'),
     },
   ],
 
   pipeline: [
-    { vertical: 'Harch Intelligence', instrument: 'Green Bond', amount: '$400M', status: 'Structuring', country: 'Morocco' },
-    { vertical: 'Harch Cement', instrument: 'Project Finance', amount: '$200M', status: 'Mandated', country: 'Gambia' },
-    { vertical: 'Harch Energy', instrument: 'Sukuk (Ijarah)', amount: '$350M', status: 'Pre-mandate', country: 'Morocco' },
-    { vertical: 'HarchAgri', instrument: 'Impact Vehicle', amount: '$50M', status: 'Fundraising', country: 'Morocco + Senegal' },
-    { vertical: 'Harch Mining', instrument: 'ECA-Backed', amount: '$180M', status: 'Pre-mandate', country: 'Morocco' },
-    { vertical: 'Harch Water', instrument: 'DFI Blended Finance', amount: '$120M', status: 'Concept', country: 'Kenya' },
-    { vertical: 'Cross-Vertical', instrument: 'Carbon Credit Securitization', amount: '$100M', status: 'Concept', country: 'Multi-country' },
+    { vertical: t('finance.pipeline.intelligence.vertical'), instrument: t('finance.pipeline.intelligence.instrument'), amount: '$400M', status: t('finance.pipeline.intelligence.status'), country: t('finance.pipeline.intelligence.country') },
+    { vertical: t('finance.pipeline.cement.vertical'), instrument: t('finance.pipeline.cement.instrument'), amount: '$200M', status: t('finance.pipeline.cement.status'), country: t('finance.pipeline.cement.country') },
+    { vertical: t('finance.pipeline.energy.vertical'), instrument: t('finance.pipeline.energy.instrument'), amount: '$350M', status: t('finance.pipeline.energy.status'), country: t('finance.pipeline.energy.country') },
+    { vertical: t('finance.pipeline.agri.vertical'), instrument: t('finance.pipeline.agri.instrument'), amount: '$50M', status: t('finance.pipeline.agri.status'), country: t('finance.pipeline.agri.country') },
+    { vertical: t('finance.pipeline.mining.vertical'), instrument: t('finance.pipeline.mining.instrument'), amount: '$180M', status: t('finance.pipeline.mining.status'), country: t('finance.pipeline.mining.country') },
+    { vertical: t('finance.pipeline.water.vertical'), instrument: t('finance.pipeline.water.instrument'), amount: '$120M', status: t('finance.pipeline.water.status'), country: t('finance.pipeline.water.country') },
+    { vertical: t('finance.pipeline.crossVertical.vertical'), instrument: t('finance.pipeline.crossVertical.instrument'), amount: '$100M', status: t('finance.pipeline.crossVertical.status'), country: t('finance.pipeline.crossVertical.country') },
   ],
 
   roadmap: [
     {
-      phase: 'Phase 1', period: '2026', title: 'Foundation & First Origination',
+      phase: t('finance.roadmap.phase1.phase'), period: '2026', title: t('finance.roadmap.phase1.title'),
       pipelineTarget: '$200M',
       actions: [
-        'Establish Harch Finance as a registered financial advisory entity in Casablanca Finance City',
-        'Originate first green bond for Harch Intelligence ($400M pipeline entry)',
-        'Structure ECA-backed financing for Harch Cement Gambia project',
-        'Build relationships with 5 DFI partners (IFC, AfDB, EBRD, FMO, BII)',
-        'Hire core team: 8 professionals across origination, structuring, and risk',
-        'Obtain AMMC license for securities origination and advisory',
+        t('finance.roadmap.phase1.actions.0'),
+        t('finance.roadmap.phase1.actions.1'),
+        t('finance.roadmap.phase1.actions.2'),
+        t('finance.roadmap.phase1.actions.3'),
+        t('finance.roadmap.phase1.actions.4'),
+        t('finance.roadmap.phase1.actions.5'),
       ],
     },
     {
-      phase: 'Phase 2', period: '2027-2028', title: 'Scale & Diversification',
+      phase: t('finance.roadmap.phase2.phase'), period: '2027-2028', title: t('finance.roadmap.phase2.title'),
       pipelineTarget: '$800M',
       actions: [
-        'Close Harch Intelligence green bond — first African AI infrastructure green bond',
-        'Originate first sukuk for Harch Energy renewable portfolio',
-        'Launch impact investment vehicle for HarchAgri with 25,000 jobs covenant',
-        'Establish carbon credit monetization desk with forward sale capability',
-        'Expand team to 20 professionals; open representative office in Dubai (DIFC)',
-        'Cross-vertical pipeline reaches $800M across 5 instrument types',
+        t('finance.roadmap.phase2.actions.0'),
+        t('finance.roadmap.phase2.actions.1'),
+        t('finance.roadmap.phase2.actions.2'),
+        t('finance.roadmap.phase2.actions.3'),
+        t('finance.roadmap.phase2.actions.4'),
+        t('finance.roadmap.phase2.actions.5'),
       ],
     },
     {
-      phase: 'Phase 3', period: '2028-2029', title: 'Capital Markets Integration',
+      phase: t('finance.roadmap.phase3.phase'), period: '2028-2029', title: t('finance.roadmap.phase3.title'),
       pipelineTarget: '$1.6B',
       actions: [
-        'List first green bond on Casablanca Stock Exchange with dual-listing on Euronext',
-        'Originate cross-vertical blended finance facility with DFI first-loss tranche',
-        'Launch carbon credit securitization vehicle — first of its kind in Africa',
-        'Establish sovereign wealth fund co-investment program with 3 GCC partners',
-        'Expand to Kenya and Ghana with locally-structured financing vehicles',
-        'Portfolio AUM crosses $1B; team scales to 35 professionals',
+        t('finance.roadmap.phase3.actions.0'),
+        t('finance.roadmap.phase3.actions.1'),
+        t('finance.roadmap.phase3.actions.2'),
+        t('finance.roadmap.phase3.actions.3'),
+        t('finance.roadmap.phase3.actions.4'),
+        t('finance.roadmap.phase3.actions.5'),
       ],
     },
     {
-      phase: 'Phase 4', period: '2029-2031', title: 'Continental Financial Platform',
+      phase: t('finance.roadmap.phase4.phase'), period: '2029-2031', title: t('finance.roadmap.phase4.title'),
       pipelineTarget: '$2.4B+',
       actions: [
-        'Full capital markets platform: bonds, sukuk, trade finance, impact, carbon — all verticals',
-        'Harch Finance becomes the reference African infrastructure financing institution',
-        'Cross-vertical integration enables 200-400bps cost of capital advantage vs. standalone competitors',
-        'Carbon credit portfolio generates $10M+ annual revenue from monetization desk',
-        'Positioning for independent listing or strategic partnership with global investment bank',
-        '10 countries, 7 verticals, $2.4B+ pipeline — the financial engine of African industrialization',
+        t('finance.roadmap.phase4.actions.0'),
+        t('finance.roadmap.phase4.actions.1'),
+        t('finance.roadmap.phase4.actions.2'),
+        t('finance.roadmap.phase4.actions.3'),
+        t('finance.roadmap.phase4.actions.4'),
+        t('finance.roadmap.phase4.actions.5'),
       ],
     },
   ],
 
   risks: [
-    { risk: 'Regulatory changes in Islamic finance frameworks', probability: 'Low', impact: 'High', mitigation: 'Proactive engagement with AMMC and Bank Al-Maghrib. Legal opinions from two independent Sharia supervisory boards. Diversified instrument portfolio reduces dependency on any single regulatory regime.' },
-    { risk: 'Currency depreciation in operating markets', probability: 'Medium', impact: 'High', mitigation: 'Natural hedging through local revenue generation. CFA franc peg to euro provides stability in Senegal and Gambia. Forward contracts and cross-currency swaps for non-pegged currencies.' },
-    { risk: 'Political risk in cross-border operations', probability: 'Medium', impact: 'Critical', mitigation: 'MIGA political risk insurance for all cross-border investments. Sovereign guarantee programs. Diversified country portfolio reduces concentration risk.' },
-    { risk: 'Green bond / sukuk market liquidity', probability: 'Low', impact: 'Medium', mitigation: 'Dual-listing on Casablanca and European exchanges. Market-making arrangements with primary dealers. Strong ESG credentials attract buy-and-hold institutional investors.' },
-    { risk: 'Carbon credit market volatility', probability: 'High', impact: 'Medium', mitigation: 'Forward sale agreements lock in pricing. Verra and Gold Standard certification provides premium pricing. Carbon credit revenue is supplementary, not primary — no dependency.' },
-    { risk: 'Talent acquisition in structured finance', probability: 'Medium', impact: 'Medium', mitigation: 'Casablanca Finance City status enables competitive hiring. Partnership with Moroccan business schools. Flexible work arrangements attract diaspora talent from London and Paris.' },
+    { risk: t('finance.risks.regulatoryChanges.risk'), probability: t('finance.risks.regulatoryChanges.probability'), impact: t('finance.risks.regulatoryChanges.impact'), mitigation: t('finance.risks.regulatoryChanges.mitigation') },
+    { risk: t('finance.risks.currencyDepreciation.risk'), probability: t('finance.risks.currencyDepreciation.probability'), impact: t('finance.risks.currencyDepreciation.impact'), mitigation: t('finance.risks.currencyDepreciation.mitigation') },
+    { risk: t('finance.risks.politicalRisk.risk'), probability: t('finance.risks.politicalRisk.probability'), impact: t('finance.risks.politicalRisk.impact'), mitigation: t('finance.risks.politicalRisk.mitigation') },
+    { risk: t('finance.risks.marketLiquidity.risk'), probability: t('finance.risks.marketLiquidity.probability'), impact: t('finance.risks.marketLiquidity.impact'), mitigation: t('finance.risks.marketLiquidity.mitigation') },
+    { risk: t('finance.risks.carbonVolatility.risk'), probability: t('finance.risks.carbonVolatility.probability'), impact: t('finance.risks.carbonVolatility.impact'), mitigation: t('finance.risks.carbonVolatility.mitigation') },
+    { risk: t('finance.risks.talentAcquisition.risk'), probability: t('finance.risks.talentAcquisition.probability'), impact: t('finance.risks.talentAcquisition.impact'), mitigation: t('finance.risks.talentAcquisition.mitigation') },
   ],
 };
 
-/* ═══════════════════════════════════════════════════
-   MAIN PAGE — HarchCorp unified design, slate blue-gray accent
-   ═══════════════════════════════════════════════════ */
-export default function HarchFinancePage() {
   return (
     <div className="bg-[#1A1A1A] text-white overflow-x-hidden">
       {/* ═══════════════════════════════════════════
@@ -327,7 +327,7 @@ export default function HarchFinancePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/60 via-transparent to-transparent" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pb-20 md:pb-32 w-full">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Harch Finance /0.8</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.heroBadge')}</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-[clamp(2.5rem,6vw,6rem)] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-6 whitespace-pre-line">
@@ -362,8 +362,8 @@ export default function HarchFinancePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn direction="left">
               <div>
-                <p className="section-label mb-4 text-[#8B9DAF]">Overview</p>
-                <TextReveal text="Bridging Africa's Financing Gap" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+                <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.overviewLabel')}</p>
+                <TextReveal text={t('finance.overviewTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7]">{data.overview}</p>
               </div>
@@ -407,8 +407,8 @@ export default function HarchFinancePage() {
             <div className="flex items-center px-8 md:px-16 py-20">
               <div className="max-w-lg">
                 <FadeIn direction="right">
-                  <p className="section-label mb-4 text-[#8B9DAF]">Investment Philosophy</p>
-                  <TextReveal text="Sovereign Capital for Sovereign Infrastructure" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+                  <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.investmentPhilosophyLabel')}</p>
+                  <TextReveal text={t('finance.investmentPhilosophyTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
                   <div className="accent-line mb-6" />
                   <p className="text-[15px] text-[#999999] leading-[1.7]">{data.investmentPhilosophy}</p>
                 </FadeIn>
@@ -426,11 +426,11 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Financial Instruments</p>
-            <TextReveal text="Six Capital Architecture Pillars" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.instrumentsLabel')}</p>
+            <TextReveal text={t('finance.instrumentsTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Each instrument serves a distinct capital need. Together, they create a comprehensive financing platform that no standalone financial institution on the continent can match — powered by cross-vertical integration and Morocco&apos;s regulatory advantages.
+              {t('finance.instrumentsSubtitle')}
             </p>
           </FadeIn>
           <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
@@ -499,11 +499,11 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Pipeline</p>
-            <TextReveal text="$2.4B Investment Pipeline" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.pipelineLabel')}</p>
+            <TextReveal text={t('finance.pipelineTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              Seven live opportunities across Harch Corp&apos;s verticals — each structured with the optimal instrument for its risk profile, cash flow characteristics, and capital requirements.
+              {t('finance.pipelineSubtitle')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
@@ -512,11 +512,11 @@ export default function HarchFinancePage() {
                 <table className="data-table">
                   <thead>
                     <tr>
-                      <th>Vertical</th>
-                      <th>Instrument</th>
-                      <th>Amount</th>
-                      <th>Status</th>
-                      <th>Country</th>
+                      <th>{t('finance.pipelineTable.vertical')}</th>
+                      <th>{t('finance.pipelineTable.instrument')}</th>
+                      <th>{t('finance.pipelineTable.amount')}</th>
+                      <th>{t('finance.pipelineTable.status')}</th>
+                      <th>{t('finance.pipelineTable.country')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -550,7 +550,7 @@ export default function HarchFinancePage() {
                 </table>
               </div>
               <div className="px-6 py-3 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)]">
-                <p className="text-[10px] text-[#666666]">Pipeline values are indicative and subject to market conditions, regulatory approvals, and counterparty negotiations. Updated Q1 2026.</p>
+                <p className="text-[10px] text-[#666666]">{t('finance.pipelineTable.footnote')}</p>
               </div>
             </div>
           </FadeIn>
@@ -565,11 +565,11 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Partnership Models</p>
-            <TextReveal text="Four Paths to Co-Investment" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.partnershipModelsLabel')}</p>
+            <TextReveal text={t('finance.partnershipModelsTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Harch Finance structures partnerships that align incentives, share risk, and optimize returns — from sovereign wealth fund co-investments to DFI-blended facilities that catalyze commercial capital.
+              {t('finance.partnershipModelsSubtitle')}
             </p>
           </FadeIn>
           <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
@@ -601,11 +601,11 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Strategic Advantages</p>
-            <TextReveal text="Morocco's Financial Infrastructure" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.strategicAdvantagesLabel')}</p>
+            <TextReveal text={t('finance.strategicAdvantagesTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Four structural advantages that no other African jurisdiction can replicate — creating a financing platform with built-in cost of capital reductions of 200-400 basis points.
+              {t('finance.strategicAdvantagesSubtitle')}
             </p>
           </FadeIn>
           <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
@@ -635,9 +635,9 @@ export default function HarchFinancePage() {
                   <TrendingUp size={18} className={`text-[${ACCENT}]`} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-2">Cross-Vertical Integration — Unique Risk Management</h3>
+                  <h3 className="text-lg font-bold text-white mb-2">{t('finance.crossVerticalTitle')}</h3>
                   <p className="text-[14px] text-[#999999] leading-[1.7]">
-                    Harch Finance&apos;s key differentiator is cross-vertical integration. Revenue streams from energy, mining, cement, agriculture, technology, and water operations create natural hedges that de-risk individual projects and attract capital at lower cost. When commodity prices fall, infrastructure demand rises. When energy costs increase, our own renewable generation offsets the impact. This diversification reduces portfolio volatility by 30-40% versus single-sector investment — a structural advantage no standalone financial institution can replicate.
+                    {t('finance.crossVerticalDesc')}
                   </p>
                 </div>
               </div>
@@ -654,11 +654,11 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Risk Management</p>
-            <TextReveal text="Four-Layer Risk Architecture" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.riskManagementLabel')}</p>
+            <TextReveal text={t('finance.riskManagementTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Every Harch Finance instrument is protected by four layers of risk management — from political risk insurance to cross-vertical diversification. The result: capital protection that matches the best global standards while operating in markets others consider too risky.
+              {t('finance.riskManagementSubtitle')}
             </p>
           </FadeIn>
           <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
@@ -695,11 +695,11 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Roadmap</p>
-            <TextReveal text="From Foundation to Platform" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.roadmapLabel')}</p>
+            <TextReveal text={t('finance.roadmapTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Four phases, six years — from first green bond origination to becoming Africa&apos;s reference infrastructure financing institution.
+              {t('finance.roadmapSubtitle')}
             </p>
           </FadeIn>
           <StaggerContainer className="space-y-6" staggerDelay={0.08}>
@@ -717,7 +717,7 @@ export default function HarchFinancePage() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-[10px] text-[#666666] uppercase tracking-wider">Pipeline Target</p>
+                      <p className="text-[10px] text-[#666666] uppercase tracking-wider">{t('finance.pipelineTargetLabel')}</p>
                       <p className="text-xl font-bold text-white stat-mono">{phase.pipelineTarget}</p>
                     </div>
                   </div>
@@ -744,11 +744,11 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Risk Register</p>
-            <TextReveal text="Identified Risks & Mitigations" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.riskRegisterLabel')}</p>
+            <TextReveal text={t('finance.riskRegisterTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Prudent risk management requires transparent identification and mitigation. Every risk in Harch Finance&apos;s register has a specific, actionable mitigation strategy.
+              {t('finance.riskRegisterSubtitle')}
             </p>
           </FadeIn>
           <div className="space-y-4">
@@ -764,14 +764,14 @@ export default function HarchFinancePage() {
                     </div>
                     <div className="md:col-span-2 flex gap-3">
                       <div>
-                        <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Probability</p>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">{t('finance.probability')}</p>
                         <span className={`text-[11px] font-semibold ${
                           r.probability === 'High' ? 'text-red-400' :
                           r.probability === 'Medium' ? `text-[${ACCENT}]` : 'text-green-400'
                         }`}>{r.probability}</span>
                       </div>
                       <div>
-                        <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">Impact</p>
+                        <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-1">{t('finance.impact')}</p>
                         <span className={`text-[11px] font-semibold ${
                           r.impact === 'Critical' ? 'text-red-400' :
                           r.impact === 'High' ? `text-[${ACCENT}]` : 'text-green-400'
@@ -780,7 +780,7 @@ export default function HarchFinancePage() {
                     </div>
                     <div className="md:col-span-6">
                       <p className="text-[13px] text-[#999999] leading-[1.6]">
-                        <span className={`text-[10px] text-[${ACCENT}] uppercase tracking-wider font-bold`}>Mitigation:</span>{' '}
+                        <span className={`text-[10px] text-[${ACCENT}] uppercase tracking-wider font-bold`}>{t('finance.mitigation')}:</span>{' '}
                         {r.mitigation}
                       </p>
                     </div>
@@ -800,11 +800,11 @@ export default function HarchFinancePage() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Partner With Us</p>
-            <TextReveal text="Structure Africa's Next Infrastructure Investment" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('finance.ctaLabel')}</p>
+            <TextReveal text={t('finance.ctaTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mx-auto mb-6" />
             <p className="max-w-xl mx-auto text-[15px] text-[#999999] leading-[1.7] mb-10">
-              Whether you represent a sovereign wealth fund, development finance institution, ECA, or institutional investor — Harch Finance offers structured access to Africa&apos;s most compelling infrastructure investment pipeline.
+              {t('finance.ctaSubtitle')}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <MagneticButton>
@@ -812,7 +812,7 @@ export default function HarchFinancePage() {
                   href="/contact"
                   className={`inline-flex items-center gap-2 border border-[rgba(${ACCENT_RGB},0.4)] bg-[rgba(${ACCENT_RGB},0.06)] text-[${ACCENT}] text-[11px] tracking-[0.1em] uppercase px-6 py-3 rounded-md font-semibold hover:bg-[rgba(${ACCENT_RGB},0.12)] hover:border-[rgba(${ACCENT_RGB},0.6)] transition-colors font-[family-name:var(--font-space-mono)] min-h-[44px]`}
                 >
-                  Partner With Us
+                  {t('finance.ctaPrimary')}
                   <ArrowRight size={12} />
                 </Link>
               </MagneticButton>
@@ -821,7 +821,7 @@ export default function HarchFinancePage() {
                   href="/investors"
                   className="inline-flex items-center gap-2 border border-[rgba(255,255,255,0.1)] bg-transparent text-[rgba(255,255,255,0.5)] text-[11px] tracking-[0.1em] uppercase px-6 py-3 rounded-md font-semibold hover:border-[rgba(255,255,255,0.2)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)] min-h-[44px]"
                 >
-                  Investor Relations
+                  {t('finance.ctaSecondary')}
                   <ArrowRight size={12} />
                 </Link>
               </MagneticButton>

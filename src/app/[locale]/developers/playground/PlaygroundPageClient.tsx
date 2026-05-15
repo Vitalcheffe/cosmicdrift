@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/motion';
+import { useTranslations } from 'next-intl';
 import {
   ArrowRight, ArrowLeft, Play, Copy, ChevronDown, Key,
   Clock, Shield, Zap, Code2, Terminal, CheckCircle2,
@@ -10,83 +11,91 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-/* ─── DATA ─── */
-const apiGroups = [
-  { id: 'compute', label: 'Compute', description: 'GPU provisioning, deployments, and workload management' },
-  { id: 'data', label: 'Data', description: 'Storage, pipelines, and dataset management' },
-  { id: 'models', label: 'Models', description: 'Model registry, inference, and fine-tuning' },
-  { id: 'operations', label: 'Operations', description: 'Monitoring, alerts, and infrastructure management' },
-];
+/* ─── MAIN COMPONENT ─── */
+export default function PlaygroundPageClient() {
+  const t = useTranslations('developers');
+  const [activeGroup, setActiveGroup] = useState('compute');
+  const [activeMethod, setActiveMethod] = useState('POST');
+  const [activeCodeTab, setActiveCodeTab] = useState('curl');
+  const [urlValue, setUrlValue] = useState('https://api.harchos.com/v1/compute/deploy');
+  const [copied, setCopied] = useState(false);
 
-const endpoints: Record<string, { method: string; path: string; description: string }[]> = {
-  compute: [
-    { method: 'POST', path: '/v1/compute/deploy', description: 'Deploy a new GPU workload' },
-    { method: 'GET', path: '/v1/compute/deployments', description: 'List all deployments' },
-    { method: 'GET', path: '/v1/compute/deployments/{id}', description: 'Get deployment details' },
-    { method: 'PUT', path: '/v1/compute/deployments/{id}/scale', description: 'Scale GPU count' },
-    { method: 'DELETE', path: '/v1/compute/deployments/{id}', description: 'Terminate a deployment' },
-    { method: 'POST', path: '/v1/compute/migrate', description: 'Migrate workload between hubs' },
-  ],
-  data: [
-    { method: 'POST', path: '/v1/data/upload', description: 'Upload a dataset' },
-    { method: 'GET', path: '/v1/data/datasets', description: 'List datasets' },
-    { method: 'GET', path: '/v1/data/datasets/{id}', description: 'Get dataset metadata' },
-    { method: 'DELETE', path: '/v1/data/datasets/{id}', description: 'Delete a dataset' },
-    { method: 'POST', path: '/v1/data/pipelines', description: 'Create a data pipeline' },
-  ],
-  models: [
-    { method: 'POST', path: '/v1/models/register', description: 'Register a model' },
-    { method: 'GET', path: '/v1/models', description: 'List registered models' },
-    { method: 'POST', path: '/v1/models/{id}/infer', description: 'Run inference' },
-    { method: 'POST', path: '/v1/models/{id}/finetune', description: 'Start fine-tuning job' },
-    { method: 'GET', path: '/v1/models/{id}/versions', description: 'List model versions' },
-  ],
-  operations: [
-    { method: 'GET', path: '/v1/ops/metrics', description: 'Get cluster metrics' },
-    { method: 'GET', path: '/v1/ops/alerts', description: 'List active alerts' },
-    { method: 'POST', path: '/v1/ops/alerts/rules', description: 'Create alert rule' },
-    { method: 'GET', path: '/v1/ops/hubs', description: 'List mesh hubs status' },
-    { method: 'GET', path: '/v1/ops/carbon', description: 'Get carbon metrics' },
-  ],
-};
+  const apiGroups = [
+    { id: 'compute', label: t('playground.apiGroups.0.label'), description: t('playground.apiGroups.0.description') },
+    { id: 'data', label: t('playground.apiGroups.1.label'), description: t('playground.apiGroups.1.description') },
+    { id: 'models', label: t('playground.apiGroups.2.label'), description: t('playground.apiGroups.2.description') },
+    { id: 'operations', label: t('playground.apiGroups.3.label'), description: t('playground.apiGroups.3.description') },
+  ];
 
-const methodColors: Record<string, string> = {
-  GET: '#10B981',
-  POST: '#8B9DAF',
-  PUT: '#F59E0B',
-  DELETE: '#EF4444',
-};
+  const endpoints: Record<string, { method: string; path: string; description: string }[]> = {
+    compute: [
+      { method: 'POST', path: '/v1/compute/deploy', description: t('playground.endpoints.compute.0') },
+      { method: 'GET', path: '/v1/compute/deployments', description: t('playground.endpoints.compute.1') },
+      { method: 'GET', path: '/v1/compute/deployments/{id}', description: t('playground.endpoints.compute.2') },
+      { method: 'PUT', path: '/v1/compute/deployments/{id}/scale', description: t('playground.endpoints.compute.3') },
+      { method: 'DELETE', path: '/v1/compute/deployments/{id}', description: t('playground.endpoints.compute.4') },
+      { method: 'POST', path: '/v1/compute/migrate', description: t('playground.endpoints.compute.5') },
+    ],
+    data: [
+      { method: 'POST', path: '/v1/data/upload', description: t('playground.endpoints.data.0') },
+      { method: 'GET', path: '/v1/data/datasets', description: t('playground.endpoints.data.1') },
+      { method: 'GET', path: '/v1/data/datasets/{id}', description: t('playground.endpoints.data.2') },
+      { method: 'DELETE', path: '/v1/data/datasets/{id}', description: t('playground.endpoints.data.3') },
+      { method: 'POST', path: '/v1/data/pipelines', description: t('playground.endpoints.data.4') },
+    ],
+    models: [
+      { method: 'POST', path: '/v1/models/register', description: t('playground.endpoints.models.0') },
+      { method: 'GET', path: '/v1/models', description: t('playground.endpoints.models.1') },
+      { method: 'POST', path: '/v1/models/{id}/infer', description: t('playground.endpoints.models.2') },
+      { method: 'POST', path: '/v1/models/{id}/finetune', description: t('playground.endpoints.models.3') },
+      { method: 'GET', path: '/v1/models/{id}/versions', description: t('playground.endpoints.models.4') },
+    ],
+    operations: [
+      { method: 'GET', path: '/v1/ops/metrics', description: t('playground.endpoints.operations.0') },
+      { method: 'GET', path: '/v1/ops/alerts', description: t('playground.endpoints.operations.1') },
+      { method: 'POST', path: '/v1/ops/alerts/rules', description: t('playground.endpoints.operations.2') },
+      { method: 'GET', path: '/v1/ops/hubs', description: t('playground.endpoints.operations.3') },
+      { method: 'GET', path: '/v1/ops/carbon', description: t('playground.endpoints.operations.4') },
+    ],
+  };
 
-const sampleResponse = {
-  id: 'd-7f3a2b1c4e5f',
-  status: 'running',
-  created_at: '2025-03-15T14:32:00Z',
-  hub: {
-    name: 'harch-alpha',
-    location: 'Dakhla, Morocco',
-    energy_source: 'offshore wind',
-  },
-  gpu: {
-    type: 'H100',
-    count: 8,
-    utilization: 0.87,
-    memory_used_gb: 640,
-    memory_total_gb: 800,
-  },
-  networking: {
-    endpoint: 'https://mesh.harchos.com/d-7f3a2b1c4e5f',
-    latency_ms: 12,
-    bandwidth_gbps: 100,
-  },
-  sustainability: {
-    carbon_score: 'A+',
-    renewable_percentage: 100,
-    co2_saved_kg: 127.4,
-  },
-};
+  const methodColors: Record<string, string> = {
+    GET: '#10B981',
+    POST: '#8B9DAF',
+    PUT: '#F59E0B',
+    DELETE: '#EF4444',
+  };
 
-const codeSnippets: Record<string, string> = {
-  curl: `curl -X POST https://api.harchos.com/v1/compute/deploy \\
+  const sampleResponse = {
+    id: 'd-7f3a2b1c4e5f',
+    status: 'running',
+    created_at: '2025-03-15T14:32:00Z',
+    hub: {
+      name: 'harch-alpha',
+      location: 'Dakhla, Morocco',
+      energy_source: 'offshore wind',
+    },
+    gpu: {
+      type: 'H100',
+      count: 8,
+      utilization: 0.87,
+      memory_used_gb: 640,
+      memory_total_gb: 800,
+    },
+    networking: {
+      endpoint: 'https://mesh.harchos.com/d-7f3a2b1c4e5f',
+      latency_ms: 12,
+      bandwidth_gbps: 100,
+    },
+    sustainability: {
+      carbon_score: 'A+',
+      renewable_percentage: 100,
+      co2_saved_kg: 127.4,
+    },
+  };
+
+  const codeSnippets: Record<string, string> = {
+    curl: `curl -X POST https://api.harchos.com/v1/compute/deploy \\
   -H "Authorization: Bearer harch_sk_..." \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -97,7 +106,7 @@ const codeSnippets: Record<string, string> = {
     "carbon_aware": true,
     "image": "pytorch/2.2.0-cuda12.1"
   }'`,
-  python: `import harchos
+    python: `import harchos
 
 client = harchos.Client(
     region="morocco",
@@ -113,7 +122,7 @@ job = client.compute.deploy(
 )
 
 print(f"Deployed to {job.hub}")  # → harch-alpha`,
-  typescript: `import HarchOS from '@harchos/sdk';
+    typescript: `import HarchOS from '@harchos/sdk';
 
 const harch = await HarchOS.create({
   region: 'morocco',
@@ -129,7 +138,7 @@ const job = await harch.compute.deploy({
 });
 
 console.log(\`Deployed to \${job.hub}\`); // → harch-alpha`,
-  go: `package main
+    go: `package main
 
 import (
     "fmt"
@@ -154,15 +163,7 @@ func main() {
     }
     fmt.Printf("Deployed to %s\\n", job.Hub)
 }`,
-};
-
-/* ─── MAIN COMPONENT ─── */
-export default function PlaygroundPageClient() {
-  const [activeGroup, setActiveGroup] = useState('compute');
-  const [activeMethod, setActiveMethod] = useState('POST');
-  const [activeCodeTab, setActiveCodeTab] = useState('curl');
-  const [urlValue, setUrlValue] = useState('https://api.harchos.com/v1/compute/deploy');
-  const [copied, setCopied] = useState(false);
+  };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(JSON.stringify(sampleResponse, null, 2));
@@ -181,18 +182,18 @@ export default function PlaygroundPageClient() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <Link href="/developers" className="inline-flex items-center gap-2 text-[13px] text-[#666666] hover:text-white transition-colors mb-8">
-              <ArrowLeft size={14} /> Developer Center
+              <ArrowLeft size={14} /> {t('playground.backToDevelopers')}
             </Link>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="section-label mb-6 text-[#8B9DAF]">API Playground /0.3</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">{t('playground.heroLabel')}</p>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              API Playground<span className="text-[#8B9DAF]">.</span>
+              {t('playground.heroTitle')}<span className="text-[#8B9DAF]">.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed">
-              Explore HarchOS APIs interactively. Build requests, inspect responses, and generate production-ready code in any language.
+              {t('playground.heroDescription')}
             </p>
           </FadeIn>
         </div>
@@ -209,7 +210,7 @@ export default function PlaygroundPageClient() {
               {/* ─── Left Sidebar: Endpoint Groups ─── */}
               <div className="lg:col-span-3">
                 <div className="card p-4 lg:sticky lg:top-24">
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-4 font-[family-name:var(--font-space-mono)]">API Groups</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-4 font-[family-name:var(--font-space-mono)]">{t('playground.apiGroupsLabel')}</p>
                   <div className="space-y-1">
                     {apiGroups.map((group) => (
                       <button
@@ -229,7 +230,7 @@ export default function PlaygroundPageClient() {
 
                   {/* Endpoint List */}
                   <div className="mt-6 pt-6 border-t border-white/[0.04]">
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-4 font-[family-name:var(--font-space-mono)]">Endpoints</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-4 font-[family-name:var(--font-space-mono)]">{t('playground.endpointsLabel')}</p>
                     <div className="space-y-1 max-h-64 overflow-y-auto">
                       {endpoints[activeGroup]?.map((ep, i) => (
                         <button
@@ -275,17 +276,17 @@ export default function PlaygroundPageClient() {
                       value={urlValue}
                       onChange={(e) => setUrlValue(e.target.value)}
                       className="flex-1 bg-transparent text-[13px] text-white font-[family-name:var(--font-space-mono)] focus:outline-none placeholder:text-[#444444]"
-                      placeholder="Enter request URL..."
+                      placeholder={t('playground.urlPlaceholder')}
                     />
                     <button className="inline-flex items-center gap-2 bg-[#8B9DAF] text-black px-5 py-2 rounded-lg text-[12px] font-bold hover:bg-[#8B9DAF]/90 transition-all">
-                      <Play size={12} /> Send
+                      <Play size={12} /> {t('playground.send')}
                     </button>
                   </div>
 
                   {/* Tabs: Headers / Body / Auth */}
                   <div className="border-b border-white/[0.04]">
                     <div className="flex px-6">
-                      {['Headers', 'Body', 'Auth'].map((tab) => (
+                      {[t('playground.headers'), t('playground.body'), t('playground.auth')].map((tab, idx) => (
                         <button
                           key={tab}
                           className="px-4 py-3 text-[12px] font-semibold text-[#999999] hover:text-white border-b-2 border-transparent transition-all first:border-b-2 first:border-[#8B9DAF] first:text-white"
@@ -298,7 +299,7 @@ export default function PlaygroundPageClient() {
 
                   {/* Headers Editor */}
                   <div className="p-6">
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-4 font-[family-name:var(--font-space-mono)]">Request Headers</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-4 font-[family-name:var(--font-space-mono)]">{t('playground.requestHeaders')}</p>
                     <div className="space-y-3">
                       {[
                         { key: 'Authorization', value: 'Bearer harch_sk_••••••••••••••••' },
@@ -323,7 +324,7 @@ export default function PlaygroundPageClient() {
                       ))}
                     </div>
 
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mt-8 mb-4 font-[family-name:var(--font-space-mono)]">Request Body</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mt-8 mb-4 font-[family-name:var(--font-space-mono)]">{t('playground.requestBody')}</p>
                     <div className="bg-[rgba(0,0,0,0.3)] rounded-lg p-5 font-mono text-[13px] leading-[1.9] border border-white/[0.04]">
                       <p className="text-[#999999]">{'{'}</p>
                       <p className="ml-4"><span className="text-[#E06C75]">&quot;gpu_type&quot;</span>: <span className="text-[#98C379]">&quot;H100&quot;</span>,</p>
@@ -347,7 +348,7 @@ export default function PlaygroundPageClient() {
                     </div>
                     <button onClick={handleCopy} className="inline-flex items-center gap-1.5 text-[11px] text-[#999999] hover:text-white transition-colors">
                       {copied ? <CheckCircle2 size={12} /> : <Copy size={12} />}
-                      {copied ? 'Copied' : 'Copy'}
+                      {copied ? t('playground.copied') : t('playground.copy')}
                     </button>
                   </div>
                   <div className="p-6 font-mono text-[12px] leading-[1.8] max-h-80 overflow-y-auto">
@@ -361,18 +362,18 @@ export default function PlaygroundPageClient() {
                     <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
                       <Key size={18} className="text-[#8B9DAF]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">Authentication</h3>
+                    <h3 className="text-lg font-bold text-white">{t('playground.authTitle')}</h3>
                   </div>
                   <div className="accent-line mb-4" />
                   <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">
-                    All HarchOS API requests require a valid API key passed via the <code className="px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.06)] text-[#8B9DAF] text-[12px] font-[family-name:var(--font-space-mono)]">Authorization</code> header. API keys start with <code className="px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.06)] text-[#8B9DAF] text-[12px] font-[family-name:var(--font-space-mono)]">harch_sk_</code> and can be generated from your developer dashboard.
+                    {t('playground.authDescription')}
                   </p>
                   <div className="bg-[rgba(0,0,0,0.3)] rounded-lg p-4 font-mono text-[13px] border border-white/[0.04]">
                     <p><span className="text-[#E06C75]">Authorization</span>: <span className="text-[#98C379]">Bearer harch_sk_your_api_key_here</span></p>
                   </div>
                   <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-[rgba(139,157,175,0.04)] border border-[rgba(139,157,175,0.1)]">
                     <Info size={14} className="text-[#8B9DAF] mt-0.5 shrink-0" />
-                    <p className="text-[12px] text-[#999999]">Never expose your API key in client-side code. Use environment variables or a server-side proxy in production.</p>
+                    <p className="text-[12px] text-[#999999]">{t('playground.authWarning')}</p>
                   </div>
                 </div>
 
@@ -380,7 +381,7 @@ export default function PlaygroundPageClient() {
                 <div className="card overflow-hidden">
                   <div className="flex items-center gap-3 px-6 py-4 border-b border-white/[0.04] bg-[rgba(255,255,255,0.02)]">
                     <Code2 size={16} className="text-[#8B9DAF]" />
-                    <span className="text-[13px] font-semibold text-white">Code Generation</span>
+                    <span className="text-[13px] font-semibold text-white">{t('playground.codeGenTitle')}</span>
                   </div>
                   <div className="flex border-b border-white/[0.04]">
                     {['curl', 'python', 'typescript', 'go'].map((lang) => (
@@ -408,24 +409,24 @@ export default function PlaygroundPageClient() {
                     <div className="w-10 h-10 rounded-lg bg-[rgba(245,158,11,0.08)] flex items-center justify-center">
                       <Zap size={18} className="text-[#F59E0B]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">Rate Limits</h3>
+                    <h3 className="text-lg font-bold text-white">{t('playground.rateLimitsTitle')}</h3>
                   </div>
                   <div className="accent-line mb-6" />
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     {[
-                      { tier: 'Starter', limit: '100 req/min', burst: '200' },
-                      { tier: 'Professional', limit: '1,000 req/min', burst: '2,000' },
-                      { tier: 'Enterprise', limit: '10,000 req/min', burst: 'Custom' },
+                      { tier: t('playground.rateLimits.0.tier'), limit: t('playground.rateLimits.0.limit'), burst: t('playground.rateLimits.0.burst') },
+                      { tier: t('playground.rateLimits.1.tier'), limit: t('playground.rateLimits.1.limit'), burst: t('playground.rateLimits.1.burst') },
+                      { tier: t('playground.rateLimits.2.tier'), limit: t('playground.rateLimits.2.limit'), burst: t('playground.rateLimits.2.burst') },
                     ].map((rate) => (
                       <div key={rate.tier} className="p-4 rounded-lg bg-[rgba(255,255,255,0.02)] border border-white/[0.04]">
                         <p className="text-[13px] font-bold text-white mb-2">{rate.tier}</p>
                         <div className="space-y-1.5">
                           <div className="flex justify-between">
-                            <span className="text-[11px] text-[#666666]">Rate Limit</span>
+                            <span className="text-[11px] text-[#666666]">{t('playground.rateLimitLabel')}</span>
                             <span className="text-[11px] text-[#CCCCCC] font-[family-name:var(--font-space-mono)]">{rate.limit}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-[11px] text-[#666666]">Burst</span>
+                            <span className="text-[11px] text-[#666666]">{t('playground.burstLabel')}</span>
                             <span className="text-[11px] text-[#CCCCCC] font-[family-name:var(--font-space-mono)]">{rate.burst}</span>
                           </div>
                         </div>
@@ -433,7 +434,7 @@ export default function PlaygroundPageClient() {
                     ))}
                   </div>
                   <p className="text-[12px] text-[#666666] mt-4">
-                    Rate limit headers are included in every response: <code className="text-[#999999] font-[family-name:var(--font-space-mono)]">X-RateLimit-Limit</code>, <code className="text-[#999999] font-[family-name:var(--font-space-mono)]">X-RateLimit-Remaining</code>, <code className="text-[#999999] font-[family-name:var(--font-space-mono)]">X-RateLimit-Reset</code>
+                    {t('playground.rateLimitsDescription')}
                   </p>
                 </div>
 

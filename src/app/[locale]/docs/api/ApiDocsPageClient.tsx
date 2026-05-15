@@ -9,165 +9,171 @@ import {
   FileText, AlertTriangle, CheckCircle2, Copy, Wifi, Leaf
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
-/* ─── DATA ─── */
-const authMethods = [
-  {
-    icon: Key,
-    name: 'API Keys',
-    description: 'Simple key-based authentication for server-to-server communication. Pass your API key via the X-API-Key header or Authorization Bearer token.',
-    example: 'X-API-Key: hrch_live_sk_abc123def456',
-    useCase: 'Backend services, CLI tools, automation scripts',
-  },
-  {
-    icon: Shield,
-    name: 'OAuth 2.0',
-    description: 'Industry-standard authorization framework for third-party integrations. Supports Authorization Code, Client Credentials, and Device Code flows.',
-    example: 'Authorization: Bearer eyJhbGciOiJSUzI1NiIs...',
-    useCase: 'Third-party integrations, user-facing applications',
-  },
-  {
-    icon: Lock,
-    name: 'JWT Tokens',
-    description: 'JSON Web Tokens for stateless session management. Tokens are signed with RSA-4096 and include sovereignty claims for data residency enforcement.',
-    example: 'Authorization: Bearer <jwt_token>',
-    useCase: 'Session management, service mesh authentication',
-  },
-];
+/* ─── MAIN COMPONENT ─── */
+export default function ApiDocsPageClient() {
+  const t = useTranslations('docs');
+  const [activeCodeTab, setActiveCodeTab] = useState('curl');
+  const [copied, setCopied] = useState(false);
 
-const restEndpoints = [
-  {
-    resource: 'Compute',
-    icon: Server,
-    endpoints: [
-      { method: 'POST', path: '/v1/compute/workloads', desc: 'Create a new compute workload' },
-      { method: 'GET', path: '/v1/compute/workloads', desc: 'List all workloads with filters' },
-      { method: 'GET', path: '/v1/compute/workloads/:id', desc: 'Get workload details and status' },
-      { method: 'PATCH', path: '/v1/compute/workloads/:id', desc: 'Update workload configuration' },
-      { method: 'DELETE', path: '/v1/compute/workloads/:id', desc: 'Terminate and remove a workload' },
-      { method: 'POST', path: '/v1/compute/workloads/:id/scale', desc: 'Scale workload GPU allocation' },
-      { method: 'POST', path: '/v1/compute/workloads/:id/migrate', desc: 'Migrate workload to another hub' },
-    ],
-  },
-  {
-    resource: 'Carbon-Aware Scheduling',
-    icon: Leaf,
-    endpoints: [
-      { method: 'GET', path: '/v1/carbon/intensity', desc: 'Get real-time carbon intensity by zone' },
-      { method: 'GET', path: '/v1/carbon/optimal-hub', desc: 'Find the hub with lowest carbon intensity for a workload' },
-      { method: 'POST', path: '/v1/carbon/optimize', desc: 'Optimize workload placement for carbon efficiency' },
-      { method: 'GET', path: '/v1/carbon/forecast', desc: 'Get carbon intensity forecast with green window detection' },
-      { method: 'GET', path: '/v1/carbon/metrics', desc: 'Get aggregate carbon metrics across the platform' },
-      { method: 'GET', path: '/v1/carbon/dashboard', desc: 'Full carbon-aware dashboard data' },
-    ],
-  },
-  {
-    resource: 'Data',
-    icon: Database,
-    endpoints: [
-      { method: 'POST', path: '/v1/data/pipelines', desc: 'Create a data ingestion pipeline' },
-      { method: 'GET', path: '/v1/data/pipelines', desc: 'List all data pipelines' },
-      { method: 'POST', path: '/v1/data/pipelines/:id/ingest', desc: 'Trigger data ingestion run' },
-      { method: 'GET', path: '/v1/data/lakes', desc: 'List data lake storage volumes' },
-      { method: 'POST', path: '/v1/data/lakes/:id/snapshot', desc: 'Create a point-in-time snapshot' },
-    ],
-  },
-  {
-    resource: 'Models',
-    icon: Brain,
-    endpoints: [
-      { method: 'POST', path: '/v1/models', desc: 'Register a new AI model' },
-      { method: 'GET', path: '/v1/models', desc: 'List registered models' },
-      { method: 'POST', path: '/v1/models/:id/deploy', desc: 'Deploy model to inference endpoint' },
-      { method: 'POST', path: '/v1/models/:id/train', desc: 'Start model training job' },
-      { method: 'GET', path: '/v1/models/:id/metrics', desc: 'Get model performance metrics' },
-      { method: 'POST', path: '/v1/inference', desc: 'Run inference on a deployed model' },
-    ],
-  },
-  {
-    resource: 'Pricing',
-    icon: Monitor,
-    endpoints: [
-      { method: 'GET', path: '/v1/pricing/plans', desc: 'List pricing plans with GPU type, tier, and region filters' },
-      { method: 'GET', path: '/v1/pricing/plans/:id', desc: 'Get specific pricing plan details' },
-      { method: 'GET', path: '/v1/pricing/estimate', desc: 'Calculate cost estimate for a workload configuration' },
-      { method: 'GET', path: '/v1/pricing/billing/records', desc: 'List user billing records (auth required)' },
-      { method: 'GET', path: '/v1/pricing/billing/records/:id', desc: 'Get specific billing record details' },
-    ],
-  },
-  {
-    resource: 'Regions',
-    icon: Globe,
-    endpoints: [
-      { method: 'GET', path: '/v1/regions', desc: 'List all regions with hub count, GPUs, renewable %, and carbon intensity' },
-      { method: 'GET', path: '/v1/regions/:code', desc: 'Get specific region with compliance frameworks and latency data' },
-    ],
-  },
-  {
-    resource: 'Operations',
-    icon: Zap,
-    endpoints: [
-      { method: 'GET', path: '/v1/operations/hubs', desc: 'List all compute hubs and status' },
-      { method: 'GET', path: '/v1/operations/hubs/:id', desc: 'Get hub details and capacity' },
-      { method: 'POST', path: '/v1/operations/failover', desc: 'Initiate hub failover procedure' },
-      { method: 'GET', path: '/v1/operations/energy', desc: 'Get energy consumption and source data' },
-      { method: 'POST', path: '/v1/operations/schedule', desc: 'Create carbon-aware schedule policy' },
-    ],
-  },
-  {
-    resource: 'Monitoring',
-    icon: Activity,
-    endpoints: [
-      { method: 'GET', path: '/v1/monitoring/metrics', desc: 'Platform-wide metrics: GPUs, utilization, carbon, energy, CO2 saved' },
-      { method: 'GET', path: '/v1/monitoring/health/detailed', desc: 'Detailed health check: DB status, API version, uptime, connections' },
-      { method: 'GET', path: '/v1/monitoring/alerts', desc: 'List active alerts across the mesh' },
-      { method: 'POST', path: '/v1/monitoring/alerts/rules', desc: 'Create alert rule' },
-      { method: 'GET', path: '/v1/monitoring/traces', desc: 'Query distributed traces' },
-      { method: 'GET', path: '/v1/monitoring/logs', desc: 'Search structured logs' },
-    ],
-  },
-];
+  const authMethods = [
+    {
+      icon: Key,
+      name: t('api.authMethods.0.name'),
+      description: t('api.authMethods.0.description'),
+      example: 'X-API-Key: hrch_live_sk_abc123def456',
+      useCase: t('api.authMethods.0.useCase'),
+    },
+    {
+      icon: Shield,
+      name: t('api.authMethods.1.name'),
+      description: t('api.authMethods.1.description'),
+      example: 'Authorization: Bearer eyJhbGciOiJSUzI1NiIs...',
+      useCase: t('api.authMethods.1.useCase'),
+    },
+    {
+      icon: Lock,
+      name: t('api.authMethods.2.name'),
+      description: t('api.authMethods.2.description'),
+      example: 'Authorization: Bearer <jwt_token>',
+      useCase: t('api.authMethods.2.useCase'),
+    },
+  ];
 
-const grpcServices = [
-  { name: 'ComputeService', desc: 'Manage workloads, scaling, and GPU allocation across the mesh', methods: ['CreateWorkload', 'GetWorkload', 'ListWorkloads', 'ScaleWorkload', 'MigrateWorkload', 'StreamWorkloadEvents'] },
-  { name: 'DataService', desc: 'Data pipeline management, ingestion, and lake operations', methods: ['CreatePipeline', 'IngestData', 'GetSnapshot', 'StreamData'] },
-  { name: 'ModelService', desc: 'Model registration, training, and inference endpoints', methods: ['RegisterModel', 'DeployModel', 'TrainModel', 'StreamInference'] },
-  { name: 'MeshService', desc: 'Hub topology, health monitoring, and mesh orchestration', methods: ['GetHubStatus', 'StreamMetrics', 'InitiateFailover', 'GetEnergyReport'] },
-  { name: 'IdentityService', desc: 'Authentication, authorization, and audit logging', methods: ['Authenticate', 'Authorize', 'StreamAuditEvents', 'RevokeToken'] },
-];
+  const restEndpoints = [
+    {
+      resource: t('api.restEndpoints.0.resource'),
+      icon: Server,
+      endpoints: [
+        { method: 'POST', path: '/v1/compute/workloads', desc: t('api.restEndpoints.0.endpoints.0.desc') },
+        { method: 'GET', path: '/v1/compute/workloads', desc: t('api.restEndpoints.0.endpoints.1.desc') },
+        { method: 'GET', path: '/v1/compute/workloads/:id', desc: t('api.restEndpoints.0.endpoints.2.desc') },
+        { method: 'PATCH', path: '/v1/compute/workloads/:id', desc: t('api.restEndpoints.0.endpoints.3.desc') },
+        { method: 'DELETE', path: '/v1/compute/workloads/:id', desc: t('api.restEndpoints.0.endpoints.4.desc') },
+        { method: 'POST', path: '/v1/compute/workloads/:id/scale', desc: t('api.restEndpoints.0.endpoints.5.desc') },
+        { method: 'POST', path: '/v1/compute/workloads/:id/migrate', desc: t('api.restEndpoints.0.endpoints.6.desc') },
+      ],
+    },
+    {
+      resource: t('api.restEndpoints.1.resource'),
+      icon: Leaf,
+      endpoints: [
+        { method: 'GET', path: '/v1/carbon/intensity', desc: t('api.restEndpoints.1.endpoints.0.desc') },
+        { method: 'GET', path: '/v1/carbon/optimal-hub', desc: t('api.restEndpoints.1.endpoints.1.desc') },
+        { method: 'POST', path: '/v1/carbon/optimize', desc: t('api.restEndpoints.1.endpoints.2.desc') },
+        { method: 'GET', path: '/v1/carbon/forecast', desc: t('api.restEndpoints.1.endpoints.3.desc') },
+        { method: 'GET', path: '/v1/carbon/metrics', desc: t('api.restEndpoints.1.endpoints.4.desc') },
+        { method: 'GET', path: '/v1/carbon/dashboard', desc: t('api.restEndpoints.1.endpoints.5.desc') },
+      ],
+    },
+    {
+      resource: t('api.restEndpoints.2.resource'),
+      icon: Database,
+      endpoints: [
+        { method: 'POST', path: '/v1/data/pipelines', desc: t('api.restEndpoints.2.endpoints.0.desc') },
+        { method: 'GET', path: '/v1/data/pipelines', desc: t('api.restEndpoints.2.endpoints.1.desc') },
+        { method: 'POST', path: '/v1/data/pipelines/:id/ingest', desc: t('api.restEndpoints.2.endpoints.2.desc') },
+        { method: 'GET', path: '/v1/data/lakes', desc: t('api.restEndpoints.2.endpoints.3.desc') },
+        { method: 'POST', path: '/v1/data/lakes/:id/snapshot', desc: t('api.restEndpoints.2.endpoints.4.desc') },
+      ],
+    },
+    {
+      resource: t('api.restEndpoints.3.resource'),
+      icon: Brain,
+      endpoints: [
+        { method: 'POST', path: '/v1/models', desc: t('api.restEndpoints.3.endpoints.0.desc') },
+        { method: 'GET', path: '/v1/models', desc: t('api.restEndpoints.3.endpoints.1.desc') },
+        { method: 'POST', path: '/v1/models/:id/deploy', desc: t('api.restEndpoints.3.endpoints.2.desc') },
+        { method: 'POST', path: '/v1/models/:id/train', desc: t('api.restEndpoints.3.endpoints.3.desc') },
+        { method: 'GET', path: '/v1/models/:id/metrics', desc: t('api.restEndpoints.3.endpoints.4.desc') },
+        { method: 'POST', path: '/v1/inference', desc: t('api.restEndpoints.3.endpoints.5.desc') },
+      ],
+    },
+    {
+      resource: t('api.restEndpoints.4.resource'),
+      icon: Monitor,
+      endpoints: [
+        { method: 'GET', path: '/v1/pricing/plans', desc: t('api.restEndpoints.4.endpoints.0.desc') },
+        { method: 'GET', path: '/v1/pricing/plans/:id', desc: t('api.restEndpoints.4.endpoints.1.desc') },
+        { method: 'GET', path: '/v1/pricing/estimate', desc: t('api.restEndpoints.4.endpoints.2.desc') },
+        { method: 'GET', path: '/v1/pricing/billing/records', desc: t('api.restEndpoints.4.endpoints.3.desc') },
+        { method: 'GET', path: '/v1/pricing/billing/records/:id', desc: t('api.restEndpoints.4.endpoints.4.desc') },
+      ],
+    },
+    {
+      resource: t('api.restEndpoints.5.resource'),
+      icon: Globe,
+      endpoints: [
+        { method: 'GET', path: '/v1/regions', desc: t('api.restEndpoints.5.endpoints.0.desc') },
+        { method: 'GET', path: '/v1/regions/:code', desc: t('api.restEndpoints.5.endpoints.1.desc') },
+      ],
+    },
+    {
+      resource: t('api.restEndpoints.6.resource'),
+      icon: Zap,
+      endpoints: [
+        { method: 'GET', path: '/v1/operations/hubs', desc: t('api.restEndpoints.6.endpoints.0.desc') },
+        { method: 'GET', path: '/v1/operations/hubs/:id', desc: t('api.restEndpoints.6.endpoints.1.desc') },
+        { method: 'POST', path: '/v1/operations/failover', desc: t('api.restEndpoints.6.endpoints.2.desc') },
+        { method: 'GET', path: '/v1/operations/energy', desc: t('api.restEndpoints.6.endpoints.3.desc') },
+        { method: 'POST', path: '/v1/operations/schedule', desc: t('api.restEndpoints.6.endpoints.4.desc') },
+      ],
+    },
+    {
+      resource: t('api.restEndpoints.7.resource'),
+      icon: Activity,
+      endpoints: [
+        { method: 'GET', path: '/v1/monitoring/metrics', desc: t('api.restEndpoints.7.endpoints.0.desc') },
+        { method: 'GET', path: '/v1/monitoring/health/detailed', desc: t('api.restEndpoints.7.endpoints.1.desc') },
+        { method: 'GET', path: '/v1/monitoring/alerts', desc: t('api.restEndpoints.7.endpoints.2.desc') },
+        { method: 'POST', path: '/v1/monitoring/alerts/rules', desc: t('api.restEndpoints.7.endpoints.3.desc') },
+        { method: 'GET', path: '/v1/monitoring/traces', desc: t('api.restEndpoints.7.endpoints.4.desc') },
+        { method: 'GET', path: '/v1/monitoring/logs', desc: t('api.restEndpoints.7.endpoints.5.desc') },
+      ],
+    },
+  ];
 
-const wsEndpoints = [
-  { path: '/v1/ws/workloads/:id/events', desc: 'Real-time workload state changes, logs, and metrics', protocol: 'JSON over WebSocket' },
-  { path: '/v1/ws/metrics/stream', desc: 'Live platform metrics with configurable granularity', protocol: 'JSON over WebSocket' },
-  { path: '/v1/ws/models/:id/inference', desc: 'Streaming inference for real-time model predictions', protocol: 'JSON over WebSocket' },
-  { path: '/v1/ws/audit/events', desc: 'Real-time audit event stream for compliance monitoring', protocol: 'JSON over WebSocket' },
-  { path: '/v1/ws/hubs/:id/telemetry', desc: 'Live hub telemetry data including power, thermal, and network', protocol: 'Protobuf over WebSocket' },
-];
+  const grpcServices = [
+    { name: 'ComputeService', desc: t('api.grpcServices.0.desc'), methods: ['CreateWorkload', 'GetWorkload', 'ListWorkloads', 'ScaleWorkload', 'MigrateWorkload', 'StreamWorkloadEvents'] },
+    { name: 'DataService', desc: t('api.grpcServices.1.desc'), methods: ['CreatePipeline', 'IngestData', 'GetSnapshot', 'StreamData'] },
+    { name: 'ModelService', desc: t('api.grpcServices.2.desc'), methods: ['RegisterModel', 'DeployModel', 'TrainModel', 'StreamInference'] },
+    { name: 'MeshService', desc: t('api.grpcServices.3.desc'), methods: ['GetHubStatus', 'StreamMetrics', 'InitiateFailover', 'GetEnergyReport'] },
+    { name: 'IdentityService', desc: t('api.grpcServices.4.desc'), methods: ['Authenticate', 'Authorize', 'StreamAuditEvents', 'RevokeToken'] },
+  ];
 
-const rateLimits = [
-  { tier: 'Free', requests: '100 req/min', burst: '50 req', compute: '10 GPU-hours/month free tier', data: '5 GB/month' },
-  { tier: 'Developer', requests: '1,000 req/min', burst: '500 req', compute: '10 GPU-hours/day', data: '50 GB/month' },
-  { tier: 'Professional', requests: '10,000 req/min', burst: '5,000 req', compute: '100 GPU-hours/day', data: '500 GB/month' },
-  { tier: 'Enterprise', requests: 'Custom', burst: 'Custom', compute: 'Unlimited', data: 'Unlimited' },
-  { tier: 'Sovereign', requests: 'Custom', burst: 'Custom', compute: 'Dedicated', data: 'Dedicated' },
-];
+  const wsEndpoints = [
+    { path: '/v1/ws/workloads/:id/events', desc: t('api.wsEndpoints.0.desc'), protocol: 'JSON over WebSocket' },
+    { path: '/v1/ws/metrics/stream', desc: t('api.wsEndpoints.1.desc'), protocol: 'JSON over WebSocket' },
+    { path: '/v1/ws/models/:id/inference', desc: t('api.wsEndpoints.2.desc'), protocol: 'JSON over WebSocket' },
+    { path: '/v1/ws/audit/events', desc: t('api.wsEndpoints.3.desc'), protocol: 'JSON over WebSocket' },
+    { path: '/v1/ws/hubs/:id/telemetry', desc: t('api.wsEndpoints.4.desc'), protocol: 'Protobuf over WebSocket' },
+  ];
 
-const errorCodes = [
-  { code: '400', name: 'Bad Request', desc: 'Invalid request body, missing required fields, or malformed parameters.' },
-  { code: '401', name: 'Unauthorized', desc: 'Missing or invalid authentication credentials. Check API key or JWT token.' },
-  { code: '403', name: 'Forbidden', desc: 'Insufficient permissions or sovereignty constraint violation. Data cannot leave the designated jurisdiction.' },
-  { code: '404', name: 'Not Found', desc: 'The requested resource does not exist or has been decommissioned.' },
-  { code: '409', name: 'Conflict', desc: 'Resource state conflict, such as attempting to deploy a model that is already deployed.' },
-  { code: '429', name: 'Rate Limited', desc: 'Request rate exceeds your tier limit. Retry after the time specified in Retry-After header.' },
-  { code: '500', name: 'Internal Error', desc: 'Unexpected server error. HarchOS operations team is automatically notified.' },
-  { code: '503', name: 'Service Unavailable', desc: 'Hub is temporarily offline for maintenance. Traffic is rerouted to the nearest available hub.' },
-];
+  const rateLimits = [
+    { tier: t('api.rateLimits.0.tier'), requests: '100 req/min', burst: '50 req', compute: t('api.rateLimits.0.compute'), data: '5 GB/month' },
+    { tier: t('api.rateLimits.1.tier'), requests: '1,000 req/min', burst: '500 req', compute: t('api.rateLimits.1.compute'), data: '50 GB/month' },
+    { tier: t('api.rateLimits.2.tier'), requests: '10,000 req/min', burst: '5,000 req', compute: t('api.rateLimits.2.compute'), data: '500 GB/month' },
+    { tier: t('api.rateLimits.3.tier'), requests: t('api.rateLimits.3.requests'), burst: t('api.rateLimits.3.burst'), compute: t('api.rateLimits.3.compute'), data: t('api.rateLimits.3.data') },
+    { tier: t('api.rateLimits.4.tier'), requests: t('api.rateLimits.4.requests'), burst: t('api.rateLimits.4.burst'), compute: t('api.rateLimits.4.compute'), data: t('api.rateLimits.4.data') },
+  ];
 
-const codeExamples = [
-  {
-    lang: 'curl',
-    label: 'cURL',
-    code: `curl -X POST https://api.harchos.io/v1/compute/workloads \\
+  const errorCodes = [
+    { code: '400', name: t('api.errorCodes.0.name'), desc: t('api.errorCodes.0.desc') },
+    { code: '401', name: t('api.errorCodes.1.name'), desc: t('api.errorCodes.1.desc') },
+    { code: '403', name: t('api.errorCodes.2.name'), desc: t('api.errorCodes.2.desc') },
+    { code: '404', name: t('api.errorCodes.3.name'), desc: t('api.errorCodes.3.desc') },
+    { code: '409', name: t('api.errorCodes.4.name'), desc: t('api.errorCodes.4.desc') },
+    { code: '429', name: t('api.errorCodes.5.name'), desc: t('api.errorCodes.5.desc') },
+    { code: '500', name: t('api.errorCodes.6.name'), desc: t('api.errorCodes.6.desc') },
+    { code: '503', name: t('api.errorCodes.7.name'), desc: t('api.errorCodes.7.desc') },
+  ];
+
+  const codeExamples = [
+    {
+      lang: 'curl',
+      label: 'cURL',
+      code: `curl -X POST https://api.harchos.io/v1/compute/workloads \\
   -H "Authorization: Bearer hrch_live_sk_abc123" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -179,11 +185,11 @@ const codeExamples = [
     "carbonAware": true,
     "schedule": "carbon-optimal"
   }'`,
-  },
-  {
-    lang: 'python',
-    label: 'Python',
-    code: `import harchos
+    },
+    {
+      lang: 'python',
+      label: 'Python',
+      code: `import harchos
 
 client = harchos.Client(
     api_key="hrch_live_sk_abc123",
@@ -202,11 +208,11 @@ workload = client.compute.create_workload(
 
 print(f"Workload {workload.id} deployed on {workload.hub}")
 print(f"Energy source: {workload.energy_source}")`,
-  },
-  {
-    lang: 'typescript',
-    label: 'TypeScript',
-    code: `import { HarchOS } from '@harchos/sdk';
+    },
+    {
+      lang: 'typescript',
+      label: 'TypeScript',
+      code: `import { HarchOS } from '@harchos/sdk';
 
 const client = await HarchOS.create({
   apiKey: 'hrch_live_sk_abc123',
@@ -225,20 +231,15 @@ const workload = await client.compute.createWorkload({
 
 console.log(\`Workload \${workload.id} deployed on \${workload.hub}\`);
 console.log(\`Energy source: \${workload.energySource}\`);`,
-  },
-];
+    },
+  ];
 
-const methodColors: Record<string, string> = {
-  GET: '#10B981',
-  POST: '#8B9DAF',
-  PATCH: '#F59E0B',
-  DELETE: '#EF4444',
-};
-
-/* ─── MAIN COMPONENT ─── */
-export default function ApiDocsPageClient() {
-  const [activeCodeTab, setActiveCodeTab] = useState('curl');
-  const [copied, setCopied] = useState(false);
+  const methodColors: Record<string, string> = {
+    GET: '#10B981',
+    POST: '#8B9DAF',
+    PATCH: '#F59E0B',
+    DELETE: '#EF4444',
+  };
 
   const handleCopy = (code: string) => {
     navigator.clipboard.writeText(code);
@@ -257,31 +258,31 @@ export default function ApiDocsPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#8B9DAF]">HarchOS API /0.1</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">{t('api.hero.label')}</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              API Reference
+              {t('api.title')}
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed mb-8">
-              Complete reference for HarchOS REST, gRPC, and WebSocket APIs. Authenticate, create workloads, deploy models, and monitor your infrastructure.
+              {t('api.description')}
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="flex flex-wrap gap-3">
               <Link href="/docs/sdks" className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                View SDKs <ArrowRight size={14} />
+                {t('api.viewSdks')} <ArrowRight size={14} />
               </Link>
               <Link href="/docs/quickstarts" className="inline-flex items-center gap-2 border border-white/12 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                Quickstart Guide
+                {t('api.quickstartGuide')}
               </Link>
             </div>
           </FadeIn>
           <FadeIn delay={0.4}>
             <div className="mt-8 font-[family-name:var(--font-space-mono)] text-[13px] bg-[#121212] border border-white/[0.06] rounded-lg px-5 py-3 max-w-xl">
-              <span className="text-[#666666]">Base URL:</span>{' '}
+              <span className="text-[#666666]">{t('api.baseUrlLabel')}</span>{' '}
               <span className="text-[#8B9DAF]">https://api.harchos.io</span>
             </div>
           </FadeIn>
@@ -294,9 +295,9 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Authentication</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('api.auth.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Authenticate Your Requests
+              {t('api.auth.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -316,7 +317,7 @@ export default function ApiDocsPageClient() {
                     <code className="text-[12px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] break-all">{method.example}</code>
                   </div>
                   <p className="text-[11px] text-[#666666]">
-                    <span className="text-[#999999] font-semibold">Use case:</span> {method.useCase}
+                    <span className="text-[#999999] font-semibold">{t('api.auth.useCase')}</span> {method.useCase}
                   </p>
                 </div>
               </FadeIn>
@@ -331,13 +332,13 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">REST API</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('api.rest.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              REST Endpoints
+              {t('api.rest.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-3xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              The HarchOS REST API provides comprehensive access to compute, data, model, and operations resources. All endpoints use JSON for request and response bodies, follow OpenAPI 3.1 specification, and support pagination, filtering, and field selection.
+              {t('api.rest.description')}
             </p>
           </FadeIn>
 
@@ -348,7 +349,7 @@ export default function ApiDocsPageClient() {
                   <div className="flex items-center gap-3 px-6 py-4 border-b border-white/[0.06]">
                     <group.icon size={16} className="text-[#8B9DAF]" />
                     <h3 className="text-base font-bold text-white">{group.resource}</h3>
-                    <span className="ml-auto text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">{group.endpoints.length} endpoints</span>
+                    <span className="ml-auto text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">{group.endpoints.length} {t('api.rest.endpoints')}</span>
                   </div>
                   <div className="divide-y divide-white/[0.03]">
                     {group.endpoints.map((ep) => (
@@ -372,13 +373,13 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">gRPC API</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('api.grpc.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              gRPC Service Definitions
+              {t('api.grpc.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-3xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              High-performance gRPC services for latency-sensitive workloads and streaming operations. Uses Protocol Buffers v3 for schema definition and supports bi-directional streaming for real-time data flows.
+              {t('api.grpc.description')}
             </p>
           </FadeIn>
 
@@ -409,20 +410,20 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">WebSocket API</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('api.websocket.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Real-Time Streaming
+              {t('api.websocket.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-3xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              WebSocket endpoints for real-time event streaming. Connect once, receive continuous updates for workload state changes, metrics, inference results, and audit events.
+              {t('api.websocket.description')}
             </p>
           </FadeIn>
 
           <div className="card overflow-hidden">
             <div className="flex items-center gap-3 px-6 py-4 border-b border-white/[0.06]">
               <Wifi size={16} className="text-[#8B9DAF]" />
-              <h3 className="text-base font-bold text-white">Streaming Endpoints</h3>
+              <h3 className="text-base font-bold text-white">{t('api.websocket.streamingEndpoints')}</h3>
             </div>
             <div className="divide-y divide-white/[0.03]">
               {wsEndpoints.map((ep) => (
@@ -445,13 +446,13 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Rate Limits</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('api.rateLimits.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              API Rate Limits
+              {t('api.rateLimits.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-3xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              Rate limits protect the platform and ensure fair resource allocation. Headers include X-RateLimit-Limit, X-RateLimit-Remaining, and X-RateLimit-Reset for real-time tracking.
+              {t('api.rateLimits.description')}
             </p>
           </FadeIn>
 
@@ -461,11 +462,11 @@ export default function ApiDocsPageClient() {
                 <table className="data-table">
                   <thead>
                     <tr>
-                      <th>Tier</th>
-                      <th>Requests</th>
-                      <th>Burst</th>
-                      <th>Compute</th>
-                      <th>Data</th>
+                      <th>{t('api.rateLimits.table.tier')}</th>
+                      <th>{t('api.rateLimits.table.requests')}</th>
+                      <th>{t('api.rateLimits.table.burst')}</th>
+                      <th>{t('api.rateLimits.table.compute')}</th>
+                      <th>{t('api.rateLimits.table.data')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -492,9 +493,9 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Error Handling</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('api.errorHandling.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Error Codes
+              {t('api.errorHandling.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -523,9 +524,9 @@ export default function ApiDocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Code Examples</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('api.codeExamples.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Quick Code Samples
+              {t('api.codeExamples.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -552,7 +553,7 @@ export default function ApiDocsPageClient() {
                   className="ml-auto mr-4 flex items-center gap-1.5 text-[12px] text-[#666666] hover:text-white transition-colors"
                 >
                   {copied ? <CheckCircle2 size={12} className="text-[#10B981]" /> : <Copy size={12} />}
-                  {copied ? 'Copied!' : 'Copy'}
+                  {copied ? t('api.codeExamples.copied') : t('api.codeExamples.copy')}
                 </button>
               </div>
               {/* Code content */}
@@ -576,10 +577,10 @@ export default function ApiDocsPageClient() {
           <FadeIn>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/docs/sdks" className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#8B9DAF] hover:text-white transition-colors">
-                View full SDK documentation <ArrowRight size={14} />
+                {t('api.codeExamples.viewSdks')} <ArrowRight size={14} />
               </Link>
               <Link href="/docs/quickstarts" className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#999999] hover:text-white transition-colors">
-                Try the quickstart guide <ArrowRight size={14} />
+                {t('api.codeExamples.tryQuickstart')} <ArrowRight size={14} />
               </Link>
             </div>
           </FadeIn>

@@ -18,6 +18,7 @@ import {
   TrendingDown,
 } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { FadeIn } from '@/components/ui/motion';
 import { caseStudies, getCaseStudyBySlug } from '@/data/case-studies';
 
@@ -123,17 +124,19 @@ const typeColors: Record<string, { bg: string; border: string; text: string; acc
    MAIN COMPONENT
    ═══════════════════════════════════════════════════════════════════════════ */
 export default function CaseStudyPageClient({ slug }: { slug: string }) {
+  const t = useTranslations('caseStudies');
+
   const cs = getCaseStudyBySlug(slug);
 
   if (!cs) {
     return (
       <div className="bg-[#0A0A0A] min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Case Study Not Found</h1>
-          <p className="text-[#999999] mb-8">The case study you are looking for does not exist.</p>
+          <h1 className="text-4xl font-bold text-white mb-4">{t('notFound.title')}</h1>
+          <p className="text-[#999999] mb-8">{t('notFound.description')}</p>
           <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm font-semibold text-[#999999] hover:text-white transition-colors group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            Back to Case Studies
+            {t('backToCaseStudies')}
           </Link>
         </div>
       </div>
@@ -166,7 +169,7 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
           <FadeIn>
             <Link href="/case-studies" className="inline-flex items-center gap-2 text-[12px] font-semibold text-[#999999] hover:text-white transition-colors mb-8 group">
               <ArrowLeft size={12} className="group-hover:-translate-x-1 transition-transform" />
-              Back to Case Studies
+              {t('backToCaseStudies')}
             </Link>
           </FadeIn>
 
@@ -212,8 +215,8 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
       <section className="py-16 md:py-24 bg-[#0A0A0A]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Results</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-12">Impact Delivered</h2>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('results')}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-12">{t('impactDelivered')}</h2>
           </FadeIn>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden bg-[#111111]">
@@ -244,8 +247,8 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
       <section className="py-20 md:py-28 bg-[#0D0D0D]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: '#A0524B' }}>01 / Challenge</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-8">The Problem</h2>
+            <p className="section-label mb-4" style={{ color: '#A0524B' }}>01 / {t('challenge')}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-8">{t('theProblem')}</h2>
           </FadeIn>
           <FadeIn delay={0.1}>
             <div className="text-[15px] text-[#CCCCCC] leading-[1.9] space-y-6">
@@ -261,8 +264,8 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
       <section className="py-20 md:py-28 bg-[#0A0A0A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: colors.text }}>02 / Solution</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-8">Our Approach</h2>
+            <p className="section-label mb-4" style={{ color: colors.text }}>02 / {t('solution')}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-8">{t('ourApproach')}</h2>
           </FadeIn>
           <FadeIn delay={0.1}>
             <div className="text-[15px] text-[#CCCCCC] leading-[1.9] space-y-6">
@@ -278,8 +281,8 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
       <section className="py-20 md:py-28 bg-[#0D0D0D]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: colors.text }}>03 / Timeline</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-16">Implementation</h2>
+            <p className="section-label mb-4" style={{ color: colors.text }}>03 / {t('timeline')}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-16">{t('implementation')}</h2>
           </FadeIn>
 
           <div className="relative">
@@ -324,8 +327,8 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
       <section className="py-20 md:py-28 bg-[#0A0A0A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">04 / Metrics</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-12">Before &amp; After</h2>
+            <p className="section-label mb-4 text-[#8B9DAF]">04 / {t('metrics')}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-12">{t('beforeAfter')}</h2>
           </FadeIn>
 
           <FadeIn delay={0.1}>
@@ -333,10 +336,10 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
               <table className="data-table min-w-[500px] md:min-w-0">
                 <thead>
                   <tr>
-                    <th>Metric</th>
-                    <th>Before</th>
-                    <th>After</th>
-                    <th className="hidden md:table-cell">Delta</th>
+                    <th>{t('metricLabel')}</th>
+                    <th>{t('beforeLabel')}</th>
+                    <th>{t('afterLabel')}</th>
+                    <th className="hidden md:table-cell">{t('deltaLabel')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -353,7 +356,7 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
                         <td className="hidden md:table-cell">
                           <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#4A7B5F]">
                             <TrendingDown size={10} />
-                            Improved
+                            {t('improved')}
                           </span>
                         </td>
                       </tr>
@@ -407,13 +410,13 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[#999999] hover:text-white transition-colors group"
               >
                 <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-                Back to Case Studies
+                {t('backToCaseStudies')}
               </Link>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-white text-black text-[13px] font-semibold tracking-[0.02em] hover:bg-[#E5E5E5] transition-colors"
               >
-                Request a Briefing
+                {t('requestBriefing')}
                 <ArrowUpRight size={14} />
               </Link>
             </div>
@@ -426,8 +429,8 @@ export default function CaseStudyPageClient({ slug }: { slug: string }) {
         <section className="py-20 md:py-28 bg-[#0D0D0D]">
           <div className="max-w-[900px] mx-auto px-6 md:px-12">
             <FadeIn>
-              <p className="section-label mb-4 text-[#8B9DAF]">More</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-8">Other Case Studies</h2>
+              <p className="section-label mb-4 text-[#8B9DAF]">{t('moreLabel')}</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-8">{t('otherCaseStudies')}</h2>
             </FadeIn>
             <div className="space-y-2">
               {otherStudies.map((other) => {

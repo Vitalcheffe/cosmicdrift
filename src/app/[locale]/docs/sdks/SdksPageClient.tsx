@@ -9,18 +9,24 @@ import {
   FileText, Cpu, Clock
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
-/* ─── DATA ─── */
-const sdks = [
-  {
-    id: 'python',
-    name: 'Python SDK',
-    package: 'harchos',
-    install: 'pip install harchos',
-    version: '0.1.0',
-    status: 'stable',
-    accent: '#3776AB',
-    quickStart: `import harchos
+/* ─── MAIN COMPONENT ─── */
+export default function SdksPageClient() {
+  const t = useTranslations('docs');
+  const [activeSdk, setActiveSdk] = useState('typescript');
+  const [copied, setCopied] = useState(false);
+
+  const sdks = [
+    {
+      id: 'python',
+      name: t('sdks.items.0.name'),
+      package: 'harchos',
+      install: 'pip install harchos',
+      version: '0.1.0',
+      status: 'stable',
+      accent: '#3776AB',
+      quickStart: `import harchos
 
 # Initialize client with sovereign defaults
 client = harchos.Client(
@@ -42,24 +48,24 @@ workload = client.compute.create_workload(
 # Stream real-time metrics
 for event in workload.stream_metrics():
     print(f"GPU Util: {event.gpu_util}% | Power: {event.power_w}W")`,
-    features: [
-      'Async/await support with httpx',
-      'Full type hints and Pydantic models',
-      'Streaming API with async generators',
-      'Built-in retry with exponential backoff',
-      'Context manager support for resource cleanup',
-      'Native pandas DataFrame integration',
-    ],
-  },
-  {
-    id: 'typescript',
-    name: 'TypeScript/JavaScript SDK',
-    package: '@harchos/sdk',
-    install: 'npm install @harchos/sdk',
-    version: '0.1.0',
-    status: 'stable',
-    accent: '#3178C6',
-    quickStart: `import { HarchOS } from '@harchos/sdk';
+      features: [
+        t('sdks.items.0.features.0'),
+        t('sdks.items.0.features.1'),
+        t('sdks.items.0.features.2'),
+        t('sdks.items.0.features.3'),
+        t('sdks.items.0.features.4'),
+        t('sdks.items.0.features.5'),
+      ],
+    },
+    {
+      id: 'typescript',
+      name: t('sdks.items.1.name'),
+      package: '@harchos/sdk',
+      install: 'npm install @harchos/sdk',
+      version: '0.1.0',
+      status: 'stable',
+      accent: '#3178C6',
+      quickStart: `import { HarchOS } from '@harchos/sdk';
 
 // Initialize client with sovereign defaults
 const client = await HarchOS.create({
@@ -82,24 +88,24 @@ const workload = await client.compute.createWorkload({
 for await (const event of workload.streamMetrics()) {
   console.log(\`GPU Util: \${event.gpuUtil}% | Power: \${event.powerW}W\`);
 }`,
-    features: [
-      'Full TypeScript types with zero any',
-      'Works in Node.js 18+ and modern browsers',
-      'WebSocket streaming with async iterators',
-      'Tree-shakeable ESM build',
-      'Built-in retry and circuit breaker',
-      'React hooks package: @harchos/react',
-    ],
-  },
-  {
-    id: 'go',
-    name: 'Go SDK',
-    package: 'harchos-cli',
-    install: 'go get github.com/HarchCorp/harchos-cli/pkg/client',
-    version: '0.1.0',
-    status: 'stable',
-    accent: '#00ADD8',
-    quickStart: `package main
+      features: [
+        t('sdks.items.1.features.0'),
+        t('sdks.items.1.features.1'),
+        t('sdks.items.1.features.2'),
+        t('sdks.items.1.features.3'),
+        t('sdks.items.1.features.4'),
+        t('sdks.items.1.features.5'),
+      ],
+    },
+    {
+      id: 'go',
+      name: t('sdks.items.2.name'),
+      package: 'harchos-cli',
+      install: 'go get github.com/HarchCorp/harchos-cli/pkg/client',
+      version: '0.1.0',
+      status: 'stable',
+      accent: '#00ADD8',
+      quickStart: `package main
 
 import (
     "context"
@@ -136,24 +142,24 @@ func main() {
 
     fmt.Printf("Workload %s deployed on %s\\n", workload.ID, workload.Hub)
 }`,
-    features: [
-      'Idiomatic Go with context.Context',
-      'Graceful cancellation and timeout support',
-      'Connection pooling with configurable limits',
-      'Struct-based request/response types',
-      'Built-in retry with jitter',
-      'gRPC client for streaming operations',
-    ],
-  },
-  {
-    id: 'rust',
-    name: 'Rust SDK',
-    package: 'harchos-sdk',
-    install: 'cargo add harchos-sdk',
-    version: '0.1.0',
-    status: 'coming-soon',
-    accent: '#DEA584',
-    quickStart: `use harchos_sdk::{Client, Config, CreateWorkloadRequest};
+      features: [
+        t('sdks.items.2.features.0'),
+        t('sdks.items.2.features.1'),
+        t('sdks.items.2.features.2'),
+        t('sdks.items.2.features.3'),
+        t('sdks.items.2.features.4'),
+        t('sdks.items.2.features.5'),
+      ],
+    },
+    {
+      id: 'rust',
+      name: t('sdks.items.3.name'),
+      package: 'harchos-sdk',
+      install: 'cargo add harchos-sdk',
+      version: '0.1.0',
+      status: 'coming-soon',
+      accent: '#DEA584',
+      quickStart: `use harchos_sdk::{Client, Config, CreateWorkloadRequest};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -178,45 +184,40 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Workload {} deployed on {}", workload.id, workload.hub);
     Ok(())
 }`,
-    features: [
-      'Zero-cost abstractions with async/await',
-      'Tokio runtime with zero-copy parsing',
-      'Serde-based serialization/deserialization',
-      'Compile-time type safety guarantees',
-      'Minimal dependency tree',
-      'Native gRPC support via tonic',
-    ],
-  },
-];
+      features: [
+        t('sdks.items.3.features.0'),
+        t('sdks.items.3.features.1'),
+        t('sdks.items.3.features.2'),
+        t('sdks.items.3.features.3'),
+        t('sdks.items.3.features.4'),
+        t('sdks.items.3.features.5'),
+      ],
+    },
+  ];
 
-const cliCommands = [
-  { cmd: 'harchos auth login', desc: 'Authenticate with your HarchOS account' },
-  { cmd: 'harchos workloads list', desc: 'List all compute workloads' },
-  { cmd: 'harchos workloads deploy --gpu H100 --count 8', desc: 'Deploy a new compute workload' },
-  { cmd: 'harchos workloads scale <id> --count 16', desc: 'Scale a running workload' },
-  { cmd: 'harchos models deploy <model> --hub dakhla', desc: 'Deploy a model to an inference endpoint' },
-  { cmd: 'harchos hubs status', desc: 'Check status of all compute hubs' },
-  { cmd: 'harchos energy report', desc: 'View energy consumption and carbon metrics' },
-  { cmd: 'harchos logs tail <workload-id>', desc: 'Stream logs from a workload' },
-];
+  const cliCommands = [
+    { cmd: 'harchos auth login', desc: t('sdks.cliCommands.0.desc') },
+    { cmd: 'harchos workloads list', desc: t('sdks.cliCommands.1.desc') },
+    { cmd: 'harchos workloads deploy --gpu H100 --count 8', desc: t('sdks.cliCommands.2.desc') },
+    { cmd: 'harchos workloads scale <id> --count 16', desc: t('sdks.cliCommands.3.desc') },
+    { cmd: 'harchos models deploy <model> --hub dakhla', desc: t('sdks.cliCommands.4.desc') },
+    { cmd: 'harchos hubs status', desc: t('sdks.cliCommands.5.desc') },
+    { cmd: 'harchos energy report', desc: t('sdks.cliCommands.6.desc') },
+    { cmd: 'harchos logs tail <workload-id>', desc: t('sdks.cliCommands.7.desc') },
+  ];
 
-const comparisonFeatures = [
-  { feature: 'REST API Support', python: true, typescript: true, go: true, rust: true },
-  { feature: 'gRPC Streaming', python: true, typescript: true, go: true, rust: true },
-  { feature: 'WebSocket Events', python: true, typescript: true, go: true, rust: false },
-  { feature: 'Async/Await', python: true, typescript: true, go: true, rust: true },
-  { feature: 'Type Safety', python: 'Partial', typescript: true, go: true, rust: true },
-  { feature: 'Retry Logic', python: true, typescript: true, go: true, rust: true },
-  { feature: 'Carbon-Aware Scheduling', python: true, typescript: true, go: true, rust: false },
-  { feature: 'Sovereignty Engine', python: true, typescript: true, go: true, rust: false },
-  { feature: 'Framework Integration', python: 'PyTorch/JAX', typescript: 'React/Next.js', go: '—', rust: '—' },
-  { feature: 'Package Manager', python: 'pip', typescript: 'npm', go: 'go mod', rust: 'cargo' },
-];
-
-/* ─── MAIN COMPONENT ─── */
-export default function SdksPageClient() {
-  const [activeSdk, setActiveSdk] = useState('typescript');
-  const [copied, setCopied] = useState(false);
+  const comparisonFeatures = [
+    { feature: t('sdks.comparison.0.feature'), python: true, typescript: true, go: true, rust: true },
+    { feature: t('sdks.comparison.1.feature'), python: true, typescript: true, go: true, rust: true },
+    { feature: t('sdks.comparison.2.feature'), python: true, typescript: true, go: true, rust: false },
+    { feature: t('sdks.comparison.3.feature'), python: true, typescript: true, go: true, rust: true },
+    { feature: t('sdks.comparison.4.feature'), python: t('sdks.comparison.4.python'), typescript: true, go: true, rust: true },
+    { feature: t('sdks.comparison.5.feature'), python: true, typescript: true, go: true, rust: true },
+    { feature: t('sdks.comparison.6.feature'), python: true, typescript: true, go: true, rust: false },
+    { feature: t('sdks.comparison.7.feature'), python: true, typescript: true, go: true, rust: false },
+    { feature: t('sdks.comparison.8.feature'), python: t('sdks.comparison.8.python'), typescript: t('sdks.comparison.8.typescript'), go: t('sdks.comparison.8.go'), rust: t('sdks.comparison.8.rust') },
+    { feature: t('sdks.comparison.9.feature'), python: t('sdks.comparison.9.python'), typescript: t('sdks.comparison.9.typescript'), go: t('sdks.comparison.9.go'), rust: t('sdks.comparison.9.rust') },
+  ];
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -237,16 +238,16 @@ export default function SdksPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#8B9DAF]">Developer Tools /0.1</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">{t('sdks.hero.label')}</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              SDKs & Libraries
+              {t('sdks.title')}
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed">
-              Native SDKs for every major language. Install in seconds, deploy your first workload in minutes. Full type safety, async support, and carbon-aware scheduling built in.
+              {t('sdks.description')}
             </p>
           </FadeIn>
         </div>
@@ -258,9 +259,9 @@ export default function SdksPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Choose Your SDK</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('sdks.chooseSdk.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Language SDKs
+              {t('sdks.chooseSdk.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -281,7 +282,7 @@ export default function SdksPageClient() {
                   {sdk.name}
                   {sdk.status === 'coming-soon' && (
                     <span className="px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[rgba(245,158,11,0.1)] text-[#F59E0B] border border-[rgba(245,158,11,0.2)]">
-                      Coming Soon
+                      {t('sdks.comingSoon')}
                     </span>
                   )}
                 </button>
@@ -304,24 +305,24 @@ export default function SdksPageClient() {
                   {/* Installation */}
                   <div className="card p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-base font-bold text-white">Installation</h3>
+                      <h3 className="text-base font-bold text-white">{t('sdks.installation')}</h3>
                       <button
                         onClick={() => handleCopy(activeSdkData.install)}
                         className="flex items-center gap-1.5 text-[12px] text-[#666666] hover:text-white transition-colors"
                       >
                         {copied ? <CheckCircle2 size={12} className="text-[#10B981]" /> : <Copy size={12} />}
-                        {copied ? 'Copied!' : 'Copy'}
+                        {copied ? t('sdks.copied') : t('sdks.copy')}
                       </button>
                     </div>
                     <div className="bg-[#0D0D0D] border border-white/[0.06] rounded-lg px-5 py-3">
                       <code className="text-[13px] text-[#10B981] font-[family-name:var(--font-space-mono)]">{activeSdkData.install}</code>
                     </div>
                     <div className="mt-3 flex items-center gap-3 text-[12px] text-[#666666]">
-                      <span>Package: <code className="text-[#999999] font-[family-name:var(--font-space-mono)]">{activeSdkData.package}</code></span>
+                      <span>{t('sdks.package')}: <code className="text-[#999999] font-[family-name:var(--font-space-mono)]">{activeSdkData.package}</code></span>
                       <span className="text-[#333333]">|</span>
-                      <span>Version: <code className="text-[#999999] font-[family-name:var(--font-space-mono)]">{activeSdkData.version}</code></span>
+                      <span>{t('sdks.versionLabel')}: <code className="text-[#999999] font-[family-name:var(--font-space-mono)]">{activeSdkData.version}</code></span>
                       <span className="text-[#333333]">|</span>
-                      <span className={activeSdkData.status === 'stable' ? 'text-[#10B981]' : 'text-[#F59E0B]'}>{activeSdkData.status === 'stable' ? 'Stable' : 'Coming Soon'}</span>
+                      <span className={activeSdkData.status === 'stable' ? 'text-[#10B981]' : 'text-[#F59E0B]'}>{activeSdkData.status === 'stable' ? t('sdks.stable') : t('sdks.comingSoon')}</span>
                     </div>
                   </div>
 
@@ -343,7 +344,7 @@ export default function SdksPageClient() {
 
                 {/* Right: Features */}
                 <div className="card p-6">
-                  <h3 className="text-base font-bold text-white mb-4">Key Features</h3>
+                  <h3 className="text-base font-bold text-white mb-4">{t('sdks.keyFeatures')}</h3>
                   <div className="accent-line mb-6" />
                   <div className="space-y-3">
                     {activeSdkData.features.map((feature, i) => (
@@ -355,7 +356,7 @@ export default function SdksPageClient() {
                   </div>
                   <div className="mt-8 pt-6 border-t border-white/[0.04]">
                     <Link href="/docs/api" className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#8B9DAF] hover:text-white transition-colors">
-                      View full API reference <ArrowRight size={14} />
+                      {t('sdks.viewApiReference')} <ArrowRight size={14} />
                     </Link>
                   </div>
                 </div>
@@ -371,13 +372,13 @@ export default function SdksPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">CLI Tool</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('sdks.cli.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              HarchOS CLI
+              {t('sdks.cli.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-3xl text-[15px] text-[#999999] leading-[1.7] mb-8">
-              The HarchOS command-line interface for deployment, management, and monitoring. Available for macOS, Linux, and Windows.
+              {t('sdks.cli.description')}
             </p>
           </FadeIn>
 
@@ -404,7 +405,7 @@ export default function SdksPageClient() {
             <div className="card overflow-hidden">
               <div className="flex items-center gap-3 px-6 py-4 border-b border-white/[0.06]">
                 <Terminal size={16} className="text-[#8B9DAF]" />
-                <h3 className="text-base font-bold text-white">Command Reference</h3>
+                <h3 className="text-base font-bold text-white">{t('sdks.cli.commandReference')}</h3>
               </div>
               <div className="divide-y divide-white/[0.03]">
                 {cliCommands.map((cmd) => (
@@ -425,9 +426,9 @@ export default function SdksPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Feature Comparison</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('sdks.comparison.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              SDK Comparison
+              {t('sdks.comparison.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -438,7 +439,7 @@ export default function SdksPageClient() {
                 <table className="data-table">
                   <thead>
                     <tr>
-                      <th>Feature</th>
+                      <th>{t('sdks.comparison.table.feature')}</th>
                       <th>Python</th>
                       <th>TypeScript</th>
                       <th>Go</th>

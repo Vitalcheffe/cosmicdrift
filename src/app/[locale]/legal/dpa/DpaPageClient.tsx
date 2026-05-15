@@ -1,44 +1,47 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const keyProvisions = [
-  {
-    title: 'Processing Scope',
-    description: 'The DPA clearly defines the subject matter, duration, nature, and purpose of the processing, the types of personal data processed, and the categories of data subjects. All processing activities are documented in an annex that is reviewed and updated quarterly to reflect any changes in our data processing operations.',
-  },
-  {
-    title: 'Subprocessor Management',
-    description: 'We maintain an up-to-date list of authorized sub-processors and notify clients of any changes to sub-processors at least 30 days in advance. Clients have the right to object to the appointment of a new sub-processor. All sub-processors are bound by contractual obligations providing at least the same level of data protection as contained in the DPA. We conduct due diligence assessments on all sub-processors before engagement and review their compliance annually.',
-  },
-  {
-    title: 'Data Security',
-    description: 'We implement and maintain appropriate technical and organizational measures to ensure a level of security appropriate to the risk, including encryption at rest and in transit (AES-256 and TLS 1.3), access controls and authentication mechanisms (multi-factor authentication, role-based access control), regular security testing and vulnerability assessments (annual penetration tests, quarterly vulnerability scans), employee training and confidentiality obligations, and physical security measures at our data centers and offices. Security measures are documented in our Technical and Organizational Measures (TOMs) annex.',
-  },
-  {
-    title: 'Audit Rights',
-    description: 'Clients have the right to audit our compliance with the DPA, subject to reasonable notice of at least 30 business days. Audits may be conducted by the client or by a qualified independent third-party auditor at the client\'s expense. We cooperate fully with audits and provide reasonable access to relevant facilities, systems, and records. We also make available current third-party audit reports, including SOC 2 Type II and ISO 27001 certificates, to reduce the need for on-site audits.',
-  },
-  {
-    title: 'Breach Notification',
-    description: 'We notify clients without undue delay and no later than 72 hours after becoming aware of a personal data breach. Notifications include the nature of the breach, the categories and approximate number of data subjects and records concerned, the likely consequences of the breach, and the measures taken or proposed to address the breach and mitigate its effects. We also provide reasonable assistance to clients in meeting their obligation to notify supervisory authorities and affected data subjects under applicable law.',
-  },
-  {
-    title: 'Data Return and Deletion',
-    description: 'Upon termination of the DPA or at the client\'s request, we return or securely delete all personal data processed under the DPA within 90 days, unless retention is required by applicable law. We provide written certification of deletion upon request. For data that must be retained for legal compliance, we continue to protect such data in accordance with the DPA and applicable law and process it only for the purpose of compliance.',
-  },
-];
-
 export default function DpaPageClient() {
+  const t = useTranslations('legal');
+
+  const keyProvisions = [
+    {
+      title: 'Processing Scope',
+      description: 'The DPA clearly defines the subject matter, duration, nature, and purpose of the processing, the types of personal data processed, and the categories of data subjects. All processing activities are documented in an annex that is reviewed and updated quarterly to reflect any changes in our data processing operations.',
+    },
+    {
+      title: 'Subprocessor Management',
+      description: 'We maintain an up-to-date list of authorized sub-processors and notify clients of any changes to sub-processors at least 30 days in advance. Clients have the right to object to the appointment of a new sub-processor. All sub-processors are bound by contractual obligations providing at least the same level of data protection as contained in the DPA. We conduct due diligence assessments on all sub-processors before engagement and review their compliance annually.',
+    },
+    {
+      title: 'Data Security',
+      description: 'We implement and maintain appropriate technical and organizational measures to ensure a level of security appropriate to the risk, including encryption at rest and in transit (AES-256 and TLS 1.3), access controls and authentication mechanisms (multi-factor authentication, role-based access control), regular security testing and vulnerability assessments (annual penetration tests, quarterly vulnerability scans), employee training and confidentiality obligations, and physical security measures at our data centers and offices. Security measures are documented in our Technical and Organizational Measures (TOMs) annex.',
+    },
+    {
+      title: 'Audit Rights',
+      description: 'Clients have the right to audit our compliance with the DPA, subject to reasonable notice of at least 30 business days. Audits may be conducted by the client or by a qualified independent third-party auditor at the client\'s expense. We cooperate fully with audits and provide reasonable access to relevant facilities, systems, and records. We also make available current third-party audit reports, including SOC 2 Type II and ISO 27001 certificates, to reduce the need for on-site audits.',
+    },
+    {
+      title: 'Breach Notification',
+      description: 'We notify clients without undue delay and no later than 72 hours after becoming aware of a personal data breach. Notifications include the nature of the breach, the categories and approximate number of data subjects and records concerned, the likely consequences of the breach, and the measures taken or proposed to address the breach and mitigate its effects. We also provide reasonable assistance to clients in meeting their obligation to notify supervisory authorities and affected data subjects under applicable law.',
+    },
+    {
+      title: 'Data Return and Deletion',
+      description: 'Upon termination of the DPA or at the client\'s request, we return or securely delete all personal data processed under the DPA within 90 days, unless retention is required by applicable law. We provide written certification of deletion upon request. For data that must be retained for legal compliance, we continue to protect such data in accordance with the DPA and applicable law and process it only for the purpose of compliance.',
+    },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Legal</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">Data Processing Agreement</h1>
+            <p className="section-label mb-4">{t('title')}</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('dpa.title')}</h1>
             <div className="accent-line mb-8" />
             <p className="text-[14px] text-[#999999] leading-relaxed mb-8">Last updated: January 2026</p>
           </FadeIn>

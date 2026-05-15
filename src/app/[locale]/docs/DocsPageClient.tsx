@@ -9,113 +9,128 @@ import {
   ArrowRight, CheckCircle2, Clock, AlertCircle
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-/* ─── DATA ─── */
-const quickStartCards = [
-  {
-    icon: Rocket,
-    title: 'Get Started with HarchOS',
-    description: 'Deploy your first workload on the sovereign AI mesh in under 5 minutes.',
-    href: '/docs/quickstarts',
-    accent: '#8B9DAF',
-  },
-  {
-    icon: Code2,
-    title: 'API Reference',
-    description: 'Complete reference for REST, gRPC, and WebSocket APIs with code examples.',
-    href: '/docs/api',
-    accent: '#8B5CF6',
-  },
-  {
-    icon: Terminal,
-    title: 'SDK Installation',
-    description: 'Install SDKs for Python, TypeScript, Go, and Rust to integrate with HarchOS.',
-    href: '/docs/sdks',
-    accent: '#10B981',
-  },
-  {
-    icon: Layers,
-    title: 'Architecture Guide',
-    description: 'Understand the SENSE-THINK-ACT architecture and distributed mesh topology.',
-    href: '/docs/architecture',
-    accent: '#F59E0B',
-  },
-];
-
-const docCategories = [
-  {
-    title: 'Platform Documentation',
-    icon: Server,
-    items: [
-      { name: 'HarchOS Core', desc: 'Kernel, orchestration engine, and mesh controller', icon: Cpu, href: '/docs/architecture' },
-      { name: 'SENSE Layer', desc: 'Data ingestion, IoT, satellite, and API feeds', icon: Eye, href: '/docs/architecture' },
-      { name: 'THINK Layer', desc: 'AI/ML processing, model training, and inference', icon: Brain, href: '/docs/architecture' },
-      { name: 'ACT Layer', desc: 'Execution, automated operations, and control systems', icon: Zap, href: '/docs/architecture' },
-    ],
-  },
-  {
-    title: 'API Reference',
-    icon: Globe,
-    items: [
-      { name: 'REST API', desc: 'HTTP endpoints for compute, data, and model management', icon: Network, href: '/docs/api' },
-      { name: 'gRPC API', desc: 'High-performance streaming and service definitions', icon: Activity, href: '/docs/api' },
-      { name: 'WebSocket API', desc: 'Real-time event streaming and monitoring', icon: Cloud, href: '/docs/api' },
-      { name: 'Authentication', desc: 'API keys, OAuth 2.0, and JWT token management', icon: Key, href: '/docs/api' },
-    ],
-  },
-  {
-    title: 'SDKs & Libraries',
-    icon: Code2,
-    items: [
-      { name: 'Python SDK', desc: 'Native Python client with async support and type hints', icon: Box, href: '/docs/sdks' },
-      { name: 'TypeScript SDK', desc: 'Full TypeScript client for Node.js and browser', icon: FileText, href: '/docs/sdks' },
-      { name: 'Go SDK', desc: 'Idiomatic Go client with context and cancellation', icon: Terminal, href: '/docs/sdks' },
-      { name: 'Rust SDK', desc: 'Zero-cost abstractions with async runtime', icon: Wrench, href: '/docs/sdks' },
-    ],
-  },
-  {
-    title: 'Infrastructure',
-    icon: Database,
-    items: [
-      { name: 'Data Center Operations', desc: 'Hub management, rack configuration, and capacity planning', icon: Server, href: '/docs/guides' },
-      { name: 'Network Architecture', desc: 'Backbone, inter-hub connectivity, and latency optimization', icon: Network, href: '/docs/guides' },
-      { name: 'Power Management', desc: 'Renewable energy allocation, PUE optimization, and failover', icon: Zap, href: '/docs/guides' },
-      { name: 'Cooling Systems', desc: 'Liquid cooling, thermal management, and environmental controls', icon: Monitor, href: '/docs/guides' },
-    ],
-  },
-  {
-    title: 'Security',
-    icon: Shield,
-    items: [
-      { name: 'Identity & Access', desc: 'RBAC, service accounts, and zero-trust architecture', icon: Key, href: '/docs/guides' },
-      { name: 'Encryption', desc: 'End-to-end encryption, key management, and HSM integration', icon: Lock, href: '/docs/guides' },
-      { name: 'Compliance', desc: 'GDPR, ISO 27001, SOC 2 Type II, and Law 09-08', icon: CheckCircle2, href: '/docs/guides' },
-      { name: 'Audit Logging', desc: 'Immutable audit trails, SIEM integration, and alerting', icon: FileText, href: '/docs/guides' },
-    ],
-  },
-  {
-    title: 'Developer Tools',
-    icon: GitBranch,
-    items: [
-      { name: 'CLI Reference', desc: 'HarchOS CLI commands for deployment and management', icon: Terminal, href: '/docs/sdks' },
-      { name: 'Terraform Provider', desc: 'Infrastructure-as-code for HarchOS resources', icon: Layers, href: '/docs/sdks' },
-      { name: 'Kubernetes Operator', desc: 'Native K8s integration for workload orchestration', icon: Box, href: '/docs/sdks' },
-      { name: 'VS Code Extension', desc: 'Inline docs, syntax highlighting, and deploy commands', icon: Code2, href: '/docs/sdks' },
-    ],
-  },
-];
-
-const popularGuides = [
-  { title: 'Deploy Your First AI Model on HarchOS', desc: 'Step-by-step guide to deploying a model on the sovereign AI mesh with carbon-aware scheduling.', time: '10 min read', href: '/docs/quickstarts' },
-  { title: 'Setting Up Data Pipelines with SENSE', desc: 'Configure IoT, satellite, and API data ingestion through the SENSE layer.', time: '15 min read', href: '/docs/guides' },
-  { title: 'Multi-Hub Workload Distribution', desc: 'Distribute inference workloads across multiple hubs for latency and cost optimization.', time: '12 min read', href: '/docs/architecture' },
-  { title: 'Implementing Zero-Trust Security', desc: 'Configure mTLS, RBAC, and network segmentation for sovereign workloads.', time: '20 min read', href: '/docs/guides' },
-  { title: 'Carbon-Aware Scheduling Deep Dive', desc: 'Optimize workload placement based on renewable energy availability across hubs.', time: '8 min read', href: '/docs/guides' },
-  { title: 'Monitoring and Observability with HarchOS', desc: 'Set up Prometheus, Grafana, and distributed tracing for mesh-wide observability.', time: '14 min read', href: '/docs/guides' },
-];
+import { useTranslations } from 'next-intl';
 
 /* ─── MAIN COMPONENT ─── */
 export default function DocsPageClient() {
+  const t = useTranslations('docs');
+
+  const quickStartCards = [
+    {
+      icon: Rocket,
+      title: t('quickStartCards.0.title'),
+      description: t('quickStartCards.0.description'),
+      href: '/docs/quickstarts',
+      accent: '#8B9DAF',
+    },
+    {
+      icon: Code2,
+      title: t('quickStartCards.1.title'),
+      description: t('quickStartCards.1.description'),
+      href: '/docs/api',
+      accent: '#8B5CF6',
+    },
+    {
+      icon: Terminal,
+      title: t('quickStartCards.2.title'),
+      description: t('quickStartCards.2.description'),
+      href: '/docs/sdks',
+      accent: '#10B981',
+    },
+    {
+      icon: Layers,
+      title: t('quickStartCards.3.title'),
+      description: t('quickStartCards.3.description'),
+      href: '/docs/architecture',
+      accent: '#F59E0B',
+    },
+  ];
+
+  const docCategories = [
+    {
+      title: t('docCategories.0.title'),
+      icon: Server,
+      items: [
+        { name: t('docCategories.0.items.0.name'), desc: t('docCategories.0.items.0.desc'), icon: Cpu, href: '/docs/architecture' },
+        { name: t('docCategories.0.items.1.name'), desc: t('docCategories.0.items.1.desc'), icon: Eye, href: '/docs/architecture' },
+        { name: t('docCategories.0.items.2.name'), desc: t('docCategories.0.items.2.desc'), icon: Brain, href: '/docs/architecture' },
+        { name: t('docCategories.0.items.3.name'), desc: t('docCategories.0.items.3.desc'), icon: Zap, href: '/docs/architecture' },
+      ],
+    },
+    {
+      title: t('docCategories.1.title'),
+      icon: Globe,
+      items: [
+        { name: t('docCategories.1.items.0.name'), desc: t('docCategories.1.items.0.desc'), icon: Network, href: '/docs/api' },
+        { name: t('docCategories.1.items.1.name'), desc: t('docCategories.1.items.1.desc'), icon: Activity, href: '/docs/api' },
+        { name: t('docCategories.1.items.2.name'), desc: t('docCategories.1.items.2.desc'), icon: Cloud, href: '/docs/api' },
+        { name: t('docCategories.1.items.3.name'), desc: t('docCategories.1.items.3.desc'), icon: Key, href: '/docs/api' },
+      ],
+    },
+    {
+      title: t('docCategories.2.title'),
+      icon: Code2,
+      items: [
+        { name: t('docCategories.2.items.0.name'), desc: t('docCategories.2.items.0.desc'), icon: Box, href: '/docs/sdks' },
+        { name: t('docCategories.2.items.1.name'), desc: t('docCategories.2.items.1.desc'), icon: FileText, href: '/docs/sdks' },
+        { name: t('docCategories.2.items.2.name'), desc: t('docCategories.2.items.2.desc'), icon: Terminal, href: '/docs/sdks' },
+        { name: t('docCategories.2.items.3.name'), desc: t('docCategories.2.items.3.desc'), icon: Wrench, href: '/docs/sdks' },
+      ],
+    },
+    {
+      title: t('docCategories.3.title'),
+      icon: Database,
+      items: [
+        { name: t('docCategories.3.items.0.name'), desc: t('docCategories.3.items.0.desc'), icon: Server, href: '/docs/guides' },
+        { name: t('docCategories.3.items.1.name'), desc: t('docCategories.3.items.1.desc'), icon: Network, href: '/docs/guides' },
+        { name: t('docCategories.3.items.2.name'), desc: t('docCategories.3.items.2.desc'), icon: Zap, href: '/docs/guides' },
+        { name: t('docCategories.3.items.3.name'), desc: t('docCategories.3.items.3.desc'), icon: Monitor, href: '/docs/guides' },
+      ],
+    },
+    {
+      title: t('docCategories.4.title'),
+      icon: Shield,
+      items: [
+        { name: t('docCategories.4.items.0.name'), desc: t('docCategories.4.items.0.desc'), icon: Key, href: '/docs/guides' },
+        { name: t('docCategories.4.items.1.name'), desc: t('docCategories.4.items.1.desc'), icon: Lock, href: '/docs/guides' },
+        { name: t('docCategories.4.items.2.name'), desc: t('docCategories.4.items.2.desc'), icon: CheckCircle2, href: '/docs/guides' },
+        { name: t('docCategories.4.items.3.name'), desc: t('docCategories.4.items.3.desc'), icon: FileText, href: '/docs/guides' },
+      ],
+    },
+    {
+      title: t('docCategories.5.title'),
+      icon: GitBranch,
+      items: [
+        { name: t('docCategories.5.items.0.name'), desc: t('docCategories.5.items.0.desc'), icon: Terminal, href: '/docs/sdks' },
+        { name: t('docCategories.5.items.1.name'), desc: t('docCategories.5.items.1.desc'), icon: Layers, href: '/docs/sdks' },
+        { name: t('docCategories.5.items.2.name'), desc: t('docCategories.5.items.2.desc'), icon: Box, href: '/docs/sdks' },
+        { name: t('docCategories.5.items.3.name'), desc: t('docCategories.5.items.3.desc'), icon: Code2, href: '/docs/sdks' },
+      ],
+    },
+  ];
+
+  const popularGuides = [
+    { title: t('popularGuides.0.title'), desc: t('popularGuides.0.desc'), time: t('popularGuides.0.time'), href: '/docs/quickstarts' },
+    { title: t('popularGuides.1.title'), desc: t('popularGuides.1.desc'), time: t('popularGuides.1.time'), href: '/docs/guides' },
+    { title: t('popularGuides.2.title'), desc: t('popularGuides.2.desc'), time: t('popularGuides.2.time'), href: '/docs/architecture' },
+    { title: t('popularGuides.3.title'), desc: t('popularGuides.3.desc'), time: t('popularGuides.3.time'), href: '/docs/guides' },
+    { title: t('popularGuides.4.title'), desc: t('popularGuides.4.desc'), time: t('popularGuides.4.time'), href: '/docs/guides' },
+    { title: t('popularGuides.5.title'), desc: t('popularGuides.5.desc'), time: t('popularGuides.5.time'), href: '/docs/guides' },
+  ];
+
+  const apiStatusItems = [
+    { name: t('apiStatus.items.0.name'), status: t('apiStatus.items.0.status'), latency: '24ms', uptime: '99.99%' },
+    { name: t('apiStatus.items.1.name'), status: t('apiStatus.items.1.status'), latency: '8ms', uptime: '99.99%' },
+    { name: t('apiStatus.items.2.name'), status: t('apiStatus.items.2.status'), latency: '3ms', uptime: '99.97%' },
+    { name: t('apiStatus.items.3.name'), status: t('apiStatus.items.3.status'), latency: '12ms', uptime: '100%' },
+  ];
+
+  const releaseLinks = [
+    { label: t('currentRelease.links.0.label'), href: '/docs/changelog', icon: FileText },
+    { label: t('currentRelease.links.1.label'), href: '/docs/changelog', icon: ArrowRight },
+    { label: t('currentRelease.links.2.label'), href: '/docs/changelog', icon: Code2 },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
 
@@ -127,16 +142,16 @@ export default function DocsPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#8B9DAF]">HarchOS Platform /0.1</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">{t('hero.label')}</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              Documentation
+              {t('title')}
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed mb-10">
-              Everything you need to build, deploy, and scale on HarchOS — the operating system for sovereign AI infrastructure.
+              {t('description')}
             </p>
           </FadeIn>
           {/* Decorative Search Bar */}
@@ -146,7 +161,7 @@ export default function DocsPageClient() {
                 <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#666666]" />
                 <input
                   type="text"
-                  placeholder="Search documentation, APIs, guides..."
+                  placeholder={t('search')}
                   className="w-full bg-[#121212] border border-white/[0.08] rounded-xl pl-12 pr-4 py-4 text-[15px] text-white placeholder-[#666666] focus:outline-none focus:border-white/20 transition-colors"
                   readOnly
                 />
@@ -159,10 +174,10 @@ export default function DocsPageClient() {
           </FadeIn>
           <FadeIn delay={0.4}>
             <div className="mt-6 flex items-center gap-4 text-[13px]">
-              <span className="text-[#666666]">Current version:</span>
+              <span className="text-[#666666]">{t('hero.currentVersion')}</span>
               <span className="font-[family-name:var(--font-space-mono)] text-[#8B9DAF] font-semibold">v0.1.0</span>
               <span className="text-[#333333]">|</span>
-              <Link href="/docs/changelog" className="text-[#999999] hover:text-white transition-colors nav-link">View changelog</Link>
+              <Link href="/docs/changelog" className="text-[#999999] hover:text-white transition-colors nav-link">{t('hero.viewChangelog')}</Link>
             </div>
           </FadeIn>
         </div>
@@ -174,9 +189,9 @@ export default function DocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Quick Start</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('quickStart.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Start Building
+              {t('quickStart.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -191,7 +206,7 @@ export default function DocsPageClient() {
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#8B9DAF] transition-colors">{card.title}</h3>
                   <p className="text-[13px] text-[#999999] leading-[1.6] mb-4">{card.description}</p>
                   <div className="flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: card.accent }}>
-                    Get started <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                    {t('quickStart.getStarted')} <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
               </FadeIn>
@@ -206,9 +221,9 @@ export default function DocsPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Browse by Category</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('categories.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Documentation Categories
+              {t('categories.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -248,9 +263,9 @@ export default function DocsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Popular Guides</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('popularGuides.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Most-Read Guides
+              {t('popularGuides.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -290,16 +305,11 @@ export default function DocsPageClient() {
               <div className="card p-8 h-full">
                 <div className="flex items-center gap-3 mb-6">
                   <Activity size={18} className="text-[#8B9DAF]" />
-                  <h3 className="text-lg font-bold text-white">API Status</h3>
+                  <h3 className="text-lg font-bold text-white">{t('apiStatus.title')}</h3>
                 </div>
                 <div className="accent-line mb-6" />
                 <div className="space-y-4">
-                  {[
-                    { name: 'REST API', status: 'Operational', latency: '24ms', uptime: '99.99%' },
-                    { name: 'gRPC API', status: 'Operational', latency: '8ms', uptime: '99.99%' },
-                    { name: 'WebSocket API', status: 'Operational', latency: '3ms', uptime: '99.97%' },
-                    { name: 'Authentication Service', status: 'Operational', latency: '12ms', uptime: '100%' },
-                  ].map((api) => (
+                  {apiStatusItems.map((api) => (
                     <div key={api.name} className="flex items-center justify-between py-2 border-b border-white/[0.04] last:border-0">
                       <div className="flex items-center gap-2.5">
                         <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
@@ -314,7 +324,7 @@ export default function DocsPageClient() {
                 </div>
                 <div className="mt-6 flex items-center gap-2">
                   <CheckCircle2 size={14} className="text-[#10B981]" />
-                  <span className="text-[12px] text-[#666666]">All systems operational. Last checked 30s ago.</span>
+                  <span className="text-[12px] text-[#666666]">{t('apiStatus.allOperational')}</span>
                 </div>
               </div>
             </FadeIn>
@@ -324,20 +334,16 @@ export default function DocsPageClient() {
               <div className="card p-8 h-full">
                 <div className="flex items-center gap-3 mb-6">
                   <BookOpen size={18} className="text-[#8B9DAF]" />
-                  <h3 className="text-lg font-bold text-white">Current Release</h3>
+                  <h3 className="text-lg font-bold text-white">{t('currentRelease.title')}</h3>
                 </div>
                 <div className="accent-line mb-6" />
                 <div className="mb-6">
-                  <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">HarchOS Version</p>
+                  <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">{t('currentRelease.versionLabel')}</p>
                   <p className="text-4xl font-bold text-white font-[family-name:var(--font-space-mono)]">v0.1.0</p>
-                  <p className="text-[13px] text-[#666666] mt-2">Released February 2026 — Initial public release</p>
+                  <p className="text-[13px] text-[#666666] mt-2">{t('currentRelease.releaseInfo')}</p>
                 </div>
                 <div className="space-y-3">
-                  {[
-                    { label: 'Release Notes', href: '/docs/changelog', icon: FileText },
-                    { label: 'Upgrade Guide', href: '/docs/changelog', icon: ArrowRight },
-                    { label: 'API Changelog', href: '/docs/changelog', icon: Code2 },
-                  ].map((link) => (
+                  {releaseLinks.map((link) => (
                     <Link key={link.label} href={link.href} className="flex items-center justify-between py-2.5 border-b border-white/[0.04] last:border-0 group/link">
                       <div className="flex items-center gap-2.5">
                         <link.icon size={14} className="text-[#666666] group-hover/link:text-[#8B9DAF] transition-colors" />

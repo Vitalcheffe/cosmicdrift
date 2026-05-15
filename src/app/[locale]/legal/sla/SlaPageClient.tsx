@@ -1,34 +1,37 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const serviceCredits = [
-  { uptime: '99.95% – 99.99%', credit: '10%', description: 'Monthly service fee credit' },
-  { uptime: '99.90% – 99.94%', credit: '25%', description: 'Monthly service fee credit' },
-  { uptime: '99.50% – 99.89%', credit: '50%', description: 'Monthly service fee credit' },
-  { uptime: 'Below 99.50%', credit: '75%', description: 'Monthly service fee credit' },
-];
-
-const exclusions = [
-  'Scheduled maintenance windows as communicated in advance',
-  'Issues caused by factors outside our reasonable control (force majeure events, natural disasters, government actions)',
-  'Downtime resulting from client misconfiguration, unauthorized modifications, or misuse of the services',
-  'Failures of client-provided equipment, software, or network connectivity',
-  'Issues arising from third-party services or integrations not managed by Harch Corp',
-  'Temporary interruptions during emergency security patching or critical vulnerability remediation',
-  'Degradation of service performance due to client exceeding allocated resource quotas',
-];
-
 export default function SlaPageClient() {
+  const t = useTranslations('legal');
+
+  const serviceCredits = [
+    { uptime: '99.95% – 99.99%', credit: '10%', description: 'Monthly service fee credit' },
+    { uptime: '99.90% – 99.94%', credit: '25%', description: 'Monthly service fee credit' },
+    { uptime: '99.50% – 99.89%', credit: '50%', description: 'Monthly service fee credit' },
+    { uptime: 'Below 99.50%', credit: '75%', description: 'Monthly service fee credit' },
+  ];
+
+  const exclusions = [
+    'Scheduled maintenance windows as communicated in advance',
+    'Issues caused by factors outside our reasonable control (force majeure events, natural disasters, government actions)',
+    'Downtime resulting from client misconfiguration, unauthorized modifications, or misuse of the services',
+    'Failures of client-provided equipment, software, or network connectivity',
+    'Issues arising from third-party services or integrations not managed by Harch Corp',
+    'Temporary interruptions during emergency security patching or critical vulnerability remediation',
+    'Degradation of service performance due to client exceeding allocated resource quotas',
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Legal</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">Service Level Agreement</h1>
+            <p className="section-label mb-4">{t('title')}</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('sla.title')}</h1>
             <div className="accent-line mb-8" />
             <p className="text-[14px] text-[#999999] leading-relaxed mb-8">Last updated: January 2026</p>
           </FadeIn>

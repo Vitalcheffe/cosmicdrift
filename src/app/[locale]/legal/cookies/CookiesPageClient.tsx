@@ -1,58 +1,61 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const cookieTypes = [
-  {
-    category: 'Strictly Necessary Cookies',
-    description: 'These cookies are essential for the website to function properly. They enable core functionality such as security, network management, and accessibility. You cannot opt out of these cookies as the website cannot function without them.',
-    examples: 'Session authentication tokens, CSRF protection cookies, load balancing cookies, cookie consent preferences',
-    duration: 'Session / Up to 1 year',
-  },
-  {
-    category: 'Performance Cookies',
-    description: 'These cookies collect information about how visitors use our website, such as which pages are visited most often and whether users receive error messages. All data collected by these cookies is aggregated and anonymized.',
-    examples: 'Google Analytics (_ga, _gid), page load timing metrics, error tracking identifiers',
-    duration: 'Up to 2 years',
-  },
-  {
-    category: 'Functionality Cookies',
-    description: 'These cookies allow the website to remember choices you make, such as your preferred language, region, or display settings. They provide enhanced, personalized features and can also be used to remember changes you have made to text size, fonts, and other customizable elements of the website.',
-    examples: 'Language preference, region settings, display preferences, accessibility settings',
-    duration: 'Up to 1 year',
-  },
-  {
-    category: 'Targeting / Advertising Cookies',
-    description: 'These cookies are used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and to help measure the effectiveness of advertising campaigns. They are usually placed by advertising networks with our permission.',
-    examples: 'LinkedIn Insight Tag, retargeting pixels, conversion tracking cookies',
-    duration: 'Up to 2 years',
-  },
-];
-
-const cookieTable = [
-  { name: '_ga', purpose: 'Google Analytics — distinguishes unique visitors', category: 'Performance', duration: '2 years' },
-  { name: '_gid', purpose: 'Google Analytics — distinguishes unique visitors per day', category: 'Performance', duration: '24 hours' },
-  { name: '_gat', purpose: 'Google Analytics — throttles request rate', category: 'Performance', duration: '1 minute' },
-  { name: 'harch_session', purpose: 'Maintains authenticated user session', category: 'Strictly Necessary', duration: 'Session' },
-  { name: 'harch_csrf', purpose: 'Cross-site request forgery protection', category: 'Strictly Necessary', duration: 'Session' },
-  { name: 'cookie_consent', purpose: 'Records your cookie consent preferences', category: 'Strictly Necessary', duration: '1 year' },
-  { name: 'lang_pref', purpose: 'Stores your preferred language setting', category: 'Functionality', duration: '1 year' },
-  { name: 'region_pref', purpose: 'Stores your regional preferences', category: 'Functionality', duration: '1 year' },
-  { name: 'li_sugr', purpose: 'LinkedIn Insight Tag — visitor identification', category: 'Targeting', duration: '3 months' },
-  { name: '_fbp', purpose: 'Meta Pixel — advertisement conversion tracking', category: 'Targeting', duration: '3 months' },
-];
-
 export default function CookiesPageClient() {
+  const t = useTranslations('legal');
+
+  const cookieTypes = [
+    {
+      category: 'Strictly Necessary Cookies',
+      description: 'These cookies are essential for the website to function properly. They enable core functionality such as security, network management, and accessibility. You cannot opt out of these cookies as the website cannot function without them.',
+      examples: 'Session authentication tokens, CSRF protection cookies, load balancing cookies, cookie consent preferences',
+      duration: 'Session / Up to 1 year',
+    },
+    {
+      category: 'Performance Cookies',
+      description: 'These cookies collect information about how visitors use our website, such as which pages are visited most often and whether users receive error messages. All data collected by these cookies is aggregated and anonymized.',
+      examples: 'Google Analytics (_ga, _gid), page load timing metrics, error tracking identifiers',
+      duration: 'Up to 2 years',
+    },
+    {
+      category: 'Functionality Cookies',
+      description: 'These cookies allow the website to remember choices you make, such as your preferred language, region, or display settings. They provide enhanced, personalized features and can also be used to remember changes you have made to text size, fonts, and other customizable elements of the website.',
+      examples: 'Language preference, region settings, display preferences, accessibility settings',
+      duration: 'Up to 1 year',
+    },
+    {
+      category: 'Targeting / Advertising Cookies',
+      description: 'These cookies are used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and to help measure the effectiveness of advertising campaigns. They are usually placed by advertising networks with our permission.',
+      examples: 'LinkedIn Insight Tag, retargeting pixels, conversion tracking cookies',
+      duration: 'Up to 2 years',
+    },
+  ];
+
+  const cookieTable = [
+    { name: '_ga', purpose: 'Google Analytics — distinguishes unique visitors', category: 'Performance', duration: '2 years' },
+    { name: '_gid', purpose: 'Google Analytics — distinguishes unique visitors per day', category: 'Performance', duration: '24 hours' },
+    { name: '_gat', purpose: 'Google Analytics — throttles request rate', category: 'Performance', duration: '1 minute' },
+    { name: 'harch_session', purpose: 'Maintains authenticated user session', category: 'Strictly Necessary', duration: 'Session' },
+    { name: 'harch_csrf', purpose: 'Cross-site request forgery protection', category: 'Strictly Necessary', duration: 'Session' },
+    { name: 'cookie_consent', purpose: 'Records your cookie consent preferences', category: 'Strictly Necessary', duration: '1 year' },
+    { name: 'lang_pref', purpose: 'Stores your preferred language setting', category: 'Functionality', duration: '1 year' },
+    { name: 'region_pref', purpose: 'Stores your regional preferences', category: 'Functionality', duration: '1 year' },
+    { name: 'li_sugr', purpose: 'LinkedIn Insight Tag — visitor identification', category: 'Targeting', duration: '3 months' },
+    { name: '_fbp', purpose: 'Meta Pixel — advertisement conversion tracking', category: 'Targeting', duration: '3 months' },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Legal</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">Cookie Policy</h1>
+            <p className="section-label mb-4">{t('title')}</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('cookies.title')}</h1>
             <div className="accent-line mb-8" />
             <p className="text-[14px] text-[#999999] leading-relaxed mb-8">Last updated: January 2026</p>
           </FadeIn>

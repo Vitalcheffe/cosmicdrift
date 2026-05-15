@@ -3,33 +3,36 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Calendar, Clock, User, Code2, Brain, Building2, Zap, Wheat, Cpu, Tag } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { FadeIn } from '@/components/ui/motion';
 import { blogArticles } from '@/data/blog-articles';
 import { seoArticles } from '@/data/seo-articles';
 
-const allArticles = [...blogArticles, ...seoArticles];
-
-const categoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
-  Engineering: Code2,
-  'AI & ML': Brain,
-  Infrastructure: Building2,
-  Energy: Zap,
-  Agriculture: Wheat,
-  Company: Cpu,
-};
-
 export default function BlogArticlePageClient({ slug }: { slug: string }) {
+  const t = useTranslations('blog');
+
+  const allArticles = [...blogArticles, ...seoArticles];
+
+  const categoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
+    Engineering: Code2,
+    'AI & ML': Brain,
+    Infrastructure: Building2,
+    Energy: Zap,
+    Agriculture: Wheat,
+    Company: Cpu,
+  };
+
   const article = allArticles.find(a => a.slug === slug);
 
   if (!article) {
     return (
       <div className="bg-[#1A1A1A] min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Article Not Found</h1>
-          <p className="text-[#999999] mb-8">The blog article you are looking for does not exist.</p>
+          <h1 className="text-4xl font-bold text-white mb-4">{t('articleNotFound')}</h1>
+          <p className="text-[#999999] mb-8">{t('articleNotFoundDescription')}</p>
           <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white/80 transition-colors group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            Back to Blog
+            {t('backToBlog')}
           </Link>
         </div>
       </div>
@@ -51,7 +54,7 @@ export default function BlogArticlePageClient({ slug }: { slug: string }) {
           <FadeIn>
             <Link href="/blog" className="inline-flex items-center gap-2 text-[12px] font-semibold text-[#999999] hover:text-white transition-colors mb-8 group">
               <ArrowLeft size={12} className="group-hover:-translate-x-1 transition-transform" />
-              Back to Blog
+              {t('backToBlog')}
             </Link>
           </FadeIn>
           <FadeIn delay={0.05}>
@@ -120,7 +123,7 @@ export default function BlogArticlePageClient({ slug }: { slug: string }) {
           {/* Keywords */}
           <FadeIn delay={0.1}>
             <div className="mt-16 pt-8 border-t border-[rgba(255,255,255,0.06)]">
-              <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] mb-3 font-[family-name:var(--font-space-mono)]">Related Topics</p>
+              <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] mb-3 font-[family-name:var(--font-space-mono)]">{t('relatedTopics')}</p>
               <div className="flex flex-wrap gap-2">
                 {article.seoKeywords.map((keyword) => (
                   <span key={keyword} className="inline-block px-3 py-1.5 rounded-md bg-[rgba(139,157,175,0.04)] border border-[rgba(139,157,175,0.08)] text-[11px] font-medium text-[#8B9DAF]">
@@ -136,7 +139,7 @@ export default function BlogArticlePageClient({ slug }: { slug: string }) {
             <div className="mt-12 pt-8 border-t border-[rgba(255,255,255,0.06)]">
               <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-[#999999] hover:text-white transition-colors group">
                 <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-                Back to Blog
+                {t('backToBlog')}
               </Link>
             </div>
           </FadeIn>
@@ -147,8 +150,8 @@ export default function BlogArticlePageClient({ slug }: { slug: string }) {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">More Articles</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-8">Continue Reading</h2>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('moreArticles')}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-8">{t('continueReading')}</h2>
           </FadeIn>
           <div className="space-y-2">
             {relatedArticles.map((a, i) => {

@@ -2,89 +2,94 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
-const verticalLinks = [
-  { name: 'Intelligence', version: '/0.1', href: '/subsidiaries/intelligence' },
-  { name: 'Cement', version: '/0.2', href: '/subsidiaries/cement' },
-  { name: 'Energy', version: '/0.3', href: '/subsidiaries/energy' },
-  { name: 'Technology', version: '/0.4', href: '/subsidiaries/technology' },
-  { name: 'Mining', version: '/0.5', href: '/subsidiaries/mining' },
-  { name: 'Agri', version: '/0.6', href: '/subsidiaries/agriculture' },
-  { name: 'Water', version: '/0.7', href: '/subsidiaries/water' },
-  { name: 'Finance', version: '/0.8', href: '/subsidiaries/finance' },
-];
-
-const companyLinks = [
-  { name: 'About', href: '/about' },
-  { name: 'Leadership', href: '/company/leadership' },
-  { name: 'Strategy', href: '/strategy' },
-  { name: 'ESG', href: '/esg' },
-  { name: 'DEI', href: '/company/dei' },
-  { name: 'Harch Ventures', href: '/company/ventures' },
-  { name: 'Careers', href: '/careers' },
-  { name: 'Partners', href: '/partners' },
-  { name: 'Press & Media', href: '/press' },
-  { name: 'Request a Quote', href: '/quote' },
-  { name: 'Request Briefing', href: '/contact' },
-];
-
-const developerLinks = [
-  { name: 'Documentation', href: '/docs' },
-  { name: 'API Reference', href: '/docs/api' },
-  { name: 'SDKs', href: '/docs/sdks' },
-  { name: 'Developer Center', href: '/developers' },
-  { name: 'API Playground', href: '/developers/playground' },
-  { name: 'Open Source', href: '/developers/open-source' },
-  { name: 'Architecture', href: '/docs/architecture' },
-  { name: 'Changelog', href: '/docs/changelog' },
-];
-
-const resourceLinks = [
-  { name: 'Blog', href: '/blog' },
-  { name: 'Engineering Blog', href: '/engineering-blog' },
-  { name: 'Community', href: '/community' },
-  { name: 'Events', href: '/events' },
-  { name: 'Learn & Certify', href: '/learn' },
-  { name: 'Glossary', href: '/glossary' },
-  { name: 'Status', href: '/status' },
-  { name: 'Support', href: '/support' },
-  { name: 'FAQ', href: '/faq' },
-];
-
-const trustLinks = [
-  { name: 'Trust Center', href: '/trust' },
-  { name: 'Security', href: '/trust/security' },
-  { name: 'Compliance', href: '/trust/compliance' },
-  { name: 'AI Ethics', href: '/trust/ai-ethics' },
-  { name: 'Vulnerability Disclosure', href: '/trust/vulnerability-disclosure' },
-  { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'System Status', href: '/status' },
-];
-
-const businessLinks = [
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'Calculator', href: '/pricing/calculator' },
-  { name: 'Customers', href: '/customers' },
-  { name: 'Startup Program', href: '/startup-program' },
-  { name: 'Investor Relations', href: '/investors' },
-];
-
-const legalLinks = [
-  { name: 'Legal Hub', href: '/legal/hub' },
-  { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Terms of Service', href: '/terms' },
-  { name: 'Cookie Policy', href: '/legal/cookies' },
-  { name: 'GDPR', href: '/legal/gdpr' },
-  { name: 'SLA', href: '/legal/sla' },
-];
-
-const latestNews = [
-  { title: 'Harch Intelligence: 500MW Dakhla Data Center Enters Engineering Phase', date: 'Mar 2026' },
-  { title: 'Harch Cement Secures Gambia Permits — 500kT/yr Facility Greenlit', date: 'Feb 2026' },
-  { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'Jan 2026' },
-];
+type NavLink = { name: string; version?: string; href: string };
 
 export function Footer() {
+  const t = useTranslations('footer');
+
+  const verticalLinks: NavLink[] = [
+    { name: t('intelligence'), version: '/0.1', href: '/subsidiaries/intelligence' },
+    { name: t('cement'), version: '/0.2', href: '/subsidiaries/cement' },
+    { name: t('energy'), version: '/0.3', href: '/subsidiaries/energy' },
+    { name: t('technology'), version: '/0.4', href: '/subsidiaries/technology' },
+    { name: t('mining'), version: '/0.5', href: '/subsidiaries/mining' },
+    { name: t('agri'), version: '/0.6', href: '/subsidiaries/agriculture' },
+    { name: t('water'), version: '/0.7', href: '/subsidiaries/water' },
+    { name: t('finance'), version: '/0.8', href: '/subsidiaries/finance' },
+  ];
+
+  const companyLinks: NavLink[] = [
+    { name: t('about'), href: '/about' },
+    { name: t('leadership'), href: '/company/leadership' },
+    { name: t('strategy'), href: '/strategy' },
+    { name: t('esg'), href: '/esg' },
+    { name: t('dei'), href: '/company/dei' },
+    { name: t('harchVentures'), href: '/company/ventures' },
+    { name: t('careers'), href: '/careers' },
+    { name: t('partners'), href: '/partners' },
+    { name: t('pressMedia'), href: '/press' },
+    { name: t('requestQuote'), href: '/quote' },
+    { name: t('requestBriefing'), href: '/contact' },
+  ];
+
+  const developerLinks: NavLink[] = [
+    { name: t('documentation'), href: '/docs' },
+    { name: t('apiReference'), href: '/docs/api' },
+    { name: t('sdks'), href: '/docs/sdks' },
+    { name: t('developerCenter'), href: '/developers' },
+    { name: t('apiPlayground'), href: '/developers/playground' },
+    { name: t('openSource'), href: '/developers/open-source' },
+    { name: t('architecture'), href: '/docs/architecture' },
+    { name: t('changelog'), href: '/docs/changelog' },
+  ];
+
+  const resourceLinks: NavLink[] = [
+    { name: t('blog'), href: '/blog' },
+    { name: t('engineeringBlog'), href: '/engineering-blog' },
+    { name: t('community'), href: '/community' },
+    { name: t('events'), href: '/events' },
+    { name: t('learnCertify'), href: '/learn' },
+    { name: t('glossary'), href: '/glossary' },
+    { name: t('status'), href: '/status' },
+    { name: t('support'), href: '/support' },
+    { name: t('faq'), href: '/faq' },
+  ];
+
+  const trustLinks: NavLink[] = [
+    { name: t('trustCenter'), href: '/trust' },
+    { name: t('security'), href: '/trust/security' },
+    { name: t('compliance'), href: '/trust/compliance' },
+    { name: t('aiEthics'), href: '/trust/ai-ethics' },
+    { name: t('vulnerabilityDisclosure'), href: '/trust/vulnerability-disclosure' },
+    { name: t('privacyPolicy'), href: '/privacy' },
+    { name: t('systemStatus'), href: '/status' },
+  ];
+
+  const businessLinks: NavLink[] = [
+    { name: t('pricing'), href: '/pricing' },
+    { name: t('calculator'), href: '/pricing/calculator' },
+    { name: t('customers'), href: '/customers' },
+    { name: t('startupProgram'), href: '/startup-program' },
+    { name: t('investorRelations'), href: '/investors' },
+  ];
+
+  const legalLinks: NavLink[] = [
+    { name: t('legalHub'), href: '/legal/hub' },
+    { name: t('privacyPolicy'), href: '/privacy' },
+    { name: t('termsOfService'), href: '/terms' },
+    { name: t('cookiePolicy'), href: '/legal/cookies' },
+    { name: t('gdpr'), href: '/legal/gdpr' },
+    { name: t('sla'), href: '/legal/sla' },
+  ];
+
+  const latestNews = [
+    { title: t('news.item1Title'), date: t('news.item1Date') },
+    { title: t('news.item2Title'), date: t('news.item2Date') },
+    { title: t('news.item3Title'), date: t('news.item3Date') },
+  ];
+
   return (
     <footer className="bg-[#0D0D0D] border-t border-[rgba(255,255,255,0.04)]">
       {/* Main footer — Multi column */}
@@ -92,7 +97,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10">
           {/* Column 1: Verticals */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Verticals</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('verticals')}</p>
             <nav className="space-y-2">
               {verticalLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="flex items-center justify-between text-[11px] text-white/30 hover:text-white/70 transition-colors group">
@@ -105,7 +110,7 @@ export function Footer() {
 
           {/* Column 2: Company */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Company</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('company')}</p>
             <nav className="space-y-2">
               {companyLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
@@ -117,7 +122,7 @@ export function Footer() {
 
           {/* Column 3: Developers */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Developers</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('developers')}</p>
             <nav className="space-y-2">
               {developerLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
@@ -129,7 +134,7 @@ export function Footer() {
 
           {/* Column 4: Resources */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Resources</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('resources')}</p>
             <nav className="space-y-2">
               {resourceLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
@@ -141,7 +146,7 @@ export function Footer() {
 
           {/* Column 5: Trust & Business */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Trust</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('trust')}</p>
             <nav className="space-y-2">
               {trustLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
@@ -149,7 +154,7 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4 mt-6">Business</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4 mt-6">{t('business')}</p>
             <nav className="space-y-2">
               {businessLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
@@ -161,7 +166,7 @@ export function Footer() {
 
           {/* Column 6: Latest News + Corporate */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">Latest News</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('latestNews')}</p>
             <div className="space-y-4">
               {latestNews.map((item, i) => (
                 <Link key={i} href="/newsroom" className="block group">
@@ -175,8 +180,8 @@ export function Footer() {
             <div className="mt-6 pt-4 border-t border-[rgba(255,255,255,0.04)]">
               <p className="text-[10px] text-white/15 leading-relaxed">
                 Harch Corp S.A.<br />
-                Casablanca, Morocco<br />
-                Capital: 100M MAD
+                {t('location')}<br />
+                {t('capital')}
               </p>
             </div>
           </div>
@@ -191,27 +196,27 @@ export function Footer() {
               <div className="flex items-center gap-2">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#4A7B5F]" style={{ boxShadow: '0 0 6px rgba(74,123,95,0.5)' }} />
                 <Link href="/status" className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#4A7B5F] hover:text-[#5A9B7F] transition-colors">
-                  All Systems Operational
+                  {t('allSystemsOperational')}
                 </Link>
               </div>
               <span className="text-[9px] text-white/10">|</span>
-              <span className="text-[10px] text-white/20 font-[family-name:var(--font-space-mono)]">99.98% Uptime</span>
+              <span className="text-[10px] text-white/20 font-[family-name:var(--font-space-mono)]">99.98% {t('uptime')}</span>
             </div>
             <div className="flex items-center gap-4 flex-wrap justify-center">
               <Link href="/trust/security" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
-                Security
+                {t('security')}
               </Link>
               <Link href="/trust/compliance" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
-                Compliance
+                {t('compliance')}
               </Link>
               <Link href="/privacy" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
-                Privacy Policy
+                {t('privacyPolicy')}
               </Link>
               <Link href="/status" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
-                System Status
+                {t('systemStatus')}
               </Link>
               <Link href="/trust" className="text-[10px] text-white/25 hover:text-white/60 transition-colors flex items-center gap-1.5">
-                Trust Center
+                {t('trustCenter')}
               </Link>
             </div>
           </div>
@@ -224,7 +229,7 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <Image src="/logo.svg" alt="Harch Corp" width={100} height={20} className="h-4 w-auto brightness-0 invert" />
             <p className="text-[10px] text-white/15 tracking-wide">
-              &copy; 2026 Harch Corp S.A. All rights reserved.
+              &copy; 2026 Harch Corp S.A. {t('allRightsReserved')}
             </p>
             <div className="flex items-center gap-4">
               <a href="https://wa.me/212522000000" target="_blank" rel="noopener noreferrer" aria-label="Contact Harch Corp on WhatsApp" className="text-[10px] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1">WhatsApp</a>

@@ -3,41 +3,11 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { ArrowRight, Shield, Lock, Eye, Building2, Users, Landmark, Cpu, CheckCircle2, Radio } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 import { FadeIn } from '@/components/ui/motion';
-
-const inquiryTypes = [
-  {
-    id: 'government',
-    label: 'Government / Defense',
-    code: 'GOV',
-    icon: Landmark,
-    desc: 'Sovereign data infrastructure, national security platforms, intelligence systems, and government partnerships.',
-  },
-  {
-    id: 'industrial',
-    label: 'Industrial Partner',
-    code: 'IND',
-    icon: Building2,
-    desc: 'Predictive maintenance, AI optimization, cement, energy, mining, and agricultural technology deployments.',
-  },
-  {
-    id: 'investor',
-    label: 'Investor',
-    code: 'INV',
-    icon: Cpu,
-    desc: 'Institutional investment, co-investment opportunities, and strategic capital allocation across 8 verticals.',
-  },
-  {
-    id: 'talent',
-    label: 'Talent',
-    code: 'TLN',
-    icon: Users,
-    desc: 'Engineering, research, operations, and leadership roles. We recruit builders, not employees.',
-  },
-];
 
 function EncryptedConnectionIndicator() {
   const [uptime, setUptime] = useState(0);
@@ -68,6 +38,7 @@ function EncryptedConnectionIndicator() {
 }
 
 export default function ContactPageClient() {
+  const t = useTranslations('contact');
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [formState, setFormState] = useState({
     name: '',
@@ -81,6 +52,37 @@ export default function ContactPageClient() {
   const [submitted, setSubmitted] = useState(false);
   const [transmitStep, setTransmitStep] = useState(0);
   const router = useRouter();
+
+  const inquiryTypes = [
+    {
+      id: 'government',
+      label: t('consultationTypes.government.label'),
+      code: 'GOV',
+      icon: Landmark,
+      desc: t('consultationTypes.government.description'),
+    },
+    {
+      id: 'industrial',
+      label: t('consultationTypes.industrial.label'),
+      code: 'IND',
+      icon: Building2,
+      desc: t('consultationTypes.industrial.description'),
+    },
+    {
+      id: 'investor',
+      label: t('consultationTypes.investor.label'),
+      code: 'INV',
+      icon: Cpu,
+      desc: t('consultationTypes.investor.description'),
+    },
+    {
+      id: 'talent',
+      label: t('consultationTypes.talent.label'),
+      code: 'TLN',
+      icon: Users,
+      desc: t('consultationTypes.talent.description'),
+    },
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -96,7 +98,7 @@ export default function ContactPageClient() {
     }, 2600);
   };
 
-  const selectedInquiry = inquiryTypes.find(t => t.id === selectedType);
+  const selectedInquiry = inquiryTypes.find(inquiry => inquiry.id === selectedType);
 
   return (
     <div className="bg-[#1A1A1A]">
@@ -106,16 +108,16 @@ export default function ContactPageClient() {
           <FadeIn>
             <div className="flex items-center gap-3 mb-6">
               <Shield size={14} className="text-[#8B9DAF]" />
-              <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">Secure Channel</span>
+              <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">{t('subtitle')}</span>
             </div>
             <EncryptedConnectionIndicator />
             <div className="mt-6" />
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Request a Briefing
+              {t('requestBriefing')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Harch Corp operates on a need-to-know basis. Select your inquiry type, and your request will be routed through our secure intake system. All transmissions are encrypted end-to-end.
+              {t('description')}
             </p>
           </FadeIn>
         </div>
@@ -125,7 +127,7 @@ export default function ContactPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-8">Select Inquiry Type</p>
+            <p className="section-label mb-8">{t('consultationTypes.title')}</p>
           </FadeIn>
 
           {/* 1px white divider between header and list */}
@@ -180,7 +182,7 @@ export default function ContactPageClient() {
                     <div className="w-16 h-16 rounded-xl bg-[rgba(255,255,255,0.04)] flex items-center justify-center mx-auto mb-4">
                       <Eye size={24} className="text-[#666666]" strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-2">Select Inquiry Type</h3>
+                    <h3 className="text-lg font-bold text-white mb-2">{t('consultationTypes.title')}</h3>
                     <p className="text-[14px] text-[#666666]">Choose your inquiry type above to access the secure briefing form.</p>
                   </div>
                 </FadeIn>
@@ -192,7 +194,7 @@ export default function ContactPageClient() {
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Briefing Request Transmitted</h3>
                     <p className="text-[14px] text-[#999999] max-w-md mx-auto mb-6">
-                      Your encrypted briefing request has been received. Our team will respond within 24 hours through a secure channel.
+                      {t('form.success')}
                     </p>
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] rounded-lg">
                       <Lock size={12} className="text-[#8B9DAF]" />
@@ -218,7 +220,7 @@ export default function ContactPageClient() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                            Full Name <span className="text-[#A0524B]">*</span>
+                            {t('form.name')} <span className="text-[#A0524B]">*</span>
                           </label>
                           <input
                             type="text"
@@ -231,7 +233,7 @@ export default function ContactPageClient() {
                         </div>
                         <div>
                           <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                            Email Address <span className="text-[#A0524B]">*</span>
+                            {t('form.email')} <span className="text-[#A0524B]">*</span>
                           </label>
                           <input
                             type="email"
@@ -252,7 +254,7 @@ export default function ContactPageClient() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                            Organization <span className="text-[#A0524B]">*</span>
+                            {t('form.organization')} <span className="text-[#A0524B]">*</span>
                           </label>
                           <input
                             type="text"
@@ -297,7 +299,7 @@ export default function ContactPageClient() {
                         </div>
                         <div>
                           <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                            Briefing Description <span className="text-[#A0524B]">*</span>
+                            {t('form.message')} <span className="text-[#A0524B]">*</span>
                           </label>
                           <textarea
                             required
@@ -305,7 +307,7 @@ export default function ContactPageClient() {
                             value={formState.message}
                             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                             className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors resize-none placeholder:text-[#333333]"
-                            placeholder="Describe the nature of your inquiry. Be as specific as possible."
+                            placeholder={t('form.messagePlaceholder')}
                           />
                         </div>
                       </div>
@@ -348,7 +350,7 @@ export default function ContactPageClient() {
                         type="submit"
                         className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all"
                       >
-                        Transmit Request <ArrowRight size={14} />
+                        {t('form.submit')} <ArrowRight size={14} />
                       </button>
                       <div className="flex items-center gap-2">
                         <Lock size={10} className="text-[#666666]" />
@@ -369,20 +371,20 @@ export default function ContactPageClient() {
                     <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">Data Sovereignty</span>
                   </div>
                   <p className="text-[13px] text-[#999999] leading-relaxed">
-                    Your data is processed on sovereign infrastructure within Moroccan borders. We do not share your information with third parties. All communications are encrypted with AES-256 at rest and TLS 1.3 in transit.
+                    {t('compliance.description')}
                   </p>
                 </div>
               </FadeIn>
 
               <FadeIn delay={0.15}>
                 <div className="card p-6">
-                  <p className="section-label mb-4">Intake Process</p>
+                  <p className="section-label mb-4">{t('onboarding.title')}</p>
                   <div className="space-y-4">
                     {[
-                      { step: '01', title: 'Submission', desc: 'Your encrypted request enters our secure intake queue.' },
-                      { step: '02', title: 'Verification', desc: 'Our team verifies identity and organizational credentials.' },
-                      { step: '03', title: 'Classification', desc: 'Request is classified and routed to the appropriate division.' },
-                      { step: '04', title: 'Briefing', desc: 'A secure briefing channel is established within 24 hours.' },
+                      { step: '01', title: t('onboarding.step1.title'), desc: t('onboarding.step1.description') },
+                      { step: '02', title: t('onboarding.step2.title'), desc: t('onboarding.step2.description') },
+                      { step: '03', title: t('onboarding.step3.title'), desc: t('onboarding.step3.description') },
+                      { step: '04', title: t('onboarding.step4.title'), desc: t('onboarding.step4.description') },
                     ].map((item) => (
                       <div key={item.step} className="flex items-start gap-3">
                         <span className="flex-shrink-0 w-7 h-7 rounded bg-[rgba(255,255,255,0.04)] flex items-center justify-center text-[9px] font-bold text-[#666666] font-[family-name:var(--font-space-mono)]">
@@ -400,7 +402,7 @@ export default function ContactPageClient() {
 
               <FadeIn delay={0.2}>
                 <div className="card p-6">
-                  <p className="section-label mb-4">Compliance</p>
+                  <p className="section-label mb-4">{t('compliance.title')}</p>
                   <div className="flex flex-wrap gap-2">
                     {['SOC 2 Type II', 'ISO 27001', 'GDPR', 'Moroccan DPA', 'AES-256', 'TLS 1.3'].map((badge) => (
                       <span key={badge} className="px-3 py-1.5 bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] rounded text-[10px] font-semibold text-[#999999] tracking-wide">

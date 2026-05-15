@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import {
   CheckCircle2,
   Lock,
@@ -15,34 +16,15 @@ import {
 import { motion } from 'framer-motion';
 import { FadeIn } from '@/components/ui/motion';
 
-const nextSteps = [
-  {
-    step: '01',
-    title: 'Verification',
-    desc: 'Our team verifies your identity and organizational credentials.',
-    icon: Shield,
-  },
-  {
-    step: '02',
-    title: 'Classification',
-    desc: 'Your request is classified and routed to the appropriate division across our 8 verticals.',
-    icon: FileText,
-  },
-  {
-    step: '03',
-    title: 'Detailed Quote',
-    desc: 'A comprehensive quote is prepared by our sector experts with full technical and financial specifications.',
-    icon: Building2,
-  },
-  {
-    step: '04',
-    title: 'Secure Channel',
-    desc: 'An encrypted communication channel is established within 24 hours to finalize terms.',
-    icon: Phone,
-  },
+const nextStepItems = [
+  { step: '01', key: 'step1', icon: Shield },
+  { step: '02', key: 'step2', icon: FileText },
+  { step: '03', key: 'step3', icon: Building2 },
+  { step: '04', key: 'step4', icon: Phone },
 ];
 
 export default function QuoteReceivedClient() {
+  const t = useTranslations('quoteReceived');
   const [refCode, setRefCode] = useState('');
   const [elapsed, setElapsed] = useState(0);
 
@@ -80,14 +62,13 @@ export default function QuoteReceivedClient() {
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-                Quote Request Received
+                {t('title')}
               </h1>
 
               <div className="accent-line mb-6" />
 
               <p className="text-[16px] text-[#999999] leading-[1.7] mb-8">
-                Your encrypted quote request has been transmitted successfully. Our dedicated team
-                will review your project and respond within 24 hours through a secure channel.
+                {t('message')}
               </p>
 
               {/* Reference badge */}
@@ -125,14 +106,14 @@ export default function QuoteReceivedClient() {
       <section className="py-20 md:py-28 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Next Steps</p>
+            <p className="section-label mb-4">{t('nextSteps.title')}</p>
             <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-12">
-              What happens next
+              {t('nextSteps.title')}
             </h2>
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {nextSteps.map((item, i) => (
+            {nextStepItems.map((item, i) => (
               <FadeIn key={item.step} delay={i * 0.08}>
                 <div className="card p-6 h-full">
                   <div className="flex items-center gap-3 mb-4">
@@ -143,8 +124,8 @@ export default function QuoteReceivedClient() {
                       {item.step}
                     </span>
                   </div>
-                  <h3 className="text-[15px] font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-[12px] text-[#666666] leading-relaxed">{item.desc}</p>
+                  <h3 className="text-[15px] font-bold text-white mb-2">{t(`nextSteps.${item.key}.title`)}</h3>
+                  <p className="text-[12px] text-[#666666] leading-relaxed">{t(`nextSteps.${item.key}.description`)}</p>
                 </div>
               </FadeIn>
             ))}
@@ -160,12 +141,9 @@ export default function QuoteReceivedClient() {
               <div className="flex items-start gap-4">
                 <Shield size={18} className="text-[#8B9DAF] shrink-0 mt-0.5" strokeWidth={1.5} />
                 <div>
-                  <h3 className="text-[14px] font-bold text-white mb-2">Data Sovereignty</h3>
+                  <h3 className="text-[14px] font-bold text-white mb-2">{t('security.title')}</h3>
                   <p className="text-[13px] text-[#999999] leading-[1.7] mb-4">
-                    Your data is processed on sovereign infrastructure located within Moroccan
-                    borders. We do not share any information with third parties. All communications
-                    are encrypted with AES-256 at rest and TLS 1.3 in transit, in compliance with
-                    Moroccan Law 09-08 on the protection of personal data.
+                    {t('security.description')}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {['SOC 2 Type II', 'ISO 27001', 'GDPR', 'CNDP Morocco', 'AES-256', 'TLS 1.3'].map(
@@ -204,7 +182,7 @@ export default function QuoteReceivedClient() {
                   href="/"
                   className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all"
                 >
-                  Back to Home <ArrowRight size={14} />
+                  {t('actions.backToHome')} <ArrowRight size={14} />
                 </Link>
                 <Link
                   href="/subsidiaries"

@@ -1,87 +1,90 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const legalBases = [
-  {
-    basis: 'Consent',
-    description: 'Where you have given clear, affirmative consent to the processing of your personal data for one or more specific purposes. You may withdraw your consent at any time without affecting the lawfulness of processing based on consent before its withdrawal.',
-  },
-  {
-    basis: 'Contractual Necessity',
-    description: 'Where processing is necessary for the performance of a contract to which you are a party, or in order to take steps at your request prior to entering into a contract. This includes processing needed to deliver our services under signed agreements.',
-  },
-  {
-    basis: 'Legal Obligation',
-    description: 'Where processing is necessary for compliance with a legal obligation to which Harch Corp S.A. is subject, including obligations under Moroccan law, EU regulations, and other applicable jurisdictions where we operate.',
-  },
-  {
-    basis: 'Vital Interests',
-    description: 'Where processing is necessary to protect the vital interests of a natural person, including life-threatening situations or emergencies where the data subject is incapable of giving consent.',
-  },
-  {
-    basis: 'Public Interest',
-    description: 'Where processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller, applicable in our capacity as a critical infrastructure operator.',
-  },
-  {
-    basis: 'Legitimate Interests',
-    description: 'Where processing is necessary for the purposes of the legitimate interests pursued by Harch Corp S.A. or a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject. We conduct Legitimate Interest Assessments (LIAs) for all processing under this basis.',
-  },
-];
-
-const dataSubjectRights = [
-  {
-    right: 'Right of Access',
-    article: 'Article 15',
-    description: 'You have the right to obtain confirmation as to whether or not personal data concerning you is being processed, and where that is the case, access to the personal data and information about the purposes, categories, recipients, retention period, and your right to lodge a complaint.',
-  },
-  {
-    right: 'Right to Rectification',
-    article: 'Article 16',
-    description: 'You have the right to obtain the rectification of inaccurate personal data concerning you without undue delay. Taking into account the purposes of processing, you also have the right to have incomplete personal data completed, including by means of providing a supplementary statement.',
-  },
-  {
-    right: 'Right to Erasure',
-    article: 'Article 17',
-    description: 'You have the right to obtain the erasure of personal data concerning you without undue delay where the data is no longer necessary, you withdraw consent, you object to processing, or the data has been unlawfully processed. This is subject to certain exceptions, including legal obligations and the establishment, exercise, or defense of legal claims.',
-  },
-  {
-    right: 'Right to Restriction of Processing',
-    article: 'Article 18',
-    description: 'You have the right to obtain restriction of processing where you contest the accuracy of the data, processing is unlawful but you oppose erasure, we no longer need the data but you require it for legal claims, or you have objected to processing pending verification of our legitimate grounds.',
-  },
-  {
-    right: 'Right to Data Portability',
-    article: 'Article 20',
-    description: 'You have the right to receive personal data concerning you which you have provided to us in a structured, commonly used, and machine-readable format, and have the right to transmit that data to another controller without hindrance. This right applies where processing is based on consent or contract and is carried out by automated means.',
-  },
-  {
-    right: 'Right to Object',
-    article: 'Article 21',
-    description: 'You have the right to object at any time to processing of personal data concerning you which is based on legitimate interests or public interest, including profiling. We shall cease processing unless we demonstrate compelling legitimate grounds or the data is needed for legal claims. You also have the right to object to processing for direct marketing at any time.',
-  },
-  {
-    right: 'Rights Regarding Automated Decision-Making',
-    article: 'Article 22',
-    description: 'You have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects or similarly significantly affects you. Where such decisions are made, you have the right to obtain human intervention, express your point of view, and contest the decision.',
-  },
-  {
-    right: 'Right to Withdraw Consent',
-    article: 'Article 7(3)',
-    description: 'Where processing is based on consent, you have the right to withdraw that consent at any time without affecting the lawfulness of processing based on consent before its withdrawal. Withdrawal of consent does not affect the legality of processing performed prior to the withdrawal. We make it easy to withdraw consent through our privacy settings or by contacting our DPO.',
-  },
-];
-
 export default function GDPRPageClient() {
+  const t = useTranslations('legal');
+
+  const legalBases = [
+    {
+      basis: 'Consent',
+      description: 'Where you have given clear, affirmative consent to the processing of your personal data for one or more specific purposes. You may withdraw your consent at any time without affecting the lawfulness of processing based on consent before its withdrawal.',
+    },
+    {
+      basis: 'Contractual Necessity',
+      description: 'Where processing is necessary for the performance of a contract to which you are a party, or in order to take steps at your request prior to entering into a contract. This includes processing needed to deliver our services under signed agreements.',
+    },
+    {
+      basis: 'Legal Obligation',
+      description: 'Where processing is necessary for compliance with a legal obligation to which Harch Corp S.A. is subject, including obligations under Moroccan law, EU regulations, and other applicable jurisdictions where we operate.',
+    },
+    {
+      basis: 'Vital Interests',
+      description: 'Where processing is necessary to protect the vital interests of a natural person, including life-threatening situations or emergencies where the data subject is incapable of giving consent.',
+    },
+    {
+      basis: 'Public Interest',
+      description: 'Where processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller, applicable in our capacity as a critical infrastructure operator.',
+    },
+    {
+      basis: 'Legitimate Interests',
+      description: 'Where processing is necessary for the purposes of the legitimate interests pursued by Harch Corp S.A. or a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject. We conduct Legitimate Interest Assessments (LIAs) for all processing under this basis.',
+    },
+  ];
+
+  const dataSubjectRights = [
+    {
+      right: 'Right of Access',
+      article: 'Article 15',
+      description: 'You have the right to obtain confirmation as to whether or not personal data concerning you is being processed, and where that is the case, access to the personal data and information about the purposes, categories, recipients, retention period, and your right to lodge a complaint.',
+    },
+    {
+      right: 'Right to Rectification',
+      article: 'Article 16',
+      description: 'You have the right to obtain the rectification of inaccurate personal data concerning you without undue delay. Taking into account the purposes of processing, you also have the right to have incomplete personal data completed, including by means of providing a supplementary statement.',
+    },
+    {
+      right: 'Right to Erasure',
+      article: 'Article 17',
+      description: 'You have the right to obtain the erasure of personal data concerning you without undue delay where the data is no longer necessary, you withdraw consent, you object to processing, or the data has been unlawfully processed. This is subject to certain exceptions, including legal obligations and the establishment, exercise, or defense of legal claims.',
+    },
+    {
+      right: 'Right to Restriction of Processing',
+      article: 'Article 18',
+      description: 'You have the right to obtain restriction of processing where you contest the accuracy of the data, processing is unlawful but you oppose erasure, we no longer need the data but you require it for legal claims, or you have objected to processing pending verification of our legitimate grounds.',
+    },
+    {
+      right: 'Right to Data Portability',
+      article: 'Article 20',
+      description: 'You have the right to receive personal data concerning you which you have provided to us in a structured, commonly used, and machine-readable format, and have the right to transmit that data to another controller without hindrance. This right applies where processing is based on consent or contract and is carried out by automated means.',
+    },
+    {
+      right: 'Right to Object',
+      article: 'Article 21',
+      description: 'You have the right to object at any time to processing of personal data concerning you which is based on legitimate interests or public interest, including profiling. We shall cease processing unless we demonstrate compelling legitimate grounds or the data is needed for legal claims. You also have the right to object to processing for direct marketing at any time.',
+    },
+    {
+      right: 'Rights Regarding Automated Decision-Making',
+      article: 'Article 22',
+      description: 'You have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects or similarly significantly affects you. Where such decisions are made, you have the right to obtain human intervention, express your point of view, and contest the decision.',
+    },
+    {
+      right: 'Right to Withdraw Consent',
+      article: 'Article 7(3)',
+      description: 'Where processing is based on consent, you have the right to withdraw that consent at any time without affecting the lawfulness of processing based on consent before its withdrawal. Withdrawal of consent does not affect the legality of processing performed prior to the withdrawal. We make it easy to withdraw consent through our privacy settings or by contacting our DPO.',
+    },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Legal</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">GDPR Compliance</h1>
+            <p className="section-label mb-4">{t('title')}</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('gdpr.title')}</h1>
             <div className="accent-line mb-8" />
             <p className="text-[14px] text-[#999999] leading-relaxed mb-8">Last updated: January 2026</p>
           </FadeIn>

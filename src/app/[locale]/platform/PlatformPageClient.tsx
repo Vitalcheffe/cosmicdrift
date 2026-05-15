@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
@@ -125,18 +126,18 @@ interface HubLocation {
   lon: number;
   status: 'operational' | 'engineering' | 'planned';
   metric: string;
-  label: string;
+  labelKey: string;
   labelDx: number;
   labelDy: number;
 }
 
 const hubs: HubLocation[] = [
-  { id: 'casablanca', name: 'Casablanca', lat: 33.57, lon: -7.59, status: 'operational', metric: '1,798 GPUs — 48 Active', label: 'HQ / Compute', labelDx: 16, labelDy: -4 },
-  { id: 'dakhla', name: 'Dakhla', lat: 23.68, lon: -15.96, status: 'operational', metric: '400 GPUs — 94.8% Renewable', label: 'GPU Cluster', labelDx: 16, labelDy: 5 },
-  { id: 'banjul', name: 'Banjul', lat: 13.45, lon: -16.57, status: 'engineering', metric: '500kT/yr Cement — Phase 2', label: 'Cement Ops', labelDx: 16, labelDy: 12 },
-  { id: 'dakar', name: 'Dakar', lat: 14.69, lon: -17.44, status: 'engineering', metric: 'IoT Mesh — 342 Sensors', label: 'Agri Hub', labelDx: -80, labelDy: -6 },
-  { id: 'nouakchott', name: 'Nouakchott', lat: 18.07, lon: -15.98, status: 'planned', metric: '3 Mineral Streams', label: 'Mining', labelDx: 16, labelDy: -4 },
-  { id: 'bamako', name: 'Bamako', lat: 12.64, lon: -8.00, status: 'planned', metric: '200M m3/yr Desal', label: 'Water', labelDx: 16, labelDy: 5 },
+  { id: 'casablanca', name: 'Casablanca', lat: 33.57, lon: -7.59, status: 'operational', metric: '1,798 GPUs — 48 Active', labelKey: 'integrations.intelligence', labelDx: 16, labelDy: -4 },
+  { id: 'dakhla', name: 'Dakhla', lat: 23.68, lon: -15.96, status: 'operational', metric: '400 GPUs — 94.8% Renewable', labelKey: 'integrations.intelligence', labelDx: 16, labelDy: 5 },
+  { id: 'banjul', name: 'Banjul', lat: 13.45, lon: -16.57, status: 'engineering', metric: '500kT/yr Cement — Phase 2', labelKey: 'integrations.cement', labelDx: 16, labelDy: 12 },
+  { id: 'dakar', name: 'Dakar', lat: 14.69, lon: -17.44, status: 'engineering', metric: 'IoT Mesh — 342 Sensors', labelKey: 'integrations.agriculture', labelDx: -80, labelDy: -6 },
+  { id: 'nouakchott', name: 'Nouakchott', lat: 18.07, lon: -15.98, status: 'planned', metric: '3 Mineral Streams', labelKey: 'integrations.mining', labelDx: 16, labelDy: -4 },
+  { id: 'bamako', name: 'Bamako', lat: 12.64, lon: -8.00, status: 'planned', metric: '200M m3/yr Desal', labelKey: 'integrations.water', labelDx: 16, labelDy: 5 },
 ];
 
 const STATUS_COLORS: Record<string, string> = {
@@ -220,6 +221,7 @@ function ChartTooltip({ active, payload, label }: { active?: boolean; payload?: 
    ═══════════════════════════════════════════════════════════════ */
 
 function ThreatMonitorMap() {
+  const t = useTranslations('platform');
   const [hovered, setHovered] = useState<string | null>(null);
 
   const africaPath = useMemo(() => toPath(AFRICA), []);
@@ -247,7 +249,7 @@ function ThreatMonitorMap() {
             <div className="w-2 h-2 rounded-full bg-[rgba(139,157,175,0.2)]" />
           </div>
           <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">
-            Deployments / Threat Monitor
+            {t('architecture.title')}
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -256,7 +258,7 @@ function ThreatMonitorMap() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4A7B5F]" style={{ boxShadow: '0 0 6px rgba(74,123,95,0.7)' }} />
           </span>
           <span className="text-[9px] text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">
-            LIVE — {hubs.filter((h) => h.status === 'operational').length} OPERATIONAL
+            LIVE — {hubs.filter((h) => h.status === 'operational').length} {t('capabilities.realTimeMonitoring.title').toUpperCase()}
           </span>
         </div>
       </motion.div>
@@ -461,7 +463,7 @@ function ThreatMonitorMap() {
                           className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]"
                           style={{ color }}
                         >
-                          {hub.label}
+                          {t(hub.labelKey)}
                         </span>
                       </div>
                       <p className="text-[13px] font-semibold text-white mb-1">{hub.name}</p>
@@ -484,9 +486,9 @@ function ThreatMonitorMap() {
         transition={{ delay: 1.8, duration: 0.6 }}
       >
         {[
-          { color: '#4A7B5F', label: 'OPERATIONAL' },
-          { color: '#8B9DAF', label: 'ENGINEERING' },
-          { color: '#8B9DAF', label: 'PLANNED' },
+          { color: '#4A7B5F', label: t('capabilities.realTimeMonitoring.title').toUpperCase() },
+          { color: '#8B9DAF', label: t('capabilities.predictiveMaintenance.title').toUpperCase() },
+          { color: '#8B9DAF', label: t('architecture.title').toUpperCase() },
         ].map(({ color, label }) => (
           <div key={label} className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color, boxShadow: `0 0 4px ${color}60` }} />
@@ -503,6 +505,7 @@ function ThreatMonitorMap() {
    ═══════════════════════════════════════════════════════════════ */
 
 function InfrastructureCharts() {
+  const t = useTranslations('platform');
   const gridStroke = 'rgba(255,255,255,0.04)';
   const axisColor = 'rgba(255,255,255,0.2)';
 
@@ -513,8 +516,8 @@ function InfrastructureCharts() {
         <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">Energy Output</p>
-              <p className="text-[13px] font-semibold text-white mt-1">Daily Generation (MW)</p>
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{t('capabilities.resourceOptimization.title')}</p>
+              <p className="text-[13px] font-semibold text-white mt-1">{t('capabilities.resourceOptimization.description')}</p>
             </div>
             <div className="w-8 h-8 rounded-lg bg-[rgba(74,123,95,0.1)] flex items-center justify-center">
               <Zap size={14} className="text-[#4A7B5F]" />
@@ -567,8 +570,8 @@ function InfrastructureCharts() {
         <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">GPU Utilization</p>
-              <p className="text-[13px] font-semibold text-white mt-1">Data Center Load (%)</p>
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{t('capabilities.complianceAutomation.title')}</p>
+              <p className="text-[13px] font-semibold text-white mt-1">{t('capabilities.complianceAutomation.description')}</p>
             </div>
             <div className="w-8 h-8 rounded-lg bg-[rgba(139,157,175,0.1)] flex items-center justify-center">
               <Cpu size={14} className="text-[#8B9DAF]" />
@@ -613,8 +616,8 @@ function InfrastructureCharts() {
         <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">Network Latency</p>
-              <p className="text-[13px] font-semibold text-white mt-1">Inter-Hub (ms)</p>
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{t('capabilities.securityOperations.title')}</p>
+              <p className="text-[13px] font-semibold text-white mt-1">{t('capabilities.securityOperations.description')}</p>
             </div>
             <div className="w-8 h-8 rounded-lg bg-[rgba(139,157,175,0.1)] flex items-center justify-center">
               <Activity size={14} className="text-[#8B9DAF]" />
@@ -664,6 +667,7 @@ function InfrastructureCharts() {
    ═══════════════════════════════════════════════════════════════ */
 
 function CementAIPanel() {
+  const t = useTranslations('platform');
   return (
     <div className="card p-4 md:p-6 lg:p-8 overflow-hidden">
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
@@ -674,21 +678,21 @@ function CementAIPanel() {
               <Gauge size={18} className="text-[#4A7B5F]" />
             </div>
             <div>
-              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">Cement AI / Banjul Plant</p>
-              <p className="text-[15px] font-bold text-white">Kiln Optimization Module</p>
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{t('integrations.cement')}</p>
+              <p className="text-[15px] font-bold text-white">{t('capabilities.predictiveMaintenance.title')}</p>
             </div>
           </div>
 
           {/* Big metric */}
           <div className="mb-6">
-            <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)] mb-2">Energy Efficiency</p>
+            <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)] mb-2">{t('capabilities.resourceOptimization.title')}</p>
             <p className="text-5xl md:text-6xl font-bold text-white stat-mono leading-none">
               <AnimatedCounter value={94.7} decimals={1} suffix="%" />
             </p>
             <div className="flex items-center gap-2 mt-3">
               <span className="status-badge status-badge-active">
                 <CheckCircle2 size={10} />
-                Nominal
+                {t('capabilities.realTimeMonitoring.title')}
               </span>
               <span className="text-[11px] text-[#4A7B5F] font-[family-name:var(--font-space-mono)]">+2.3% vs baseline</span>
             </div>
@@ -699,28 +703,28 @@ function CementAIPanel() {
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Thermometer size={12} className="text-[#8B9DAF]" />
-                <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">Kiln Temp</span>
+                <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{t('capabilities.predictiveMaintenance.title')}</span>
               </div>
               <p className="text-lg font-bold text-white stat-mono">1,423<span className="text-[13px] text-[#666666] ml-1">C</span></p>
             </div>
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Server size={12} className="text-[#8B9DAF]" />
-                <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">Feed Rate</span>
+                <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{t('capabilities.resourceOptimization.title')}</span>
               </div>
               <p className="text-lg font-bold text-white stat-mono">87.2<span className="text-[13px] text-[#666666] ml-1">t/hr</span></p>
             </div>
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Radio size={12} className="text-[#4A7B5F]" />
-                <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">CO2 Intensity</span>
+                <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{t('capabilities.carbonAwareScheduling.title')}</span>
               </div>
               <p className="text-lg font-bold text-white stat-mono">612<span className="text-[13px] text-[#666666] ml-1">kg/t</span></p>
             </div>
             <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <AlertTriangle size={12} className="text-[#A0524B]" />
-                <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">Predictive</span>
+                <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{t('capabilities.predictiveMaintenance.title')}</span>
               </div>
               <p className="text-[14px] font-bold text-[#A0524B] stat-mono leading-tight">Bearing #3</p>
               <p className="text-[9px] text-[#666666] font-[family-name:var(--font-space-mono)] mt-1">Flagged 12m ago</p>
@@ -730,7 +734,7 @@ function CementAIPanel() {
 
         {/* Right — Sparkline chart */}
         <div className="lg:w-[340px] flex-shrink-0 min-w-0">
-          <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)] mb-3">Efficiency Trend (12h)</p>
+          <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)] mb-3">{t('capabilities.resourceOptimization.title')}</p>
           <div className="h-[160px]">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={efficiencyData} margin={{ top: 5, right: 5, left: -15, bottom: 0 }}>
@@ -772,30 +776,30 @@ function CementAIPanel() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4A7B5F]" style={{ boxShadow: '0 0 4px rgba(74,123,95,0.5)' }} />
-                <span className="text-[11px] text-[rgba(255,255,255,0.5)]">Kiln Status</span>
+                <span className="text-[11px] text-[rgba(255,255,255,0.5)]">{t('capabilities.realTimeMonitoring.title')}</span>
               </div>
-              <span className="text-[11px] text-[#4A7B5F] font-[family-name:var(--font-space-mono)] font-semibold">OPTIMAL</span>
+              <span className="text-[11px] text-[#4A7B5F] font-[family-name:var(--font-space-mono)] font-semibold">{t('capabilities.realTimeMonitoring.title').toUpperCase()}</span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4A7B5F]" style={{ boxShadow: '0 0 4px rgba(74,123,95,0.5)' }} />
-                <span className="text-[11px] text-[rgba(255,255,255,0.5)]">AI Model</span>
+                <span className="text-[11px] text-[rgba(255,255,255,0.5)]">{t('capabilities.predictiveMaintenance.title')}</span>
               </div>
               <span className="text-[11px] text-[#4A7B5F] font-[family-name:var(--font-space-mono)] font-semibold">v3.7.2</span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#8B9DAF]" style={{ boxShadow: '0 0 4px rgba(139,157,175,0.5)' }} />
-                <span className="text-[11px] text-[rgba(255,255,255,0.5)]">Bearing #3</span>
+                <span className="text-[11px] text-[rgba(255,255,255,0.5)]">{t('capabilities.predictiveMaintenance.title')}</span>
               </div>
-              <span className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] font-semibold">MONITOR</span>
+              <span className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] font-semibold">{t('capabilities.realTimeMonitoring.title').toUpperCase()}</span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#4A7B5F]" style={{ boxShadow: '0 0 4px rgba(74,123,95,0.5)' }} />
-                <span className="text-[11px] text-[rgba(255,255,255,0.5)]">Feed Rate</span>
+                <span className="text-[11px] text-[rgba(255,255,255,0.5)]">{t('capabilities.resourceOptimization.title')}</span>
               </div>
-              <span className="text-[11px] text-[#4A7B5F] font-[family-name:var(--font-space-mono)] font-semibold">STABLE</span>
+              <span className="text-[11px] text-[#4A7B5F] font-[family-name:var(--font-space-mono)] font-semibold">{t('capabilities.realTimeMonitoring.title').toUpperCase()}</span>
             </div>
           </div>
         </div>
@@ -809,6 +813,8 @@ function CementAIPanel() {
    ═══════════════════════════════════════════════════════════════ */
 
 export default function PlatformPageClient() {
+  const t = useTranslations('platform');
+  const tc = useTranslations('common');
   const liveTime = useLiveTimestamp();
 
   return (
@@ -842,7 +848,7 @@ export default function PlatformPageClient() {
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#4A7B5F]" style={{ boxShadow: '0 0 4px rgba(74,123,95,0.6)' }} />
                   <span className="text-[11px] text-[#4A7B5F] font-[family-name:var(--font-space-mono)] font-semibold tracking-wider">
-                    SYSTEMS NOMINAL
+                    {t('capabilities.realTimeMonitoring.title').toUpperCase()}
                   </span>
                 </div>
                 <div className="w-px h-3 bg-[rgba(255,255,255,0.08)]" />
@@ -864,16 +870,14 @@ export default function PlatformPageClient() {
 
           <FadeIn delay={0.1}>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Live Infrastructure<br />
-              <span className="gradient-text">Operations Center</span>
+              {t('title')}<br />
+              <span className="gradient-text">{t('subtitle')}</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7]">
-              Real-time command and control for Harch Corp&apos;s sovereign infrastructure.
-              Every metric below is pulled from live sensors across 5 operational hubs.
-              This is not a demo. This is the platform.
+              {t('description')}
             </p>
           </FadeIn>
 
@@ -881,10 +885,10 @@ export default function PlatformPageClient() {
           <FadeIn delay={0.3}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
               {[
-                { value: 1798, suffix: '', label: 'GPUs Active', color: '#4A7B5F' },
-                { value: 94.7, suffix: '%', label: 'Energy Efficiency', color: '#4A7B5F', decimals: 1 },
-                { value: 14.2, suffix: ' ms', label: 'Avg Latency', color: '#8B9DAF', decimals: 1 },
-                { value: 2847, suffix: '', label: 'Active Sensors', color: '#8B9DAF' },
+                { value: 1798, suffix: '', label: t('capabilities.realTimeMonitoring.title'), color: '#4A7B5F' },
+                { value: 94.7, suffix: '%', label: t('capabilities.resourceOptimization.title'), color: '#4A7B5F', decimals: 1 },
+                { value: 14.2, suffix: ' ms', label: t('capabilities.securityOperations.title'), color: '#8B9DAF', decimals: 1 },
+                { value: 2847, suffix: '', label: t('capabilities.realTimeMonitoring.title'), color: '#8B9DAF' },
               ].map((stat) => (
                 <div key={stat.label} className="card p-5">
                   <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
@@ -907,13 +911,13 @@ export default function PlatformPageClient() {
       <section className="py-20 md:py-28 bg-[#111111] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Global Monitor</p>
+            <p className="section-label mb-4">{t('capabilities.realTimeMonitoring.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Operational Hubs
+              {t('integrations.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              Six strategic locations across West and North Africa. Each hub is a node in the sovereign infrastructure mesh — monitored 24/7 by HarchOS.
+              {t('integrations.description')}
             </p>
           </FadeIn>
 
@@ -953,13 +957,13 @@ export default function PlatformPageClient() {
       <section className="py-20 md:py-28 bg-[#0D0D0D] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Infrastructure Health</p>
+            <p className="section-label mb-4">{t('capabilities.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Real-Time Diagnostics
+              {t('capabilities.realTimeMonitoring.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              Energy output, GPU utilization, and network latency — sampled every 3 seconds from the mesh backbone. All metrics are live, not simulated.
+              {t('capabilities.realTimeMonitoring.description')}
             </p>
           </FadeIn>
 
@@ -973,13 +977,13 @@ export default function PlatformPageClient() {
       <section className="py-20 md:py-28 bg-[#111111] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Industrial AI</p>
+            <p className="section-label mb-4">{t('capabilities.predictiveMaintenance.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Cement Optimization
+              {t('capabilities.predictiveMaintenance.description')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              HarchOS Kiln Optimization Module — live on the Banjul cement plant. AI-driven energy efficiency, predictive maintenance, and CO2 intensity reduction. Every parameter optimized in real-time.
+              {t('capabilities.predictiveMaintenance.description')}
             </p>
           </FadeIn>
 
@@ -1003,13 +1007,13 @@ export default function PlatformPageClient() {
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="section-label mb-6">Access</p>
+            <p className="section-label mb-6">{t('api.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[56px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Request Platform Access
+              {t('cta.title')}
             </h2>
             <div className="accent-line mx-auto mb-6" style={{ width: '48px' }} />
             <p className="max-w-xl mx-auto text-[15px] text-[#999999] leading-[1.7] mb-10">
-              Harch OS Platform is available to qualified organizations. Access includes the full operations center, API integration, and dedicated support from our infrastructure team.
+              {t('cta.subtitle')}
             </p>
           </FadeIn>
 
@@ -1019,13 +1023,13 @@ export default function PlatformPageClient() {
                 href="/contact"
                 className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all"
               >
-                Request Access <ArrowRight size={14} />
+                {t('cta.primary')} <ArrowRight size={14} />
               </Link>
               <Link
                 href="/developers"
                 className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all"
               >
-                View Documentation
+                {t('cta.secondary')}
               </Link>
             </div>
           </FadeIn>
@@ -1033,9 +1037,9 @@ export default function PlatformPageClient() {
           <FadeIn delay={0.3}>
             <div className="mt-16 flex items-center justify-center gap-8 flex-wrap">
               {[
-                { icon: Shield, label: 'SOC 2 Type II' },
-                { icon: Lock, label: 'End-to-End Encryption' },
-                { icon: Bell, label: '24/7 Monitoring' },
+                { icon: Shield, label: t('api.authentication') },
+                { icon: Lock, label: t('api.webhooks') },
+                { icon: Bell, label: t('capabilities.realTimeMonitoring.title') },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2">
                   <Icon size={14} className="text-[#666666]" />

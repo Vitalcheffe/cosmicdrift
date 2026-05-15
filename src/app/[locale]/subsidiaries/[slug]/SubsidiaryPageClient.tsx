@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import { ArrowRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets, Satellite, Lock, Eye, Factory, Mountain, Wheat, Waves, MapPin, Calendar, TrendingUp, Leaf } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
@@ -98,6 +99,8 @@ interface SubsidiaryInfo {
    SUBSIDIARY DATA — all 7 subsidiaries preserved
    ═══════════════════════════════════════════════════════════════ */
 export default function SubsidiaryPageClient({ slug }: { slug: string }) {
+  const t = useTranslations('subsidiaryDetail');
+
   const subsidiaryData: Record<string, SubsidiaryInfo> = {
     intelligence: {
       name: 'Harch Intelligence', version: '/0.1',
@@ -897,7 +900,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                 style={{ backgroundColor: `${accent}20`, border: `1px solid ${accent}40` }}
               >
                 <span className="text-[10px] font-bold tracking-[0.15em] uppercase" style={{ color: accent }}>
-                  {data.investment} Investment
+                  {data.investment} {t('investment')}
                 </span>
               </span>
             </div>
@@ -912,7 +915,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             <p className="text-lg md:text-xl text-white/70 max-w-xl mb-8">{data.heroSubtitle}</p>
             <MagneticButton>
               <SmoothLink href="/subsidiaries" className="text-white/80 text-sm">
-                Explore All Subsidiaries
+                {t('backToSubsidiaries')}
               </SmoothLink>
             </MagneticButton>
           </FadeIn>
@@ -945,7 +948,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
 
             <div>
               <FadeIn>
-                <p className="section-label mb-4" style={{ color: accent }}>Overview</p>
+                <p className="section-label mb-4" style={{ color: accent }}>{t('overview')}</p>
                 <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{data.name}</h2>
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">{data.overview}</p>
@@ -989,12 +992,12 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
 
             <div className="lg:order-1">
               <FadeIn>
-                <p className="section-label mb-4" style={{ color: accent }}>Strategic Context</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Why This Matters</h2>
+                <p className="section-label mb-4" style={{ color: accent }}>{t('strategicContext')}</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('whyThisMatters')}</h2>
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">{data.strategicContext}</p>
                 <SmoothLink href="/subsidiaries" className="text-sm" style={{ color: accent }}>
-                  See All Subsidiaries
+                  {t('seeAllSubsidiaries')}
                 </SmoothLink>
               </FadeIn>
             </div>
@@ -1008,8 +1011,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: accent }}>Capabilities</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">What We Build</h2>
+            <p className="section-label mb-4" style={{ color: accent }}>{t('capabilities')}</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">{t('whatWeBuild')}</h2>
           </FadeIn>
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
@@ -1034,8 +1037,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <FadeIn>
-                <p className="section-label mb-4" style={{ color: accent }}>Strategic Advantages</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Competitive Edge</h2>
+                <p className="section-label mb-4" style={{ color: accent }}>{t('strategicAdvantages')}</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('competitiveEdge')}</h2>
                 <div className="accent-line mb-8" />
               </FadeIn>
 
@@ -1058,8 +1061,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
 
             <div>
               <FadeIn delay={0.15}>
-                <p className="section-label mb-4" style={{ color: accent }}>Performance Metrics</p>
-                <h3 className="text-2xl font-bold text-white mb-8">By the Numbers</h3>
+                <p className="section-label mb-4" style={{ color: accent }}>{t('performanceMetrics')}</p>
+                <h3 className="text-2xl font-bold text-white mb-8">{t('byTheNumbers')}</h3>
               </FadeIn>
 
               <div className="space-y-2">
@@ -1092,13 +1095,13 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <FadeIn>
-              <p className="section-label mb-4" style={{ color: accent }}>Investment</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Capital Deployment</h2>
+              <p className="section-label mb-4" style={{ color: accent }}>{t('investment')}</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('capitalDeployment')}</h2>
               <div className="accent-line mb-8" />
 
               <div className="space-y-4 mb-8">
                 <div className="card p-5">
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mb-1">Total Investment</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mb-1">{t('totalInvestment')}</p>
                   <p className="text-4xl font-bold text-white stat-mono" style={{ color: accent }}>{data.investment}</p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -1115,8 +1118,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             </FadeIn>
 
             <FadeIn delay={0.15}>
-              <p className="section-label mb-4" style={{ color: accent }}>Location</p>
-              <h3 className="text-2xl font-bold text-white mb-6">Strategic Position</h3>
+              <p className="section-label mb-4" style={{ color: accent }}>{t('location')}</p>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('strategicPosition')}</h3>
 
               <div className="card p-6 mb-6">
                 <div className="flex items-center gap-3 mb-4">
@@ -1149,8 +1152,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: accent }}>Technical Specifications</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Spec Sheet</h2>
+            <p className="section-label mb-4" style={{ color: accent }}>{t('technicalSpecifications')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('specSheet')}</h2>
             <div className="accent-line mb-10" />
           </FadeIn>
 
@@ -1159,9 +1162,9 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
               <table className="w-full min-w-[600px]">
                 <thead>
                   <tr className="border-b border-[rgba(255,255,255,0.06)]">
-                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[35%]">Specification</th>
-                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[30%]">Value</th>
-                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[35%]">Phase</th>
+                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[35%]">{t('specification')}</th>
+                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[30%]">{t('value')}</th>
+                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[35%]">{t('phase')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1193,13 +1196,13 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <FadeIn>
-              <p className="section-label mb-4" style={{ color: '#4A7B5F' }}>Sustainability</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Built to Last</h2>
+              <p className="section-label mb-4" style={{ color: '#4A7B5F' }}>{t('sustainability')}</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('builtToLast')}</h2>
               <div className="accent-line mb-6" />
               <p className="text-[15px] text-[#999999] leading-[1.7]">{data.sustainability}</p>
 
               <div className="flex flex-wrap gap-2 mt-6">
-                {['100% Renewable', 'Carbon-Aware', 'Circular Economy', 'Zero Waste'].map((badge) => (
+                {[t('badges.renewable'), t('badges.carbonAware'), t('badges.circularEconomy'), t('badges.zeroWaste')].map((badge) => (
                   <span
                     key={badge}
                     className="px-3 py-1.5 rounded-full text-[10px] font-bold tracking-[0.1em] uppercase"
@@ -1223,7 +1226,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2">
                   <Leaf size={14} className="text-[#4A7B5F]" />
-                  <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-[#4A7B5F]">Sustainable by Design</span>
+                  <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-[#4A7B5F]">{t('sustainableByDesign')}</span>
                 </div>
               </div>
             </FadeIn>
@@ -1235,8 +1238,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: accent }}>Timeline</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Key Milestones</h2>
+            <p className="section-label mb-4" style={{ color: accent }}>{t('timeline')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('keyMilestones')}</h2>
             <div className="accent-line mb-12" />
           </FadeIn>
 
@@ -1283,7 +1286,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
           title={`${data.competitorHarchName ?? data.name} vs Competition`}
           subtitle="Every dimension. Every metric. Every competitor."
           accentColor={data.competitorAccentColor ?? accent}
-          sectionLabel="Competitive Landscape"
+          sectionLabel={t('competitiveLandscape')}
           competitors={data.competitors}
           harchName={data.competitorHarchName ?? data.name}
         />
@@ -1293,8 +1296,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: accent }}>Partnership</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">How to Work With Us</h2>
+            <p className="section-label mb-4" style={{ color: accent }}>{t('partnership')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('howToWorkWithUs')}</h2>
             <div className="accent-line mb-12" />
           </FadeIn>
 
@@ -1323,10 +1326,10 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
           <FadeIn>
             <p className="section-label mb-4" style={{ color: accent }}>{data.name}</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6">
-              Ready to Build the Future?
+              {t('readyToBuildTheFuture')}
             </h2>
             <p className="text-[15px] text-[#999999] leading-[1.7] mb-10">
-              {data.name} is actively seeking strategic partners, investors, and customers who share our vision for African industrial sovereignty.
+              {t('seekingPartners')}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1335,7 +1338,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                   href={`/quote?vertical=${slug}`}
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[13px] font-bold tracking-[0.05em] uppercase text-black bg-white transition-all duration-300 hover:scale-105"
                 >
-                  Request a Quote
+                  {t('requestQuote')}
                   <ArrowRight size={16} />
                 </Link>
               </MagneticButton>
@@ -1344,7 +1347,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                   href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[13px] font-bold tracking-[0.05em] uppercase text-white border border-[rgba(255,255,255,0.15)] hover:border-[rgba(255,255,255,0.3)] transition-all duration-300 hover:scale-105"
                 >
-                  Request Briefing
+                  {t('requestBriefing')}
                   <ArrowRight size={16} />
                 </Link>
               </MagneticButton>

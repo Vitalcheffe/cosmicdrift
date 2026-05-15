@@ -1,44 +1,47 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const keyPolicies = [
-  {
-    policy: 'Anti-Corruption and Anti-Bribery',
-    description: 'Harch Corp maintains a zero-tolerance policy toward corruption and bribery in all forms, whether involving public officials or private sector counterparts. We comply with the Kingdom of Morocco\'s anti-corruption laws, the UK Bribery Act, the US Foreign Corrupt Practices Act, and all applicable anti-corruption legislation in jurisdictions where we operate. No employee, officer, or agent may offer, promise, give, or accept any bribe, kickback, or improper inducement. All business hospitality and gifts must be reasonable, proportionate, and properly documented. We maintain rigorous due diligence processes for third-party intermediaries, agents, and business partners.',
-  },
-  {
-    policy: 'Conflict of Interest',
-    description: 'All directors, officers, and employees are expected to act in the best interests of Harch Corp and to avoid situations where personal interests conflict or appear to conflict with the interests of the company. Conflicts of interest may arise from financial interests in competing or supplier organizations, outside employment or directorships, related-party transactions, or personal relationships that could influence business decisions. Any actual or potential conflict of interest must be disclosed promptly to the Compliance Office and managed transparently. Employees must recuse themselves from decisions where a conflict exists.',
-  },
-  {
-    policy: 'Insider Trading',
-    description: 'Trading in securities while in possession of material non-public information about Harch Corp or any company with which we do business is strictly prohibited. Material non-public information includes any information that a reasonable investor would consider important in making an investment decision and that has not been publicly disclosed. This prohibition extends to tipping others who might trade on such information. All employees with access to material non-public information must observe designated trading windows and pre-clearance requirements as specified in our Insider Trading Policy.',
-  },
-  {
-    policy: 'Data Protection and Privacy',
-    description: 'We are committed to protecting the personal data of our employees, clients, partners, and other stakeholders. All employees must comply with our data protection policies and applicable privacy laws, including the GDPR, the Kingdom of Morocco\'s Law No. 09-08, and other relevant legislation. Personal data must be collected only for legitimate purposes, processed lawfully and fairly, kept accurate and up to date, retained only as long as necessary, and protected against unauthorized access, disclosure, or loss. Any data breach must be reported immediately to the Data Protection Officer.',
-  },
-  {
-    policy: 'Human Rights',
-    description: 'Harch Corp is committed to respecting and promoting human rights in all our operations and business relationships, consistent with the Universal Declaration of Human Rights, the International Labour Organization\'s core conventions, and the UN Guiding Principles on Business and Human Rights. We prohibit forced labor, child labor, and human trafficking in our operations and supply chain. We uphold the principles of non-discrimination, freedom of association, and the right to collective bargaining. We conduct human rights due diligence on our operations and supply chain and engage with stakeholders to identify and address potential impacts.',
-  },
-  {
-    policy: 'Environmental Responsibility',
-    description: 'As a multi-sector industrial conglomerate, we recognize our significant environmental footprint and our responsibility to minimize it. We are committed to operating in an environmentally sustainable manner, complying with all applicable environmental laws and regulations, and continuously improving our environmental performance. Our environmental commitments include reducing greenhouse gas emissions in line with science-based targets, minimizing waste and promoting circular economy principles, protecting biodiversity in areas where we operate, investing in clean technologies and renewable energy, and transparently reporting our environmental performance. Each business unit maintains an Environmental Management System aligned with ISO 14001 standards.',
-  },
-];
-
 export default function CodeOfConductPageClient() {
+  const t = useTranslations('legal');
+
+  const keyPolicies = [
+    {
+      policy: 'Anti-Corruption and Anti-Bribery',
+      description: 'Harch Corp maintains a zero-tolerance policy toward corruption and bribery in all forms, whether involving public officials or private sector counterparts. We comply with the Kingdom of Morocco\'s anti-corruption laws, the UK Bribery Act, the US Foreign Corrupt Practices Act, and all applicable anti-corruption legislation in jurisdictions where we operate. No employee, officer, or agent may offer, promise, give, or accept any bribe, kickback, or improper inducement. All business hospitality and gifts must be reasonable, proportionate, and properly documented. We maintain rigorous due diligence processes for third-party intermediaries, agents, and business partners.',
+    },
+    {
+      policy: 'Conflict of Interest',
+      description: 'All directors, officers, and employees are expected to act in the best interests of Harch Corp and to avoid situations where personal interests conflict or appear to conflict with the interests of the company. Conflicts of interest may arise from financial interests in competing or supplier organizations, outside employment or directorships, related-party transactions, or personal relationships that could influence business decisions. Any actual or potential conflict of interest must be disclosed promptly to the Compliance Office and managed transparently. Employees must recuse themselves from decisions where a conflict exists.',
+    },
+    {
+      policy: 'Insider Trading',
+      description: 'Trading in securities while in possession of material non-public information about Harch Corp or any company with which we do business is strictly prohibited. Material non-public information includes any information that a reasonable investor would consider important in making an investment decision and that has not been publicly disclosed. This prohibition extends to tipping others who might trade on such information. All employees with access to material non-public information must observe designated trading windows and pre-clearance requirements as specified in our Insider Trading Policy.',
+    },
+    {
+      policy: 'Data Protection and Privacy',
+      description: 'We are committed to protecting the personal data of our employees, clients, partners, and other stakeholders. All employees must comply with our data protection policies and applicable privacy laws, including the GDPR, the Kingdom of Morocco\'s Law No. 09-08, and other relevant legislation. Personal data must be collected only for legitimate purposes, processed lawfully and fairly, kept accurate and up to date, retained only as long as necessary, and protected against unauthorized access, disclosure, or loss. Any data breach must be reported immediately to the Data Protection Officer.',
+    },
+    {
+      policy: 'Human Rights',
+      description: 'Harch Corp is committed to respecting and promoting human rights in all our operations and business relationships, consistent with the Universal Declaration of Human Rights, the International Labour Organization\'s core conventions, and the UN Guiding Principles on Business and Human Rights. We prohibit forced labor, child labor, and human trafficking in our operations and supply chain. We uphold the principles of non-discrimination, freedom of association, and the right to collective bargaining. We conduct human rights due diligence on our operations and supply chain and engage with stakeholders to identify and address potential impacts.',
+    },
+    {
+      policy: 'Environmental Responsibility',
+      description: 'As a multi-sector industrial conglomerate, we recognize our significant environmental footprint and our responsibility to minimize it. We are committed to operating in an environmentally sustainable manner, complying with all applicable environmental laws and regulations, and continuously improving our environmental performance. Our environmental commitments include reducing greenhouse gas emissions in line with science-based targets, minimizing waste and promoting circular economy principles, protecting biodiversity in areas where we operate, investing in clean technologies and renewable energy, and transparently reporting our environmental performance. Each business unit maintains an Environmental Management System aligned with ISO 14001 standards.',
+    },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Legal</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">Code of Business Conduct</h1>
+            <p className="section-label mb-4">{t('title')}</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('codeOfConduct.title')}</h1>
             <div className="accent-line mb-8" />
             <p className="text-[14px] text-[#999999] leading-relaxed mb-8">Last updated: January 2026</p>
           </FadeIn>

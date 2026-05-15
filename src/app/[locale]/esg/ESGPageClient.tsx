@@ -6,44 +6,60 @@ import { ArrowRight, Leaf, Users, Shield, Droplets, Zap, Sun, Heart, Recycle, Tr
 import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
 import { ESGRadarChart } from '@/components/charts/ESGRadarChart';
 import { CarbonIntensityChart } from '@/components/charts/CarbonIntensityChart';
-
-const envCommitments = [
-  { icon: Sun, title: '100% Renewable Energy', desc: 'All Harch Corp operations — from data centers to manufacturing — are powered by renewable energy. Our 2GW+ Renewable Pipeline provides zero-carbon electricity at industrial scale, achieving 81.5% average renewable across our 5 GPU hubs.' },
-  { icon: Droplets, title: 'Water Stewardship', desc: 'Harch Water deploys 200M m³/yr desalination capacity with AI-optimized distribution, addressing Africa\'s water security crisis while minimizing environmental impact.' },
-  { icon: TreePine, title: 'Carbon Negative Goal', desc: 'Our energy and mining operations are designed to be carbon negative by 2030 — removing more CO₂ than we produce through green hydrogen and carbon capture technologies. Our GPU hubs achieve ~47 gCO2/kWh average carbon intensity — 89% below the industry average of ~450 gCO2/kWh.' },
-  { icon: Recycle, title: 'Circular Economy', desc: 'Every vertical is designed for circularity — from mining tailings repurposed as construction materials to water recycling in cement production. Zero waste by design.' },
-];
-
-const socialImpact = [
-  { stat: 3200, prefix: '', suffix: '+', label: 'Direct Jobs', desc: 'By 2028, Harch Corp will create 3,200+ direct jobs across 5 countries, with an emphasis on local hiring and skills development.' },
-  { stat: 10, prefix: '', suffix: 'K+', label: 'Indirect Jobs', desc: 'Supply chain and community employment multiplying our direct impact by 3x across construction, logistics, and services.' },
-  { stat: 50, prefix: '', suffix: 'M+', label: 'People Impacted', desc: 'Access to clean water, reliable energy, and digital infrastructure transforming daily life across our operating regions.' },
-  { stat: 5, prefix: '', suffix: '', label: 'Countries', desc: 'Morocco, Gambia, Senegal, Mauritania, Mali — with plans to expand to 12+ markets by 2030.' },
-];
-
-const governanceTable = [
-  { standard: 'ISO 14001', scope: 'Environmental Management', status: 'In Progress', vertical: 'All' },
-  { standard: 'ISO 45001', scope: 'Occupational Health & Safety', status: 'In Progress', vertical: 'All' },
-  { standard: 'GRI Standards', scope: 'Sustainability Reporting', status: 'Adopted', vertical: 'Corporate' },
-  { standard: 'TCFD', scope: 'Climate Risk Disclosure', status: 'Adopted', vertical: 'Energy' },
-  { standard: 'UN SDGs', scope: 'Sustainable Development Goals', status: 'Aligned', vertical: 'All' },
-  { standard: 'IFC Performance', scope: 'Social & Environmental', status: 'In Progress', vertical: 'Mining' },
-];
+import { useTranslations } from 'next-intl';
 
 export default function ESGPageClient() {
+  const t = useTranslations('esg');
+
+  const envCommitments = [
+    { icon: Sun, title: t('environmental.items.0.title'), desc: t('environmental.items.0.desc') },
+    { icon: Droplets, title: t('environmental.items.1.title'), desc: t('environmental.items.1.desc') },
+    { icon: TreePine, title: t('environmental.items.2.title'), desc: t('environmental.items.2.desc') },
+    { icon: Recycle, title: t('environmental.items.3.title'), desc: t('environmental.items.3.desc') },
+  ];
+
+  const socialImpact = [
+    { stat: 3200, prefix: '', suffix: '+', label: t('social.items.0.label'), desc: t('social.items.0.desc') },
+    { stat: 10, prefix: '', suffix: 'K+', label: t('social.items.1.label'), desc: t('social.items.1.desc') },
+    { stat: 50, prefix: '', suffix: 'M+', label: t('social.items.2.label'), desc: t('social.items.2.desc') },
+    { stat: 5, prefix: '', suffix: '', label: t('social.items.3.label'), desc: t('social.items.3.desc') },
+  ];
+
+  const governanceTable = [
+    { standard: 'ISO 14001', scope: t('governance.rows.0.scope'), status: t('governance.rows.0.status'), vertical: t('governance.rows.0.vertical') },
+    { standard: 'ISO 45001', scope: t('governance.rows.1.scope'), status: t('governance.rows.1.status'), vertical: t('governance.rows.1.vertical') },
+    { standard: 'GRI Standards', scope: t('governance.rows.2.scope'), status: t('governance.rows.2.status'), vertical: t('governance.rows.2.vertical') },
+    { standard: 'TCFD', scope: t('governance.rows.3.scope'), status: t('governance.rows.3.status'), vertical: t('governance.rows.3.vertical') },
+    { standard: 'UN SDGs', scope: t('governance.rows.4.scope'), status: t('governance.rows.4.status'), vertical: t('governance.rows.4.vertical') },
+    { standard: 'IFC Performance', scope: t('governance.rows.5.scope'), status: t('governance.rows.5.status'), vertical: t('governance.rows.5.vertical') },
+  ];
+
+  const socialPrograms = [
+    { title: t('programs.items.0.title'), desc: t('programs.items.0.desc') },
+    { title: t('programs.items.1.title'), desc: t('programs.items.1.desc') },
+    { title: t('programs.items.2.title'), desc: t('programs.items.2.desc') },
+  ];
+
+  const universityStats = [
+    { label: t('university.stats.0.label'), value: t('university.stats.0.value') },
+    { label: t('university.stats.1.label'), value: t('university.stats.1.value') },
+    { label: t('university.stats.2.label'), value: t('university.stats.2.value') },
+    { label: t('university.stats.3.label'), value: t('university.stats.3.value') },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">ESG & Sustainability</p>
+            <p className="section-label mb-4">{t('hero.label')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Building Sustainably,<br />Operating Responsibly
+              {t('hero.title')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Environmental stewardship, social impact, and world-class governance are not add-ons — they are foundational to our operating model and investment thesis.
+              {t('hero.description')}
             </p>
           </FadeIn>
         </div>
@@ -53,9 +69,9 @@ export default function ESGPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Environmental</p>
+            <p className="section-label mb-4">{t('environmental.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              Zero-Carbon by Design
+              {t('environmental.title')}
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -78,9 +94,9 @@ export default function ESGPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Performance Metrics</p>
+            <p className="section-label mb-4">{t('metrics.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-12">
-              ESG Scorecard
+              {t('metrics.title')}
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -96,18 +112,18 @@ export default function ESGPageClient() {
 
       {/* Photo Section - Energy */}
       <section className="photo-section relative min-h-[60vh] flex items-center">
-        <Image src="/images/hero-energy.jpg" alt="Renewable Energy" fill className="object-cover" />
+        <Image src="/images/hero-energy.jpg" alt={t('photo.alt')} fill className="object-cover" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24">
           <FadeIn>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1A1A1A]/10 border border-white/10 backdrop-blur-sm mb-6">
               <Leaf size={12} className="text-white/60" />
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">Environmental Commitment</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70">{t('photo.badge')}</span>
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-[56px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-6 max-w-2xl">
-              2GW+ Renewable Pipeline of Zero-Carbon<br />Electricity
+              {t('photo.title')}
             </h2>
             <p className="max-w-lg text-[15px] text-white/60 leading-relaxed">
-              Every Harch Corp operation is powered by renewable energy. Our solar and wind farms generate more clean electricity than we consume — making us a net producer of zero-carbon power. With ~47 gCO2/kWh average carbon intensity and 81.5% renewable energy across our GPU hubs, we lead the industry in sustainable compute.
+              {t('photo.description')}
             </p>
           </FadeIn>
         </div>
@@ -117,9 +133,9 @@ export default function ESGPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Social</p>
+            <p className="section-label mb-4">{t('social.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              Impact at Scale
+              {t('social.title')}
             </h2>
           </FadeIn>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -142,17 +158,13 @@ export default function ESGPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Community Programs</p>
+            <p className="section-label mb-4">{t('programs.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              Investing in People
+              {t('programs.title')}
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: 'Harch Academy', desc: 'Technical training programs in AI, renewable energy, and industrial engineering. 500+ graduates annually with guaranteed placement across our verticals.' },
-              { title: 'Community Water Access', desc: 'Every Harch Water project allocates 10% of desalination capacity for community use, providing clean water to underserved populations at no cost.' },
-              { title: 'Local Supplier Program', desc: '40% minimum local procurement across all projects. We build supplier capacity through training and guaranteed contracts, creating lasting economic value.' },
-            ].map((item, i) => (
+            {socialPrograms.map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.1}>
                 <div className="card p-8 h-full">
                   <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
@@ -169,11 +181,11 @@ export default function ESGPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Governance</p>
+            <p className="section-label mb-4">{t('governance.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              World-Class Standards
+              {t('governance.title')}
             </h2>
-            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">International certifications and frameworks adopted across all operations.</p>
+            <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-12">{t('governance.description')}</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="bg-[#121212] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
@@ -181,10 +193,10 @@ export default function ESGPageClient() {
                 <table className="data-table">
                   <thead>
                     <tr>
-                      <th>Standard</th>
-                      <th>Scope</th>
-                      <th>Status</th>
-                      <th>Vertical</th>
+                      <th>{t('governance.tableHeaders.standard')}</th>
+                      <th>{t('governance.tableHeaders.scope')}</th>
+                      <th>{t('governance.tableHeaders.status')}</th>
+                      <th>{t('governance.tableHeaders.vertical')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -193,7 +205,7 @@ export default function ESGPageClient() {
                         <td className="font-semibold">{row.standard}</td>
                         <td>{row.scope}</td>
                         <td>
-                          <span className={`status-badge ${row.status === 'Adopted' || row.status === 'Aligned' ? 'status-badge-active' : 'status-badge-engineering'}`}>
+                          <span className={`status-badge ${row.status === t('governance.statusAdopted') || row.status === t('governance.statusAligned') ? 'status-badge-active' : 'status-badge-engineering'}`}>
                             <span className="w-1.5 h-1.5 rounded-full bg-current" />{row.status}
                           </span>
                         </td>
@@ -213,13 +225,13 @@ export default function ESGPageClient() {
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">Sustainable Impact</h2>
-            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">Every Harch Corp project is designed to create lasting positive impact — for communities, for economies, and for the planet.</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">{t('cta.title')}</h2>
+            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">{t('cta.description')}</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">Get Involved <ArrowRight size={14} /></Link>
-              <Link href="/investors" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">View Investment Details</Link>
+              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">{t('cta.getInvolved')} <ArrowRight size={14} /></Link>
+              <Link href="/investors" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">{t('cta.viewInvestment')}</Link>
             </div>
           </FadeIn>
         </div>

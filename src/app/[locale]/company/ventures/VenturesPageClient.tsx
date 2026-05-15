@@ -21,123 +21,126 @@ import {
   Users,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const thesisAreas = [
-  {
-    icon: Cpu,
-    title: 'Sovereign AI',
-    description: 'AI infrastructure, models, and applications that keep African data on African soil. GPU cloud services, sovereign LLMs, and AI-powered solutions for African-specific problems.',
-    color: 'rgba(139, 157, 175, 0.7)',
-  },
-  {
-    icon: Zap,
-    title: 'Clean Energy',
-    description: 'Renewable energy generation, storage, and distribution technologies. Solar, wind, hydrogen, and grid optimization solutions that accelerate Africa\'s energy transition.',
-    color: 'rgba(0, 255, 136, 0.7)',
-  },
-  {
-    icon: Leaf,
-    title: 'AgriTech',
-    description: 'Precision agriculture, vertical farming, supply chain optimization, and food security technologies. IoT-enabled farming, drone analytics, and climate-adaptive crop solutions.',
-    color: 'rgba(255, 200, 0, 0.7)',
-  },
-  {
-    icon: Droplets,
-    title: 'WaterTech',
-    description: 'Desalination innovation, water recycling, smart irrigation, and water quality monitoring. Technologies that address Africa\'s growing water security challenges.',
-    color: 'rgba(100, 180, 255, 0.7)',
-  },
-  {
-    icon: Mountain,
-    title: 'MiningTech',
-    description: 'Automation, safety systems, mineral processing, and environmental monitoring for the mining sector. Technologies that make African mining safer, more efficient, and more sustainable.',
-    color: 'rgba(255, 160, 60, 0.7)',
-  },
-];
-
-const portfolioCompanies = [
-  {
-    name: 'SaharaAI',
-    description: 'Building Africa\'s first sovereign large language model trained on African languages and datasets. Their models power HarchOS AI services across 5 data center regions.',
-    stage: 'Series A',
-    sector: 'Sovereign AI',
-    location: 'Casablanca, Morocco',
-    investment: '2024',
-  },
-  {
-    name: 'SolarGrid',
-    description: 'Distributed solar energy platform enabling micro-grids and virtual power plants across West Africa. Currently powering 15,000 homes and 200 businesses in Senegal and Gambia.',
-    stage: 'Seed',
-    sector: 'Clean Energy',
-    location: 'Dakar, Senegal',
-    investment: '2024',
-  },
-  {
-    name: 'AgriSense',
-    description: 'IoT and satellite-based precision agriculture platform providing real-time crop monitoring, soil analytics, and yield optimization to 30,000+ farmers across the Sahel.',
-    stage: 'Pre-Series A',
-    sector: 'AgriTech',
-    location: 'Bamako, Mali',
-    investment: '2025',
-  },
-  {
-    name: 'AquaPure',
-    description: 'Next-generation modular desalination technology reducing energy consumption by 60% compared to conventional systems. Piloting in Morocco with plans for 5 additional countries.',
-    stage: 'Seed',
-    sector: 'WaterTech',
-    location: 'Tangier, Morocco',
-    investment: '2025',
-  },
-];
-
-const investmentCriteria = [
-  {
-    icon: Target,
-    title: 'Africa-First Impact',
-    description: 'We invest in companies that directly contribute to Africa\'s industrial sovereignty. Your product must serve African markets and ideally be built by African teams. Impact is measured in sovereignty outcomes, not just financial returns.',
-  },
-  {
-    icon: Lightbulb,
-    title: 'Technical Depth',
-    description: 'We look for startups with genuine technical innovation — not just business model arbitrage. Deep tech, hardware-enabled solutions, and IP-driven companies receive priority consideration.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Scalable Infrastructure',
-    description: 'Solutions must be infrastructure-grade: capable of operating at national or continental scale. We favor companies building platforms and systems that become foundational to Africa\'s industrial stack.',
-  },
-  {
-    icon: Users,
-    title: 'Exceptional Teams',
-    description: 'We back founders with domain expertise, resilience, and a sovereign mindset. Technical founders who understand their market deeply and have the grit to build through Africa\'s unique challenges.',
-  },
-];
-
 export default function VenturesPageClient() {
+  const t = useTranslations('company');
+
+  const thesisAreas = [
+    {
+      icon: Cpu,
+      title: t('ventures.thesis.0.title'),
+      description: t('ventures.thesis.0.description'),
+      color: 'rgba(139, 157, 175, 0.7)',
+    },
+    {
+      icon: Zap,
+      title: t('ventures.thesis.1.title'),
+      description: t('ventures.thesis.1.description'),
+      color: 'rgba(0, 255, 136, 0.7)',
+    },
+    {
+      icon: Leaf,
+      title: t('ventures.thesis.2.title'),
+      description: t('ventures.thesis.2.description'),
+      color: 'rgba(255, 200, 0, 0.7)',
+    },
+    {
+      icon: Droplets,
+      title: t('ventures.thesis.3.title'),
+      description: t('ventures.thesis.3.description'),
+      color: 'rgba(100, 180, 255, 0.7)',
+    },
+    {
+      icon: Mountain,
+      title: t('ventures.thesis.4.title'),
+      description: t('ventures.thesis.4.description'),
+      color: 'rgba(255, 160, 60, 0.7)',
+    },
+  ];
+
+  const portfolioCompanies = [
+    {
+      name: t('ventures.portfolio.0.name'),
+      description: t('ventures.portfolio.0.description'),
+      stage: t('ventures.portfolio.0.stage'),
+      sector: t('ventures.portfolio.0.sector'),
+      location: t('ventures.portfolio.0.location'),
+      investment: t('ventures.portfolio.0.investment'),
+    },
+    {
+      name: t('ventures.portfolio.1.name'),
+      description: t('ventures.portfolio.1.description'),
+      stage: t('ventures.portfolio.1.stage'),
+      sector: t('ventures.portfolio.1.sector'),
+      location: t('ventures.portfolio.1.location'),
+      investment: t('ventures.portfolio.1.investment'),
+    },
+    {
+      name: t('ventures.portfolio.2.name'),
+      description: t('ventures.portfolio.2.description'),
+      stage: t('ventures.portfolio.2.stage'),
+      sector: t('ventures.portfolio.2.sector'),
+      location: t('ventures.portfolio.2.location'),
+      investment: t('ventures.portfolio.2.investment'),
+    },
+    {
+      name: t('ventures.portfolio.3.name'),
+      description: t('ventures.portfolio.3.description'),
+      stage: t('ventures.portfolio.3.stage'),
+      sector: t('ventures.portfolio.3.sector'),
+      location: t('ventures.portfolio.3.location'),
+      investment: t('ventures.portfolio.3.investment'),
+    },
+  ];
+
+  const investmentCriteria = [
+    {
+      icon: Target,
+      title: t('ventures.criteria.0.title'),
+      description: t('ventures.criteria.0.description'),
+    },
+    {
+      icon: Lightbulb,
+      title: t('ventures.criteria.1.title'),
+      description: t('ventures.criteria.1.description'),
+    },
+    {
+      icon: TrendingUp,
+      title: t('ventures.criteria.2.title'),
+      description: t('ventures.criteria.2.description'),
+    },
+    {
+      icon: Users,
+      title: t('ventures.criteria.3.title'),
+      description: t('ventures.criteria.3.description'),
+    },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Harch Ventures</p>
+            <p className="section-label mb-4">{t('ventures.label')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Investing in Africa&apos;s<br />Industrial Future
+              {t('ventures.heroTitle1')}<br />{t('ventures.heroTitle2')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Harch Ventures is the strategic investment arm of Harch Corp. We invest in early-stage startups building sovereign infrastructure technology across Africa — from AI and energy to agriculture and water.
+              {t('ventures.heroDescription')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-start gap-4 mt-8">
               <Link href="#apply" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Pitch Your Startup <ArrowRight size={14} />
+                {t('ventures.heroButton1')} <ArrowRight size={14} />
               </Link>
               <Link href="#portfolio" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                View Portfolio
+                {t('ventures.heroButton2')}
               </Link>
             </div>
           </FadeIn>
@@ -148,12 +151,12 @@ export default function VenturesPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Investment Thesis</p>
+            <p className="section-label mb-4">{t('ventures.thesisLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Where We Invest
+              {t('ventures.thesisTitle')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              Five sectors where technology can unlock Africa&apos;s sovereignty. Each aligns with Harch Corp&apos;s vertical strategy and offers compounding strategic value.
+              {t('ventures.thesisDescription')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -177,12 +180,12 @@ export default function VenturesPageClient() {
       <section id="portfolio" className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Portfolio</p>
+            <p className="section-label mb-4">{t('ventures.portfolioLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Companies We Back
+              {t('ventures.portfolioTitle')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              Strategic investments in startups building critical infrastructure technology for Africa&apos;s sovereignty.
+              {t('ventures.portfolioDescription')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -208,7 +211,7 @@ export default function VenturesPageClient() {
                   <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{company.description}</p>
                   <div className="flex items-center justify-between pt-4 border-t border-white/[0.06] text-[12px]">
                     <span className="text-[#666666]">{company.sector}</span>
-                    <span className="text-[#666666] stat-mono">Invested {company.investment}</span>
+                    <span className="text-[#666666] stat-mono">{t('ventures.invested')} {company.investment}</span>
                   </div>
                 </div>
               </FadeIn>
@@ -221,12 +224,12 @@ export default function VenturesPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Criteria</p>
+            <p className="section-label mb-4">{t('ventures.criteriaLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              What We Look For
+              {t('ventures.criteriaTitle')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              Four principles guide every investment decision. We look for alignment on all four before committing capital.
+              {t('ventures.criteriaDescription')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -251,20 +254,20 @@ export default function VenturesPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn>
-              <p className="section-label mb-4">Our Approach</p>
+              <p className="section-label mb-4">{t('ventures.approachLabel')}</p>
               <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
-                Strategic Capital,<br />Not Just Checks
+                {t('ventures.approachTitle1')}<br />{t('ventures.approachTitle2')}
               </h2>
               <div className="accent-line mb-6" />
               <p className="text-[16px] text-[#999999] leading-[1.7] mb-8">
-                Harch Ventures brings more than capital. As the investment arm of Africa&apos;s largest industrial conglomerate, we provide portfolio companies with unmatched strategic advantages.
+                {t('ventures.approachDescription')}
               </p>
               <div className="space-y-5">
                 {[
-                  { title: 'Infrastructure Access', desc: 'Portfolio companies get priority access to HarchOS compute, energy infrastructure, and operational facilities across 5 countries.' },
-                  { title: 'Customer Introductions', desc: 'Direct introductions to Harch Corp\'s enterprise and government clients across all 7 verticals and operating regions.' },
-                  { title: 'Operational Expertise', desc: 'Hands-on support from Harch engineers and operators who have scaled industrial infrastructure across the continent.' },
-                  { title: 'Follow-On Capital', desc: 'Strong syndication relationships with African and international VCs, DFIs, and sovereign wealth funds for subsequent rounds.' },
+                  { title: t('ventures.approach.0.title'), desc: t('ventures.approach.0.desc') },
+                  { title: t('ventures.approach.1.title'), desc: t('ventures.approach.1.desc') },
+                  { title: t('ventures.approach.2.title'), desc: t('ventures.approach.2.desc') },
+                  { title: t('ventures.approach.3.title'), desc: t('ventures.approach.3.desc') },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
                     <CheckCircle size={16} className="text-white/50 mt-0.5 shrink-0" />
@@ -278,15 +281,15 @@ export default function VenturesPageClient() {
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="card p-8">
-                <h3 className="text-lg font-bold text-white mb-6">Investment Details</h3>
+                <h3 className="text-lg font-bold text-white mb-6">{t('ventures.detailsTitle')}</h3>
                 <div className="space-y-4">
                   {[
-                    { label: 'Check Size', value: '$250K – $5M' },
-                    { label: 'Stage', value: 'Pre-Seed to Series A' },
-                    { label: 'Geography', value: 'Africa & Middle East' },
-                    { label: 'Sectors', value: '5 focus areas' },
-                    { label: 'Active Portfolio', value: '4 companies' },
-                    { label: 'Annual Deployments', value: '6–10 investments' },
+                    { label: t('ventures.details.0.label'), value: t('ventures.details.0.value') },
+                    { label: t('ventures.details.1.label'), value: t('ventures.details.1.value') },
+                    { label: t('ventures.details.2.label'), value: t('ventures.details.2.value') },
+                    { label: t('ventures.details.3.label'), value: t('ventures.details.3.value') },
+                    { label: t('ventures.details.4.label'), value: t('ventures.details.4.value') },
+                    { label: t('ventures.details.5.label'), value: t('ventures.details.5.value') },
                   ].map((item) => (
                     <div key={item.label} className="flex items-center justify-between py-3 border-b border-white/[0.04] last:border-0">
                       <span className="text-[13px] text-[#999999]">{item.label}</span>
@@ -306,19 +309,19 @@ export default function VenturesPageClient() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">
-              Building Africa&apos;s Infrastructure?
+              {t('ventures.ctaTitle')}
             </h2>
             <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">
-              We want to hear from founders building sovereign technology for Africa. Pitch your startup to Harch Ventures — strategic capital meets industrial scale.
+              {t('ventures.ctaDescription')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Pitch Your Startup <ArrowRight size={14} />
+                {t('ventures.ctaButton1')} <ArrowRight size={14} />
               </Link>
               <Link href="/contact" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                Contact Ventures Team
+                {t('ventures.ctaButton2')}
               </Link>
             </div>
           </FadeIn>

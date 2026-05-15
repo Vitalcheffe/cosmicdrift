@@ -4,30 +4,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Calendar, Tag, Bolt, Cpu, Factory, Mountain, Droplets, Wheat, Shield, Zap, Landmark } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { featuredArticle, regularArticles } from '@/data/articles';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const tagIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
-  Intelligence: Cpu,
-  Energy: Bolt,
-  Corporate: Zap,
-  Cement: Factory,
-  Technology: Shield,
-  Mining: Mountain,
-  Water: Droplets,
-  Agri: Wheat,
-  Finance: Landmark,
-};
-
-const pressResources = [
-  { title: 'Brand Guidelines', desc: 'Harch Corp brand assets, logos, and usage guidelines for media partners.' },
-  { title: 'Executive Bios', desc: 'Leadership biographies, headshots, and public speaking topics.' },
-  { title: 'Fact Sheet', desc: 'Key metrics, vertical summaries, and investment pipeline data.' },
-  { title: 'Media Contact', desc: 'press@harchcorp.com — Response within 4 hours, 24/7.' },
-];
-
 export default function NewsroomPageClient() {
+  const t = useTranslations('newsroom');
+
+  const tagIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
+    Intelligence: Cpu,
+    Energy: Bolt,
+    Corporate: Zap,
+    Cement: Factory,
+    Technology: Shield,
+    Mining: Mountain,
+    Water: Droplets,
+    Agri: Wheat,
+    Finance: Landmark,
+  };
+
+  const pressResources = [
+    { title: t('brandGuidelines'), desc: t('brandGuidelinesDescription') },
+    { title: t('executiveBios'), desc: t('executiveBiosDescription') },
+    { title: t('factSheet'), desc: t('factSheetDescription') },
+    { title: t('mediaContact'), desc: t('mediaContactDescription') },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
 
@@ -35,13 +38,13 @@ export default function NewsroomPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Newsroom</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('title')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Dispatches from<br/>the Front Line
+              {t('heroTitle')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Announcements, deployments, and strategic updates from Harch Corp and its seven industrial verticals. No spin. No fluff. Just the facts that matter.
+              {t('heroDescription')}
             </p>
           </FadeIn>
         </div>
@@ -51,7 +54,7 @@ export default function NewsroomPageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#8B9DAF]">Featured</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">{t('featured')}</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <Link href={`/newsroom/${featuredArticle.slug}`} className="group block">
@@ -87,7 +90,7 @@ export default function NewsroomPageClient() {
                       </h2>
                       <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredArticle.excerpt}</p>
                       <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
-                        Read Full Dispatch <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        {t('readFullDispatch')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
                     <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] shrink-0">
@@ -105,8 +108,8 @@ export default function NewsroomPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">All Dispatches</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">News & Announcements</h2>
+            <p className="section-label mb-4">{t('allDispatches')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">{t('newsAndAnnouncements')}</h2>
           </FadeIn>
 
           <div className="space-y-2">
@@ -150,8 +153,8 @@ export default function NewsroomPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Press</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">Media Kit</h2>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('press')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">{t('mediaKit')}</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pressResources.map((resource, i) => (

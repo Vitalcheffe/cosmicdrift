@@ -1,84 +1,87 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const categories = [
-  {
-    category: 'Identifiers',
-    examples: 'Name, email address, phone number, IP address, account login credentials',
-    collected: 'Yes',
-  },
-  {
-    category: 'Personal Information Categories (Cal. Civ. Code § 1798.80(e))',
-    examples: 'Name, signature, physical characteristics, address, telephone number, passport number',
-    collected: 'Yes',
-  },
-  {
-    category: 'Protected Classification Characteristics',
-    examples: 'Age, date of birth, citizenship, immigration status (collected for employment purposes only)',
-    collected: 'Limited',
-  },
-  {
-    category: 'Commercial Information',
-    examples: 'Records of products or services purchased, investment interests, transaction details',
-    collected: 'Yes',
-  },
-  {
-    category: 'Biometric Information',
-    examples: 'Fingerprints, voice prints, facial recognition data (collected for facility access only)',
-    collected: 'Limited',
-  },
-  {
-    category: 'Internet or Network Activity',
-    examples: 'Browsing history, search history, interaction with our website, cookie data',
-    collected: 'Yes',
-  },
-  {
-    category: 'Geolocation Data',
-    examples: 'Physical location derived from IP address or mobile device (generalized to city level)',
-    collected: 'Yes',
-  },
-  {
-    category: 'Professional or Employment Information',
-    examples: 'Work history, professional qualifications, employment application data',
-    collected: 'Yes',
-  },
-  {
-    category: 'Inferences Drawn from Other Information',
-    examples: 'Profile reflecting preferences, characteristics, behavior, or attitudes',
-    collected: 'Yes',
-  },
-];
-
-const ccpaRights = [
-  {
-    right: 'The Right to Know',
-    description: 'You have the right to request that we disclose what personal information we collect, use, and disclose about you over the past 12 months. This includes the categories of personal information collected, the categories of sources, the business or commercial purpose for collecting or selling the information, the categories of third parties with whom we share information, and the specific pieces of personal information we have collected about you. We will verify your identity before disclosing this information.',
-  },
-  {
-    right: 'The Right to Delete',
-    description: 'You have the right to request that we delete any personal information about you that we have collected from you, subject to certain exceptions. These exceptions include when the information is necessary to complete a transaction, detect security incidents, protect against fraud, debug or repair errors, exercise free speech, comply with legal obligations, or enable solely internal uses reasonably proportional to your relationship with us. Upon a verified deletion request, we will direct our service providers to delete your personal information from their records.',
-  },
-  {
-    right: 'The Right to Opt-Out of Sale',
-    description: 'You have the right to direct us not to sell your personal information at any time. We do not currently sell personal information as defined under the CCPA. However, if our practices change, we will provide clear notice and an opt-out mechanism. You may also authorize an agent to exercise this right on your behalf by providing a signed power of attorney.',
-  },
-  {
-    right: 'The Right to Non-Discrimination',
-    description: 'We will not discriminate against you for exercising any of your CCPA rights. This means we will not deny you goods or services, charge you different prices or rates, provide you a different level or quality of goods or services, or suggest that we may do any of the foregoing, because you exercised a CCPA right. We may offer certain financial incentives permitted by the CCPA that are reasonably related to the value of your personal data, provided they are voluntary and clearly described.',
-  },
-];
-
 export default function CCPAPageClient() {
+  const t = useTranslations('legal');
+
+  const categories = [
+    {
+      category: 'Identifiers',
+      examples: 'Name, email address, phone number, IP address, account login credentials',
+      collected: 'Yes',
+    },
+    {
+      category: 'Personal Information Categories (Cal. Civ. Code § 1798.80(e))',
+      examples: 'Name, signature, physical characteristics, address, telephone number, passport number',
+      collected: 'Yes',
+    },
+    {
+      category: 'Protected Classification Characteristics',
+      examples: 'Age, date of birth, citizenship, immigration status (collected for employment purposes only)',
+      collected: 'Limited',
+    },
+    {
+      category: 'Commercial Information',
+      examples: 'Records of products or services purchased, investment interests, transaction details',
+      collected: 'Yes',
+    },
+    {
+      category: 'Biometric Information',
+      examples: 'Fingerprints, voice prints, facial recognition data (collected for facility access only)',
+      collected: 'Limited',
+    },
+    {
+      category: 'Internet or Network Activity',
+      examples: 'Browsing history, search history, interaction with our website, cookie data',
+      collected: 'Yes',
+    },
+    {
+      category: 'Geolocation Data',
+      examples: 'Physical location derived from IP address or mobile device (generalized to city level)',
+      collected: 'Yes',
+    },
+    {
+      category: 'Professional or Employment Information',
+      examples: 'Work history, professional qualifications, employment application data',
+      collected: 'Yes',
+    },
+    {
+      category: 'Inferences Drawn from Other Information',
+      examples: 'Profile reflecting preferences, characteristics, behavior, or attitudes',
+      collected: 'Yes',
+    },
+  ];
+
+  const ccpaRights = [
+    {
+      right: 'The Right to Know',
+      description: 'You have the right to request that we disclose what personal information we collect, use, and disclose about you over the past 12 months. This includes the categories of personal information collected, the categories of sources, the business or commercial purpose for collecting or selling the information, the categories of third parties with whom we share information, and the specific pieces of personal information we have collected about you. We will verify your identity before disclosing this information.',
+    },
+    {
+      right: 'The Right to Delete',
+      description: 'You have the right to request that we delete any personal information about you that we have collected from you, subject to certain exceptions. These exceptions include when the information is necessary to complete a transaction, detect security incidents, protect against fraud, debug or repair errors, exercise free speech, comply with legal obligations, or enable solely internal uses reasonably proportional to your relationship with us. Upon a verified deletion request, we will direct our service providers to delete your personal information from their records.',
+    },
+    {
+      right: 'The Right to Opt-Out of Sale',
+      description: 'You have the right to direct us not to sell your personal information at any time. We do not currently sell personal information as defined under the CCPA. However, if our practices change, we will provide clear notice and an opt-out mechanism. You may also authorize an agent to exercise this right on your behalf by providing a signed power of attorney.',
+    },
+    {
+      right: 'The Right to Non-Discrimination',
+      description: 'We will not discriminate against you for exercising any of your CCPA rights. This means we will not deny you goods or services, charge you different prices or rates, provide you a different level or quality of goods or services, or suggest that we may do any of the foregoing, because you exercised a CCPA right. We may offer certain financial incentives permitted by the CCPA that are reasonably related to the value of your personal data, provided they are voluntary and clearly described.',
+    },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Legal</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">CCPA Compliance</h1>
+            <p className="section-label mb-4">{t('title')}</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('ccpa.title')}</h1>
             <div className="accent-line mb-8" />
             <p className="text-[14px] text-[#999999] leading-relaxed mb-8">Last updated: January 2026</p>
           </FadeIn>

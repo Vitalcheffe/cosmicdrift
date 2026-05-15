@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import {
   ArrowRight,
   ArrowLeft,
@@ -31,82 +32,58 @@ import { FadeIn } from '@/components/ui/motion';
 const verticals = [
   {
     id: 'intelligence',
-    name: 'Harch Intelligence',
-    slug: 'intelligence',
     icon: Server,
     version: '/0.1',
     stat: '1,798 GPUs',
-    desc: 'AI-GPU compute infrastructure, sovereign data centers, and national intelligence platforms.',
     capabilities: ['GPU Clusters', 'AI Training', 'Inference at Scale', 'Sovereign Cloud'],
   },
   {
     id: 'cement',
-    name: 'Harch Cement',
-    slug: 'cement',
     icon: Factory,
     version: '/0.2',
     stat: '500kT/yr',
-    desc: 'Integrated cement production with predictive AI optimization and regional supply chain dominance.',
     capabilities: ['Clinker Production', 'AI-Optimized Kilns', 'Regional Distribution', 'Green Cement'],
   },
   {
     id: 'energy',
-    name: 'Harch Energy',
-    slug: 'energy',
     icon: Zap,
     version: '/0.3',
     stat: '2GW+',
-    desc: 'Solar, wind, and hybrid energy infrastructure powering Africa\'s industrial transformation.',
     capabilities: ['Solar Farms', 'Wind Turbines', 'Hybrid Plants', 'Grid Integration'],
   },
   {
     id: 'technology',
-    name: 'Harch Technology',
-    slug: 'technology',
     icon: Cpu,
     version: '/0.4',
     stat: '1,798 GPUs',
-    desc: 'Sovereign technology stack — from semiconductor design to ground station networks.',
     capabilities: ['Ground Stations', 'Satellite Comms', 'Edge Computing', 'IoT Platforms'],
   },
   {
     id: 'mining',
-    name: 'Harch Mining',
-    slug: 'mining',
     icon: Mountain,
     version: '/0.5',
     stat: '3 Minerals',
-    desc: 'Strategic mineral extraction — phosphate, cobalt, and lithium for the global energy transition.',
     capabilities: ['Phosphate Mining', 'Cobalt Extraction', 'Lithium Processing', 'AI Exploration'],
   },
   {
     id: 'agriculture',
-    name: 'Harch Agri',
-    slug: 'agriculture',
     icon: Wheat,
     version: '/0.6',
     stat: '$35B Market',
-    desc: 'Precision agriculture and vertical farming technology for food sovereignty across Africa.',
     capabilities: ['Vertical Farms', 'Precision Agri', 'Supply Chain AI', 'Food Processing'],
   },
   {
     id: 'water',
-    name: 'Harch Water',
-    slug: 'water',
     icon: Droplets,
     version: '/0.7',
     stat: '200M m\u00B3/yr',
-    desc: 'Desalination, water treatment, and distribution infrastructure for water security.',
     capabilities: ['Desalination', 'Water Treatment', 'Distribution Networks', 'Smart Metering'],
   },
   {
     id: 'finance',
-    name: 'Harch Finance',
-    slug: 'finance',
     icon: Landmark,
     version: '/0.8',
     stat: '$2.4B+',
-    desc: 'Sovereign capital allocation, infrastructure finance, and strategic investment across 8 verticals.',
     capabilities: ['Project Finance', 'Capital Advisory', 'Risk Modeling', 'Islamic Finance'],
   },
 ];
@@ -154,30 +131,17 @@ const projectTypes: Record<string, { label: string; examples: string[] }[]> = {
   ],
 };
 
-const budgetRanges = [
-  'Under $100K',
-  '$100K — $500K',
-  '$500K — $1M',
-  '$1M — $10M',
-  '$10M — $50M',
-  '$50M — $100M',
-  '$100M — $500M',
-  '$500M+',
-];
+const budgetRangeKeys = ['under1M', '1Mto5M', '5Mto25M', '25Mto100M', '100Mto500M', 'over500M'] as const;
 
-const timelines = [
-  'Immediate (< 3 months)',
-  'Short-term (3 — 6 months)',
-  'Medium-term (6 — 12 months)',
-  'Long-term (12 — 24 months)',
-  'Strategic (24+ months)',
-];
+const timelineKeys = ['immediate', 'shortTerm', 'mediumTerm', 'longTerm', 'extended'] as const;
 
 type Step = 1 | 2 | 3 | 4;
 
 export default function QuotePageClient() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const t = useTranslations('quote');
+  const tc = useTranslations('common');
 
   const [currentStep, setCurrentStep] = useState<Step>(1);
   const [transmitStep, setTransmitStep] = useState(0);
@@ -223,7 +187,7 @@ export default function QuotePageClient() {
     }, 2600);
   }, [router]);
 
-  const stepLabels = ['Vertical', 'Project', 'Details', 'Review'];
+  const stepLabels = [t('step1.title'), t('step2.title'), t('step3.title'), t('step4.title')];
 
   return (
     <div className="bg-[#0A0A0A] min-h-screen">
@@ -233,15 +197,14 @@ export default function QuotePageClient() {
           <FadeIn>
             <div className="flex items-center gap-3 mb-6">
               <Shield size={14} className="text-[#8B9DAF]" />
-              <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">Secure Proposal Request</span>
+              <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">{tc('encrypted')} {tc('security')}</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Request a Quote
+              {t('title')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7] mb-10">
-              Select your vertical, define your project scope, and receive a customized proposal.
-              Every request is encrypted end-to-end on sovereign infrastructure.
+              {t('subtitle')}
             </p>
           </FadeIn>
 
@@ -253,7 +216,7 @@ export default function QuotePageClient() {
                 const isActive = currentStep === step;
                 const isCompleted = currentStep > step;
                 return (
-                  <div key={label} className="flex items-center flex-1">
+                  <div key={i} className="flex items-center flex-1">
                     <button
                       onClick={() => { if (isCompleted) setCurrentStep(step); }}
                       disabled={!isCompleted && !isActive}
@@ -308,12 +271,12 @@ export default function QuotePageClient() {
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="section-label mb-4">Step 1 of 4</p>
+                <p className="section-label mb-4">{t('progress.step')} 1 {t('progress.of')} 4</p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-3">
-                  Which vertical are you interested in?
+                  {t('step1.title')}
                 </h2>
                 <p className="text-[14px] text-[#666666] mb-10">
-                  Select the Harch Corp subsidiary that aligns with your project requirements.
+                  {t('step1.description')}
                 </p>
 
                 <div className="h-px bg-[rgba(255,255,255,0.06)] mb-2" />
@@ -342,13 +305,13 @@ export default function QuotePageClient() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 mb-1">
                           <h3 className={`text-[15px] font-bold ${selectedVertical === v.id ? 'text-white' : 'text-[#999999]'}`}>
-                            {v.name}
+                            {t(`step1.verticals.${v.id}.name`)}
                           </h3>
                           <span className="text-[9px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">
                             {v.version}
                           </span>
                         </div>
-                        <p className="text-[12px] text-[#666666] leading-relaxed">{v.desc}</p>
+                        <p className="text-[12px] text-[#666666] leading-relaxed">{t(`step1.verticals.${v.id}.description`)}</p>
                         {selectedVertical === v.id && (
                           <div className="flex flex-wrap gap-1.5 mt-2">
                             {v.capabilities.map((cap) => (
@@ -385,7 +348,7 @@ export default function QuotePageClient() {
                         : 'bg-[rgba(255,255,255,0.04)] text-[#444444] cursor-not-allowed'
                     }`}
                   >
-                    Continue <ArrowRight size={14} />
+                    {tc('continue')} <ArrowRight size={14} />
                   </button>
                 </div>
               </motion.div>
@@ -401,21 +364,21 @@ export default function QuotePageClient() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">Step 2 of 4</span>
-                  <span className="text-[9px] text-[#444444] font-[family-name:var(--font-space-mono)]">[{selectedVerticalData?.name}]</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">{t('progress.step')} 2 {t('progress.of')} 4</span>
+                  <span className="text-[9px] text-[#444444] font-[family-name:var(--font-space-mono)]">[{selectedVertical && t(`step1.verticals.${selectedVertical}.name`)}]</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-3">
-                  Define your project scope
+                  {t('step2.title')}
                 </h2>
                 <p className="text-[14px] text-[#666666] mb-10">
-                  Tell us about the type, scale, and timeline of your project.
+                  {t('step2.description')}
                 </p>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                   <div className="lg:col-span-2 space-y-10">
                     {/* Project Type */}
                     <div>
-                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Project Type *</p>
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('step2.projectType')} *</p>
                       <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                       <div className="space-y-3">
                         {projectTypeOptions.map((pt) => (
@@ -443,20 +406,20 @@ export default function QuotePageClient() {
 
                     {/* Budget Range */}
                     <div>
-                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Estimated Budget *</p>
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('step2.budgetRange')} *</p>
                       <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                       <div className="flex flex-wrap gap-2">
-                        {budgetRanges.map((range) => (
+                        {budgetRangeKeys.map((key) => (
                           <button
-                            key={range}
-                            onClick={() => setSelectedBudget(range)}
+                            key={key}
+                            onClick={() => setSelectedBudget(key)}
                             className={`px-4 py-2.5 rounded-lg border text-[12px] font-semibold transition-all ${
-                              selectedBudget === range
+                              selectedBudget === key
                                 ? 'border-[rgba(139,157,175,0.2)] bg-[rgba(139,157,175,0.06)] text-white'
                                 : 'border-[rgba(255,255,255,0.04)] bg-[rgba(255,255,255,0.01)] text-[#666666] hover:bg-[rgba(255,255,255,0.03)]'
                             }`}
                           >
-                            {range}
+                            {t(`step2.budgetRanges.${key}`)}
                           </button>
                         ))}
                       </div>
@@ -464,20 +427,20 @@ export default function QuotePageClient() {
 
                     {/* Timeline */}
                     <div>
-                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Project Timeline *</p>
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('step2.timeline')} *</p>
                       <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                       <div className="space-y-2">
-                        {timelines.map((t) => (
+                        {timelineKeys.map((key) => (
                           <button
-                            key={t}
-                            onClick={() => setSelectedTimeline(t)}
+                            key={key}
+                            onClick={() => setSelectedTimeline(key)}
                             className={`w-full text-left py-3 px-5 rounded-lg border text-[13px] font-medium transition-all ${
-                              selectedTimeline === t
+                              selectedTimeline === key
                                 ? 'border-[rgba(139,157,175,0.2)] bg-[rgba(139,157,175,0.04)] text-white'
                                 : 'border-[rgba(255,255,255,0.04)] bg-[rgba(255,255,255,0.01)] text-[#666666] hover:bg-[rgba(255,255,255,0.02)]'
                             }`}
                           >
-                            {t}
+                            {t(`step2.timelines.${key}`)}
                           </button>
                         ))}
                       </div>
@@ -485,14 +448,14 @@ export default function QuotePageClient() {
 
                     {/* Project Description */}
                     <div>
-                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Project Description</p>
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('step2.description')}</p>
                       <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                       <textarea
                         rows={5}
                         value={projectDesc}
                         onChange={(e) => setProjectDesc(e.target.value)}
                         className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors resize-none placeholder:text-[#333333]"
-                        placeholder="Describe your project requirements, objectives, and any specific constraints."
+                        placeholder={t('step2.descriptionPlaceholder')}
                       />
                     </div>
                   </div>
@@ -508,22 +471,22 @@ export default function QuotePageClient() {
                             strokeWidth={1.5}
                           />}
                           <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">
-                            {selectedVerticalData?.name}
+                            {selectedVertical && t(`step1.verticals.${selectedVertical}.name`)}
                           </span>
                         </div>
                         <p className="text-[13px] text-[#999999] leading-relaxed mb-4">
-                          {selectedVerticalData?.desc}
+                          {selectedVertical && t(`step1.verticals.${selectedVertical}.description`)}
                         </p>
                         <div className="text-[20px] font-extrabold text-white font-[family-name:var(--font-space-mono)]">
                           {selectedVerticalData?.stat}
                         </div>
-                        <p className="text-[10px] text-[#666666] mt-1">Current capacity</p>
+                        <p className="text-[10px] text-[#666666] mt-1">{tc('capacity')}</p>
                       </div>
                     </FadeIn>
 
                     <FadeIn delay={0.15}>
                       <div className="card p-6">
-                        <p className="section-label mb-4">Capabilities</p>
+                        <p className="section-label mb-4">{tc('capabilities')}</p>
                         <div className="space-y-2">
                           {selectedVerticalData?.capabilities.map((cap) => (
                             <div key={cap} className="flex items-center gap-2">
@@ -539,7 +502,7 @@ export default function QuotePageClient() {
                       <div className="card p-6">
                         <div className="flex items-center gap-2 mb-3">
                           <Lock size={12} className="text-[#8B9DAF]" />
-                          <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">Encrypted</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{tc('encrypted')}</span>
                         </div>
                         <p className="text-[12px] text-[#666666] leading-relaxed">
                           All quote requests are encrypted with AES-256 at rest and TLS 1.3 in transit. Data processed on sovereign Moroccan infrastructure.
@@ -554,7 +517,7 @@ export default function QuotePageClient() {
                     onClick={() => setCurrentStep(1)}
                     className="inline-flex items-center gap-2 text-[13px] text-[#666666] hover:text-white transition-colors"
                   >
-                    <ArrowLeft size={14} /> Back
+                    <ArrowLeft size={14} /> {tc('back')}
                   </button>
                   <button
                     onClick={() => canProceedStep2 && setCurrentStep(3)}
@@ -565,7 +528,7 @@ export default function QuotePageClient() {
                         : 'bg-[rgba(255,255,255,0.04)] text-[#444444] cursor-not-allowed'
                     }`}
                   >
-                    Continue <ArrowRight size={14} />
+                    {tc('continue')} <ArrowRight size={14} />
                   </button>
                 </div>
               </motion.div>
@@ -580,23 +543,23 @@ export default function QuotePageClient() {
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="section-label mb-4">Step 3 of 4</p>
+                <p className="section-label mb-4">{t('progress.step')} 3 {t('progress.of')} 4</p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-3">
-                  Your information
+                  {t('step3.title')}
                 </h2>
                 <p className="text-[14px] text-[#666666] mb-10">
-                  Provide your details so our team can prepare and deliver your proposal.
+                  {t('step3.description')}
                 </p>
 
                 <div className="max-w-2xl">
                   {/* Personal Information */}
                   <div>
-                    <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Personal Information</p>
+                    <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('step3.firstName')}</p>
                     <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                          Full Name <span className="text-[#A0524B]">*</span>
+                          {t('step3.firstName')} <span className="text-[#A0524B]">*</span>
                         </label>
                         <input
                           type="text"
@@ -604,12 +567,12 @@ export default function QuotePageClient() {
                           value={formState.name}
                           onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                           className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                          placeholder="Your full name"
+                          placeholder={t('step3.firstName')}
                         />
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                          Email Address <span className="text-[#A0524B]">*</span>
+                          {t('step3.email')} <span className="text-[#A0524B]">*</span>
                         </label>
                         <input
                           type="email"
@@ -625,12 +588,12 @@ export default function QuotePageClient() {
 
                   {/* Organization */}
                   <div className="mt-8">
-                    <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Organization</p>
+                    <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('step3.organization')}</p>
                     <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                          Organization <span className="text-[#A0524B]">*</span>
+                          {t('step3.organization')} <span className="text-[#A0524B]">*</span>
                         </label>
                         <input
                           type="text"
@@ -638,19 +601,19 @@ export default function QuotePageClient() {
                           value={formState.organization}
                           onChange={(e) => setFormState({ ...formState, organization: e.target.value })}
                           className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                          placeholder="Organization name"
+                          placeholder={t('step3.organization')}
                         />
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                          Designation
+                          {t('step3.jobTitle')}
                         </label>
                         <input
                           type="text"
                           value={formState.designation}
                           onChange={(e) => setFormState({ ...formState, designation: e.target.value })}
                           className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                          placeholder="Title / Role"
+                          placeholder={t('step3.jobTitle')}
                         />
                       </div>
                     </div>
@@ -658,43 +621,43 @@ export default function QuotePageClient() {
 
                   {/* Additional Details */}
                   <div className="mt-8">
-                    <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Additional Details</p>
+                    <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('step2.country')}</p>
                     <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                          Country <span className="text-[#A0524B]">*</span>
+                          {t('step2.country')} <span className="text-[#A0524B]">*</span>
                         </label>
                         <select
                           value={formState.country}
                           onChange={(e) => setFormState({ ...formState, country: e.target.value })}
                           className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors appearance-none cursor-pointer"
                         >
-                          <option value="" className="bg-[#1A1A1A]">Select your country</option>
-                          <option value="Morocco" className="bg-[#1A1A1A]">Morocco (Maroc)</option>
-                          <option value="Senegal" className="bg-[#1A1A1A]">Senegal (Senegal)</option>
-                          <option value="Gambia" className="bg-[#1A1A1A]">Gambia</option>
-                          <option value="Cote d'Ivoire" className="bg-[#1A1A1A]">Cote d&apos;Ivoire</option>
-                          <option value="Nigeria" className="bg-[#1A1A1A]">Nigeria</option>
-                          <option value="Ghana" className="bg-[#1A1A1A]">Ghana</option>
+                          <option value="" className="bg-[#1A1A1A]">{t('step2.country')}</option>
+                          <option value="morocco" className="bg-[#1A1A1A]">{t('step2.countries.morocco')}</option>
+                          <option value="senegal" className="bg-[#1A1A1A]">{t('step2.countries.senegal')}</option>
+                          <option value="gambia" className="bg-[#1A1A1A]">{t('step2.countries.gambia')}</option>
+                          <option value="ivoryCoast" className="bg-[#1A1A1A]">{t('step2.countries.ivoryCoast')}</option>
+                          <option value="nigeria" className="bg-[#1A1A1A]">{t('step2.countries.nigeria')}</option>
+                          <option value="ghana" className="bg-[#1A1A1A]">{t('step2.countries.ghana')}</option>
                           <option value="Mali" className="bg-[#1A1A1A]">Mali</option>
                           <option value="Guinea" className="bg-[#1A1A1A]">Guinea</option>
                           <option value="Burkina Faso" className="bg-[#1A1A1A]">Burkina Faso</option>
-                          <option value="Tunisia" className="bg-[#1A1A1A]">Tunisia</option>
-                          <option value="Algeria" className="bg-[#1A1A1A]">Algeria</option>
-                          <option value="Egypt" className="bg-[#1A1A1A]">Egypt</option>
-                          <option value="Mauritania" className="bg-[#1A1A1A]">Mauritania</option>
+                          <option value="tunisia" className="bg-[#1A1A1A]">{t('step2.countries.tunisia')}</option>
+                          <option value="algeria" className="bg-[#1A1A1A]">{t('step2.countries.algeria')}</option>
+                          <option value="egypt" className="bg-[#1A1A1A]">{t('step2.countries.egypt')}</option>
+                          <option value="mauritania" className="bg-[#1A1A1A]">{t('step2.countries.mauritania')}</option>
                           <option value="UAE" className="bg-[#1A1A1A]">United Arab Emirates</option>
                           <option value="Saudi Arabia" className="bg-[#1A1A1A]">Saudi Arabia</option>
                           <option value="France" className="bg-[#1A1A1A]">France</option>
                           <option value="United Kingdom" className="bg-[#1A1A1A]">United Kingdom</option>
                           <option value="United States" className="bg-[#1A1A1A]">United States</option>
-                          <option value="Other" className="bg-[#1A1A1A]">Other</option>
+                          <option value="other" className="bg-[#1A1A1A]">{t('step2.countries.other')}</option>
                         </select>
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                          Phone / WhatsApp
+                          {t('step3.phone')}
                         </label>
                         <input
                           type="tel"
@@ -731,7 +694,7 @@ export default function QuotePageClient() {
                     onClick={() => setCurrentStep(2)}
                     className="inline-flex items-center gap-2 text-[13px] text-[#666666] hover:text-white transition-colors"
                   >
-                    <ArrowLeft size={14} /> Back
+                    <ArrowLeft size={14} /> {tc('back')}
                   </button>
                   <button
                     onClick={() => canProceedStep3 && setCurrentStep(4)}
@@ -742,7 +705,7 @@ export default function QuotePageClient() {
                         : 'bg-[rgba(255,255,255,0.04)] text-[#444444] cursor-not-allowed'
                     }`}
                   >
-                    Review <ArrowRight size={14} />
+                    {t('step4.title')} <ArrowRight size={14} />
                   </button>
                 </div>
               </motion.div>
@@ -757,12 +720,12 @@ export default function QuotePageClient() {
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="section-label mb-4">Step 4 of 4</p>
+                <p className="section-label mb-4">{t('progress.step')} 4 {t('progress.of')} 4</p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white tracking-[-0.01em] mb-3">
-                  Review and submit
+                  {t('step4.title')}
                 </h2>
                 <p className="text-[14px] text-[#666666] mb-10">
-                  Confirm your request details before submitting your encrypted proposal request.
+                  {t('step4.description')}
                 </p>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -770,16 +733,16 @@ export default function QuotePageClient() {
                     {/* Vertical Summary */}
                     <div className="card p-6">
                       <div className="flex items-center justify-between mb-4">
-                        <p className="section-label">Selected Vertical</p>
-                        <button onClick={() => setCurrentStep(1)} className="text-[11px] text-[#8B9DAF] hover:text-white transition-colors">Edit</button>
+                        <p className="section-label">{t('step4.selectedVertical')}</p>
+                        <button onClick={() => setCurrentStep(1)} className="text-[11px] text-[#8B9DAF] hover:text-white transition-colors">{t('step4.edit')}</button>
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
                           {selectedVerticalData && <selectedVerticalData.icon size={18} className="text-[#8B9DAF]" strokeWidth={1.5} />}
                         </div>
                         <div>
-                          <h3 className="text-[15px] font-bold text-white">{selectedVerticalData?.name}</h3>
-                          <p className="text-[12px] text-[#666666]">{selectedVerticalData?.stat} capacity</p>
+                          <h3 className="text-[15px] font-bold text-white">{selectedVertical && t(`step1.verticals.${selectedVertical}.name`)}</h3>
+                          <p className="text-[12px] text-[#666666]">{selectedVerticalData?.stat} {tc('capacity')}</p>
                         </div>
                       </div>
                     </div>
@@ -787,8 +750,8 @@ export default function QuotePageClient() {
                     {/* Project Summary */}
                     <div className="card p-6">
                       <div className="flex items-center justify-between mb-4">
-                        <p className="section-label">Project Scope</p>
-                        <button onClick={() => setCurrentStep(2)} className="text-[11px] text-[#8B9DAF] hover:text-white transition-colors">Edit</button>
+                        <p className="section-label">{t('step4.projectDetails')}</p>
+                        <button onClick={() => setCurrentStep(2)} className="text-[11px] text-[#8B9DAF] hover:text-white transition-colors">{t('step4.edit')}</button>
                       </div>
                       <div className="space-y-4">
                         <div className="flex items-start gap-4">
@@ -797,11 +760,11 @@ export default function QuotePageClient() {
                         </div>
                         <div className="flex items-start gap-4">
                           <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">BUDGET</span>
-                          <span className="text-[14px] text-white">{selectedBudget}</span>
+                          <span className="text-[14px] text-white">{selectedBudget && t(`step2.budgetRanges.${selectedBudget}`)}</span>
                         </div>
                         <div className="flex items-start gap-4">
                           <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">TIMELINE</span>
-                          <span className="text-[14px] text-white">{selectedTimeline}</span>
+                          <span className="text-[14px] text-white">{selectedTimeline && t(`step2.timelines.${selectedTimeline}`)}</span>
                         </div>
                         {projectDesc && (
                           <div className="flex items-start gap-4">
@@ -815,8 +778,8 @@ export default function QuotePageClient() {
                     {/* Contact Summary */}
                     <div className="card p-6">
                       <div className="flex items-center justify-between mb-4">
-                        <p className="section-label">Contact Information</p>
-                        <button onClick={() => setCurrentStep(3)} className="text-[11px] text-[#8B9DAF] hover:text-white transition-colors">Edit</button>
+                        <p className="section-label">{t('step4.contactInfo')}</p>
+                        <button onClick={() => setCurrentStep(3)} className="text-[11px] text-[#8B9DAF] hover:text-white transition-colors">{t('step4.edit')}</button>
                       </div>
                       <div className="grid grid-cols-2 gap-y-3 gap-x-8">
                         <div>
@@ -906,18 +869,18 @@ export default function QuotePageClient() {
                     onClick={() => setCurrentStep(3)}
                     className="inline-flex items-center gap-2 text-[13px] text-[#666666] hover:text-white transition-colors"
                   >
-                    <ArrowLeft size={14} /> Back
+                    <ArrowLeft size={14} /> {tc('back')}
                   </button>
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-2">
                       <Lock size={10} className="text-[#666666]" />
-                      <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">End-to-end encrypted</span>
+                      <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{tc('encrypted')}</span>
                     </div>
                     <button
                       onClick={handleSubmit}
                       className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all"
                     >
-                      Submit Quote Request <ArrowRight size={14} />
+                      {t('step4.submit')} <ArrowRight size={14} />
                     </button>
                   </div>
                 </div>

@@ -1,45 +1,48 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const trademarks = [
-  { mark: 'Harch', status: 'Registered', registration: 'MA-2024-001', description: 'Primary corporate mark for Harch Corp S.A. and its consolidated entities' },
-  { mark: 'Harch Corp', status: 'Registered', registration: 'MA-2024-002', description: 'Full corporate name trademark used in formal business contexts' },
-  { mark: 'HarchOS', status: 'Registered', registration: 'MA-2024-003', description: 'Operating system platform for AI data center management and infrastructure orchestration' },
-  { mark: 'Harch Intelligence', status: 'Registered', registration: 'MA-2024-004', description: 'Intelligence and data center infrastructure vertical brand' },
-  { mark: 'Harch Energy', status: 'Registered', registration: 'MA-2024-005', description: 'Renewable energy generation and distribution vertical brand' },
-  { mark: 'Harch Cement', status: 'Registered', registration: 'MA-2024-006', description: 'Cement and construction materials manufacturing vertical brand' },
-  { mark: 'Harch Mining', status: 'Registered', registration: 'MA-2024-007', description: 'Strategic mining and minerals extraction vertical brand' },
-  { mark: 'Harch Agri', status: 'Registered', registration: 'MA-2024-008', description: 'Precision agriculture and vertical farming vertical brand' },
-  { mark: 'Harch Water', status: 'Registered', registration: 'MA-2024-009', description: 'Water infrastructure and desalination vertical brand' },
-  { mark: 'Harch Tech', status: 'Registered', registration: 'MA-2024-010', description: 'Sovereign technology and cybersecurity vertical brand' },
-  { mark: 'Harch Shield', status: 'Pending', registration: 'MA-2025-P001', description: 'Cybersecurity and threat intelligence product line' },
-  { mark: 'Harch Mesh', status: 'Pending', registration: 'MA-2025-P002', description: 'Distributed network infrastructure and connectivity platform' },
-];
-
-const notAllowed = [
-  'Using Harch Corp trademarks in a way that implies endorsement, partnership, or sponsorship without written authorization from Harch Corp S.A.',
-  'Modifying, distorting, or altering the Harch Corp logo or any trademark in any way, including changing colors, proportions, or adding effects.',
-  'Using Harch Corp trademarks as part of your own company name, product name, domain name, or social media handle.',
-  'Displaying the Harch Corp logo alongside competitor trademarks or in contexts that could create confusion about the source of products or services.',
-  'Using Harch Corp trademarks on merchandise, promotional items, or commercial products without explicit written permission.',
-  'Incorporating Harch Corp trademarks into your own logos, icons, or brand identifiers.',
-  'Using Harch Corp trademarks in any manner that is misleading, defamatory, obscene, or otherwise objectionable.',
-  'Registering or attempting to register any Harch Corp trademark or confusingly similar marks as domain names, social media handles, or trade names.',
-  'Using Harch Corp trademarks in metadata, hidden text, or keyword advertising (including Google Ads) to divert traffic from Harch Corp\'s own digital properties.',
-  'Creating derivative works based on Harch Corp trademarks, including parodies that could dilute the brand or tarnish its reputation.',
-];
-
 export default function TrademarkPageClient() {
+  const t = useTranslations('legal');
+
+  const trademarks = [
+    { mark: 'Harch', status: 'Registered', registration: 'MA-2024-001', description: 'Primary corporate mark for Harch Corp S.A. and its consolidated entities' },
+    { mark: 'Harch Corp', status: 'Registered', registration: 'MA-2024-002', description: 'Full corporate name trademark used in formal business contexts' },
+    { mark: 'HarchOS', status: 'Registered', registration: 'MA-2024-003', description: 'Operating system platform for AI data center management and infrastructure orchestration' },
+    { mark: 'Harch Intelligence', status: 'Registered', registration: 'MA-2024-004', description: 'Intelligence and data center infrastructure vertical brand' },
+    { mark: 'Harch Energy', status: 'Registered', registration: 'MA-2024-005', description: 'Renewable energy generation and distribution vertical brand' },
+    { mark: 'Harch Cement', status: 'Registered', registration: 'MA-2024-006', description: 'Cement and construction materials manufacturing vertical brand' },
+    { mark: 'Harch Mining', status: 'Registered', registration: 'MA-2024-007', description: 'Strategic mining and minerals extraction vertical brand' },
+    { mark: 'Harch Agri', status: 'Registered', registration: 'MA-2024-008', description: 'Precision agriculture and vertical farming vertical brand' },
+    { mark: 'Harch Water', status: 'Registered', registration: 'MA-2024-009', description: 'Water infrastructure and desalination vertical brand' },
+    { mark: 'Harch Tech', status: 'Registered', registration: 'MA-2024-010', description: 'Sovereign technology and cybersecurity vertical brand' },
+    { mark: 'Harch Shield', status: 'Pending', registration: 'MA-2025-P001', description: 'Cybersecurity and threat intelligence product line' },
+    { mark: 'Harch Mesh', status: 'Pending', registration: 'MA-2025-P002', description: 'Distributed network infrastructure and connectivity platform' },
+  ];
+
+  const notAllowed = [
+    'Using Harch Corp trademarks in a way that implies endorsement, partnership, or sponsorship without written authorization from Harch Corp S.A.',
+    'Modifying, distorting, or altering the Harch Corp logo or any trademark in any way, including changing colors, proportions, or adding effects.',
+    'Using Harch Corp trademarks as part of your own company name, product name, domain name, or social media handle.',
+    'Displaying the Harch Corp logo alongside competitor trademarks or in contexts that could create confusion about the source of products or services.',
+    'Using Harch Corp trademarks on merchandise, promotional items, or commercial products without explicit written permission.',
+    'Incorporating Harch Corp trademarks into your own logos, icons, or brand identifiers.',
+    'Using Harch Corp trademarks in any manner that is misleading, defamatory, obscene, or otherwise objectionable.',
+    'Registering or attempting to register any Harch Corp trademark or confusingly similar marks as domain names, social media handles, or trade names.',
+    'Using Harch Corp trademarks in metadata, hidden text, or keyword advertising (including Google Ads) to divert traffic from Harch Corp\'s own digital properties.',
+    'Creating derivative works based on Harch Corp trademarks, including parodies that could dilute the brand or tarnish its reputation.',
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Legal</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">Trademark Guidelines</h1>
+            <p className="section-label mb-4">{t('title')}</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('trademark.title')}</h1>
             <div className="accent-line mb-8" />
             <p className="text-[14px] text-[#999999] leading-relaxed mb-8">Last updated: January 2026</p>
           </FadeIn>

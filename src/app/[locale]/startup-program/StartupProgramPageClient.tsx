@@ -19,124 +19,127 @@ import {
   Calendar,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const benefits = [
-  {
-    icon: DollarSign,
-    title: '$50,000 in HarchOS Credits',
-    description: 'Free GPU compute, storage, and API calls for 12 months. Enough to train models, run inference at scale, and build your product without infrastructure costs.',
-    details: ['Free GPU compute (A100 & H100)', '50TB object storage', 'Unlimited API calls', '12-month credit period'],
-    color: 'rgba(139, 157, 175, 0.7)',
-  },
-  {
-    icon: Users,
-    title: 'Technical Mentorship',
-    description: 'Get guidance from Harch engineers who have built and scaled sovereign infrastructure across Africa. Dedicated support to help you architect for scale.',
-    details: ['Dedicated solutions architect', 'Architecture reviews', 'Bi-weekly office hours', 'Code review sessions'],
-    color: 'rgba(0, 255, 136, 0.7)',
-  },
-  {
-    icon: Rocket,
-    title: 'Go-to-Market Support',
-    description: 'Leverage Harch Corp\'s network and brand to accelerate your go-to-market. Co-market your solution to our enterprise customer base across Africa.',
-    details: ['Co-marketing opportunities', 'Customer introductions', 'Event speaking slots', 'Case study features'],
-    color: 'rgba(255, 200, 0, 0.7)',
-  },
-  {
-    icon: Handshake,
-    title: 'Investor Network',
-    description: 'Access Harch Ventures portfolio companies and our network of development finance institutions, venture capital, and angel investors focused on African tech.',
-    details: ['Harch Ventures portfolio access', 'DFI introductions', 'Demo day participation', 'Investor matchmaking'],
-    color: 'rgba(255, 100, 100, 0.7)',
-  },
-  {
-    icon: MessageSquare,
-    title: 'Community Access',
-    description: 'Join a curated community of Africa\'s most ambitious startup founders. Share knowledge, find co-founders, and build relationships that last beyond the program.',
-    details: ['Private startup Slack channel', 'Peer networking events', 'Monthly founder meetups', 'Cross-program introductions'],
-    color: 'rgba(180, 130, 255, 0.7)',
-  },
-  {
-    icon: Headphones,
-    title: 'Priority Support',
-    description: 'Faster response times and dedicated support contacts for when things break. Migration assistance to help you move to HarchOS from other clouds.',
-    details: ['4-hour response SLA', 'Dedicated support contact', 'Migration assistance', 'Emergency escalation path'],
-    color: 'rgba(255, 160, 60, 0.7)',
-  },
-];
-
-const successStories = [
-  {
-    name: 'DataSaheel',
-    description: 'AI-powered agricultural analytics platform using satellite imagery and HarchOS GPU clusters to deliver crop predictions to 50,000+ farmers across West Africa.',
-    location: 'Dakar, Senegal',
-    stage: 'Series A',
-    metric: '50K+ farmers served',
-  },
-  {
-    name: 'NileSecure',
-    description: 'Cybersecurity platform built on HarchOS sovereign infrastructure, providing zero-trust security solutions for African financial institutions and government agencies.',
-    location: 'Cairo, Egypt',
-    stage: 'Seed',
-    metric: '12 enterprise clients',
-  },
-  {
-    name: 'KoraHealth',
-    description: 'Telemedicine and AI diagnostics platform running on HarchOS, delivering healthcare access to remote communities across Morocco and the Sahel region.',
-    location: 'Casablanca, Morocco',
-    stage: 'Pre-Series A',
-    metric: '200K+ consultations',
-  },
-];
-
-const applicationSteps = [
-  {
-    step: '01',
-    title: 'Apply',
-    description: 'Submit your application with company details, product overview, and how you plan to use HarchOS infrastructure. Applications are reviewed on a rolling basis.',
-  },
-  {
-    step: '02',
-    title: 'Review',
-    description: 'Our team reviews your application within 10 business days. We assess technical readiness, market potential, and alignment with sovereign infrastructure values.',
-  },
-  {
-    step: '03',
-    title: 'Onboard',
-    description: 'Upon acceptance, you\'ll receive your HarchOS credits, be paired with a solutions architect, and get access to the startup community and all program benefits.',
-  },
-  {
-    step: '04',
-    title: 'Scale',
-    description: 'Build, iterate, and scale on sovereign infrastructure. Access ongoing mentorship, investor introductions, and co-marketing opportunities as you grow.',
-  },
-];
-
 export default function StartupProgramPageClient() {
+  const t = useTranslations('startupProgram');
+
+  const benefits = [
+    {
+      icon: DollarSign,
+      title: t('benefits.0.title'),
+      description: t('benefits.0.description'),
+      details: [t('benefits.0.details.0'), t('benefits.0.details.1'), t('benefits.0.details.2'), t('benefits.0.details.3')],
+      color: 'rgba(139, 157, 175, 0.7)',
+    },
+    {
+      icon: Users,
+      title: t('benefits.1.title'),
+      description: t('benefits.1.description'),
+      details: [t('benefits.1.details.0'), t('benefits.1.details.1'), t('benefits.1.details.2'), t('benefits.1.details.3')],
+      color: 'rgba(0, 255, 136, 0.7)',
+    },
+    {
+      icon: Rocket,
+      title: t('benefits.2.title'),
+      description: t('benefits.2.description'),
+      details: [t('benefits.2.details.0'), t('benefits.2.details.1'), t('benefits.2.details.2'), t('benefits.2.details.3')],
+      color: 'rgba(255, 200, 0, 0.7)',
+    },
+    {
+      icon: Handshake,
+      title: t('benefits.3.title'),
+      description: t('benefits.3.description'),
+      details: [t('benefits.3.details.0'), t('benefits.3.details.1'), t('benefits.3.details.2'), t('benefits.3.details.3')],
+      color: 'rgba(255, 100, 100, 0.7)',
+    },
+    {
+      icon: MessageSquare,
+      title: t('benefits.4.title'),
+      description: t('benefits.4.description'),
+      details: [t('benefits.4.details.0'), t('benefits.4.details.1'), t('benefits.4.details.2'), t('benefits.4.details.3')],
+      color: 'rgba(180, 130, 255, 0.7)',
+    },
+    {
+      icon: Headphones,
+      title: t('benefits.5.title'),
+      description: t('benefits.5.description'),
+      details: [t('benefits.5.details.0'), t('benefits.5.details.1'), t('benefits.5.details.2'), t('benefits.5.details.3')],
+      color: 'rgba(255, 160, 60, 0.7)',
+    },
+  ];
+
+  const successStories = [
+    {
+      name: t('successStories.0.name'),
+      description: t('successStories.0.description'),
+      location: t('successStories.0.location'),
+      stage: t('successStories.0.stage'),
+      metric: t('successStories.0.metric'),
+    },
+    {
+      name: t('successStories.1.name'),
+      description: t('successStories.1.description'),
+      location: t('successStories.1.location'),
+      stage: t('successStories.1.stage'),
+      metric: t('successStories.1.metric'),
+    },
+    {
+      name: t('successStories.2.name'),
+      description: t('successStories.2.description'),
+      location: t('successStories.2.location'),
+      stage: t('successStories.2.stage'),
+      metric: t('successStories.2.metric'),
+    },
+  ];
+
+  const applicationSteps = [
+    {
+      step: '01',
+      title: t('process.0.title'),
+      description: t('process.0.description'),
+    },
+    {
+      step: '02',
+      title: t('process.1.title'),
+      description: t('process.1.description'),
+    },
+    {
+      step: '03',
+      title: t('process.2.title'),
+      description: t('process.2.description'),
+    },
+    {
+      step: '04',
+      title: t('process.3.title'),
+      description: t('process.3.description'),
+    },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       {/* Hero */}
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Startup Program</p>
+            <p className="section-label mb-4">{t('label')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Build on<br />Sovereign Infrastructure
+              {t('heroTitle1')}<br />{t('heroTitle2')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Empowering Africa&apos;s most ambitious startups with $50,000 in HarchOS credits, technical mentorship, and the network to scale. Build on infrastructure that keeps your data on the continent.
+              {t('heroDescription')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-start gap-4 mt-8">
               <Link href="#apply" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Apply Now <ArrowRight size={14} />
+                {t('heroButton1')} <ArrowRight size={14} />
               </Link>
               <Link href="#benefits" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                View Benefits
+                {t('heroButton2')}
               </Link>
             </div>
           </FadeIn>
@@ -147,12 +150,12 @@ export default function StartupProgramPageClient() {
       <section id="benefits" className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Benefits</p>
+            <p className="section-label mb-4">{t('benefitsLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Everything You Need to Scale
+              {t('benefitsTitle')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              More than credits — a comprehensive support system designed to help African startups build, launch, and grow on sovereign infrastructure.
+              {t('benefitsDescription')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -184,25 +187,25 @@ export default function StartupProgramPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn>
-              <p className="section-label mb-4">Eligibility</p>
+              <p className="section-label mb-4">{t('eligibilityLabel')}</p>
               <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
-                Who Should Apply
+                {t('eligibilityTitle')}
               </h2>
               <div className="accent-line mb-6" />
               <p className="text-[16px] text-[#999999] leading-[1.7]">
-                The Harch Startup Program is designed for early-stage technology companies building on or migrating to HarchOS sovereign infrastructure. We prioritize startups solving problems that matter for Africa.
+                {t('eligibilityDescription')}
               </p>
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="card p-8">
-                <h3 className="text-lg font-bold text-white mb-6">Requirements</h3>
+                <h3 className="text-lg font-bold text-white mb-6">{t('requirementsTitle')}</h3>
                 <div className="space-y-5">
                   {[
-                    { title: 'African-Founded or Africa-Focused', desc: 'Your startup must be founded in Africa or primarily serving African markets.' },
-                    { title: 'Early Stage (Pre-Seed to Series A)', desc: 'Raised less than $5M in total funding. Pre-revenue startups with strong technical teams are welcome.' },
-                    { title: 'Technical Product', desc: 'Building a software, AI, or technology product that can benefit from HarchOS infrastructure.' },
-                    { title: 'Sovereign Mindset', desc: 'Committed to data sovereignty and keeping African data on African infrastructure.' },
-                    { title: 'Active Development', desc: 'Have a working prototype or MVP, or are in active development with a clear roadmap.' },
+                    { title: t('requirements.0.title'), desc: t('requirements.0.desc') },
+                    { title: t('requirements.1.title'), desc: t('requirements.1.desc') },
+                    { title: t('requirements.2.title'), desc: t('requirements.2.desc') },
+                    { title: t('requirements.3.title'), desc: t('requirements.3.desc') },
+                    { title: t('requirements.4.title'), desc: t('requirements.4.desc') },
                   ].map((req) => (
                     <div key={req.title} className="flex items-start gap-3">
                       <CheckCircle size={16} className="text-white/50 mt-0.5 shrink-0" />
@@ -223,12 +226,12 @@ export default function StartupProgramPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Success Stories</p>
+            <p className="section-label mb-4">{t('successStoriesLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Startups Scaling on HarchOS
+              {t('successStoriesTitle')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              From AI agriculture to sovereign cybersecurity — African startups building the future on Harch infrastructure.
+              {t('successStoriesDescription')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -264,12 +267,12 @@ export default function StartupProgramPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Process</p>
+            <p className="section-label mb-4">{t('processLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              How to Join
+              {t('processTitle')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              A straightforward application process designed to get you building on sovereign infrastructure as quickly as possible.
+              {t('processDescription')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -292,19 +295,19 @@ export default function StartupProgramPageClient() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">
-              Ready to Build on Sovereign Infrastructure?
+              {t('ctaTitle')}
             </h2>
             <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">
-              Join Africa&apos;s most ambitious startups building on HarchOS. $50,000 in credits, technical mentorship, and the network to scale — apply today.
+              {t('ctaDescription')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Apply Now <ArrowRight size={14} />
+                {t('ctaButton1')} <ArrowRight size={14} />
               </Link>
               <Link href="/contact" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                Contact Startup Team
+                {t('ctaButton2')}
               </Link>
             </div>
           </FadeIn>

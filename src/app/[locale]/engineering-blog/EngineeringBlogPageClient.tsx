@@ -5,20 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Calendar, Clock, Terminal, Server, Brain, Shield, GitBranch, Network, Rss, Users, Cpu, Code2, Layers, Lock, Zap, Activity } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 import { FadeIn } from '@/components/ui/motion';
 
 type EngCategory = 'All' | 'Backend' | 'Infrastructure' | 'AI/ML' | 'DevOps' | 'Security';
-
-const engCategories: EngCategory[] = ['All', 'Backend', 'Infrastructure', 'AI/ML', 'DevOps', 'Security'];
-
-const engCategoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
-  Backend: Server,
-  Infrastructure: Network,
-  'AI/ML': Brain,
-  DevOps: GitBranch,
-  Security: Shield,
-};
 
 interface EngPost {
   title: string;
@@ -32,70 +23,6 @@ interface EngPost {
   image: string;
 }
 
-const engPosts: EngPost[] = [
-  {
-    title: 'Inside HarchOS: How We Built a Distributed AI Operating System from Scratch',
-    excerpt: 'A complete walkthrough of HarchOS internals — from the custom scheduler and GPU topology awareness to the SENSE/THINK/ACT pipeline that orchestrates 1,798 GPUs across three data centers. No off-the-shelf orchestrator could handle our requirements, so we built one.',
-    date: 'March 2026',
-    category: 'Infrastructure',
-    readTime: '24 min read',
-    slug: 'inside-harchos-distributed-ai-operating-system',
-    difficulty: 'Advanced',
-    featured: true,
-    image: '/images/intelligence/harchos-dashboard.png',
-  },
-  {
-    title: 'Designing the SENSE Layer: Real-Time Data Ingestion at 10M Events/Second',
-    excerpt: 'How we built a Kafka-free ingestion pipeline using a custom Rust-based event router that handles 10M events/sec with p99 latency under 4ms. Includes our benchmarking methodology and failure mode analysis.',
-    date: 'February 2026',
-    category: 'Backend',
-    readTime: '19 min read',
-    slug: 'designing-sense-layer-real-time-ingestion',
-    difficulty: 'Advanced',
-    image: '/images/intelligence/harchos-ops-center.png',
-  },
-  {
-    title: 'Our GPU Scheduling Algorithm: Balancing Throughput and Fairness Across 1,798 GPUs',
-    excerpt: 'We rejected bin-packing and FIFO for a weighted fair queuing approach with topology-aware placement. This post covers the math, the trade-offs, and why latency-sensitive inference workloads changed everything.',
-    date: 'January 2026',
-    category: 'AI/ML',
-    readTime: '16 min read',
-    slug: 'gpu-scheduling-algorithm-throughput-fairness',
-    difficulty: 'Advanced',
-    image: '/images/intelligence/harchos-gpu-cluster.png',
-  },
-  {
-    title: 'Zero-Trust Networking in Multi-Tenant AI Infrastructure',
-    excerpt: 'When every customer runs arbitrary CUDA kernels on shared hardware, network isolation is existential. We describe our SPIFFE-based identity layer, eBPF firewall, and runtime threat detection.',
-    date: 'December 2025',
-    category: 'Security',
-    readTime: '14 min read',
-    slug: 'zero-trust-networking-multi-tenant-ai',
-    difficulty: 'Intermediate',
-    image: '/images/sections/tech-cyber.jpg',
-  },
-  {
-    title: 'From Terraform to Production: Our Infrastructure-as-Code Journey',
-    excerpt: 'Managing 200+ resources across Morocco, Senegal, and Cote d\'Ivoire required more than Terraform modules. We built a custom provider, a drift detection system, and a deployment pipeline that validates before it applies.',
-    date: 'November 2025',
-    category: 'DevOps',
-    readTime: '12 min read',
-    slug: 'terraform-to-production-iac-journey',
-    difficulty: 'Intermediate',
-    image: '/images/intelligence/harchos-facility-night.png',
-  },
-  {
-    title: 'Latency Optimization: How We Achieved Sub-12ms Inference for African Markets',
-    excerpt: 'Most LLM inference benchmarks assume US-East to US-East. We optimized for Casablanca-to-Dakar, Tunis-to-Lagos, and achieved p95 inference under 12ms using speculative decoding, model quantization, and edge caching.',
-    date: 'October 2025',
-    category: 'Infrastructure',
-    readTime: '15 min read',
-    slug: 'latency-optimization-sub-12ms-inference-africa',
-    difficulty: 'Advanced',
-    image: '/images/sections/intelligence-cable.jpg',
-  },
-];
-
 const difficultyColors: Record<string, string> = {
   Beginner: 'bg-[rgba(34,197,94,0.08)] border-[rgba(34,197,94,0.15)] text-[#22C55E]',
   Intermediate: 'bg-[rgba(234,179,8,0.08)] border-[rgba(234,179,8,0.15)] text-[#EAB308]',
@@ -103,6 +30,88 @@ const difficultyColors: Record<string, string> = {
 };
 
 export default function EngineeringBlogPageClient() {
+  const t = useTranslations('engineeringBlog');
+
+  const engCategories: EngCategory[] = ['All', 'Backend', 'Infrastructure', 'AI/ML', 'DevOps', 'Security'];
+
+  const engCategoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
+    Backend: Server,
+    Infrastructure: Network,
+    'AI/ML': Brain,
+    DevOps: GitBranch,
+    Security: Shield,
+  };
+
+  const engPosts: EngPost[] = [
+    {
+      title: t('posts.insideHarchos.title'),
+      excerpt: t('posts.insideHarchos.excerpt'),
+      date: t('posts.insideHarchos.date'),
+      category: 'Infrastructure',
+      readTime: t('posts.insideHarchos.readTime'),
+      slug: 'inside-harchos-distributed-ai-operating-system',
+      difficulty: 'Advanced',
+      featured: true,
+      image: '/images/intelligence/harchos-dashboard.png',
+    },
+    {
+      title: t('posts.designingSenseLayer.title'),
+      excerpt: t('posts.designingSenseLayer.excerpt'),
+      date: t('posts.designingSenseLayer.date'),
+      category: 'Backend',
+      readTime: t('posts.designingSenseLayer.readTime'),
+      slug: 'designing-sense-layer-real-time-ingestion',
+      difficulty: 'Advanced',
+      image: '/images/intelligence/harchos-ops-center.png',
+    },
+    {
+      title: t('posts.gpuScheduling.title'),
+      excerpt: t('posts.gpuScheduling.excerpt'),
+      date: t('posts.gpuScheduling.date'),
+      category: 'AI/ML',
+      readTime: t('posts.gpuScheduling.readTime'),
+      slug: 'gpu-scheduling-algorithm-throughput-fairness',
+      difficulty: 'Advanced',
+      image: '/images/intelligence/harchos-gpu-cluster.png',
+    },
+    {
+      title: t('posts.zeroTrust.title'),
+      excerpt: t('posts.zeroTrust.excerpt'),
+      date: t('posts.zeroTrust.date'),
+      category: 'Security',
+      readTime: t('posts.zeroTrust.readTime'),
+      slug: 'zero-trust-networking-multi-tenant-ai',
+      difficulty: 'Intermediate',
+      image: '/images/sections/tech-cyber.jpg',
+    },
+    {
+      title: t('posts.terraformToProduction.title'),
+      excerpt: t('posts.terraformToProduction.excerpt'),
+      date: t('posts.terraformToProduction.date'),
+      category: 'DevOps',
+      readTime: t('posts.terraformToProduction.readTime'),
+      slug: 'terraform-to-production-iac-journey',
+      difficulty: 'Intermediate',
+      image: '/images/intelligence/harchos-facility-night.png',
+    },
+    {
+      title: t('posts.latencyOptimization.title'),
+      excerpt: t('posts.latencyOptimization.excerpt'),
+      date: t('posts.latencyOptimization.date'),
+      category: 'Infrastructure',
+      readTime: t('posts.latencyOptimization.readTime'),
+      slug: 'latency-optimization-sub-12ms-inference-africa',
+      difficulty: 'Advanced',
+      image: '/images/sections/intelligence-cable.jpg',
+    },
+  ];
+
+  const openSourceRepos = [
+    { name: 'harchos-scheduler', desc: t('openSourceRepos.harchosScheduler.desc'), stars: '1,200', lang: 'Rust' },
+    { name: 'sense-ingest', desc: t('openSourceRepos.senseIngest.desc'), stars: '890', lang: 'Rust' },
+    { name: 'act-sdk', desc: t('openSourceRepos.actSdk.desc'), stars: '650', lang: 'TypeScript' },
+  ];
+
   const [activeCategory, setActiveCategory] = useState<EngCategory>('All');
 
   const filteredPosts = activeCategory === 'All'
@@ -119,24 +128,24 @@ export default function EngineeringBlogPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Engineering Blog</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('title')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Build. Break.<br/>Document. Repeat.
+              {t('heroTitle')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Technical deep-dives, architecture decision records, and engineering war stories from the teams building HarchOS, SENSE, and Africa&apos;s sovereign compute platform. Written by engineers, for engineers.
+              {t('heroDescription')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex items-center gap-4 mt-8">
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)]">
                 <Terminal size={14} className="text-[#8B9DAF]" />
-                <span className="text-[11px] font-[family-name:var(--font-space-mono)] text-[#999999]">6 Articles</span>
+                <span className="text-[11px] font-[family-name:var(--font-space-mono)] text-[#999999]">{t('articlesCount')}</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)]">
                 <Activity size={14} className="text-[#8B9DAF]" />
-                <span className="text-[11px] font-[family-name:var(--font-space-mono)] text-[#999999]">Updated Weekly</span>
+                <span className="text-[11px] font-[family-name:var(--font-space-mono)] text-[#999999]">{t('updatedWeekly')}</span>
               </div>
             </div>
           </FadeIn>
@@ -169,7 +178,7 @@ export default function EngineeringBlogPageClient() {
         <section className="py-20 md:py-28 bg-[#121212]">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <FadeIn>
-              <p className="section-label mb-6 text-[#8B9DAF]">Featured Technical Deep-Dive</p>
+              <p className="section-label mb-6 text-[#8B9DAF]">{t('featuredTechnicalDeepDive')}</p>
             </FadeIn>
             <FadeIn delay={0.1}>
               <Link href={`/engineering-blog/${featuredPost.slug}`} className="block relative card overflow-hidden group cursor-pointer">
@@ -218,7 +227,7 @@ export default function EngineeringBlogPageClient() {
                       </h2>
                       <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredPost.excerpt}</p>
                       <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
-                        Read Technical Deep-Dive <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        {t('readTechnicalDeepDive')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
                     <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] shrink-0">
@@ -236,9 +245,9 @@ export default function EngineeringBlogPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">All Technical Posts</p>
+            <p className="section-label mb-4">{t('allTechnicalPosts')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">
-              {activeCategory === 'All' ? 'Engineering Archive' : activeCategory}
+              {activeCategory === 'All' ? t('engineeringArchive') : activeCategory}
             </h2>
           </FadeIn>
 
@@ -284,18 +293,14 @@ export default function EngineeringBlogPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Open Source</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">Built in the Open</h2>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('openSource')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">{t('builtInTheOpen')}</h2>
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              We believe sovereign infrastructure should be built transparently. Key components of HarchOS, our scheduling algorithms, and the SENSE ingestion layer are open source.
+              {t('openSourceDescription')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { name: 'harchos-scheduler', desc: 'GPU-aware scheduling algorithm with weighted fair queuing and topology-aware placement', stars: '1,200', lang: 'Rust' },
-              { name: 'sense-ingest', desc: 'High-throughput event ingestion engine handling 10M events/sec with sub-4ms p99 latency', stars: '890', lang: 'Rust' },
-              { name: 'act-sdk', desc: 'Client SDK for the ACT automation layer — control infrastructure from code', stars: '650', lang: 'TypeScript' },
-            ].map((repo, i) => (
+            {openSourceRepos.map((repo, i) => (
               <FadeIn key={repo.name} delay={i * 0.08}>
                 <Link href="/developers/open-source" className="block">
                   <div className="card p-6 h-full group">
@@ -319,7 +324,7 @@ export default function EngineeringBlogPageClient() {
           <FadeIn delay={0.3}>
             <div className="mt-8 text-center">
               <Link href="/developers/open-source" className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] hover:text-white transition-colors">
-                View All Open Source Projects <ArrowRight size={14} />
+                {t('viewAllOpenSourceProjects')} <ArrowRight size={14} />
               </Link>
             </div>
           </FadeIn>
@@ -333,24 +338,24 @@ export default function EngineeringBlogPageClient() {
             <FadeIn>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
                 <Users size={20} className="text-[#8B9DAF] mb-4" strokeWidth={1.5} />
-                <h3 className="text-xl font-bold text-white mb-3">Join the Engineering Team</h3>
+                <h3 className="text-xl font-bold text-white mb-3">{t('joinEngineeringTeam')}</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
-                  We&apos;re hiring distributed systems engineers, ML infrastructure specialists, and security engineers across Casablanca, Dakar, and remote. Build systems that matter.
+                  {t('joinEngineeringDescription')}
                 </p>
                 <Link href="/careers" className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
-                  View Open Roles <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  {t('viewOpenRoles')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
                 <Rss size={20} className="text-[#8B9DAF] mb-4" strokeWidth={1.5} />
-                <h3 className="text-xl font-bold text-white mb-3">Engineering RSS Feed</h3>
+                <h3 className="text-xl font-bold text-white mb-3">{t('engineeringRssFeed')}</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
-                  Subscribe to the engineering blog RSS feed. New posts, architecture decision records, and post-mortems — delivered straight to your reader.
+                  {t('engineeringRssFeedDescription')}
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
-                  Copy Feed URL <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  {t('copyFeedUrl')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </FadeIn>

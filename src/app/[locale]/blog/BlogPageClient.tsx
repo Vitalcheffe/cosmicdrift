@@ -5,27 +5,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Calendar, Clock, Mail, Rss, PenLine, Search, Code2, Brain, Building2, Zap, Wheat, Cpu, Landmark, Droplets } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { blogArticles } from '@/data/blog-articles';
 import { seoArticles } from '@/data/seo-articles';
 
 import { FadeIn } from '@/components/ui/motion';
 
 type Category = 'All' | 'Engineering' | 'AI & ML' | 'Infrastructure' | 'Energy' | 'Agriculture' | 'Company' | 'Finance' | 'Industry' | 'Technology' | 'Mining';
-
-const categories: Category[] = ['All', 'Engineering', 'AI & ML', 'Infrastructure', 'Energy', 'Agriculture', 'Industry', 'Mining', 'Technology', 'Finance', 'Company'];
-
-const categoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
-  Engineering: Code2,
-  'AI & ML': Brain,
-  Infrastructure: Building2,
-  Energy: Zap,
-  Agriculture: Wheat,
-  Industry: Building2,
-  Mining: Landmark,
-  Technology: Cpu,
-  Company: Cpu,
-  Finance: Landmark,
-};
 
 interface BlogPost {
   title: string;
@@ -39,22 +25,39 @@ interface BlogPost {
   imageAlt?: string;
 }
 
-const allBlogData = [...blogArticles, ...seoArticles];
-
-// Derive blog posts from the centralized data source
-const blogPosts: BlogPost[] = allBlogData.map((a, i) => ({
-  title: a.title,
-  excerpt: a.excerpt,
-  date: a.date,
-  category: a.category as Category,
-  readTime: a.readTime,
-  slug: a.slug,
-  featured: i === 0,
-  image: a.image,
-  imageAlt: a.imageAlt,
-}));
-
 export default function BlogPageClient() {
+  const t = useTranslations('blog');
+
+  const categories: Category[] = ['All', 'Engineering', 'AI & ML', 'Infrastructure', 'Energy', 'Agriculture', 'Industry', 'Mining', 'Technology', 'Finance', 'Company'];
+
+  const categoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
+    Engineering: Code2,
+    'AI & ML': Brain,
+    Infrastructure: Building2,
+    Energy: Zap,
+    Agriculture: Wheat,
+    Industry: Building2,
+    Mining: Landmark,
+    Technology: Cpu,
+    Company: Cpu,
+    Finance: Landmark,
+  };
+
+  const allBlogData = [...blogArticles, ...seoArticles];
+
+  // Derive blog posts from the centralized data source
+  const blogPosts: BlogPost[] = allBlogData.map((a, i) => ({
+    title: a.title,
+    excerpt: a.excerpt,
+    date: a.date,
+    category: a.category as Category,
+    readTime: a.readTime,
+    slug: a.slug,
+    featured: i === 0,
+    image: a.image,
+    imageAlt: a.imageAlt,
+  }));
+
   const [activeCategory, setActiveCategory] = useState<Category>('All');
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -73,13 +76,13 @@ export default function BlogPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Blog</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('title')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Engineering.<br/>Insights.<br/>Thought Leadership.
+              {t('heroTitle')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Deep technical writing, strategic analysis, and operational learnings from the teams building Africa&apos;s sovereign industrial infrastructure. No marketing fluff — just signal.
+              {t('heroDescription')}
             </p>
           </FadeIn>
         </div>
@@ -111,7 +114,7 @@ export default function BlogPageClient() {
         <section className="py-20 md:py-28 bg-[#121212]">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <FadeIn>
-              <p className="section-label mb-6 text-[#8B9DAF]">Featured</p>
+              <p className="section-label mb-6 text-[#8B9DAF]">{t('featured')}</p>
             </FadeIn>
             <FadeIn delay={0.1}>
               <Link href={`/blog/${featuredPost.slug}`} className="block relative card overflow-hidden group cursor-pointer">
@@ -150,7 +153,7 @@ export default function BlogPageClient() {
                       </h2>
                       <p className="text-[15px] text-[#999999] leading-[1.7] max-w-3xl mb-8">{featuredPost.excerpt}</p>
                       <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
-                        Read Article <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        {t('readArticle')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
                     <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-xl bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.12)] shrink-0">
@@ -168,9 +171,9 @@ export default function BlogPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">All Articles</p>
+            <p className="section-label mb-4">{t('allArticles')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">
-              {activeCategory === 'All' ? 'Latest Posts' : `${activeCategory}`}
+              {activeCategory === 'All' ? t('latestPosts') : `${activeCategory}`}
             </h2>
           </FadeIn>
 
@@ -225,17 +228,17 @@ export default function BlogPageClient() {
           <div className="max-w-2xl mx-auto text-center">
             <FadeIn>
               <Mail size={32} className="text-[#8B9DAF] mx-auto mb-6" strokeWidth={1.5} />
-              <p className="section-label mb-4 text-[#8B9DAF]">Newsletter</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">Stay in the Loop</h2>
+              <p className="section-label mb-4 text-[#8B9DAF]">{t('newsletter')}</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-4">{t('stayInTheLoop')}</h2>
               <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
-                Get engineering insights, product updates, and technical deep-dives delivered to your inbox. No spam. Unsubscribe anytime.
+                {t('newsletterDescription')}
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
               {subscribed ? (
                 <div className="card p-6 text-center">
-                  <p className="text-white font-semibold">You&apos;re subscribed.</p>
-                  <p className="text-[13px] text-[#999999] mt-1">Look for our next dispatch in your inbox.</p>
+                  <p className="text-white font-semibold">{t('subscribed')}</p>
+                  <p className="text-[13px] text-[#999999] mt-1">{t('subscribedMessage')}</p>
                 </div>
               ) : (
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -243,14 +246,14 @@ export default function BlogPageClient() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@company.com"
+                    placeholder={t('emailPlaceholder')}
                     className="flex-1 px-4 py-3 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)] text-white text-[14px] placeholder-[#666666] focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors font-[family-name:var(--font-space-mono)]"
                   />
                   <button
                     onClick={() => { if (email) setSubscribed(true); }}
                     className="px-6 py-3 rounded-lg bg-white text-black text-[12px] font-bold tracking-[0.06em] uppercase hover:bg-[#CCCCCC] transition-colors shrink-0"
                   >
-                    Subscribe
+                    {t('subscribe')}
                   </button>
                 </div>
               )}
@@ -266,24 +269,24 @@ export default function BlogPageClient() {
             <FadeIn>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
                 <PenLine size={20} className="text-[#8B9DAF] mb-4" strokeWidth={1.5} />
-                <h3 className="text-xl font-bold text-white mb-3">Write for Us</h3>
+                <h3 className="text-xl font-bold text-white mb-3">{t('writeForUs')}</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
-                  Have a technical perspective on sovereign infrastructure, distributed systems, or African industrial development? We accept guest contributions from engineers, researchers, and operators.
+                  {t('writeForUsDescription')}
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
-                  Submit a Pitch <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  {t('submitAPitch')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
                 <Rss size={20} className="text-[#8B9DAF] mb-4" strokeWidth={1.5} />
-                <h3 className="text-xl font-bold text-white mb-3">RSS Feed</h3>
+                <h3 className="text-xl font-bold text-white mb-3">{t('rssFeed')}</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
-                  Prefer a reader? Subscribe to our RSS feed and never miss a post. Full content, no tracking, no middleman — the way the web was meant to work.
+                  {t('rssFeedDescription')}
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] group-hover:text-white transition-colors">
-                  Copy Feed URL <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  {t('copyFeedUrl')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </FadeIn>

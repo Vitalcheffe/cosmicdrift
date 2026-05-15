@@ -27,147 +27,150 @@ import {
   Lock,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const aiPrinciples = [
-  {
-    icon: Scale,
-    title: 'Fairness & Non-Discrimination',
-    desc: 'We design AI systems that treat all individuals equitably, regardless of race, gender, ethnicity, language, or socioeconomic status. Our models are continuously tested for bias across protected attributes, with corrective action taken when disparities exceed defined thresholds.',
-    commitment: 'All production models undergo fairness audits before deployment and quarterly thereafter.',
-  },
-  {
-    icon: Eye,
-    title: 'Transparency & Explainability',
-    desc: 'We believe users and stakeholders deserve to understand how AI systems make decisions. We provide model cards, explainability reports, and decision audit trails for every AI system in production.',
-    commitment: '87% of production models have published explainability reports. Target: 100% by Q2 2026.',
-  },
-  {
-    icon: Shield,
-    title: 'Privacy & Data Protection',
-    desc: 'AI systems must respect individual privacy and comply with data protection regulations. We apply privacy-by-design principles, minimize data collection, and implement differential privacy techniques where appropriate.',
-    commitment: 'All AI training data is audited for compliance with Moroccan DPA and GDPR requirements.',
-  },
-  {
-    icon: Users,
-    title: 'Human Oversight & Accountability',
-    desc: 'Every AI system has defined human accountability. Critical decisions are never fully automated — humans remain in the loop for high-stakes outcomes, with clear escalation paths and override capabilities.',
-    commitment: 'All high-impact AI systems have designated human oversight officers with veto authority.',
-  },
-  {
-    icon: Heart,
-    title: 'Social Benefit & Safety',
-    desc: 'We build AI to serve humanity — never to harm, manipulate, or exploit. Every AI project at Harch Corp undergoes an ethical impact assessment, and we reserve the right to decline projects that conflict with our values.',
-    commitment: 'Ethical impact assessments mandatory for all AI projects. Zero tolerance for harmful AI applications.',
-  },
-];
-
-const biasTestingMethods = [
-  {
-    method: 'Pre-Deployment Fairness Audit',
-    desc: 'Every AI model undergoes a comprehensive fairness audit before production deployment. We test across 12+ protected attributes using demographic parity, equalized odds, and calibration metrics.',
-    frequency: 'Before every deployment',
-    status: 'Active',
-  },
-  {
-    method: 'Adversarial Bias Testing',
-    desc: 'Red-team style testing where adversarial inputs are designed to surface hidden biases. Includes stress testing with underrepresented demographic groups and edge cases.',
-    frequency: 'Quarterly',
-    status: 'Active',
-  },
-  {
-    method: 'Continuous Monitoring',
-    desc: 'Real-time monitoring of model predictions for statistical drift and bias emergence. Automated alerts trigger when disparity metrics exceed defined thresholds.',
-    frequency: 'Continuous',
-    status: 'Active',
-  },
-  {
-    method: 'Third-Party Bias Audit',
-    desc: 'Annual independent bias audit by external AI ethics organizations. Findings are published in our transparency report with remediation plans.',
-    frequency: 'Annual',
-    status: 'Active',
-  },
-  {
-    method: 'Community Feedback Integration',
-    desc: 'Structured channels for affected communities to report perceived bias or harm. Feedback is triaged by the AI Ethics Review Board within 48 hours.',
-    frequency: 'Ongoing',
-    status: 'Active',
-  },
-];
-
-const transparencyItems = [
-  {
-    title: 'Model Cards',
-    desc: 'Every production AI model has a published model card documenting its intended use, training data composition, performance metrics, known limitations, and fairness evaluations.',
-    status: 'Published for 87% of models',
-  },
-  {
-    title: 'Decision Audit Trails',
-    desc: 'Every automated decision is logged with the input features, model version, confidence score, and decision rationale. Audit trails retained for 7 years.',
-    status: '100% implementation',
-  },
-  {
-    title: 'Data Sheets',
-    desc: 'Training datasets are documented with datasheets describing collection methodology, demographic representation, consent mechanisms, and known biases.',
-    status: 'Published for 92% of datasets',
-  },
-  {
-    title: 'Explainability Reports',
-    desc: 'For high-stakes AI applications, we provide feature importance analysis, counterfactual explanations, and SHAP values to enable human understanding of model decisions.',
-    status: 'Published for critical models',
-  },
-];
-
-const oversightFramework = [
-  {
-    level: 'Level 1',
-    title: 'Human-in-the-Loop',
-    desc: 'AI provides recommendations; humans make all final decisions. Required for high-stakes domains: healthcare, legal, financial inclusion, and hiring.',
-    examples: 'Credit decisioning, medical diagnosis support, recruitment screening',
-    color: 'bg-white/8',
-  },
-  {
-    level: 'Level 2',
-    title: 'Human-on-the-Loop',
-    desc: 'AI makes decisions with human monitoring and intervention capability. Humans can override any automated decision. Alerts triggered for anomalous patterns.',
-    examples: 'Energy grid optimization, predictive maintenance, demand forecasting',
-    color: 'bg-white/5',
-  },
-  {
-    level: 'Level 3',
-    title: 'Human-over-the-Loop',
-    desc: 'AI operates autonomously within defined boundaries. Humans set policies, review aggregate outcomes, and intervene when systemic issues are detected.',
-    examples: 'Network traffic routing, resource scheduling, environmental monitoring',
-    color: 'bg-white/3',
-  },
-];
-
-const reviewBoardMembers = [
-  { role: 'Chief Ethics Officer', name: 'Chair', desc: 'Overall accountability for AI ethics program governance and policy enforcement.' },
-  { role: 'Head of AI Research', name: 'Vice Chair', desc: 'Ensures ethical principles are integrated into research methodology and model development.' },
-  { role: 'Legal & Compliance Lead', name: 'Member', desc: 'Ensures AI systems comply with Moroccan DPA, GDPR, and emerging AI regulations.' },
-  { role: 'External Ethics Advisor', name: 'Member', desc: 'Independent academic providing external perspective on ethical considerations and best practices.' },
-  { role: 'Community Representative', name: 'Member', desc: 'Represents the interests of communities affected by Harch Corp AI deployments.' },
-  { role: 'Data Privacy Officer', name: 'Member', desc: 'Guards data protection rights and privacy-by-design implementation in AI systems.' },
-];
-
-const dashboardMetrics = [
-  { category: 'Fairness', metric: 'Demographic Parity Difference', value: '0.032', threshold: '<0.05', status: 'Pass' },
-  { category: 'Fairness', metric: 'Equalized Odds Difference', value: '0.028', threshold: '<0.05', status: 'Pass' },
-  { category: 'Fairness', metric: 'Calibration Error', value: '0.015', threshold: '<0.03', status: 'Pass' },
-  { category: 'Transparency', metric: 'Model Cards Published', value: '87%', threshold: '>80%', status: 'Pass' },
-  { category: 'Transparency', metric: 'Data Sheets Published', value: '92%', threshold: '>80%', status: 'Pass' },
-  { category: 'Transparency', metric: 'Explainability Reports', value: '74%', threshold: '>70%', status: 'Pass' },
-  { category: 'Oversight', metric: 'High-Impact HITL Coverage', value: '100%', threshold: '100%', status: 'Pass' },
-  { category: 'Oversight', metric: 'Ethics Reviews Completed', value: '23/23', threshold: '100%', status: 'Pass' },
-  { category: 'Safety', metric: 'Critical Bias Incidents', value: '0', threshold: '0', status: 'Pass' },
-  { category: 'Safety', metric: 'Harm Reports Received', value: '0', threshold: '0', status: 'Pass' },
-  { category: 'Privacy', metric: 'DPA Compliance Score', value: '99.2%', threshold: '>95%', status: 'Pass' },
-  { category: 'Privacy', metric: 'Differential Privacy Applied', value: '68%', threshold: '>50%', status: 'Pass' },
-];
-
 export default function AIEthicsPageClient() {
+  const t = useTranslations('trust');
+
+  const aiPrinciples = [
+    {
+      icon: Scale,
+      title: t('aiEthics.principles.fairness.title'),
+      desc: t('aiEthics.principles.fairness.desc'),
+      commitment: t('aiEthics.principles.fairness.commitment'),
+    },
+    {
+      icon: Eye,
+      title: t('aiEthics.principles.transparency.title'),
+      desc: t('aiEthics.principles.transparency.desc'),
+      commitment: t('aiEthics.principles.transparency.commitment'),
+    },
+    {
+      icon: Shield,
+      title: t('aiEthics.principles.privacy.title'),
+      desc: t('aiEthics.principles.privacy.desc'),
+      commitment: t('aiEthics.principles.privacy.commitment'),
+    },
+    {
+      icon: Users,
+      title: t('aiEthics.principles.humanOversight.title'),
+      desc: t('aiEthics.principles.humanOversight.desc'),
+      commitment: t('aiEthics.principles.humanOversight.commitment'),
+    },
+    {
+      icon: Heart,
+      title: t('aiEthics.principles.socialBenefit.title'),
+      desc: t('aiEthics.principles.socialBenefit.desc'),
+      commitment: t('aiEthics.principles.socialBenefit.commitment'),
+    },
+  ];
+
+  const biasTestingMethods = [
+    {
+      method: t('aiEthics.biasTesting.preDeployment.title'),
+      desc: t('aiEthics.biasTesting.preDeployment.desc'),
+      frequency: t('aiEthics.biasTesting.preDeployment.frequency'),
+      status: t('aiEthics.biasTesting.statusActive'),
+    },
+    {
+      method: t('aiEthics.biasTesting.adversarial.title'),
+      desc: t('aiEthics.biasTesting.adversarial.desc'),
+      frequency: t('aiEthics.biasTesting.adversarial.frequency'),
+      status: t('aiEthics.biasTesting.statusActive'),
+    },
+    {
+      method: t('aiEthics.biasTesting.continuousMonitoring.title'),
+      desc: t('aiEthics.biasTesting.continuousMonitoring.desc'),
+      frequency: t('aiEthics.biasTesting.continuousMonitoring.frequency'),
+      status: t('aiEthics.biasTesting.statusActive'),
+    },
+    {
+      method: t('aiEthics.biasTesting.thirdParty.title'),
+      desc: t('aiEthics.biasTesting.thirdParty.desc'),
+      frequency: t('aiEthics.biasTesting.thirdParty.frequency'),
+      status: t('aiEthics.biasTesting.statusActive'),
+    },
+    {
+      method: t('aiEthics.biasTesting.communityFeedback.title'),
+      desc: t('aiEthics.biasTesting.communityFeedback.desc'),
+      frequency: t('aiEthics.biasTesting.communityFeedback.frequency'),
+      status: t('aiEthics.biasTesting.statusActive'),
+    },
+  ];
+
+  const transparencyItems = [
+    {
+      title: t('aiEthics.transparency.modelCards.title'),
+      desc: t('aiEthics.transparency.modelCards.desc'),
+      status: t('aiEthics.transparency.modelCards.status'),
+    },
+    {
+      title: t('aiEthics.transparency.auditTrails.title'),
+      desc: t('aiEthics.transparency.auditTrails.desc'),
+      status: t('aiEthics.transparency.auditTrails.status'),
+    },
+    {
+      title: t('aiEthics.transparency.dataSheets.title'),
+      desc: t('aiEthics.transparency.dataSheets.desc'),
+      status: t('aiEthics.transparency.dataSheets.status'),
+    },
+    {
+      title: t('aiEthics.transparency.explainability.title'),
+      desc: t('aiEthics.transparency.explainability.desc'),
+      status: t('aiEthics.transparency.explainability.status'),
+    },
+  ];
+
+  const oversightFramework = [
+    {
+      level: t('aiEthics.oversight.level1.label'),
+      title: t('aiEthics.oversight.level1.title'),
+      desc: t('aiEthics.oversight.level1.desc'),
+      examples: t('aiEthics.oversight.level1.examples'),
+      color: 'bg-white/8',
+    },
+    {
+      level: t('aiEthics.oversight.level2.label'),
+      title: t('aiEthics.oversight.level2.title'),
+      desc: t('aiEthics.oversight.level2.desc'),
+      examples: t('aiEthics.oversight.level2.examples'),
+      color: 'bg-white/5',
+    },
+    {
+      level: t('aiEthics.oversight.level3.label'),
+      title: t('aiEthics.oversight.level3.title'),
+      desc: t('aiEthics.oversight.level3.desc'),
+      examples: t('aiEthics.oversight.level3.examples'),
+      color: 'bg-white/3',
+    },
+  ];
+
+  const reviewBoardMembers = [
+    { role: t('aiEthics.reviewBoard.chiefEthicsOfficer.role'), name: t('aiEthics.reviewBoard.chiefEthicsOfficer.title'), desc: t('aiEthics.reviewBoard.chiefEthicsOfficer.desc') },
+    { role: t('aiEthics.reviewBoard.headOfResearch.role'), name: t('aiEthics.reviewBoard.headOfResearch.title'), desc: t('aiEthics.reviewBoard.headOfResearch.desc') },
+    { role: t('aiEthics.reviewBoard.legalLead.role'), name: t('aiEthics.reviewBoard.legalLead.title'), desc: t('aiEthics.reviewBoard.legalLead.desc') },
+    { role: t('aiEthics.reviewBoard.externalAdvisor.role'), name: t('aiEthics.reviewBoard.externalAdvisor.title'), desc: t('aiEthics.reviewBoard.externalAdvisor.desc') },
+    { role: t('aiEthics.reviewBoard.communityRep.role'), name: t('aiEthics.reviewBoard.communityRep.title'), desc: t('aiEthics.reviewBoard.communityRep.desc') },
+    { role: t('aiEthics.reviewBoard.privacyOfficer.role'), name: t('aiEthics.reviewBoard.privacyOfficer.title'), desc: t('aiEthics.reviewBoard.privacyOfficer.desc') },
+  ];
+
+  const dashboardMetrics = [
+    { category: t('aiEthics.dashboard.categoryFairness'), metric: t('aiEthics.dashboard.demographicParity'), value: '0.032', threshold: '<0.05', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categoryFairness'), metric: t('aiEthics.dashboard.equalizedOdds'), value: '0.028', threshold: '<0.05', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categoryFairness'), metric: t('aiEthics.dashboard.calibrationError'), value: '0.015', threshold: '<0.03', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categoryTransparency'), metric: t('aiEthics.dashboard.modelCardsPublished'), value: '87%', threshold: '>80%', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categoryTransparency'), metric: t('aiEthics.dashboard.dataSheetsPublished'), value: '92%', threshold: '>80%', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categoryTransparency'), metric: t('aiEthics.dashboard.explainabilityReports'), value: '74%', threshold: '>70%', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categoryOversight'), metric: t('aiEthics.dashboard.hitlCoverage'), value: '100%', threshold: '100%', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categoryOversight'), metric: t('aiEthics.dashboard.ethicsReviewsCompleted'), value: '23/23', threshold: '100%', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categorySafety'), metric: t('aiEthics.dashboard.criticalBiasIncidents'), value: '0', threshold: '0', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categorySafety'), metric: t('aiEthics.dashboard.harmReports'), value: '0', threshold: '0', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categoryPrivacy'), metric: t('aiEthics.dashboard.dpaComplianceScore'), value: '99.2%', threshold: '>95%', status: t('aiEthics.dashboard.statusPass') },
+    { category: t('aiEthics.dashboard.categoryPrivacy'), metric: t('aiEthics.dashboard.differentialPrivacy'), value: '68%', threshold: '>50%', status: t('aiEthics.dashboard.statusPass') },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       {/* ═══ HERO ═══ */}
@@ -175,17 +178,17 @@ export default function AIEthicsPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="flex items-center gap-2 mb-4">
-              <Link href="/trust" className="text-[12px] text-[#666666] hover:text-white transition-colors">Trust Center</Link>
+              <Link href="/trust" className="text-[12px] text-[#666666] hover:text-white transition-colors">{t('title')}</Link>
               <ChevronRight size={12} className="text-[#444444]" />
-              <span className="text-[12px] text-white">AI Ethics</span>
+              <span className="text-[12px] text-white">{t('aiEthics.title')}</span>
             </div>
-            <p className="section-label mb-4">AI Ethics</p>
+            <p className="section-label mb-4">{t('aiEthics.title')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Responsible AI<br />for Africa
+              {t('aiEthics.heroTitle')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              As Africa builds its sovereign AI capabilities, Harch Corp commits to the highest standards of fairness, transparency, and human oversight. Our AI Ethics framework ensures that every model we deploy serves humanity — never the other way around.
+              {t('aiEthics.heroDescription')}
             </p>
           </FadeIn>
         </div>
@@ -195,12 +198,12 @@ export default function AIEthicsPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Principles</p>
+            <p className="section-label mb-4">{t('aiEthics.principles.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Five Core Principles
+              {t('aiEthics.principles.title')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              These principles are non-negotiable. They guide every AI project from research through deployment and monitoring.
+              {t('aiEthics.principles.description')}
             </p>
           </FadeIn>
           <div className="space-y-6">
@@ -214,7 +217,7 @@ export default function AIEthicsPageClient() {
                       </div>
                       <div className="lg:w-56">
                         <h3 className="text-[17px] font-bold text-white">{principle.title}</h3>
-                        <p className="text-[11px] text-[#666666] mt-1">Principle {i + 1} of 5</p>
+                        <p className="text-[11px] text-[#666666] mt-1">{t('aiEthics.principles.principleOf', { current: i + 1, total: 5 })}</p>
                       </div>
                     </div>
                     <div className="flex-1">
@@ -236,12 +239,12 @@ export default function AIEthicsPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Fairness</p>
+            <p className="section-label mb-4">{t('aiEthics.fairness.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Fairness & Bias Testing
+              {t('aiEthics.fairness.title')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              We deploy a multi-layered approach to bias detection and mitigation. Our testing methodology covers pre-deployment audits, continuous monitoring, and external validation.
+              {t('aiEthics.fairness.description')}
             </p>
           </FadeIn>
           <div className="space-y-4">
@@ -258,7 +261,7 @@ export default function AIEthicsPageClient() {
                     <p className="text-[13px] text-[#999999] leading-relaxed">{method.desc}</p>
                   </div>
                   <div className="flex-shrink-0 text-right">
-                    <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-1">Frequency</p>
+                    <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-1">{t('aiEthics.fairness.frequencyLabel')}</p>
                     <p className="text-[13px] font-semibold text-white">{method.frequency}</p>
                   </div>
                 </div>
@@ -272,12 +275,12 @@ export default function AIEthicsPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Transparency</p>
+            <p className="section-label mb-4">{t('aiEthics.transparency.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Model Transparency & Explainability
+              {t('aiEthics.transparency.title')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              Every AI model in production at Harch Corp is documented, auditable, and explainable. We publish model cards, data sheets, and explainability reports to enable informed oversight.
+              {t('aiEthics.transparency.description')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -306,12 +309,12 @@ export default function AIEthicsPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Oversight</p>
+            <p className="section-label mb-4">{t('aiEthics.oversight.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Human Oversight Framework
+              {t('aiEthics.oversight.title')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              Not all AI decisions carry the same risk. Our three-tier oversight framework ensures the right level of human involvement based on the stakes and potential impact of each AI system.
+              {t('aiEthics.oversight.description')}
             </p>
           </FadeIn>
           <div className="space-y-6">
@@ -325,13 +328,13 @@ export default function AIEthicsPageClient() {
                       </div>
                       <div className="lg:w-52">
                         <h3 className="text-[17px] font-bold text-white">{level.title}</h3>
-                        <p className="text-[11px] text-[#666666] mt-1">{level.level} Oversight</p>
+                        <p className="text-[11px] text-[#666666] mt-1">{level.level} {t('aiEthics.oversight.oversightLabel')}</p>
                       </div>
                     </div>
                     <div className="flex-1">
                       <p className="text-[14px] text-[#999999] leading-[1.7] mb-4">{level.desc}</p>
                       <div className="p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
-                        <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-2">Example Applications</p>
+                        <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-2">{t('aiEthics.oversight.exampleApplications')}</p>
                         <p className="text-[12px] text-[#999999]">{level.examples}</p>
                       </div>
                     </div>
@@ -347,12 +350,12 @@ export default function AIEthicsPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Governance</p>
+            <p className="section-label mb-4">{t('aiEthics.reviewBoard.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              AI Ethics Review Board
+              {t('aiEthics.reviewBoard.title')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              The AI Ethics Review Board is an independent governance body with the authority to halt, modify, or reject AI projects that do not meet our ethical standards. The board meets monthly and can convene emergency sessions for urgent matters.
+              {t('aiEthics.reviewBoard.description')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -373,21 +376,21 @@ export default function AIEthicsPageClient() {
             <div className="mt-8 card p-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                  <h3 className="text-[15px] font-bold text-white mb-1">Board Authority</h3>
-                  <p className="text-[13px] text-[#999999]">The Review Board has the authority to halt any AI project, mandate changes, and refer ethical violations to the executive team.</p>
+                  <h3 className="text-[15px] font-bold text-white mb-1">{t('aiEthics.reviewBoard.authority.title')}</h3>
+                  <p className="text-[13px] text-[#999999]">{t('aiEthics.reviewBoard.authority.description')}</p>
                 </div>
                 <div className="flex items-center gap-4 flex-shrink-0">
                   <div className="text-center">
                     <p className="text-[20px] font-bold text-white stat-mono">23</p>
-                    <p className="text-[10px] text-[#666666] tracking-wide">Reviews (2025)</p>
+                    <p className="text-[10px] text-[#666666] tracking-wide">{t('aiEthics.reviewBoard.authority.reviews')}</p>
                   </div>
                   <div className="text-center">
                     <p className="text-[20px] font-bold text-white stat-mono">2</p>
-                    <p className="text-[10px] text-[#666666] tracking-wide">Projects Halted</p>
+                    <p className="text-[10px] text-[#666666] tracking-wide">{t('aiEthics.reviewBoard.authority.halted')}</p>
                   </div>
                   <div className="text-center">
                     <p className="text-[20px] font-bold text-white stat-mono">5</p>
-                    <p className="text-[10px] text-[#666666] tracking-wide">Modified</p>
+                    <p className="text-[10px] text-[#666666] tracking-wide">{t('aiEthics.reviewBoard.authority.modified')}</p>
                   </div>
                 </div>
               </div>
@@ -400,23 +403,23 @@ export default function AIEthicsPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Dashboard</p>
+            <p className="section-label mb-4">{t('aiEthics.dashboard.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Public AI Ethics Dashboard
+              {t('aiEthics.dashboard.title')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              Transparency requires measurement. Our public dashboard tracks key AI ethics metrics across fairness, transparency, oversight, safety, and privacy — updated quarterly.
+              {t('aiEthics.dashboard.description')}
             </p>
           </FadeIn>
 
           {/* Summary Cards */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
             {[
-              { label: 'Fairness', score: '0.94', icon: Scale },
-              { label: 'Transparency', score: '87%', icon: Eye },
-              { label: 'Oversight', score: '100%', icon: Users },
-              { label: 'Safety', score: '0 Incidents', icon: Shield },
-              { label: 'Privacy', score: '99.2%', icon: Lock },
+              { label: t('aiEthics.dashboard.categoryFairness'), score: '0.94', icon: Scale },
+              { label: t('aiEthics.dashboard.categoryTransparency'), score: '87%', icon: Eye },
+              { label: t('aiEthics.dashboard.categoryOversight'), score: '100%', icon: Users },
+              { label: t('aiEthics.dashboard.categorySafety'), score: t('aiEthics.dashboard.zeroIncidents'), icon: Shield },
+              { label: t('aiEthics.dashboard.categoryPrivacy'), score: '99.2%', icon: Lock },
             ].map((item, i) => (
               <FadeIn key={item.label} delay={i * 0.05}>
                 <div className="card p-4 text-center">
@@ -432,17 +435,17 @@ export default function AIEthicsPageClient() {
           <FadeIn delay={0.15}>
             <div className="bg-[#121212] rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
               <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.04)]">
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666]">Detailed Metrics — Q4 2025</p>
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666]">{t('aiEthics.dashboard.detailedMetrics')}</p>
               </div>
               <div className="overflow-x-auto">
                 <table className="data-table">
                   <thead>
                     <tr>
-                      <th>Category</th>
-                      <th>Metric</th>
-                      <th>Value</th>
-                      <th>Threshold</th>
-                      <th>Status</th>
+                      <th>{t('aiEthics.dashboard.tableCategory')}</th>
+                      <th>{t('aiEthics.dashboard.tableMetric')}</th>
+                      <th>{t('aiEthics.dashboard.tableValue')}</th>
+                      <th>{t('aiEthics.dashboard.tableThreshold')}</th>
+                      <th>{t('aiEthics.dashboard.tableStatus')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -466,7 +469,7 @@ export default function AIEthicsPageClient() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="mt-6 text-center">
-              <p className="text-[12px] text-[#666666]">Last updated: January 2026. Next update: April 2026.</p>
+              <p className="text-[12px] text-[#666666]">{t('aiEthics.dashboard.lastUpdated')}</p>
             </div>
           </FadeIn>
         </div>
@@ -477,18 +480,18 @@ export default function AIEthicsPageClient() {
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">AI Ethics Matters</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">{t('aiEthics.cta.title')}</h2>
             <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">
-              We welcome feedback, concerns, and collaboration on AI ethics from researchers, communities, and partners. Responsible AI is a shared endeavor.
+              {t('aiEthics.cta.description')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="mailto:ethics@harchcorp.com" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                <Mail size={14} /> Contact Ethics Team
+                <Mail size={14} /> {t('aiEthics.cta.contactEthics')}
               </a>
               <Link href="/trust" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                Back to Trust Center <ArrowRight size={14} />
+                {t('aiEthics.cta.backToTrust')} <ArrowRight size={14} />
               </Link>
             </div>
           </FadeIn>

@@ -32,34 +32,6 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-// Metadata is now generated dynamically via generateMetadata() for locale-aware SEO
-// Static metadata only contains viewport and icons
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.harchcorp.com"),
-  icons: {
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-    shortcut: [{ url: "/favicon.ico" }],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  verification: {
-    google: "GOOGLE_VERIFICATION_CODE_PLACEHOLDER",
-  },
-  other: {
-    "google-site-verification": "GOOGLE_VERIFICATION_CODE_PLACEHOLDER",
-  },
-};
-
 // Generate locale-aware metadata
 export async function generateMetadata({
   params,
@@ -67,7 +39,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'common' });
   const isFr = locale === 'fr';
 
   const title = isFr
@@ -84,11 +55,33 @@ export async function generateMetadata({
     : "Carbon-Aware GPU Cloud | 1,798 GPUs at ~47 gCO2/kWh. 2GW+ Renewable Energy Pipeline. Sovereign AI from Morocco.";
 
   return {
+    metadataBase: new URL("https://www.harchcorp.com"),
     title: {
       default: title,
       template: `%s | Harch Corp`,
     },
     description,
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+        { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+        { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+      shortcut: [{ url: "/favicon.ico" }],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    verification: {
+      google: "GOOGLE_VERIFICATION_CODE_PLACEHOLDER",
+    },
+    other: {
+      "google-site-verification": "GOOGLE_VERIFICATION_CODE_PLACEHOLDER",
+    },
     keywords: isFr
       ? ["Harch Corp", "souveraineté industrielle Afrique", "centre de données Afrique", "IA souveraine", "centre de données IA Maroc", "cloud GPU conscient du carbone", "planification consciente du carbone", "énergie renouvelable Maroc", "infrastructure industrielle", "conglomérat Maroc", "énergie renouvelable Afrique", "fabrication ciment Gambie", "mines stratégiques Maroc", "agriculture de précision Sahel", "dessalement eau Afrique", "technologie souveraine", "cloud GPU vert", "calcul faible intensité carbone", "centre de données Dakhla", "Dakhla 500 MW", "centre de données vert Afrique"]
       : ["Harch Corp", "Africa industrial sovereignty", "Data Center Africa", "Sovereign AI", "AI data center Morocco", "carbon-aware GPU cloud", "carbon-aware scheduling", "Renewable Energy Morocco", "Industrial Infrastructure", "Morocco conglomerate", "renewable energy Africa", "cement manufacturing Gambia", "strategic mining Morocco", "precision agriculture Sahel", "water desalination Africa", "sovereign technology", "green GPU cloud", "low carbon intensity compute", "Dakhla data center", "Dakhla 500MW", "500 MW data center Morocco", "green data center Africa"],

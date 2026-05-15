@@ -6,6 +6,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import {
   FadeIn,
   StaggerContainer,
@@ -48,84 +49,6 @@ const NetworkGrid = dynamic(
 );
 
 /* ═══════════════════════════════════════════════════════════════
-   DATA — All existing data preserved, images added
-   ═══════════════════════════════════════════════════════════════ */
-
-const verticals = [
-  { version: '/0.1', name: 'Intelligence', fullName: 'Harch Intelligence', desc: 'Carbon-Aware GPU Cloud — 1,798 GPUs across 5 hubs in Morocco, powered by ~81.5% renewable energy at ~47 gCO2/kWh average. Carbon-aware scheduling with zero competitors in Africa.', stat: '1,798 GPUs', href: '/subsidiaries/intelligence', gradient: 'from-[#1a2a3a] to-[#0d1520]', accent: '#8B9DAF', outcomes: ['1,798 GPUs Carbon-Optimized', 'Carbon-Aware Scheduling', '~47 gCO2/kWh Average'], image: '/images/sections/intelligence-gpu-cluster.jpg', deepDiveImage: '/images/sections/intelligence-exterior.jpg' },
-  { version: '/0.2', name: 'Cement', fullName: 'Harch Cement', desc: 'Industrial Cement Production — 500kT/yr capacity serving West African construction boom. Vertically integrated from quarry to delivery.', stat: '500kT/yr', href: '/subsidiaries/cement', gradient: 'from-[#2a2420] to-[#151210]', accent: '#A08878', outcomes: ['500kT/yr Production Output', 'Quarry-to-Delivery Integration', 'West Africa Supply Chain'], image: '/images/sections/cement-kiln.jpg', deepDiveImage: '/images/sections/cement-quarry.jpg' },
-  { version: '/0.3', name: 'Energy', fullName: 'Harch Energy', desc: 'Renewable Energy & Green Hydrogen — 2GW+ solar, wind, and green hydrogen pipeline across Morocco and Sahel. Zero-carbon electricity for industrial operations.', stat: '2GW+ Pipeline', href: '/subsidiaries/energy', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6B9F6B', outcomes: ['2GW+ Pipeline', 'Green Hydrogen Export', 'Grid Stabilization'], image: '/images/sections/energy-wind-farm.jpg', deepDiveImage: '/images/sections/energy-hydrogen-plant.jpg' },
-  { version: '/0.4', name: 'Technology', fullName: 'Harch Technology', desc: 'Carbon-Aware GPU Cloud, Cyber & Satellite — Sovereign tech stack with the world\'s most carbon-efficient GPU cloud. Cybersecurity, satellite communications, and AI orchestration.', stat: '1,798 GPUs', href: '/subsidiaries/technology', gradient: 'from-[#1a1a2a] to-[#0d0f14]', accent: '#7888A8', outcomes: ['Carbon-Aware GPU Cloud', 'Cybersecurity Platforms', 'Satellite Communications'], image: '/images/sections/tech-ground-station.jpg', deepDiveImage: '/images/sections/tech-cyber.jpg' },
-  { version: '/0.5', name: 'Mining', fullName: 'Harch Mining', desc: 'Phosphates, Cobalt & Rare Earths — Strategic mineral extraction for the global energy transition. Africa holds 30% of reserves; we capture the value chain.', stat: '3 Minerals', href: '/subsidiaries/mining', gradient: 'from-[#2a1a1a] to-[#150d0d]', accent: '#A87878', outcomes: ['Phosphate Processing', 'Cobalt Refining', 'In-Country Value Capture'], image: '/images/sections/mining-smelter.jpg', deepDiveImage: '/images/sections/mining-processing.jpg' },
-  { version: '/0.6', name: 'Agri', fullName: 'Harch Agri', desc: 'Precision Agriculture & Vertical Farms — Deploying IoT, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.', stat: '$35B Market', href: '/subsidiaries/agriculture', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6BAF6B', outcomes: ['Precision IoT Farming', 'Drone Crop Monitoring', 'Vertical Farm Networks'], image: '/images/sections/agri-vertical-farm.jpg', deepDiveImage: '/images/sections/agri-iot-sensor.jpg' },
-  { version: '/0.7', name: 'Water', fullName: 'Harch Water', desc: 'Desalination & Smart Water Networks — 200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa\'s water security crisis.', stat: '200M m³/yr', href: '/subsidiaries/water', gradient: 'from-[#1a2030] to-[#0d1018]', accent: '#6888A8', outcomes: ['200M m³/yr Desalination', 'AI-Optimized Distribution', 'Continental Water Security'], image: '/images/sections/water-treatment.jpg', deepDiveImage: '/images/sections/water-desal-plant.jpg' },
-  { version: '/0.8', name: 'Finance', fullName: 'Harch Finance', desc: 'Green Bonds, Project Finance & Islamic Finance — Structuring capital flows for sovereign infrastructure. Green bonds, sustainability-linked loans, trade finance, and carbon credit monetization.', stat: '$2.4B+', href: '/subsidiaries/finance', gradient: 'from-[#1a1a2a] to-[#0d0f14]', accent: '#8B9DAF', outcomes: ['Green Bonds & Sukuk', 'Project Finance Structuring', 'Carbon Credit Monetization'], image: '/images/sections/finance-trading.jpg', deepDiveImage: '/images/sections/finance-district.jpg' },
-];
-
-const carouselSlides = [
-  { title: 'Harch Intelligence', subtitle: 'Carbon-Aware Sovereign AI', desc: '1,798 GPUs across 5 Moroccan hubs at ~47 gCO2/kWh — the world\'s most carbon-efficient GPU cloud, with carbon-aware scheduling and sovereign data residency.', href: '/subsidiaries/intelligence', image: '/images/sections/intelligence-rack.jpg', accent: '#8B9DAF' },
-  { title: 'Harch Energy', subtitle: '2GW+ Renewable Energy Pipeline', desc: 'Solar, wind, and green hydrogen across Morocco and the Sahel — zero-carbon electricity for industrial sovereignty.', href: '/subsidiaries/energy', image: '/images/sections/energy-solar-farm.jpg', accent: '#6B9F6B' },
-  { title: 'Harch Cement', subtitle: 'Building West Africa\'s Future', desc: '500kT/yr cement production — vertically integrated from quarry to delivery, serving the construction boom.', href: '/subsidiaries/cement', image: '/images/sections/cement-factory.jpg', accent: '#A08878' },
-  { title: 'Harch Technology', subtitle: 'Sovereign Digital Infrastructure', desc: 'AI platforms, cybersecurity, and satellite communications — the technology stack that Africa controls.', href: '/subsidiaries/technology', image: '/images/sections/tech-satellite.jpg', accent: '#7888A8' },
-  { title: 'Harch Mining', subtitle: 'Capturing the Value Chain', desc: 'Strategic mineral extraction — phosphates, cobalt, and rare earths processed in-country for the energy transition.', href: '/subsidiaries/mining', image: '/images/sections/mining-open-pit.jpg', accent: '#A87878' },
-  { title: 'Harch Agri', subtitle: 'Precision Agriculture at Scale', desc: 'Deploying IoT, drone monitoring, and vertical farming across Africa\'s uncultivated arable land.', href: '/subsidiaries/agriculture', image: '/images/sections/agri-aerial-drone.jpg', accent: '#6BAF6B' },
-  { title: 'Harch Water', subtitle: '200M m³/yr Desalination', desc: 'AI-optimized desalination and smart water networks solving Africa\'s water security crisis.', href: '/subsidiaries/water', image: '/images/sections/water-desal.jpg', accent: '#6888A8' },
-];
-
-const stats = [
-  { value: 2400, prefix: '$', suffix: 'M+', label: 'Investment Pipeline', desc: 'Active capital deployment across 7 industrial verticals and 5 countries' },
-  { value: 47, prefix: '~', suffix: '', label: 'gCO2/kWh Avg', desc: 'Carbon intensity — 89% lower than industry average of ~450 gCO2/kWh' },
-  { value: 81.5, prefix: '', suffix: '%', label: 'Renewable Energy', desc: 'Average across all 5 GPU hubs — targeting 100% by 2028', decimals: 1 },
-  { value: 25000, prefix: '', suffix: '+', label: 'Jobs by 2030', desc: 'Direct employment target across all verticals' },
-];
-
-const roadmap = [
-  { year: '2024', title: 'Foundation', desc: 'Harch Corp S.A. founded in Casablanca. Capital registered at 100M MAD.', status: 'completed' },
-  { year: '2025', title: 'Design & Engineering', desc: 'Dakhla data center engineering begins. Gambia cement plant permits secured.', status: 'completed' },
-  { year: '2026', title: 'Energy Permits', desc: '2GW renewable energy licenses secured. Green hydrogen pilot approved.', status: 'active' },
-  { year: '2027', title: 'First Module Live', desc: 'First 100MW data center module operational in Dakhla. GPU clusters online.', status: 'upcoming' },
-  { year: '2028', title: 'Cement Plant Online', desc: 'Gambia 500kT/yr facility commissioned. Energy farm at 1GW.', status: 'upcoming' },
-  { year: '2030', title: 'Continental Scale', desc: '7 verticals, 12+ markets. $2.4B deployed. Africa\'s industrial backbone.', status: 'upcoming' },
-];
-
-const africaStats = [
-  { value: '30%', numValue: 30, desc: 'of the world\'s mineral reserves are in Africa — yet the continent captures less than 5% of the value chain. Morocco alone holds 75% of global phosphate reserves, while the DRC produces 70% of the world\'s cobalt. Harch Mining builds in-country processing and refining capacity to ensure that resource wealth stays on the continent, converting raw extraction into industrial value.' },
-  { value: '60%', numValue: 60, desc: 'of the world\'s uncultivated arable land is in Africa, yet the continent spends $50 billion annually on food imports. Harch Agri deploys precision IoT sensors, drone monitoring, and vertical farming technology across this untapped potential, converting it into food security and export revenue at continental scale — with an integrated carbon credit API that no competitor offers.' },
-  { value: '1.4B', numValue: 1400, desc: 'people — the youngest population on Earth with a median age of 19.7 years. Africa\'s digital economy is projected to grow from $115 billion to $712 billion by 2050, yet the continent hosts less than 1% of global data center capacity. Harch Intelligence provides the sovereign AI compute infrastructure — 1,798 GPUs scaling to 100,000+ — to educate, connect, and empower the next generation of African innovators.' },
-];
-
-const investmentTable = [
-  { vertical: 'Intelligence', investment: '$800M', capacity: '500 MW / 100K+ GPUs', timeline: '2027', status: 'Engineering' },
-  { vertical: 'Energy', investment: '$600M', capacity: '2GW+ Pipeline', timeline: '2027', status: 'Active' },
-  { vertical: 'Technology', investment: '$400M', capacity: '50K+ GPUs / HarchOS', timeline: '2028', status: 'Design' },
-  { vertical: 'Cement', investment: '$200M', capacity: '500kT/yr — Gambia', timeline: '2028', status: 'Permitted' },
-  { vertical: 'Mining', investment: '$200M', capacity: 'Phosphates / Cobalt / REE', timeline: '2029', status: 'Exploration' },
-  { vertical: 'Agri', investment: '$150M', capacity: 'Precision IoT / Vertical', timeline: '2029', status: 'Planning' },
-  { vertical: 'Water', investment: '$150M', capacity: '200M m³/yr Desal.', timeline: '2030', status: 'Feasibility' },
-  { vertical: 'Finance', investment: '$100M', capacity: 'Green Bonds / Sukuk', timeline: '2026', status: 'Active' },
-];
-
-const testimonials = [
-  { quote: 'Harch Corp represents a new paradigm for African industrialization — one built on sovereignty, integration, and speed. Their model is exactly what the continent needs.', name: 'Dr. Aïcha Diallo', title: 'Former Minister of Industry', company: 'Republic of Senegal' },
-  { quote: 'The Dakhla AI data center project is the most ambitious technology infrastructure initiative in African history. It will fundamentally reshape the continent\'s digital economy.', name: 'James Okonkwo', title: 'Managing Director', company: 'Africa Infrastructure Partners' },
-  { quote: 'We evaluated over 30 industrial conglomerates for our Sahel energy partnership. Harch Corp\'s vertically integrated model and execution speed made them the clear choice.', name: 'Marie-Claire Dupont', title: 'Head of Infrastructure Investments', company: 'Sovereign Wealth Fund of Morocco' },
-  { quote: 'Harch\'s approach to water infrastructure — combining desalination with AI-optimized distribution — is exactly the kind of innovation Africa needs to solve its water crisis at scale.', name: 'Prof. Youssef El Amrani', title: 'Director', company: 'Pan-African Water Council' },
-];
-
-const operatorPrinciples = [
-  { title: 'Vertically Integrated', desc: 'Energy + Materials + Technology + Operations — all under one roof. We control every link in the chain.' },
-  { title: 'Sovereign by Design', desc: 'Infrastructure that Africa owns, operates, and controls. No dependency on foreign operators or technology.' },
-  { title: 'Speed at Scale', desc: 'We move with urgency. The continent cannot afford to wait. Every project is executed with precision and pace.' },
-  { title: 'World-Class Standards', desc: 'From engineering to governance, we accept nothing less than the best. International certifications across all verticals.' },
-];
-
-const newsArticles = [
-  { title: 'Harch Intelligence Deploys 1,798 GPUs Across 5 Carbon-Optimized Hubs', date: 'March 2026', tag: 'Intelligence', desc: 'The largest sovereign AI compute deployment in Africa — carbon-aware scheduling, renewable energy, and zero foreign dependency.', image: '/images/sections/intelligence-gpu-cluster.jpg' },
-  { title: 'Harch Energy Reaches 2GW+ Renewable Pipeline Milestone', date: 'February 2026', tag: 'Energy', desc: 'Solar, wind, and green hydrogen projects across Morocco and the Sahel now exceed 2GW in combined capacity.', image: '/images/sections/energy-solar-farm.jpg' },
-  { title: 'Harch Corp Announces $2.4B Investment Pipeline Across 7 Verticals', date: 'January 2026', tag: 'Corporate', desc: 'A milestone in sovereign infrastructure development — the largest private industrial investment in African history.', image: '/images/sections/overview-casablanca.jpg' },
-];
-
-/* ═══════════════════════════════════════════════════════════════
    STATUS BADGE HELPER
    ═══════════════════════════════════════════════════════════════ */
 
@@ -143,6 +66,85 @@ function getStatusBadgeClass(status: string) {
    ═══════════════════════════════════════════════════════════════ */
 
 export default function HomePageClient() {
+  const t = useTranslations('home');
+  const tCommon = useTranslations('common');
+
+  /* ─── DATA — moved inside component to access t() ─── */
+  const verticals = [
+    { version: '/0.1', name: t('verticals.intelligence.name'), fullName: t('verticals.intelligence.name'), desc: t('verticals.intelligence.description'), stat: t('verticals.intelligence.stat'), href: '/subsidiaries/intelligence', gradient: 'from-[#1a2a3a] to-[#0d1520]', accent: '#8B9DAF', outcomes: [t('verticals.intelligence.outcomes.items.0'), t('verticals.intelligence.outcomes.items.1'), t('verticals.intelligence.outcomes.items.2')], image: '/images/sections/intelligence-gpu-cluster.jpg', deepDiveImage: '/images/sections/intelligence-exterior.jpg' },
+    { version: '/0.2', name: t('verticals.cement.name'), fullName: t('verticals.cement.name'), desc: t('verticals.cement.description'), stat: t('verticals.cement.stat'), href: '/subsidiaries/cement', gradient: 'from-[#2a2420] to-[#151210]', accent: '#A08878', outcomes: [t('verticals.cement.outcomes.items.0'), t('verticals.cement.outcomes.items.1'), t('verticals.cement.outcomes.items.2')], image: '/images/sections/cement-kiln.jpg', deepDiveImage: '/images/sections/cement-quarry.jpg' },
+    { version: '/0.3', name: t('verticals.energy.name'), fullName: t('verticals.energy.name'), desc: t('verticals.energy.description'), stat: t('verticals.energy.stat'), href: '/subsidiaries/energy', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6B9F6B', outcomes: [t('verticals.energy.outcomes.items.0'), t('verticals.energy.outcomes.items.1'), t('verticals.energy.outcomes.items.2')], image: '/images/sections/energy-wind-farm.jpg', deepDiveImage: '/images/sections/energy-hydrogen-plant.jpg' },
+    { version: '/0.4', name: t('verticals.technology.name'), fullName: t('verticals.technology.name'), desc: t('verticals.technology.description'), stat: t('verticals.technology.stat'), href: '/subsidiaries/technology', gradient: 'from-[#1a1a2a] to-[#0d0f14]', accent: '#7888A8', outcomes: [t('verticals.technology.outcomes.items.0'), t('verticals.technology.outcomes.items.1'), t('verticals.technology.outcomes.items.2')], image: '/images/sections/tech-ground-station.jpg', deepDiveImage: '/images/sections/tech-cyber.jpg' },
+    { version: '/0.5', name: t('verticals.mining.name'), fullName: t('verticals.mining.name'), desc: t('verticals.mining.description'), stat: t('verticals.mining.stat'), href: '/subsidiaries/mining', gradient: 'from-[#2a1a1a] to-[#150d0d]', accent: '#A87878', outcomes: [t('verticals.mining.outcomes.items.0'), t('verticals.mining.outcomes.items.1'), t('verticals.mining.outcomes.items.2')], image: '/images/sections/mining-smelter.jpg', deepDiveImage: '/images/sections/mining-processing.jpg' },
+    { version: '/0.6', name: t('verticals.agriculture.name'), fullName: t('verticals.agriculture.name'), desc: t('verticals.agriculture.description'), stat: t('verticals.agriculture.stat'), href: '/subsidiaries/agriculture', gradient: 'from-[#1a2a1a] to-[#0d150d]', accent: '#6BAF6B', outcomes: [t('verticals.agriculture.outcomes.items.0'), t('verticals.agriculture.outcomes.items.1'), t('verticals.agriculture.outcomes.items.2')], image: '/images/sections/agri-vertical-farm.jpg', deepDiveImage: '/images/sections/agri-iot-sensor.jpg' },
+    { version: '/0.7', name: t('verticals.water.name'), fullName: t('verticals.water.name'), desc: t('verticals.water.description'), stat: t('verticals.water.stat'), href: '/subsidiaries/water', gradient: 'from-[#1a2030] to-[#0d1018]', accent: '#6888A8', outcomes: [t('verticals.water.outcomes.items.0'), t('verticals.water.outcomes.items.1'), t('verticals.water.outcomes.items.2')], image: '/images/sections/water-treatment.jpg', deepDiveImage: '/images/sections/water-desal-plant.jpg' },
+    { version: '/0.8', name: t('verticals.finance.name'), fullName: t('verticals.finance.name'), desc: t('verticals.finance.description'), stat: t('verticals.finance.stat'), href: '/subsidiaries/finance', gradient: 'from-[#1a1a2a] to-[#0d0f14]', accent: '#8B9DAF', outcomes: [t('verticals.finance.outcomes.items.0'), t('verticals.finance.outcomes.items.1'), t('verticals.finance.outcomes.items.2')], image: '/images/sections/finance-trading.jpg', deepDiveImage: '/images/sections/finance-district.jpg' },
+  ];
+
+  const carouselSlides = [
+    { title: t('verticals.intelligence.name'), subtitle: t('carouselSlides.slide1.title'), desc: t('carouselSlides.slide1.description'), href: '/subsidiaries/intelligence', image: '/images/sections/intelligence-rack.jpg', accent: '#8B9DAF' },
+    { title: t('verticals.energy.name'), subtitle: t('carouselSlides.slide2.title'), desc: t('carouselSlides.slide2.description'), href: '/subsidiaries/energy', image: '/images/sections/energy-solar-farm.jpg', accent: '#6B9F6B' },
+    { title: t('verticals.cement.name'), subtitle: t('carouselSlides.slide6.title'), desc: t('carouselSlides.slide6.description'), href: '/subsidiaries/cement', image: '/images/sections/cement-factory.jpg', accent: '#A08878' },
+    { title: t('verticals.technology.name'), subtitle: t('carouselSlides.slide3.title'), desc: t('carouselSlides.slide3.description'), href: '/subsidiaries/technology', image: '/images/sections/tech-satellite.jpg', accent: '#7888A8' },
+    { title: t('verticals.mining.name'), subtitle: t('carouselSlides.slide3.title'), desc: t('carouselSlides.slide3.description'), href: '/subsidiaries/mining', image: '/images/sections/mining-open-pit.jpg', accent: '#A87878' },
+    { title: t('verticals.agriculture.name'), subtitle: t('carouselSlides.slide5.title'), desc: t('carouselSlides.slide5.description'), href: '/subsidiaries/agriculture', image: '/images/sections/agri-aerial-drone.jpg', accent: '#6BAF6B' },
+    { title: t('verticals.water.name'), subtitle: t('carouselSlides.slide4.title'), desc: t('carouselSlides.slide4.description'), href: '/subsidiaries/water', image: '/images/sections/water-desal.jpg', accent: '#6888A8' },
+  ];
+
+  const stats = [
+    { value: 2400, prefix: '$', suffix: 'M+', label: t('stats.investmentPipeline.label'), desc: t('stats.investmentPipeline.description') },
+    { value: 47, prefix: '~', suffix: '', label: t('stats.carbonIntensity.label'), desc: t('stats.carbonIntensity.description') },
+    { value: 81.5, prefix: '', suffix: '%', label: t('stats.renewableEnergy.label'), desc: t('stats.renewableEnergy.description'), decimals: 1 },
+    { value: 25000, prefix: '', suffix: '+', label: t('stats.employment2030.label'), desc: t('stats.employment2030.description') },
+  ];
+
+  const roadmap = [
+    { year: '2024', title: t('roadmap.2024.title'), desc: t('roadmap.2024.description'), status: 'completed' },
+    { year: '2025', title: t('roadmap.2025.title'), desc: t('roadmap.2025.description'), status: 'completed' },
+    { year: '2026', title: t('roadmap.2026.title'), desc: t('roadmap.2026.description'), status: 'active' },
+    { year: '2027', title: t('roadmap.2027.title'), desc: t('roadmap.2027.description'), status: 'upcoming' },
+    { year: '2028', title: t('roadmap.2028.title'), desc: t('roadmap.2028.description'), status: 'upcoming' },
+    { year: '2030', title: t('roadmap.2030.title'), desc: t('roadmap.2030.description'), status: 'upcoming' },
+  ];
+
+  const africaStats = [
+    { value: '30%', numValue: 30, desc: t('africaStats.mineralReserves.description') },
+    { value: '60%', numValue: 60, desc: t('africaStats.arableLand.description') },
+    { value: '1.4B', numValue: 1400, desc: t('africaStats.population.description') },
+  ];
+
+  const investmentTable = [
+    { vertical: t('investmentTable.rows.intelligence.vertical'), investment: t('investmentTable.rows.intelligence.investment'), capacity: t('investmentTable.rows.intelligence.capacity'), timeline: t('investmentTable.rows.intelligence.timeline'), status: 'Engineering' },
+    { vertical: t('investmentTable.rows.energy.vertical'), investment: t('investmentTable.rows.energy.investment'), capacity: t('investmentTable.rows.energy.capacity'), timeline: t('investmentTable.rows.energy.timeline'), status: 'Active' },
+    { vertical: t('investmentTable.rows.technology.vertical'), investment: t('investmentTable.rows.technology.investment'), capacity: t('investmentTable.rows.technology.capacity'), timeline: t('investmentTable.rows.technology.timeline'), status: 'Design' },
+    { vertical: t('investmentTable.rows.cement.vertical'), investment: t('investmentTable.rows.cement.investment'), capacity: t('investmentTable.rows.cement.capacity'), timeline: t('investmentTable.rows.cement.timeline'), status: 'Permitted' },
+    { vertical: t('investmentTable.rows.mining.vertical'), investment: t('investmentTable.rows.mining.investment'), capacity: t('investmentTable.rows.mining.capacity'), timeline: t('investmentTable.rows.mining.timeline'), status: 'Exploration' },
+    { vertical: t('investmentTable.rows.agriculture.vertical'), investment: t('investmentTable.rows.agriculture.investment'), capacity: t('investmentTable.rows.agriculture.capacity'), timeline: t('investmentTable.rows.agriculture.timeline'), status: 'Planning' },
+    { vertical: t('investmentTable.rows.water.vertical'), investment: t('investmentTable.rows.water.investment'), capacity: t('investmentTable.rows.water.capacity'), timeline: t('investmentTable.rows.water.timeline'), status: 'Feasibility' },
+    { vertical: t('investmentTable.rows.finance.vertical'), investment: t('investmentTable.rows.finance.investment'), capacity: t('investmentTable.rows.finance.capacity'), timeline: t('investmentTable.rows.finance.timeline'), status: 'Active' },
+  ];
+
+  const testimonials = [
+    { quote: t('testimonials.testimonial1.quote'), name: t('testimonials.testimonial1.author'), title: t('testimonials.testimonial1.title'), company: t('testimonials.testimonial1.organization') },
+    { quote: t('testimonials.testimonial2.quote'), name: t('testimonials.testimonial2.author'), title: t('testimonials.testimonial2.title'), company: t('testimonials.testimonial2.organization') },
+    { quote: t('testimonials.testimonial3.quote'), name: t('testimonials.testimonial3.author'), title: t('testimonials.testimonial3.title'), company: t('testimonials.testimonial3.organization') },
+    { quote: t('testimonials.testimonial4.quote'), name: t('testimonials.testimonial4.author'), title: t('testimonials.testimonial4.title'), company: t('testimonials.testimonial4.organization') },
+  ];
+
+  const operatorPrinciples = [
+    { title: t('operatorPrinciples.verticalIntegration.title'), desc: t('operatorPrinciples.verticalIntegration.description') },
+    { title: t('operatorPrinciples.sovereignByDesign.title'), desc: t('operatorPrinciples.sovereignByDesign.description') },
+    { title: t('operatorPrinciples.speedAtScale.title'), desc: t('operatorPrinciples.speedAtScale.description') },
+    { title: t('operatorPrinciples.worldClassStandards.title'), desc: t('operatorPrinciples.worldClassStandards.description') },
+  ];
+
+  const newsArticles = [
+    { title: t('newsArticles.article2.title'), date: t('newsArticles.article2.date'), tag: t('newsArticles.article2.category'), desc: t('newsArticles.article2.excerpt'), image: '/images/sections/intelligence-gpu-cluster.jpg' },
+    { title: t('newsArticles.article3.title'), date: t('newsArticles.article3.date'), tag: t('newsArticles.article3.category'), desc: t('newsArticles.article3.excerpt'), image: '/images/sections/energy-solar-farm.jpg' },
+    { title: t('newsArticles.article1.title'), date: t('newsArticles.article1.date'), tag: t('newsArticles.article1.category'), desc: t('newsArticles.article1.excerpt'), image: '/images/sections/overview-casablanca.jpg' },
+  ];
+
+  /* ─── Component state ─── */
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeVertical, setActiveVertical] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -155,15 +157,15 @@ export default function HomePageClient() {
       setActiveSlide((prev) => (prev + 1) % carouselSlides.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [carouselSlides.length]);
 
   const nextSlide = useCallback(() => {
     setActiveSlide((prev) => (prev + 1) % carouselSlides.length);
-  }, []);
+  }, [carouselSlides.length]);
 
   const prevSlide = useCallback(() => {
     setActiveSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
-  }, []);
+  }, [carouselSlides.length]);
 
   return (
     <div className="bg-[#0D0D0D]">
@@ -231,7 +233,7 @@ export default function HomePageClient() {
 
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.06)] backdrop-blur-sm mb-6">
               <Globe size={12} className="text-[rgba(255,255,255,0.5)]" />
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">Africa&apos;s Sovereign Infrastructure OS</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">{t('heroBadge')}</span>
             </span>
 
             <h2 className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-white/80 leading-[1.05] tracking-[-0.01em] mb-2">
@@ -251,7 +253,7 @@ export default function HomePageClient() {
                 href={carouselSlides[activeSlide].href}
                 className="inline-flex items-center gap-2.5 bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold hover:bg-white/90 transition-colors"
               >
-                Learn More <ArrowRight size={14} />
+                {tCommon('learnMore')} <ArrowRight size={14} />
               </Link>
             </MagneticButton>
           </motion.div>
@@ -299,9 +301,9 @@ export default function HomePageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-20 md:pt-28">
           <FadeIn>
             <div className="mb-12">
-              <p className="section-label mb-4">Our Verticals</p>
+              <p className="section-label mb-4">{t('sectionLabels.verticals')}</p>
               <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight leading-tight">
-                Infrastructure for<br />the Next Century
+                {t('sectionLabels.infrastructure')}
               </h2>
             </div>
           </FadeIn>
@@ -348,7 +350,7 @@ export default function HomePageClient() {
                         href={v.href}
                         className="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-[8px] text-sm font-semibold hover:bg-white/90 transition-all"
                       >
-                        Learn More
+                        {tCommon('learnMore')}
                       </Link>
                     </div>
                   </div>
@@ -362,7 +364,7 @@ export default function HomePageClient() {
         <div className="border-t border-[rgba(255,255,255,0.04)]">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-12 pb-4">
             <div className="flex items-center justify-between mb-4">
-              <p className="section-label">Deep Dive</p>
+              <p className="section-label">{t('sectionLabels.deepDive')}</p>
               <div className="flex gap-1 overflow-x-auto no-scrollbar">
                 {verticals.map((v, i) => (
                   <button
@@ -427,7 +429,7 @@ export default function HomePageClient() {
                   {verticals[activeVertical].desc}
                 </p>
                 <SmoothLink href={verticals[activeVertical].href} className="text-sm font-semibold text-white">
-                  Learn More
+                  {tCommon('learnMore')}
                 </SmoothLink>
               </motion.div>
             </div>
@@ -474,9 +476,9 @@ export default function HomePageClient() {
         <div className="relative z-10 text-center">
           <FadeIn>
             <p className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-white tracking-[-0.02em] mb-4">
-              8 Verticals. 5 Countries.
+              {t('sectionLabels.eightVerticals')}
             </p>
-            <p className="text-xl md:text-2xl font-light text-[rgba(255,255,255,0.4)]">$2.4B Investment Pipeline</p>
+            <p className="text-xl md:text-2xl font-light text-[rgba(255,255,255,0.4)]">{t('sectionLabels.investmentPipeline')}</p>
           </FadeIn>
         </div>
       </ParallaxSection>
@@ -490,12 +492,12 @@ export default function HomePageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <FadeIn>
             <div className="text-center mb-16">
-              <p className="section-label mb-4">Deployments / Real-Time</p>
+              <p className="section-label mb-4">{t('sectionLabels.deployments')}</p>
               <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight">
-                Operating Across<br />Africa
+                {t('sectionLabels.operations')}
               </h2>
               <p className="max-w-xl mx-auto mt-4 text-sm text-[rgba(255,255,255,0.5)] leading-relaxed">
-                From our Casablanca headquarters to Dakhla, Gambia, and the Sahel — our operations span the continent&apos;s most strategic industrial corridors.
+                {t('heroSubtitle')}
               </p>
             </div>
           </FadeIn>
@@ -510,11 +512,11 @@ export default function HomePageClient() {
                 <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">
-                      System Health
+                      {t('systemHealth.title')}
                     </span>
                     <div className="flex items-center gap-1.5">
                       <PulseIndicator size={6} />
-                      <span className="text-[8px] text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">ALL NOMINAL</span>
+                      <span className="text-[8px] text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">{t('systemHealth.allOperational')}</span>
                     </div>
                   </div>
                   <div className="space-y-4">
@@ -566,9 +568,9 @@ export default function HomePageClient() {
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Scale &amp; Impact</p>
+            <p className="section-label mb-4">{t('sectionLabels.scaleAndImpact')}</p>
             <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-16">
-              By the Numbers
+              {t('sectionLabels.inNumbers')}
             </h2>
           </FadeIn>
 
@@ -591,7 +593,7 @@ export default function HomePageClient() {
 
           <FadeIn delay={0.4}>
             <p className="mt-8 text-[11px] text-[rgba(255,255,255,0.25)] italic">
-              * Projected targets based on current pipeline and regulatory approvals. Updated Q1 2026.
+              {t('footnote.disclaimer')}
             </p>
           </FadeIn>
         </div>
@@ -605,12 +607,12 @@ export default function HomePageClient() {
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Investment Pipeline</p>
+            <p className="section-label mb-4">{t('sectionLabels.investment')}</p>
             <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-4">
-              Capital Deployment
+              {t('sectionLabels.capitalDeployment')}
             </h2>
             <p className="max-w-xl text-sm text-[rgba(255,255,255,0.5)] leading-relaxed mb-12">
-              $2.4B+ in active capital deployment across 7 industrial verticals, spanning 5 countries and multiple project phases.
+              {t('footnote.disclaimer')}
             </p>
           </FadeIn>
 
@@ -619,11 +621,11 @@ export default function HomePageClient() {
               {/* Header divider */}
               <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.06)] min-w-[600px] md:min-w-0">
                 <div className="grid grid-cols-[1fr_120px_180px_80px_auto] gap-4">
-                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Vertical</span>
-                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Investment</span>
-                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Capacity</span>
-                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Timeline</span>
-                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">Status</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">{t('investmentTable.headers.vertical')}</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">{t('investmentTable.headers.investment')}</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">{t('investmentTable.headers.capacity')}</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">{t('investmentTable.headers.timeline')}</span>
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[rgba(255,255,255,0.25)]">{t('investmentTable.headers.status')}</span>
                 </div>
               </div>
               {/* Rows — Pattern 2: Vertical List */}
@@ -649,7 +651,7 @@ export default function HomePageClient() {
                 </motion.div>
               ))}
               <div className="px-6 py-4 bg-[rgba(255,255,255,0.01)] min-w-[600px] md:min-w-0">
-                <p className="text-[11px] text-[rgba(255,255,255,0.25)]">Total investment pipeline: $2.4B+ across 7 verticals. Data as of Q1 2026.</p>
+                <p className="text-[11px] text-[rgba(255,255,255,0.25)]">{t('footnote.disclaimer')}</p>
               </div>
             </div>
           </FadeIn>
@@ -793,7 +795,7 @@ export default function HomePageClient() {
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-8">Impact Study &mdash; Harch Intelligence /0.1</p>
+            <p className="section-label mb-8">Impact Study &mdash; {t('verticals.intelligence.name')} /0.1</p>
           </FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Image on left */}
@@ -801,7 +803,7 @@ export default function HomePageClient() {
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
                 <Image
                   src="/images/sections/intelligence-rack.jpg"
-                  alt="Harch Intelligence GPU rack"
+                  alt={t('verticals.intelligence.name')}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -809,23 +811,19 @@ export default function HomePageClient() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.6)] to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-md px-4 py-2 rounded-md border border-[rgba(255,255,255,0.06)]">
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/70">1,798 GPUs Carbon-Optimized</p>
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/70">{t('verticals.intelligence.stat')}</p>
                 </div>
               </div>
             </FadeIn>
             {/* Text on right */}
             <FadeIn delay={0.15} direction="left">
               <TextReveal
-                text="Africa's Carbon-Aware GPU Cloud"
+                text={t('verticals.intelligence.tagline')}
                 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-4"
               />
               <div className="accent-line mb-6" />
               <p className="text-sm text-[rgba(255,255,255,0.5)] leading-[1.7] mb-8">
-                Harch Intelligence operates 1,798 GPUs across 5 carbon-optimized hubs in Morocco —
-                with an average carbon intensity of ~47 gCO2/kWh and ~81.5% renewable energy.
-                Carbon-aware scheduling automatically routes workloads to the greenest hub in real-time,
-                delivering 40-60% cost savings vs. AWS/GCP/Azure while maintaining sovereign data residency
-                under Moroccan jurisdiction. Zero competitors in Africa offer carbon-aware GPU scheduling.
+                {t('verticals.intelligence.description')}
               </p>
               <div className="grid grid-cols-3 gap-6 mb-8">
                 {[
@@ -840,7 +838,7 @@ export default function HomePageClient() {
                 ))}
               </div>
               <SmoothLink href="/subsidiaries/intelligence" className="text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white">
-                Read More
+                {tCommon('readMore')}
               </SmoothLink>
             </FadeIn>
           </div>
@@ -855,22 +853,18 @@ export default function HomePageClient() {
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-8">Impact Study &mdash; Harch Energy /0.3</p>
+            <p className="section-label mb-8">Impact Study &mdash; {t('verticals.energy.name')} /0.3</p>
           </FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Text on left */}
             <FadeIn delay={0.15} direction="right" className="order-2 lg:order-1">
               <TextReveal
-                text="2GW+ of Renewable Energy Pipeline"
+                text={t('verticals.energy.tagline')}
                 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-4"
               />
               <div className="accent-line mb-6" />
               <p className="text-sm text-[rgba(255,255,255,0.5)] leading-[1.7] mb-8">
-                Harch Energy is developing over 2 gigawatts of renewable energy capacity across
-                Morocco and the Sahel region — combining solar, wind, and green hydrogen production
-                to power industrial operations and data centers with zero-carbon electricity. Our
-                integrated approach ensures energy sovereignty for the continent while creating
-                a model for sustainable industrialization worldwide.
+                {t('verticals.energy.description')}
               </p>
               <div className="grid grid-cols-3 gap-6 mb-8">
                 {[
@@ -885,7 +879,7 @@ export default function HomePageClient() {
                 ))}
               </div>
               <SmoothLink href="/subsidiaries/energy" className="text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white">
-                Read More
+                {tCommon('readMore')}
               </SmoothLink>
             </FadeIn>
             {/* Image on right */}
@@ -893,7 +887,7 @@ export default function HomePageClient() {
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
                 <Image
                   src="/images/sections/energy-solar-farm.jpg"
-                  alt="Harch Energy solar farm"
+                  alt={t('verticals.energy.name')}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -901,7 +895,7 @@ export default function HomePageClient() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.6)] to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-md px-4 py-2 rounded-md border border-[rgba(255,255,255,0.06)]">
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/70">2GW+ Renewable Pipeline</p>
+                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/70">{t('verticals.energy.stat')}</p>
                 </div>
               </div>
             </FadeIn>
@@ -1057,9 +1051,9 @@ export default function HomePageClient() {
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">The Opportunity</p>
+            <p className="section-label mb-4">{t('sectionLabels.africaFocus')}</p>
             <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-16">
-              Africa&apos;s Potential,<br />By the Numbers
+              {t('sectionLabels.africaFocus')}
             </h2>
           </FadeIn>
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
@@ -1088,7 +1082,7 @@ export default function HomePageClient() {
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Roadmap</p>
+            <p className="section-label mb-4">{t('sectionLabels.roadmap')}</p>
             <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-16">
               2024 &mdash; 2030
             </h2>
@@ -1132,7 +1126,7 @@ export default function HomePageClient() {
                         'text-[rgba(255,255,255,0.25)]'
                       }`}>
                         {item.year}
-                        {item.status === 'active' && ' — Current'}
+                        {item.status === 'active' && ` — ${tCommon('active')}`}
                       </span>
                       <h3 className="text-lg md:text-xl font-bold text-white mt-1 mb-1">{item.title}</h3>
                       <p className="text-sm text-[rgba(255,255,255,0.5)] leading-relaxed max-w-lg">{item.desc}</p>
@@ -1154,7 +1148,7 @@ export default function HomePageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             <FadeIn>
-              <p className="section-label mb-4">Our Model</p>
+              <p className="section-label mb-4">{t('sectionLabels.principles')}</p>
               <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-6">
                 Not a Service Provider.<br />Not a Consultancy.<br />
                 <TextReveal
@@ -1164,10 +1158,7 @@ export default function HomePageClient() {
               </h2>
               <div className="accent-line mb-6" />
               <p className="text-sm text-[rgba(255,255,255,0.5)] leading-[1.7] mb-8">
-                Harch Corp doesn&apos;t advise — we build. We own the entire value chain from raw materials
-                to finished infrastructure. This vertically integrated model creates structural cost
-                advantages of 30-50% versus competitors who rely on external supply chains. We don&apos;t
-                write reports about Africa&apos;s potential — we convert it into industrial power.
+                {t('footnote.text')}
               </p>
               <SmoothLink href="/strategy" className="text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white">
                 Our Strategy
@@ -1197,11 +1188,11 @@ export default function HomePageClient() {
           <FadeIn>
             <div className="flex items-end justify-between mb-12">
               <div>
-                <p className="section-label mb-4">Latest Updates</p>
-                <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-white tracking-tight">Newsroom</h2>
+                <p className="section-label mb-4">{t('sectionLabels.news')}</p>
+                <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-white tracking-tight">{t('sectionLabels.news')}</h2>
               </div>
               <Link href="/newsroom" className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[rgba(255,255,255,0.25)] hover:text-white transition-colors group">
-                All Updates <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                {tCommon('viewAll')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </FadeIn>
@@ -1231,7 +1222,7 @@ export default function HomePageClient() {
                     <div className="p-5">
                       <p className="text-[14px] text-[#999999] leading-relaxed mb-4 line-clamp-2">{article.desc}</p>
                       <span className="text-[12px] text-[#8B9DAF] font-semibold flex items-center gap-1 group-hover:text-white transition-colors">
-                        Read More <ArrowRight size={12} />
+                        {tCommon('readMore')} <ArrowRight size={12} />
                       </span>
                     </div>
                   </div>
@@ -1253,19 +1244,18 @@ export default function HomePageClient() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-28 md:py-36 text-center">
           <FadeIn>
             <TextReveal
-              text="The Next Century Starts Now"
+              text={t('sectionLabels.cta')}
               className="text-[clamp(1.75rem,5vw,3.5rem)] font-bold text-white tracking-tight mb-6 leading-tight"
             />
             <p className="max-w-xl mx-auto text-sm text-[rgba(255,255,255,0.3)] leading-relaxed mb-12">
-              Join the consortium building Africa&apos;s industrial sovereignty.
-              From investment to partnership — the future is being built.
+              {t('footnote.text')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticButton className="inline-block">
                 <Link href="/quote" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all duration-300">
-                  Request a Quote <ArrowRight size={14} />
+                  {tCommon('requestQuote')} <ArrowRight size={14} />
                 </Link>
               </MagneticButton>
               <MagneticButton className="inline-block">
@@ -1282,7 +1272,6 @@ export default function HomePageClient() {
           </FadeIn>
         </div>
       </ParallaxSection>
-
     </div>
   );
 }

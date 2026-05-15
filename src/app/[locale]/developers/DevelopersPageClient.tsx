@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/motion';
+import { useTranslations } from 'next-intl';
 import {
   ArrowRight, Terminal, Code2, Package, Layout, FlaskConical,
   Activity, Github, MessageCircle, BookOpen, Zap, Key,
@@ -10,85 +11,86 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-/* ─── DATA ─── */
-const quickStartSteps = [
-  {
-    step: '01',
-    title: 'Create Account',
-    description: 'Sign up for a free HarchOS developer account. No credit card required. Instant access to the Starter tier with 10 GPU hours/month free tier.',
-    icon: Users,
-    color: '#8B9DAF',
-  },
-  {
-    step: '02',
-    title: 'Get API Key',
-    description: 'Generate your API key from the dashboard. Install the SDK with a single command. Authenticate in seconds with our streamlined onboarding.',
-    icon: Key,
-    color: '#8B5CF6',
-  },
-  {
-    step: '03',
-    title: 'Deploy First Model',
-    description: 'Deploy your first AI model to the HarchOS mesh in under 4 minutes. Choose your GPU type, region, and sovereignty level. Go live instantly.',
-    icon: Zap,
-    color: '#10B981',
-  },
-];
-
-const developerTools = [
-  {
-    icon: Terminal,
-    title: 'HarchOS CLI',
-    description: 'Command-line interface for deploying, managing, and monitoring workloads. Terraform provider and Kubernetes operator included for infrastructure-as-code workflows.',
-    tags: ['Terraform Provider', 'K8s Operator', 'CI/CD Integration'],
-    color: '#8B9DAF',
-  },
-  {
-    icon: Code2,
-    title: 'SDKs',
-    description: 'Native SDKs for Python, TypeScript, Go, and Rust. Full type safety, async support, and automatic retry logic built in. Install and start building in seconds.',
-    tags: ['Python', 'TypeScript', 'Go', 'Rust'],
-    color: '#8B5CF6',
-  },
-  {
-    icon: Layout,
-    title: 'VS Code Extension',
-    description: 'Deploy directly from your editor. Syntax highlighting for HarchOS configs, inline documentation, and one-click deployment to any mesh hub.',
-    tags: ['IntelliSense', 'One-Click Deploy', 'Live Logs'],
-    color: '#10B981',
-  },
-  {
-    icon: FlaskConical,
-    title: 'API Playground',
-    description: 'Interactive sandbox to test API endpoints, build requests, and explore responses. Auto-generates code snippets in curl, Python, TypeScript, and Go.',
-    tags: ['Interactive', 'Code Generation', 'Real-time'],
-    color: '#F59E0B',
-  },
-  {
-    icon: Activity,
-    title: 'Observability Suite',
-    description: 'Integrated Grafana dashboards, Prometheus metrics, and Jaeger distributed tracing. Full visibility into workload performance, GPU utilization, and carbon metrics.',
-    tags: ['Grafana', 'Prometheus', 'Jaeger'],
-    color: '#EF4444',
-  },
-];
-
-const dxMetrics = [
-  { label: 'API Response Time', value: '12ms', sublabel: 'p99 latency', icon: Clock, color: '#8B9DAF' },
-  { label: 'SDK Satisfaction', value: '94%', sublabel: 'developer survey', icon: BarChart3, color: '#8B5CF6' },
-  { label: 'Documentation Coverage', value: '87%', sublabel: 'API endpoints documented', icon: BookOpen, color: '#10B981' },
-  { label: 'First Deploy Time', value: '4.2min', sublabel: 'average onboarding', icon: Zap, color: '#F59E0B' },
-];
-
-const openSourceProjects = [
-  { name: 'harchos-sdk-python', description: 'Official Python SDK for HarchOS. Full async support with automatic retry, streaming, and type-safe models.', githubUrl: 'https://github.com/HarchCorp/harchos-sdk-python', language: 'Python', languageColor: '#3572A5' },
-  { name: 'harchos-sdk-js', description: 'TypeScript/JavaScript SDK with full IntelliSense support. Works in Node.js and modern browsers.', githubUrl: 'https://github.com/HarchCorp/harchos-sdk-js', language: 'TypeScript', languageColor: '#2B7489' },
-  { name: 'harchos-cli', description: 'Command-line interface for HarchOS. Deploy, manage, and monitor workloads from your terminal.', githubUrl: 'https://github.com/HarchCorp/harchos-cli', language: 'Go', languageColor: '#00ADD8' },
-  { name: 'harchos-terraform-provider', description: 'Terraform provider for managing HarchOS infrastructure as code. Full resource and data source support.', githubUrl: 'https://github.com/HarchCorp/harchos-terraform-provider', language: 'Go', languageColor: '#00ADD8' },
-];
-
 /* ─── MAIN COMPONENT ─── */
 export default function DevelopersPageClient() {
+  const t = useTranslations('developers');
+
+  const quickStartSteps = [
+    {
+      step: '01',
+      title: t('quickStart.0.title'),
+      description: t('quickStart.0.description'),
+      icon: Users,
+      color: '#8B9DAF',
+    },
+    {
+      step: '02',
+      title: t('quickStart.1.title'),
+      description: t('quickStart.1.description'),
+      icon: Key,
+      color: '#8B5CF6',
+    },
+    {
+      step: '03',
+      title: t('quickStart.2.title'),
+      description: t('quickStart.2.description'),
+      icon: Zap,
+      color: '#10B981',
+    },
+  ];
+
+  const developerTools = [
+    {
+      icon: Terminal,
+      title: t('tools.0.title'),
+      description: t('tools.0.description'),
+      tags: [t('tools.0.tags.0'), t('tools.0.tags.1'), t('tools.0.tags.2')],
+      color: '#8B9DAF',
+    },
+    {
+      icon: Code2,
+      title: t('tools.1.title'),
+      description: t('tools.1.description'),
+      tags: [t('tools.1.tags.0'), t('tools.1.tags.1'), t('tools.1.tags.2'), t('tools.1.tags.3')],
+      color: '#8B5CF6',
+    },
+    {
+      icon: Layout,
+      title: t('tools.2.title'),
+      description: t('tools.2.description'),
+      tags: [t('tools.2.tags.0'), t('tools.2.tags.1'), t('tools.2.tags.2')],
+      color: '#10B981',
+    },
+    {
+      icon: FlaskConical,
+      title: t('tools.3.title'),
+      description: t('tools.3.description'),
+      tags: [t('tools.3.tags.0'), t('tools.3.tags.1'), t('tools.3.tags.2')],
+      color: '#F59E0B',
+    },
+    {
+      icon: Activity,
+      title: t('tools.4.title'),
+      description: t('tools.4.description'),
+      tags: [t('tools.4.tags.0'), t('tools.4.tags.1'), t('tools.4.tags.2')],
+      color: '#EF4444',
+    },
+  ];
+
+  const dxMetrics = [
+    { label: t('dxMetrics.0.label'), value: t('dxMetrics.0.value'), sublabel: t('dxMetrics.0.sublabel'), icon: Clock, color: '#8B9DAF' },
+    { label: t('dxMetrics.1.label'), value: t('dxMetrics.1.value'), sublabel: t('dxMetrics.1.sublabel'), icon: BarChart3, color: '#8B5CF6' },
+    { label: t('dxMetrics.2.label'), value: t('dxMetrics.2.value'), sublabel: t('dxMetrics.2.sublabel'), icon: BookOpen, color: '#10B981' },
+    { label: t('dxMetrics.3.label'), value: t('dxMetrics.3.value'), sublabel: t('dxMetrics.3.sublabel'), icon: Zap, color: '#F59E0B' },
+  ];
+
+  const openSourceProjects = [
+    { name: 'harchos-sdk-python', description: t('openSourceProjects.0.description'), githubUrl: 'https://github.com/HarchCorp/harchos-sdk-python', language: 'Python', languageColor: '#3572A5' },
+    { name: 'harchos-sdk-js', description: t('openSourceProjects.1.description'), githubUrl: 'https://github.com/HarchCorp/harchos-sdk-js', language: 'TypeScript', languageColor: '#2B7489' },
+    { name: 'harchos-cli', description: t('openSourceProjects.2.description'), githubUrl: 'https://github.com/HarchCorp/harchos-cli', language: 'Go', languageColor: '#00ADD8' },
+    { name: 'harchos-terraform-provider', description: t('openSourceProjects.3.description'), githubUrl: 'https://github.com/HarchCorp/harchos-terraform-provider', language: 'Go', languageColor: '#00ADD8' },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
 
@@ -100,28 +102,28 @@ export default function DevelopersPageClient() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#8B9DAF]/[0.03] rounded-full blur-[120px] pointer-events-none" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#8B9DAF]">Developer Center /0.2</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">{t('heroLabel')}</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[88px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              Build on<br/>HarchOS<span className="text-[#8B9DAF]">.</span>
+              {t('heroTitle1')}<br/>{t('heroTitle2')}<span className="text-[#8B9DAF]">.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed mb-4">
-              The complete developer platform for sovereign AI infrastructure.
+              {t('heroSubtitle')}
             </p>
             <p className="text-[15px] text-[#999999] max-w-xl leading-[1.7] mb-10">
-              SDKs, CLI tools, API playground, and comprehensive documentation. Deploy your first model in under 4 minutes on 100% renewable GPU compute across Morocco.
+              {t('heroDescription')}
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Link href="/developers/playground" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all">
-                Get API Key <ArrowRight size={14} />
+                {t('heroButton1')} <ArrowRight size={14} />
               </Link>
               <Link href="/developers/open-source" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                <Github size={16} /> Open Source
+                <Github size={16} /> {t('heroButton2')}
               </Link>
             </div>
           </FadeIn>
@@ -134,13 +136,13 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Quick Start</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('quickStartLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              From Zero to<br/>Deployed in Minutes
+              {t('quickStartTitle1')}<br/>{t('quickStartTitle2')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Three steps to get your first AI workload running on the HarchOS mesh. No credit card required for the Starter tier.
+              {t('quickStartDescription')}
             </p>
           </FadeIn>
 
@@ -152,7 +154,7 @@ export default function DevelopersPageClient() {
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${step.color}12` }}>
                       <step.icon size={22} style={{ color: step.color }} />
                     </div>
-                    <span className="text-[11px] font-bold font-[family-name:var(--font-space-mono)] text-[#666666]">STEP {step.step}</span>
+                    <span className="text-[11px] font-bold font-[family-name:var(--font-space-mono)] text-[#666666]">{t('stepLabel')} {step.step}</span>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
                   <div className="accent-line mb-4" />
@@ -169,15 +171,15 @@ export default function DevelopersPageClient() {
                 <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                 <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
                 <span className="w-3 h-3 rounded-full bg-[#28CA41]" />
-                <span className="ml-4 text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">terminal</span>
+                <span className="ml-4 text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">{t('terminalLabel')}</span>
               </div>
               <div className="p-6 font-mono text-[13px] leading-[2]">
                 <p><span className="text-[#999999]">$</span> <span className="text-[#8B9DAF]">pip install</span> <span className="text-[#98C379]">harchos</span></p>
-                <p className="text-[#666666]">  Successfully installed harchos-0.2.1</p>
+                <p className="text-[#666666]">  {t('terminal.installSuccess')}</p>
                 <p><span className="text-[#999999]">$</span> <span className="text-[#8B9DAF]">harchos</span> <span className="text-[#98C379]">--api-key hsk_... carbon MA</span></p>
-                <p className="text-[#666666]">  Morocco: 47.0 gCO2/kWh | Renewable: 81.5%</p>
+                <p className="text-[#666666]">  {t('terminal.carbonOutput')}</p>
                 <p><span className="text-[#999999]">$</span> <span className="text-[#8B9DAF]">harchos</span> <span className="text-[#98C379]">hubs</span></p>
-                <p className="text-[#666666]">  5 hubs | 1,798 GPUs | 100% carbon-aware</p>
+                <p className="text-[#666666]">  {t('terminal.hubsOutput')}</p>
                 <p><span className="text-[#999999]">$</span></p>
               </div>
             </div>
@@ -193,7 +195,7 @@ export default function DevelopersPageClient() {
                     <Code2 size={20} className="text-[#3572A5]" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">Python SDK</h3>
+                    <h3 className="text-lg font-bold text-white">{t('pythonSdkTitle')}</h3>
                     <div className="flex items-center gap-2 mt-1">
                       <img src="https://img.shields.io/pypi/v/harchos.svg" alt="PyPI" className="h-5" />
                       <img src="https://img.shields.io/pypi/pyversions/harchos.svg" alt="Python versions" className="h-5" />
@@ -222,7 +224,7 @@ export default function DevelopersPageClient() {
                     <Code2 size={20} className="text-[#2B7489]" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white">TypeScript SDK</h3>
+                    <h3 className="text-lg font-bold text-white">{t('typescriptSdkTitle')}</h3>
                     <div className="flex items-center gap-2 mt-1">
                       <img src="https://img.shields.io/npm/v/@harchos/sdk.svg" alt="npm" className="h-5" />
                       <img src="https://img.shields.io/npm/dt/@harchos/sdk.svg" alt="Downloads" className="h-5" />
@@ -253,13 +255,13 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Developer Tools</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('toolsLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Everything You Need<br/>to Build
+              {t('toolsTitle1')}<br/>{t('toolsTitle2')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Purpose-built tools for sovereign AI development. From CLI to IDE extensions, every workflow is covered.
+              {t('toolsDescription')}
             </p>
           </FadeIn>
 
@@ -293,13 +295,13 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">API Playground</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('playground.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Explore the API<span className="text-[#8B9DAF]">.</span>
+              {t('playground.title')}<span className="text-[#8B9DAF]">.</span>
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              Test endpoints, build requests, and explore responses in our interactive sandbox. Auto-generates code in every language.
+              {t('playground.description')}
             </p>
           </FadeIn>
 
@@ -311,14 +313,14 @@ export default function DevelopersPageClient() {
                   POST
                 </div>
                 <span className="text-[13px] text-white font-[family-name:var(--font-space-mono)]">/v1/compute/deploy</span>
-                <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)] ml-auto">API v1.4.2</span>
+                <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)] ml-auto">{t('playground.apiVersion')}</span>
               </div>
 
               {/* Request/Response Split */}
               <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-white/[0.04]">
                 {/* Request */}
                 <div className="p-6">
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-4 font-[family-name:var(--font-space-mono)]">Request Body</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-4 font-[family-name:var(--font-space-mono)]">{t('playground.requestBody')}</p>
                   <div className="font-mono text-[13px] leading-[1.9]">
                     <p className="text-[#999999]">{'{'}</p>
                     <p className="ml-4"><span className="text-[#E06C75]">&quot;gpu_type&quot;</span>: <span className="text-[#98C379]">&quot;H100&quot;</span>,</p>
@@ -352,9 +354,9 @@ export default function DevelopersPageClient() {
 
               <div className="px-6 py-4 border-t border-white/[0.04] flex items-center justify-between">
                 <Link href="/developers/playground" className="inline-flex items-center gap-2 text-[13px] text-[#8B9DAF] font-semibold hover:text-[#8B9DAF]/80 transition-colors">
-                  Open Full Playground <ChevronRight size={14} />
+                  {t('playground.openFull')} <ChevronRight size={14} />
                 </Link>
-                <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">No auth required for sandbox</span>
+                <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">{t('playground.noAuthRequired')}</span>
               </div>
             </div>
           </FadeIn>
@@ -369,22 +371,22 @@ export default function DevelopersPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <FadeIn>
               <div>
-                <p className="section-label mb-4 text-[#8B9DAF]">Code Example</p>
+                <p className="section-label mb-4 text-[#8B9DAF]">{t('codeExampleLabel')}</p>
                 <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
-                  Deploy in<br/>Three Lines<span className="text-[#8B9DAF]">.</span>
+                  {t('codeExampleTitle1')}<br/>{t('codeExampleTitle2')}<span className="text-[#8B9DAF]">.</span>
                 </h2>
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
-                  The <code className="px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.06)] text-[#8B9DAF] text-[13px] font-[family-name:var(--font-space-mono)]">@harchos/sdk</code> provides a clean, intuitive API that gets out of your way. Type-safe, async-first, and built for production workloads.
+                  {t('codeExampleDescription')}
                 </p>
                 <div className="space-y-4">
                   {[
-                    { icon: Shield, text: 'Sovereign-by-default data residency' },
-                    { icon: Zap, text: 'Carbon-aware scheduling built in' },
-                    { icon: Activity, text: 'Real-time metrics and monitoring API' },
-                    { icon: CheckCircle2, text: 'Automatic failover and migration' },
-                    { icon: BarChart3, text: 'Pricing API ($1.40-$2.35/gpu-hr)' },
-                    { icon: Globe, text: 'Regions API with carbon intensity data' },
+                    { icon: Shield, text: t('codeFeatures.0') },
+                    { icon: Zap, text: t('codeFeatures.1') },
+                    { icon: Activity, text: t('codeFeatures.2') },
+                    { icon: CheckCircle2, text: t('codeFeatures.3') },
+                    { icon: BarChart3, text: t('codeFeatures.4') },
+                    { icon: Globe, text: t('codeFeatures.5') },
                   ].map((feature) => (
                     <div key={feature.text} className="flex items-center gap-3">
                       <feature.icon size={16} className="text-[#8B9DAF]" />
@@ -432,13 +434,13 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Developer Experience</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('dxMetricsLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              DX by the<br/>Numbers<span className="text-[#8B9DAF]">.</span>
+              {t('dxMetricsTitle1')}<br/>{t('dxMetricsTitle2')}<span className="text-[#8B9DAF]">.</span>
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              We obsess over developer experience. Every millisecond of latency, every API design decision, every documentation page is measured and optimized.
+              {t('dxMetricsDescription')}
             </p>
           </FadeIn>
 
@@ -465,13 +467,13 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Open Source</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('openSource.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Built in the<br/>Open<span className="text-[#8B9DAF]">.</span>
+              {t('openSource.title1')}<br/>{t('openSource.title2')}<span className="text-[#8B9DAF]">.</span>
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Our core SDKs and tooling are open source. Contribute, fork, or audit every line of code that runs your sovereign infrastructure.
+              {t('openSource.description')}
             </p>
           </FadeIn>
 
@@ -502,7 +504,7 @@ export default function DevelopersPageClient() {
           <FadeIn>
             <div className="mt-8 text-center">
               <Link href="/developers/open-source" className="inline-flex items-center gap-2 text-[14px] text-[#8B9DAF] font-semibold hover:text-[#8B9DAF]/80 transition-colors">
-                View All Open Source Projects <ArrowRight size={14} />
+                {t('openSource.viewAll')} <ArrowRight size={14} />
               </Link>
             </div>
           </FadeIn>
@@ -515,13 +517,13 @@ export default function DevelopersPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Community</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('community.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Join the Mesh<span className="text-[#8B9DAF]">.</span>
+              {t('community.title')}<span className="text-[#8B9DAF]">.</span>
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Connect with thousands of developers building sovereign AI infrastructure. Get help, share knowledge, and shape the future of HarchOS.
+              {t('community.description')}
             </p>
           </FadeIn>
 
@@ -529,25 +531,25 @@ export default function DevelopersPageClient() {
             {[
               {
                 icon: MessageCircle,
-                title: 'Discord',
-                description: 'Real-time conversations with 4,200+ developers. Get help, share projects, and connect with the core team.',
-                members: '4,200+',
+                title: t('community.0.title'),
+                description: t('community.0.description'),
+                members: t('community.0.members'),
                 link: 'discord.gg/harchos',
                 color: '#5865F2',
               },
               {
                 icon: Github,
-                title: 'GitHub Discussions',
-                description: 'Feature requests, RFCs, and deep technical discussions. Shape the roadmap with your input.',
-                members: '1,800+',
+                title: t('community.1.title'),
+                description: t('community.1.description'),
+                members: t('community.1.members'),
                 link: 'github.com/harchcorp/discussions',
                 color: '#FFFFFF',
               },
               {
                 icon: BookOpen,
-                title: 'Stack Overflow',
-                description: 'Find answers to common questions. Tag [harchos] for visibility with our developer advocates.',
-                members: '900+',
+                title: t('community.2.title'),
+                description: t('community.2.description'),
+                members: t('community.2.members'),
                 link: 'stackoverflow.com/questions/tagged/harchos',
                 color: '#F48024',
               },
@@ -558,7 +560,7 @@ export default function DevelopersPageClient() {
                     <community.icon size={22} style={{ color: community.color }} />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">{community.title}</h3>
-                  <p className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] mb-3">{community.members} members</p>
+                  <p className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] mb-3">{community.members} {t('community.membersLabel')}</p>
                   <div className="accent-line mb-4" />
                   <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{community.description}</p>
                   <span className="inline-flex items-center gap-1.5 text-[12px] text-[#666666] font-[family-name:var(--font-space-mono)] group-hover:text-[#999999] transition-colors">
@@ -579,19 +581,19 @@ export default function DevelopersPageClient() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#8B9DAF]/[0.04] rounded-full blur-[120px] pointer-events-none" />
         <div className="relative z-10 max-w-[900px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="section-label mb-6 text-[#8B9DAF]">Start Building</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">{t('cta.label')}</p>
             <h2 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Your Next Deploy<br/>is One Command Away<span className="text-[#8B9DAF]">.</span>
+              {t('cta.title1')}<br/>{t('cta.title2')}<span className="text-[#8B9DAF]">.</span>
             </h2>
             <p className="text-[16px] text-[#999999] max-w-lg mx-auto leading-[1.7] mb-10">
-              Free Starter tier with 10 GPU hours/month free tier. No credit card required. Deploy on 100% renewable sovereign infrastructure with carbon-aware scheduling, real-time monitoring, and pricing APIs.
+              {t('cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/developers/playground" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all">
-                Start Building <ArrowRight size={14} />
+                {t('cta.button1')} <ArrowRight size={14} />
               </Link>
               <Link href="/pricing" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                View Pricing
+                {t('cta.button2')}
               </Link>
             </div>
           </FadeIn>

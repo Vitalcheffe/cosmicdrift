@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { useTranslations } from 'next-intl';
 import { ArrowRight, Building2, Target, Shield, Zap, Users, Globe, Award } from 'lucide-react';
 import { FadeIn } from '@/components/ui/motion';
 import { WorldMap } from '@/components/WorldMap';
@@ -13,41 +14,43 @@ const LiveDashboard = dynamic(
   { ssr: false, loading: () => <div className="h-[200px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
 );
 
-const aboutMetrics = [
-  { label: 'Investment Pipeline', value: 2400, unit: '$M', trend: 'up' as const, sparkline: [1800, 2000, 2100, 2300, 2350, 2400] },
-  { label: 'Verticals', value: 8, trend: 'stable' as const },
-  { label: 'Countries', value: 5, trend: 'up' as const, sparkline: [3, 4, 4, 5, 5, 5] },
-  { label: 'Jobs Target', value: 25000, unit: '+', trend: 'up' as const, sparkline: [10000, 14000, 18000, 21000, 24000, 25000] },
-];
-
-const values = [
-  { icon: Shield, title: 'Sovereignty', desc: 'We build infrastructure that Africa owns, operates, and controls. No dependency, no extraction — just self-reliance.' },
-  { icon: Zap, title: 'Speed', desc: 'The continent cannot afford to wait. We move with urgency, executing projects with precision and pace that matches the scale of the opportunity.' },
-  { icon: Target, title: 'Integration', desc: 'Vertically integrated from raw materials to finished infrastructure. We control every link in the chain for structural cost advantages.' },
-  { icon: Award, title: 'Excellence', desc: 'World-class engineering, governance, and execution. International certifications across all verticals. We accept nothing less than the best.' },
-];
-
-const leadership = [
-  { name: 'Amine Harch El Korane', title: 'Founder & CEO', desc: 'Serial entrepreneur with 15+ years in African industrial development. Founded Harch Corp to build the infrastructure the continent deserves — from 1,798 carbon-optimized GPU hubs to 2GW+ Renewable Pipeline across 7 verticals and 5 countries. Pioneering carbon-aware scheduling as the company\'s #1 differentiator, achieving ~47 gCO2/kWh average carbon intensity. Leading a $2.4B+ investment pipeline to convert Africa\'s potential into industrial power.', image: '/images/team/ceo.jpg' },
-  { name: 'Fatima Zahra El Mansouri', title: 'Chief Operating Officer', desc: 'Operational architect who has scaled industrial operations across three continents. Former VP of Operations at OCP Group, where she managed a $2B portfolio spanning mining, chemicals, and logistics. Brings 18 years of execution discipline to Harch Corp\'s 7-vertical operation.', image: '/images/team/coo.jpg' },
-  { name: 'Karim Benjelloun', title: 'Chief Technology Officer', desc: 'Systems architect and distributed computing expert. Previously led infrastructure engineering at Google Cloud, where he managed hyperscale data center deployments across EMEA. Holds 12 patents in GPU orchestration and sovereign computing architectures.', image: '/images/team/cto.jpg' },
-  { name: 'Aisha Diop', title: 'Chief Financial Officer', desc: 'Investment strategist with deep expertise in African capital markets and development finance. Former Managing Director at the African Development Bank, where she structured $4B+ in infrastructure financing. CPA and Harvard Business School graduate.', image: '/images/team/cfo.jpg' },
-];
-
-const history = [
-  { year: '2023', title: 'Vision Conceived', desc: 'Amine Harch El Korane identifies the gap between Africa\'s resource wealth and its industrial capacity. The vision for Harch Corp is born.' },
-  { year: '2024', title: 'Foundation', desc: 'Harch Corp S.A. registered in Casablanca with 100M MAD capital. Core team assembled across 4 countries.' },
-  { year: '2025', title: 'Engineering Phase', desc: 'Dakhla data center engineering begins. Gambia cement plant permits secured. Energy pipeline reaches 2GW+ Pipeline.' },
-  { year: '2026', title: 'Active Deployment', desc: 'First projects break ground. $2.4B pipeline activated. 7 verticals operational with 3,200+ jobs created.' },
-];
-
 export default function AboutPageClient() {
+  const t = useTranslations('about');
+
+  const aboutMetrics = [
+    { label: 'Investment Pipeline', value: 2400, unit: '$M', trend: 'up' as const, sparkline: [1800, 2000, 2100, 2300, 2350, 2400] },
+    { label: 'Verticals', value: 8, trend: 'stable' as const },
+    { label: 'Countries', value: 5, trend: 'up' as const, sparkline: [3, 4, 4, 5, 5, 5] },
+    { label: 'Jobs Target', value: 25000, unit: '+', trend: 'up' as const, sparkline: [10000, 14000, 18000, 21000, 24000, 25000] },
+  ];
+
+  const values = [
+    { key: 'sovereignty', icon: Shield, title: t('values.sovereignty.title'), desc: t('values.sovereignty.description') },
+    { key: 'speed', icon: Zap, title: t('values.speed.title'), desc: t('values.speed.description') },
+    { key: 'integration', icon: Target, title: t('values.integration.title'), desc: t('values.integration.description') },
+    { key: 'excellence', icon: Award, title: t('values.excellence.title'), desc: t('values.excellence.description') },
+  ];
+
+  const leadership = [
+    { name: 'Amine Harch El Korane', title: 'Founder & CEO', desc: 'Serial entrepreneur with 15+ years in African industrial development. Founded Harch Corp to build the infrastructure the continent deserves — from 1,798 carbon-optimized GPU hubs to 2GW+ Renewable Pipeline across 7 verticals and 5 countries. Pioneering carbon-aware scheduling as the company\'s #1 differentiator, achieving ~47 gCO2/kWh average carbon intensity. Leading a $2.4B+ investment pipeline to convert Africa\'s potential into industrial power.', image: '/images/team/ceo.jpg' },
+    { name: 'Fatima Zahra El Mansouri', title: 'Chief Operating Officer', desc: 'Operational architect who has scaled industrial operations across three continents. Former VP of Operations at OCP Group, where she managed a $2B portfolio spanning mining, chemicals, and logistics. Brings 18 years of execution discipline to Harch Corp\'s 7-vertical operation.', image: '/images/team/coo.jpg' },
+    { name: 'Karim Benjelloun', title: 'Chief Technology Officer', desc: 'Systems architect and distributed computing expert. Previously led infrastructure engineering at Google Cloud, where he managed hyperscale data center deployments across EMEA. Holds 12 patents in GPU orchestration and sovereign computing architectures.', image: '/images/team/cto.jpg' },
+    { name: 'Aisha Diop', title: 'Chief Financial Officer', desc: 'Investment strategist with deep expertise in African capital markets and development finance. Former Managing Director at the African Development Bank, where she structured $4B+ in infrastructure financing. CPA and Harvard Business School graduate.', image: '/images/team/cfo.jpg' },
+  ];
+
+  const history = [
+    { year: '2023', title: 'Vision Conceived', desc: 'Amine Harch El Korane identifies the gap between Africa\'s resource wealth and its industrial capacity. The vision for Harch Corp is born.' },
+    { year: '2024', title: 'Foundation', desc: 'Harch Corp S.A. registered in Casablanca with 100M MAD capital. Core team assembled across 4 countries.' },
+    { year: '2025', title: 'Engineering Phase', desc: 'Dakhla data center engineering begins. Gambia cement plant permits secured. Energy pipeline reaches 2GW+ Pipeline.' },
+    { year: '2026', title: 'Active Deployment', desc: 'First projects break ground. $2.4B pipeline activated. 7 verticals operational with 3,200+ jobs created.' },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       {/* Immersive Hero */}
       <ImmersiveHero
         title="HARCH CORP"
-        subtitle="Building Africa's Industrial Backbone"
+        subtitle={t('subtitle')}
         version="/0.0"
         metaLabel="ABOUT"
       />
@@ -64,7 +67,7 @@ export default function AboutPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeIn>
-              <p className="section-label mb-4">Our Mission</p>
+              <p className="section-label mb-4">{t('mission.title')}</p>
               <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
                 Convert Potential<br />Into Power
               </h2>
@@ -91,14 +94,14 @@ export default function AboutPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Our Values</p>
+            <p className="section-label mb-4">{t('values.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               What We Stand For
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {values.map((v, i) => (
-              <FadeIn key={v.title} delay={i * 0.08}>
+              <FadeIn key={v.key} delay={i * 0.08}>
                 <div className="card p-8 h-full">
                   <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.06)] flex items-center justify-center mb-4">
                     <v.icon size={20} className="text-white" strokeWidth={1.5} />
@@ -116,7 +119,7 @@ export default function AboutPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Leadership</p>
+            <p className="section-label mb-4">{t('leadership.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               The Team
             </h2>
@@ -145,7 +148,7 @@ export default function AboutPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Our Journey</p>
+            <p className="section-label mb-4">{t('history.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
               From Vision to Reality
             </h2>
@@ -193,12 +196,12 @@ export default function AboutPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Strategic Partners</p>
+            <p className="section-label mb-4">{t('partners.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
               Building Together
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              We partner with governments, sovereign wealth funds, and industrial leaders who share our vision for African sovereignty.
+              {t('partners.description')}
             </p>
           </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -229,13 +232,13 @@ export default function AboutPageClient() {
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">Join the Mission</h2>
-            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">Whether as an investor, partner, or team member — help us build Africa&apos;s industrial backbone.</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">{t('cta.title')}</h2>
+            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">{t('cta.subtitle')}</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all"><ArrowRight size={14} />Get Started</Link>
-              <Link href="/careers" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">View Careers</Link>
+              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all"><ArrowRight size={14} />{t('cta.primary')}</Link>
+              <Link href="/careers" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">{t('cta.secondary')}</Link>
             </div>
           </FadeIn>
         </div>

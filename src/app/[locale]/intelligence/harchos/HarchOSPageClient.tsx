@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -15,161 +16,163 @@ import CompetitiveComparison from '@/components/competitive/CompetitiveCompariso
 import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
 import type { Competitor } from '@/components/competitive/CompetitiveComparison';
 
-/* ─── DATA ─── */
-const hubs = [
-  {
-    id: 'ouarzazate', name: 'Harch Ouarzazate', location: 'Ouarzazate', energy: 'Solar CSP+PV — 97.2% Renewable',
-    power: '800 GPUs', latency: '18 gCO2/kWh — Enterprise Tier', color: '#F59E0B',
-    icon: Sun, image: '/images/intelligence/harchos-energy-mix.png',
-    description: 'Largest hub at Morocco\'s best solar site. 800 GPUs with 97.2% renewable energy and just 18 gCO2/kWh carbon intensity. PUE 1.04 — the greenest GPU compute on Earth. Strict sovereignty enforcement.',
-  },
-  {
-    id: 'dakhla', name: 'Harch Dakhla', location: 'Dakhla', energy: 'Offshore Wind — 94.8% Renewable',
-    power: '400 GPUs', latency: '32 gCO2/kWh — Enterprise Tier', color: '#5B8FB9',
-    icon: Wind, image: '/images/intelligence/harchos-tanger.png',
-    description: 'Primary hub connected to submarine cables. 400 GPUs powered by offshore wind 24/7. 94.8% renewable, 32 gCO2/kWh. The Europe-Africa compute gateway with strict sovereignty.',
-  },
-  {
-    id: 'benguerir', name: 'Harch Benguerir', location: 'Benguerir', energy: 'Solar + Wind — 88.5% Renewable',
-    power: '350 GPUs', latency: '55 gCO2/kWh — Performance Tier', color: '#10B981',
-    icon: Leaf, image: '/images/intelligence/harchos-architecture.png',
-    description: 'Greenfield hub next to Mohammed VI Polytechnic. 350 GPUs at 88.5% renewable. Performance tier with balanced cost and carbon. Ideal for training workloads.',
-  },
-  {
-    id: 'tanger', name: 'Harch Tanger', location: 'Tanger', energy: 'Wind + Grid — 82.1% Renewable',
-    power: '200 GPUs', latency: '<5ms to Europe — Performance Tier', color: '#8B9DAF',
-    icon: Droplets, image: '/images/intelligence/harchos-facility-night.png',
-    description: 'Lowest latency to Europe. 200 GPUs at 82.1% renewable, 95 gCO2/kWh. Wind + tidal combo for maximum availability. Ideal for latency-sensitive inference.',
-  },
-  {
-    id: 'casablanca', name: 'Harch Casablanca', location: 'Casablanca', energy: 'Grid Mix + Solar — 45.0% Renewable',
-    power: '48 GPUs', latency: '210 gCO2/kWh — Standard Tier', color: '#8B5CF6',
-    icon: Network, image: '/images/intelligence/harchos-mesh-map.png',
-    description: 'Urban hub connected to the national backbone. 48 GPUs for latency-sensitive enterprise workloads. Standard tier — recommended only when sub-5ms latency is required.',
-  },
-];
-
-const architectureLayers = [
-  {
-    id: 'sense', name: 'SENSE', tag: 'Perception Layer',
-    icon: Eye, color: '#8B9DAF',
-    description: '5,000+ data points per second. Real-time IoT monitoring, weather/energy forecasting, infrared sensors, satellite data and API ingestion. The SENSE layer is the eyes and ears of the mesh — capturing every signal before it becomes critical.',
-    specs: [
-      { label: 'Data ingestion', value: '5K+ pts/sec' },
-      { label: 'Sensor types', value: 'IoT, Satellite, API' },
-      { label: 'Forecast window', value: '4h ahead' },
-      { label: 'Resolution', value: '1-second granularity' },
-    ],
-  },
-  {
-    id: 'think', name: 'THINK', tag: 'Intelligence Layer',
-    icon: Brain, color: '#8B5CF6',
-    description: 'Proprietary ML models for multi-objective optimization. Predictive workload placement 4 hours ahead, autoscaling based on demand and energy production forecasts. The THINK layer decides where, when, and how every compute job runs across the mesh.',
-    specs: [
-      { label: 'Prediction horizon', value: '4 hours' },
-      { label: 'Model types', value: 'RL, Transformer, GNN' },
-      { label: 'Optimization', value: 'Multi-objective' },
-      { label: 'Decision latency', value: '<50ms' },
-    ],
-  },
-  {
-    id: 'act', name: 'ACT', tag: 'Execution Layer',
-    icon: Zap, color: '#10B981',
-    description: 'Live container migration between hubs, real-time GPU context switching, automatic zero-downtime failover. The ACT layer executes THINK decisions in under 200ms — moving entire workloads between data centers without service interruption.',
-    specs: [
-      { label: 'Container migration', value: 'Live, <200ms' },
-      { label: 'Failover', value: 'Zero-downtime' },
-      { label: 'GPU switching', value: 'Real-time context' },
-      { label: 'SLA guarantee', value: '99.999%' },
-    ],
-  },
-];
-
-const capabilities = [
-  {
-    icon: Boxes, title: 'Workload Orchestration',
-    desc: 'Intelligent workload placement across all 5 hubs. Real-time optimization of energy cost, latency, and data sovereignty. Every job is routed to the optimal hub based on 47 simultaneous parameters.',
-  },
-  {
-    icon: Brain, title: 'ML Predictive Scheduling',
-    desc: 'Reinforcement learning algorithms that predict compute demand 4 hours ahead and adjust GPU distribution accordingly. 35% reduction in energy costs compared to static scheduling.',
-  },
-  {
-    icon: Leaf, title: 'Carbon-Aware Scheduling',
-    desc: 'Every workload is timestamped and geo-located to maximize renewable energy utilization. Batch jobs are shifted to solar hubs during the day and wind hubs at night.',
-  },
-  {
-    icon: Shield, title: 'Data Sovereignty Engine',
-    desc: 'Data sovereignty policies built into the orchestrator. Sensitive data never leaves Moroccan jurisdiction. Automatic GDPR and Law 09-08 compliance.',
-  },
-  {
-    icon: CloudCog, title: 'Green GPU Cloud',
-    desc: 'On-demand GPU access, 100% powered by renewable energy. Competitive pricing with traditional cloud providers, with no compromise on sustainability. H100/A100 available.',
-  },
-  {
-    icon: Key, title: 'HarchOS Licensing',
-    desc: 'HarchOS licensing for third-party operators. Deploy the AI sovereignty OS in your own data centers. Support, updates, and access to the Harch Corp partner ecosystem.',
-  },
-];
-
-const specs = [
-  { category: 'Compute', items: [
-    { spec: 'Total GPU Capacity', value: '1,798 GPUs' },
-    { spec: 'GPU Types', value: 'H100, A100, L40S' },
-    { spec: 'Interconnect', value: 'NVLink + InfiniBand' },
-    { spec: 'Max Partition', value: '800 GPUs per hub' },
-    { spec: 'Scaling Efficiency', value: '>92% linear' },
-  ]},
-  { category: 'Power & Energy', items: [
-    { spec: 'Avg Renewable', value: '81.5%' },
-    { spec: 'Avg Carbon Intensity', value: '~47 gCO2/kWh' },
-    { spec: 'Best Hub (Ouarzazate)', value: '18 gCO2/kWh' },
-    { spec: 'Avg PUE', value: '1.12' },
-    { spec: 'Best PUE (Ouarzazate)', value: '1.04' },
-  ]},
-  { category: 'Network', items: [
-    { spec: 'Backbone', value: '400Gbps' },
-    { spec: 'Inter-hub', value: '100Gbps dedicated' },
-    { spec: 'Submarine Cables', value: '4 systems' },
-    { spec: 'Latency EU', value: '<5-12ms' },
-    { spec: 'Latency US', value: '<35ms' },
-  ]},
-  { category: 'Reliability', items: [
-    { spec: 'Uptime SLA', value: '99.999%' },
-    { spec: 'Failover', value: '<200ms' },
-    { spec: 'Data Durability', value: '11 nines' },
-    { spec: 'Backup Strategy', value: '3-2-1 + geo-redundant' },
-    { spec: 'Disaster Recovery', value: 'RPO <1min, RTO <5min' },
-  ]},
-];
-
-const securityFeatures = [
-  { icon: Lock, title: 'Sovereign Encryption', desc: 'End-to-end encryption with locally managed keys. No backdoors, no third-party access. FIPS 140-2 Level 3 HSMs in every hub.' },
-  { icon: Shield, title: 'Zero Trust Architecture', desc: 'Every request is authenticated and authorized, including between internal services. Mandatory mTLS, micro-granular network segmentation.' },
-  { icon: Eye, title: 'Continuous Monitoring', desc: '24/7 SIEM monitoring with ML-powered anomaly detection. Automated incident response in under 30 seconds.' },
-  { icon: FileCode2, title: 'Compliance Automation', desc: 'Automatic GDPR, ISO 27001, SOC 2 Type II, and Moroccan Law 09-08 compliance. Continuous auditing, not point-in-time.' },
-];
-
-const devPlatform = [
-  { icon: Code2, title: 'REST & gRPC APIs', desc: 'Complete APIs for provisioning, monitoring, and orchestration. Native SDKs for Python, Go, Rust, and TypeScript. Interactive OpenAPI 3.1 documentation.' },
-  { icon: GitBranch, title: 'HarchOS CLI', desc: 'Command-line interface for workload deployment and management. Native integration with CI/CD pipelines, Terraform provider, and Kubernetes operator.' },
-  { icon: Monitor, title: 'Observability Suite', desc: 'Integrated Grafana dashboards, Prometheus metrics, Jaeger distributed tracing. Structured logs with full-text search and intelligent alerting.' },
-  { icon: Database, title: 'Data Pipeline SDK', desc: 'Petabyte-scale dataset ingestion, transformation, and versioning. Native connectors for S3, GCS, Azure Blob, and Hadoop.' },
-];
-
-const roadmap = [
-  { phase: 'Q1 2025', title: 'Foundation', items: ['HarchOS kernel v0.1', 'SENSE layer MVP', 'Hub Ouarzazate design complete'] },
-  { phase: 'Q3 2025', title: 'First Hub Live', items: ['Hub Ouarzazate operational (800 GPUs)', 'SENSE + THINK layers active', 'First customer workloads'] },
-  { phase: 'Q1 2026', title: 'Mesh Expansion', items: ['Hub Dakhla online (400 GPUs)', 'Hub Tanger online (200 GPUs)', 'Carbon-aware scheduling v1'] },
-  { phase: 'Q3 2026', title: 'Full Mesh', items: ['Hub Benguerir online (350 GPUs)', 'Hub Casablanca online (48 GPUs)', '1,798 GPUs operational'] },
-  { phase: 'Q1 2027', title: 'Platform Maturity', items: ['HarchOS Licensing GA', 'Pricing & Billing APIs', 'Regions & Monitoring APIs'] },
-  { phase: 'Q4 2027', title: 'Continental Scale', items: ['1,798+ GPUs across 5 hubs', 'Full developer platform', 'Pan-African sovereignty mesh'] },
-];
-
 /* ─── MAIN COMPONENT ─── */
 export default function HarchOSPageClient() {
+  const t = useTranslations('harchos');
+  const tCommon = useTranslations('common');
   const [activeArchTab, setActiveArchTab] = useState('sense');
   const [activeHub, setActiveHub] = useState<string | null>(null);
+
+  const hubs = [
+    {
+      id: 'ouarzazate', name: 'Harch Ouarzazate', location: 'Ouarzazate', energy: t('architecture.sense.description'),
+      power: '800 GPUs', latency: '18 gCO2/kWh — Enterprise Tier', color: '#F59E0B',
+      icon: Sun, image: '/images/intelligence/harchos-energy-mix.png',
+      description: t('architecture.sense.description'),
+    },
+    {
+      id: 'dakhla', name: 'Harch Dakhla', location: 'Dakhla', energy: t('architecture.sense.description'),
+      power: '400 GPUs', latency: '32 gCO2/kWh — Enterprise Tier', color: '#5B8FB9',
+      icon: Wind, image: '/images/intelligence/harchos-tanger.png',
+      description: t('architecture.think.description'),
+    },
+    {
+      id: 'benguerir', name: 'Harch Benguerir', location: 'Benguerir', energy: t('architecture.think.description'),
+      power: '350 GPUs', latency: '55 gCO2/kWh — Performance Tier', color: '#10B981',
+      icon: Leaf, image: '/images/intelligence/harchos-architecture.png',
+      description: t('architecture.act.description'),
+    },
+    {
+      id: 'tanger', name: 'Harch Tanger', location: 'Tanger', energy: t('architecture.act.description'),
+      power: '200 GPUs', latency: '<5ms to Europe — Performance Tier', color: '#8B9DAF',
+      icon: Droplets, image: '/images/intelligence/harchos-facility-night.png',
+      description: t('architecture.sense.description'),
+    },
+    {
+      id: 'casablanca', name: 'Harch Casablanca', location: 'Casablanca', energy: t('architecture.think.description'),
+      power: '48 GPUs', latency: '210 gCO2/kWh — Standard Tier', color: '#8B5CF6',
+      icon: Network, image: '/images/intelligence/harchos-mesh-map.png',
+      description: t('architecture.act.description'),
+    },
+  ];
+
+  const architectureLayers = [
+    {
+      id: 'sense', name: t('architecture.sense.title'), tag: t('architecture.sense.subtitle'),
+      icon: Eye, color: '#8B9DAF',
+      description: t('architecture.sense.description'),
+      specs: [
+        { label: t('features.dashboard.title'), value: '5K+ pts/sec' },
+        { label: t('features.carbonAware.title'), value: 'IoT, Satellite, API' },
+        { label: t('features.security.title'), value: '4h ahead' },
+        { label: t('features.compliance.title'), value: '1-second granularity' },
+      ],
+    },
+    {
+      id: 'think', name: t('architecture.think.title'), tag: t('architecture.think.subtitle'),
+      icon: Brain, color: '#8B5CF6',
+      description: t('architecture.think.description'),
+      specs: [
+        { label: t('features.dashboard.title'), value: '4 hours' },
+        { label: t('features.carbonAware.title'), value: 'RL, Transformer, GNN' },
+        { label: t('features.security.title'), value: 'Multi-objective' },
+        { label: t('features.compliance.title'), value: '<50ms' },
+    ],
+    },
+    {
+      id: 'act', name: t('architecture.act.title'), tag: t('architecture.act.subtitle'),
+      icon: Zap, color: '#10B981',
+      description: t('architecture.act.description'),
+      specs: [
+        { label: t('features.dashboard.title'), value: 'Live, <200ms' },
+        { label: t('features.carbonAware.title'), value: 'Zero-downtime' },
+        { label: t('features.security.title'), value: 'Real-time context' },
+        { label: t('features.compliance.title'), value: '99.999%' },
+      ],
+    },
+  ];
+
+  const capabilities = [
+    {
+      icon: Boxes, title: t('features.dashboard.title'),
+      desc: t('features.dashboard.description'),
+    },
+    {
+      icon: Brain, title: t('features.carbonAware.title'),
+      desc: t('features.carbonAware.description'),
+    },
+    {
+      icon: Leaf, title: t('features.security.title'),
+      desc: t('features.security.description'),
+    },
+    {
+      icon: Shield, title: t('features.compliance.title'),
+      desc: t('features.compliance.description'),
+    },
+    {
+      icon: CloudCog, title: t('features.api.title'),
+      desc: t('features.api.description'),
+    },
+    {
+      icon: Key, title: t('features.mobile.title'),
+      desc: t('features.mobile.description'),
+    },
+  ];
+
+  const specs = [
+    { category: t('specs.title'), items: [
+      { spec: t('features.dashboard.title'), value: '1,798 GPUs' },
+      { spec: t('features.carbonAware.title'), value: 'H100, A100, L40S' },
+      { spec: t('features.security.title'), value: 'NVLink + InfiniBand' },
+      { spec: t('features.compliance.title'), value: '800 GPUs per hub' },
+      { spec: t('features.api.title'), value: '>92% linear' },
+    ]},
+    { category: t('specs.compliance'), items: [
+      { spec: t('features.dashboard.title'), value: '81.5%' },
+      { spec: t('features.carbonAware.title'), value: '~47 gCO2/kWh' },
+      { spec: t('features.security.title'), value: '18 gCO2/kWh' },
+      { spec: t('features.compliance.title'), value: '1.12' },
+      { spec: t('features.api.title'), value: '1.04' },
+    ]},
+    { category: t('features.mobile.title'), items: [
+      { spec: t('features.dashboard.title'), value: '400Gbps' },
+      { spec: t('features.carbonAware.title'), value: '100Gbps dedicated' },
+      { spec: t('features.security.title'), value: '4 systems' },
+      { spec: t('features.compliance.title'), value: '<5-12ms' },
+      { spec: t('features.api.title'), value: '<35ms' },
+    ]},
+    { category: t('architecture.title'), items: [
+      { spec: t('features.dashboard.title'), value: '99.999%' },
+      { spec: t('features.carbonAware.title'), value: '<200ms' },
+      { spec: t('features.security.title'), value: '11 nines' },
+      { spec: t('features.compliance.title'), value: '3-2-1 + geo-redundant' },
+      { spec: t('features.api.title'), value: 'RPO <1min, RTO <5min' },
+    ]},
+  ];
+
+  const securityFeatures = [
+    { icon: Lock, title: t('features.dashboard.title'), desc: t('features.dashboard.description') },
+    { icon: Shield, title: t('features.carbonAware.title'), desc: t('features.carbonAware.description') },
+    { icon: Eye, title: t('features.security.title'), desc: t('features.security.description') },
+    { icon: FileCode2, title: t('features.compliance.title'), desc: t('features.compliance.description') },
+  ];
+
+  const devPlatform = [
+    { icon: Code2, title: t('features.api.title'), desc: t('features.api.description') },
+    { icon: GitBranch, title: t('features.mobile.title'), desc: t('features.mobile.description') },
+    { icon: Monitor, title: t('features.dashboard.title'), desc: t('features.dashboard.description') },
+    { icon: Database, title: t('features.compliance.title'), desc: t('features.compliance.description') },
+  ];
+
+  const roadmap = [
+    { phase: 'Q1 2025', title: t('architecture.sense.subtitle'), items: [t('specs.uptime'), t('specs.latency'), t('specs.dataPoints')] },
+    { phase: 'Q3 2025', title: t('architecture.act.subtitle'), items: [t('specs.integrations'), t('specs.compliance'), t('specs.encryption')] },
+    { phase: 'Q1 2026', title: t('architecture.think.subtitle'), items: [t('specs.uptime'), t('specs.latency'), t('specs.dataPoints')] },
+    { phase: 'Q3 2026', title: t('architecture.sense.subtitle'), items: [t('specs.integrations'), t('specs.compliance'), t('specs.encryption')] },
+    { phase: 'Q1 2027', title: t('architecture.act.subtitle'), items: [t('specs.uptime'), t('specs.latency'), t('specs.dataPoints')] },
+    { phase: 'Q4 2027', title: t('architecture.think.subtitle'), items: [t('specs.integrations'), t('specs.compliance'), t('specs.encryption')] },
+  ];
+
   const activeArch = architectureLayers.find(l => l.id === activeArchTab)!;
 
   return (
@@ -191,7 +194,7 @@ export default function HarchOSPageClient() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/80 via-transparent to-transparent" />
         <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Harch Intelligence /0.1</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('title')} /0.1</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
@@ -200,19 +203,19 @@ export default function HarchOSPageClient() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed mb-4">
-              The Operating System for Sovereign AI Infrastructure
+              {t('subtitle')}
             </p>
             <p className="text-[15px] text-[#999999] max-w-xl leading-[1.7] mb-8">
-              5 AI compute hubs. 1,798 GPUs. ~81.5% renewable energy. ~47 gCO2/kWh average. A distributed mesh orchestrating Africa\'s sovereign compute — from perception to execution.
+              {t('description')}
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Link href="#architecture" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Explore Architecture <ArrowRight size={14} />
+                {t('architecture.title')} <ArrowRight size={14} />
               </Link>
               <Link href="#capabilities" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                View Capabilities
+                {t('features.title')}
               </Link>
             </div>
           </FadeIn>
@@ -243,13 +246,13 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-8 text-[#8B9DAF]">Manifesto</p>
+            <p className="section-label mb-8 text-[#8B9DAF]">{t('cta.title')}</p>
             <blockquote className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white leading-[1.15] tracking-[-0.01em] max-w-4xl">
-              &ldquo;Your compute infrastructure is the weapons system of the 21st century. Sovereignty is not negotiable.&rdquo;
+              &ldquo;{t('description')}&rdquo;
             </blockquote>
             <div className="accent-line mt-8 mb-6" />
             <p className="text-[15px] text-[#999999] max-w-2xl leading-[1.7]">
-              HarchOS is not a product — it is a doctrine. Every line of code, every GPU rack, every kWh of renewable energy is designed for one thing: ensuring Africa&apos;s compute remains under African control.
+              {t('subtitle')}
             </p>
           </FadeIn>
         </div>
@@ -266,8 +269,8 @@ export default function HarchOSPageClient() {
                 <Image src="/images/intelligence/harchos-facility-night.png" alt="Data Center Infrastructure" fill className="object-cover industrial-image" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-8 right-8">
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.2em] font-bold font-[family-name:var(--font-space-mono)]">Infrastructure</p>
-                  <p className="text-xl font-bold text-white mt-1">Hyperscale Facilities</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.2em] font-bold font-[family-name:var(--font-space-mono)]">{t('architecture.title')}</p>
+                  <p className="text-xl font-bold text-white mt-1">{t('features.dashboard.title')}</p>
                 </div>
               </div>
             </FadeIn>
@@ -276,8 +279,8 @@ export default function HarchOSPageClient() {
                 <Image src="/images/intelligence/harchos-energy-mix.png" alt="Renewable Energy Infrastructure" fill className="object-cover industrial-image" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-8 right-8">
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.2em] font-bold font-[family-name:var(--font-space-mono)]">Energy</p>
-                  <p className="text-xl font-bold text-white mt-1">100% Renewable Power</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.2em] font-bold font-[family-name:var(--font-space-mono)]">{t('specs.compliance')}</p>
+                  <p className="text-xl font-bold text-white mt-1">{t('features.carbonAware.title')}</p>
                 </div>
               </div>
             </FadeIn>
@@ -291,13 +294,13 @@ export default function HarchOSPageClient() {
       <section id="architecture" className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Architecture</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('architecture.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Three Layers.<br/>One System.
+              {t('architecture.sense.title')}.<br/>{t('architecture.think.title')}.
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              HarchOS operates on three interconnected layers: SENSE captures signals, THINK makes decisions, ACT executes in real-time. A complete perception-decision-action cycle in under 200ms.
+              {t('architecture.act.description')}
             </p>
           </FadeIn>
 
@@ -382,13 +385,13 @@ export default function HarchOSPageClient() {
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Distributed Mesh</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('features.carbonAware.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Five Hubs.<br/>One Mesh.
+              {t('specs.integrations')}.<br/>{t('features.dashboard.title')}.
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              The Harch Intelligence Distributed Mesh spans 5 strategic sites across Morocco — each hub powered by local renewable energy, connected by a 400Gbps backbone.
+              {t('description')}
             </p>
           </FadeIn>
 
@@ -407,7 +410,7 @@ export default function HarchOSPageClient() {
                     <div className="absolute top-4 left-4">
                       <div className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: hub.color }} />
-                        <span className="text-[10px] text-white/70 font-[family-name:var(--font-space-mono)] uppercase tracking-wider">Online</span>
+                        <span className="text-[10px] text-white/70 font-[family-name:var(--font-space-mono)] uppercase tracking-wider">{t('specs.uptime')}</span>
                       </div>
                     </div>
                   </div>
@@ -449,10 +452,10 @@ export default function HarchOSPageClient() {
           <FadeIn>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: 'Total GPUs', value: '1,798', accent: '#8B9DAF' },
-                { label: 'Avg Carbon', value: '~47 gCO2/kWh', accent: '#10B981' },
-                { label: 'Avg Renewable', value: '81.5%', accent: '#F59E0B' },
-                { label: 'Backbone', value: '400Gbps', accent: '#8B5CF6' },
+                { label: t('specs.dataPoints'), value: '1,798', accent: '#8B9DAF' },
+                { label: t('specs.compliance'), value: '~47 gCO2/kWh', accent: '#10B981' },
+                { label: t('specs.encryption'), value: '81.5%', accent: '#F59E0B' },
+                { label: t('specs.integrations'), value: '400Gbps', accent: '#8B5CF6' },
               ].map((stat) => (
                 <div key={stat.label} className="card p-6 text-center">
                   <p className="text-2xl font-bold text-white stat-mono mb-1">{stat.value}</p>
@@ -472,20 +475,20 @@ export default function HarchOSPageClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <FadeIn>
               <div>
-                <p className="section-label mb-4 text-[#8B9DAF]">Operations Center</p>
+                <p className="section-label mb-4 text-[#8B9DAF]">{t('features.dashboard.title')}</p>
                 <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
-                  Real-Time<br/>Command & Control
+                  {t('features.dashboard.title')}<br/>{t('features.security.title')}
                 </h2>
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
-                  The HarchOS Operations Center provides real-time visibility across the entire mesh. Energy consumption monitoring, GPU distribution, inter-hub latency, and workload health — all in a unified dashboard.
+                  {t('features.dashboard.description')}
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { value: 1798, suffix: '', label: 'Total GPUs' },
-                    { value: 47, suffix: '', label: 'gCO2/kWh Avg' },
-                    { value: 800, suffix: '', label: 'Max Per Hub' },
-                    { value: 400, suffix: 'Gbps', label: 'Backbone' },
+                    { value: 1798, suffix: '', label: t('specs.dataPoints') },
+                    { value: 47, suffix: '', label: t('specs.compliance') },
+                    { value: 800, suffix: '', label: t('specs.integrations') },
+                    { value: 400, suffix: 'Gbps', label: t('specs.encryption') },
                   ].map((stat) => (
                     <div key={stat.label} className="card p-5">
                       <p className="text-2xl font-bold text-white stat-mono">
@@ -514,13 +517,13 @@ export default function HarchOSPageClient() {
       <section id="capabilities" className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Capabilities</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('features.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              What HarchOS<br/>Delivers
+              {t('features.carbonAware.title')}<br/>{t('features.dashboard.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Six foundational capabilities that transform AI compute from a cost center into a sovereign strategic advantage.
+              {t('description')}
             </p>
           </FadeIn>
 
@@ -547,9 +550,9 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Specifications</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('specs.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Technical Deep Dive
+              {t('specs.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -581,13 +584,13 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Security</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{tCommon('security')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Sovereign Security<br/>by Design
+              {t('features.security.title')}<br/>{t('features.compliance.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              Security is not an add-on in HarchOS — it is architectural. Every layer, every API, every workload is secure by default.
+              {t('features.security.description')}
             </p>
           </FadeIn>
 
@@ -627,13 +630,13 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Developer Platform</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('features.api.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Build on<br/>HarchOS
+              {t('features.api.title')}<br/>{t('features.mobile.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              APIs, SDKs, and CLI tools to integrate the HarchOS mesh into your existing workflows. Deploy, monitor, and orchestrate — programmatically.
+              {t('features.api.description')}
             </p>
           </FadeIn>
 
@@ -691,20 +694,20 @@ export default function HarchOSPageClient() {
             <FadeIn>
               <div className="flex items-center px-8 md:px-16 lg:px-24 py-20">
                 <div className="max-w-xl">
-                  <p className="section-label mb-4 text-[#8B9DAF]">Network</p>
+                  <p className="section-label mb-4 text-[#8B9DAF]">{t('specs.integrations')}</p>
                   <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
-                    400Gbps<br/>Continental Backbone
+                    400Gbps<br/>{t('specs.integrations')}
                   </h2>
                   <div className="accent-line mb-6" />
                   <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
-                    Four submarine cables, 100Gbps dedicated inter-hub links, and a 400Gbps backbone connecting the HarchOS mesh to Europe in under 5ms and the Americas in under 35ms. Triple redundancy on every path.
+                    {t('architecture.act.description')}
                   </p>
                   <div className="space-y-4">
                     {[
-                      { label: 'Latency to Europe', value: '<5-12ms' },
-                      { label: 'Latency to Americas', value: '<35ms' },
-                      { label: 'Submarine Cables', value: '4 systems' },
-                      { label: 'Inter-hub Links', value: '100Gbps each' },
+                      { label: t('specs.latency') + ' Europe', value: '<5-12ms' },
+                      { label: t('specs.latency') + ' Americas', value: '<35ms' },
+                      { label: t('specs.integrations'), value: '4 systems' },
+                      { label: t('specs.encryption'), value: '100Gbps each' },
                     ].map((item) => (
                       <div key={item.label} className="flex justify-between items-center py-2 border-b border-white/[0.04]">
                         <span className="text-[13px] text-[#999999]">{item.label}</span>
@@ -875,9 +878,9 @@ export default function HarchOSPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Roadmap</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('architecture.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Deployment Timeline
+              {t('specs.integrations')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -921,21 +924,21 @@ export default function HarchOSPageClient() {
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Deploy Now</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('cta.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">
-              Ready for Sovereign Compute?
+              {t('cta.title')}
             </h2>
             <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">
-              HarchOS is the only AI infrastructure OS that combines sovereignty, sustainability, and performance. Deploy your workloads on the greenest mesh on the planet.
+              {t('cta.subtitle')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Request Access <ArrowRight size={14} />
+                {t('cta.primary')} <ArrowRight size={14} />
               </Link>
               <Link href="/subsidiaries/intelligence" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                <ArrowLeft size={14} /> Back to Intelligence
+                <ArrowLeft size={14} /> {tCommon('back')} Intelligence
               </Link>
             </div>
           </FadeIn>

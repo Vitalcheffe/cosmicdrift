@@ -8,56 +8,60 @@ import {
   Monitor, Eye, Brain, Key, Clock, FileText
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
-/* ─── DATA ─── */
-const quickstarts = [
-  {
-    icon: Cpu,
-    title: 'Deploy an AI Model',
-    description: 'Deploy your first inference endpoint on the sovereign AI mesh with carbon-aware scheduling.',
-    time: '5 min',
-    href: '#deploy-model',
-    accent: '#8B9DAF',
-  },
-  {
-    icon: Database,
-    title: 'Set Up a Data Pipeline',
-    description: 'Ingest streaming IoT data through the SENSE layer and store it in your data lake.',
-    time: '5 min',
-    href: '/docs/guides',
-    accent: '#8B5CF6',
-  },
-  {
-    icon: BarChart3,
-    title: 'Create a Monitoring Dashboard',
-    description: 'Set up Grafana dashboards with real-time metrics for GPU utilization and energy consumption.',
-    time: '5 min',
-    href: '/docs/guides',
-    accent: '#10B981',
-  },
-  {
-    icon: Shield,
-    title: 'Configure Access Control',
-    description: 'Set up RBAC policies, service accounts, and zero-trust network segmentation.',
-    time: '5 min',
-    href: '/docs/guides',
-    accent: '#F59E0B',
-  },
-];
+/* ─── MAIN COMPONENT ─── */
+export default function QuickstartsPageClient() {
+  const t = useTranslations('docs');
 
-const deploySteps = [
-  {
-    step: 1,
-    title: 'Install the HarchOS SDK',
-    description: 'Install the HarchOS TypeScript SDK using npm. This gives you access to all platform APIs including compute, data, and monitoring.',
-    code: `npm install @harchos/sdk`,
-    language: 'bash',
-  },
-  {
-    step: 2,
-    title: 'Initialize the Client',
-    description: 'Create a HarchOS client with your API key and configuration. Set sovereignty to "strict" to ensure your data stays within the Morocco jurisdiction. Enable carbon-aware scheduling for optimal energy efficiency.',
-    code: `import { HarchOS } from '@harchos/sdk';
+  const quickstarts = [
+    {
+      icon: Cpu,
+      title: t('quickstarts.cards.0.title'),
+      description: t('quickstarts.cards.0.description'),
+      time: t('quickstarts.cards.0.time'),
+      href: '#deploy-model',
+      accent: '#8B9DAF',
+    },
+    {
+      icon: Database,
+      title: t('quickstarts.cards.1.title'),
+      description: t('quickstarts.cards.1.description'),
+      time: t('quickstarts.cards.1.time'),
+      href: '/docs/guides',
+      accent: '#8B5CF6',
+    },
+    {
+      icon: BarChart3,
+      title: t('quickstarts.cards.2.title'),
+      description: t('quickstarts.cards.2.description'),
+      time: t('quickstarts.cards.2.time'),
+      href: '/docs/guides',
+      accent: '#10B981',
+    },
+    {
+      icon: Shield,
+      title: t('quickstarts.cards.3.title'),
+      description: t('quickstarts.cards.3.description'),
+      time: t('quickstarts.cards.3.time'),
+      href: '/docs/guides',
+      accent: '#F59E0B',
+    },
+  ];
+
+  const deploySteps = [
+    {
+      step: 1,
+      title: t('quickstarts.deploySteps.0.title'),
+      description: t('quickstarts.deploySteps.0.description'),
+      code: `npm install @harchos/sdk`,
+      language: 'bash',
+    },
+    {
+      step: 2,
+      title: t('quickstarts.deploySteps.1.title'),
+      description: t('quickstarts.deploySteps.1.description'),
+      code: `import { HarchOS } from '@harchos/sdk';
 
 const client = await HarchOS.create({
   apiKey: process.env.HARCHOS_API_KEY,
@@ -65,13 +69,13 @@ const client = await HarchOS.create({
   sovereignty: 'strict',
   carbonAware: true,
 });`,
-    language: 'typescript',
-  },
-  {
-    step: 3,
-    title: 'Register Your Model',
-    description: 'Upload and register your model artifact. HarchOS supports PyTorch, TensorFlow, and ONNX formats. The platform automatically validates the model, generates metadata, and prepares it for deployment.',
-    code: `const model = await client.models.register({
+      language: 'typescript',
+    },
+    {
+      step: 3,
+      title: t('quickstarts.deploySteps.2.title'),
+      description: t('quickstarts.deploySteps.2.description'),
+      code: `const model = await client.models.register({
   name: 'my-llama-model',
   framework: 'pytorch',
   artifact: './model.pt',
@@ -79,13 +83,13 @@ const client = await HarchOS.create({
 });
 
 console.log(\`Model registered: \${model.id}\`);`,
-    language: 'typescript',
-  },
-  {
-    step: 4,
-    title: 'Deploy to an Inference Endpoint',
-    description: 'Deploy your model as a scalable inference endpoint. Specify GPU type, count, and scheduling strategy. HarchOS will automatically select the optimal hub based on carbon intensity, latency requirements, and resource availability.',
-    code: `const endpoint = await client.models.deploy(model.id, {
+      language: 'typescript',
+    },
+    {
+      step: 4,
+      title: t('quickstarts.deploySteps.3.title'),
+      description: t('quickstarts.deploySteps.3.description'),
+      code: `const endpoint = await client.models.deploy(model.id, {
   gpu: 'H100',
   count: 2,
   hub: 'auto',           // Let THINK choose the optimal hub
@@ -98,13 +102,13 @@ console.log(\`Model registered: \${model.id}\`);`,
 });
 
 console.log(\`Endpoint live at: \${endpoint.url}\`);`,
-    language: 'typescript',
-  },
-  {
-    step: 5,
-    title: 'Run Inference',
-    description: 'Send inference requests to your deployed endpoint. The SDK handles load balancing, retry logic, and automatic failover between hubs. Monitor response times and energy consumption in real time.',
-    code: `const result = await client.inference.run(endpoint.id, {
+      language: 'typescript',
+    },
+    {
+      step: 5,
+      title: t('quickstarts.deploySteps.4.title'),
+      description: t('quickstarts.deploySteps.4.description'),
+      code: `const result = await client.inference.run(endpoint.id, {
   input: 'Explain the HarchOS SENSE-THINK-ACT architecture',
   maxTokens: 512,
   temperature: 0.7,
@@ -113,19 +117,17 @@ console.log(\`Endpoint live at: \${endpoint.url}\`);`,
 console.log(result.output);
 console.log(\`Latency: \${result.latencyMs}ms\`);
 console.log(\`Energy: \${result.energyWh}Wh (source: \${result.energySource})\`);`,
-    language: 'typescript',
-  },
-];
+      language: 'typescript',
+    },
+  ];
 
-const nextSteps = [
-  { title: 'Configure Auto-Scaling', desc: 'Set up intelligent scaling policies for your inference endpoints', href: '/docs/guides', icon: Zap },
-  { title: 'Set Up Monitoring', desc: 'Create Grafana dashboards and alerting for your workloads', href: '/docs/guides', icon: Monitor },
-  { title: 'Explore the API Reference', desc: 'Full reference for all REST, gRPC, and WebSocket endpoints', href: '/docs/api', icon: Code2 },
-  { title: 'Understand the Architecture', desc: 'Deep dive into the SENSE-THINK-ACT layers', href: '/docs/architecture', icon: Brain },
-];
+  const nextSteps = [
+    { title: t('quickstarts.nextSteps.0.title'), desc: t('quickstarts.nextSteps.0.desc'), href: '/docs/guides', icon: Zap },
+    { title: t('quickstarts.nextSteps.1.title'), desc: t('quickstarts.nextSteps.1.desc'), href: '/docs/guides', icon: Monitor },
+    { title: t('quickstarts.nextSteps.2.title'), desc: t('quickstarts.nextSteps.2.desc'), href: '/docs/api', icon: Code2 },
+    { title: t('quickstarts.nextSteps.3.title'), desc: t('quickstarts.nextSteps.3.desc'), href: '/docs/architecture', icon: Brain },
+  ];
 
-/* ─── MAIN COMPONENT ─── */
-export default function QuickstartsPageClient() {
   return (
     <div className="bg-[#1A1A1A]">
 
@@ -137,16 +139,16 @@ export default function QuickstartsPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#8B9DAF]">Quickstart /0.1</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">{t('quickstarts.hero.label')}</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              Quickstart Guides
+              {t('quickstarts.title')}
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed">
-              Go from zero to a running workload in under 5 minutes. Each quickstart includes copy-paste code and step-by-step instructions.
+              {t('quickstarts.description')}
             </p>
           </FadeIn>
         </div>
@@ -158,9 +160,9 @@ export default function QuickstartsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">5-Minute Quickstarts</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('quickstarts.fiveMin.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Start in Minutes
+              {t('quickstarts.fiveMin.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>
@@ -193,18 +195,18 @@ export default function QuickstartsPageClient() {
       <section id="deploy-model" className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Tutorial</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('quickstarts.tutorial.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Deploy Your First AI Model on HarchOS
+              {t('quickstarts.tutorial.title')}
             </h2>
             <div className="accent-line mb-6" />
             <p className="max-w-3xl text-[15px] text-[#999999] leading-[1.7] mb-4">
-              This tutorial walks you through deploying an AI model as a production inference endpoint on the HarchOS sovereign AI mesh. You will install the SDK, register a model, deploy it with carbon-aware scheduling, and run your first inference request.
+              {t('quickstarts.tutorial.description')}
             </p>
             <div className="flex items-center gap-4 text-[12px] text-[#666666] mb-16">
-              <span className="flex items-center gap-1.5"><Clock size={12} /> 5 minutes</span>
-              <span className="flex items-center gap-1.5"><Code2 size={12} /> TypeScript SDK</span>
-              <span className="flex items-center gap-1.5"><Cpu size={12} /> H100 GPU</span>
+              <span className="flex items-center gap-1.5"><Clock size={12} /> {t('quickstarts.tutorial.meta.time')}</span>
+              <span className="flex items-center gap-1.5"><Code2 size={12} /> {t('quickstarts.tutorial.meta.sdk')}</span>
+              <span className="flex items-center gap-1.5"><Cpu size={12} /> {t('quickstarts.tutorial.meta.gpu')}</span>
             </div>
           </FadeIn>
 
@@ -253,11 +255,9 @@ export default function QuickstartsPageClient() {
                   <CheckCircle2 size={20} className="text-[#8B9DAF]" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white mb-1">You did it!</h3>
+                  <h3 className="text-base font-bold text-white mb-1">{t('quickstarts.success.title')}</h3>
                   <p className="text-[14px] text-[#999999] leading-[1.7]">
-                    Your first AI model is now running on the HarchOS sovereign AI mesh. It is deployed with carbon-aware scheduling, 
-                    meaning HarchOS automatically routes inference requests to the hub with the lowest carbon intensity while maintaining 
-                    your latency requirements. You can monitor your endpoint in the HarchOS dashboard or via the monitoring API.
+                    {t('quickstarts.success.description')}
                   </p>
                 </div>
               </div>
@@ -272,9 +272,9 @@ export default function QuickstartsPageClient() {
       <section className="py-20 md:py-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Continue Learning</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('quickstarts.nextSteps.label')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.02em] mb-4">
-              Next Steps
+              {t('quickstarts.nextSteps.title')}
             </h2>
             <div className="accent-line mb-12" />
           </FadeIn>

@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { FadeIn } from '@/components/ui/motion';
 import {
   ArrowLeft, ArrowRight, Cpu, Database, Network, Globe,
@@ -10,46 +11,11 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-/* ─── PRICING DATA ─── */
-const gpuPrices: Record<string, number> = {
-  A100: 1.80,
-  H100: 2.10,
-  L40S: 1.40,
-};
-
-const gpuCarbonIntensity: Record<string, number> = {
-  A100: 95,
-  H100: 18,
-  L40S: 32,
-};
-
-const regions = [
-  { id: 'morocco', name: 'Morocco', hubs: 5, gpus: 1798, avgCarbon: 47, avgRenewable: 81.5 },
-  { id: 'algeria', name: 'Algeria', hubs: 0, gpus: 0, avgCarbon: 450, avgRenewable: 1.5 },
-  { id: 'tunisia', name: 'Tunisia', hubs: 0, gpus: 0, avgCarbon: 420, avgRenewable: 3.0 },
-  { id: 'egypt', name: 'Egypt', hubs: 0, gpus: 0, avgCarbon: 380, avgRenewable: 12.0 },
-  { id: 'nigeria', name: 'Nigeria', hubs: 0, gpus: 0, avgCarbon: 350, avgRenewable: 18.0 },
-  { id: 'kenya', name: 'Kenya', hubs: 0, gpus: 0, avgCarbon: 280, avgRenewable: 75.0 },
-  { id: 'south-africa', name: 'South Africa', hubs: 0, gpus: 0, avgCarbon: 500, avgRenewable: 8.0 },
-  { id: 'senegal', name: 'Senegal', hubs: 0, gpus: 0, avgCarbon: 380, avgRenewable: 22.0 },
-  { id: 'ghana', name: 'Ghana', hubs: 0, gpus: 0, avgCarbon: 320, avgRenewable: 28.0 },
-  { id: 'ethiopia', name: 'Ethiopia', hubs: 0, gpus: 0, avgCarbon: 150, avgRenewable: 90.0 },
-  { id: 'ivory-coast', name: 'Ivory Coast', hubs: 0, gpus: 0, avgCarbon: 360, avgRenewable: 25.0 },
-];
-
-const cloudComparison: Record<string, { aws: number; gcp: number; azure: number }> = {
-  A100: { aws: 0.90, gcp: 0.85, azure: 0.88 },
-  H100: { aws: 3.50, gcp: 3.30, azure: 3.40 },
-  L40S: { aws: 1.20, gcp: 1.10, azure: 1.15 },
-};
-
-const storagePrices: Record<string, number> = {
-  SSD: 0.02,
-  NVMe: 0.04,
-};
-
 /* ─── MAIN COMPONENT ─── */
 export default function CalculatorPageClient() {
+  const t = useTranslations('pricing');
+  const tCommon = useTranslations('common');
+
   const [gpuType, setGpuType] = useState('H100');
   const [gpuCount, setGpuCount] = useState(8);
   const [gpuHours, setGpuHours] = useState(730);
@@ -58,6 +24,43 @@ export default function CalculatorPageClient() {
   const [egressBandwidth, setEgressBandwidth] = useState(5);
   const [cdnEnabled, setCdnEnabled] = useState(false);
   const [region, setRegion] = useState('morocco');
+
+  const gpuPrices: Record<string, number> = {
+    A100: 1.80,
+    H100: 2.10,
+    L40S: 1.40,
+  };
+
+  const gpuCarbonIntensity: Record<string, number> = {
+    A100: 95,
+    H100: 18,
+    L40S: 32,
+  };
+
+  const regions = [
+    { id: 'morocco', name: t('calculator.regions.morocco'), hubs: 5, gpus: 1798, avgCarbon: 47, avgRenewable: 81.5 },
+    { id: 'algeria', name: t('calculator.regions.algeria'), hubs: 0, gpus: 0, avgCarbon: 450, avgRenewable: 1.5 },
+    { id: 'tunisia', name: t('calculator.regions.tunisia'), hubs: 0, gpus: 0, avgCarbon: 420, avgRenewable: 3.0 },
+    { id: 'egypt', name: t('calculator.regions.egypt'), hubs: 0, gpus: 0, avgCarbon: 380, avgRenewable: 12.0 },
+    { id: 'nigeria', name: t('calculator.regions.nigeria'), hubs: 0, gpus: 0, avgCarbon: 350, avgRenewable: 18.0 },
+    { id: 'kenya', name: t('calculator.regions.kenya'), hubs: 0, gpus: 0, avgCarbon: 280, avgRenewable: 75.0 },
+    { id: 'south-africa', name: t('calculator.regions.southAfrica'), hubs: 0, gpus: 0, avgCarbon: 500, avgRenewable: 8.0 },
+    { id: 'senegal', name: t('calculator.regions.senegal'), hubs: 0, gpus: 0, avgCarbon: 380, avgRenewable: 22.0 },
+    { id: 'ghana', name: t('calculator.regions.ghana'), hubs: 0, gpus: 0, avgCarbon: 320, avgRenewable: 28.0 },
+    { id: 'ethiopia', name: t('calculator.regions.ethiopia'), hubs: 0, gpus: 0, avgCarbon: 150, avgRenewable: 90.0 },
+    { id: 'ivory-coast', name: t('calculator.regions.ivoryCoast'), hubs: 0, gpus: 0, avgCarbon: 360, avgRenewable: 25.0 },
+  ];
+
+  const cloudComparison: Record<string, { aws: number; gcp: number; azure: number }> = {
+    A100: { aws: 0.90, gcp: 0.85, azure: 0.88 },
+    H100: { aws: 3.50, gcp: 3.30, azure: 3.40 },
+    L40S: { aws: 1.20, gcp: 1.10, azure: 1.15 },
+  };
+
+  const storagePrices: Record<string, number> = {
+    SSD: 0.02,
+    NVMe: 0.04,
+  };
 
   const costs = useMemo(() => {
     const computeCost = gpuPrices[gpuType] * gpuCount * gpuHours;
@@ -102,18 +105,18 @@ export default function CalculatorPageClient() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <Link href="/pricing" className="inline-flex items-center gap-2 text-[13px] text-[#666666] hover:text-white transition-colors mb-8">
-              <ArrowLeft size={14} /> Pricing
+              <ArrowLeft size={14} /> {t('calculator.backToPricing')}
             </Link>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="section-label mb-6 text-[#10B981]">Cost Calculator /0.6</p>
+            <p className="section-label mb-6 text-[#10B981]">{t('calculator.heroLabel')}</p>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              Cost Calculator<span className="text-[#10B981]">.</span>
+              {t('calculator.heroTitle')}<span className="text-[#10B981]">.</span>
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed">
-              Configure your infrastructure and see real-time cost estimates. Compare against AWS, GCP, and Azure pricing.
+              {t('calculator.heroSubtitle')}
             </p>
           </FadeIn>
         </div>
@@ -136,12 +139,12 @@ export default function CalculatorPageClient() {
                     <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
                       <Cpu size={20} className="text-[#8B9DAF]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">Compute</h3>
+                    <h3 className="text-lg font-bold text-white">{t('calculator.computeTitle')}</h3>
                   </div>
 
                   {/* GPU Type */}
                   <div className="mb-6">
-                    <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-3 block">GPU Type</label>
+                    <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-3 block">{t('calculator.gpuType')}</label>
                     <div className="grid grid-cols-3 gap-3">
                       {['A100', 'H100', 'L40S'].map((gpu) => (
                         <button
@@ -154,7 +157,7 @@ export default function CalculatorPageClient() {
                           }`}
                         >
                           <p className="font-bold">{gpu}</p>
-                          <p className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)] mt-0.5">${gpuPrices[gpu]}/hr</p>
+                          <p className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)] mt-0.5">${gpuPrices[gpu]}/{t('calculator.pricePerHour')}</p>
                         </button>
                       ))}
                     </div>
@@ -163,7 +166,7 @@ export default function CalculatorPageClient() {
                   {/* GPU Count */}
                   <div className="mb-6">
                     <div className="flex justify-between items-center mb-3">
-                      <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Number of GPUs</label>
+                      <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">{t('calculator.gpuCount')}</label>
                       <span className="text-[13px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] stat-mono">{gpuCount}</span>
                     </div>
                     <input
@@ -184,7 +187,7 @@ export default function CalculatorPageClient() {
                   {/* Hours per Month */}
                   <div>
                     <div className="flex justify-between items-center mb-3">
-                      <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Hours / Month</label>
+                      <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">{t('calculator.hoursPerMonth')}</label>
                       <span className="text-[13px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] stat-mono">{gpuHours}</span>
                     </div>
                     <input
@@ -197,8 +200,8 @@ export default function CalculatorPageClient() {
                       className="w-full h-1.5 bg-[rgba(255,255,255,0.08)] rounded-full appearance-none cursor-pointer accent-[#8B9DAF]"
                     />
                     <div className="flex justify-between mt-1">
-                      <span className="text-[10px] text-[#666666]">1 hr</span>
-                      <span className="text-[10px] text-[#666666]">730 hrs (24/7)</span>
+                      <span className="text-[10px] text-[#666666]">{t('calculator.hoursRangeMin')}</span>
+                      <span className="text-[10px] text-[#666666]">{t('calculator.hoursRangeMax')}</span>
                     </div>
                   </div>
                 </div>
@@ -209,12 +212,12 @@ export default function CalculatorPageClient() {
                     <div className="w-10 h-10 rounded-lg bg-[rgba(139,92,246,0.08)] flex items-center justify-center">
                       <Database size={20} className="text-[#8B5CF6]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">Storage</h3>
+                    <h3 className="text-lg font-bold text-white">{t('calculator.storageTitle')}</h3>
                   </div>
 
                   {/* Storage Type */}
                   <div className="mb-6">
-                    <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-3 block">Storage Type</label>
+                    <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-3 block">{t('calculator.storageType')}</label>
                     <div className="grid grid-cols-2 gap-3">
                       {['SSD', 'NVMe'].map((type) => (
                         <button
@@ -227,7 +230,7 @@ export default function CalculatorPageClient() {
                           }`}
                         >
                           <p className="font-bold">{type}</p>
-                          <p className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)] mt-0.5">${storagePrices[type]}/GB/mo</p>
+                          <p className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)] mt-0.5">${storagePrices[type]}/{t('calculator.pricePerGbMo')}</p>
                         </button>
                       ))}
                     </div>
@@ -236,7 +239,7 @@ export default function CalculatorPageClient() {
                   {/* Capacity */}
                   <div>
                     <div className="flex justify-between items-center mb-3">
-                      <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Capacity (GB)</label>
+                      <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">{t('calculator.capacityLabel')}</label>
                       <span className="text-[13px] text-[#8B5CF6] font-[family-name:var(--font-space-mono)] stat-mono">{storageCapacity >= 1000 ? `${(storageCapacity / 1000).toFixed(1)} TB` : `${storageCapacity} GB`}</span>
                     </div>
                     <input
@@ -261,12 +264,12 @@ export default function CalculatorPageClient() {
                     <div className="w-10 h-10 rounded-lg bg-[rgba(245,158,11,0.08)] flex items-center justify-center">
                       <Network size={20} className="text-[#F59E0B]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">Network</h3>
+                    <h3 className="text-lg font-bold text-white">{t('calculator.networkTitle')}</h3>
                   </div>
 
                   <div className="mb-6">
                     <div className="flex justify-between items-center mb-3">
-                      <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Egress Bandwidth (Gbps)</label>
+                      <label className="text-[12px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">{t('calculator.egressBandwidth')}</label>
                       <span className="text-[13px] text-[#F59E0B] font-[family-name:var(--font-space-mono)] stat-mono">{egressBandwidth} Gbps</span>
                     </div>
                     <input
@@ -288,7 +291,7 @@ export default function CalculatorPageClient() {
                   <div className="flex items-center justify-between p-4 rounded-lg bg-[rgba(255,255,255,0.02)] border border-white/[0.04]">
                     <div>
                       <p className="text-[13px] font-semibold text-white">CDN</p>
-                      <p className="text-[11px] text-[#666666]">Global content delivery — $50/month</p>
+                      <p className="text-[11px] text-[#666666]">{t('calculator.cdnDescription')}</p>
                     </div>
                     <button
                       onClick={() => setCdnEnabled(!cdnEnabled)}
@@ -305,7 +308,7 @@ export default function CalculatorPageClient() {
                     <div className="w-10 h-10 rounded-lg bg-[rgba(16,185,129,0.08)] flex items-center justify-center">
                       <Globe size={20} className="text-[#10B981]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">Region</h3>
+                    <h3 className="text-lg font-bold text-white">{t('calculator.regionTitle')}</h3>
                   </div>
                   <div className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto">
                     {regions.map((r) => (
@@ -320,7 +323,7 @@ export default function CalculatorPageClient() {
                       >
                         <p className="font-bold">{r.name}</p>
                         <p className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)] mt-0.5">
-                          {r.hubs > 0 ? `${r.gpus} GPUs • ${r.avgCarbon} gCO2/kWh` : 'Coming soon'}
+                          {r.hubs > 0 ? `${r.gpus} ${t('calculator.gpus')} • ${r.avgCarbon} ${t('calculator.gco2kwh')}` : tCommon('comingSoon')}
                         </p>
                       </button>
                     ))}
@@ -333,19 +336,19 @@ export default function CalculatorPageClient() {
                 <div className="lg:sticky lg:top-24 space-y-6">
                   {/* Monthly Estimate */}
                   <div className="card p-8">
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-6 font-[family-name:var(--font-space-mono)]">Monthly Estimate</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-6 font-[family-name:var(--font-space-mono)]">{t('calculator.monthlyEstimate')}</p>
 
                     <div className="space-y-4 mb-6">
                       <div className="flex justify-between items-center">
-                        <span className="text-[13px] text-[#999999]">Compute</span>
+                        <span className="text-[13px] text-[#999999]">{t('calculator.computeTitle')}</span>
                         <span className="text-[13px] text-white font-[family-name:var(--font-space-mono)] stat-mono">${costs.computeCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-[13px] text-[#999999]">Storage</span>
+                        <span className="text-[13px] text-[#999999]">{t('calculator.storageTitle')}</span>
                         <span className="text-[13px] text-white font-[family-name:var(--font-space-mono)] stat-mono">${costs.storageCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-[13px] text-[#999999]">Network</span>
+                        <span className="text-[13px] text-[#999999]">{t('calculator.networkTitle')}</span>
                         <span className="text-[13px] text-white font-[family-name:var(--font-space-mono)] stat-mono">${costs.networkCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                     </div>
@@ -353,36 +356,36 @@ export default function CalculatorPageClient() {
                     <div className="h-px bg-white/[0.06] mb-4" />
 
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-[15px] font-bold text-white">Total / Month</span>
+                      <span className="text-[15px] font-bold text-white">{t('calculator.totalPerMonth')}</span>
                       <span className="text-2xl font-extrabold text-white stat-mono">${costs.totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     </div>
-                    <p className="text-[11px] text-[#666666]">Estimated, excludes taxes</p>
+                    <p className="text-[11px] text-[#666666]">{t('calculator.estimatedExcludesTaxes')}</p>
                   </div>
 
                   {/* Carbon Intensity Estimate */}
                   <div className="card p-8 border-[rgba(139,157,175,0.15)]">
                     <div className="flex items-center gap-2 mb-4">
                       <BarChart3 size={16} className="text-[#8B9DAF]" />
-                      <p className="text-[10px] text-[#8B9DAF] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Carbon Estimate</p>
+                      <p className="text-[10px] text-[#8B9DAF] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">{t('calculator.carbonEstimate')}</p>
                     </div>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
-                        <span className="text-[13px] text-[#999999]">Carbon Intensity</span>
+                        <span className="text-[13px] text-[#999999]">{t('calculator.carbonIntensity')}</span>
                         <span className={`text-[13px] font-bold font-[family-name:var(--font-space-mono)] ${costs.carbonIntensity <= 50 ? 'text-[#10B981]' : costs.carbonIntensity <= 100 ? 'text-[#F59E0B]' : 'text-[#EF4444]'}`}>
-                          {costs.carbonIntensity} gCO2/kWh
+                          {costs.carbonIntensity} {t('calculator.gco2kwh')}
                         </span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-[13px] text-[#999999]">Est. CO2 (monthly)</span>
+                        <span className="text-[13px] text-[#999999]">{t('calculator.estCo2Monthly')}</span>
                         <span className="text-[13px] text-white font-[family-name:var(--font-space-mono)] stat-mono">{costs.estimatedCO2} kg</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-[13px] text-[#999999]">vs Industry Avg</span>
-                        <span className="text-[13px] text-[#10B981] font-semibold">89% lower</span>
+                        <span className="text-[13px] text-[#999999]">{t('calculator.vsIndustryAvg')}</span>
+                        <span className="text-[13px] text-[#10B981] font-semibold">{t('calculator.lowerPercent')}</span>
                       </div>
                     </div>
                     <div className="mt-3 p-3 rounded-lg bg-[rgba(139,157,175,0.04)] border border-[rgba(139,157,175,0.1)]">
-                      <p className="text-[11px] text-[#999999]">Carbon-aware scheduling shifts workloads to the greenest hub automatically, reducing carbon intensity up to 89% vs the ~450 gCO2/kWh industry average.</p>
+                      <p className="text-[11px] text-[#999999]">{t('calculator.carbonAwareDescription')}</p>
                     </div>
                   </div>
 
@@ -390,27 +393,27 @@ export default function CalculatorPageClient() {
                   <div className="card p-8 border-[rgba(16,185,129,0.15)]">
                     <div className="flex items-center gap-2 mb-4">
                       <TrendingDown size={16} className="text-[#10B981]" />
-                      <p className="text-[10px] text-[#10B981] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">Annual Pricing</p>
+                      <p className="text-[10px] text-[#10B981] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)]">{t('calculator.annualPricing')}</p>
                     </div>
 
                     <div className="mb-4">
-                      <p className="text-[12px] text-[#666666] mb-1">Monthly (no commitment)</p>
-                      <p className="text-[16px] text-white stat-mono">${costs.totalAnnual.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<span className="text-[12px] text-[#666666]">/yr</span></p>
+                      <p className="text-[12px] text-[#666666] mb-1">{t('calculator.monthlyNoCommitment')}</p>
+                      <p className="text-[16px] text-white stat-mono">${costs.totalAnnual.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<span className="text-[12px] text-[#666666]">/{t('calculator.yearUnit')}</span></p>
                     </div>
                     <div className="mb-4">
-                      <p className="text-[12px] text-[#10B981] mb-1 font-semibold">Annual (30% discount)</p>
-                      <p className="text-[20px] font-bold text-white stat-mono">${costs.annualWithDiscount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<span className="text-[12px] text-[#666666]">/yr</span></p>
+                      <p className="text-[12px] text-[#10B981] mb-1 font-semibold">{t('calculator.annualDiscount')}</p>
+                      <p className="text-[20px] font-bold text-white stat-mono">${costs.annualWithDiscount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<span className="text-[12px] text-[#666666]">/{t('calculator.yearUnit')}</span></p>
                     </div>
                     <div className="p-3 rounded-lg bg-[rgba(16,185,129,0.04)] border border-[rgba(16,185,129,0.1)]">
                       <p className="text-[11px] text-[#10B981] font-semibold">
-                        Save ${(costs.totalAnnual - costs.annualWithDiscount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/year with annual commitment
+                        {t('calculator.saveWithAnnual', { amount: (costs.totalAnnual - costs.annualWithDiscount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) })}
                       </p>
                     </div>
                   </div>
 
                   {/* Cloud Comparison */}
                   <div className="card p-8">
-                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-6 font-[family-name:var(--font-space-mono)]">Cloud Comparison</p>
+                    <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mb-6 font-[family-name:var(--font-space-mono)]">{t('calculator.cloudComparison')}</p>
 
                     <div className="space-y-4">
                       {/* HarchOS */}
@@ -419,7 +422,7 @@ export default function CalculatorPageClient() {
                           <Shield size={14} className="text-[#10B981]" />
                           <span className="text-[13px] font-bold text-white">HarchOS</span>
                         </div>
-                        <span className="text-[14px] font-bold text-[#10B981] stat-mono">${costs.totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/mo</span>
+                        <span className="text-[14px] font-bold text-[#10B981] stat-mono">${costs.totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/{t('calculator.monthUnit')}</span>
                       </div>
 
                       {/* AWS */}
@@ -428,7 +431,7 @@ export default function CalculatorPageClient() {
                           <span className="text-[13px] text-[#999999]">AWS</span>
                         </div>
                         <div className="text-right">
-                          <span className="text-[13px] text-[#999999] stat-mono">${costs.awsCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/mo</span>
+                          <span className="text-[13px] text-[#999999] stat-mono">${costs.awsCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/{t('calculator.monthUnit')}</span>
                           <span className="ml-2 text-[11px] font-bold text-[#EF4444]">+{costs.savingsVsAws > 0 ? Math.abs(costs.savingsVsAws) : 0}%</span>
                         </div>
                       </div>
@@ -439,7 +442,7 @@ export default function CalculatorPageClient() {
                           <span className="text-[13px] text-[#999999]">GCP</span>
                         </div>
                         <div className="text-right">
-                          <span className="text-[13px] text-[#999999] stat-mono">${costs.gcpCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/mo</span>
+                          <span className="text-[13px] text-[#999999] stat-mono">${costs.gcpCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/{t('calculator.monthUnit')}</span>
                           <span className="ml-2 text-[11px] font-bold text-[#EF4444]">+{costs.savingsVsGcp > 0 ? Math.abs(costs.savingsVsGcp) : 0}%</span>
                         </div>
                       </div>
@@ -450,7 +453,7 @@ export default function CalculatorPageClient() {
                           <span className="text-[13px] text-[#999999]">Azure</span>
                         </div>
                         <div className="text-right">
-                          <span className="text-[13px] text-[#999999] stat-mono">${costs.azureCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/mo</span>
+                          <span className="text-[13px] text-[#999999] stat-mono">${costs.azureCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/{t('calculator.monthUnit')}</span>
                           <span className="ml-2 text-[11px] font-bold text-[#EF4444]">+{costs.savingsVsAzure > 0 ? Math.abs(costs.savingsVsAzure) : 0}%</span>
                         </div>
                       </div>
@@ -458,20 +461,20 @@ export default function CalculatorPageClient() {
 
                     <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-[rgba(139,157,175,0.04)] border border-[rgba(139,157,175,0.1)]">
                       <Info size={14} className="text-[#8B9DAF] mt-0.5 shrink-0" />
-                      <p className="text-[11px] text-[#999999]">Comparison based on equivalent GPU types, storage, and network configuration. HarchOS includes 100% renewable energy and sovereign data residency at no extra cost.</p>
+                      <p className="text-[11px] text-[#999999]">{t('calculator.comparisonDisclaimer')}</p>
                     </div>
                   </div>
 
                   {/* Action Buttons */}
                   <div className="space-y-3">
                     <Link href="/developers" className="w-full inline-flex items-center justify-center gap-2.5 bg-white text-black px-6 py-4 rounded-lg text-[13px] font-semibold hover:bg-white/90 transition-all">
-                      Start Free Trial <ArrowRight size={14} />
+                      {t('calculator.startFreeTrial')} <ArrowRight size={14} />
                     </Link>
                     <Link href="/contact" className="w-full inline-flex items-center justify-center gap-2.5 border border-white/12 text-white px-6 py-4 rounded-lg text-[13px] font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                      Contact Sales
+                      {t('calculator.contactSales')}
                     </Link>
                     <button className="w-full inline-flex items-center justify-center gap-2 text-[12px] text-[#666666] hover:text-[#999999] transition-colors py-2">
-                      <Download size={12} /> Download Estimate as PDF
+                      <Download size={12} /> {t('calculator.downloadEstimatePdf')}
                     </button>
                   </div>
                 </div>

@@ -1,109 +1,112 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ArrowRight, FileText, Shield, Cookie, Globe, Scale, Server, Eye, BookOpen, HandHeart, Tag, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const legalPages = [
-  {
-    title: 'Legal Notice',
-    description: 'Company information, intellectual property rights, limitation of liability, and governing law for Harch Corp S.A.',
-    href: '/legal',
-    icon: FileText,
-    updated: 'January 2026',
-  },
-  {
-    title: 'Privacy Policy',
-    description: 'How we collect, use, share, and protect your personal information in accordance with applicable data protection laws.',
-    href: '/privacy',
-    icon: Shield,
-    updated: 'January 2026',
-  },
-  {
-    title: 'Terms of Service',
-    description: 'Terms and conditions governing your use of the Harch Corp website and digital services.',
-    href: '/terms',
-    icon: Scale,
-    updated: 'January 2026',
-  },
-  {
-    title: 'Cookie Policy',
-    description: 'How we use cookies and similar technologies, including cookie categories, duration, and how to manage your preferences.',
-    href: '/legal/cookies',
-    icon: Cookie,
-    updated: 'January 2026',
-  },
-  {
-    title: 'GDPR Compliance',
-    description: 'Our commitment to GDPR compliance, data subject rights, legal bases for processing, and international data transfers.',
-    href: '/legal/gdpr',
-    icon: Globe,
-    updated: 'January 2026',
-  },
-  {
-    title: 'CCPA Compliance',
-    description: 'Your rights under the California Consumer Privacy Act, categories of information collected, and how to exercise your rights.',
-    href: '/legal/ccpa',
-    icon: AlertCircle,
-    updated: 'January 2026',
-  },
-  {
-    title: 'Data Processing Agreement',
-    description: 'DPA provisions, key terms, subprocessor management, security measures, and template download.',
-    href: '/legal/dpa',
-    icon: Server,
-    updated: 'January 2026',
-  },
-  {
-    title: 'Service Level Agreement',
-    description: 'Service availability targets (99.95% uptime), measurement methodology, service credits, and claims process.',
-    href: '/legal/sla',
-    icon: Eye,
-    updated: 'January 2026',
-  },
-  {
-    title: 'Accessibility Statement',
-    description: 'Our commitment to digital accessibility, WCAG 2.1 Level AA compliance, features, and known limitations.',
-    href: '/legal/accessibility',
-    icon: BookOpen,
-    updated: 'January 2026',
-  },
-  {
-    title: 'Code of Business Conduct',
-    description: 'Ethical standards, key policies, decision-making framework, reporting mechanisms, and non-retaliation protections.',
-    href: '/legal/code-of-conduct',
-    icon: BookOpen,
-    updated: 'January 2026',
-  },
-  {
-    title: 'Modern Slavery Statement',
-    description: 'Our statement on modern slavery and human trafficking, covering due diligence, risk assessment, and actions taken.',
-    href: '/legal/modern-slavery',
-    icon: HandHeart,
-    updated: 'January 2026',
-  },
-  {
-    title: 'Trademark Guidelines',
-    description: 'Proper use of Harch Corp trademarks, logo usage rules, color and typography standards, and permission requests.',
-    href: '/legal/trademark',
-    icon: Tag,
-    updated: 'January 2026',
-  },
-];
-
 export default function LegalHubPageClient() {
+  const t = useTranslations('legal');
+
+  const legalPages = [
+    {
+      title: 'Legal Notice',
+      description: 'Company information, intellectual property rights, limitation of liability, and governing law for Harch Corp S.A.',
+      href: '/legal',
+      icon: FileText,
+      updated: 'January 2026',
+    },
+    {
+      title: 'Privacy Policy',
+      description: 'How we collect, use, share, and protect your personal information in accordance with applicable data protection laws.',
+      href: '/privacy',
+      icon: Shield,
+      updated: 'January 2026',
+    },
+    {
+      title: 'Terms of Service',
+      description: 'Terms and conditions governing your use of the Harch Corp website and digital services.',
+      href: '/terms',
+      icon: Scale,
+      updated: 'January 2026',
+    },
+    {
+      title: 'Cookie Policy',
+      description: 'How we use cookies and similar technologies, including cookie categories, duration, and how to manage your preferences.',
+      href: '/legal/cookies',
+      icon: Cookie,
+      updated: 'January 2026',
+    },
+    {
+      title: 'GDPR Compliance',
+      description: 'Our commitment to GDPR compliance, data subject rights, legal bases for processing, and international data transfers.',
+      href: '/legal/gdpr',
+      icon: Globe,
+      updated: 'January 2026',
+    },
+    {
+      title: 'CCPA Compliance',
+      description: 'Your rights under the California Consumer Privacy Act, categories of information collected, and how to exercise your rights.',
+      href: '/legal/ccpa',
+      icon: AlertCircle,
+      updated: 'January 2026',
+    },
+    {
+      title: 'Data Processing Agreement',
+      description: 'DPA provisions, key terms, subprocessor management, security measures, and template download.',
+      href: '/legal/dpa',
+      icon: Server,
+      updated: 'January 2026',
+    },
+    {
+      title: 'Service Level Agreement',
+      description: 'Service availability targets (99.95% uptime), measurement methodology, service credits, and claims process.',
+      href: '/legal/sla',
+      icon: Eye,
+      updated: 'January 2026',
+    },
+    {
+      title: 'Accessibility Statement',
+      description: 'Our commitment to digital accessibility, WCAG 2.1 Level AA compliance, features, and known limitations.',
+      href: '/legal/accessibility',
+      icon: BookOpen,
+      updated: 'January 2026',
+    },
+    {
+      title: 'Code of Business Conduct',
+      description: 'Ethical standards, key policies, decision-making framework, reporting mechanisms, and non-retaliation protections.',
+      href: '/legal/code-of-conduct',
+      icon: BookOpen,
+      updated: 'January 2026',
+    },
+    {
+      title: 'Modern Slavery Statement',
+      description: 'Our statement on modern slavery and human trafficking, covering due diligence, risk assessment, and actions taken.',
+      href: '/legal/modern-slavery',
+      icon: HandHeart,
+      updated: 'January 2026',
+    },
+    {
+      title: 'Trademark Guidelines',
+      description: 'Proper use of Harch Corp trademarks, logo usage rules, color and typography standards, and permission requests.',
+      href: '/legal/trademark',
+      icon: Tag,
+      updated: 'January 2026',
+    },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Legal</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">Legal Hub</h1>
+            <p className="section-label mb-4">{t('title')}</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('hub.title')}</h1>
             <div className="accent-line mb-8" />
             <p className="text-[14px] text-[#999999] leading-[1.8] mb-12">
-              All legal documents, policies, and compliance information for Harch Corp S.A. in one place. Select a document below to view the full details.
+              {t('hub.subtitle')}
             </p>
           </FadeIn>
 

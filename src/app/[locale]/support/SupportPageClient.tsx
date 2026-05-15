@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { FadeIn } from '@/components/ui/motion';
 import {
   ArrowRight,
@@ -31,80 +32,88 @@ import {
   HeartHandshake,
 } from 'lucide-react';
 
-const supportTiers = [
-  {
-    name: 'Community',
-    price: 'Free',
-    priceNote: '',
-    description: 'Self-service support with community-driven resources for developers and small teams getting started with Harch Corp.',
-    features: [
-      { label: 'Community Forum', included: true },
-      { label: 'Documentation & Guides', included: true },
-      { label: '48-hour Response Time', included: true },
-      { label: 'Business Hours Coverage', included: true },
-      { label: 'Email Support', included: false },
-      { label: 'Chat Support', included: false },
-      { label: 'Dedicated Engineer', included: false },
-    ],
-    cta: 'Get Started',
-    highlight: false,
-  },
-  {
-    name: 'Professional',
-    price: '$500',
-    priceNote: '/mo',
-    description: 'Priority support with dedicated engineers for production deployments requiring guaranteed response times and expert guidance.',
-    features: [
-      { label: 'Email + Chat Support', included: true },
-      { label: '4-hour Response Time', included: true },
-      { label: '24/7 for P1 Incidents', included: true },
-      { label: 'Dedicated Support Engineer', included: true },
-      { label: 'Quarterly Business Reviews', included: true },
-      { label: 'Custom SLAs', included: false },
-      { label: 'On-site Support', included: false },
-    ],
-    cta: 'Contact Sales',
-    highlight: true,
-  },
-  {
-    name: 'Enterprise',
-    price: 'Custom',
-    priceNote: '',
-    description: 'White-glove support with a dedicated team, custom SLAs, and executive sponsorship for mission-critical deployments at scale.',
-    features: [
-      { label: '24/7 Phone + Chat Support', included: true },
-      { label: '1-hour P1 Response Time', included: true },
-      { label: 'Dedicated Support Team', included: true },
-      { label: 'Custom SLAs & KPIs', included: true },
-      { label: 'On-site Support', included: true },
-      { label: 'Executive Sponsor', included: true },
-      { label: 'Proactive Monitoring', included: true },
-    ],
-    cta: 'Talk to Us',
-    highlight: false,
-  },
-];
-
-const quickActions = [
-  { icon: MessageSquare, title: 'Create Ticket', desc: 'Submit a support request and track resolution progress', href: '#submit-ticket' },
-  { icon: BookOpen, title: 'Knowledge Base', desc: 'Browse articles, tutorials, and troubleshooting guides', href: '#knowledge-base' },
-  { icon: Activity, title: 'System Status', desc: 'Check real-time status of all Harch Corp services', href: '/status' },
-  { icon: Phone, title: 'Contact Sales', desc: 'Discuss support tiers, pricing, and enterprise options', href: '/contact' },
-];
-
-const knowledgeCategories = [
-  { icon: HelpCircle, title: 'Getting Started', articles: 47, desc: 'Setup guides, quickstarts, and initial configuration' },
-  { icon: Users, title: 'Account Management', articles: 32, desc: 'Billing, user management, and organization settings' },
-  { icon: AlertCircle, title: 'Technical Issues', articles: 89, desc: 'Troubleshooting, error codes, and known issues' },
-  { icon: CreditCard, title: 'Billing', articles: 24, desc: 'Invoices, payment methods, and usage reporting' },
-  { icon: Shield, title: 'Security', articles: 38, desc: 'Compliance, access control, and incident response' },
-  { icon: Code, title: 'API & SDKs', articles: 63, desc: 'Integration guides, API reference, and SDK documentation' },
-];
-
 export default function SupportPageClient() {
+  const t = useTranslations('support');
   const [ticketSubject, setTicketSubject] = useState('');
-  const [ticketPriority, setTicketPriority] = useState('Medium');
+  const [ticketPriority, setTicketPriority] = useState(t('ticketSystem.priorities.medium'));
   const [ticketDescription, setTicketDescription] = useState('');
+
+  const supportTiers = [
+    {
+      name: t('tiers.community.name'),
+      price: t('tiers.community.price'),
+      priceNote: t('tiers.community.priceNote'),
+      description: t('tiers.community.description'),
+      features: [
+        { label: t('tiers.community.features.0'), included: true },
+        { label: t('tiers.community.features.1'), included: true },
+        { label: t('tiers.community.features.2'), included: true },
+        { label: t('tiers.community.features.3'), included: true },
+        { label: t('tiers.community.features.4'), included: false },
+        { label: t('tiers.community.features.5'), included: false },
+        { label: t('tiers.community.features.6'), included: false },
+      ],
+      cta: t('tiers.community.cta'),
+      highlight: false,
+    },
+    {
+      name: t('tiers.professional.name'),
+      price: t('tiers.professional.price'),
+      priceNote: t('tiers.professional.priceNote'),
+      description: t('tiers.professional.description'),
+      features: [
+        { label: t('tiers.professional.features.0'), included: true },
+        { label: t('tiers.professional.features.1'), included: true },
+        { label: t('tiers.professional.features.2'), included: true },
+        { label: t('tiers.professional.features.3'), included: true },
+        { label: t('tiers.professional.features.4'), included: true },
+        { label: t('tiers.professional.features.5'), included: false },
+        { label: t('tiers.professional.features.6'), included: false },
+      ],
+      cta: t('tiers.professional.cta'),
+      highlight: true,
+    },
+    {
+      name: t('tiers.enterprise.name'),
+      price: t('tiers.enterprise.price'),
+      priceNote: t('tiers.enterprise.priceNote'),
+      description: t('tiers.enterprise.description'),
+      features: [
+        { label: t('tiers.enterprise.features.0'), included: true },
+        { label: t('tiers.enterprise.features.1'), included: true },
+        { label: t('tiers.enterprise.features.2'), included: true },
+        { label: t('tiers.enterprise.features.3'), included: true },
+        { label: t('tiers.enterprise.features.4'), included: true },
+        { label: t('tiers.enterprise.features.5'), included: true },
+        { label: t('tiers.enterprise.features.6'), included: true },
+      ],
+      cta: t('tiers.enterprise.cta'),
+      highlight: false,
+    },
+  ];
+
+  const quickActions = [
+    { icon: MessageSquare, title: t('quickActions.0.title'), desc: t('quickActions.0.desc'), href: '#submit-ticket' },
+    { icon: BookOpen, title: t('quickActions.1.title'), desc: t('quickActions.1.desc'), href: '#knowledge-base' },
+    { icon: Activity, title: t('quickActions.2.title'), desc: t('quickActions.2.desc'), href: '/status' },
+    { icon: Phone, title: t('quickActions.3.title'), desc: t('quickActions.3.desc'), href: '/contact' },
+  ];
+
+  const knowledgeCategories = [
+    { icon: HelpCircle, title: t('knowledgeCategories.0.title'), articles: 47, desc: t('knowledgeCategories.0.desc') },
+    { icon: Users, title: t('knowledgeCategories.1.title'), articles: 32, desc: t('knowledgeCategories.1.desc') },
+    { icon: AlertCircle, title: t('knowledgeCategories.2.title'), articles: 89, desc: t('knowledgeCategories.2.desc') },
+    { icon: CreditCard, title: t('knowledgeCategories.3.title'), articles: 24, desc: t('knowledgeCategories.3.desc') },
+    { icon: Shield, title: t('knowledgeCategories.4.title'), articles: 38, desc: t('knowledgeCategories.4.desc') },
+    { icon: Code, title: t('knowledgeCategories.5.title'), articles: 63, desc: t('knowledgeCategories.5.desc') },
+  ];
+
+  const successItems = [
+    { icon: Headphones, label: t('customerSuccess.items.0.label'), desc: t('customerSuccess.items.0.desc') },
+    { icon: Zap, label: t('customerSuccess.items.1.label'), desc: t('customerSuccess.items.1.desc') },
+    { icon: FileText, label: t('customerSuccess.items.2.label'), desc: t('customerSuccess.items.2.desc') },
+    { icon: HeartHandshake, label: t('customerSuccess.items.3.label'), desc: t('customerSuccess.items.3.desc') },
+  ];
 
   return (
     <div className="bg-[#121212]">
@@ -112,16 +121,15 @@ export default function SupportPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Support</p>
+            <p className="section-label mb-4">{t('hero.label')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Support Hub
+              {t('hero.title')}
             </h1>
             <div className="accent-line mb-6" />
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              From self-service resources to dedicated enterprise support, we&apos;re here to ensure 
-              your Harch Corp deployment runs flawlessly. Choose the tier that matches your mission criticality.
+              {t('hero.description')}
             </p>
           </FadeIn>
         </div>
@@ -131,12 +139,12 @@ export default function SupportPageClient() {
       <section className="py-28 md:py-36 bg-[#121212] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Plans</p>
+            <p className="section-label mb-4">{t('tiers.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Support Tiers
+              {t('tiers.title')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              Every deployment deserves expert support. Choose the level that matches your operational requirements.
+              {t('tiers.description')}
             </p>
           </FadeIn>
 
@@ -147,7 +155,7 @@ export default function SupportPageClient() {
                   {tier.highlight && (
                     <div className="flex items-center gap-2 mb-6">
                       <Star size={12} className="text-white" fill="currentColor" />
-                      <span className="text-[11px] font-bold text-white tracking-wider uppercase">Most Popular</span>
+                      <span className="text-[11px] font-bold text-white tracking-wider uppercase">{t('tiers.mostPopular')}</span>
                     </div>
                   )}
                   <div className="mb-6">
@@ -167,7 +175,7 @@ export default function SupportPageClient() {
                     ))}
                   </div>
                   <Link
-                    href={tier.name === 'Community' ? '/docs' : '/contact'}
+                    href={tier.name === t('tiers.community.name') ? '/docs' : '/contact'}
                     className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-all ${
                       tier.highlight
                         ? 'bg-white text-black hover:bg-white/90'
@@ -188,9 +196,9 @@ export default function SupportPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Quick Actions</p>
+            <p className="section-label mb-4">{t('quickActions.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              What Do You Need?
+              {t('quickActions.title')}
             </h2>
           </FadeIn>
 
@@ -204,7 +212,7 @@ export default function SupportPageClient() {
                   <h3 className="text-[15px] font-bold text-white mb-2 group-hover:text-white">{action.title}</h3>
                   <p className="text-[12px] text-[#666666] leading-relaxed">{action.desc}</p>
                   <div className="flex items-center gap-1 mt-4 text-[12px] text-[#666666] group-hover:text-white transition-colors">
-                    <span>Go</span>
+                    <span>{t('quickActions.go')}</span>
                     <ChevronRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
@@ -218,12 +226,12 @@ export default function SupportPageClient() {
       <section id="knowledge-base" className="py-28 md:py-36 bg-[#121212] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Resources</p>
+            <p className="section-label mb-4">{t('knowledgeBase.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Knowledge Base
+              {t('knowledgeBase.title')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              Self-service resources to help you resolve issues, optimize deployments, and master Harch Corp products.
+              {t('knowledgeBase.description')}
             </p>
           </FadeIn>
 
@@ -238,11 +246,11 @@ export default function SupportPageClient() {
                     <div className="flex-1">
                       <h3 className="text-[15px] font-bold text-white">{category.title}</h3>
                     </div>
-                    <span className="stat-mono text-[12px] text-[#666666]">{category.articles} articles</span>
+                    <span className="stat-mono text-[12px] text-[#666666]">{category.articles} {t('knowledgeBase.articles')}</span>
                   </div>
                   <p className="text-[12px] text-[#666666] leading-relaxed">{category.desc}</p>
                   <div className="flex items-center gap-1 mt-4 text-[12px] text-[#666666] group-hover:text-white transition-colors">
-                    <span>Browse articles</span>
+                    <span>{t('knowledgeBase.browseArticles')}</span>
                     <ChevronRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -256,12 +264,12 @@ export default function SupportPageClient() {
       <section id="submit-ticket" className="py-28 md:py-36 bg-[#1A1A1A] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Request</p>
+            <p className="section-label mb-4">{t('ticketSystem.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Submit a Ticket
+              {t('ticketSystem.createTicket')}
             </h2>
             <p className="max-w-xl text-[15px] text-[#999999] leading-relaxed mb-16">
-              Describe your issue and our team will respond according to your support tier SLA.
+              {t('ticketSystem.description')}
             </p>
           </FadeIn>
 
@@ -269,20 +277,20 @@ export default function SupportPageClient() {
             <div className="card p-8 md:p-10 max-w-2xl">
               <div className="space-y-6">
                 <div>
-                  <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">Subject</label>
+                  <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">{t('ticketSystem.subject')}</label>
                   <input
                     type="text"
                     value={ticketSubject}
                     onChange={(e) => setTicketSubject(e.target.value)}
-                    placeholder="Brief description of your issue"
+                    placeholder={t('ticketSystem.subjectPlaceholder')}
                     className="w-full bg-[#121212] border border-[rgba(255,255,255,0.08)] rounded-lg px-4 py-3 text-[14px] text-white placeholder:text-[#444444] focus:border-white/20 focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">Priority</label>
+                  <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">{t('ticketSystem.priority')}</label>
                   <div className="flex gap-3">
-                    {['Low', 'Medium', 'High', 'Critical'].map((priority) => (
+                    {[t('ticketSystem.priorities.low'), t('ticketSystem.priorities.medium'), t('ticketSystem.priorities.high'), t('ticketSystem.priorities.critical')].map((priority) => (
                       <button
                         key={priority}
                         onClick={() => setTicketPriority(priority)}
@@ -299,29 +307,29 @@ export default function SupportPageClient() {
                 </div>
 
                 <div>
-                  <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">Description</label>
+                  <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">{t('ticketSystem.descriptionLabel')}</label>
                   <textarea
                     value={ticketDescription}
                     onChange={(e) => setTicketDescription(e.target.value)}
-                    placeholder="Describe the issue in detail. Include error messages, steps to reproduce, and expected behavior."
+                    placeholder={t('ticketSystem.descriptionPlaceholder')}
                     rows={6}
                     className="w-full bg-[#121212] border border-[rgba(255,255,255,0.08)] rounded-lg px-4 py-3 text-[14px] text-white placeholder:text-[#444444] focus:border-white/20 focus:outline-none transition-colors resize-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">Attachment</label>
+                  <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">{t('ticketSystem.attachmentLabel')}</label>
                   <div className="border border-dashed border-[rgba(255,255,255,0.12)] rounded-lg p-8 text-center hover:border-white/20 transition-colors cursor-pointer">
                     <Paperclip size={20} className="text-[#444444] mx-auto mb-2" />
-                    <p className="text-[13px] text-[#666666]">Drop files here or click to upload</p>
-                    <p className="text-[11px] text-[#444444] mt-1">PNG, JPG, PDF, or log files up to 10MB</p>
+                    <p className="text-[13px] text-[#666666]">{t('ticketSystem.attachmentDropText')}</p>
+                    <p className="text-[11px] text-[#444444] mt-1">{t('ticketSystem.attachmentHint')}</p>
                   </div>
                 </div>
 
                 <div className="pt-4">
                   <button className="inline-flex items-center gap-2 bg-white text-black px-8 py-3.5 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all">
                     <Send size={14} />
-                    Submit Ticket
+                    {t('ticketSystem.submitTicket')}
                   </button>
                 </div>
               </div>
@@ -334,9 +342,9 @@ export default function SupportPageClient() {
       <section className="py-28 md:py-36 bg-[#121212] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Success</p>
+            <p className="section-label mb-4">{t('customerSuccess.label')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              Customer Success Management
+              {t('customerSuccess.title')}
             </h2>
             <div className="accent-line mb-6" />
           </FadeIn>
@@ -344,25 +352,15 @@ export default function SupportPageClient() {
             <div className="lg:w-1/2">
               <FadeIn delay={0.05}>
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
-                  Our Customer Success team doesn&apos;t just respond to issues — they proactively ensure you&apos;re 
-                  extracting maximum value from your Harch Corp deployment. Every Enterprise and Professional 
-                  customer is paired with a dedicated success manager who understands your business objectives 
-                  and technical architecture.
+                  {t('customerSuccess.description1')}
                 </p>
                 <p className="text-[15px] text-[#999999] leading-[1.7]">
-                  From onboarding through production scaling, your success manager serves as your internal 
-                  advocate — coordinating resources across engineering, product, and executive teams to ensure 
-                  your deployment delivers measurable outcomes.
+                  {t('customerSuccess.description2')}
                 </p>
               </FadeIn>
             </div>
             <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { icon: Headphones, label: 'Dedicated Manager', desc: 'A named point of contact who knows your architecture and goals' },
-                { icon: Zap, label: 'Proactive Monitoring', desc: 'We identify potential issues before they impact your operations' },
-                { icon: FileText, label: 'Quarterly Reviews', desc: 'Structured reviews covering SLAs, KPIs, and optimization opportunities' },
-                { icon: HeartHandshake, label: 'Onboarding Support', desc: 'Guided setup and configuration to accelerate time-to-value' },
-              ].map((item, i) => (
+              {successItems.map((item, i) => (
                 <FadeIn key={item.label} delay={i * 0.08}>
                   <div className="card p-6 h-full">
                     <div className="w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.06)] flex items-center justify-center mb-4">
@@ -386,12 +384,12 @@ export default function SupportPageClient() {
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#00FF88]" style={{ boxShadow: '0 0 6px rgba(0,255,136,0.5)' }} />
-                  <span className="text-[14px] font-semibold text-white">All Systems Operational</span>
+                  <span className="text-[14px] font-semibold text-white">{t('systemStatus.allOperational')}</span>
                 </div>
-                <span className="text-[12px] text-[#666666]">99.98% uptime over 90 days</span>
+                <span className="text-[12px] text-[#666666]">{t('systemStatus.uptimeText')}</span>
               </div>
               <div className="flex items-center gap-2 text-[12px] text-[#666666] group-hover:text-white transition-colors">
-                <span>View Status Page</span>
+                <span>{t('systemStatus.viewStatusPage')}</span>
                 <ExternalLink size={12} />
               </div>
             </Link>
@@ -405,11 +403,10 @@ export default function SupportPageClient() {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">
-              Need Help?
+              {t('cta.title')}
             </h2>
             <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">
-              Our support team is available around the clock for critical issues. Don&apos;t hesitate to 
-              reach out — we&apos;re here to keep your operations running.
+              {t('cta.description')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
@@ -418,13 +415,13 @@ export default function SupportPageClient() {
                 href="/contact"
                 className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all"
               >
-                Contact Support <ArrowRight size={14} />
+                {t('cta.contactSupport')} <ArrowRight size={14} />
               </Link>
               <Link
                 href="/docs"
                 className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all"
               >
-                Browse Documentation <BookOpen size={14} />
+                {t('cta.browseDocumentation')} <BookOpen size={14} />
               </Link>
             </div>
           </FadeIn>

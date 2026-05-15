@@ -3,52 +3,78 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Cpu, Landmark, Building, Globe } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const partnerCategories = [
-  {
-    icon: Cpu,
-    title: 'Technology Partners',
-    description: 'Leading technology companies providing hardware, software, and AI infrastructure to power Harch Intelligence and Harch Technology operations.',
-    partners: ['GPU & Compute Providers', 'Cloud Platform Partners', 'AI/ML Framework Partners', 'Industrial IoT Providers', 'Cybersecurity Partners'],
-  },
-  {
-    icon: Landmark,
-    title: 'Financial Partners',
-    description: 'International development finance institutions, sovereign wealth funds, and private equity firms providing capital for Harch Corp\'s $2.4B+ investment pipeline.',
-    partners: ['Development Finance Institutions', 'Sovereign Wealth Funds', 'Infrastructure Funds', 'Commercial Banks', 'Export Credit Agencies'],
-  },
-  {
-    icon: Building,
-    title: 'Industrial Partners',
-    description: 'Engineering firms, EPC contractors, and equipment suppliers collaborating on Harch Corp\'s construction and manufacturing projects.',
-    partners: ['EPC Contractors', 'Engineering Consultancies', 'Equipment Manufacturers', 'Mining Services Companies', 'Construction Materials Suppliers'],
-  },
-  {
-    icon: Globe,
-    title: 'Government & Institutional Partners',
-    description: 'National and regional governments, regulatory bodies, and international organizations supporting Harch Corp\'s mission of African industrial sovereignty.',
-    partners: ['National Governments', 'Regional Development Agencies', 'Utility Companies', 'Academic Institutions', 'Industry Associations'],
-  },
-];
-
 export default function PartnersPageClient() {
+  const t = useTranslations('partners');
+
+  const partnerCategories = [
+    {
+      icon: Cpu,
+      title: t('categories.technology.title'),
+      description: t('categories.technology.description'),
+      partners: [
+        t('categories.technology.partners.0'),
+        t('categories.technology.partners.1'),
+        t('categories.technology.partners.2'),
+        t('categories.technology.partners.3'),
+        t('categories.technology.partners.4'),
+      ],
+    },
+    {
+      icon: Landmark,
+      title: t('categories.financial.title'),
+      description: t('categories.financial.description'),
+      partners: [
+        t('categories.financial.partners.0'),
+        t('categories.financial.partners.1'),
+        t('categories.financial.partners.2'),
+        t('categories.financial.partners.3'),
+        t('categories.financial.partners.4'),
+      ],
+    },
+    {
+      icon: Building,
+      title: t('categories.industrial.title'),
+      description: t('categories.industrial.description'),
+      partners: [
+        t('categories.industrial.partners.0'),
+        t('categories.industrial.partners.1'),
+        t('categories.industrial.partners.2'),
+        t('categories.industrial.partners.3'),
+        t('categories.industrial.partners.4'),
+      ],
+    },
+    {
+      icon: Globe,
+      title: t('categories.government.title'),
+      description: t('categories.government.description'),
+      partners: [
+        t('categories.government.partners.0'),
+        t('categories.government.partners.1'),
+        t('categories.government.partners.2'),
+        t('categories.government.partners.3'),
+        t('categories.government.partners.4'),
+      ],
+    },
+  ];
+
   return (
     <div className="bg-[#121212]">
       {/* Hero */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6">Partners</p>
+            <p className="section-label mb-6">{t('hero.label')}</p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-[-0.01em] mb-8">
-              Partner<br/>Ecosystem
+              {t('hero.title')}
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="max-w-2xl text-base md:text-lg text-[#999999] leading-relaxed">
-              Harch Corp works with world-class partners across technology, finance, industry, 
-              and government to build Africa&apos;s critical infrastructure.
+              {t('hero.description')}
             </p>
           </FadeIn>
         </div>
@@ -92,17 +118,16 @@ export default function PartnersPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">
-              Become a Partner
+              {t('becomePartner.title')}
             </h2>
             <p className="max-w-xl mx-auto text-base text-[#666666] mb-10">
-              Join the ecosystem building Africa&apos;s industrial sovereignty. We&apos;re always 
-              looking for strategic partners who share our mission.
+              {t('becomePartner.description')}
             </p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 bg-[#0A0F1A] text-white px-8 py-4 rounded-xl text-sm font-medium hover:bg-[#0A0F1A]/90 transition-colors"
             >
-              Partner With Us
+              {t('becomePartner.cta')}
               <ArrowRight size={14} />
             </Link>
           </FadeIn>

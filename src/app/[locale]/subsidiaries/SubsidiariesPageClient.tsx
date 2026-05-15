@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { useTranslations } from 'next-intl';
 import { ArrowRight, Server, Zap, Factory, Mountain, Wheat, Droplets, Cpu, Landmark } from 'lucide-react';
 import { FadeIn, StaggerContainer, StaggerItem, Card3D, SectionDivider } from '@/components/ui/motion';
 import ImmersiveHero from '@/components/ImmersiveHero';
@@ -15,98 +16,100 @@ const NetworkOntology = dynamic(
   { ssr: false, loading: () => <div className="h-[400px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
 );
 
-const subsidiaries = [
-  {
-    name: 'Harch Intelligence',
-    slug: 'intelligence',
-    version: '/0.1',
-    desc: 'Carbon-Aware GPU Cloud — 1,798 GPUs across 5 Moroccan hubs at ~47 gCO2/kWh. Sovereign AI compute with carbon-aware scheduling.',
-    stat: '1,798 GPUs',
-    icon: Server,
-    accent: '#8B9DAF',
-    image: '/images/sections/intelligence-exterior.jpg',
-  },
-  {
-    name: 'Harch Cement',
-    slug: 'cement',
-    version: '/0.2',
-    desc: '500kT/yr cement production in Gambia — vertically integrated from quarry to delivery, serving West Africa\'s construction boom.',
-    stat: '500kT/yr',
-    icon: Factory,
-    accent: '#8B9DAF',
-    image: '/images/sections/cement-factory.jpg',
-  },
-  {
-    name: 'Harch Energy',
-    slug: 'energy',
-    version: '/0.3',
-    desc: '2GW+ renewable energy pipeline — solar, wind, and green hydrogen across Morocco and the Sahel. Zero-carbon industrial electricity.',
-    stat: '2GW+',
-    icon: Zap,
-    accent: '#6B9F6B',
-    image: '/images/sections/energy-solar-farm.jpg',
-  },
-  {
-    name: 'Harch Technology',
-    slug: 'technology',
-    version: '/0.4',
-    desc: 'Sovereign technology stack — carbon-aware GPU cloud, cybersecurity, satellite communications, and developer platform.',
-    stat: '1,798 GPUs',
-    icon: Cpu,
-    accent: '#7888A8',
-    image: '/images/sections/tech-ground-station.jpg',
-  },
-  {
-    name: 'Harch Mining',
-    slug: 'mining',
-    version: '/0.5',
-    desc: 'Strategic mineral extraction — phosphates, cobalt, and rare earths. Capturing the full value chain from mine to market.',
-    stat: '3 Minerals',
-    icon: Mountain,
-    accent: '#A87878',
-    image: '/images/sections/mining-smelter.jpg',
-  },
-  {
-    name: 'Harch Agri',
-    slug: 'agriculture',
-    version: '/0.6',
-    desc: 'Precision agriculture — IoT sensors, drone monitoring, and vertical farming across 60% of the world\'s uncultivated arable land.',
-    stat: '$35B Market',
-    icon: Wheat,
-    accent: '#6BAF6B',
-    image: '/images/sections/agri-vertical-farm.jpg',
-  },
-  {
-    name: 'Harch Water',
-    slug: 'water',
-    version: '/0.7',
-    desc: '200M m³/yr desalination capacity with smart distribution networks. Solving Africa\'s water security crisis at scale.',
-    stat: '200M m³/yr',
-    icon: Droplets,
-    accent: '#6888A8',
-    image: '/images/sections/water-desal.jpg',
-  },
-  {
-    name: 'Harch Finance',
-    slug: 'finance',
-    version: '/0.8',
-    desc: 'Green bonds, project finance, trade finance, and Islamic finance for sovereign infrastructure across the continent.',
-    stat: '$2.4B+',
-    icon: Landmark,
-    accent: '#8B9DAF',
-    image: '/images/sections/finance-trading.jpg',
-  },
-];
-
 export default function SubsidiariesPageClient() {
+  const t = useTranslations('subsidiaries');
+
+  const subsidiaries = [
+    {
+      name: t('intelligence.name'),
+      slug: 'intelligence',
+      version: '/0.1',
+      desc: t('intelligence.desc'),
+      stat: t('intelligence.stat'),
+      icon: Server,
+      accent: '#8B9DAF',
+      image: '/images/sections/intelligence-exterior.jpg',
+    },
+    {
+      name: t('cement.name'),
+      slug: 'cement',
+      version: '/0.2',
+      desc: t('cement.desc'),
+      stat: t('cement.stat'),
+      icon: Factory,
+      accent: '#8B9DAF',
+      image: '/images/sections/cement-factory.jpg',
+    },
+    {
+      name: t('energy.name'),
+      slug: 'energy',
+      version: '/0.3',
+      desc: t('energy.desc'),
+      stat: t('energy.stat'),
+      icon: Zap,
+      accent: '#6B9F6B',
+      image: '/images/sections/energy-solar-farm.jpg',
+    },
+    {
+      name: t('technology.name'),
+      slug: 'technology',
+      version: '/0.4',
+      desc: t('technology.desc'),
+      stat: t('technology.stat'),
+      icon: Cpu,
+      accent: '#7888A8',
+      image: '/images/sections/tech-ground-station.jpg',
+    },
+    {
+      name: t('mining.name'),
+      slug: 'mining',
+      version: '/0.5',
+      desc: t('mining.desc'),
+      stat: t('mining.stat'),
+      icon: Mountain,
+      accent: '#A87878',
+      image: '/images/sections/mining-smelter.jpg',
+    },
+    {
+      name: t('agriculture.name'),
+      slug: 'agriculture',
+      version: '/0.6',
+      desc: t('agriculture.desc'),
+      stat: t('agriculture.stat'),
+      icon: Wheat,
+      accent: '#6BAF6B',
+      image: '/images/sections/agri-vertical-farm.jpg',
+    },
+    {
+      name: t('water.name'),
+      slug: 'water',
+      version: '/0.7',
+      desc: t('water.desc'),
+      stat: t('water.stat'),
+      icon: Droplets,
+      accent: '#6888A8',
+      image: '/images/sections/water-desal.jpg',
+    },
+    {
+      name: t('finance.name'),
+      slug: 'finance',
+      version: '/0.8',
+      desc: t('finance.desc'),
+      stat: t('finance.stat'),
+      icon: Landmark,
+      accent: '#8B9DAF',
+      image: '/images/sections/finance-trading.jpg',
+    },
+  ];
+
   return (
     <div className="bg-surface-1">
       {/* Immersive Hero */}
       <ImmersiveHero
-        title="VERTICALS"
-        subtitle="8 Verticals. One Mission."
+        title={t('heroTitle')}
+        subtitle={t('heroSubtitle')}
         version="/0.8"
-        metaLabel="HARCH CORP SUBSIDIARIES"
+        metaLabel={t('heroMetaLabel')}
       />
 
       {/* Network Ontology */}
@@ -123,10 +126,10 @@ export default function SubsidiariesPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="mb-10">
-              <span className="section-label">Analytics</span>
-              <h2 className="section-title mt-2">Portfolio Intelligence</h2>
+              <span className="section-label">{t('analyticsLabel')}</span>
+              <h2 className="section-title mt-2">{t('portfolioTitle')}</h2>
               <p className="section-subtitle mt-2">
-                Real-time capital allocation and operational performance across all verticals.
+                {t('portfolioSubtitle')}
               </p>
             </div>
           </FadeIn>
@@ -152,8 +155,8 @@ export default function SubsidiariesPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="mb-10">
-              <span className="section-label">Operating Verticals</span>
-              <h2 className="section-title mt-2">8 Verticals. One Mission.</h2>
+              <span className="section-label">{t('operatingVerticalsLabel')}</span>
+              <h2 className="section-title mt-2">{t('operatingVerticalsTitle')}</h2>
             </div>
           </FadeIn>
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
@@ -182,7 +185,7 @@ export default function SubsidiariesPageClient() {
                         </div>
                         <p className="text-[13px] text-[rgba(255,255,255,0.45)] leading-relaxed mb-4">{sub.desc}</p>
                         <div className="pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
-                          <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]" style={{ color: `${sub.accent}90` }}>Explore Platform</span>
+                          <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]" style={{ color: `${sub.accent}90` }}>{t('explorePlatform')}</span>
                           <ArrowRight size={12} className="text-[rgba(255,255,255,0.25)] group-hover:translate-x-1 group-hover:text-white transition-all" />
                         </div>
                       </div>

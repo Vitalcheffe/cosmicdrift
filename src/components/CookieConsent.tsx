@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Shield } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function CookieConsent() {
+  const t = useTranslations('cookieConsent');
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -33,18 +35,18 @@ export function CookieConsent() {
         <div className="flex items-start gap-3 flex-1">
           <Shield size={18} className="text-[#666666] shrink-0 mt-0.5" strokeWidth={1.5} />
           <p className="text-[13px] text-[#999999] leading-relaxed">
-            We use cookies to improve your experience and analyze site traffic. By continuing, you agree to our{' '}
+            {t('description')}{' '}
             <Link href="/privacy" className="text-white font-medium underline underline-offset-2 hover:text-white/80 transition-colors">
-              Privacy Policy
+              {t('privacyPolicy')}
             </Link>.
           </p>
         </div>
         <div className="flex items-center gap-3 shrink-0">
           <button onClick={decline} className="px-5 py-2 text-[11px] font-semibold tracking-[0.05em] text-[#999999] hover:text-white border border-[rgba(255,255,255,0.06)] rounded-lg transition-colors">
-            Decline
+            {t('reject')}
           </button>
           <button onClick={accept} className="px-5 py-2 text-[11px] font-semibold tracking-[0.05em] bg-white text-black rounded-lg hover:bg-white/90 transition-colors">
-            Accept
+            {t('accept')}
           </button>
         </div>
       </div>

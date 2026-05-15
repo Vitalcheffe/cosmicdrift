@@ -3,84 +3,101 @@
 import Link from 'next/link';
 import { ArrowRight, MessageSquare, Github, BookOpen, Users, Globe, Code2, Star, Calendar, Award, Heart, Shield, ExternalLink, Hash } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 import { FadeIn } from '@/components/ui/motion';
 
-const communityChannels = [
-  {
-    name: 'Discord',
-    desc: 'Official Harch Discord server. Real-time discussions, Q&A, and community support for builders on sovereign infrastructure.',
-    members: '2,500+',
-    icon: MessageSquare,
-    accent: '#5865F2',
-    channels: ['#general', '#engineering', '#help', '#showcase'],
-    cta: 'Join Discord',
-    href: '#',
-  },
-  {
-    name: 'GitHub',
-    desc: 'Open source repositories, issue tracking, and contribution guides. Star our repos, file bugs, and submit pull requests.',
-    members: '2,300+ stars',
-    icon: Github,
-    accent: '#FFFFFF',
-    channels: ['15 repos', '120+ contributors', 'MIT licensed'],
-    cta: 'View on GitHub',
-    href: 'https://github.com/harchcorp',
-  },
-  {
-    name: 'Stack Overflow',
-    desc: 'Ask technical questions, share solutions, and build a knowledge base around HarchOS, SENSE, and ACT.',
-    members: '450+ questions',
-    icon: BookOpen,
-    accent: '#F48024',
-    channels: ['#harchos', '#sense-layer', '#act-sdk'],
-    cta: 'Browse Questions',
-    href: '#',
-  },
-  {
-    name: 'Community Forum',
-    desc: 'Long-form discussions, architecture reviews, and project showcases. The place for asynchronous deep conversations.',
-    members: '1,800+ threads',
-    icon: Users,
-    accent: '#8B9DAF',
-    channels: ['discussions.harchcorp.com', 'RFCs', 'Show & Tell'],
-    cta: 'Visit Forum',
-    href: 'https://discussions.harchcorp.com',
-  },
-];
-
-const communityStats = [
-  { label: 'Community Members', value: '5,200+', icon: Users },
-  { label: 'Countries', value: '47', icon: Globe },
-  { label: 'Contributions', value: '12,000+', icon: Code2 },
-  { label: 'Open Source Repos', value: '15', icon: Github },
-];
-
-const upcomingEvents = [
-  {
-    name: 'Harch Community Meetup — Casablanca',
-    desc: 'Monthly in-person meetup at the Harch Corp HQ. Lightning talks, networking, and live demos of HarchOS features.',
-    date: 'April 15, 2026',
-    type: 'Meetup',
-    typeColor: 'bg-[rgba(139,157,175,0.08)] border-[rgba(139,157,175,0.15)] text-[#8B9DAF]',
-  },
-  {
-    name: 'Sovereign AI Hackathon',
-    desc: '48-hour hackathon: Build an application on HarchOS. $10,000 in prizes. Open to developers across Africa and beyond.',
-    date: 'May 22–24, 2026',
-    type: 'Hackathon',
-    typeColor: 'bg-[rgba(168,85,247,0.08)] border-[rgba(168,85,247,0.15)] text-[#A855F7]',
-  },
-  {
-    name: 'Engineering Office Hours',
-    desc: 'Bi-weekly virtual session with the HarchOS core team. Bring your questions about architecture, deployment, and scaling.',
-    date: 'Every other Thursday',
-    type: 'Office Hours',
-    typeColor: 'bg-[rgba(34,197,94,0.08)] border-[rgba(34,197,94,0.15)] text-[#22C55E]',
-  },
-];
-
 export default function CommunityPageClient() {
+  const t = useTranslations('community');
+
+  const communityChannels = [
+    {
+      name: t('channels.items.0.name'),
+      desc: t('channels.items.0.desc'),
+      members: t('channels.items.0.members'),
+      icon: MessageSquare,
+      accent: '#5865F2',
+      channels: [t('channels.items.0.channels.0'), t('channels.items.0.channels.1'), t('channels.items.0.channels.2'), t('channels.items.0.channels.3')],
+      cta: t('channels.items.0.cta'),
+      href: '#',
+    },
+    {
+      name: t('channels.items.1.name'),
+      desc: t('channels.items.1.desc'),
+      members: t('channels.items.1.members'),
+      icon: Github,
+      accent: '#FFFFFF',
+      channels: [t('channels.items.1.channels.0'), t('channels.items.1.channels.1'), t('channels.items.1.channels.2')],
+      cta: t('channels.items.1.cta'),
+      href: 'https://github.com/harchcorp',
+    },
+    {
+      name: t('channels.items.2.name'),
+      desc: t('channels.items.2.desc'),
+      members: t('channels.items.2.members'),
+      icon: BookOpen,
+      accent: '#F48024',
+      channels: [t('channels.items.2.channels.0'), t('channels.items.2.channels.1'), t('channels.items.2.channels.2')],
+      cta: t('channels.items.2.cta'),
+      href: '#',
+    },
+    {
+      name: t('channels.items.3.name'),
+      desc: t('channels.items.3.desc'),
+      members: t('channels.items.3.members'),
+      icon: Users,
+      accent: '#8B9DAF',
+      channels: [t('channels.items.3.channels.0'), t('channels.items.3.channels.1'), t('channels.items.3.channels.2')],
+      cta: t('channels.items.3.cta'),
+      href: 'https://discussions.harchcorp.com',
+    },
+  ];
+
+  const communityStats = [
+    { label: t('stats.items.0.label'), value: t('stats.items.0.value'), icon: Users },
+    { label: t('stats.items.1.label'), value: t('stats.items.1.value'), icon: Globe },
+    { label: t('stats.items.2.label'), value: t('stats.items.2.value'), icon: Code2 },
+    { label: t('stats.items.3.label'), value: t('stats.items.3.value'), icon: Github },
+  ];
+
+  const upcomingEvents = [
+    {
+      name: t('events.items.0.name'),
+      desc: t('events.items.0.desc'),
+      date: t('events.items.0.date'),
+      type: t('events.items.0.type'),
+      typeColor: 'bg-[rgba(139,157,175,0.08)] border-[rgba(139,157,175,0.15)] text-[#8B9DAF]',
+    },
+    {
+      name: t('events.items.1.name'),
+      desc: t('events.items.1.desc'),
+      date: t('events.items.1.date'),
+      type: t('events.items.1.type'),
+      typeColor: 'bg-[rgba(168,85,247,0.08)] border-[rgba(168,85,247,0.15)] text-[#A855F7]',
+    },
+    {
+      name: t('events.items.2.name'),
+      desc: t('events.items.2.desc'),
+      date: t('events.items.2.date'),
+      type: t('events.items.2.type'),
+      typeColor: 'bg-[rgba(34,197,94,0.08)] border-[rgba(34,197,94,0.15)] text-[#22C55E]',
+    },
+  ];
+
+  const conductItems = [
+    t('guidelines.conduct.0'),
+    t('guidelines.conduct.1'),
+    t('guidelines.conduct.2'),
+    t('guidelines.conduct.3'),
+  ];
+
+  const championPerks = [
+    t('champions.perks.0'),
+    t('champions.perks.1'),
+    t('champions.perks.2'),
+    t('champions.perks.3'),
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
 
@@ -88,13 +105,13 @@ export default function CommunityPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Community</p>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('hero.label')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              Build Together.
+              {t('hero.title')}
             </h1>
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Join 5,200+ developers, operators, and infrastructure engineers building the future of sovereign compute. Ask questions, share projects, and shape the platform.
+              {t('hero.description')}
             </p>
           </FadeIn>
         </div>
@@ -104,8 +121,8 @@ export default function CommunityPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Channels</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">Where We Connect</h2>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('channels.label')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">{t('channels.title')}</h2>
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -149,8 +166,8 @@ export default function CommunityPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">By the Numbers</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">Growing Every Day</h2>
+            <p className="section-label mb-4">{t('stats.label')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">{t('stats.title')}</h2>
           </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {communityStats.map((stat, i) => {
@@ -173,8 +190,8 @@ export default function CommunityPageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">Events</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">Upcoming Community Events</h2>
+            <p className="section-label mb-4 text-[#8B9DAF]">{t('events.label')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">{t('events.title')}</h2>
           </FadeIn>
 
           <div className="space-y-4">
@@ -210,18 +227,13 @@ export default function CommunityPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
             <FadeIn>
               <div>
-                <p className="section-label mb-4 text-[#8B9DAF]">Guidelines</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">Community Code of Conduct</h2>
+                <p className="section-label mb-4 text-[#8B9DAF]">{t('guidelines.label')}</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">{t('guidelines.title')}</h2>
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
-                  We are committed to providing a welcoming, inclusive, and harassment-free experience for everyone. Our community guidelines apply across all Harch Corp community spaces — Discord, GitHub, forums, and events.
+                  {t('guidelines.description')}
                 </p>
                 <div className="space-y-3 mb-8">
-                  {[
-                    'Be respectful and constructive in all interactions',
-                    'Prioritize learning and knowledge sharing',
-                    'Report violations to conduct@harchcorp.com',
-                    'Zero tolerance for harassment, discrimination, or spam',
-                  ].map((item) => (
+                  {conductItems.map((item) => (
                     <div key={item} className="flex items-start gap-3">
                       <Shield size={14} className="text-[#8B9DAF] shrink-0 mt-0.5" strokeWidth={1.5} />
                       <span className="text-[13px] text-[#999999]">{item}</span>
@@ -229,24 +241,19 @@ export default function CommunityPageClient() {
                   ))}
                 </div>
                 <Link href="/legal/code-of-conduct" className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] hover:text-white transition-colors">
-                  Read Full Code of Conduct <ArrowRight size={14} />
+                  {t('guidelines.readFull')} <ArrowRight size={14} />
                 </Link>
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
               <div>
-                <p className="section-label mb-4 text-[#8B9DAF]">Champions</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">Community Champions</h2>
+                <p className="section-label mb-4 text-[#8B9DAF]">{t('champions.label')}</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-6">{t('champions.title')}</h2>
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
-                  The Harch Community Champions program recognizes members who go above and beyond — answering questions, contributing code, writing tutorials, and mentoring newcomers.
+                  {t('champions.description')}
                 </p>
                 <div className="space-y-3 mb-8">
-                  {[
-                    'Exclusive access to early product previews and beta features',
-                    'Direct communication channel with the engineering team',
-                    'Invitation to the annual Champions Summit at Harch HQ',
-                    'Harch Corp swag, conference tickets, and recognition',
-                  ].map((item) => (
+                  {championPerks.map((item) => (
                     <div key={item} className="flex items-start gap-3">
                       <Award size={14} className="text-[#EAB308] shrink-0 mt-0.5" strokeWidth={1.5} />
                       <span className="text-[13px] text-[#999999]">{item}</span>
@@ -254,7 +261,7 @@ export default function CommunityPageClient() {
                   ))}
                 </div>
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#8B9DAF] hover:text-white transition-colors cursor-pointer">
-                  Apply to Become a Champion <ArrowRight size={14} />
+                  {t('champions.apply')} <ArrowRight size={14} />
                 </span>
               </div>
             </FadeIn>
@@ -269,24 +276,24 @@ export default function CommunityPageClient() {
             <FadeIn>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
                 <MessageSquare size={20} className="text-[#5865F2] mb-4" strokeWidth={1.5} />
-                <h3 className="text-xl font-bold text-white mb-3">Join the Discord</h3>
+                <h3 className="text-xl font-bold text-white mb-3">{t('cta.discord.title')}</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
-                  2,500+ members. Real-time help, engineering discussions, and a community that ships. The fastest way to get answers and connect with the team.
+                  {t('cta.discord.description')}
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#5865F2] group-hover:text-white transition-colors">
-                  Join Harch Discord <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  {t('cta.discord.cta')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="card p-8 md:p-10 h-full group cursor-pointer">
                 <Star size={20} className="text-[#EAB308] mb-4" strokeWidth={1.5} />
-                <h3 className="text-xl font-bold text-white mb-3">Star on GitHub</h3>
+                <h3 className="text-xl font-bold text-white mb-3">{t('cta.github.title')}</h3>
                 <p className="text-[14px] text-[#999999] leading-relaxed mb-6">
-                  15 open source repositories. 2,300+ stars. Help us build sovereign infrastructure in the open — star our repos, file issues, and submit PRs.
+                  {t('cta.github.description')}
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#EAB308] group-hover:text-white transition-colors">
-                  Star on GitHub <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  {t('cta.github.cta')} <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </FadeIn>

@@ -9,163 +9,165 @@ import {
   CheckCircle2, Clock, FileText, Settings, Users, Gauge
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-/* ─── DATA ─── */
-const guideCategories = [
-  {
-    title: 'Getting Started',
-    description: 'Fundamental guides for new HarchOS users. Go from zero to production.',
-    icon: Rocket,
-    accent: '#8B9DAF',
-    guides: [
-      {
-        title: 'Deploy Your First Model',
-        desc: 'Learn how to package, deploy, and serve an AI model on the HarchOS mesh using carbon-aware scheduling. Walk through model registration, hub selection, and inference endpoint creation.',
-        time: '15 min',
-        difficulty: 'Beginner',
-        tags: ['Compute', 'Inference'],
-      },
-      {
-        title: 'Set Up a Data Pipeline',
-        desc: 'Create your first SENSE data pipeline to ingest, transform, and store streaming data. Covers IoT sensor data, API webhooks, and batch file ingestion patterns.',
-        time: '20 min',
-        difficulty: 'Beginner',
-        tags: ['Data', 'SENSE'],
-      },
-      {
-        title: 'Configure Monitoring',
-        desc: 'Set up Prometheus metrics, Grafana dashboards, and alert rules for your workloads. Learn how to monitor GPU utilization, power consumption, and inference latency.',
-        time: '12 min',
-        difficulty: 'Beginner',
-        tags: ['Observability', 'Monitoring'],
-      },
-      {
-        title: 'Scale Your Deployment',
-        desc: 'Understand auto-scaling policies, manual scaling, and carbon-aware scheduling strategies for production workloads. Configure scale-up triggers and scale-down cool-down periods.',
-        time: '18 min',
-        difficulty: 'Intermediate',
-        tags: ['Compute', 'Scaling'],
-      },
-    ],
-  },
-  {
-    title: 'Data & Integration',
-    description: 'Connect external data sources and build robust ingestion pipelines.',
-    icon: Database,
-    accent: '#8B5CF6',
-    guides: [
-      {
-        title: 'Ingest IoT Data Streams',
-        desc: 'Configure SENSE to ingest real-time IoT sensor data from industrial equipment. Supports MQTT, AMQP, and HTTP protocols with schema validation and data enrichment.',
-        time: '25 min',
-        difficulty: 'Intermediate',
-        tags: ['IoT', 'SENSE', 'Streaming'],
-      },
-      {
-        title: 'Connect Satellite Feeds',
-        desc: 'Integrate satellite imagery and geospatial data feeds into HarchOS. Configure NDVI computation, change detection, and automated alert triggers for agricultural and mining use cases.',
-        time: '30 min',
-        difficulty: 'Intermediate',
-        tags: ['Satellite', 'Geospatial'],
-      },
-      {
-        title: 'Set Up API Integrations',
-        desc: 'Connect third-party APIs to the SENSE layer. Configure webhook receivers, polling schedules, rate limit handling, and data transformation pipelines.',
-        time: '20 min',
-        difficulty: 'Beginner',
-        tags: ['API', 'Integration'],
-      },
-      {
-        title: 'Configure a Data Lake',
-        desc: 'Provision and configure a HarchOS data lake for petabyte-scale storage. Set up partitioning strategies, lifecycle policies, cross-hub replication, and point-in-time snapshots.',
-        time: '35 min',
-        difficulty: 'Advanced',
-        tags: ['Storage', 'Data Lake'],
-      },
-    ],
-  },
-  {
-    title: 'AI & ML',
-    description: 'Train, deploy, and optimize AI models on the sovereign compute mesh.',
-    icon: Brain,
-    accent: '#10B981',
-    guides: [
-      {
-        title: 'Train Custom Models',
-        desc: 'Launch distributed training jobs across multiple HarchOS hubs. Configure data parallelism, model parallelism, gradient accumulation, and checkpoint strategies for large-scale training.',
-        time: '40 min',
-        difficulty: 'Advanced',
-        tags: ['Training', 'Distributed'],
-      },
-      {
-        title: 'Deploy Inference Endpoints',
-        desc: 'Create production-grade inference endpoints with auto-scaling, A/B traffic splitting, and canary deployments. Configure model versioning and rollback strategies.',
-        time: '25 min',
-        difficulty: 'Intermediate',
-        tags: ['Inference', 'Production'],
-      },
-      {
-        title: 'Set Up Auto-Scaling',
-        desc: 'Configure intelligent auto-scaling based on inference latency, queue depth, and carbon intensity signals. Learn how THINK predicts demand and ACT provisions resources in advance.',
-        time: '20 min',
-        difficulty: 'Intermediate',
-        tags: ['Scaling', 'THINK', 'ACT'],
-      },
-      {
-        title: 'Implement A/B Testing',
-        desc: 'Deploy multiple model versions and route traffic for A/B experiments. Configure statistical significance tests, automated winner selection, and gradual traffic migration.',
-        time: '22 min',
-        difficulty: 'Intermediate',
-        tags: ['A/B Testing', 'Inference'],
-      },
-    ],
-  },
-  {
-    title: 'Operations',
-    description: 'Operational guides for production reliability, security, and compliance.',
-    icon: Zap,
-    accent: '#F59E0B',
-    guides: [
-      {
-        title: 'Configure Alerts',
-        desc: 'Set up multi-channel alerting with PagerDuty, Slack, and email integrations. Configure alert rules for hub health, GPU thermal thresholds, energy anomalies, and workload failures.',
-        time: '15 min',
-        difficulty: 'Beginner',
-        tags: ['Alerting', 'Monitoring'],
-      },
-      {
-        title: 'Set Up Disaster Recovery',
-        desc: 'Implement cross-hub disaster recovery with automated failover. Configure RPO/RTO targets, geo-redundant backups, and runbook automation for critical workload continuity.',
-        time: '45 min',
-        difficulty: 'Advanced',
-        tags: ['DR', 'Failover', 'Reliability'],
-      },
-      {
-        title: 'Manage Access Control',
-        desc: 'Implement zero-trust access control with RBAC policies, service accounts, and mTLS. Configure fine-grained permissions for teams, projects, and sovereignty zones.',
-        time: '30 min',
-        difficulty: 'Intermediate',
-        tags: ['Security', 'RBAC', 'Zero Trust'],
-      },
-      {
-        title: 'Audit Your Infrastructure',
-        desc: 'Configure immutable audit logging, SIEM integration, and compliance reporting. Set up continuous compliance checks for GDPR, ISO 27001, and Law 09-08 requirements.',
-        time: '25 min',
-        difficulty: 'Intermediate',
-        tags: ['Compliance', 'Audit', 'Security'],
-      },
-    ],
-  },
-];
-
-const difficultyColors: Record<string, string> = {
-  Beginner: '#10B981',
-  Intermediate: '#F59E0B',
-  Advanced: '#EF4444',
-};
+import { useTranslations } from 'next-intl';
 
 /* ─── MAIN COMPONENT ─── */
 export default function GuidesPageClient() {
+  const t = useTranslations('docs');
+
+  const guideCategories = [
+    {
+      title: t('guides.categories.0.title'),
+      description: t('guides.categories.0.description'),
+      icon: Rocket,
+      accent: '#8B9DAF',
+      guides: [
+        {
+          title: t('guides.categories.0.guides.0.title'),
+          desc: t('guides.categories.0.guides.0.desc'),
+          time: t('guides.categories.0.guides.0.time'),
+          difficulty: t('guides.categories.0.guides.0.difficulty'),
+          tags: [t('guides.categories.0.guides.0.tags.0'), t('guides.categories.0.guides.0.tags.1')],
+        },
+        {
+          title: t('guides.categories.0.guides.1.title'),
+          desc: t('guides.categories.0.guides.1.desc'),
+          time: t('guides.categories.0.guides.1.time'),
+          difficulty: t('guides.categories.0.guides.1.difficulty'),
+          tags: [t('guides.categories.0.guides.1.tags.0'), t('guides.categories.0.guides.1.tags.1')],
+        },
+        {
+          title: t('guides.categories.0.guides.2.title'),
+          desc: t('guides.categories.0.guides.2.desc'),
+          time: t('guides.categories.0.guides.2.time'),
+          difficulty: t('guides.categories.0.guides.2.difficulty'),
+          tags: [t('guides.categories.0.guides.2.tags.0'), t('guides.categories.0.guides.2.tags.1')],
+        },
+        {
+          title: t('guides.categories.0.guides.3.title'),
+          desc: t('guides.categories.0.guides.3.desc'),
+          time: t('guides.categories.0.guides.3.time'),
+          difficulty: t('guides.categories.0.guides.3.difficulty'),
+          tags: [t('guides.categories.0.guides.3.tags.0'), t('guides.categories.0.guides.3.tags.1')],
+        },
+      ],
+    },
+    {
+      title: t('guides.categories.1.title'),
+      description: t('guides.categories.1.description'),
+      icon: Database,
+      accent: '#8B5CF6',
+      guides: [
+        {
+          title: t('guides.categories.1.guides.0.title'),
+          desc: t('guides.categories.1.guides.0.desc'),
+          time: t('guides.categories.1.guides.0.time'),
+          difficulty: t('guides.categories.1.guides.0.difficulty'),
+          tags: [t('guides.categories.1.guides.0.tags.0'), t('guides.categories.1.guides.0.tags.1'), t('guides.categories.1.guides.0.tags.2')],
+        },
+        {
+          title: t('guides.categories.1.guides.1.title'),
+          desc: t('guides.categories.1.guides.1.desc'),
+          time: t('guides.categories.1.guides.1.time'),
+          difficulty: t('guides.categories.1.guides.1.difficulty'),
+          tags: [t('guides.categories.1.guides.1.tags.0'), t('guides.categories.1.guides.1.tags.1')],
+        },
+        {
+          title: t('guides.categories.1.guides.2.title'),
+          desc: t('guides.categories.1.guides.2.desc'),
+          time: t('guides.categories.1.guides.2.time'),
+          difficulty: t('guides.categories.1.guides.2.difficulty'),
+          tags: [t('guides.categories.1.guides.2.tags.0'), t('guides.categories.1.guides.2.tags.1')],
+        },
+        {
+          title: t('guides.categories.1.guides.3.title'),
+          desc: t('guides.categories.1.guides.3.desc'),
+          time: t('guides.categories.1.guides.3.time'),
+          difficulty: t('guides.categories.1.guides.3.difficulty'),
+          tags: [t('guides.categories.1.guides.3.tags.0'), t('guides.categories.1.guides.3.tags.1')],
+        },
+      ],
+    },
+    {
+      title: t('guides.categories.2.title'),
+      description: t('guides.categories.2.description'),
+      icon: Brain,
+      accent: '#10B981',
+      guides: [
+        {
+          title: t('guides.categories.2.guides.0.title'),
+          desc: t('guides.categories.2.guides.0.desc'),
+          time: t('guides.categories.2.guides.0.time'),
+          difficulty: t('guides.categories.2.guides.0.difficulty'),
+          tags: [t('guides.categories.2.guides.0.tags.0'), t('guides.categories.2.guides.0.tags.1')],
+        },
+        {
+          title: t('guides.categories.2.guides.1.title'),
+          desc: t('guides.categories.2.guides.1.desc'),
+          time: t('guides.categories.2.guides.1.time'),
+          difficulty: t('guides.categories.2.guides.1.difficulty'),
+          tags: [t('guides.categories.2.guides.1.tags.0'), t('guides.categories.2.guides.1.tags.1')],
+        },
+        {
+          title: t('guides.categories.2.guides.2.title'),
+          desc: t('guides.categories.2.guides.2.desc'),
+          time: t('guides.categories.2.guides.2.time'),
+          difficulty: t('guides.categories.2.guides.2.difficulty'),
+          tags: [t('guides.categories.2.guides.2.tags.0'), t('guides.categories.2.guides.2.tags.1'), t('guides.categories.2.guides.2.tags.2')],
+        },
+        {
+          title: t('guides.categories.2.guides.3.title'),
+          desc: t('guides.categories.2.guides.3.desc'),
+          time: t('guides.categories.2.guides.3.time'),
+          difficulty: t('guides.categories.2.guides.3.difficulty'),
+          tags: [t('guides.categories.2.guides.3.tags.0'), t('guides.categories.2.guides.3.tags.1')],
+        },
+      ],
+    },
+    {
+      title: t('guides.categories.3.title'),
+      description: t('guides.categories.3.description'),
+      icon: Zap,
+      accent: '#F59E0B',
+      guides: [
+        {
+          title: t('guides.categories.3.guides.0.title'),
+          desc: t('guides.categories.3.guides.0.desc'),
+          time: t('guides.categories.3.guides.0.time'),
+          difficulty: t('guides.categories.3.guides.0.difficulty'),
+          tags: [t('guides.categories.3.guides.0.tags.0'), t('guides.categories.3.guides.0.tags.1')],
+        },
+        {
+          title: t('guides.categories.3.guides.1.title'),
+          desc: t('guides.categories.3.guides.1.desc'),
+          time: t('guides.categories.3.guides.1.time'),
+          difficulty: t('guides.categories.3.guides.1.difficulty'),
+          tags: [t('guides.categories.3.guides.1.tags.0'), t('guides.categories.3.guides.1.tags.1'), t('guides.categories.3.guides.1.tags.2')],
+        },
+        {
+          title: t('guides.categories.3.guides.2.title'),
+          desc: t('guides.categories.3.guides.2.desc'),
+          time: t('guides.categories.3.guides.2.time'),
+          difficulty: t('guides.categories.3.guides.2.difficulty'),
+          tags: [t('guides.categories.3.guides.2.tags.0'), t('guides.categories.3.guides.2.tags.1'), t('guides.categories.3.guides.2.tags.2')],
+        },
+        {
+          title: t('guides.categories.3.guides.3.title'),
+          desc: t('guides.categories.3.guides.3.desc'),
+          time: t('guides.categories.3.guides.3.time'),
+          difficulty: t('guides.categories.3.guides.3.difficulty'),
+          tags: [t('guides.categories.3.guides.3.tags.0'), t('guides.categories.3.guides.3.tags.1'), t('guides.categories.3.guides.3.tags.2')],
+        },
+      ],
+    },
+  ];
+
+  const difficultyColors: Record<string, string> = {
+    [t('guides.difficulty.beginner')]: '#10B981',
+    [t('guides.difficulty.intermediate')]: '#F59E0B',
+    [t('guides.difficulty.advanced')]: '#EF4444',
+  };
+
   return (
     <div className="bg-[#1A1A1A]">
 
@@ -177,25 +179,25 @@ export default function GuidesPageClient() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/95 to-[#1A1A1A]" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-6 text-[#8B9DAF]">How-to Guides /0.1</p>
+            <p className="section-label mb-6 text-[#8B9DAF]">{t('guides.hero.label')}</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              How-to Guides
+              {t('guides.title')}
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed mb-8">
-              Step-by-step guides for every stage of building on HarchOS. From your first deployment to enterprise-grade operations.
+              {t('guides.description')}
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
             <div className="flex flex-wrap gap-3">
               <Link href="/docs/quickstarts" className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Start with Quickstarts <ArrowRight size={14} />
+                {t('guides.startWithQuickstarts')} <ArrowRight size={14} />
               </Link>
               <Link href="/docs/api" className="inline-flex items-center gap-2 border border-white/12 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                API Reference
+                {t('guides.apiReference')}
               </Link>
             </div>
           </FadeIn>
@@ -230,7 +232,7 @@ export default function GuidesPageClient() {
                   <div className="card p-6 h-full group hover:border-white/15 cursor-pointer">
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider" style={{ backgroundColor: `${difficultyColors[guide.difficulty]}12`, color: difficultyColors[guide.difficulty] }}>
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider" style={{ backgroundColor: `${difficultyColors[guide.difficulty] || '#10B981'}12`, color: difficultyColors[guide.difficulty] || '#10B981' }}>
                           {guide.difficulty}
                         </span>
                         <span className="flex items-center gap-1 text-[11px] text-[#666666]">

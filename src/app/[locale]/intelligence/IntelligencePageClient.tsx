@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { useTranslations } from 'next-intl';
 import { ArrowRight, Cpu, Server, Zap } from 'lucide-react';
 import { FadeIn } from '@/components/ui/motion';
 import ImmersiveHero from '@/components/ImmersiveHero';
@@ -13,54 +14,57 @@ const LiveDashboard = dynamic(
   { ssr: false, loading: () => <div className="h-[200px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
 );
 
-const products = [
-  {
-    name: 'HarchOS',
-    tag: 'Operating System',
-    version: '/0.1',
-    href: '/intelligence/harchos',
-    desc: 'The OS that orchestrates the Harch Intelligence Distributed Mesh — 5 hubs, 1,798 GPUs, carbon-aware scheduling. SENSE, THINK, ACT architecture for sovereign AI compute.',
-    icon: Cpu,
-    color: '#8B9DAF',
-  },
-  {
-    name: 'Hyperscale Data Centers',
-    tag: 'Infrastructure',
-    version: '/0.2',
-    href: '/subsidiaries/intelligence',
-    desc: '1,798 Carbon-Optimized GPUs across 5 hubs with carbon-aware scheduling, submarine cable connectivity, and sovereign security framework.',
-    icon: Server,
-    color: '#8B9DAF',
-  },
-  {
-    name: 'Green GPU Cloud',
-    tag: 'Cloud Services',
-    version: '/0.3',
-    href: '/subsidiaries/intelligence',
-    desc: 'GPU-as-a-Service 100% powered by renewable energy. H100/A100 clusters with carbon-aware scheduling (~47 gCO2/kWh), sovereign data residency, and pricing from $1.40-$2.35/gpu-hr.',
-    icon: Zap,
-    color: '#8B9DAF',
-  },
-];
-
-const intelligenceMetrics = [
-  { label: 'Active GPUs', value: 1798, trend: 'up' as const, sparkline: [1650, 1700, 1720, 1760, 1780, 1798] },
-  { label: 'Carbon Intensity', value: 47, unit: 'gCO2/kWh', trend: 'down' as const, sparkline: [55, 52, 50, 49, 48, 47] },
-  { label: 'Renewable %', value: 81.5, unit: '%', trend: 'up' as const, decimals: 1, sparkline: [78, 79, 80, 80.5, 81, 81.5] },
-  { label: 'Avg Latency', value: 12, unit: 'ms', trend: 'stable' as const, sparkline: [12, 13, 12, 11, 12, 12] },
-  { label: 'Hubs Online', value: 5, unit: '/5', trend: 'stable' as const },
-  { label: 'Uptime', value: 99.97, unit: '%', trend: 'up' as const, decimals: 2, sparkline: [99.95, 99.96, 99.96, 99.97, 99.97, 99.97] },
-];
-
 export default function IntelligencePageClient() {
+  const t = useTranslations('intelligence');
+  const tc = useTranslations('common');
+
+  const products = [
+    {
+      name: 'HarchOS',
+      tag: t('keyFeatures.title'),
+      version: '/0.1',
+      href: '/intelligence/harchos',
+      desc: t('description'),
+      icon: Cpu,
+      color: '#8B9DAF',
+    },
+    {
+      name: t('keyFeatures.gpuClusters.title'),
+      tag: t('specs.title'),
+      version: '/0.2',
+      href: '/subsidiaries/intelligence',
+      desc: t('keyFeatures.gpuClusters.description'),
+      icon: Server,
+      color: '#8B9DAF',
+    },
+    {
+      name: t('heroBadge'),
+      tag: t('pricing.title'),
+      version: '/0.3',
+      href: '/subsidiaries/intelligence',
+      desc: t('keyFeatures.carbonAware.description'),
+      icon: Zap,
+      color: '#8B9DAF',
+    },
+  ];
+
+  const intelligenceMetrics = [
+    { label: t('specs.totalGpus'), value: 1798, trend: 'up' as const, sparkline: [1650, 1700, 1720, 1760, 1780, 1798] },
+    { label: t('specs.carbonIntensity'), value: 47, unit: 'gCO2/kWh', trend: 'down' as const, sparkline: [55, 52, 50, 49, 48, 47] },
+    { label: t('specs.renewableShare'), value: 81.5, unit: '%', trend: 'up' as const, decimals: 1, sparkline: [78, 79, 80, 80.5, 81, 81.5] },
+    { label: t('specs.latency'), value: 12, unit: 'ms', trend: 'stable' as const, sparkline: [12, 13, 12, 11, 12, 12] },
+    { label: t('specs.hubs'), value: 5, unit: '/5', trend: 'stable' as const },
+    { label: t('specs.uptime'), value: 99.97, unit: '%', trend: 'up' as const, decimals: 2, sparkline: [99.95, 99.96, 99.96, 99.97, 99.97, 99.97] },
+  ];
+
   return (
     <div className="bg-[#1A1A1A]">
       {/* Immersive Hero */}
       <ImmersiveHero
-        title="INTELLIGENCE"
-        subtitle="Sovereign AI Infrastructure"
+        title={t('title').toUpperCase()}
+        subtitle={t('subtitle')}
         version="/0.1"
-        metaLabel="HARCH INTELLIGENCE"
+        metaLabel={t('heroBadge').toUpperCase()}
       />
 
       {/* Live Dashboard */}
@@ -74,9 +78,9 @@ export default function IntelligencePageClient() {
       <section className="py-20 md:py-28 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Performance Analytics</p>
+            <p className="section-label mb-4">{t('specs.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-12">
-              Real-Time Insights
+              {t('description')}
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -94,9 +98,9 @@ export default function IntelligencePageClient() {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Products</p>
+            <p className="section-label mb-4">{t('keyFeatures.title')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-12">
-              The Intelligence Stack
+              {t('title')}
             </h2>
           </FadeIn>
 
@@ -125,13 +129,13 @@ export default function IntelligencePageClient() {
                           href={product.href}
                           className="inline-flex items-center gap-2 border border-white/12 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all"
                         >
-                          Watch Demo
+                          {t('cta.secondary')}
                         </Link>
                         <Link
                           href={product.href}
                           className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all"
                         >
-                          Get Started <ArrowRight size={14} />
+                          {t('cta.primary')} <ArrowRight size={14} />
                         </Link>
                       </div>
                     </div>
@@ -148,16 +152,16 @@ export default function IntelligencePageClient() {
         <div className="absolute inset-0 dot-pattern opacity-100" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">Deploy Sovereign AI</h2>
-            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">The future of AI compute is sovereign, green, and distributed. HarchOS makes it operational.</p>
+            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">{t('cta.title')}</h2>
+            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">{t('description')}</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/intelligence/harchos" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                Explore HarchOS <ArrowRight size={14} />
+                {t('cta.primary')} <ArrowRight size={14} />
               </Link>
               <Link href="/contact" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                Contact Us
+                {tc('contactUs')}
               </Link>
             </div>
           </FadeIn>

@@ -246,3 +246,24 @@ Sections fully updated with proper English content:
 - press (brand assets, 7 releases)
 - pricing (6 GPU pricing plans)
 - startupProgram (3 success stories)
+---
+Task ID: translation-a-z
+Agent: Main Agent
+Task: Complete French translation A-Z + redesign LanguageDetector popup
+
+Work Log:
+- Explored full project structure and identified 3509 placeholder values in fr.json
+- Rewrote LanguageDetector.tsx to use next-intl routing for French instead of Google Translate
+- Completely redesigned popup with dark glassmorphism style, ambient glow, smooth animations
+- Generated complete French translations for all 43 sections (about, blog, careers, caseStudies, community, company, contact, cookieConsent, customers, developers, docs, engineeringBlog, esg, events, faq, footer, glossary, harchos, hiringProcess, home, intelligence, investors, learn, legal, nav, newsroom, partners, platform, press, pricing, privacy, quote, quoteReceived, sidebar, startupProgram, strategy, subsidiaries, subsidiaryDetail, support, terms, thesis, trust)
+- Deep-merged en.json structure into fr.json to ensure zero MISSING_MESSAGE errors
+- Updated en.json replacing all placeholder values with proper English content
+- Verified build passes with 0 MISSING_MESSAGE errors
+- All 328 pages render in both en and fr
+
+Stage Summary:
+- LanguageDetector now uses next-intl for French, Google Translate for ar/es/pt
+- fr.json has 100% key coverage with proper French translations
+- en.json has all placeholder values replaced with real content
+- Build: 0 errors, 328 pages generated statically
+- Committed and pushed to GitHub (fd265e5)

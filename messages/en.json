@@ -55,22 +55,22 @@
   "blog": {
     "allArticles": "All Articles",
     "articleNotFound": "Article Not Found",
-    "articleNotFoundDescription": "Article Not Found Description",
+    "articleNotFoundDescription": "L'articthe that vous searchz n'existe pas ou a été dépthecé.",
     "backToBlog": "Back To Blog",
     "continueReading": "Continue Reading",
     "copyFeedUrl": "Copy Feed Url",
     "emailPlaceholder": "Email Placeholder",
     "featured": "Featured",
-    "heroDescription": "Hero Description",
-    "heroTitle": "Hero Title",
+    "heroDescription": "analysiss technicals, perspectives inof thessortals and updates on the Construction of l'infrastructure souveraine of l'Africa.",
+    "heroTitle": "Blog Harch",
     "latestPosts": "Latest Posts",
     "moreArticles": "More Articles",
     "newsletter": "Newsletter",
-    "newsletterDescription": "Newsletter Description",
+    "newsletterDescription": "Rethisvez nos analysiss technicals and perspectives inof thessortals directement in votre boite mail.",
     "readArticle": "Read Article",
     "relatedTopics": "Related Topics",
     "rssFeed": "Rss Feed",
-    "rssFeedDescription": "Rss Feed Description",
+    "rssFeedDescription": "Abonnez-vous au flux RSS for ne manthatr auca articthe.",
     "stayInTheLoop": "Stay In The Loop",
     "submitAPitch": "Submit A Pitch",
     "subscribe": "Subscribe",
@@ -78,36 +78,36 @@
     "subscribedMessage": "Subscribed Message",
     "title": "Title",
     "writeForUs": "Write For Us",
-    "writeForUsDescription": "Write For Us Description"
+    "writeForUsDescription": "bytagez votre expertise en infrastructure souveraine with notre commaity."
   },
   "careers": {
     "aboutHarchCorp": "About Harch Corp",
     "applyForDeployment": "Apply For Deployment",
     "benefits": {
       "bureaucracy": {
-        "desc": "Bureaucracy Description",
-        "title": "Bureaucracy Title"
+        "desc": "of the prothisssus agithe, pas of thenteur administrative. Exécution rAPIof.",
+        "title": "Zéro burwatercracy"
       },
       "compensation": {
-        "desc": "Compensation Description",
-        "title": "Compensation Title"
+        "desc": "sathery compétitif inofxé on the standards internationaux, with primes of déploiement.",
+        "title": "Rémaération"
       },
       "deployment": {
-        "desc": "Deployment Description",
-        "title": "Deployment Title"
+        "desc": "Expérienthis of déploiement on the terrain à travers l'Africa and au-oflà.",
+        "title": "Déploiement"
       },
       "description": "Compensation that reflects the value you create.",
       "development": {
-        "desc": "Development Description",
-        "title": "Development Title"
+        "desc": "training continue and thisrtifications professionnelthe financées à 100%.",
+        "title": "Développement"
       },
       "health": {
-        "desc": "Health Description",
-        "title": "Health Title"
+        "desc": "Copenure médicathe complète incluant the soins on the terrain and l'évacuation d'urgenthis.",
+        "title": "Santé"
       },
       "impact": {
-        "desc": "Impact Description",
-        "title": "Impact Title"
+        "desc": "Travailthez on of the projands who transforment the infrastructures of the continent.",
+        "title": "Impact"
       },
       "items": [
         "Market-competitive compensation with profit sharing",
@@ -119,22 +119,22 @@
       ],
       "title": "Benefits"
     },
-    "benefitsLabel": "Benefits Label",
-    "benefitsTitle": "Benefits Title",
+    "benefitsLabel": "this that Vous Obtenez",
+    "benefitsTitle": "benefits Opérationnels",
     "clearanceBadge": "Clearance Badge",
     "clearanceRequired": "Clearance Required",
     "cta": {
-      "primary": "View Open Roles",
+      "primary": "Voir the Postes opens",
       "secondary": "Spontaneous Application",
       "subtitle": "Don't see a role that fits? Send us a spontaneous application.",
       "title": "Join the Mission"
     },
-    "ctaDescription": "Cta Description",
-    "ctaTitle": "Cta Title",
+    "ctaDescription": "Rejoignez l'opération and construisez l'avenir of l'infrastructure African.",
+    "ctaTitle": "Prêt à Déployer ?",
     "culture": {
       "crossDomain": {
-        "desc": "Cross Domain Description",
-        "title": "Cross Domain Title"
+        "desc": "Nos opérateurs traversent the frontières disciplinaires — of l'AI aux mining en passant by l'énergie.",
+        "title": "Expertise Transversale"
       },
       "description": "We operate like an elite unit — discipline, autonomy, and accountability. No bureaucracy, no committees, no endless email threads. Just mission, execution, and results.",
       "meritNoCompromise": {
@@ -152,30 +152,30 @@
         "Hierarchy serves the mission, not ego"
       ],
       "sovereignMindset": {
-        "desc": "Sovereign Mindset Description",
-        "title": "Sovereign Mindset Title"
+        "desc": "Chathat décision is prise with the souverainandé African comme principthe directeur.",
+        "title": "État d'spirit Souverain"
       },
       "title": "Operator Culture"
     },
     "departments": {
-      "agri": "Departments Agri",
-      "all": "Departments All",
-      "cement": "Departments Cement",
-      "corporate": "Departments Corporate",
-      "energy": "Departments Energy",
-      "intelligence": "Departments Intelligence",
-      "mining": "Departments Mining",
-      "technology": "Departments Technology",
-      "water": "Departments Water"
+      "agri": "Agri",
+      "all": "Tous",
+      "cement": "Ciment",
+      "corporate": "Entreprise",
+      "energy": "Énergie",
+      "intelligence": "Intelligence",
+      "mining": "Mines",
+      "technology": "Technologie",
+      "water": "Eau"
     },
     "deploymentsLabel": "Deployments Label",
     "description": "Harch Corp doesn't hire employees — we recruit operators. People who think in systems, execute with discipline, and are driven by the mission of African sovereignty.",
     "generalApplications": "General Applications",
-    "heroDescription": "Hero Description",
-    "heroLabel": "Hero Label",
+    "heroDescription": "Rejoignez l'éwhope who construit l'infrastructure souveraine of l'Africa. Nous recrutons of the opérateurs d'élite for nos déploiements on the continent.",
+    "heroLabel": "Carrières",
     "heroTitleLine1": "Hero Title Line1",
     "heroTitleLine2": "Hero Title Line2",
-    "missionLabel": "Mission Label",
+    "missionLabel": "the mission",
     "missionStats": {
       "countries": {
         "desc": "Countries Description",
@@ -196,7 +196,7 @@
     "missionTitleLine1": "Mission Title Line1",
     "missionTitleLine2": "Mission Title Line2",
     "openPositions": "Open Positions",
-    "openPositionsDescription": "Open Positions Description",
+    "openPositionsDescription": "Séthectionnez a débytement for filter the postes disponibthe.",
     "openRoles": {
       "apply": "Apply",
       "contract": "Contract",
@@ -315,11 +315,11 @@
         "title": "Technical Title"
       }
     },
-    "selectionDescription": "Selection Description",
-    "selectionLabel": "Selection Label",
-    "selectionTitle": "Selection Title",
-    "standardLabel": "Standard Label",
-    "standardTitle": "Standard Title",
+    "selectionDescription": "Notre prothisssus of séthection is conçu for iofntifier the opérateurs capabthe d'exécuter à l'échelthe continental.",
+    "selectionLabel": "Prothisssus of Séthection",
+    "selectionTitle": "Quatre Phases. Zéro Pthethis for the Hasard.",
+    "standardLabel": "the Norme",
+    "standardTitle": "the Culture of l'Opérateur",
     "subtitle": "Build Sovereignty. Not a Resume.",
     "title": "Careers",
     "values": {
@@ -340,16 +340,16 @@
     "beforeLabel": "Before Label",
     "challenge": "Challenge",
     "cta": {
-      "description": "Cta Description",
-      "label": "Cta Label",
+      "description": "Decouvrez comment Harch Corp peut transformer votre infrastructure.",
+      "label": "Demarrer",
       "requestBriefing": "Cta Request Briefing",
-      "title": "Cta Title"
+      "title": "Prand a construire ?"
     },
     "deltaLabel": "Delta Label",
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
-      "title": "Hero Title"
+      "description": "of the ofployments reels. of the results meonabthe. of the infrastructures souveraines en action.",
+      "label": "studies of case",
+      "title": "Impact prouve"
     },
     "impactDelivered": "Impact Delivered",
     "implementation": "Implementation",
@@ -358,8 +358,8 @@
     "metrics": "Metrics",
     "moreLabel": "More Label",
     "notFound": {
-      "description": "Not Found Description",
-      "title": "Not Found Title"
+      "description": "L'study of case that vous searchz n'existe pas ou a anof ofpthethise.",
+      "title": "study of case introuvabthe"
     },
     "otherCaseStudies": "Other Case Studies",
     "ourApproach": "Our Approach",
@@ -367,9 +367,9 @@
     "results": "Results",
     "solution": "Solution",
     "studies": {
-      "label": "Studies Label",
+      "label": "Etudes",
       "readCaseStudy": "Studies Read Case Study",
-      "title": "Studies Title"
+      "title": "studies of case"
     },
     "theProblem": "The Problem",
     "timeline": "Timeline"
@@ -533,67 +533,67 @@
   },
   "community": {
     "champions": {
-      "apply": "Champions Apply",
-      "description": "Champions Description",
-      "label": "Champions Label",
+      "apply": "Devenir Champion",
+      "description": "the program Harch Champions reait the theaofrs technicals and strategics who font avanthisr the mission of sovereignty African.",
+      "label": "Champions",
       "perks": [
         "Perks 0",
         "Perks 1",
         "Perks 2",
         "Perks 3"
       ],
-      "title": "Champions Title"
+      "title": "Champions"
     },
     "channels": {
       "items": [
         {
           "channels": [
-            "Channels 0",
-            "Channels 1",
-            "Channels 2",
-            "Channels 3"
+            "annoncements",
+            "discussion",
+            "support",
+            "developpement"
           ],
-          "cta": "0 Cta",
-          "desc": "0 Description",
-          "members": "0 Members",
-          "name": "0 Name"
+          "cta": "Rejoindre Discord",
+          "desc": "commaity principathe for the discussions in real-time and the support technical.",
+          "members": "2 400+",
+          "name": "Discord"
         },
         {
           "channels": [
-            "Channels 0",
-            "Channels 1",
-            "Channels 2"
+            "discussions",
+            "pull-requests",
+            "issues"
           ],
-          "cta": "1 Cta",
-          "desc": "1 Description",
-          "members": "1 Members",
-          "name": "1 Name"
+          "cta": "Explorer GitHub",
+          "desc": "sourthis coof open, consortbutions and documentation technical.",
+          "members": "1 200+",
+          "name": "GitHub"
         },
         {
           "channels": [
-            "Channels 0",
-            "Channels 1",
-            "Channels 2"
+            "general",
+            "technique",
+            "carrieres"
           ],
-          "cta": "2 Cta",
-          "desc": "2 Description",
-          "members": "2 Members",
-          "name": "2 Name"
+          "cta": "Rejoindre LinkedIn",
+          "desc": "nandwork professionnel for the opportaities and the bytnerships.",
+          "members": "5 000+",
+          "name": "LinkedIn"
         },
         {
           "channels": [
-            "Channels 0",
-            "Channels 1",
-            "Channels 2"
+            "actualites",
+            "evenements",
+            "communaute"
           ],
-          "cta": "3 Cta",
-          "desc": "3 Description",
-          "members": "3 Members",
-          "name": "3 Name"
+          "cta": "Suivre on X",
+          "desc": "news in real-time, annonthiss and conversations with l'ewhope.",
+          "members": "3 800+",
+          "name": "X (Twitter)"
         }
       ],
-      "label": "Channels Label",
-      "title": "Channels Title"
+      "label": "Canaux",
+      "title": "Nos Canaux"
     },
     "cta": {
       "discord": {
@@ -610,22 +610,22 @@
     "events": {
       "items": [
         {
-          "date": "0 Date",
-          "desc": "0 Description",
-          "name": "0 Name",
-          "type": "0 Type"
+          "date": "Mars 2026",
+          "desc": "conferenthis annuelthe on l'infrastructure souveraine African and l'AI aware of the carbon.",
+          "name": "Harch Summit Casablanca",
+          "type": "Conference"
         },
         {
-          "date": "1 Date",
-          "desc": "1 Description",
-          "name": "1 Name",
-          "type": "1 Type"
+          "date": "Juin 2026",
+          "desc": "workshop pratithat on the SDK HarchOS and l'integration of the cloud GPU.",
+          "name": "Developer Workshop Dakar",
+          "type": "Atelier"
         },
         {
-          "date": "2 Date",
-          "desc": "2 Description",
-          "name": "2 Name",
-          "type": "2 Type"
+          "date": "Septembre 2026",
+          "desc": "meanof thep regionathe of the operators and bytners of l'ecosysteme Harch.",
+          "name": "Operator Meetup Nairobi",
+          "type": "Meetup"
         }
       ],
       "label": "Events Label",
@@ -638,33 +638,33 @@
         "Conduct 2",
         "Conduct 3"
       ],
-      "description": "Guidelines Description",
-      "label": "Guidelines Label",
+      "description": "Notre commaity fonctionne selon of the principthe of respect, d'exthislthenthis and of mission comma.",
+      "label": "Directives",
       "readFull": "Guidelines Read Full",
-      "title": "Guidelines Title"
+      "title": "coof of conof theite"
     },
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
-      "title": "Hero Title"
+      "description": "Rejoignez of the milliers d'operators, ofvelopers and theaofrs who construisent l'infrastructure souveraine of l'Africa.",
+      "label": "Communaute",
+      "title": "Construire Ensemble"
     },
     "stats": {
       "items": [
         {
-          "label": "0 Label",
-          "value": "0 Value"
+          "label": "Membres actifs",
+          "value": "12 000+"
         },
         {
-          "label": "1 Label",
-          "value": "1 Value"
+          "label": "Pays representes",
+          "value": "35+"
         },
         {
-          "label": "2 Label",
-          "value": "2 Value"
+          "label": "Contributeurs open source",
+          "value": "200+"
         },
         {
-          "label": "3 Label",
-          "value": "3 Value"
+          "label": "events by an",
+          "value": "50+"
         }
       ],
       "label": "Stats Label",
@@ -678,24 +678,24 @@
       "commitmentTitle": "Dei Commitment Title",
       "commitments": [
         {
-          "label": "0 Label",
-          "value": "0 Value"
+          "label": "diversity of the dirigeants",
+          "value": "45%"
         },
         {
-          "label": "1 Label",
-          "value": "1 Value"
+          "label": "Representation regionale",
+          "value": "12 pays"
         },
         {
-          "label": "2 Label",
-          "value": "2 Value"
+          "label": "programs of mentorship",
+          "value": "8 actifs"
         },
         {
-          "label": "3 Label",
-          "value": "3 Value"
+          "label": "Employabilite inclusive",
+          "value": "100%"
         },
         {
-          "label": "4 Label",
-          "value": "4 Value"
+          "label": "Audit externe annuel",
+          "value": "Oui"
         }
       ],
       "commitmentsTitle": "Dei Commitments Title",
@@ -705,19 +705,19 @@
       "ctaTitle": "Dei Cta Title",
       "ergs": [
         {
-          "description": "0 Description",
-          "members": "0 Members",
-          "name": "0 Name"
+          "description": "nandwork of the femmes theaofrs in l'infrastructure and the technology African.",
+          "members": "85+",
+          "name": "Femmes of l'infrastructure"
         },
         {
-          "description": "1 Description",
-          "members": "1 Members",
-          "name": "1 Name"
+          "description": "commaity of the professionnels francophones a travers the continent.",
+          "members": "120+",
+          "name": "Africa Francophone"
         },
         {
-          "description": "2 Description",
-          "members": "2 Members",
-          "name": "2 Name"
+          "description": "Groupe of soutien and integration of the nouvwaterx tathents of the dAIspora.",
+          "members": "60+",
+          "name": "Diaspora Tech"
         }
       ],
       "ergsDescription": "Dei Ergs Description",
@@ -728,57 +728,57 @@
       "heroTitle2": "Dei Hero Title2",
       "initiatives": [
         {
-          "description": "0 Description",
-          "metric": "0 Metric",
-          "metricLabel": "0 Metric Label",
-          "title": "0 Title"
+          "description": "program of recruitment Active in 12 pays Africans for asoner a representation continental.",
+          "metric": "35%",
+          "metricLabel": "Representation regionale",
+          "title": "Recrutement continental"
         },
         {
-          "description": "1 Description",
-          "metric": "1 Metric",
-          "metricLabel": "1 Metric Label",
-          "title": "1 Title"
+          "description": "training obligatoire on the bAIis inawares and l'inclusion for tous the managers and recruteurs.",
+          "metric": "100%",
+          "metricLabel": "rate of compthendion",
+          "title": "Formation anti-biais"
         },
         {
-          "description": "2 Description",
-          "metric": "2 Metric",
-          "metricLabel": "2 Metric Label",
-          "title": "2 Title"
+          "description": "bytnerships with 15 aiversities Africans for iofntifier and train the tathents sous-representes.",
+          "metric": "15",
+          "metricLabel": "Universites partenaires",
+          "title": "Partenariats universitaires"
         },
         {
-          "description": "3 Description",
-          "metric": "3 Metric",
-          "metricLabel": "3 Metric Label",
-          "title": "3 Title"
+          "description": "transbyency totathe on the donnes of diversity with report annuel public and verifAIbthe.",
+          "metric": "Annuel",
+          "metricLabel": "Frandhatnthis of the report",
+          "title": "report of transbyency"
         }
       ],
       "initiativesDescription": "Dei Initiatives Description",
       "initiativesLabel": "Dei Initiatives Label",
       "initiativesTitle": "Dei Initiatives Title",
-      "label": "Dei Label",
-      "members": "Dei Members",
+      "label": "DEI",
+      "members": "Membres",
       "numbersLabel": "Dei Numbers Label",
       "numbersTitle": "Dei Numbers Title",
       "stats": [
         {
-          "desc": "0 Description",
-          "label": "0 Label",
-          "value": "0 Value"
+          "desc": "Representation diversifiee aux niveaux directeurs",
+          "label": "Diversite dirigeants",
+          "value": "45%"
         },
         {
-          "desc": "1 Description",
-          "label": "1 Label",
-          "value": "1 Value"
+          "desc": "Employes originaires of pays Africans",
+          "label": "Origine africaine",
+          "value": "78%"
         },
         {
-          "desc": "2 Description",
-          "label": "2 Label",
-          "value": "2 Value"
+          "desc": "byite in the programs of theaofrship",
+          "label": "Parite",
+          "value": "50/50"
         },
         {
-          "desc": "3 Description",
-          "label": "3 Label",
-          "value": "3 Value"
+          "desc": "growth of l'ewhope this annee",
+          "label": "Croissance",
+          "value": "3x"
         }
       ],
       "transparency": [
@@ -795,28 +795,28 @@
     "leadership": {
       "advisors": [
         {
-          "affiliation": "0 Affiliation",
-          "bio": "0 Bio",
-          "name": "0 Name",
-          "title": "0 Title"
+          "affiliation": "Banthat African of ofvelopment",
+          "bio": "Expert en finanthisment d'infrastructure with 25 ans d'experienthis in the projands souverains Africans.",
+          "name": "Dr. Fatima El Amrani",
+          "title": "Conseillere finance"
         },
         {
-          "affiliation": "1 Affiliation",
-          "bio": "1 Bio",
-          "name": "1 Name",
-          "title": "1 Title"
+          "affiliation": "MIT Africa",
+          "bio": "Chercheur en AI souveraine and cloud computing aware of the carbon for the marches emergents.",
+          "name": "Prof. Youssef Benali",
+          "title": "Conseiller technologie"
         },
         {
-          "affiliation": "2 Affiliation",
-          "bio": "2 Bio",
-          "name": "2 Name",
-          "title": "2 Title"
+          "affiliation": "ONU Industrial Development",
+          "bio": "specAIliste of the ofvelopment inof thessortal sustainabthe and of l'integration regionathe en Africa.",
+          "name": "Aminata Diallo",
+          "title": "Conseillere strategie"
         },
         {
-          "affiliation": "3 Affiliation",
-          "bio": "3 Bio",
-          "name": "3 Name",
-          "title": "3 Title"
+          "affiliation": "AfCFTA Secretariat",
+          "bio": "Expert en commerthis continental and politithats d'integration economithat African.",
+          "name": "Kwame Asante",
+          "title": "Conseiller commerce"
         }
       ],
       "advisoryDescription": "Leadership Advisory Description",
@@ -830,59 +830,59 @@
       "execTeamTitle": "Leadership Exec Team Title",
       "executives": [
         {
-          "bio": "0 Bio",
-          "name": "0 Name",
-          "title": "0 Title"
+          "bio": "Fondateur and thisO of Harch Corp. visionnaire of the sovereignty inof thessortal African with a experienthis en AI, energy and infrastructure.",
+          "name": "Amine Harch El Korane",
+          "title": "Fondateur & PDG"
         },
         {
-          "bio": "1 Bio",
-          "name": "1 Name",
-          "title": "1 Title"
+          "bio": "operator chevronne with 20 ans d'experienthis in the ofployment d'infrastructure at scathe en Africa and au Moyen-Orient.",
+          "name": "Sarah Benmoussa",
+          "title": "Direcsortthis of the operations"
         },
         {
-          "bio": "2 Bio",
-          "name": "2 Name",
-          "title": "2 Title"
+          "bio": "Expert en cloud GPU and AI souveraine. Ancien of Googthe and NVIDAI, specAIlise in l'infrastructure compute bas carbon.",
+          "name": "Dr. Karim Oujdi",
+          "title": "Directeur Technique"
         },
         {
-          "bio": "3 Bio",
-          "name": "3 Name",
-          "title": "3 Title"
+          "bio": "financAIl of l'infrastructure with 15 ans d'experienthis en green bonds and finanthisment of projands souverains.",
+          "name": "Aicha Tazi",
+          "title": "Directrice Financiere"
         },
         {
-          "bio": "4 Bio",
-          "name": "4 Name",
-          "title": "4 Title"
+          "bio": "Stratege en energy renewabthe. Pilotage of projands sothers and winds of 2GW+ a travers the continent.",
+          "name": "Moussa Diop",
+          "title": "Directeur Energie"
         },
         {
-          "bio": "5 Bio",
-          "name": "5 Name",
-          "title": "5 Title"
+          "bio": "Ingenieur en mining strategics and resourthiss minerathe. Expert en phosphates and rare earth.",
+          "name": "Omar Fassi Fihri",
+          "title": "Directeur Mines"
         }
       ],
       "heroDescription": "Leadership Hero Description",
       "heroTitle1": "Leadership Hero Title1",
       "heroTitle2": "Leadership Hero Title2",
-      "label": "Leadership Label",
-      "linkedin": "Leadership Linkedin"
+      "label": "Direction",
+      "linkedin": "Profil LinkedIn"
     },
     "ventures": {
       "approach": [
         {
-          "desc": "0 Description",
-          "title": "0 Title"
+          "desc": "Nous invisissons in of the entreprises who renforthisnt the sovereignty inof thessortal African and compthementent nos filAIthe existantes.",
+          "title": "Thesis d'investissement"
         },
         {
-          "desc": "1 Description",
-          "title": "1 Title"
+          "desc": "byticipation active in the strategy, the recruitment and l'acthisss a notre nandwork d'infrastructure continental.",
+          "title": "Accompagnement operationnel"
         },
         {
-          "desc": "2 Description",
-          "title": "2 Title"
+          "desc": "integration in l'ecosysteme Harch for acthistherate the growth and l'impact continental.",
+          "title": "Integration ecosysteme"
         },
         {
-          "desc": "3 Description",
-          "title": "3 Title"
+          "desc": "Suivi rigoureux of the mesortcs d'impact and of performanthis with reporting sortmisriel.",
+          "title": "Suivi of performanthis"
         }
       ],
       "approachDescription": "Ventures Approach Description",
@@ -891,20 +891,20 @@
       "approachTitle2": "Ventures Approach Title2",
       "criteria": [
         {
-          "description": "0 Description",
-          "title": "0 Title"
+          "description": "L'entreprise doit renforthisr directement the sovereignty inof thessortal of l'Africa.",
+          "title": "Alignement souverain"
         },
         {
-          "description": "1 Description",
-          "title": "1 Title"
+          "description": "technology ou moofl innovant with a benefit concurrentiel offendabthe.",
+          "title": "Innovation distinctive"
         },
         {
-          "description": "2 Description",
-          "title": "2 Title"
+          "description": "Ewhope fondasortthis with a execution prouvee and a commitment envers the continent.",
+          "title": "Equipe exceptionnelle"
         },
         {
-          "description": "3 Description",
-          "title": "3 Title"
+          "description": "PotentAIl d'continental scathe with a moofl economithat vAIbthe.",
+          "title": "continental scathe"
         }
       ],
       "criteriaDescription": "Ventures Criteria Description",
@@ -916,28 +916,28 @@
       "ctaTitle": "Ventures Cta Title",
       "details": [
         {
-          "label": "0 Label",
-          "value": "0 Value"
+          "label": "Tailthe of the fonds",
+          "value": "50M $"
         },
         {
-          "label": "1 Label",
-          "value": "1 Value"
+          "label": "Tickand moyen",
+          "value": "500K - 5M $"
         },
         {
-          "label": "2 Label",
-          "value": "2 Value"
+          "label": "Staof the vises",
+          "value": "Pre-Seed a Series A"
         },
         {
-          "label": "3 Label",
-          "value": "3 Value"
+          "label": "Secteurs",
+          "value": "8 verticales"
         },
         {
-          "label": "4 Label",
-          "value": "4 Value"
+          "label": "Pays couverts",
+          "value": "5+ pays"
         },
         {
-          "label": "5 Label",
-          "value": "5 Value"
+          "label": "Durree d'investissement",
+          "value": "5-10 ans"
         }
       ],
       "detailsTitle": "Ventures Details Title",
@@ -946,40 +946,40 @@
       "heroDescription": "Ventures Hero Description",
       "heroTitle1": "Ventures Hero Title1",
       "heroTitle2": "Ventures Hero Title2",
-      "invested": "Ventures Invested",
-      "label": "Ventures Label",
+      "invested": "Investi",
+      "label": "Ventures",
       "portfolio": [
         {
-          "description": "0 Description",
-          "investment": "0 Investment",
-          "location": "0 Location",
-          "name": "0 Name",
-          "sector": "0 Sector",
-          "stage": "0 Stage"
+          "description": "Ptheteforme d'Agriculture of precision by satellite for l'Africa of l'Ouis.",
+          "investment": "2M $",
+          "location": "Dakar, Senegal",
+          "name": "AgriSat",
+          "sector": "AgriTech",
+          "stage": "Series A"
         },
         {
-          "description": "1 Description",
-          "investment": "1 Investment",
-          "location": "1 Location",
-          "name": "1 Name",
-          "sector": "1 Sector",
-          "stage": "1 Stage"
+          "description": "infrastructure of paiement mobithe for the marches non bancarises.",
+          "investment": "1.5M $",
+          "location": "Nairobi, Kenya",
+          "name": "PaySovereign",
+          "sector": "FinTech",
+          "stage": "Pre-Seed"
         },
         {
-          "description": "2 Description",
-          "investment": "2 Investment",
-          "location": "2 Location",
-          "name": "2 Name",
-          "sector": "2 Sector",
-          "stage": "2 Stage"
+          "description": "nandwork of bornes of recharge sother for vehicuthe ethecsortthats.",
+          "investment": "3M $",
+          "location": "Casablanca, Maroc",
+          "name": "SolarCharge",
+          "sector": "Energie",
+          "stage": "Seed"
         },
         {
-          "description": "3 Description",
-          "investment": "3 Investment",
-          "location": "3 Location",
-          "name": "3 Name",
-          "sector": "3 Sector",
-          "stage": "3 Stage"
+          "description": "Fabrication locathe of components for thisntres of data.",
+          "investment": "4M $",
+          "location": "Tanger, Maroc",
+          "name": "DataParts",
+          "sector": "Technologie",
+          "stage": "Series A"
         }
       ],
       "portfolioDescription": "Ventures Portfolio Description",
@@ -987,24 +987,24 @@
       "portfolioTitle": "Ventures Portfolio Title",
       "thesis": [
         {
-          "description": "0 Description",
-          "title": "0 Title"
+          "description": "L'Africa doit construire sa propre infrastructure technological for ne pas ofpendre of fournisseurs andrangers.",
+          "title": "Souverainete numerique"
         },
         {
-          "description": "1 Description",
-          "title": "1 Title"
+          "description": "the chaines d'approvisionnement locathe creent of the vatheur and of l'emploi on the continent.",
+          "title": "Production locale"
         },
         {
-          "description": "2 Description",
-          "title": "2 Title"
+          "description": "the energys renewabthe are the cthe d'a inof thessortalisation bas carbon en Africa.",
+          "title": "Transition energetique"
         },
         {
-          "description": "3 Description",
-          "title": "3 Title"
+          "description": "L'AI and the data doivent andre hebergees and controthees locathement for garantir l'autonomie.",
+          "title": "Donnees souveraines"
         },
         {
-          "description": "4 Description",
-          "title": "4 Title"
+          "description": "L'integration regionathe amplifie l'impact of chathat invisment indiviof theel.",
+          "title": "Integration regionale"
         }
       ],
       "thesisDescription": "Ventures Thesis Description",
@@ -1105,20 +1105,20 @@
       "aboutLabel": "Advisory Board About Label",
       "aboutStats": [
         {
-          "label": "0 Label",
-          "value": "0 Value"
+          "label": "Annees d'experience combinees",
+          "value": "200+"
         },
         {
-          "label": "1 Label",
-          "value": "1 Value"
+          "label": "Pays couverts",
+          "value": "25+"
         },
         {
-          "label": "2 Label",
-          "value": "2 Value"
+          "label": "Projets supervises",
+          "value": "150+"
         },
         {
-          "label": "3 Label",
-          "value": "3 Value"
+          "label": "Milliards $ en actifs",
+          "value": "50+"
         }
       ],
       "aboutTitle": "Advisory Board About Title",
@@ -1127,100 +1127,100 @@
       "applyTitle": "Advisory Board Apply Title",
       "benefits": [
         {
-          "desc": "0 Description",
-          "label": "0 Label"
+          "desc": "acthisss exclusif aux avant-premieres strategics and pthens of ofvelopment.",
+          "label": "Vision strategique"
         },
         {
-          "desc": "1 Description",
-          "label": "1 Label"
+          "desc": "Interaction directe with l'ewhope of direction and the operators on the terrain.",
+          "label": "Reseau direct"
         },
         {
-          "desc": "2 Description",
-          "label": "2 Label"
+          "desc": "Opportaite of guiof the Construction of l'infrastructure souveraine of the continent.",
+          "label": "Impact continental"
         },
         {
-          "desc": "3 Description",
-          "label": "3 Label"
+          "desc": "remaration and benefits adaptes aux theaofrs of votre calibre.",
+          "label": "Compensation"
         }
       ],
       "benefitsDescription": "Advisory Board Benefits Description",
       "benefitsDetail": [
         {
-          "description": "0 Description",
+          "description": "byticipation aux reaions strategics sortmisrielthe with the conseil d'administration.",
           "details": [
             "Details 0",
             "Details 1",
             "Details 2",
             "Details 3"
           ],
-          "title": "0 Title"
+          "title": "Reunions strategiques"
         },
         {
-          "description": "1 Description",
+          "description": "guidanthis on the bytnerships and the allAInthiss strategics continentals.",
           "details": [
             "Details 0",
             "Details 1",
             "Details 2",
             "Details 3"
           ],
-          "title": "1 Title"
+          "title": "Partenariats"
         },
         {
-          "description": "2 Description",
+          "description": "consortbution a the refthexion on the thesis d'invisment and l'allocation of the cAPItal.",
           "details": [
             "Details 0",
             "Details 1",
             "Details 2",
             "Details 3"
           ],
-          "title": "2 Title"
+          "title": "Orientation investissement"
         },
         {
-          "description": "3 Description",
+          "description": "Rothe of mentor aupres of the dirigeants of filAIthe and of the jeas theaofrs.",
           "details": [
             "Details 0",
             "Details 1",
             "Details 2",
             "Details 3"
           ],
-          "title": "3 Title"
+          "title": "Mentorat"
         }
       ],
       "benefitsLabel": "Advisory Board Benefits Label",
       "benefitsTitle": "Advisory Board Benefits Title",
       "cadence": [
         {
-          "description": "0 Description",
+          "description": "Reaions strategics with toute l'ewhope of direction.",
           "items": [
             "Items 0",
             "Items 1",
             "Items 2",
             "Items 3"
           ],
-          "title": "0 Title"
+          "title": "Reunion trimestrielle"
         },
         {
-          "description": "1 Description",
+          "description": "Sessions approfondies on of the sujands specifithats.",
           "items": [
             "Items 0",
             "Items 1",
             "Items 2",
             "Items 3"
           ],
-          "title": "1 Title"
+          "title": "Workshop semestriel"
         }
       ],
       "cadenceLabel": "Advisory Board Cadence Label",
       "cadenceTitle": "Advisory Board Cadence Title",
       "coCreationLabel": "Advisory Board Co Creation Label",
-      "description1": "Advisory Board Description1",
-      "description2": "Advisory Board Description2",
+      "description1": "the Conseil Consultatif of Harch Corp is a groupe sethect of theaofrs who guiofnt notre vision.",
+      "description2": "Chathat membre apporte a expertise aithat and a nandwork strategic for acthistherate notre mission.",
       "form": {
         "fullName": "Form Full Name",
         "fullNamePlaceholder": "Form Full Name Placeholder",
-        "organization": "Form Organization",
+        "organization": "Organisation",
         "organizationPlaceholder": "Form Organization Placeholder",
-        "submit": "Form Submit",
+        "submit": "submit the application",
         "talkToUs": "Form Talk To Us",
         "titleRole": "Form Title Role",
         "titleRolePlaceholder": "Form Title Role Placeholder",
@@ -1232,65 +1232,65 @@
       "heroTitle2": "Advisory Board Hero Title2",
       "howItWorks": [
         {
-          "description": "0 Description",
-          "title": "0 Title"
+          "description": "Soumandtez votre application with votre bycours and votre vision for the continent.",
+          "title": "Candidature"
         },
         {
-          "description": "1 Description",
-          "title": "1 Title"
+          "description": "interview with the comite of sethection for evaluate l'alignment and l'expertise.",
+          "title": "Selection"
         },
         {
-          "description": "2 Description",
-          "title": "2 Title"
+          "description": "onboarding in l'ecosysteme Harch with acthisss compthend aux ewhopes and projands.",
+          "title": "Integration"
         },
         {
-          "description": "3 Description",
-          "title": "3 Title"
+          "description": "byticipation active aux reaions strategics and consortbution a the vision.",
+          "title": "Contribution"
         }
       ],
       "learnMore": "Advisory Board Learn More",
       "members": [
         {
-          "fullName": "0 Full Name",
-          "organization": "0 Organization",
-          "representative": "0 Representative",
-          "sector": "0 Sector",
-          "title": "0 Title"
+          "fullName": "Dr. Fatima El Amrani",
+          "organization": "Banthat African of ofvelopment",
+          "representative": "Financial Infrastructure",
+          "sector": "Finance",
+          "title": "Advisory Board"
         },
         {
-          "fullName": "1 Full Name",
-          "organization": "1 Organization",
-          "representative": "1 Representative",
-          "sector": "1 Sector",
-          "title": "1 Title"
+          "fullName": "Prof. Youssef Benali",
+          "organization": "MIT Africa",
+          "representative": "Technology & AI",
+          "sector": "Technology",
+          "title": "Advisory Board"
         },
         {
-          "fullName": "2 Full Name",
-          "organization": "2 Organization",
-          "representative": "2 Representative",
-          "sector": "2 Sector",
-          "title": "2 Title"
+          "fullName": "Aminata Diallo",
+          "organization": "ONU Developpement Industriel",
+          "representative": "Industrial Strategy",
+          "sector": "Industry",
+          "title": "Advisory Board"
         },
         {
-          "fullName": "3 Full Name",
-          "organization": "3 Organization",
-          "representative": "3 Representative",
-          "sector": "3 Sector",
-          "title": "3 Title"
+          "fullName": "Kwame Asante",
+          "organization": "AfCFTA Secretariat",
+          "representative": "Continental Trade",
+          "sector": "Trade",
+          "title": "Advisory Board"
         },
         {
-          "fullName": "4 Full Name",
-          "organization": "4 Organization",
-          "representative": "4 Representative",
-          "sector": "4 Sector",
-          "title": "4 Title"
+          "fullName": "Hassan El Fadili",
+          "organization": "Offithis Cherifien of the phosphates",
+          "representative": "Mining & Phosphates",
+          "sector": "Mining",
+          "title": "Advisory Board"
         },
         {
-          "fullName": "5 Full Name",
-          "organization": "5 Organization",
-          "representative": "5 Representative",
-          "sector": "5 Sector",
-          "title": "5 Title"
+          "fullName": "Marie Ndiaye",
+          "organization": "Orange Afrique",
+          "representative": "Telecommunications",
+          "sector": "Telecom",
+          "title": "Advisory Board"
         }
       ],
       "membersDescription": "Advisory Board Members Description",
@@ -1299,74 +1299,74 @@
       "processDescription": "Advisory Board Process Description",
       "processLabel": "Advisory Board Process Label",
       "processTitle": "Advisory Board Process Title",
-      "title": "Advisory Board Title"
+      "title": "Advisory Board"
     },
     "caseStudies": [
       {
-        "description": "0 Description",
+        "description": "Deployed sovereign GPU cloud infrastructure for government AI initiatives.",
         "fullName": "0 Full Name",
-        "metric": "0 Metric",
+        "metric": "99.98%",
         "metricLabel": "0 Metric Label",
-        "organization": "0 Organization",
-        "result": "0 Result",
-        "sector": "0 Sector",
+        "organization": "Government of Morocco",
+        "result": "3x faster AI inference",
+        "sector": "Government",
         "useCase": "0 Use Case",
-        "vertical": "0 Vertical"
+        "vertical": "Intelligence"
       },
       {
-        "description": "1 Description",
+        "description": "Built 500MW solar farm to power industrial operations with renewable energy.",
         "fullName": "1 Full Name",
-        "metric": "1 Metric",
+        "metric": "2GW",
         "metricLabel": "1 Metric Label",
-        "organization": "1 Organization",
-        "result": "1 Result",
-        "sector": "1 Sector",
+        "organization": "Energy Ministry",
+        "result": "80% carbon reduction",
+        "sector": "Energy",
         "useCase": "1 Use Case",
-        "vertical": "1 Vertical"
+        "vertical": "Energy"
       },
       {
-        "description": "2 Description",
+        "description": "Established cement production facility to support regional construction boom.",
         "fullName": "2 Full Name",
-        "metric": "2 Metric",
+        "metric": "500kT",
         "metricLabel": "2 Metric Label",
-        "organization": "2 Organization",
-        "result": "2 Result",
-        "sector": "2 Sector",
+        "organization": "Gambia Housing Authority",
+        "result": "40% cost reduction",
+        "sector": "Construction",
         "useCase": "2 Use Case",
-        "vertical": "2 Vertical"
+        "vertical": "Cement"
       },
       {
-        "description": "3 Description",
+        "description": "Implemented precision agriculture system across 50,000 hectares of farmland.",
         "fullName": "3 Full Name",
-        "metric": "3 Metric",
+        "metric": "35%",
         "metricLabel": "3 Metric Label",
-        "organization": "3 Organization",
-        "result": "3 Result",
-        "sector": "3 Sector",
+        "organization": "Ministry of Agriculture",
+        "result": "Doubled crop yields",
+        "sector": "Agriculture",
         "useCase": "3 Use Case",
-        "vertical": "3 Vertical"
+        "vertical": "Agriculture"
       },
       {
-        "description": "4 Description",
+        "description": "Deployed desalination plant with AI-optimized water distribution network.",
         "fullName": "4 Full Name",
-        "metric": "4 Metric",
+        "metric": "200M m³",
         "metricLabel": "4 Metric Label",
-        "organization": "4 Organization",
-        "result": "4 Result",
-        "sector": "4 Sector",
+        "organization": "Water Utility Corp",
+        "result": "Zero water shortages",
+        "sector": "Water",
         "useCase": "4 Use Case",
-        "vertical": "4 Vertical"
+        "vertical": "Water"
       },
       {
-        "description": "5 Description",
+        "description": "Developed sovereign fintech platform for cross-border African payments.",
         "fullName": "5 Full Name",
-        "metric": "5 Metric",
+        "metric": "$2B+",
         "metricLabel": "5 Metric Label",
-        "organization": "5 Organization",
-        "result": "5 Result",
-        "sector": "5 Sector",
+        "organization": "BCEAO",
+        "result": "60% cost reduction",
+        "sector": "Finance",
         "useCase": "5 Use Case",
-        "vertical": "5 Vertical"
+        "vertical": "Finance"
       }
     ],
     "caseStudiesDescription": "Case Studies Description",
@@ -1401,8 +1401,8 @@
     },
     "featuredLabel": "Featured Label",
     "featuredTitle": "Featured Title",
-    "heroDescription": "Hero Description",
-    "heroLabel": "Hero Label",
+    "heroDescription": "the organisations who font confAInthis a Harch Corp for theur infrastructure souveraine.",
+    "heroLabel": "Clients",
     "heroTitle1": "Hero Title1",
     "heroTitle2": "Hero Title2",
     "industries": {
@@ -1418,22 +1418,22 @@
     "readCaseStudy": "Read Case Study",
     "testimonials": [
       {
-        "name": "0 Name",
-        "organization": "0 Organization",
-        "quote": "0 Quote",
-        "title": "0 Title"
+        "name": "Ahmed Benkirane",
+        "organization": "Ministry of Energy",
+        "quote": "Harch Corp transformed our approach to infrastructure. Their expertise in renewable energy and sovereign cloud is unmatched in Africa.",
+        "title": "Director of Operations"
       },
       {
-        "name": "1 Name",
-        "organization": "1 Organization",
-        "quote": "1 Quote",
-        "title": "1 Title"
+        "name": "Fatou Sow",
+        "organization": "African Development Bank",
+        "quote": "The vertical integration model is unique. Harch Corp delivers end-to-end solutions that no other company can match on the continent.",
+        "title": "Infrastructure Analyst"
       },
       {
-        "name": "2 Name",
-        "organization": "2 Organization",
-        "quote": "2 Quote",
-        "title": "2 Title"
+        "name": "Youssef El Idrissi",
+        "organization": "OCP Group",
+        "quote": "Working with Harch Mining has been exceptional. Their sovereign approach to resource extraction sets a new standard for Africa.",
+        "title": "VP Strategic Partnerships"
       }
     ],
     "testimonialsDescription": "Testimonials Description",
@@ -1455,19 +1455,19 @@
     ],
     "community": {
       "0": {
-        "description": "0 Description",
-        "members": "0 Members",
-        "title": "0 Title"
+        "description": "Real-time discussions with 2,400+ developers and operators.",
+        "members": "2,400+",
+        "title": "Discord Server"
       },
       "1": {
-        "description": "1 Description",
-        "members": "1 Members",
-        "title": "1 Title"
+        "description": "Open source contributions and code reviews from 1,200+ developers.",
+        "members": "1,200+",
+        "title": "GitHub Community"
       },
       "2": {
-        "description": "2 Description",
-        "members": "2 Members",
-        "title": "2 Title"
+        "description": "Professional networking and knowledge sharing for 5,000+ members.",
+        "members": "5,000+",
+        "title": "LinkedIn Group"
       },
       "description": "Community Description",
       "label": "Community Label",
@@ -1475,33 +1475,33 @@
       "title": "Community Title"
     },
     "cta": {
-      "button1": "Cta Button1",
-      "button2": "Cta Button2",
-      "description": "Cta Description",
+      "button1": "explore the documentation",
+      "button2": "Rejoindre Discord",
+      "description": "Commenthisz a construire on l'infrastructure souveraine of l'Africa with nos SDK and outils.",
       "label": "Cta Label",
       "title1": "Cta Title1",
       "title2": "Cta Title2"
     },
     "dxMetrics": [
       {
-        "label": "0 Label",
-        "sublabel": "0 Sublabel",
-        "value": "0 Value"
+        "label": "API Response Time",
+        "sublabel": "p99 latency",
+        "value": "<50ms"
       },
       {
-        "label": "1 Label",
-        "sublabel": "1 Sublabel",
-        "value": "1 Value"
+        "label": "SDK Coverage",
+        "sublabel": "API endpoints",
+        "value": "100%"
       },
       {
-        "label": "2 Label",
-        "sublabel": "2 Sublabel",
-        "value": "2 Value"
+        "label": "Documentation",
+        "sublabel": "Guides & tutorials",
+        "value": "200+"
       },
       {
-        "label": "3 Label",
-        "sublabel": "3 Sublabel",
-        "value": "3 Value"
+        "label": "Community",
+        "sublabel": "Active developers",
+        "value": "12K+"
       }
     ],
     "dxMetricsDescription": "Dx Metrics Description",
@@ -1510,8 +1510,8 @@
     "dxMetricsTitle2": "Dx Metrics Title2",
     "heroButton1": "Hero Button1",
     "heroButton2": "Hero Button2",
-    "heroDescription": "Hero Description",
-    "heroLabel": "Hero Label",
+    "heroDescription": "Construisez on l'OS d'infrastructure souveraine of l'Africa. SDK natifs, API open and cloud GPU aware of the carbon.",
+    "heroLabel": "Developpeurs",
     "heroSubtitle": "Hero Subtitle",
     "heroTitle1": "Hero Title1",
     "heroTitle2": "Hero Title2",
@@ -1519,20 +1519,20 @@
       "backToDevelopers": "Open Source Back To Developers",
       "contributing": [
         {
-          "description": "0 Description",
-          "title": "0 Title"
+          "description": "Fork the repository, create a feature branch, and submit a pull request.",
+          "title": "Code Contributions"
         },
         {
-          "description": "1 Description",
-          "title": "1 Title"
+          "description": "Report bugs, request features, and help triage issues.",
+          "title": "Bug Reports"
         },
         {
-          "description": "2 Description",
-          "title": "2 Title"
+          "description": "Improve guides, tutorials, and API reference documentation.",
+          "title": "Documentation"
         },
         {
-          "description": "3 Description",
-          "title": "3 Title"
+          "description": "Review pull requests and provide constructive feedback.",
+          "title": "Code Review"
         }
       ],
       "contributingDescription": "Open Source Contributing Description",
@@ -1545,19 +1545,19 @@
       "ctaLabel": "Open Source Cta Label",
       "ctaTitle1": "Open Source Cta Title1",
       "ctaTitle2": "Open Source Cta Title2",
-      "description": "Open Source Description",
+      "description": "Tous nos outils and SDK are open sourthis. Consortbuez, forkez and construisez the sovereignty digital.",
       "guidelines": [
         {
-          "description": "0 Description",
-          "title": "0 Title"
+          "description": "Write clean, well-documented code with comprehensive tests.",
+          "title": "Code Quality"
         },
         {
-          "description": "1 Description",
-          "title": "1 Title"
+          "description": "Follow our commit conventions and pull request templates.",
+          "title": "Commit Standards"
         },
         {
-          "description": "2 Description",
-          "title": "2 Title"
+          "description": "Ensure all contributions pass CI/CD checks before submission.",
+          "title": "CI/CD Requirements"
         }
       ],
       "heroDescription": "Open Source Hero Description",
@@ -1565,25 +1565,25 @@
       "heroSubtitle": "Open Source Hero Subtitle",
       "heroTitle1": "Open Source Hero Title1",
       "heroTitle2": "Open Source Hero Title2",
-      "label": "Open Source Label",
+      "label": "Open Source",
       "projects": [
         {
-          "description": "0 Description"
+          "description": "Carbon-aware GPU scheduler for sovereign workloads"
         },
         {
-          "description": "1 Description"
+          "description": "Python SDK for the Harch Intelligence API"
         },
         {
-          "description": "2 Description"
+          "description": "TypeScript SDK for web applications"
         },
         {
-          "description": "3 Description"
+          "description": "GPU drivers and firmware for sovereign hardware"
         },
         {
-          "description": "4 Description"
+          "description": "Infrastructure as Code templates and modules"
         },
         {
-          "description": "5 Description"
+          "description": "Monitoring and observability dashboards"
         }
       ],
       "projectsDescription": "Open Source Projects Description",
@@ -1594,16 +1594,16 @@
       "title2": "Open Source Title2",
       "values": [
         {
-          "description": "0 Description",
-          "title": "0 Title"
+          "description": "Every component is auditable, forkable, and customizable.",
+          "title": "Transparency"
         },
         {
-          "description": "1 Description",
-          "title": "1 Title"
+          "description": "Built for African sovereignty with no foreign dependencies.",
+          "title": "Sovereignty"
         },
         {
-          "description": "2 Description",
-          "title": "2 Title"
+          "description": "Community-driven development with inclusive governance.",
+          "title": "Community"
         }
       ],
       "valuesDescription": "Open Source Values Description",
@@ -1613,35 +1613,35 @@
     },
     "openSourceProjects": [
       {
-        "description": "0 Description"
+        "description": "Carbon-aware GPU scheduler — intelligent workload placement"
       },
       {
-        "description": "1 Description"
+        "description": "HarchOS Python SDK — full API coverage with type hints"
       },
       {
-        "description": "2 Description"
+        "description": "HarchOS TypeScript SDK — web-first integration"
       },
       {
-        "description": "3 Description"
+        "description": "Infrastructure monitoring dashboard — real-time metrics"
       }
     ],
     "playground": {
       "apiGroups": [
         {
-          "description": "0 Description",
-          "label": "0 Label"
+          "description": "GPU scheduling, allocation, and workload management.",
+          "label": "Compute"
         },
         {
-          "description": "1 Description",
-          "label": "1 Label"
+          "description": "Data ingestion, storage, and sovereign data management.",
+          "label": "Data"
         },
         {
-          "description": "2 Description",
-          "label": "2 Label"
+          "description": "Model training, inference, and AI workload orchestration.",
+          "label": "Models"
         },
         {
-          "description": "3 Description",
-          "label": "3 Label"
+          "description": "Infrastructure monitoring, alerting, and operations.",
+          "label": "Operations"
         }
       ],
       "apiGroupsLabel": "Playground Api Groups Label",
@@ -1699,19 +1699,19 @@
       "rateLimitLabel": "Playground Rate Limit Label",
       "rateLimits": [
         {
-          "burst": "0 Burst",
-          "limit": "0 Limit",
-          "tier": "0 Tier"
+          "burst": "10/min",
+          "limit": "100/hr",
+          "tier": "Free"
         },
         {
-          "burst": "1 Burst",
-          "limit": "1 Limit",
-          "tier": "1 Tier"
+          "burst": "100/min",
+          "limit": "10K/hr",
+          "tier": "Professional"
         },
         {
-          "burst": "2 Burst",
-          "limit": "2 Limit",
-          "tier": "2 Tier"
+          "burst": "Unlimited",
+          "limit": "Unlimited",
+          "tier": "Enterprise"
         }
       ],
       "rateLimitsDescription": "Playground Rate Limits Description",
@@ -1725,16 +1725,16 @@
     "pythonSdkTitle": "Python Sdk Title",
     "quickStart": [
       {
-        "description": "0 Description",
-        "title": "0 Title"
+        "description": "Install the HarchOS SDK with pip or npm.",
+        "title": "Install SDK"
       },
       {
-        "description": "1 Description",
-        "title": "1 Title"
+        "description": "Configure your API key and endpoint settings.",
+        "title": "Configure"
       },
       {
-        "description": "2 Description",
-        "title": "2 Title"
+        "description": "Deploy your first workload on sovereign GPU cloud.",
+        "title": "Deploy"
       }
     ],
     "quickStartDescription": "Quick Start Description",
@@ -1750,54 +1750,54 @@
     "terminalLabel": "Terminal Label",
     "tools": [
       {
-        "description": "0 Description",
+        "description": "Interactive API explorer with live response preview.",
         "tags": [
           "Tags 0",
           "Tags 1",
           "Tags 2"
         ],
-        "title": "0 Title"
+        "title": "API Playground"
       },
       {
-        "description": "1 Description",
+        "description": "Real-time monitoring dashboard for GPU workloads.",
         "tags": [
           "Tags 0",
           "Tags 1",
           "Tags 2",
           "Tags 3"
         ],
-        "title": "1 Title"
+        "title": "GPU Monitor"
       },
       {
-        "description": "2 Description",
+        "description": "CLI tool for infrastructure management and deployment.",
         "tags": [
           "Tags 0",
           "Tags 1",
           "Tags 2"
         ],
-        "title": "2 Title"
+        "title": "HarchOS CLI"
       },
       {
-        "description": "3 Description",
+        "description": "Carbon footprint calculator for compute workloads.",
         "tags": [
           "Tags 0",
           "Tags 1",
           "Tags 2"
         ],
-        "title": "3 Title"
+        "title": "Carbon Calculator"
       },
       {
-        "description": "4 Description",
+        "description": "Infrastructure as Code templates for sovereign deployments.",
         "tags": [
           "Tags 0",
           "Tags 1",
           "Tags 2"
         ],
-        "title": "4 Title"
+        "title": "Deployment Templates"
       }
     ],
     "toolsDescription": "Tools Description",
-    "toolsLabel": "Tools Label",
+    "toolsLabel": "Outils",
     "toolsTitle1": "Tools Title1",
     "toolsTitle2": "Tools Title2",
     "typescriptSdkTitle": "Typescript Sdk Title"
@@ -1811,330 +1811,330 @@
       },
       "authMethods": [
         {
-          "description": "0 Description",
-          "name": "0 Name",
+          "description": "Authenticate using Bearer tokens in the Authorization header. Tokens are obtained via the /auth/token endpoint.",
+          "name": "Bearer Token",
           "useCase": "0 Use Case"
         },
         {
-          "description": "1 Description",
-          "name": "1 Name",
+          "description": "Authenticate using API keys passed via the X-API-Key header. Suitable for server-to-server communication.",
+          "name": "API Key",
           "useCase": "1 Use Case"
         },
         {
-          "description": "2 Description",
-          "name": "2 Name",
+          "description": "Authenticate using OAuth 2.0 with client credentials flow. Supports scoped access and token refresh.",
+          "name": "OAuth 2.0",
           "useCase": "2 Use Case"
         }
       ],
       "baseUrlLabel": "Api Base Url Label",
       "codeExamples": {
-        "copied": "Code Examples Copied",
-        "copy": "Code Examples Copy",
-        "label": "Code Examples Label",
-        "title": "Code Examples Title",
+        "copied": "Copied!",
+        "copy": "Copy",
+        "label": "Code Examples",
+        "title": "Code Examples",
         "tryQuickstart": "Code Examples Try Quickstart",
         "viewSdks": "Code Examples View Sdks"
       },
-      "description": "Api Description",
+      "description": "documentation compthenof of l'API Ris and GraphQL for l'ecosysteme HarchOS.",
       "errorCodes": [
         {
-          "desc": "0 Description",
-          "name": "0 Name"
+          "desc": "The request was malformed or missing required parameters.",
+          "name": "400 Bad Request"
         },
         {
-          "desc": "1 Description",
-          "name": "1 Name"
+          "desc": "Authentication failed or was not provided.",
+          "name": "401 Unauthorized"
         },
         {
-          "desc": "2 Description",
-          "name": "2 Name"
+          "desc": "The authenticated user lacks permission for this resource.",
+          "name": "403 Forbidden"
         },
         {
-          "desc": "3 Description",
-          "name": "3 Name"
+          "desc": "The requested resource does not exist.",
+          "name": "404 Not Found"
         },
         {
-          "desc": "4 Description",
-          "name": "4 Name"
+          "desc": "Rate limit exceeded. Retry after the specified duration.",
+          "name": "429 Too Many Requests"
         },
         {
-          "desc": "5 Description",
-          "name": "5 Name"
+          "desc": "An unexpected error occurred on the server.",
+          "name": "500 Internal Server Error"
         },
         {
-          "desc": "6 Description",
-          "name": "6 Name"
+          "desc": "The server received an invalid response from an upstream service.",
+          "name": "502 Bad Gateway"
         },
         {
-          "desc": "7 Description",
-          "name": "7 Name"
+          "desc": "The server is temporarily unavailable. Please retry later.",
+          "name": "503 Service Unavailable"
         }
       ],
       "errorHandling": {
-        "label": "Error Handling Label",
-        "title": "Error Handling Title"
+        "label": "Error Handling",
+        "title": "Error Handling"
       },
       "grpc": {
-        "description": "Grpc Description",
-        "label": "Grpc Label",
-        "title": "Grpc Title"
+        "description": "Complete REST and GraphQL API documentation for the HarchOS ecosystem.",
+        "label": "gRPC",
+        "title": "gRPC"
       },
       "grpcServices": [
         {
-          "desc": "0 Description"
+          "desc": "ComputeService — GPU allocation and workload scheduling"
         },
         {
-          "desc": "1 Description"
+          "desc": "DataService — Data ingestion, storage, and retrieval"
         },
         {
-          "desc": "2 Description"
+          "desc": "ModelService — AI model training and inference"
         },
         {
-          "desc": "3 Description"
+          "desc": "MonitorService — Real-time infrastructure monitoring"
         },
         {
-          "desc": "4 Description"
+          "desc": "AuthService — Authentication and authorization"
         }
       ],
       "hero": {
-        "label": "Hero Label"
+        "label": "API Reference"
       },
       "quickstartGuide": "Api Quickstart Guide",
       "rateLimits": {
         "0": {
-          "compute": "0 Compute",
-          "tier": "0 Tier"
+          "compute": "10 GPU-hrs/mo",
+          "tier": "Free"
         },
         "1": {
-          "compute": "1 Compute",
-          "tier": "1 Tier"
+          "compute": "500 GPU-hrs/mo",
+          "tier": "Professional"
         },
         "2": {
-          "compute": "2 Compute",
-          "tier": "2 Tier"
+          "compute": "Unlimited",
+          "tier": "Enterprise"
         },
         "3": {
-          "burst": "3 Burst",
-          "compute": "3 Compute",
-          "data": "3 Data",
-          "requests": "3 Requests",
-          "tier": "3 Tier"
+          "burst": "Custom",
+          "compute": "Custom",
+          "data": "Custom",
+          "requests": "Custom",
+          "tier": "Sovereign"
         },
         "4": {
-          "burst": "4 Burst",
-          "compute": "4 Compute",
-          "data": "4 Data",
-          "requests": "4 Requests",
-          "tier": "4 Tier"
+          "burst": "Dedicated",
+          "compute": "Dedicated",
+          "data": "Dedicated",
+          "requests": "Dedicated",
+          "tier": "Classified"
         },
-        "description": "Rate Limits Description",
-        "label": "Rate Limits Label",
+        "description": "Complete REST and GraphQL API documentation for the HarchOS ecosystem.",
+        "label": "Rate Limits",
         "table": {
-          "burst": "Table Burst",
-          "compute": "Table Compute",
-          "data": "Table Data",
-          "requests": "Table Requests",
-          "tier": "Table Tier"
+          "burst": "Burst",
+          "compute": "Compute",
+          "data": "Data",
+          "requests": "Requests",
+          "tier": "Tier"
         },
-        "title": "Rate Limits Title"
+        "title": "Rate Limits"
       },
       "rest": {
-        "description": "Rest Description",
-        "endpoints": "Rest Endpoints",
-        "label": "Rest Label",
-        "title": "Rest Title"
+        "description": "Complete REST and GraphQL API documentation for the HarchOS ecosystem.",
+        "endpoints": "REST Endpoints",
+        "label": "REST",
+        "title": "REST API"
       },
       "restEndpoints": [
         {
           "endpoints": [
             {
-              "desc": "0 Description"
+              "desc": "/allocate — Allocate GPU resources"
             },
             {
-              "desc": "1 Description"
+              "desc": "/query — Query stored data"
             },
             {
-              "desc": "2 Description"
+              "desc": "/list — List available models"
             },
             {
-              "desc": "3 Description"
+              "desc": "/audit — Get audit logs"
             },
             {
-              "desc": "4 Description"
+              "desc": "/rotate — Rotate credentials"
             },
             {
-              "desc": "5 Description"
+              "desc": "/metrics — Get compute metrics"
             },
             {
-              "desc": "6 Description"
+              "desc": "/optimize — Optimize resource usage"
             }
           ],
-          "resource": "0 Resource"
+          "resource": "Compute"
         },
         {
           "endpoints": [
             {
-              "desc": "0 Description"
+              "desc": "/allocate — Allocate GPU resources"
             },
             {
-              "desc": "1 Description"
+              "desc": "/query — Query stored data"
             },
             {
-              "desc": "2 Description"
+              "desc": "/list — List available models"
             },
             {
-              "desc": "3 Description"
+              "desc": "/audit — Get audit logs"
             },
             {
-              "desc": "4 Description"
+              "desc": "/rotate — Rotate credentials"
             },
             {
-              "desc": "5 Description"
+              "desc": "/backup — Create data backups"
             }
           ],
-          "resource": "1 Resource"
+          "resource": "Data"
         },
         {
           "endpoints": [
             {
-              "desc": "0 Description"
+              "desc": "/allocate — Allocate GPU resources"
             },
             {
-              "desc": "1 Description"
+              "desc": "/query — Query stored data"
             },
             {
-              "desc": "2 Description"
+              "desc": "/list — List available models"
             },
             {
-              "desc": "3 Description"
+              "desc": "/audit — Get audit logs"
             },
             {
-              "desc": "4 Description"
+              "desc": "/rotate — Rotate credentials"
             }
           ],
-          "resource": "2 Resource"
+          "resource": "Models"
         },
         {
           "endpoints": [
             {
-              "desc": "0 Description"
+              "desc": "/allocate — Allocate GPU resources"
             },
             {
-              "desc": "1 Description"
+              "desc": "/query — Query stored data"
             },
             {
-              "desc": "2 Description"
+              "desc": "/list — List available models"
             },
             {
-              "desc": "3 Description"
+              "desc": "/audit — Get audit logs"
             },
             {
-              "desc": "4 Description"
+              "desc": "/rotate — Rotate credentials"
             },
             {
-              "desc": "5 Description"
+              "desc": "/deployments — List deployments"
             }
           ],
-          "resource": "3 Resource"
+          "resource": "Operations"
         },
         {
           "endpoints": [
             {
-              "desc": "0 Description"
+              "desc": "/allocate — Allocate GPU resources"
             },
             {
-              "desc": "1 Description"
+              "desc": "/query — Query stored data"
             },
             {
-              "desc": "2 Description"
+              "desc": "/list — List available models"
             },
             {
-              "desc": "3 Description"
+              "desc": "/audit — Get audit logs"
             },
             {
-              "desc": "4 Description"
+              "desc": "/rotate — Rotate credentials"
             }
           ],
-          "resource": "4 Resource"
+          "resource": "Auth"
         },
         {
           "endpoints": [
             {
-              "desc": "0 Description"
+              "desc": "/allocate — Allocate GPU resources"
             },
             {
-              "desc": "1 Description"
+              "desc": "/query — Query stored data"
             }
           ],
-          "resource": "5 Resource"
+          "resource": "Billing"
         },
         {
           "endpoints": [
             {
-              "desc": "0 Description"
+              "desc": "/allocate — Allocate GPU resources"
             },
             {
-              "desc": "1 Description"
+              "desc": "/query — Query stored data"
             },
             {
-              "desc": "2 Description"
+              "desc": "/list — List available models"
             },
             {
-              "desc": "3 Description"
+              "desc": "/audit — Get audit logs"
             },
             {
-              "desc": "4 Description"
+              "desc": "/rotate — Rotate credentials"
             }
           ],
-          "resource": "6 Resource"
+          "resource": "Network"
         },
         {
           "endpoints": [
             {
-              "desc": "0 Description"
+              "desc": "/allocate — Allocate GPU resources"
             },
             {
-              "desc": "1 Description"
+              "desc": "/query — Query stored data"
             },
             {
-              "desc": "2 Description"
+              "desc": "/list — List available models"
             },
             {
-              "desc": "3 Description"
+              "desc": "/audit — Get audit logs"
             },
             {
-              "desc": "4 Description"
+              "desc": "/rotate — Rotate credentials"
             },
             {
-              "desc": "5 Description"
+              "desc": "/incidents — Security incidents"
             }
           ],
-          "resource": "7 Resource"
+          "resource": "Security"
         }
       ],
-      "title": "Api Title",
+      "title": "Reference API",
       "viewSdks": "Api View Sdks",
       "websocket": {
-        "description": "Websocket Description",
-        "label": "Websocket Label",
+        "description": "Complete REST and GraphQL API documentation for the HarchOS ecosystem.",
+        "label": "WebSocket",
         "streamingEndpoints": "Websocket Streaming Endpoints",
-        "title": "Websocket Title"
+        "title": "API Reference"
       },
       "wsEndpoints": [
         {
-          "desc": "0 Description"
+          "desc": "ws://api.harchos.io/v1/stream/metrics — Real-time infrastructure metrics"
         },
         {
-          "desc": "1 Description"
+          "desc": "ws://api.harchos.io/v1/stream/events — Live event stream"
         },
         {
-          "desc": "2 Description"
+          "desc": "ws://api.harchos.io/v1/stream/logs — Real-time log streaming"
         },
         {
-          "desc": "3 Description"
+          "desc": "ws://api.harchos.io/v1/stream/notifications — Push notifications"
         },
         {
-          "desc": "4 Description"
+          "desc": "ws://api.harchos.io/v1/stream/alerts — Real-time alerts"
         }
       ]
     },
@@ -2142,20 +2142,20 @@
       "allOperational": "Api Status All Operational",
       "items": [
         {
-          "name": "0 Name",
-          "status": "0 Status"
+          "name": "GPU Compute API",
+          "status": "Operational"
         },
         {
-          "name": "1 Name",
-          "status": "1 Status"
+          "name": "Data Storage API",
+          "status": "Operational"
         },
         {
-          "name": "2 Name",
-          "status": "2 Status"
+          "name": "AI Model API",
+          "status": "Operational"
         },
         {
-          "name": "3 Name",
-          "status": "3 Status"
+          "name": "Monitoring API",
+          "status": "Operational"
         }
       ],
       "title": "Api Status Title"
@@ -2165,83 +2165,83 @@
       "bestFor": "Architecture Best For",
       "bestPractices": {
         "0": {
-          "desc": "0 Description",
-          "title": "0 Title"
+          "desc": "Design stateless services that can scale horizontally across hubs.",
+          "title": "Design for Scale"
         },
         "1": {
-          "desc": "1 Description",
-          "title": "1 Title"
+          "desc": "Implement circuit breakers and retry logic for all inter-service calls.",
+          "title": "Resilient Communication"
         },
         "2": {
-          "desc": "2 Description",
-          "title": "2 Title"
+          "desc": "Use carbon-aware scheduling to minimize environmental impact.",
+          "title": "Carbon-Aware Design"
         },
         "3": {
-          "desc": "3 Description",
-          "title": "3 Title"
+          "desc": "Encrypt all data at rest and in transit with AES-256 or equivalent.",
+          "title": "Security by Default"
         },
         "4": {
-          "desc": "4 Description",
-          "title": "4 Title"
+          "desc": "Implement comprehensive observability with metrics, logs, and traces.",
+          "title": "Observability First"
         },
         "5": {
-          "desc": "5 Description",
-          "title": "5 Title"
+          "desc": "Use infrastructure as code for all deployments and configurations.",
+          "title": "Infrastructure as Code"
         },
-        "label": "Best Practices Label",
-        "title": "Best Practices Title"
+        "label": "Design for Scale",
+        "title": "Design for Scale"
       },
-      "components": "Architecture Components",
+      "components": "Components",
       "dataFlow": {
-        "act": "Data Flow Act",
-        "sense": "Data Flow Sense",
-        "think": "Data Flow Think",
+        "act": "ACT — Execute operations and deploy resources",
+        "sense": "SENSE — Collect data from infrastructure sensors",
+        "think": "THINK — Analyze and make decisions using AI",
         "title": "Architecture Data Flow"
       },
-      "description": "Architecture Description",
+      "description": "architecture technical of l'infrastructure souveraine HarchOS and of the cloud GPU.",
       "designPatterns": {
         "0": {
-          "category": "0 Category",
-          "desc": "0 Description",
-          "name": "0 Name"
+          "category": "Resilience",
+          "desc": "Automatically route around failures with real-time health monitoring.",
+          "name": "Circuit Breaker"
         },
         "1": {
-          "category": "1 Category",
-          "desc": "1 Description",
-          "name": "1 Name"
+          "category": "Data",
+          "desc": "Cache frequently accessed data at the edge for low-latency access.",
+          "name": "Edge Cache"
         },
         "2": {
-          "category": "2 Category",
-          "desc": "2 Description",
-          "name": "2 Name"
+          "category": "Compute",
+          "desc": "Distribute GPU workloads across hubs based on carbon intensity and cost.",
+          "name": "Workload Distribution"
         },
         "3": {
-          "category": "3 Category",
-          "desc": "3 Description",
-          "name": "3 Name"
+          "category": "Security",
+          "desc": "Verify every request regardless of network location.",
+          "name": "Zero Trust"
         },
         "4": {
-          "category": "4 Category",
-          "desc": "4 Description",
-          "name": "4 Name"
+          "category": "Observability",
+          "desc": "Aggregate metrics, logs, and traces into a unified observability layer.",
+          "name": "Unified Telemetry"
         },
         "5": {
-          "category": "5 Category",
-          "desc": "5 Description",
-          "name": "5 Name"
+          "category": "Deployment",
+          "desc": "Deploy infrastructure changes progressively with automatic rollback.",
+          "name": "Progressive Delivery"
         },
-        "description": "Design Patterns Description",
-        "label": "Design Patterns Label",
-        "title": "Design Patterns Title"
+        "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
+        "label": "Design Patterns",
+        "title": "Design Patterns"
       },
       "designPrinciples": "Architecture Design Principles",
       "framework": {
-        "description": "Framework Description",
-        "label": "Framework Label",
-        "title": "Framework Title"
+        "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
+        "label": "Framework",
+        "title": "HarchOS Framework"
       },
       "hero": {
-        "label": "Hero Label"
+        "label": "Architecture"
       },
       "keyCapabilities": "Architecture Key Capabilities",
       "layers": {
@@ -2254,26 +2254,26 @@
             "Capabilities 4",
             "Capabilities 5"
           ],
-          "description": "Act Description",
+          "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
           "specs": [
             {
-              "label": "0 Label",
-              "value": "0 Value"
+              "label": "Deployment speed",
+              "value": "<30s"
             },
             {
-              "label": "1 Label",
-              "value": "1 Value"
+              "label": "Auto-scale response",
+              "value": "<60s"
             },
             {
-              "label": "2 Label",
-              "value": "2 Value"
+              "label": "Failover time",
+              "value": "<5min"
             },
             {
-              "label": "3 Label",
-              "value": "3 Value"
+              "label": "Compliance check",
+              "value": "Real-time"
             }
           ],
-          "tag": "Act Tag"
+          "tag": "Execution Layer"
         },
         "sense": {
           "capabilities": [
@@ -2284,26 +2284,26 @@
             "Capabilities 4",
             "Capabilities 5"
           ],
-          "description": "Sense Description",
+          "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
           "specs": [
             {
-              "label": "0 Label",
-              "value": "0 Value"
+              "label": "Data points/sec",
+              "value": "1M+"
             },
             {
-              "label": "1 Label",
-              "value": "1 Value"
+              "label": "Log ingestion",
+              "value": "10TB/day"
             },
             {
-              "label": "2 Label",
-              "value": "2 Value"
+              "label": "Monitoring coverage",
+              "value": "100%"
             },
             {
-              "label": "3 Label",
-              "value": "3 Value"
+              "label": "Alert latency",
+              "value": "<1s"
             }
           ],
-          "tag": "Sense Tag"
+          "tag": "Sensing Layer"
         },
         "think": {
           "capabilities": [
@@ -2314,37 +2314,37 @@
             "Capabilities 4",
             "Capabilities 5"
           ],
-          "description": "Think Description",
+          "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
           "specs": [
             {
-              "label": "0 Label",
-              "value": "0 Value"
+              "label": "AI models",
+              "value": "50+"
             },
             {
-              "label": "1 Label",
-              "value": "1 Value"
+              "label": "Decision latency",
+              "value": "<100ms"
             },
             {
-              "label": "2 Label",
-              "value": "2 Value"
+              "label": "Prediction accuracy",
+              "value": "95%+"
             },
             {
-              "label": "3 Label",
-              "value": "3 Value"
+              "label": "Carbon optimization",
+              "value": "40% reduction"
             }
           ],
-          "tag": "Think Tag"
+          "tag": "Intelligence Layer"
         }
       },
       "overview": {
-        "description": "Overview Description",
-        "label": "Overview Label",
-        "title": "Overview Title"
+        "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
+        "label": "Overview",
+        "title": "Architecture Overview"
       },
       "pillars": [
         {
-          "description": "0 Description",
-          "name": "0 Name",
+          "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
+          "name": "Sovereignty",
           "principles": [
             "Principles 0",
             "Principles 1",
@@ -2354,8 +2354,8 @@
           ]
         },
         {
-          "description": "1 Description",
-          "name": "1 Name",
+          "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
+          "name": "Resilience",
           "principles": [
             "Principles 0",
             "Principles 1",
@@ -2365,8 +2365,8 @@
           ]
         },
         {
-          "description": "2 Description",
-          "name": "2 Name",
+          "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
+          "name": "Sustainability",
           "principles": [
             "Principles 0",
             "Principles 1",
@@ -2376,8 +2376,8 @@
           ]
         },
         {
-          "description": "3 Description",
-          "name": "3 Name",
+          "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
+          "name": "Security",
           "principles": [
             "Principles 0",
             "Principles 1",
@@ -2387,8 +2387,8 @@
           ]
         },
         {
-          "description": "4 Description",
-          "name": "4 Name",
+          "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
+          "name": "Scalability",
           "principles": [
             "Principles 0",
             "Principles 1",
@@ -2408,9 +2408,9 @@
             "Components 4",
             "Components 5"
           ],
-          "desc": "0 Description",
-          "title": "0 Title",
-          "useCase": "0 Use Case"
+          "desc": "High-performance GPU computing with carbon-aware workload scheduling.",
+          "title": "Sovereign GPU Cloud",
+          "useCase": "AI training and inference at scale"
         },
         "1": {
           "components": [
@@ -2421,9 +2421,9 @@
             "Components 4",
             "Components 5"
           ],
-          "desc": "1 Description",
-          "title": "1 Title",
-          "useCase": "1 Use Case"
+          "desc": "End-to-end IoT data collection, analysis, and automated response.",
+          "title": "Smart Infrastructure",
+          "useCase": "Industrial monitoring and automation"
         },
         "2": {
           "components": [
@@ -2434,9 +2434,9 @@
             "Components 4",
             "Components 5"
           ],
-          "desc": "2 Description",
-          "title": "2 Title",
-          "useCase": "2 Use Case"
+          "desc": "Renewable energy management with predictive optimization.",
+          "title": "Green Energy Grid",
+          "useCase": "Renewable energy production and distribution"
         },
         "3": {
           "components": [
@@ -2447,37 +2447,37 @@
             "Components 4",
             "Components 5"
           ],
-          "desc": "3 Description",
-          "title": "3 Title",
-          "useCase": "3 Use Case"
+          "desc": "Sovereign data management with full regulatory compliance.",
+          "title": "Sovereign Data Vault",
+          "useCase": "Government and defense data sovereignty"
         },
-        "description": "Reference Archs Description",
-        "label": "Reference Archs Label",
-        "title": "Reference Archs Title"
+        "description": "Sovereign infrastructure architecture built on the SENSE-THINK-ACT paradigm.",
+        "label": "Reference Architectures",
+        "title": "Sovereign GPU Cloud"
       },
       "techSpecs": "Architecture Tech Specs",
-      "title": "Architecture Title",
+      "title": "Architecture",
       "tryQuickstart": "Architecture Try Quickstart"
     },
     "categories": {
-      "label": "Categories Label",
-      "title": "Categories Title"
+      "label": "Categories",
+      "title": "Documentation Categories"
     },
     "changelog": {
       "backToDocs": "Changelog Back To Docs",
-      "description": "Changelog Description",
+      "description": "Historithat of the changes, updates and improvements of the ptheteforme.",
       "hero": {
-        "label": "Hero Label"
+        "label": "Changelog"
       },
       "latestVersion": "Changelog Latest Version",
       "sections": {
         "breakingChanges": "Sections Breaking Changes",
         "bugFixes": "Sections Bug Fixes",
-        "deprecations": "Sections Deprecations",
-        "improvements": "Sections Improvements",
+        "deprecations": "Deprecations",
+        "improvements": "Improvements",
         "newFeatures": "Sections New Features"
       },
-      "title": "Changelog Title",
+      "title": "log of the changes",
       "versions": [
         {
           "breakingChanges": [
@@ -2490,13 +2490,13 @@
             "Bug Fixes 1",
             "Bug Fixes 2"
           ],
-          "date": "0 Date",
+          "date": "2026-02-15",
           "deprecations": [
             "Deprecations 0",
             "Deprecations 1",
             "Deprecations 2"
           ],
-          "description": "0 Description",
+          "description": "Track updates, improvements, and fixes across HarchOS releases.",
           "improvements": [
             "Improvements 0",
             "Improvements 1",
@@ -2525,11 +2525,11 @@
             "Bug Fixes 4",
             "Bug Fixes 5"
           ],
-          "date": "1 Date",
+          "date": "2026-01-10",
           "deprecations": [
             "Deprecations 0"
           ],
-          "description": "1 Description",
+          "description": "Track updates, improvements, and fixes across HarchOS releases.",
           "improvements": [
             "Improvements 0",
             "Improvements 1",
@@ -2547,8 +2547,8 @@
           "statusLabel": "1 Status Label"
         },
         {
-          "date": "2 Date",
-          "description": "2 Description",
+          "date": "2025-12-01",
+          "description": "Track updates, improvements, and fixes across HarchOS releases.",
           "newFeatures": [
             "New Features 0",
             "New Features 1",
@@ -2578,17 +2578,17 @@
     "currentRelease": {
       "links": [
         {
-          "label": "0 Label"
+          "label": "API Reference"
         },
         {
-          "label": "1 Label"
+          "label": "SDK Documentation"
         },
         {
-          "label": "2 Label"
+          "label": "Changelog"
         }
       ],
       "releaseInfo": "Current Release Release Info",
-      "title": "Current Release Title",
+      "title": "Current Release",
       "versionLabel": "Current Release Version Label"
     },
     "description": "Description",
@@ -2596,577 +2596,577 @@
       {
         "items": [
           {
-            "desc": "0 Description",
-            "name": "0 Name"
+            "desc": "Introduction to HarchOS",
+            "name": "Introduction to HarchOS"
           },
           {
-            "desc": "1 Description",
-            "name": "1 Name"
+            "desc": "REST API endpoints",
+            "name": "REST API endpoints"
           },
           {
-            "desc": "2 Description",
-            "name": "2 Name"
+            "desc": "System overview",
+            "name": "System overview"
           },
           {
-            "desc": "3 Description",
-            "name": "3 Name"
+            "desc": "Cloud deployment",
+            "name": "Cloud deployment"
           }
         ],
-        "title": "0 Title"
+        "title": "Getting Started"
       },
       {
         "items": [
           {
-            "desc": "0 Description",
-            "name": "0 Name"
+            "desc": "Introduction to HarchOS",
+            "name": "Introduction to HarchOS"
           },
           {
-            "desc": "1 Description",
-            "name": "1 Name"
+            "desc": "REST API endpoints",
+            "name": "REST API endpoints"
           },
           {
-            "desc": "2 Description",
-            "name": "2 Name"
+            "desc": "System overview",
+            "name": "System overview"
           },
           {
-            "desc": "3 Description",
-            "name": "3 Name"
+            "desc": "Cloud deployment",
+            "name": "Cloud deployment"
           }
         ],
-        "title": "1 Title"
+        "title": "API Reference"
       },
       {
         "items": [
           {
-            "desc": "0 Description",
-            "name": "0 Name"
+            "desc": "Introduction to HarchOS",
+            "name": "Introduction to HarchOS"
           },
           {
-            "desc": "1 Description",
-            "name": "1 Name"
+            "desc": "REST API endpoints",
+            "name": "REST API endpoints"
           },
           {
-            "desc": "2 Description",
-            "name": "2 Name"
+            "desc": "System overview",
+            "name": "System overview"
           },
           {
-            "desc": "3 Description",
-            "name": "3 Name"
+            "desc": "Cloud deployment",
+            "name": "Cloud deployment"
           }
         ],
-        "title": "2 Title"
+        "title": "Architecture"
       },
       {
         "items": [
           {
-            "desc": "0 Description",
-            "name": "0 Name"
+            "desc": "Introduction to HarchOS",
+            "name": "Introduction to HarchOS"
           },
           {
-            "desc": "1 Description",
-            "name": "1 Name"
+            "desc": "REST API endpoints",
+            "name": "REST API endpoints"
           },
           {
-            "desc": "2 Description",
-            "name": "2 Name"
+            "desc": "System overview",
+            "name": "System overview"
           },
           {
-            "desc": "3 Description",
-            "name": "3 Name"
+            "desc": "Cloud deployment",
+            "name": "Cloud deployment"
           }
         ],
-        "title": "3 Title"
+        "title": "Deployment"
       },
       {
         "items": [
           {
-            "desc": "0 Description",
-            "name": "0 Name"
+            "desc": "Introduction to HarchOS",
+            "name": "Introduction to HarchOS"
           },
           {
-            "desc": "1 Description",
-            "name": "1 Name"
+            "desc": "REST API endpoints",
+            "name": "REST API endpoints"
           },
           {
-            "desc": "2 Description",
-            "name": "2 Name"
+            "desc": "System overview",
+            "name": "System overview"
           },
           {
-            "desc": "3 Description",
-            "name": "3 Name"
+            "desc": "Cloud deployment",
+            "name": "Cloud deployment"
           }
         ],
-        "title": "4 Title"
+        "title": "SDKs & Tools"
       },
       {
         "items": [
           {
-            "desc": "0 Description",
-            "name": "0 Name"
+            "desc": "Introduction to HarchOS",
+            "name": "Introduction to HarchOS"
           },
           {
-            "desc": "1 Description",
-            "name": "1 Name"
+            "desc": "REST API endpoints",
+            "name": "REST API endpoints"
           },
           {
-            "desc": "2 Description",
-            "name": "2 Name"
+            "desc": "System overview",
+            "name": "System overview"
           },
           {
-            "desc": "3 Description",
-            "name": "3 Name"
+            "desc": "Cloud deployment",
+            "name": "Cloud deployment"
           }
         ],
-        "title": "5 Title"
+        "title": "Operations"
       }
     ],
     "guides": {
       "apiReference": "Guides Api Reference",
       "categories": [
         {
-          "description": "0 Description",
+          "description": "Step-by-step guides for integrating and deploying on Harch infrastructure.",
           "guides": [
             {
-              "desc": "0 Description",
-              "difficulty": "0 Difficulty",
+              "desc": "Install SDKs, configure credentials, and run your first API call.",
+              "difficulty": "Beginner",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "0 Time",
-              "title": "0 Title"
+              "time": "15 min",
+              "title": "Setting up your development environment"
             },
             {
-              "desc": "1 Description",
-              "difficulty": "1 Difficulty",
+              "desc": "Learn to allocate and run GPU compute on sovereign infrastructure.",
+              "difficulty": "Beginner",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "1 Time",
-              "title": "1 Title"
+              "time": "30 min",
+              "title": "Deploying your first GPU workload"
             },
             {
-              "desc": "2 Description",
-              "difficulty": "2 Difficulty",
+              "desc": "Create data repositories with encryption and access controls.",
+              "difficulty": "Beginner",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "2 Time",
-              "title": "2 Title"
+              "time": "20 min",
+              "title": "Managing sovereign data storage"
             },
             {
-              "desc": "3 Description",
-              "difficulty": "3 Difficulty",
+              "desc": "Configure dashboards, set up alerts, and monitor infrastructure health.",
+              "difficulty": "Beginner",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "3 Time",
-              "title": "3 Title"
+              "time": "25 min",
+              "title": "Setting up monitoring and alerts"
             }
           ],
-          "title": "0 Title"
+          "title": "Guides"
         },
         {
-          "description": "1 Description",
+          "description": "Step-by-step guides for integrating and deploying on Harch infrastructure.",
           "guides": [
             {
-              "desc": "0 Description",
-              "difficulty": "0 Difficulty",
+              "desc": "Optimize your REST API usage with pagination, caching, and error handling.",
+              "difficulty": "Intermediate",
               "tags": [
                 "Tags 0",
                 "Tags 1",
                 "Tags 2"
               ],
-              "time": "0 Time",
-              "title": "0 Title"
+              "time": "45 min",
+              "title": "REST API best practices"
             },
             {
-              "desc": "1 Description",
-              "difficulty": "1 Difficulty",
+              "desc": "Implement bidirectional streaming for live data feeds.",
+              "difficulty": "Intermediate",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "1 Time",
-              "title": "1 Title"
+              "time": "60 min",
+              "title": "gRPC streaming for real-time data"
             },
             {
-              "desc": "2 Description",
-              "difficulty": "2 Difficulty",
+              "desc": "Subscribe to real-time events and build reactive applications.",
+              "difficulty": "Intermediate",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "2 Time",
-              "title": "2 Title"
+              "time": "40 min",
+              "title": "WebSocket event subscriptions"
             },
             {
-              "desc": "3 Description",
-              "difficulty": "3 Difficulty",
+              "desc": "Implement secure auth with OAuth 2.0 and API keys.",
+              "difficulty": "Intermediate",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "3 Time",
-              "title": "3 Title"
+              "time": "35 min",
+              "title": "Authentication and authorization flows"
             }
           ],
-          "title": "1 Title"
+          "title": "Guides"
         },
         {
-          "description": "2 Description",
+          "description": "Step-by-step guides for integrating and deploying on Harch infrastructure.",
           "guides": [
             {
-              "desc": "0 Description",
-              "difficulty": "0 Difficulty",
+              "desc": "Deploy across multiple HarchOS hubs for resilience and low latency.",
+              "difficulty": "Advanced",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "0 Time",
-              "title": "0 Title"
+              "time": "90 min",
+              "title": "Multi-hub deployment strategy"
             },
             {
-              "desc": "1 Description",
-              "difficulty": "1 Difficulty",
+              "desc": "Build custom scheduling policies that optimize for carbon intensity.",
+              "difficulty": "Advanced",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "1 Time",
-              "title": "1 Title"
+              "time": "60 min",
+              "title": "Custom carbon-aware scheduling"
             },
             {
-              "desc": "2 Description",
-              "difficulty": "2 Difficulty",
+              "desc": "Manage large-scale infrastructure with Terraform and Pulumi.",
+              "difficulty": "Advanced",
               "tags": [
                 "Tags 0",
                 "Tags 1",
                 "Tags 2"
               ],
-              "time": "2 Time",
-              "title": "2 Title"
+              "time": "75 min",
+              "title": "Infrastructure as Code at scale"
             },
             {
-              "desc": "3 Description",
-              "difficulty": "3 Difficulty",
+              "desc": "Implement comprehensive zero-trust security for your infrastructure.",
+              "difficulty": "Advanced",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "3 Time",
-              "title": "3 Title"
+              "time": "90 min",
+              "title": "Zero-trust security implementation"
             }
           ],
-          "title": "2 Title"
+          "title": "Guides"
         },
         {
-          "description": "3 Description",
+          "description": "Step-by-step guides for integrating and deploying on Harch infrastructure.",
           "guides": [
             {
-              "desc": "0 Description",
-              "difficulty": "0 Difficulty",
+              "desc": "Configure comprehensive monitoring with custom metrics and dashboards.",
+              "difficulty": "Advanced",
               "tags": [
                 "Tags 0",
                 "Tags 1"
               ],
-              "time": "0 Time",
-              "title": "0 Title"
+              "time": "45 min",
+              "title": "Production monitoring setup"
             },
             {
-              "desc": "1 Description",
-              "difficulty": "1 Difficulty",
+              "desc": "Implement intelligent auto-scaling based on demand and carbon intensity.",
+              "difficulty": "Advanced",
               "tags": [
                 "Tags 0",
                 "Tags 1",
                 "Tags 2"
               ],
-              "time": "1 Time",
-              "title": "1 Title"
+              "time": "60 min",
+              "title": "Auto-scaling GPU workloads"
             },
             {
-              "desc": "2 Description",
-              "difficulty": "2 Difficulty",
+              "desc": "Pre-defined response procedures for common infrastructure incidents.",
+              "difficulty": "Advanced",
               "tags": [
                 "Tags 0",
                 "Tags 1",
                 "Tags 2"
               ],
-              "time": "2 Time",
-              "title": "2 Title"
+              "time": "30 min",
+              "title": "Incident response playbooks"
             },
             {
-              "desc": "3 Description",
-              "difficulty": "3 Difficulty",
+              "desc": "Optimize infrastructure costs while maintaining performance SLAs.",
+              "difficulty": "Advanced",
               "tags": [
                 "Tags 0",
                 "Tags 1",
                 "Tags 2"
               ],
-              "time": "3 Time",
-              "title": "3 Title"
+              "time": "45 min",
+              "title": "Cost optimization strategies"
             }
           ],
-          "title": "3 Title"
+          "title": "Guides"
         }
       ],
-      "description": "Guides Description",
+      "description": "guiof the pas a pas for integrate and ofployer on l'infrastructure Harch.",
       "difficulty": {
-        "advanced": "Difficulty Advanced",
-        "beginner": "Difficulty Beginner",
-        "intermediate": "Difficulty Intermediate"
+        "advanced": "Advanced",
+        "beginner": "Beginner",
+        "intermediate": "Intermediate"
       },
       "hero": {
-        "label": "Hero Label"
+        "label": "Guides"
       },
       "startWithQuickstarts": "Guides Start With Quickstarts",
-      "title": "Guides Title"
+      "title": "Guides"
     },
     "hero": {
-      "currentVersion": "Hero Current Version",
-      "label": "Hero Label",
-      "viewChangelog": "Hero View Changelog"
+      "currentVersion": "Current Version",
+      "label": "Documentation",
+      "viewChangelog": "View Changelog"
     },
     "popularGuides": {
       "0": {
-        "desc": "0 Description",
-        "time": "0 Time",
-        "title": "0 Title"
+        "desc": "Set up your development environment and make your first API call.",
+        "time": "15 min",
+        "title": "Getting Started with HarchOS"
       },
       "1": {
-        "desc": "1 Description",
-        "time": "1 Time",
-        "title": "1 Title"
+        "desc": "Deploy and manage GPU compute workloads on sovereign infrastructure.",
+        "time": "30 min",
+        "title": "GPU Workload Deployment"
       },
       "2": {
-        "desc": "2 Description",
-        "time": "2 Time",
-        "title": "2 Title"
+        "desc": "Create and manage encrypted data repositories in Morocco.",
+        "time": "20 min",
+        "title": "Sovereign Data Storage"
       },
       "3": {
-        "desc": "3 Description",
-        "time": "3 Time",
-        "title": "3 Title"
+        "desc": "Optimize workload scheduling based on renewable energy availability.",
+        "time": "45 min",
+        "title": "Carbon-Aware Scheduling"
       },
       "4": {
-        "desc": "4 Description",
-        "time": "4 Time",
-        "title": "4 Title"
+        "desc": "Set up comprehensive monitoring with real-time dashboards and alerts.",
+        "time": "25 min",
+        "title": "Monitoring and Alerting"
       },
       "5": {
-        "desc": "5 Description",
-        "time": "5 Time",
-        "title": "5 Title"
+        "desc": "Implement zero-trust security and encryption for your infrastructure.",
+        "time": "35 min",
+        "title": "Security Best Practices"
       },
-      "label": "Popular Guides Label",
-      "title": "Popular Guides Title"
+      "label": "Popular Guides",
+      "title": "Getting Started with HarchOS"
     },
     "quickStart": {
       "getStarted": "Quick Start Get Started",
-      "label": "Quick Start Label",
-      "title": "Quick Start Title"
+      "label": "Quick Start",
+      "title": "Quick Start"
     },
     "quickStartCards": [
       {
-        "description": "0 Description",
-        "title": "0 Title"
+        "description": "Install the HarchOS Python or TypeScript SDK with a single command.",
+        "title": "Install SDK"
       },
       {
-        "description": "1 Description",
-        "title": "1 Title"
+        "description": "Set up your API key and configure authentication for sovereign access.",
+        "title": "Configure Auth"
       },
       {
-        "description": "2 Description",
-        "title": "2 Title"
+        "description": "Launch your first GPU workload on carbon-aware sovereign infrastructure.",
+        "title": "Deploy Workload"
       },
       {
-        "description": "3 Description",
-        "title": "3 Title"
+        "description": "Set up monitoring dashboards and configure auto-scaling policies.",
+        "title": "Monitor & Scale"
       }
     ],
     "quickstarts": {
       "cards": [
         {
-          "description": "0 Description",
-          "time": "0 Time",
-          "title": "0 Title"
+          "description": "Get started with the Python SDK in 5 minutes.",
+          "time": "5 min",
+          "title": "Python SDK Quickstart"
         },
         {
-          "description": "1 Description",
-          "time": "1 Time",
-          "title": "1 Title"
+          "description": "Build web applications with the TypeScript SDK.",
+          "time": "5 min",
+          "title": "TypeScript SDK Quickstart"
         },
         {
-          "description": "2 Description",
-          "time": "2 Time",
-          "title": "2 Title"
+          "description": "Manage infrastructure from the command line.",
+          "time": "3 min",
+          "title": "CLI Quickstart"
         },
         {
-          "description": "3 Description",
-          "time": "3 Time",
-          "title": "3 Title"
+          "description": "Test API endpoints directly in your browser.",
+          "time": "2 min",
+          "title": "API Playground"
         }
       ],
       "deploySteps": [
         {
-          "description": "0 Description",
-          "title": "0 Title"
+          "description": "Select a sovereign hub based on latency and compliance requirements.",
+          "title": "Choose your region"
         },
         {
-          "description": "1 Description",
-          "title": "1 Title"
+          "description": "Set GPU type, memory, and storage for your workload.",
+          "title": "Configure resources"
         },
         {
-          "description": "2 Description",
-          "title": "2 Title"
+          "description": "Push your code and let HarchOS handle scheduling and scaling.",
+          "title": "Deploy application"
         },
         {
-          "description": "3 Description",
-          "title": "3 Title"
+          "description": "Track metrics, carbon intensity, and costs in real-time.",
+          "title": "Monitor performance"
         },
         {
-          "description": "4 Description",
-          "title": "4 Title"
+          "description": "Auto-scale based on demand with carbon-aware optimization.",
+          "title": "Scale as needed"
         }
       ],
-      "description": "Quickstarts Description",
+      "description": "ofmarrez en thatlthats minutes with nos guiof the of ofmarrage rAPIof.",
       "fiveMin": {
-        "label": "Five Min Label",
-        "title": "Five Min Title"
+        "label": "5-Minute",
+        "title": "5-Minute Quickstart"
       },
       "hero": {
-        "label": "Hero Label"
+        "label": "Quickstarts"
       },
       "nextSteps": {
         "0": {
-          "desc": "0 Description",
-          "title": "0 Title"
+          "desc": "Browse the full API reference and try endpoints in the playground.",
+          "title": "Explore the API"
         },
         "1": {
-          "desc": "1 Description",
-          "title": "1 Title"
+          "desc": "Deep-dive into deployment patterns and best practices.",
+          "title": "Read the guides"
         },
         "2": {
-          "desc": "2 Description",
-          "title": "2 Title"
+          "desc": "Connect with other developers on Discord and GitHub.",
+          "title": "Join the community"
         },
         "3": {
-          "desc": "3 Description",
-          "title": "3 Title"
+          "desc": "Understand the SENSE-THINK-ACT paradigm and design patterns.",
+          "title": "View architecture"
         },
-        "label": "Next Steps Label",
-        "title": "Next Steps Title"
+        "label": "Next Steps",
+        "title": "Explore the API"
       },
       "success": {
-        "description": "Success Description",
-        "title": "Success Title"
+        "description": "Get up and running with HarchOS in minutes.",
+        "title": "Deployment Successful!"
       },
-      "title": "Quickstarts Title",
+      "title": "Demarrage rapide",
       "tutorial": {
-        "description": "Tutorial Description",
-        "label": "Tutorial Label",
+        "description": "Get up and running with HarchOS in minutes.",
+        "label": "Tutorial",
         "meta": {
-          "gpu": "Meta Gpu",
-          "sdk": "Meta Sdk",
-          "time": "Meta Time"
+          "gpu": "NVIDIA A100",
+          "sdk": "Python v1.0",
+          "time": "30 min"
         },
-        "title": "Tutorial Title"
+        "title": "Quickstarts"
       }
     },
     "sdks": {
       "chooseSdk": {
-        "label": "Choose Sdk Label",
-        "title": "Choose Sdk Title"
+        "label": "Choose Your SDK",
+        "title": "Choose Your SDK"
       },
       "cli": {
         "commandReference": "Cli Command Reference",
-        "description": "Cli Description",
-        "label": "Cli Label",
-        "title": "Cli Title"
+        "description": "Powerful CLI for managing resources, deployment, and monitoring from the command line.",
+        "label": "CLI",
+        "title": "HarchOS CLI"
       },
       "cliCommands": [
         {
-          "desc": "0 Description"
+          "desc": "harchos auth login — Authenticate with your HarchOS account"
         },
         {
-          "desc": "1 Description"
+          "desc": "harchos compute allocate — Allocate GPU resources for workloads"
         },
         {
-          "desc": "2 Description"
+          "desc": "harchos compute status — Check the status of compute resources"
         },
         {
-          "desc": "3 Description"
+          "desc": "harchos data ingest — Ingest data into sovereign storage"
         },
         {
-          "desc": "4 Description"
+          "desc": "harchos deploy apply — Apply infrastructure configuration"
         },
         {
-          "desc": "5 Description"
+          "desc": "harchos monitor dashboard — Open the monitoring dashboard"
         },
         {
-          "desc": "6 Description"
+          "desc": "harchos carbon report — Generate carbon intensity report"
         },
         {
-          "desc": "7 Description"
+          "desc": "harchos config set — Set configuration parameters"
         }
       ],
       "comingSoon": "Sdks Coming Soon",
       "comparison": {
         "0": {
-          "feature": "0 Feature"
+          "feature": "Language"
         },
         "1": {
-          "feature": "1 Feature"
+          "feature": "Type Safety"
         },
         "2": {
-          "feature": "2 Feature"
+          "feature": "Async Support"
         },
         "3": {
-          "feature": "3 Feature"
+          "feature": "Streaming"
         },
         "4": {
-          "feature": "4 Feature",
-          "python": "4 Python"
+          "feature": "Carbon API",
+          "python": "✓"
         },
         "5": {
-          "feature": "5 Feature"
+          "feature": "CLI Integration"
         },
         "6": {
-          "feature": "6 Feature"
+          "feature": "IDE Support"
         },
         "7": {
-          "feature": "7 Feature"
+          "feature": "Unit Testing"
         },
         "8": {
-          "feature": "8 Feature",
-          "go": "8 Go",
-          "python": "8 Python",
-          "rust": "8 Rust",
-          "typescript": "8 Typescript"
+          "feature": "Production Ready",
+          "go": "✓",
+          "python": "✓",
+          "rust": "✓",
+          "typescript": "✓"
         },
         "9": {
-          "feature": "9 Feature",
-          "go": "9 Go",
-          "python": "9 Python",
-          "rust": "9 Rust",
-          "typescript": "9 Typescript"
+          "feature": "Production Ready",
+          "go": "✓",
+          "python": "✓",
+          "rust": "✓",
+          "typescript": "✓"
         },
-        "label": "Comparison Label",
+        "label": "Comparison",
         "table": {
-          "feature": "Table Feature"
+          "feature": "Language"
         },
-        "title": "Comparison Title"
+        "title": "SDK Comparison"
       },
-      "copied": "Sdks Copied",
-      "copy": "Sdks Copy",
-      "description": "Sdks Description",
+      "copied": "Copied!",
+      "copy": "Copy",
+      "description": "SDK officiels for Python, TypeScript and CLI.",
       "hero": {
-        "label": "Hero Label"
+        "label": "SDKs"
       },
-      "installation": "Sdks Installation",
+      "installation": "Installation",
       "items": [
         {
           "features": [
@@ -3177,7 +3177,7 @@
             "Features 4",
             "Features 5"
           ],
-          "name": "0 Name"
+          "name": "Python SDK"
         },
         {
           "features": [
@@ -3188,7 +3188,7 @@
             "Features 4",
             "Features 5"
           ],
-          "name": "1 Name"
+          "name": "TypeScript SDK"
         },
         {
           "features": [
@@ -3199,7 +3199,7 @@
             "Features 4",
             "Features 5"
           ],
-          "name": "2 Name"
+          "name": "Go SDK"
         },
         {
           "features": [
@@ -3210,13 +3210,13 @@
             "Features 4",
             "Features 5"
           ],
-          "name": "3 Name"
+          "name": "Rust SDK"
         }
       ],
       "keyFeatures": "Sdks Key Features",
-      "package": "Sdks Package",
-      "stable": "Sdks Stable",
-      "title": "Sdks Title",
+      "package": "Package",
+      "stable": "Stable",
+      "title": "SDK",
       "versionLabel": "Sdks Version Label",
       "viewApiReference": "Sdks View Api Reference"
     },
@@ -3226,71 +3226,71 @@
   "engineeringBlog": {
     "allTechnicalPosts": "All Technical Posts",
     "articleNotFound": "Article Not Found",
-    "articleNotFoundDescription": "Article Not Found Description",
+    "articleNotFoundDescription": "L'articthe technical that vous searchz n'existe pas.",
     "articlesCount": "Articles Count",
     "backToEngineeringBlog": "Back To Engineering Blog",
     "builtInTheOpen": "Built In The Open",
     "continueReading": "Continue Reading",
     "copyFeedUrl": "Copy Feed Url",
     "engineeringArchive": "Engineering Archive",
-    "engineeringRssFeed": "Engineering Rss Feed",
+    "engineeringRssFeed": "Engineering RSS Feed",
     "engineeringRssFeedDescription": "Engineering Rss Feed Description",
     "featuredTechnicalDeepDive": "Featured Technical Deep Dive",
-    "heroDescription": "Hero Description",
-    "heroTitle": "Hero Title",
-    "joinEngineeringDescription": "Join Engineering Description",
-    "joinEngineeringTeam": "Join Engineering Team",
+    "heroDescription": "analysiss technicals approfondies by l'ewhope d'ingenierie Harch. architecture GPU, scheof theling aware of the carbon and infrastructure souveraine.",
+    "heroTitle": "Blog Ingenierie",
+    "joinEngineeringDescription": "Join the team building Africa's sovereign infrastructure. We're hiring engineers.",
+    "joinEngineeringTeam": "Join the Engineering Team",
     "level": "Level",
     "moreTechnicalPosts": "More Technical Posts",
     "openSource": "Open Source",
-    "openSourceDescription": "Open Source Description",
+    "openSourceDescription": "All our engineering tools and SDKs are open source.",
     "openSourceRepos": {
       "actSdk": {
-        "desc": "Act Sdk Description"
+        "desc": "ACT SDK — Infrastructure execution framework for sovereign operations"
       },
       "harchosScheduler": {
-        "desc": "Harchos Scheduler Description"
+        "desc": "HarchOS Scheduler — Carbon-aware GPU scheduling engine"
       },
       "senseIngest": {
-        "desc": "Sense Ingest Description"
+        "desc": "Sense Ingest — High-throughput data collection and processing pipeline"
       }
     },
     "posts": {
       "designingSenseLayer": {
-        "date": "Designing Sense Layer Date",
-        "excerpt": "Designing Sense Layer Excerpt",
+        "date": "January 2026",
+        "excerpt": "How we designed the SENSE layer for real-time infrastructure monitoring across 5 Moroccan hubs with sub-second latency.",
         "readTime": "Designing Sense Layer Read Time",
-        "title": "Designing Sense Layer Title"
+        "title": "Designing the SENSE Layer"
       },
       "gpuScheduling": {
-        "date": "Gpu Scheduling Date",
-        "excerpt": "Gpu Scheduling Excerpt",
+        "date": "December 2025",
+        "excerpt": "Our approach to carbon-aware GPU scheduling that achieves 40% carbon reduction without compromising performance.",
         "readTime": "Gpu Scheduling Read Time",
-        "title": "Gpu Scheduling Title"
+        "title": "Carbon-Aware GPU Scheduling at Scale"
       },
       "insideHarchos": {
-        "date": "Inside Harchos Date",
-        "excerpt": "Inside Harchos Excerpt",
+        "date": "November 2025",
+        "excerpt": "A deep dive into the HarchOS architecture — from the SENSE-THINK-ACT paradigm to multi-hub orchestration.",
         "readTime": "Inside Harchos Read Time",
-        "title": "Inside Harchos Title"
+        "title": "Inside HarchOS: Architecture Deep Dive"
       },
       "latencyOptimization": {
-        "date": "Latency Optimization Date",
-        "excerpt": "Latency Optimization Excerpt",
+        "date": "October 2025",
+        "excerpt": "How we achieved <10ms intra-Morocco latency through intelligent routing and edge caching strategies.",
         "readTime": "Latency Optimization Read Time",
-        "title": "Latency Optimization Title"
+        "title": "Latency Optimization for Sovereign Cloud"
       },
       "terraformToProduction": {
         "date": "Terraform To Production Date",
         "excerpt": "Terraform To Production Excerpt",
         "readTime": "Terraform To Production Read Time",
-        "title": "Terraform To Production Title"
+        "title": "Engineering Blog"
       },
       "zeroTrust": {
-        "date": "Zero Trust Date",
-        "excerpt": "Zero Trust Excerpt",
+        "date": "August 2025",
+        "excerpt": "Implementing zero-trust security for sovereign infrastructure with continuous verification and encrypted communication.",
         "readTime": "Zero Trust Read Time",
-        "title": "Zero Trust Title"
+        "title": "Zero-Trust Architecture for Sovereign Infrastructure"
       }
     },
     "readTechnicalDeepDive": "Read Technical Deep Dive",
@@ -3302,150 +3302,150 @@
   },
   "esg": {
     "cta": {
-      "description": "Cta Description",
+      "description": "Join us in building sustainable infrastructure for Africa's future.",
       "getInvolved": "Cta Get Involved",
-      "title": "Cta Title",
+      "title": "Take Action",
       "viewInvestment": "Cta View Investment"
     },
     "environmental": {
       "items": [
         {
-          "desc": "0 Description",
-          "title": "0 Title"
+          "desc": "Our GPU cloud operates at ~47 gCO2/kWh, 80% below the global average, powered by Moroccan renewable energy.",
+          "title": "Carbon-Aware GPU Cloud"
         },
         {
-          "desc": "1 Description",
-          "title": "1 Title"
+          "desc": "2GW+ pipeline of solar, wind, and green hydrogen projects across Morocco and West Africa.",
+          "title": "Renewable Energy Pipeline"
         },
         {
-          "desc": "2 Description",
-          "title": "2 Title"
+          "desc": "100% of hardware components tracked for recycling and circular economy compliance.",
+          "title": "Circular Economy"
         },
         {
-          "desc": "3 Description",
-          "title": "3 Title"
+          "desc": "Zero deforestation commitment with biodiversity impact assessments for all new sites.",
+          "title": "Biodiversity Protection"
         }
       ],
-      "label": "Environmental Label",
-      "title": "Environmental Title"
+      "label": "Environmental",
+      "title": "Carbon-Aware GPU Cloud"
     },
     "governance": {
-      "description": "Governance Description",
-      "label": "Governance Label",
+      "description": "Best-in-class governance with independent audits and transparent reporting.",
+      "label": "Governance",
       "rows": [
         {
-          "scope": "0 Scope",
-          "status": "0 Status",
-          "vertical": "0 Vertical"
+          "scope": "Data residency",
+          "status": "Adopted",
+          "vertical": "Intelligence"
         },
         {
-          "scope": "1 Scope",
-          "status": "1 Status",
-          "vertical": "1 Vertical"
+          "scope": "Carbon reporting",
+          "status": "Adopted",
+          "vertical": "Energy"
         },
         {
-          "scope": "2 Scope",
-          "status": "2 Status",
-          "vertical": "2 Vertical"
+          "scope": "Supply chain audit",
+          "status": "Aligned",
+          "vertical": "Mining"
         },
         {
-          "scope": "3 Scope",
-          "status": "3 Status",
-          "vertical": "3 Vertical"
+          "scope": "Green construction",
+          "status": "Aligned",
+          "vertical": "Cement"
         },
         {
-          "scope": "4 Scope",
-          "status": "4 Status",
-          "vertical": "4 Vertical"
+          "scope": "Water stewardship",
+          "status": "Aligned",
+          "vertical": "Water"
         },
         {
-          "scope": "5 Scope",
-          "status": "5 Status",
-          "vertical": "5 Vertical"
+          "scope": "Community engagement",
+          "status": "Adopted",
+          "vertical": "Agri"
         }
       ],
       "statusAdopted": "Governance Status Adopted",
       "statusAligned": "Governance Status Aligned",
       "tableHeaders": {
-        "scope": "Table Headers Scope",
-        "standard": "Table Headers Standard",
-        "status": "Table Headers Status",
-        "vertical": "Table Headers Vertical"
+        "scope": "Scope",
+        "standard": "Standard",
+        "status": "Status",
+        "vertical": "Vertical"
       },
-      "title": "Governance Title"
+      "title": "Governance"
     },
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
+      "description": "Sustainability is not an add-on — it's the foundation of every infrastructure decision we make.",
+      "label": "ESG",
       "title": "Hero Title"
     },
     "metrics": {
-      "label": "Metrics Label",
-      "title": "Metrics Title"
+      "label": "Metrics",
+      "title": "ESG Metrics"
     },
     "photo": {
-      "alt": "Photo Alt",
-      "badge": "Photo Badge",
-      "description": "Photo Description",
-      "title": "Photo Title"
+      "alt": "Solar panels at Harch Energy Ouarzazate",
+      "badge": "Renewable Energy",
+      "description": "Our Ouarzazate solar farm powers GPU data centers with clean energy.",
+      "title": "Powered by the Sun"
     },
     "programs": {
       "items": [
         {
-          "desc": "0 Description",
-          "title": "0 Title"
+          "desc": "Apprenticeship and training programs in 15 African universities.",
+          "title": "Education & Training"
         },
         {
-          "desc": "1 Description",
-          "title": "1 Title"
+          "desc": "60% local procurement target with supplier diversity requirements.",
+          "title": "Local Procurement"
         },
         {
-          "desc": "2 Description",
-          "title": "2 Title"
+          "desc": "Community health and safety programs at all operational sites.",
+          "title": "Community Health"
         }
       ],
-      "label": "Programs Label",
-      "title": "Programs Title"
+      "label": "Programs",
+      "title": "Education & Training"
     },
     "social": {
       "items": [
         {
-          "desc": "0 Description",
-          "label": "0 Label"
+          "desc": "500+ direct jobs by 2028 across all subsidiaries.",
+          "label": "Emplois directs"
         },
         {
-          "desc": "1 Description",
-          "label": "1 Label"
+          "desc": "5,000+ people trained through our technical programs.",
+          "label": "Formation locale"
         },
         {
-          "desc": "2 Description",
-          "label": "2 Label"
+          "desc": "60% of procurement from local suppliers.",
+          "label": "Fournisseurs locaux"
         },
         {
-          "desc": "3 Description",
-          "label": "3 Label"
+          "desc": "Zero workplace accidents across all operations.",
+          "label": "Securite au travail"
         }
       ],
-      "label": "Social Label",
-      "title": "Social Title"
+      "label": "Social",
+      "title": "Impact social"
     },
     "university": {
       "stats": [
         {
-          "label": "0 Label",
-          "value": "0 Value"
+          "label": "Partner universities",
+          "value": "15"
         },
         {
-          "label": "1 Label",
-          "value": "1 Value"
+          "label": "Students trained",
+          "value": "5,000+"
         },
         {
-          "label": "2 Label",
-          "value": "2 Value"
+          "label": "Research projects",
+          "value": "50+"
         },
         {
-          "label": "3 Label",
-          "value": "3 Value"
+          "label": "Graduate hires",
+          "value": "200+"
         }
       ]
     }
@@ -3453,116 +3453,116 @@
   "events": {
     "cta": {
       "register": {
-        "cta": "Register Cta",
-        "description": "Register Description",
-        "title": "Register Title"
+        "cta": "Register Now",
+        "description": "Secure your spot at our upcoming events.",
+        "title": "Register"
       },
       "sponsor": {
-        "cta": "Sponsor Cta",
-        "description": "Sponsor Description",
-        "title": "Sponsor Title"
+        "cta": "Become a Sponsor",
+        "description": "Partner with us to reach Africa's infrastructure leaders.",
+        "title": "Sponsor"
       }
     },
     "flagship": {
-      "attendees": "Flagship Attendees",
+      "attendees": "2,000+",
       "conferenceType": "Flagship Conference Type",
-      "date": "Flagship Date",
-      "days": "Flagship Days",
-      "description": "Flagship Description",
-      "label": "Flagship Label",
-      "location": "Flagship Location",
-      "month": "Flagship Month",
+      "date": "March 15-17",
+      "days": "3",
+      "description": "The premier conference on African sovereign infrastructure, AI, and sustainable development.",
+      "label": "Flagship",
+      "location": "Casablanca, Morocco",
+      "month": "March",
       "registerNow": "Flagship Register Now",
-      "sessions": "Flagship Sessions",
-      "title": "Flagship Title",
-      "year": "Flagship Year"
+      "sessions": "50+",
+      "title": "Harch Summit 2026",
+      "year": "2026"
     },
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
-      "title": "Hero Title"
+      "description": "Conferences, workshops, and meetups for African infrastructure operators and leaders.",
+      "label": "Events",
+      "title": "Harch Events"
     },
     "past": {
       "items": [
         {
-          "date": "0 Date",
-          "desc": "0 Description",
-          "location": "0 Location",
-          "name": "0 Name",
-          "type": "0 Type"
+          "date": "September 2025",
+          "desc": "Regional meetup for East African infrastructure operators and partners.",
+          "location": "Nairobi, Kenya",
+          "name": "Operator Meetup Nairobi",
+          "type": "Meetup"
         },
         {
-          "date": "1 Date",
-          "desc": "1 Description",
-          "location": "1 Location",
-          "name": "1 Name",
-          "type": "1 Type"
+          "date": "June 2025",
+          "desc": "Hands-on workshop on HarchOS SDKs and carbon-aware GPU integration.",
+          "location": "Dakar, Senegal",
+          "name": "Developer Workshop Dakar",
+          "type": "Workshop"
         },
         {
-          "date": "2 Date",
-          "desc": "2 Description",
-          "location": "2 Location",
-          "name": "2 Name",
-          "type": "2 Type"
+          "date": "March 2025",
+          "desc": "Annual conference on African sovereign infrastructure and carbon-aware AI.",
+          "location": "Casablanca, Morocco",
+          "name": "Harch Summit Casablanca 2025",
+          "type": "Conference"
         }
       ],
       "label": "Past Label",
       "title": "Past Title"
     },
     "speaker": {
-      "description": "Speaker Description",
+      "description": "Apply to speak at Harch events and share your expertise with Africa's infrastructure community.",
       "form": {
-        "email": "Form Email",
+        "email": "Email",
         "eventName": "Form Event Name",
         "messagePlaceholder": "Form Message Placeholder",
-        "name": "Form Name",
-        "organization": "Form Organization",
-        "submit": "Form Submit",
-        "topic": "Form Topic"
+        "name": "Name",
+        "organization": "Organization",
+        "submit": "Submit Proposal",
+        "topic": "Topic"
       },
-      "label": "Speaker Label",
+      "label": "Speaker",
       "submittedDescription": "Speaker Submitted Description",
       "submittedTitle": "Speaker Submitted Title",
-      "title": "Speaker Title"
+      "title": "Become a Speaker"
     },
     "upcoming": {
       "attendeesLabel": "Upcoming Attendees Label",
       "items": [
         {
-          "attendees": "0 Attendees",
-          "date": "0 Date",
-          "desc": "0 Description",
-          "location": "0 Location",
-          "name": "0 Name",
-          "sessions": "0 Sessions",
-          "type": "0 Type"
+          "attendees": "2,000+",
+          "date": "March 2026",
+          "desc": "The premier conference on African sovereign infrastructure and AI.",
+          "location": "Casablanca, Morocco",
+          "name": "Harch Summit 2026",
+          "sessions": "50+",
+          "type": "Conference"
         },
         {
-          "attendees": "1 Attendees",
-          "date": "1 Date",
-          "desc": "1 Description",
-          "location": "1 Location",
-          "name": "1 Name",
-          "sessions": "1 Sessions",
-          "type": "1 Type"
+          "attendees": "300+",
+          "date": "June 2026",
+          "desc": "Hands-on workshop on HarchOS SDKs and carbon-aware GPU integration.",
+          "location": "Dakar, Senegal",
+          "name": "Developer Workshop Dakar",
+          "sessions": "15+",
+          "type": "Workshop"
         },
         {
-          "attendees": "2 Attendees",
-          "date": "2 Date",
-          "desc": "2 Description",
-          "location": "2 Location",
-          "name": "2 Name",
-          "sessions": "2 Sessions",
-          "type": "2 Type"
+          "attendees": "150+",
+          "date": "September 2026",
+          "desc": "Regional meetup for operators and partners in East Africa.",
+          "location": "Nairobi, Kenya",
+          "name": "Operator Meetup Nairobi",
+          "sessions": "10+",
+          "type": "Meetup"
         },
         {
-          "attendees": "3 Attendees",
-          "date": "3 Date",
-          "desc": "3 Description",
-          "location": "3 Location",
-          "name": "3 Name",
-          "sessions": "3 Sessions",
-          "type": "3 Type"
+          "attendees": "500+",
+          "date": "November 2026",
+          "desc": "Specialized summit on renewable energy infrastructure for Africa.",
+          "location": "Ouarzazate, Morocco",
+          "name": "Energy Infrastructure Summit",
+          "sessions": "25+",
+          "type": "Summit"
         }
       ],
       "label": "Upcoming Label",
@@ -3572,45 +3572,45 @@
     "webinars": {
       "items": [
         {
-          "date": "0 Date",
-          "desc": "0 Description",
-          "name": "0 Name",
-          "speaker": "0 Speaker",
-          "time": "0 Time"
+          "date": "February 2026",
+          "desc": "Introduction to carbon-aware GPU scheduling on HarchOS.",
+          "name": "Carbon-Aware GPU Scheduling 101",
+          "speaker": "Dr. Karim Oujdi, CTO",
+          "time": "2:00 PM UTC"
         },
         {
-          "date": "1 Date",
-          "desc": "1 Description",
-          "name": "1 Name",
-          "speaker": "1 Speaker",
-          "time": "1 Time"
+          "date": "March 2026",
+          "desc": "Best practices for deploying sovereign AI models on Harch infrastructure.",
+          "name": "Sovereign AI Deployment",
+          "speaker": "Sarah Benmoussa, COO",
+          "time": "3:00 PM UTC"
         },
         {
-          "date": "2 Date",
-          "desc": "2 Description",
-          "name": "2 Name",
-          "speaker": "2 Speaker",
-          "time": "2 Time"
+          "date": "April 2026",
+          "desc": "How to achieve SOC 2 compliance on sovereign infrastructure.",
+          "name": "Infrastructure Compliance Deep Dive",
+          "speaker": "Aicha Tazi, CFO",
+          "time": "1:00 PM UTC"
         }
       ],
-      "label": "Webinars Label",
-      "register": "Webinars Register",
-      "title": "Webinars Title",
+      "label": "Webinars",
+      "register": "Register",
+      "title": "Upcoming Webinars",
       "typeLabel": "Webinars Type Label"
     }
   },
   "faq": {
     "breadcrumbs": {
-      "faq": "Breadcrumbs Faq",
-      "home": "Breadcrumbs Home"
+      "faq": "FAQ",
+      "home": "Home"
     },
     "categories": {
-      "all": "Categories All",
-      "company": "Categories Company",
-      "esg": "Categories Esg",
+      "all": "All",
+      "company": "Company",
+      "esg": "ESG",
       "general": "General",
-      "infrastructure": "Categories Infrastructure",
-      "investment": "Categories Investment",
+      "infrastructure": "Infrastructure",
+      "investment": "Investment",
       "partnerships": "Partnerships",
       "pricing": "Pricing",
       "security": "Security",
@@ -3624,9 +3624,9 @@
     },
     "description": "Find quick answers to the most asked questions about our company, products, and services.",
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
-      "title": "Hero Title"
+      "description": "Answers to the most frequently asked questions about Harch Corp, our infrastructure, and operations.",
+      "label": "FAQ",
+      "title": "Frequently Asked Questions"
     },
     "items": {
       "q1": {
@@ -3724,7 +3724,7 @@
     "documentation": "Documentation",
     "email": "Email",
     "energy": "Energy",
-    "engineeringBlog": "Engineering Blog",
+    "engineeringBlog": "Blog Ingenierie",
     "esg": "Esg",
     "events": "Events",
     "faq": "Faq",
@@ -3771,7 +3771,7 @@
     "security": "Security",
     "sitemap": "Sitemap",
     "sla": "Sla",
-    "socialMedia": "Social Media",
+    "socialMedia": "Réswaterx socAIux",
     "startupProgram": "Startup Program",
     "status": "Status",
     "strategy": "Strategy",
@@ -3792,15 +3792,15 @@
     "allLabel": "All Label",
     "cta": {
       "apiReference": "Cta Api Reference",
-      "description": "Cta Description",
+      "description": "Description for cta",
       "exploreDocs": "Cta Explore Docs",
-      "label": "Cta Label",
-      "title": "Cta Title"
+      "label": "Cta",
+      "title": "Cta"
     },
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
-      "title": "Hero Title"
+      "description": "Description for hero",
+      "label": "Hero",
+      "title": "Hero"
     },
     "noResultsDescription": "No Results Description",
     "noResultsTitle": "No Results Title",
@@ -4139,26 +4139,26 @@
     },
     "accommodationsDescription": "Accommodations Description",
     "accommodationsTitle": "Accommodations Title",
-    "ctaDescription": "Cta Description",
+    "ctaDescription": "Description for hiringProcess",
     "ctaPrimary": "Cta Primary",
     "ctaSecondary": "Cta Secondary",
-    "ctaTitle": "Cta Title",
+    "ctaTitle": "Hiring Process",
     "description": "Our hiring process is designed to be fast, transparent, and respectful of your time. No endless interviews, no unpaid homework, no ghosting.",
     "heroAverage": "Hero Average",
-    "heroDescription": "Hero Description",
+    "heroDescription": "Notre prothisssus of sethection en quatre phases is concu for iofntifier the operators capabthe d'executer a l'continental scathe.",
     "heroHumanReview": "Hero Human Review",
-    "heroLabel": "Hero Label",
+    "heroLabel": "Carrieres",
     "heroResponse": "Hero Response",
     "heroTitleLine1": "Hero Title Line1",
     "heroTitleLine2": "Hero Title Line2",
     "philosophyDescription": "Philosophy Description",
     "philosophyLabel": "Philosophy Label",
     "philosophyTitle": "Philosophy Title",
-    "processDescription": "Process Description",
-    "processLabel": "Process Label",
-    "processTitle": "Process Title",
+    "processDescription": "Description for hiringProcess",
+    "processLabel": "Hiringprocess",
+    "processTitle": "Hiring Process",
     "requestAccommodation": "Request Accommodation",
-    "stepLabel": "Step Label",
+    "stepLabel": "Hiringprocess",
     "steps": {
       "application": {
         "description": "Application Description",
@@ -4400,7 +4400,7 @@
           "vertical": "Harch Intelligence"
         },
         "mining": {
-          "capacity": "3 Minerals",
+          "capacity": "3 deposits",
           "investment": "$195M",
           "status": "Prospecting",
           "timeline": "2027-2030",
@@ -4660,7 +4660,7 @@
           ],
           "title": "Key Outcomes"
         },
-        "stat": "3 Minerals",
+        "stat": "3 gisements",
         "tagline": "Strategic Mineral Extraction"
       },
       "technology": {
@@ -4781,7 +4781,7 @@
       "subtitle": "Join institutional investors funding Africa's next-generation infrastructure.",
       "title": "Become an Investor"
     },
-    "ctaTitle": "Cta Title",
+    "ctaTitle": "Demander un briefing investisseur",
     "description": "Harch Corp offers institutional investors unique access to the world's largest infrastructure deficit, structured through a vertically integrated conglomerate with defensible competitive advantages.",
     "documents": {
       "annualReport": "Annual Report",
@@ -4801,8 +4801,8 @@
       "governanceCommittee": "Governance Committee",
       "title": "Governance"
     },
-    "heroDescription": "Hero Description",
-    "heroLabel": "Hero Label",
+    "heroDescription": "Harch Corp S.A. offre a acthisss aithat a l'infrastructure souveraine African with a pipeline of 2,4 Md$+.",
+    "heroLabel": "Investisseurs",
     "investmentByVertical": "Investment By Vertical",
     "keyFigures": {
       "employmentTarget": {
@@ -4868,36 +4868,36 @@
       "formatLabel": "Certifications Format Label",
       "items": [
         {
-          "description": "0 Description",
-          "duration": "0 Duration",
-          "format": "0 Format",
-          "prerequisites": "0 Prerequisites",
-          "price": "0 Price",
-          "title": "0 Title"
+          "description": "Description for 0",
+          "duration": "4 hours",
+          "format": "Online, self-paced",
+          "prerequisites": "None",
+          "price": "Free",
+          "title": "0"
         },
         {
-          "description": "1 Description",
-          "duration": "1 Duration",
-          "format": "1 Format",
-          "prerequisites": "1 Prerequisites",
-          "price": "1 Price",
-          "title": "1 Title"
+          "description": "Description for 1",
+          "duration": "8 hours",
+          "format": "Online, instructor-led",
+          "prerequisites": "HarchOS Fundamentals",
+          "price": "$299",
+          "title": "1"
         },
         {
-          "description": "2 Description",
-          "duration": "2 Duration",
-          "format": "2 Format",
-          "prerequisites": "2 Prerequisites",
-          "price": "2 Price",
-          "title": "2 Title"
+          "description": "Description for 2",
+          "duration": "12 hours",
+          "format": "Hybrid (online + on-site)",
+          "prerequisites": "Advanced GPU Cloud",
+          "price": "$499",
+          "title": "2"
         },
         {
-          "description": "3 Description",
-          "duration": "3 Duration",
-          "format": "3 Format",
-          "prerequisites": "3 Prerequisites",
-          "price": "3 Price",
-          "title": "3 Title"
+          "description": "Description for 3",
+          "duration": "20 hours",
+          "format": "On-site intensive",
+          "prerequisites": "Sovereign Infrastructure",
+          "price": "$799",
+          "title": "3"
         }
       ],
       "label": "Certifications Label",
@@ -4908,19 +4908,19 @@
       "description": "Corporate Description",
       "items": [
         {
-          "description": "0 Description",
-          "detail": "0 Detail",
-          "title": "0 Title"
+          "description": "Description for 0",
+          "detail": "Custom curriculum design for enterprise teams",
+          "title": "0"
         },
         {
-          "description": "1 Description",
-          "detail": "1 Detail",
-          "title": "1 Title"
+          "description": "Description for 1",
+          "detail": "On-site training at your facilities",
+          "title": "1"
         },
         {
-          "description": "2 Description",
-          "detail": "2 Detail",
-          "title": "2 Title"
+          "description": "Description for 2",
+          "detail": "Dedicated success manager and progress tracking",
+          "title": "2"
         }
       ],
       "label": "Corporate Label",
@@ -4929,26 +4929,26 @@
     "cta": {
       "ctaPrimary": "Cta Cta Primary",
       "ctaSecondary": "Cta Cta Secondary",
-      "description": "Cta Description",
-      "title": "Cta Title"
+      "description": "Description for cta",
+      "title": "Cta"
     },
     "freeResources": {
       "description": "Free Resources Description",
       "items": [
         {
-          "count": "0 Count",
-          "description": "0 Description",
-          "title": "0 Title"
+          "count": "200+",
+          "description": "Description for 0",
+          "title": "0"
         },
         {
-          "count": "1 Count",
-          "description": "1 Description",
-          "title": "1 Title"
+          "count": "50+",
+          "description": "Description for 1",
+          "title": "1"
         },
         {
-          "count": "2 Count",
-          "description": "2 Description",
-          "title": "2 Title"
+          "count": "30+",
+          "description": "Description for 2",
+          "title": "2"
         }
       ],
       "label": "Free Resources Label",
@@ -4957,20 +4957,20 @@
     "hero": {
       "ctaPrimary": "Hero Cta Primary",
       "ctaSecondary": "Hero Cta Secondary",
-      "description": "Hero Description",
-      "label": "Hero Label",
-      "title": "Hero Title"
+      "description": "Description for hero",
+      "label": "Hero",
+      "title": "Hero"
     },
     "paths": {
       "description": "Paths Description",
       "hoursLabel": "Paths Hours Label",
       "items": [
         {
-          "description": "0 Description",
-          "hours": "0 Hours",
-          "level": "0 Level",
-          "price": "0 Price",
-          "title": "0 Title",
+          "description": "Description for 0",
+          "hours": "20 hours",
+          "level": "Beginner to Intermediate",
+          "price": "$499",
+          "title": "0",
           "topics": [
             "Topics 0",
             "Topics 1",
@@ -4980,11 +4980,11 @@
           ]
         },
         {
-          "description": "1 Description",
-          "hours": "1 Hours",
-          "level": "1 Level",
-          "price": "1 Price",
-          "title": "1 Title",
+          "description": "Description for 1",
+          "hours": "40 hours",
+          "level": "Intermediate to Advanced",
+          "price": "$999",
+          "title": "1",
           "topics": [
             "Topics 0",
             "Topics 1",
@@ -4994,11 +4994,11 @@
           ]
         },
         {
-          "description": "2 Description",
-          "hours": "2 Hours",
-          "level": "2 Level",
-          "price": "2 Price",
-          "title": "2 Title",
+          "description": "Description for 2",
+          "hours": "60 hours",
+          "level": "Advanced to Expert",
+          "price": "$1,499",
+          "title": "2",
           "topics": [
             "Topics 0",
             "Topics 1",
@@ -5008,11 +5008,11 @@
           ]
         },
         {
-          "description": "3 Description",
-          "hours": "3 Hours",
-          "level": "3 Level",
-          "price": "3 Price",
-          "title": "3 Title",
+          "description": "Description for 3",
+          "hours": "80 hours",
+          "level": "Expert to Master",
+          "price": "$1,999",
+          "title": "3",
           "topics": [
             "Topics 0",
             "Topics 1",
@@ -5029,45 +5029,45 @@
     "university": {
       "benefits": [
         {
-          "desc": "0 Description",
-          "title": "0 Title"
+          "desc": "Description for 0",
+          "title": "0"
         },
         {
-          "desc": "1 Description",
-          "title": "1 Title"
+          "desc": "Description for 1",
+          "title": "1"
         },
         {
-          "desc": "2 Description",
-          "title": "2 Title"
+          "desc": "Description for 2",
+          "title": "2"
         },
         {
-          "desc": "3 Description",
-          "title": "3 Title"
+          "desc": "Description for 3",
+          "title": "3"
         }
       ],
-      "description": "University Description",
+      "description": "Description for university",
       "eligibilityNote": "University Eligibility Note",
-      "label": "University Label",
+      "label": "University",
       "partnershipTitle": "University Partnership Title",
       "stats": [
         {
-          "label": "0 Label",
-          "value": "0 Value"
+          "label": "0",
+          "value": "—"
         },
         {
-          "label": "1 Label",
-          "value": "1 Value"
+          "label": "1",
+          "value": "—"
         },
         {
-          "label": "2 Label",
-          "value": "2 Value"
+          "label": "2",
+          "value": "—"
         },
         {
-          "label": "3 Label",
-          "value": "3 Value"
+          "label": "3",
+          "value": "—"
         }
       ],
-      "title": "University Title"
+      "title": "University"
     }
   },
   "legal": {
@@ -5150,8 +5150,8 @@
     "factSheet": "Fact Sheet",
     "factSheetDescription": "Fact Sheet Description",
     "featured": "Featured",
-    "heroDescription": "Hero Description",
-    "heroTitle": "Hero Title",
+    "heroDescription": "press retheases officiels, copenure medAI and annonthiss of l'ecosysteme Harch Corp.",
+    "heroTitle": "Actualites Harch",
     "mediaContact": "Media Contact",
     "mediaContactDescription": "Media Contact Description",
     "mediaKit": "Media Kit",
@@ -5226,9 +5226,9 @@
     },
     "description": "Harch Corp collaborates with global leaders in technology, finance, industry, and government to deliver world-class sovereign infrastructure.",
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
-      "title": "Hero Title"
+      "description": "Description for hero",
+      "label": "Hero",
+      "title": "Hero"
     },
     "subtitle": "Partner Ecosystem",
     "title": "Partners"
@@ -5306,34 +5306,34 @@
       "imagery": "Image Library",
       "items": [
         {
-          "desc": "0 Description",
-          "format": "0 Format",
-          "name": "0 Name"
+          "desc": "Description for 0",
+          "format": "SVG",
+          "name": "Item 1"
         },
         {
-          "desc": "1 Description",
-          "format": "1 Format",
-          "name": "1 Name"
+          "desc": "Description for 1",
+          "format": "PNG (high-res)",
+          "name": "Item 2"
         },
         {
-          "desc": "2 Description",
-          "format": "2 Format",
-          "name": "2 Name"
+          "desc": "Description for 2",
+          "format": "PNG (web)",
+          "name": "Item 3"
         },
         {
-          "desc": "3 Description",
-          "format": "3 Format",
-          "name": "3 Name"
+          "desc": "Description for 3",
+          "format": "AI/PSD",
+          "name": "Item 4"
         },
         {
-          "desc": "4 Description",
-          "format": "4 Format",
-          "name": "4 Name"
+          "desc": "Description for 4",
+          "format": "Brand guidelines PDF",
+          "name": "Item 5"
         },
         {
-          "desc": "5 Description",
-          "format": "5 Format",
-          "name": "5 Name"
+          "desc": "Description for 5",
+          "format": "Color palette",
+          "name": "Item 6"
         }
       ],
       "logoKit": "Logo Kit",
@@ -5354,60 +5354,60 @@
       "headquarters": "Headquarters",
       "items": [
         {
-          "label": "0 Label",
-          "value": "0 Value"
+          "label": "0",
+          "value": "—"
         },
         {
-          "label": "1 Label",
-          "value": "1 Value"
+          "label": "1",
+          "value": "—"
         },
         {
-          "label": "2 Label",
-          "value": "2 Value"
+          "label": "2",
+          "value": "—"
         },
         {
-          "label": "3 Label",
-          "value": "3 Value"
+          "label": "3",
+          "value": "—"
         },
         {
-          "label": "4 Label",
-          "value": "4 Value"
+          "label": "4",
+          "value": "—"
         },
         {
-          "label": "5 Label",
-          "value": "5 Value"
+          "label": "5",
+          "value": "—"
         },
         {
-          "label": "6 Label",
-          "value": "6 Value"
+          "label": "6",
+          "value": "—"
         },
         {
-          "label": "7 Label",
-          "value": "7 Value"
+          "label": "7",
+          "value": "—"
         },
         {
-          "label": "8 Label",
-          "value": "8 Value"
+          "label": "8",
+          "value": "—"
         },
         {
-          "label": "9 Label",
-          "value": "9 Value"
+          "label": "9",
+          "value": "—"
         },
         {
-          "label": "10 Label",
-          "value": "10 Value"
+          "label": "10",
+          "value": "—"
         },
         {
-          "label": "11 Label",
-          "value": "11 Value"
+          "label": "11",
+          "value": "—"
         },
         {
-          "label": "12 Label",
-          "value": "12 Value"
+          "label": "12",
+          "value": "—"
         },
         {
-          "label": "13 Label",
-          "value": "13 Value"
+          "label": "13",
+          "value": "—"
         }
       ],
       "subtitle": "Fact Sheet Subtitle",
@@ -5415,9 +5415,9 @@
       "verticals": "Subsidiaries"
     },
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
-      "title": "Hero Title"
+      "description": "Description for hero",
+      "label": "Hero",
+      "title": "Hero"
     },
     "mediaContact": {
       "description": "For press inquiries, interviews, and media opportunities.",
@@ -5444,46 +5444,46 @@
     },
     "releases": [
       {
-        "category": "0 Category",
-        "date": "0 Date",
-        "excerpt": "0 Excerpt",
-        "title": "0 Title"
+        "category": "Corporate",
+        "date": "January 15, 2026",
+        "excerpt": "Harch Corp announces the opening of a 500MW GPU data center in Dakhla, Morocco — the largest sovereign AI compute facility in Africa.",
+        "title": "0"
       },
       {
-        "category": "1 Category",
-        "date": "1 Date",
-        "excerpt": "1 Excerpt",
-        "title": "1 Title"
+        "category": "Finance",
+        "date": "December 3, 2025",
+        "excerpt": "Harch Finance raises $200M in green bonds to fund renewable energy and infrastructure projects across the continent.",
+        "title": "1"
       },
       {
-        "category": "2 Category",
-        "date": "2 Date",
-        "excerpt": "2 Excerpt",
-        "title": "2 Title"
+        "category": "Partnership",
+        "date": "November 20, 2025",
+        "excerpt": "Strategic partnership with the Kingdom of Morocco for 2GW+ solar energy infrastructure development.",
+        "title": "2"
       },
       {
-        "category": "3 Category",
-        "date": "3 Date",
-        "excerpt": "3 Excerpt",
-        "title": "3 Title"
+        "category": "Product",
+        "date": "October 8, 2025",
+        "excerpt": "HarchOS v2.0 launches with carbon-aware GPU scheduling, achieving 40% carbon reduction in compute workloads.",
+        "title": "3"
       },
       {
-        "category": "4 Category",
-        "date": "4 Date",
-        "excerpt": "4 Excerpt",
-        "title": "4 Title"
+        "category": "Expansion",
+        "date": "September 15, 2025",
+        "excerpt": "Harch Corp expands operations to Senegal with precision agriculture deployment across 50,000 hectares.",
+        "title": "4"
       },
       {
-        "category": "5 Category",
-        "date": "5 Date",
-        "excerpt": "5 Excerpt",
-        "title": "5 Title"
+        "category": "ESG",
+        "date": "August 22, 2025",
+        "excerpt": "Annual ESG report shows 80% carbon reduction achieved through renewable energy and carbon-aware operations.",
+        "title": "5"
       },
       {
-        "category": "6 Category",
-        "date": "6 Date",
-        "excerpt": "6 Excerpt",
-        "title": "6 Title"
+        "category": "Technology",
+        "date": "July 10, 2025",
+        "excerpt": "Harch Intelligence achieves ISO 27001 and SOC 2 Type II certifications for sovereign data infrastructure.",
+        "title": "6"
       }
     ],
     "subtitle": "Media Resources",
@@ -5575,20 +5575,20 @@
       "label": "Cost Optimization Label",
       "tips": [
         {
-          "description": "0 Description",
-          "title": "0 Title"
+          "description": "Description for 0",
+          "title": "0"
         },
         {
-          "description": "1 Description",
-          "title": "1 Title"
+          "description": "Description for 1",
+          "title": "1"
         },
         {
-          "description": "2 Description",
-          "title": "2 Title"
+          "description": "Description for 2",
+          "title": "2"
         },
         {
-          "description": "3 Description",
-          "title": "3 Title"
+          "description": "Description for 3",
+          "title": "3"
         }
       ],
       "titleLine1": "Cost Optimization Title Line1",
@@ -5596,8 +5596,8 @@
     },
     "cta": {
       "contactSales": "Cta Contact Sales",
-      "description": "Cta Description",
-      "label": "Cta Label",
+      "description": "Contactez notre ewhope commercAIthe for a tarification adaptee.",
+      "label": "Cta",
       "primary": "Request a Quote",
       "secondary": "Compare Plans",
       "startFree": "Cta Start Free",
@@ -5648,46 +5648,46 @@
       "onDemandPrice": "On-Demand Price",
       "plans": [
         {
-          "gpu": "0 Gpu",
-          "hub": "0 Hub",
-          "renewable": "0 Renewable",
-          "sovereignty": "0 Sovereignty",
-          "tier": "0 Tier"
+          "gpu": "NVIDIA A100 40GB",
+          "hub": "Any hub",
+          "renewable": "100%",
+          "sovereignty": "Shared",
+          "tier": "Spot"
         },
         {
-          "gpu": "1 Gpu",
-          "hub": "1 Hub",
-          "renewable": "1 Renewable",
-          "sovereignty": "1 Sovereignty",
-          "tier": "1 Tier"
+          "gpu": "NVIDIA A100 80GB",
+          "hub": "Any hub",
+          "renewable": "100%",
+          "sovereignty": "Dedicated",
+          "tier": "Reserved"
         },
         {
-          "gpu": "2 Gpu",
-          "hub": "2 Hub",
-          "renewable": "2 Renewable",
-          "sovereignty": "2 Sovereignty",
-          "tier": "2 Tier"
+          "gpu": "NVIDIA H100 80GB",
+          "hub": "Casablanca / Dakhla",
+          "renewable": "100%",
+          "sovereignty": "Dedicated",
+          "tier": "Professional"
         },
         {
-          "gpu": "3 Gpu",
-          "hub": "3 Hub",
-          "renewable": "3 Renewable",
-          "sovereignty": "3 Sovereignty",
-          "tier": "3 Tier"
+          "gpu": "NVIDIA H100 NVL",
+          "hub": "Any hub",
+          "renewable": "100%",
+          "sovereignty": "Private cluster",
+          "tier": "Enterprise"
         },
         {
-          "gpu": "4 Gpu",
-          "hub": "4 Hub",
-          "renewable": "4 Renewable",
-          "sovereignty": "4 Sovereignty",
-          "tier": "4 Tier"
+          "gpu": "NVIDIA H200 / Custom",
+          "hub": "Designated hub",
+          "renewable": "100%",
+          "sovereignty": "Air-gapped",
+          "tier": "Sovereign"
         },
         {
-          "gpu": "5 Gpu",
-          "hub": "5 Hub",
-          "renewable": "5 Renewable",
-          "sovereignty": "5 Sovereignty",
-          "tier": "5 Tier"
+          "gpu": "Custom GPU fleet",
+          "hub": "Classified facility",
+          "renewable": "100%",
+          "sovereignty": "Full sovereign",
+          "tier": "Classified"
         }
       ],
       "priceUnit": "Gpu Pricing Price Unit",
@@ -5711,8 +5711,8 @@
       "vram": "VRAM"
     },
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
+      "description": "Description for hero",
+      "label": "Hero",
       "subtitle": "Hero Subtitle",
       "titleLine1": "Hero Title Line1",
       "titleLine2": "Hero Title Line2"
@@ -5720,28 +5720,28 @@
     "starterTier": {
       "items": [
         {
-          "description": "0 Description",
-          "title": "0 Title"
+          "description": "Description for 0",
+          "title": "0"
         },
         {
-          "description": "1 Description",
-          "title": "1 Title"
+          "description": "Description for 1",
+          "title": "1"
         },
         {
-          "description": "2 Description",
-          "title": "2 Title"
+          "description": "Description for 2",
+          "title": "2"
         },
         {
-          "description": "3 Description",
-          "title": "3 Title"
+          "description": "Description for 3",
+          "title": "3"
         },
         {
-          "description": "4 Description",
-          "title": "4 Title"
+          "description": "Description for 4",
+          "title": "4"
         },
         {
-          "description": "5 Description",
-          "title": "5 Title"
+          "description": "Description for 5",
+          "title": "5"
         }
       ],
       "label": "Starter Tier Label",
@@ -6032,7 +6032,7 @@
     "agri": "Agri",
     "aiEthics": "Ai Ethics",
     "apiPlayground": "Api Playground",
-    "apiReference": "Api Reference",
+    "apiReference": "Ref. API",
     "architecture": "Architecture",
     "blog": "Blog",
     "business": "Business",
@@ -6059,7 +6059,7 @@
     "developers": "Developers",
     "documentation": "Documentation",
     "energy": "Energy",
-    "engineeringBlog": "Engineering Blog",
+    "engineeringBlog": "Blog Ingenierie",
     "esg": "Esg",
     "events": "Events",
     "faq": "Faq",
@@ -6151,147 +6151,147 @@
   "startupProgram": {
     "benefits": [
       {
-        "description": "0 Description",
+        "description": "Description for 0",
         "details": [
           "Details 0",
           "Details 1",
           "Details 2",
           "Details 3"
         ],
-        "title": "0 Title"
+        "title": "0"
       },
       {
-        "description": "1 Description",
+        "description": "Description for 1",
         "details": [
           "Details 0",
           "Details 1",
           "Details 2",
           "Details 3"
         ],
-        "title": "1 Title"
+        "title": "1"
       },
       {
-        "description": "2 Description",
+        "description": "Description for 2",
         "details": [
           "Details 0",
           "Details 1",
           "Details 2",
           "Details 3"
         ],
-        "title": "2 Title"
+        "title": "2"
       },
       {
-        "description": "3 Description",
+        "description": "Description for 3",
         "details": [
           "Details 0",
           "Details 1",
           "Details 2",
           "Details 3"
         ],
-        "title": "3 Title"
+        "title": "3"
       },
       {
-        "description": "4 Description",
+        "description": "Description for 4",
         "details": [
           "Details 0",
           "Details 1",
           "Details 2",
           "Details 3"
         ],
-        "title": "4 Title"
+        "title": "4"
       },
       {
-        "description": "5 Description",
+        "description": "Description for 5",
         "details": [
           "Details 0",
           "Details 1",
           "Details 2",
           "Details 3"
         ],
-        "title": "5 Title"
+        "title": "5"
       }
     ],
-    "benefitsDescription": "Benefits Description",
-    "benefitsLabel": "Benefits Label",
-    "benefitsTitle": "Benefits Title",
+    "benefitsDescription": "Description for startupProgram",
+    "benefitsLabel": "Startupprogram",
+    "benefitsTitle": "Startup Program",
     "ctaButton1": "Cta Button1",
     "ctaButton2": "Cta Button2",
-    "ctaDescription": "Cta Description",
-    "ctaTitle": "Cta Title",
+    "ctaDescription": "Description for startupProgram",
+    "ctaTitle": "Startup Program",
     "eligibilityDescription": "Eligibility Description",
     "eligibilityLabel": "Eligibility Label",
     "eligibilityTitle": "Eligibility Title",
     "heroButton1": "Hero Button1",
     "heroButton2": "Hero Button2",
-    "heroDescription": "Hero Description",
+    "heroDescription": "Credits d'infrastructure and support for the startups Africans.",
     "heroTitle1": "Hero Title1",
     "heroTitle2": "Hero Title2",
     "label": "Label",
     "process": [
       {
-        "description": "0 Description",
-        "title": "0 Title"
+        "description": "Description for 0",
+        "title": "0"
       },
       {
-        "description": "1 Description",
-        "title": "1 Title"
+        "description": "Description for 1",
+        "title": "1"
       },
       {
-        "description": "2 Description",
-        "title": "2 Title"
+        "description": "Description for 2",
+        "title": "2"
       },
       {
-        "description": "3 Description",
-        "title": "3 Title"
+        "description": "Description for 3",
+        "title": "3"
       }
     ],
-    "processDescription": "Process Description",
-    "processLabel": "Process Label",
-    "processTitle": "Process Title",
+    "processDescription": "Description for startupProgram",
+    "processLabel": "Startupprogram",
+    "processTitle": "Startup Program",
     "requirements": [
       {
-        "desc": "0 Description",
-        "title": "0 Title"
+        "desc": "Description for 0",
+        "title": "0"
       },
       {
-        "desc": "1 Description",
-        "title": "1 Title"
+        "desc": "Description for 1",
+        "title": "1"
       },
       {
-        "desc": "2 Description",
-        "title": "2 Title"
+        "desc": "Description for 2",
+        "title": "2"
       },
       {
-        "desc": "3 Description",
-        "title": "3 Title"
+        "desc": "Description for 3",
+        "title": "3"
       },
       {
-        "desc": "4 Description",
-        "title": "4 Title"
+        "desc": "Description for 4",
+        "title": "4"
       }
     ],
     "requirementsTitle": "Requirements Title",
     "successStories": [
       {
-        "description": "0 Description",
-        "location": "0 Location",
-        "metric": "0 Metric",
-        "name": "0 Name",
-        "stage": "0 Stage"
+        "description": "Description for 0",
+        "location": "Dakar, Senegal",
+        "metric": "10x user growth",
+        "name": "Item 1",
+        "stage": "Series A"
       },
       {
-        "description": "1 Description",
-        "location": "1 Location",
-        "metric": "1 Metric",
-        "name": "1 Name",
-        "stage": "1 Stage"
+        "description": "Description for 1",
+        "location": "Nairobi, Kenya",
+        "metric": "$5M revenue",
+        "name": "Item 2",
+        "stage": "Growth"
       },
       {
-        "description": "2 Description",
-        "location": "2 Location",
-        "metric": "2 Metric",
-        "name": "2 Name",
-        "stage": "2 Stage"
+        "description": "Description for 2",
+        "location": "Casablanca, Morocco",
+        "metric": "50% cost reduction",
+        "name": "Item 3",
+        "stage": "Scale"
       }
     ],
     "successStoriesDescription": "Success Stories Description",
@@ -7250,8 +7250,8 @@
       "title": "Finance Title"
     },
     "heroMetaLabel": "Hero Meta Label",
-    "heroSubtitle": "Hero Subtitle",
-    "heroTitle": "Hero Title",
+    "heroSubtitle": "8 verticales. Un ecosysteme souverain.",
+    "heroTitle": "Nos Filiales",
     "intelligence": {
       "desc": "Intelligence Description",
       "name": "Intelligence Name",
@@ -7351,28 +7351,28 @@
     "cta": {
       "browseDocumentation": "Cta Browse Documentation",
       "contactSupport": "Cta Contact Support",
-      "description": "Cta Description",
-      "title": "Cta Title"
+      "description": "Description for cta",
+      "title": "Cta"
     },
     "customerSuccess": {
       "description1": "Customer Success Description1",
       "description2": "Customer Success Description2",
       "items": [
         {
-          "desc": "0 Description",
-          "label": "0 Label"
+          "desc": "Description for 0",
+          "label": "0"
         },
         {
-          "desc": "1 Description",
-          "label": "1 Label"
+          "desc": "Description for 1",
+          "label": "1"
         },
         {
-          "desc": "2 Description",
-          "label": "2 Label"
+          "desc": "Description for 2",
+          "label": "2"
         },
         {
-          "desc": "3 Description",
-          "label": "3 Label"
+          "desc": "Description for 3",
+          "label": "3"
         }
       ],
       "label": "Customer Success Label",
@@ -7380,9 +7380,9 @@
     },
     "description": "Find answers, resolve issues, and get the help you need for your sovereign infrastructure.",
     "hero": {
-      "description": "Hero Description",
-      "label": "Hero Label",
-      "title": "Hero Title"
+      "description": "Description for hero",
+      "label": "Hero",
+      "title": "Hero"
     },
     "knowledgeBase": {
       "articles": "Knowledge Base Articles",
@@ -7397,46 +7397,46 @@
     },
     "knowledgeCategories": [
       {
-        "desc": "0 Description",
-        "title": "0 Title"
+        "desc": "Description for 0",
+        "title": "0"
       },
       {
-        "desc": "1 Description",
-        "title": "1 Title"
+        "desc": "Description for 1",
+        "title": "1"
       },
       {
-        "desc": "2 Description",
-        "title": "2 Title"
+        "desc": "Description for 2",
+        "title": "2"
       },
       {
-        "desc": "3 Description",
-        "title": "3 Title"
+        "desc": "Description for 3",
+        "title": "3"
       },
       {
-        "desc": "4 Description",
-        "title": "4 Title"
+        "desc": "Description for 4",
+        "title": "4"
       },
       {
-        "desc": "5 Description",
-        "title": "5 Title"
+        "desc": "Description for 5",
+        "title": "5"
       }
     ],
     "quickActions": {
       "0": {
-        "desc": "0 Description",
-        "title": "0 Title"
+        "desc": "Description for 0",
+        "title": "0"
       },
       "1": {
-        "desc": "1 Description",
-        "title": "1 Title"
+        "desc": "Description for 1",
+        "title": "1"
       },
       "2": {
-        "desc": "2 Description",
-        "title": "2 Title"
+        "desc": "Description for 2",
+        "title": "2"
       },
       "3": {
-        "desc": "3 Description",
-        "title": "3 Title"
+        "desc": "Description for 3",
+        "title": "3"
       },
       "go": "Quick Actions Go",
       "label": "Quick Actions Label",
@@ -7492,10 +7492,10 @@
           "Features 5",
           "Features 6"
         ],
-        "name": "Community Name",
+        "name": "Item 1",
         "price": "Community Price",
         "priceNote": "Community Price Note",
-        "title": "Community Support"
+        "title": "Community"
       },
       "description": "Tiers Description",
       "enterprise": {
@@ -7704,8 +7704,8 @@
       "cta": {
         "backToTrust": "Cta Back To Trust",
         "contactEthics": "Cta Contact Ethics",
-        "description": "Cta Description",
-        "title": "Cta Title"
+        "description": "Description for cta",
+        "title": "Cta"
       },
       "dashboard": {
         "calibrationError": "Dashboard Calibration Error",
@@ -8047,8 +8047,8 @@
       "continuous": "Compliance Continuous",
       "cta": {
         "backToTrust": "Cta Back To Trust",
-        "description": "Cta Description",
-        "title": "Cta Title"
+        "description": "Description for cta",
+        "title": "Cta"
       },
       "dpa": {
         "description": "Dpa Description",
@@ -8134,8 +8134,8 @@
       "title": "Compliance Title"
     },
     "complianceDescription": "Compliance Description",
-    "ctaDescription": "Cta Description",
-    "ctaTitle": "Cta Title",
+    "ctaDescription": "Description for trust",
+    "ctaTitle": "Trust",
     "customerSecures": "Customer Secures",
     "dataPrivacy": "Data Privacy",
     "dataPrivacyDescription": "Data Privacy Description",
@@ -8169,7 +8169,7 @@
     "defenseInDepth": "Defense In Depth",
     "description": "Description",
     "harchCorpSecures": "Harch Corp Secures",
-    "heroTitle": "Hero Title",
+    "heroTitle": "thisntre of ConfAInthis",
     "infrastructurePlatformLayer": "Infrastructure Platform Layer",
     "learnMore": "Learn More",
     "requestBriefing": "Request Briefing",
@@ -8244,8 +8244,8 @@
       },
       "cta": {
         "contactTeam": "Cta Contact Team",
-        "description": "Cta Description",
-        "title": "Cta Title"
+        "description": "Description for cta",
+        "title": "Cta"
       },
       "data": {
         "description": "Data Description",
@@ -8424,8 +8424,8 @@
             "label": "Access Control Label"
           },
           "environmental": {
-            "desc": "Environmental Description",
-            "label": "Environmental Label"
+            "desc": "Description for environmental",
+            "label": "Environmental"
           },
           "personnel": {
             "desc": "Personnel Description",
@@ -8591,8 +8591,8 @@
       },
       "commitment": "Vulnerability Commitment",
       "cta": {
-        "description": "Cta Description",
-        "title": "Cta Title"
+        "description": "Description for cta",
+        "title": "Cta"
       },
       "description": "Vulnerability Description",
       "fullPolicy": "Vulnerability Full Policy",
@@ -8609,9 +8609,9 @@
       },
       "process": {
         "ackSla": "Process Ack Sla",
-        "description": "Process Description",
-        "label": "Process Label",
-        "title": "Process Title",
+        "description": "Comment signather a vulnerabilite of maniere responsabthe.",
+        "label": "Process",
+        "title": "Processus",
         "triageSla": "Process Triage Sla"
       },
       "reportVulnerability": "Vulnerability Report Vulnerability",

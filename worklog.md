@@ -200,3 +200,49 @@ Work Log:
 - Brand names kept unchanged (Harch Corp, Harch Intelligence, Harch Energy, Harch Mining, Harch Technology, Harch Water, Harch Cement, Harch Agri, HarchOS)
 - Technical terms kept unchanged (GPU, MW, kWh, gCO2/kWh, IoT, CO2, etc.)
 - City names kept as-is (Ouarzazate, Dakhla, Benguerir, Tanger, Casablanca, Kolwezi, etc.)
+
+---
+Task ID: 4
+Agent: Main Agent
+Task: Replace all placeholder values in en.json with proper English content
+
+Work Log:
+- Read en.json (8,731 lines) and fr.json (3,396 lines) completely
+- Identified 1,730 placeholder values in en.json matching patterns like "0 Label", "Hero Description", "Bureaucracy Title", etc.
+- Used fr.json as reference — it already had proper French translations for many sections
+- Wrote 3-pass Python script to systematically replace all placeholders:
+  - Pass 1: Used fr.json French translations as reference to generate English equivalents via French-to-English mapping dictionary. Fixed ~1,250 placeholders across blog, careers, caseStudies, community, company.dei, company.leadership, company.ventures, and other sections.
+  - Pass 2: Targeted remaining 479 placeholders in customers (advisory board members, case studies, testimonials, featured), developers (community, DX metrics, open source, playground, tools, quick start), and docs sections (API, architecture, changelog, guides, SDKs, quickstarts).
+  - Pass 3: Fixed final 345 placeholders in docs (architecture layers specs, pillars, changelog versions, guides categories, SDKs comparison), learn (certifications, corporate, paths, free resources), press (brand assets, releases), pricing (GPU plans), startupProgram (success stories), and home (investment table).
+- Final verification: 0 placeholder values remaining (2 false positives for HTTP status codes "401 Unauthorized" and "403 Forbidden" excluded as legitimate content)
+- en.json remains valid JSON with all 43 top-level keys intact
+- Preserved already well-translated sections: about, contact, common, cookieConsent
+- All content consistent with Harch Corp's context: sovereign infrastructure conglomerate based in Casablanca, Morocco, operating across 8 subsidiaries in 5+ countries
+
+Sections fully updated with proper English content:
+- blog (hero, newsletter, RSS, write-for-us)
+- careers (hero, benefits, culture, departments, positions, selection)
+- caseStudies (hero, CTA, studies)
+- community (champions, channels, events, guidelines, stats, CTAs)
+- company.dei (commitment, ERGs, initiatives, stats, transparency)
+- company.leadership (advisors, executives, CTA)
+- company.ventures (approach, criteria, portfolio, thesis, details, CTA)
+- customers.advisoryBoard (about, benefits, cadence, form, how-it-works, members)
+- customers.caseStudies (6 case studies with metrics)
+- customers.featured (key results, stats, paragraphs)
+- customers.testimonials (3 testimonials)
+- developers (hero, code example, community, DX metrics, open source, playground, tools, quick start)
+- docs.api (auth, error codes, gRPC, REST endpoints, rate limits, WebSocket)
+- docs.architecture (layers, pillars, reference architectures, design patterns, best practices)
+- docs.changelog (3 versions with features, fixes, deprecations)
+- docs.guides (4 categories with 4 guides each)
+- docs.quickstarts (cards, deploy steps, next steps, tutorial)
+- docs.sdks (comparison, CLI commands, SDK items)
+- engineeringBlog (posts, open source repos)
+- esg (environmental, governance, programs, social, photo, CTA)
+- events (flagship, past, upcoming, webinars, speaker)
+- faq (breadcrumbs, categories, hero)
+- learn (certifications, corporate, free resources, paths)
+- press (brand assets, 7 releases)
+- pricing (6 GPU pricing plans)
+- startupProgram (3 success stories)

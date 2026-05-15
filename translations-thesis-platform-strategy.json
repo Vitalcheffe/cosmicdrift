@@ -1,0 +1,928 @@
+{
+  "thesis": {
+    "metaTitle": {
+      "en": "The Thesis: Africa's Path to Industrial Sovereignty",
+      "fr": "La Thèse : La Voie de l'Afrique vers la Souveraineté Industrielle"
+    },
+    "metaDescription": {
+      "en": "A comprehensive manifesto on Africa's industrial sovereignty — why the continent must build its own AI infrastructure, energy systems, and value chains. By Harch Corp S.A.",
+      "fr": "Un manifeste complet sur la souveraineté industrielle de l'Afrique — pourquoi le continent doit construire sa propre infrastructure IA, ses systèmes énergétiques et ses chaînes de valeur. Par Harch Corp S.A."
+    },
+    "ogTitle": {
+      "en": "The Thesis: Africa's Path to Industrial Sovereignty",
+      "fr": "La Thèse : La Voie de l'Afrique vers la Souveraineté Industrielle"
+    },
+    "ogDescription": {
+      "en": "Why Africa must stop exporting raw materials and start building its own industrial backbone. A manifesto by Harch Corp.",
+      "fr": "Pourquoi l'Afrique doit cesser d'exporter des matières premières et commencer à construire son propre socle industriel. Un manifeste de Harch Corp."
+    },
+    "twitterDescription": {
+      "en": "Why Africa must stop exporting raw materials and start building its own industrial backbone.",
+      "fr": "Pourquoi l'Afrique doit cesser d'exporter des matières premières et commencer à construire son propre socle industriel."
+    },
+    "breadcrumbHome": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "breadcrumbThesis": {
+      "en": "Thesis",
+      "fr": "Thèse"
+    },
+    "heroImageAlt": {
+      "en": "Africa's Path to Industrial Sovereignty",
+      "fr": "La Voie de l'Afrique vers la Souveraineté Industrielle"
+    },
+    "heroBadge": {
+      "en": "Harch Corp Manifesto",
+      "fr": "Manifeste Harch Corp"
+    },
+    "heroTitle": {
+      "en": "The Thesis: Africa's Path to Industrial Sovereignty",
+      "fr": "La Thèse : La Voie de l'Afrique vers la Souveraineté Industrielle"
+    },
+    "heroSubtitle": {
+      "en": "Why the continent must stop exporting raw materials and start building its own industrial backbone — and how Harch Corp is making it happen.",
+      "fr": "Pourquoi le continent doit cesser d'exporter des matières premières et commencer à construire son propre socle industriel — et comment Harch Corp le concrétise."
+    },
+    "scrollSection1ImageAlt": {
+      "en": "Renewable energy",
+      "fr": "Énergie renouvelable"
+    },
+    "scrollSection1Heading": {
+      "en": "The Extractive Model Has Failed",
+      "fr": "Le Modèle Extractif a Échoué"
+    },
+    "scrollSection1Description": {
+      "en": "For over a century, Africa has been the world's quarry. The continent holds 30% of the planet's mineral reserves — including 80% of global cobalt, 50% of manganese, and vast deposits of phosphates, lithium, and rare earth elements essential to the energy transition. Yet Africa captures less than 5% of the value chain. This is not a market failure — it is a structural design flaw that the current global system has no incentive to fix.",
+      "fr": "Pendant plus d'un siècle, l'Afrique a été la carrière du monde. Le continent détient 30 % des réserves minérales de la planète — dont 80 % du cobalt mondial, 50 % du manganèse, et de vastes gisements de phosphates, de lithium et d'éléments de terres rares essentiels à la transition énergétique. Pourtant, l'Afrique capture moins de 5 % de la chaîne de valeur. Il ne s'agit pas d'une défaillance du marché — c'est un défaut structurel de conception que le système mondial actuel n'a aucune incitation à corriger."
+    },
+    "scrollSection2ImageAlt": {
+      "en": "AI infrastructure",
+      "fr": "Infrastructure IA"
+    },
+    "scrollSection2Heading": {
+      "en": "Sovereign Compute",
+      "fr": "Calcul Souverain"
+    },
+    "scrollSection2Description": {
+      "en": "The flagship of Harch Intelligence is a carbon-aware GPU cloud platform across Morocco — the largest sovereign AI compute infrastructure on African soil. Five hubs host 1,798 carbon-optimized GPUs with an average carbon intensity of ~47 gCO2/kWh, enabling African nations and enterprises to train and deploy AI models without routing data through foreign jurisdictions.",
+      "fr": "Le produit phare de Harch Intelligence est une plateforme cloud GPU sensible au carbone à travers le Maroc — la plus grande infrastructure de calcul IA souveraine sur le sol africain. Cinq hubs accueillent 1 798 GPUs optimisés en carbone avec une intensité carbone moyenne de ~47 gCO2/kWh, permettant aux nations et entreprises africaines de former et déployer des modèles IA sans acheminer les données à travers des juridictions étrangères."
+    },
+    "articleS1Heading": {
+      "en": "The Extractive Model Has Failed Africa",
+      "fr": "Le Modèle Extractif a Échoué en Afrique"
+    },
+    "articleS1P1": {
+      "en": "For over a century, Africa has been the world's quarry. The continent holds 30% of the planet's mineral reserves — including 80% of global cobalt, 50% of manganese, and vast deposits of phosphates, lithium, and rare earth elements essential to the energy transition. Yet Africa captures less than 5% of the value chain. Raw materials are extracted, shipped overseas, processed into batteries and electronics, and sold back at 100x the original price. This is not a market failure — it is a structural design flaw that the current global system has no incentive to fix.",
+      "fr": "Pendant plus d'un siècle, l'Afrique a été la carrière du monde. Le continent détient 30 % des réserves minérales de la planète — dont 80 % du cobalt mondial, 50 % du manganèse, et de vastes gisements de phosphates, de lithium et d'éléments de terres rares essentiels à la transition énergétique. Pourtant, l'Afrique capture moins de 5 % de la chaîne de valeur. Les matières premières sont extraites, expédiées outre-mer, transformées en batteries et en électronique, et revendues à 100 fois le prix initial. Il ne s'agit pas d'une défaillance du marché — c'est un défaut structurel de conception que le système mondial actuel n'a aucune incitation à corriger."
+    },
+    "articleS1P2": {
+      "en": "The same pattern repeats across every sector. Africa possesses 60% of the world's uncultivated arable land but imports $35 billion in food annually. The continent receives 40% of global solar radiation yet generates less than 2% of the world's solar electricity. Over 400 million Africans lack access to clean water despite sitting atop some of the planet's largest aquifer systems. The problem is never the absence of resources — it is the absence of industrial infrastructure to convert those resources into sovereign value.",
+      "fr": "Le même schéma se répète dans chaque secteur. L'Afrique possède 60 % des terres arables non cultivées du monde mais importe 35 milliards de dollars de nourriture annuellement. Le continent reçoit 40 % du rayonnement solaire mondial mais génère moins de 2 % de l'électricité solaire mondiale. Plus de 400 millions d'Africains n'ont pas accès à l'eau potable alors qu'ils se trouvent au-dessus de certains des plus grands systèmes aquifères de la planète. Le problème n'est jamais l'absence de ressources — c'est l'absence d'infrastructure industrielle pour convertir ces ressources en valeur souveraine."
+    },
+    "articleS2Heading": {
+      "en": "The Sovereignty Gap: Why Independence Requires Infrastructure",
+      "fr": "Le Fossé de Souveraineté : Pourquoi l'Indépendance Exige l'Infrastructure"
+    },
+    "articleS2P1": {
+      "en": "Political independence without industrial independence is an illusion. When a nation cannot generate its own electricity, process its own minerals, grow its own food, or host its own data, it remains a colony in everything but name. Decisions about pricing, supply, and access are made in boardrooms thousands of miles away. National budgets are held hostage to commodity price fluctuations. Critical infrastructure is owned by foreign entities with different strategic priorities.",
+      "fr": "L'indépendance politique sans indépendance industrielle est une illusion. Lorsqu'une nation ne peut pas produire sa propre électricité, transformer ses propres minéraux, cultiver sa propre nourriture ou héberger ses propres données, elle reste une colonie en tout sauf dans le nom. Les décisions concernant les prix, l'approvisionnement et l'accès sont prises dans des conseils d'administration à des milliers de kilomètres. Les budgets nationaux sont otages des fluctuations des cours des matières premières. Les infrastructures critiques appartiennent à des entités étrangères aux priorités stratégiques différentes."
+    },
+    "articleS2P2": {
+      "en": "The emergence of AI has created a new dimension of dependency. Today, 95% of AI compute capacity is concentrated in the United States and China. When an African researcher trains a language model, the data often traverses submarine cables to GPU clusters in Virginia or Frankfurt. When an African fintech runs inference, it rents compute from AWS or Azure at prices set in Seattle. The continent that will have the largest workforce on Earth by 2050 — 1.2 billion people of working age — does not control the infrastructure of the 21st century's most important technology. This is the sovereignty gap, and it is widening every year.",
+      "fr": "L'émergence de l'IA a créé une nouvelle dimension de dépendance. Aujourd'hui, 95 % de la capacité de calcul IA est concentrée aux États-Unis et en Chine. Lorsqu'un chercheur africain forme un modèle linguistique, les données transitent souvent par des câbles sous-marins vers des clusters GPU en Virginie ou à Francfort. Lorsqu'une fintech africaine exécute de l'inférence, elle loue de la capacité de calcul à AWS ou Azure à des prix fixés à Seattle. Le continent qui aura la plus grande force de travail sur Terre d'ici 2050 — 1,2 milliard de personnes en âge de travailler — ne contrôle pas l'infrastructure de la technologie la plus importante du 21e siècle. C'est le fossé de souveraineté, et il s'élargit chaque année."
+    },
+    "articleImage1Alt": {
+      "en": "Renewable energy infrastructure in Africa",
+      "fr": "Infrastructure d'énergie renouvelable en Afrique"
+    },
+    "articleS3Heading": {
+      "en": "The Harch Model: Vertically Integrated Sovereignty",
+      "fr": "Le Modèle Harch : Souveraineté à Intégration Verticale"
+    },
+    "articleS3P1": {
+      "en": "Harch Corp was founded on a single conviction: Africa does not need aid — it needs infrastructure. Not the infrastructure of the 20th century (ports and railways built to export raw materials), but the infrastructure of the 21st century: AI compute, renewable energy, sovereign technology, and vertically integrated industrial chains that capture value where the resources exist.",
+      "fr": "Harch Corp a été fondée sur une seule conviction : l'Afrique n'a pas besoin d'aide — elle a besoin d'infrastructure. Non pas l'infrastructure du 20e siècle (ports et chemins de fer construits pour exporter les matières premières), mais l'infrastructure du 21e siècle : calcul IA, énergie renouvelable, technologie souveraine, et chaînes industrielles à intégration verticale qui capturent la valeur là où les ressources existent."
+    },
+    "articleS3P2": {
+      "en": "Our model is deliberately vertical. Each Harch subsidiary is designed to feed the others. Harch Energy generates zero-carbon electricity that powers Harch Intelligence's data centers. Harch Mining extracts strategic minerals that Harch Technology processes into components. Harch Water provides the desalination capacity that enables Harch Cement and Harch Agri to operate in water-stressed regions. This is not diversification for its own sake — it is an industrial ecosystem where each vertical strengthens the others, creating compounding efficiency and strategic resilience that standalone operators cannot match.",
+      "fr": "Notre modèle est délibérément vertical. Chaque filiale de Harch est conçue pour alimenter les autres. Harch Energy génère de l'électricité zéro carbone qui alimente les centres de données de Harch Intelligence. Harch Mining extrait des minéraux stratégiques que Harch Technology transforme en composants. Harch Water fournit la capacité de dessalement qui permet à Harch Cement et Harch Agri d'opérer dans des régions sous stress hydrique. Il ne s'agit pas de diversification pour elle-même — c'est un écosystème industriel où chaque vertical renforce les autres, créant une efficacité cumulée et une résilience stratégique que les opérateurs indépendants ne peuvent égaler."
+    },
+    "articleS4Heading": {
+      "en": "Sovereign Compute: Carbon-Aware GPU Cloud",
+      "fr": "Calcul Souverain : Cloud GPU Sensible au Carbone"
+    },
+    "articleS4P1": {
+      "en": "The flagship of Harch Intelligence is a carbon-aware GPU cloud platform across Morocco — the largest sovereign AI compute infrastructure on African soil. Five hubs were chosen with surgical precision: Ouarzazate (800 GPUs, 97.2% renewable), Dakhla (400 GPUs, 94.8% renewable), Benguerir (350 GPUs, 88.5% renewable), Tanger (200 GPUs, 82.1% renewable), and Casablanca (48 GPUs, latency-sensitive). Together they host 1,798 carbon-optimized GPUs with an average carbon intensity of ~47 gCO2/kWh, enabling African nations and enterprises to train and deploy AI models without routing data through foreign jurisdictions.",
+      "fr": "Le produit phare de Harch Intelligence est une plateforme cloud GPU sensible au carbone à travers le Maroc — la plus grande infrastructure de calcul IA souveraine sur le sol africain. Cinq hubs ont été choisis avec une précision chirurgicale : Ouarzazate (800 GPUs, 97,2 % renouvelable), Dakhla (400 GPUs, 94,8 % renouvelable), Benguerir (350 GPUs, 88,5 % renouvelable), Tanger (200 GPUs, 82,1 % renouvelable), et Casablanca (48 GPUs, sensible à la latence). Ensemble, ils accueillent 1 798 GPUs optimisés en carbone avec une intensité carbone moyenne de ~47 gCO2/kWh, permettant aux nations et entreprises africaines de former et déployer des modèles IA sans acheminer les données à travers des juridictions étrangères."
+    },
+    "articleS4P2": {
+      "en": "This is not just a commercial project — it is a strategic asset. In the same way that submarine cables became critical national infrastructure in the 2000s, sovereign AI compute will define which nations control their digital destiny in the 2030s. Our 500MW Pipeline in Dakhla ensures that Africa has a seat at that table, with the compute capacity to match. Every large language model trained on Harch GPUs is a model that Africa controls. Every inference run on African soil is data that does not leave the continent. This is sovereignty by architecture, not by legislation.",
+      "fr": "Il ne s'agit pas simplement d'un projet commercial — c'est un actif stratégique. De la même manière que les câbles sous-marins sont devenus une infrastructure nationale critique dans les années 2000, le calcul IA souverain définira quelles nations contrôlent leur destin numérique dans les années 2030. Notre pipeline de 500 MW à Dakhla garantit que l'Afrique a une place à cette table, avec la capacité de calcul correspondante. Chaque grand modèle linguistique formé sur les GPUs Harch est un modèle que l'Afrique contrôle. Chaque inférence exécutée sur le sol africain est une donnée qui ne quitte pas le continent. C'est la souveraineté par l'architecture, non par la législation."
+    },
+    "articleImage2Alt": {
+      "en": "AI data center infrastructure",
+      "fr": "Infrastructure de centre de données IA"
+    },
+    "articleS5Heading": {
+      "en": "Energy Independence: 2GW+ Pipeline of Zero-Carbon Power",
+      "fr": "Indépendance Énergétique : Pipeline de 2 GW+ d'Énergie Zéro Carbone"
+    },
+    "articleS5P1": {
+      "en": "Industrial sovereignty begins with energy sovereignty. Harch Energy is developing a 2GW+ Pipeline of renewable energy capacity across Morocco and the Sahel, combining solar photovoltaic, onshore wind, and green hydrogen production. This is not clean energy for its own sake — it is the power source that makes every other vertical economically viable. When your data center runs on electricity that costs $0.02/kWh instead of $0.08/kWh, your AI compute becomes the most competitive on the planet. When your cement plant runs on solar instead of diesel, your cost basis drops by 40% and your product becomes eligible for green building certifications across Europe.",
+      "fr": "La souveraineté industrielle commence par la souveraineté énergétique. Harch Energy développe un pipeline de plus de 2 GW de capacité d'énergie renouvelable à travers le Maroc et le Sahel, combinant le photovoltaïque solaire, l'éolien terrestre et la production d'hydrogène vert. Il ne s'agit pas d'énergie propre pour elle-même — c'est la source d'énergie qui rend chaque autre vertical économiquement viable. Lorsque votre centre de données fonctionne à l'électricité à 0,02 $/kWh au lieu de 0,08 $/kWh, votre calcul IA devient le plus compétitif de la planète. Lorsque votre cimenterie fonctionne au solaire au lieu du diesel, votre base de coûts baisse de 40 % et votre produit devient éligible aux certifications de construction verte à travers l'Europe."
+    },
+    "articleS5P2": {
+      "en": "The green hydrogen component is especially strategic. Europe will need to import 10 million tonnes of green hydrogen annually by 2030 to meet its decarbonization targets. Morocco — with its proximity to European markets via the existing gas pipeline network and its world-class solar irradiance — is geographically positioned to become the continent's primary supplier. Harch Energy intends to capture a meaningful share of this market, converting Moroccan sunlight into European energy currency and reinvesting the proceeds into continental infrastructure.",
+      "fr": "La composante hydrogène vert est particulièrement stratégique. L'Europe devra importer 10 millions de tonnes d'hydrogène vert par an d'ici 2030 pour atteindre ses objectifs de décarbonation. Le Maroc — avec sa proximité aux marchés européens via le réseau existant de gazoducs et son irradiation solaire de classe mondiale — est géographiquement positionné pour devenir le fournisseur principal du continent. Harch Energy entend capturer une part significative de ce marché, convertissant le soleil marocain en monnaie énergétique européenne et réinvestissant les revenus dans l'infrastructure continentale."
+    },
+    "articleS6Heading": {
+      "en": "Capturing the Value Chain: From Extraction to Refinement",
+      "fr": "Capturer la Chaîne de Valeur : De l'Extraction au Raffinage"
+    },
+    "articleS6P1": {
+      "en": "The Democratic Republic of Congo produces 70% of the world's cobalt — the mineral that makes electric vehicle batteries possible. Yet the DRC captures roughly 3% of the cobalt value chain. The ore is mined in Kolwezi, shipped to refineries in China, processed into battery-grade cobalt sulfate, and sold to automakers in Detroit and Stuttgart at prices that generate margins the producing country never sees. This is the extractive model in its purest form: wealth leaves at the rate of container ships, poverty remains at the rate of artisanal mines.",
+      "fr": "La République Démocratique du Congo produit 70 % du cobalt mondial — le minéral qui rend les batteries de véhicules électriques possibles. Pourtant, la RDC capture environ 3 % de la chaîne de valeur du cobalt. Le minerai est extrait à Kolwezi, expédié vers des raffineries en Chine, transformé en sulfate de cobalt de qualité batterie, et vendu aux constructeurs automobiles à Détroit et Stuttgart à des prix qui génèrent des marges que le pays producteur ne voit jamais. C'est le modèle extractif sous sa forme la plus pure : la richesse part au rythme des navires de charge, la pauvreté reste au rythme des mines artisanales."
+    },
+    "articleS6P2": {
+      "en": "Harch Mining exists to break this cycle. By building processing and refining capacity in-country — starting with phosphates in Morocco and expanding to cobalt and rare earths across the Sahel — we capture the margin that currently accrues to overseas processors. In-country processing does not just generate revenue; it creates skilled jobs, transfers technology, builds industrial ecosystems, and gives producing nations leverage in global commodity negotiations. When you can refine your own cobalt, you set your own price. That is the difference between a resource economy and an industrial one.",
+      "fr": "Harch Mining existe pour briser ce cycle. En construisant des capacités de traitement et de raffinage sur place — en commençant par les phosphates au Maroc et en s'étendant au cobalt et aux terres rares à travers le Sahel — nous capturons la marge qui revient actuellement aux transformateurs outre-mer. Le traitement sur place ne génère pas seulement des revenus ; il crée des emplois qualifiés, transfère la technologie, construit des écosystèmes industriels et donne aux nations productrices un levier dans les négociations mondiales sur les matières premières. Lorsque vous pouvez raffiner votre propre cobalt, vous fixez votre propre prix. C'est la différence entre une économie de ressources et une économie industrielle."
+    },
+    "articleS7Heading": {
+      "en": "Water Security and Agricultural Sovereignty",
+      "fr": "Sécurité Hydrique et Souveraineté Agricole"
+    },
+    "articleS7P1": {
+      "en": "Water is the foundation upon which every other vertical depends. Without reliable water supply, cement plants cannot operate, data centers cannot cool, and farmland cannot produce. Yet 400 million Africans lack access to clean water, and climate change is accelerating desertification across the Sahel at a rate that threatens continental food security. Harch Water addresses this not as a charity project but as industrial infrastructure: 200 million cubic meters per year of desalination capacity, paired with AI-optimized distribution networks that minimize waste and maximize reach.",
+      "fr": "L'eau est le fondement sur lequel repose chaque autre vertical. Sans approvisionnement fiable en eau, les cimenteries ne peuvent fonctionner, les centres de données ne peuvent se refroidir, et les terres agricoles ne peuvent produire. Pourtant, 400 millions d'Africains n'ont pas accès à l'eau potable, et le changement climatique accélère la désertification à travers le Sahel à un rythme qui menace la sécurité alimentaire continentale. Harch Water aborde cette question non pas comme un projet caritatif mais comme une infrastructure industrielle : 200 millions de mètres cubes par an de capacité de dessalement, associés à des réseaux de distribution optimisés par IA qui minimisent le gaspillage et maximisent la portée."
+    },
+    "articleS7P2": {
+      "en": "Harch Agri converts water security into food sovereignty. Across Africa, 60% of the world's uncultivated arable land sits idle — not because the soil is poor, but because the infrastructure to farm at scale does not exist. Precision agriculture changes the equation. IoT sensors monitor soil moisture in real time. Drone surveillance detects pest outbreaks before they spread. Vertical farming produces year-round crops with 95% less water than traditional agriculture. These are not futuristic concepts — they are deployed technologies that Harch Agri is bringing to African soil at industrial scale, turning untapped potential into food security and export revenue.",
+      "fr": "Harch Agri convertit la sécurité hydrique en souveraineté alimentaire. À travers l'Afrique, 60 % des terres arables non cultivées du monde restent inutilisées — non pas parce que le sol est pauvre, mais parce que l'infrastructure pour cultiver à grande échelle n'existe pas. L'agriculture de précision change la donne. Les capteurs IoT surveillent l'humidité du sol en temps réel. La surveillance par drone détecte les invasions de ravageurs avant qu'elles ne se propagent. L'agriculture verticale produit des récoltes toute l'année avec 95 % moins d'eau que l'agriculture traditionnelle. Ce ne sont pas des concepts futuristes — ce sont des technologies déployées que Harch Agri apporte sur le sol africain à l'échelle industrielle, transformant le potentiel inexploité en sécurité alimentaire et en revenus d'exportation."
+    },
+    "articleImage3Alt": {
+      "en": "Agricultural infrastructure in Africa",
+      "fr": "Infrastructure agricole en Afrique"
+    },
+    "articleS8Heading": {
+      "en": "The Path Forward: From Vision to Infrastructure",
+      "fr": "La Voie à Suivre : De la Vision à l'Infrastructure"
+    },
+    "articleS8P1": {
+      "en": "The thesis is simple: Africa cannot sovereign by declaration. It must be sovereign by construction — by building the infrastructure that makes independence not just aspirational but operational. This means AI compute facilities that keep African data on African soil. It means renewable energy plants that free African economies from fossil fuel imports. It means mineral processing that captures value at the source. It means water and food systems that make climate adaptation an engineering problem rather than an existential threat.",
+      "fr": "La thèse est simple : l'Afrique ne peut être souveraine par déclaration. Elle doit être souveraine par construction — en bâtissant l'infrastructure qui rend l'indépendance non pas simplement aspirational mais opérationnelle. Cela signifie des installations de calcul IA qui gardent les données africaines sur le sol africain. Cela signifie des centrales d'énergie renouvelable qui libèrent les économies africaines des importations de combustibles fossiles. Cela signifie le traitement des minéraux qui capture la valeur à la source. Cela signifie des systèmes d'eau et d'alimentation qui font de l'adaptation climatique un problème d'ingénierie plutôt qu'une menace existentielle."
+    },
+    "articleS8P2": {
+      "en": "Harch Corp has committed $2.4 billion to this vision across 7 verticals and 5 countries. Our first data center module goes live in 2027. Our cement plant reaches full capacity in 2028. By 2030, we intend to be operating at continental scale — not as a foreign investor extracting returns, but as an African company building the industrial backbone that the continent has always deserved. The world is watching. The question is no longer whether Africa will industrialize, but whether it will industrialize on its own terms. Harch Corp exists to ensure that it does.",
+      "fr": "Harch Corp a engagé 2,4 milliards de dollars dans cette vision à travers 7 verticaux et 5 pays. Notre premier module de centre de données sera opérationnel en 2027. Notre cimenterie atteindra sa pleine capacité en 2028. D'ici 2030, nous avons l'intention d'opérer à l'échelle continentale — non pas en tant qu'investisseur étranger extrayant des rendements, mais en tant qu'entreprise africaine construisant le socle industriel que le continent a toujours mérité. Le monde regarde. La question n'est plus de savoir si l'Afrique s'industrialisera, mais si elle s'industrialisera à ses propres conditions. Harch Corp existe pour garantir qu'elle le fasse."
+    },
+    "ctaLabel": {
+      "en": "Join the Mission",
+      "fr": "Rejoignez la Mission"
+    },
+    "ctaHeading": {
+      "en": "Build Africa's Industrial Sovereignty",
+      "fr": "Construisez la Souveraineté Industrielle de l'Afrique"
+    },
+    "ctaDescription": {
+      "en": "Whether you're an investor seeking continental impact, a partner looking for strategic alignment, or an engineer ready to build — we want to hear from you.",
+      "fr": "Que vous soyez un investisseur cherchant un impact continental, un partenaire à la recherche d'un alignement stratégique, ou un ingénieur prêt à bâtir — nous voulons vous entendre."
+    },
+    "ctaPartnerWithUs": {
+      "en": "Partner With Us",
+      "fr": "Devenez Partenaire"
+    },
+    "ctaJoinTheTeam": {
+      "en": "Join the Team",
+      "fr": "Rejoignez l'Équipe"
+    }
+  },
+  "platform": {
+    "metaTitle": {
+      "en": "Platform — Live Infrastructure Monitoring",
+      "fr": "Plateforme — Surveillance d'Infrastructure en Direct"
+    },
+    "metaDescription": {
+      "en": "Harch OS is software, not slides. Real-time command and control for sovereign AI infrastructure — 5 hubs, 1,798 GPUs, 2,847 sensors, all live across Morocco.",
+      "fr": "Harch OS est un logiciel, pas des diapositives. Commande et contrôle en temps réel pour l'infrastructure IA souveraine — 5 hubs, 1 798 GPUs, 2 847 capteurs, tous en direct à travers le Maroc."
+    },
+    "ogTitle": {
+      "en": "Harch OS Platform — Live Infrastructure Monitor",
+      "fr": "Plateforme Harch OS — Surveillance d'Infrastructure en Direct"
+    },
+    "ogDescription": {
+      "en": "Real-time command and control for sovereign AI infrastructure. 5 hubs, 1,798 GPUs, 2,847 sensors — all live.",
+      "fr": "Commande et contrôle en temps réel pour l'infrastructure IA souveraine. 5 hubs, 1 798 GPUs, 2 847 capteurs — tous en direct."
+    },
+    "ogImageAlt": {
+      "en": "Harch OS Platform — Live Infrastructure Monitor",
+      "fr": "Plateforme Harch OS — Surveillance d'Infrastructure en Direct"
+    },
+    "twitterDescription": {
+      "en": "Real-time command & control for sovereign AI infrastructure. 5 hubs, 1,798 GPUs, 2,847 sensors — all live.",
+      "fr": "Commande et contrôle en temps réel pour l'infrastructure IA souveraine. 5 hubs, 1 798 GPUs, 2 847 capteurs — tous en direct."
+    },
+    "breadcrumbHome": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "breadcrumbPlatform": {
+      "en": "Platform",
+      "fr": "Plateforme"
+    },
+    "heroHeaderLabel": {
+      "en": "HARCH OS // PLATFORM",
+      "fr": "HARCH OS // PLATEFORME"
+    },
+    "heroStatusSystemsNominal": {
+      "en": "SYSTEMS NOMINAL",
+      "fr": "SYSTÈMES NOMINAUX"
+    },
+    "heroStatusHubsOnline": {
+      "en": "5/5 HUBS ONLINE",
+      "fr": "5/5 HUBS EN LIGNE"
+    },
+    "heroStatusActiveSensors": {
+      "en": "2,847 ACTIVE SENSORS",
+      "fr": "2 847 CAPTEURS ACTIFS"
+    },
+    "heroTitleLine1": {
+      "en": "Live Infrastructure",
+      "fr": "Infrastructure en Direct"
+    },
+    "heroTitleLine2": {
+      "en": "Operations Center",
+      "fr": "Centre d'Opérations"
+    },
+    "heroDescription": {
+      "en": "Real-time command and control for Harch Corp's sovereign infrastructure. Every metric below is pulled from live sensors across 5 operational hubs. This is not a demo. This is the platform.",
+      "fr": "Commande et contrôle en temps réel pour l'infrastructure souveraine de Harch Corp. Chaque métrique ci-dessous provient de capteurs en direct sur 5 hubs opérationnels. Ce n'est pas une démo. C'est la plateforme."
+    },
+    "quickStatGpusActive": {
+      "en": "GPUs Active",
+      "fr": "GPUs Actifs"
+    },
+    "quickStatEnergyEfficiency": {
+      "en": "Energy Efficiency",
+      "fr": "Efficacité Énergétique"
+    },
+    "quickStatAvgLatency": {
+      "en": "Avg Latency",
+      "fr": "Latence Moy."
+    },
+    "quickStatActiveSensors": {
+      "en": "Active Sensors",
+      "fr": "Capteurs Actifs"
+    },
+    "globalMonitorLabel": {
+      "en": "Global Monitor",
+      "fr": "Moniteur Global"
+    },
+    "globalMonitorHeading": {
+      "en": "Operational Hubs",
+      "fr": "Hubs Opérationnels"
+    },
+    "globalMonitorDescription": {
+      "en": "Six strategic locations across West and North Africa. Each hub is a node in the sovereign infrastructure mesh — monitored 24/7 by HarchOS.",
+      "fr": "Six emplacements stratégiques en Afrique de l'Ouest et du Nord. Chaque hub est un nœud dans le maillage d'infrastructure souveraine — surveillé 24h/24 et 7j/7 par HarchOS."
+    },
+    "mapDeploymentsLabel": {
+      "en": "Deployments / Threat Monitor",
+      "fr": "Déploiements / Moniteur de Menaces"
+    },
+    "mapLiveOperational": {
+      "en": "LIVE — 2 OPERATIONAL",
+      "fr": "EN DIRECT — 2 OPÉRATIONNELS"
+    },
+    "mapLegendOperational": {
+      "en": "OPERATIONAL",
+      "fr": "OPÉRATIONNEL"
+    },
+    "mapLegendEngineering": {
+      "en": "ENGINEERING",
+      "fr": "INGÉNIERIE"
+    },
+    "mapLegendPlanned": {
+      "en": "PLANNED",
+      "fr": "PLANIFIÉ"
+    },
+    "hubCasablancaLabel": {
+      "en": "HQ / Compute",
+      "fr": "HQ / Calcul"
+    },
+    "hubCasablancaMetric": {
+      "en": "1,798 GPUs — 48 Active",
+      "fr": "1 798 GPUs — 48 Actifs"
+    },
+    "hubDakhlaLabel": {
+      "en": "GPU Cluster",
+      "fr": "Cluster GPU"
+    },
+    "hubDakhlaMetric": {
+      "en": "400 GPUs — 94.8% Renewable",
+      "fr": "400 GPUs — 94,8 % Renouvelable"
+    },
+    "hubBanjulLabel": {
+      "en": "Cement Ops",
+      "fr": "Opérations Ciment"
+    },
+    "hubBanjulMetric": {
+      "en": "500kT/yr Cement — Phase 2",
+      "fr": "500 kT/an Ciment — Phase 2"
+    },
+    "hubDakarLabel": {
+      "en": "Agri Hub",
+      "fr": "Hub Agricole"
+    },
+    "hubDakarMetric": {
+      "en": "IoT Mesh — 342 Sensors",
+      "fr": "Maillage IoT — 342 Capteurs"
+    },
+    "hubNouakchottLabel": {
+      "en": "Mining",
+      "fr": "Mines"
+    },
+    "hubNouakchottMetric": {
+      "en": "3 Mineral Streams",
+      "fr": "3 Flux Minéraux"
+    },
+    "hubBamakoLabel": {
+      "en": "Water",
+      "fr": "Eau"
+    },
+    "hubBamakoMetric": {
+      "en": "200M m3/yr Desal",
+      "fr": "200M m³/an Dessalement"
+    },
+    "infraHealthLabel": {
+      "en": "Infrastructure Health",
+      "fr": "Santé de l'Infrastructure"
+    },
+    "infraHealthHeading": {
+      "en": "Real-Time Diagnostics",
+      "fr": "Diagnostics en Temps Réel"
+    },
+    "infraHealthDescription": {
+      "en": "Energy output, GPU utilization, and network latency — sampled every 3 seconds from the mesh backbone. All metrics are live, not simulated.",
+      "fr": "Production énergétique, utilisation GPU et latence réseau — échantillonnées toutes les 3 secondes depuis la dorsale du maillage. Toutes les métriques sont en direct, non simulées."
+    },
+    "chartEnergyOutputLabel": {
+      "en": "Energy Output",
+      "fr": "Production Énergétique"
+    },
+    "chartEnergyOutputTitle": {
+      "en": "Daily Generation (MW)",
+      "fr": "Génération Quotidienne (MW)"
+    },
+    "chartEnergyPeak": {
+      "en": "Peak: 218.4 MW",
+      "fr": "Pic : 218,4 MW"
+    },
+    "chartEnergyAvg": {
+      "en": "Avg: 94.7 MW",
+      "fr": "Moy. : 94,7 MW"
+    },
+    "chartGpuUtilLabel": {
+      "en": "GPU Utilization",
+      "fr": "Utilisation GPU"
+    },
+    "chartGpuUtilTitle": {
+      "en": "Data Center Load (%)",
+      "fr": "Charge du Centre de Données (%)"
+    },
+    "chartGpuAvg": {
+      "en": "Avg: 81.6%",
+      "fr": "Moy. : 81,6 %"
+    },
+    "chartGpuMax": {
+      "en": "Max: 94% Dakhla-1",
+      "fr": "Max : 94 % Dakhla-1"
+    },
+    "chartLatencyLabel": {
+      "en": "Network Latency",
+      "fr": "Latence Réseau"
+    },
+    "chartLatencyTitle": {
+      "en": "Inter-Hub (ms)",
+      "fr": "Inter-Hub (ms)"
+    },
+    "chartLatencyAvg": {
+      "en": "Avg: 14.2 ms",
+      "fr": "Moy. : 14,2 ms"
+    },
+    "chartLatencyP99": {
+      "en": "P99: 24.7 ms",
+      "fr": "P99 : 24,7 ms"
+    },
+    "industrialAiLabel": {
+      "en": "Industrial AI",
+      "fr": "IA Industrielle"
+    },
+    "industrialAiHeading": {
+      "en": "Cement Optimization",
+      "fr": "Optimisation Ciment"
+    },
+    "industrialAiDescription": {
+      "en": "HarchOS Kiln Optimization Module — live on the Banjul cement plant. AI-driven energy efficiency, predictive maintenance, and CO2 intensity reduction. Every parameter optimized in real-time.",
+      "fr": "Module d'Optimisation du Four HarchOS — en direct sur la cimenterie de Banjul. Efficacité énergétique pilotée par IA, maintenance prédictive et réduction de l'intensité CO2. Chaque paramètre optimisé en temps réel."
+    },
+    "cementAiTitle": {
+      "en": "Cement AI / Banjul Plant",
+      "fr": "IA Ciment / Usine de Banjul"
+    },
+    "cementAiModule": {
+      "en": "Kiln Optimization Module",
+      "fr": "Module d'Optimisation du Four"
+    },
+    "cementEnergyEfficiencyLabel": {
+      "en": "Energy Efficiency",
+      "fr": "Efficacité Énergétique"
+    },
+    "cementStatusNominal": {
+      "en": "Nominal",
+      "fr": "Nominal"
+    },
+    "cementVsBaseline": {
+      "en": "+2.3% vs baseline",
+      "fr": "+2,3 % vs référence"
+    },
+    "cementKilnTempLabel": {
+      "en": "Kiln Temp",
+      "fr": "Temp. Four"
+    },
+    "cementFeedRateLabel": {
+      "en": "Feed Rate",
+      "fr": "Débit d'Alimentation"
+    },
+    "cementCo2IntensityLabel": {
+      "en": "CO2 Intensity",
+      "fr": "Intensité CO2"
+    },
+    "cementPredictiveLabel": {
+      "en": "Predictive",
+      "fr": "Prédictif"
+    },
+    "cementBearingAlert": {
+      "en": "Bearing #3",
+      "fr": "Roulement #3"
+    },
+    "cementFlaggedAgo": {
+      "en": "Flagged 12m ago",
+      "fr": "Signalé il y a 12 min"
+    },
+    "cementEfficiencyTrend": {
+      "en": "Efficiency Trend (12h)",
+      "fr": "Tendance d'Efficacité (12h)"
+    },
+    "cementKilnStatus": {
+      "en": "Kiln Status",
+      "fr": "Statut du Four"
+    },
+    "cementKilnStatusValue": {
+      "en": "OPTIMAL",
+      "fr": "OPTIMAL"
+    },
+    "cementAiModel": {
+      "en": "AI Model",
+      "fr": "Modèle IA"
+    },
+    "cementBearing3": {
+      "en": "Bearing #3",
+      "fr": "Roulement #3"
+    },
+    "cementMonitor": {
+      "en": "MONITOR",
+      "fr": "SURVEILLANCE"
+    },
+    "cementFeedRateStatus": {
+      "en": "Feed Rate",
+      "fr": "Débit d'Alimentation"
+    },
+    "cementStable": {
+      "en": "STABLE",
+      "fr": "STABLE"
+    },
+    "ctaAccessLabel": {
+      "en": "Access",
+      "fr": "Accès"
+    },
+    "ctaHeading": {
+      "en": "Request Platform Access",
+      "fr": "Demander l'Accès à la Plateforme"
+    },
+    "ctaDescription": {
+      "en": "Harch OS Platform is available to qualified organizations. Access includes the full operations center, API integration, and dedicated support from our infrastructure team.",
+      "fr": "La Plateforme Harch OS est disponible pour les organisations qualifiées. L'accès inclut le centre d'opérations complet, l'intégration API et un support dédié de notre équipe infrastructure."
+    },
+    "ctaRequestAccess": {
+      "en": "Request Access",
+      "fr": "Demander l'Accès"
+    },
+    "ctaViewDocumentation": {
+      "en": "View Documentation",
+      "fr": "Voir la Documentation"
+    },
+    "ctaSecurityBadge1": {
+      "en": "SOC 2 Type II",
+      "fr": "SOC 2 Type II"
+    },
+    "ctaSecurityBadge2": {
+      "en": "End-to-End Encryption",
+      "fr": "Chiffrement de Bout en Bout"
+    },
+    "ctaSecurityBadge3": {
+      "en": "24/7 Monitoring",
+      "fr": "Surveillance 24h/24 et 7j/7"
+    }
+  },
+  "strategy": {
+    "metaTitle": {
+      "en": "Strategy — Vertically Integrated Value Capture",
+      "fr": "Stratégie — Capture de Valeur à Intégration Verticale"
+    },
+    "metaDescription": {
+      "en": "Harch Corp's integrated strategy captures the full value chain across data centers, energy, cement, technology, mining, agriculture, and water. Vertical integration from raw materials to sovereign platforms.",
+      "fr": "La stratégie intégrée de Harch Corp capture l'ensemble de la chaîne de valeur à travers les centres de données, l'énergie, le ciment, la technologie, les mines, l'agriculture et l'eau. Intégration verticale des matières premières aux plateformes souveraines."
+    },
+    "ogTitle": {
+      "en": "Strategy — Vertically Integrated Value Capture",
+      "fr": "Stratégie — Capture de Valeur à Intégration Verticale"
+    },
+    "ogDescription": {
+      "en": "Full value chain integration across data centers, energy, cement, technology, mining, agriculture, and water infrastructure.",
+      "fr": "Intégration complète de la chaîne de valeur à travers les centres de données, l'énergie, le ciment, la technologie, les mines, l'agriculture et l'infrastructure hydrique."
+    },
+    "ogImageAlt": {
+      "en": "Harch Corp Strategy — Vertically Integrated Value Capture",
+      "fr": "Stratégie Harch Corp — Capture de Valeur à Intégration Verticale"
+    },
+    "twitterTitle": {
+      "en": "Strategy — Vertically Integrated Value Capture",
+      "fr": "Stratégie — Capture de Valeur à Intégration Verticale"
+    },
+    "twitterDescription": {
+      "en": "Full value chain integration across 8 industrial verticals. From raw materials to sovereign platforms.",
+      "fr": "Intégration complète de la chaîne de valeur à travers 8 verticaux industriels. Des matières premières aux plateformes souveraines."
+    },
+    "breadcrumbHome": {
+      "en": "Home",
+      "fr": "Accueil"
+    },
+    "breadcrumbStrategy": {
+      "en": "Strategy",
+      "fr": "Stratégie"
+    },
+    "heroTitle": {
+      "en": "OPERATOR",
+      "fr": "OPÉRATEUR"
+    },
+    "heroSubtitle": {
+      "en": "The Operator Model",
+      "fr": "Le Modèle Opérateur"
+    },
+    "heroMetaLabel": {
+      "en": "STRATEGY",
+      "fr": "STRATÉGIE"
+    },
+    "visionLabel": {
+      "en": "Our Vision",
+      "fr": "Notre Vision"
+    },
+    "visionHeading": {
+      "en": "Africa Doesn't Need Aid. It Needs Infrastructure.",
+      "fr": "L'Afrique N'a Pas Besoin d'Aide. Elle a Besoin d'Infrastructure."
+    },
+    "visionP1": {
+      "en": "For decades, the prevailing approach to African development has been aid-based — funding that creates dependency without building capacity. Our strategy inverts this model entirely.",
+      "fr": "Pendant des décennies, l'approche dominante au développement africain a été basée sur l'aide — un financement qui crée de la dépendance sans construire de capacités. Notre stratégie inverse entièrement ce modèle."
+    },
+    "visionP2": {
+      "en": "We deploy capital into infrastructure that generates returns — economic, strategic, and social. Every dollar invested in Harch Corp creates permanent industrial capacity that Africa owns and controls.",
+      "fr": "Nous déployons du capital dans l'infrastructure qui génère des rendements — économiques, stratégiques et sociaux. Chaque dollar investi dans Harch Corp crée une capacité industrielle permanente que l'Afrique possède et contrôle."
+    },
+    "visionP3": {
+      "en": "This is not charity. This is industrial sovereignty. And it's the most profitable, most impactful investment thesis on the continent.",
+      "fr": "Ce n'est pas de la charité. C'est la souveraineté industrielle. Et c'est la thèse d'investissement la plus rentable et la plus impactante du continent."
+    },
+    "visionStatInvestment": {
+      "en": "Investment Pipeline",
+      "fr": "Pipeline d'Investissement"
+    },
+    "visionStatVerticals": {
+      "en": "Verticals",
+      "fr": "Verticaux"
+    },
+    "visionStatCountries": {
+      "en": "Countries",
+      "fr": "Pays"
+    },
+    "visionStatJobs": {
+      "en": "Jobs by 2028",
+      "fr": "Emplois d'ici 2028"
+    },
+    "pillarsLabel": {
+      "en": "Seven Pillars",
+      "fr": "Sept Piliers"
+    },
+    "pillarsHeading": {
+      "en": "The Vertical Strategy",
+      "fr": "La Stratégie Verticale"
+    },
+    "pillarsDescription": {
+      "en": "Each vertical is designed to reinforce the others — creating a self-reinforcing industrial ecosystem that grows stronger as it scales.",
+      "fr": "Chaque vertical est conçu pour renforcer les autres — créant un écosystème industriel auto-renforçant qui se renforce à mesure qu'il s'étend."
+    },
+    "verticalIntelligenceName": {
+      "en": "Harch Intelligence",
+      "fr": "Harch Intelligence"
+    },
+    "verticalIntelligenceInvestment": {
+      "en": "$800M",
+      "fr": "800 M$"
+    },
+    "verticalIntelligenceDesc": {
+      "en": "1,798 GPU carbon-aware data center platform across Morocco. Next-gen GPU clusters for sovereign AI compute, powered by 100% renewable energy with submarine cable connectivity to Europe and the Americas.",
+      "fr": "Plateforme de centre de données GPU sensible au carbone de 1 798 GPUs à travers le Maroc. Clusters GPU de nouvelle génération pour le calcul IA souverain, alimentés par 100 % d'énergie renouvelable avec connectivité par câble sous-marin vers l'Europe et les Amériques."
+    },
+    "verticalIntelligenceKP1": {
+      "en": "1,798 carbon-optimized GPUs",
+      "fr": "1 798 GPUs optimisés en carbone"
+    },
+    "verticalIntelligenceKP2": {
+      "en": "2GW+ Renewable Pipeline",
+      "fr": "Pipeline Renouvelable 2 GW+"
+    },
+    "verticalIntelligenceKP3": {
+      "en": "100% renewable powered",
+      "fr": "100 % alimenté par le renouvelable"
+    },
+    "verticalIntelligenceKP4": {
+      "en": "Carbon-aware scheduling",
+      "fr": "Ordonnancement sensible au carbone"
+    },
+    "verticalCementName": {
+      "en": "Harch Cement",
+      "fr": "Harch Cement"
+    },
+    "verticalCementInvestment": {
+      "en": "$200M",
+      "fr": "200 M$"
+    },
+    "verticalCementDesc": {
+      "en": "500kT/yr cement production in Gambia, serving West Africa's construction boom. Vertically integrated from quarry to delivery with structural cost advantages.",
+      "fr": "Production de ciment de 500 kT/an en Gambie, au service du boom de la construction en Afrique de l'Ouest. Intégration verticale de la carrière à la livraison avec des avantages structurels de coûts."
+    },
+    "verticalCementKP1": {
+      "en": "500kT/yr capacity",
+      "fr": "Capacité 500 kT/an"
+    },
+    "verticalCementKP2": {
+      "en": "Vertically integrated",
+      "fr": "Intégration verticale"
+    },
+    "verticalCementKP3": {
+      "en": "West Africa focus",
+      "fr": "Focalisation Afrique de l'Ouest"
+    },
+    "verticalCementKP4": {
+      "en": "Quarry-to-delivery model",
+      "fr": "Modèle de la carrière à la livraison"
+    },
+    "verticalEnergyName": {
+      "en": "Harch Energy",
+      "fr": "Harch Energy"
+    },
+    "verticalEnergyInvestment": {
+      "en": "$600M",
+      "fr": "600 M$"
+    },
+    "verticalEnergyDesc": {
+      "en": "2GW+ Renewable Pipeline of solar, wind, and green hydrogen across Morocco and Sahel. Zero-carbon electricity powering industrial operations and data centers.",
+      "fr": "Pipeline renouvelable de 2 GW+ de solaire, éolien et hydrogène vert à travers le Maroc et le Sahel. Électricité zéro carbone alimentant les opérations industrielles et les centres de données."
+    },
+    "verticalEnergyKP1": {
+      "en": "2GW+ Renewable Pipeline",
+      "fr": "Pipeline Renouvelable 2 GW+"
+    },
+    "verticalEnergyKP2": {
+      "en": "Solar + Wind + H₂",
+      "fr": "Solaire + Éolien + H₂"
+    },
+    "verticalEnergyKP3": {
+      "en": "Zero-carbon operations",
+      "fr": "Opérations zéro carbone"
+    },
+    "verticalEnergyKP4": {
+      "en": "Industrial-scale output",
+      "fr": "Production à l'échelle industrielle"
+    },
+    "verticalTechnologyName": {
+      "en": "Harch Technology",
+      "fr": "Harch Technology"
+    },
+    "verticalTechnologyInvestment": {
+      "en": "$400M",
+      "fr": "400 M$"
+    },
+    "verticalTechnologyDesc": {
+      "en": "Sovereign tech stack: AI platforms, cybersecurity, and satellite communications. 1,798 carbon-optimized GPUs powering continental AI from inference to training.",
+      "fr": "Pile technologique souveraine : plateformes IA, cybersécurité et communications par satellite. 1 798 GPUs optimisés en carbone alimentant l'IA continentale de l'inférence à la formation."
+    },
+    "verticalTechnologyKP1": {
+      "en": "1,798 GPUs",
+      "fr": "1 798 GPUs"
+    },
+    "verticalTechnologyKP2": {
+      "en": "Sovereign AI platform",
+      "fr": "Plateforme IA souveraine"
+    },
+    "verticalTechnologyKP3": {
+      "en": "Cybersecurity suite",
+      "fr": "Suite de cybersécurité"
+    },
+    "verticalTechnologyKP4": {
+      "en": "Satellite communications",
+      "fr": "Communications par satellite"
+    },
+    "verticalMiningName": {
+      "en": "Harch Mining",
+      "fr": "Harch Mining"
+    },
+    "verticalMiningInvestment": {
+      "en": "$200M",
+      "fr": "200 M$"
+    },
+    "verticalMiningDesc": {
+      "en": "Strategic mineral extraction — phosphates, cobalt, and rare earths. Building processing and refining capacity in-country to capture the value chain.",
+      "fr": "Extraction de minéraux stratégiques — phosphates, cobalt et terres rares. Construction de capacités de traitement et de raffinage sur place pour capturer la chaîne de valeur."
+    },
+    "verticalMiningKP1": {
+      "en": "3 strategic minerals",
+      "fr": "3 minéraux stratégiques"
+    },
+    "verticalMiningKP2": {
+      "en": "In-country processing",
+      "fr": "Traitement sur place"
+    },
+    "verticalMiningKP3": {
+      "en": "Export-grade refining",
+      "fr": "Raffinage de qualité export"
+    },
+    "verticalMiningKP4": {
+      "en": "30% of global reserves",
+      "fr": "30 % des réserves mondiales"
+    },
+    "verticalAgriName": {
+      "en": "Harch Agri",
+      "fr": "Harch Agri"
+    },
+    "verticalAgriInvestment": {
+      "en": "$150M",
+      "fr": "150 M$"
+    },
+    "verticalAgriDesc": {
+      "en": "Precision agriculture and vertical farming across Africa's 60% uncultivated arable land. IoT, drone monitoring, and AI-optimized crop management.",
+      "fr": "Agriculture de précision et agriculture verticale sur les 60 % de terres arables non cultivées d'Afrique. IoT, surveillance par drone et gestion des cultures optimisée par IA."
+    },
+    "verticalAgriKP1": {
+      "en": "$35B market access",
+      "fr": "Accès au marché de 35 Md$"
+    },
+    "verticalAgriKP2": {
+      "en": "IoT + drone monitoring",
+      "fr": "Surveillance IoT + drone"
+    },
+    "verticalAgriKP3": {
+      "en": "Vertical farming tech",
+      "fr": "Technologie d'agriculture verticale"
+    },
+    "verticalAgriKP4": {
+      "en": "Precision agriculture",
+      "fr": "Agriculture de précision"
+    },
+    "verticalWaterName": {
+      "en": "Harch Water",
+      "fr": "Harch Water"
+    },
+    "verticalWaterInvestment": {
+      "en": "$150M",
+      "fr": "150 M$"
+    },
+    "verticalWaterDesc": {
+      "en": "200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa's water security crisis at continental scale.",
+      "fr": "Capacité de dessalement de 200M m³/an avec distribution optimisée par IA. Résoudre la crise de la sécurité hydrique de l'Afrique à l'échelle continentale."
+    },
+    "verticalWaterKP1": {
+      "en": "200M m³/yr capacity",
+      "fr": "Capacité 200M m³/an"
+    },
+    "verticalWaterKP2": {
+      "en": "AI-optimized distribution",
+      "fr": "Distribution optimisée par IA"
+    },
+    "verticalWaterKP3": {
+      "en": "Desalination technology",
+      "fr": "Technologie de dessalement"
+    },
+    "verticalWaterKP4": {
+      "en": "Smart water networks",
+      "fr": "Réseaux d'eau intelligents"
+    },
+    "investmentThesisLabel": {
+      "en": "Investment Thesis",
+      "fr": "Thèse d'Investissement"
+    },
+    "investmentThesisHeading": {
+      "en": "Why Africa, Why Now",
+      "fr": "Pourquoi l'Afrique, Pourquoi Maintenant"
+    },
+    "thesisDemographicTitle": {
+      "en": "Demographic Dividend",
+      "fr": "Dividende Démographique"
+    },
+    "thesisDemographicDesc": {
+      "en": "1.4 billion people with a median age of 19. The largest untapped workforce on Earth, ready to power industrialization at scale. By 2050, Africa will have the world's largest working-age population.",
+      "fr": "1,4 milliard de personnes avec un âge médian de 19 ans. La plus grande main-d'œuvre inexploitée sur Terre, prête à alimenter l'industrialisation à grande échelle. D'ici 2050, l'Afrique aura la plus grande population en âge de travailler au monde."
+    },
+    "thesisResourceTitle": {
+      "en": "Resource Supremacy",
+      "fr": "Suprématie des Ressources"
+    },
+    "thesisResourceDesc": {
+      "en": "30% of global mineral reserves, 60% of uncultivated arable land, and the world's best renewable energy resources. The raw materials for the 21st century economy are here.",
+      "fr": "30 % des réserves minérales mondiales, 60 % des terres arables non cultivées et les meilleures ressources d'énergie renouvelable au monde. Les matières premières de l'économie du 21e siècle sont ici."
+    },
+    "thesisInfrastructureTitle": {
+      "en": "Infrastructure Gap",
+      "fr": "Déficit d'Infrastructure"
+    },
+    "thesisInfrastructureDesc": {
+      "en": "The infrastructure deficit is not a problem — it's an opportunity. Every road, power plant, and data center that doesn't exist yet represents a first-mover advantage for those who build it.",
+      "fr": "Le déficit d'infrastructure n'est pas un problème — c'est une opportunité. Chaque route, centrale électrique et centre de données qui n'existe pas encore représente un avantage de premier entrant pour ceux qui le construisent."
+    },
+    "capitalLabel": {
+      "en": "Capital Deployment",
+      "fr": "Déploiement de Capital"
+    },
+    "capitalHeading": {
+      "en": "Investment Pipeline Breakdown",
+      "fr": "Répartition du Pipeline d'Investissement"
+    },
+    "competitiveLabel": {
+      "en": "Competitive Edge",
+      "fr": "Avantage Compétitif"
+    },
+    "competitiveHeading": {
+      "en": "Why Harch Wins",
+      "fr": "Pourquoi Harch Gagne"
+    },
+    "advantageVerticalIntegrationTitle": {
+      "en": "Vertical Integration",
+      "fr": "Intégration Verticale"
+    },
+    "advantageVerticalIntegrationDesc": {
+      "en": "Energy + Materials + Technology + Operations under one roof. We control every link, creating 30-50% structural cost advantages.",
+      "fr": "Énergie + Matériaux + Technologie + Opérations sous un même toit. Nous contrôlons chaque maillon, créant des avantages structurels de coûts de 30 à 50 %."
+    },
+    "advantageCarbonFirstTitle": {
+      "en": "Carbon-First Strategy",
+      "fr": "Stratégie Carbone d'Abord"
+    },
+    "advantageCarbonFirstDesc": {
+      "en": "Carbon-aware scheduling is our #1 differentiator. We route workloads to the greenest hubs in real time, achieving ~47 gCO2/kWh — 89% below the industry average. No competitor offers this level of carbon optimization.",
+      "fr": "L'ordonnancement sensible au carbone est notre différenciateur n°1. Nous acheminons les charges de travail vers les hubs les plus verts en temps réel, atteignant ~47 gCO2/kWh — 89 % en dessous de la moyenne du secteur. Aucun concurrent n'offre ce niveau d'optimisation carbone."
+    },
+    "advantageSovereignTitle": {
+      "en": "Sovereign by Design",
+      "fr": "Souverain par Conception"
+    },
+    "advantageSovereignDesc": {
+      "en": "Infrastructure that Africa owns and controls. No dependency on foreign operators, no extraction of value.",
+      "fr": "Une infrastructure que l'Afrique possède et contrôle. Aucune dépendance envers des opérateurs étrangers, aucune extraction de valeur."
+    },
+    "advantageSpeedTitle": {
+      "en": "Execution Speed",
+      "fr": "Vitesse d'Exécution"
+    },
+    "advantageSpeedDesc": {
+      "en": "The continent cannot wait. We deploy capital and break ground faster than any competitor in the market.",
+      "fr": "Le continent ne peut attendre. Nous déployons le capital et ouvrons les chantiers plus vite que tout concurrent sur le marché."
+    },
+    "ctaHeading": {
+      "en": "Ready to Build?",
+      "fr": "Prêt à Bâtir ?"
+    },
+    "ctaDescription": {
+      "en": "The strategy is clear. The opportunity is massive. The only question is whether you're part of it.",
+      "fr": "La stratégie est claire. L'opportunité est massive. La seule question est de savoir si vous en faites partie."
+    },
+    "ctaInvestmentDetails": {
+      "en": "Investment Details",
+      "fr": "Détails d'Investissement"
+    },
+    "ctaRequestBriefing": {
+      "en": "Request Briefing",
+      "fr": "Demander un Briefing"
+    }
+  }
+}

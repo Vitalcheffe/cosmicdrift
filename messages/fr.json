@@ -1,0 +1,59 @@
+{
+  "common": {
+    "skipToContent": "Aller au contenu principal",
+    "learnMore": "En savoir plus",
+    "getStarted": "Commencer",
+    "contactUs": "Nous contacter",
+    "requestQuote": "Demander un devis",
+    "viewAll": "Voir tout",
+    "readMore": "Lire la suite",
+    "backToHome": "Retour à l'accueil",
+    "loading": "Chargement...",
+    "search": "Rechercher",
+    "close": "Fermer",
+    "menu": "Menu",
+    "language": "Langue",
+    "switchLanguage": "Changer de langue"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "platform": "Plateforme",
+    "subsidiaries": "Filiales",
+    "investors": "Investisseurs",
+    "careers": "Carrières",
+    "pricing": "Tarifs",
+    "docs": "Documentation",
+    "blog": "Blog",
+    "contact": "Contact",
+    "quote": "Demander un devis"
+  },
+  "footer": {
+    "company": "Entreprise",
+    "products": "Produits",
+    "resources": "Ressources",
+    "legal": "Juridique",
+    "connect": "Connecter",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation",
+    "cookiePolicy": "Politique des cookies",
+    "allRightsReserved": "Tous droits réservés.",
+    "madeIn": "Fabriqué au Maroc"
+  },
+  "home": {
+    "heroTitle": "L'OS d'Infrastructure Souveraine de l'Afrique",
+    "heroSubtitle": "Construire la souveraineté industrielle de l'Afrique par l'IA, l'énergie et la technologie.",
+    "ctaPrimary": "Explorer la plateforme",
+    "ctaSecondary": "Relations investisseurs"
+  },
+  "cookieConsent": {
+    "title": "Nous respectons votre vie privée",
+    "description": "Nous utilisons des cookies pour améliorer votre expérience de navigation, diffuser du contenu personnalisé et analyser notre trafic.",
+    "accept": "Tout accepter",
+    "reject": "Tout refuser",
+    "customize": "Personnaliser",
+    "necessary": "Nécessaires",
+    "analytics": "Analytique",
+    "marketing": "Marketing"
+  }
+}

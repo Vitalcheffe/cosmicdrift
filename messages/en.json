@@ -1,0 +1,59 @@
+{
+  "common": {
+    "skipToContent": "Skip to main content",
+    "learnMore": "Learn more",
+    "getStarted": "Get started",
+    "contactUs": "Contact us",
+    "requestQuote": "Request a quote",
+    "viewAll": "View all",
+    "readMore": "Read more",
+    "backToHome": "Back to home",
+    "loading": "Loading...",
+    "search": "Search",
+    "close": "Close",
+    "menu": "Menu",
+    "language": "Language",
+    "switchLanguage": "Switch language"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "platform": "Platform",
+    "subsidiaries": "Subsidiaries",
+    "investors": "Investors",
+    "careers": "Careers",
+    "pricing": "Pricing",
+    "docs": "Documentation",
+    "blog": "Blog",
+    "contact": "Contact",
+    "quote": "Request a Quote"
+  },
+  "footer": {
+    "company": "Company",
+    "products": "Products",
+    "resources": "Resources",
+    "legal": "Legal",
+    "connect": "Connect",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "allRightsReserved": "All rights reserved.",
+    "madeIn": "Made in Morocco"
+  },
+  "home": {
+    "heroTitle": "Africa's Sovereign Infrastructure OS",
+    "heroSubtitle": "Building Africa's industrial sovereignty through AI, energy, and technology.",
+    "ctaPrimary": "Explore the Platform",
+    "ctaSecondary": "Investor Relations"
+  },
+  "cookieConsent": {
+    "title": "We value your privacy",
+    "description": "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.",
+    "accept": "Accept all",
+    "reject": "Reject all",
+    "customize": "Customize",
+    "necessary": "Necessary",
+    "analytics": "Analytics",
+    "marketing": "Marketing"
+  }
+}

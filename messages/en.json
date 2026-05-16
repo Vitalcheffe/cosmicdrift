@@ -9983,6 +9983,106 @@
           "verified": "Verified"
         }
       }
+    },
+    "modules": {
+      "sentinel": {
+        "name": "SENTINEL",
+        "tagline": "Real-time infrastructure intelligence",
+        "description": "Continuous monitoring of 2.4B+ data points across energy, water, transport, and digital networks. Multi-signal anomaly detection, pattern recognition, and sovereign alerting — before incidents become crises.",
+        "capabilities": {
+          "0": "Multi-signal anomaly detection across 8 verticals",
+          "1": "Sovereign alerting with zero external data leakage",
+          "2": "54-nation coverage with sub-second latency"
+        },
+        "dashboard": {
+          "title": "INFRASTRUCTURE PULSE",
+          "energy": "Energy",
+          "water": "Water",
+          "transport": "Transport",
+          "digital": "Digital",
+          "operational": "OPERATIONAL CAPACITY",
+          "activeAlerts": "Active Alerts",
+          "dataPoints": "data points"
+        }
+      },
+      "nexus": {
+        "name": "NEXUS",
+        "tagline": "Unified data ontology",
+        "description": "Every asset, every contract, every sensor — integrated into a single semantic model. No silos. No duplication. One source of truth for infrastructure intelligence across all 8 verticals.",
+        "capabilities": {
+          "0": "2.4B+ entities in a unified ontology",
+          "1": "Real-time data fusion from 47 source systems",
+          "2": "Semantic relationships across all verticals"
+        },
+        "dashboard": {
+          "title": "ONTOLOGY GRAPH",
+          "entities": "Entities",
+          "relationships": "Relationships",
+          "sources": "Sources",
+          "pipeline": "DATA FUSION"
+        }
+      },
+      "oracle": {
+        "name": "ORACLE",
+        "tagline": "AI-powered scenario simulation",
+        "description": "Don't predict the future — simulate it. Run thousands of scenarios in parallel. Stress-test infrastructure against climate, conflict, and demand shocks. Find the optimal path before you commit capital.",
+        "capabilities": {
+          "0": "Monte Carlo simulation with 10,000+ scenarios",
+          "1": "AI confidence scoring with explainable outputs",
+          "2": "Climate and demand shock modeling"
+        },
+        "dashboard": {
+          "title": "SCENARIO SIMULATION",
+          "baseline": "Baseline",
+          "stress": "Stress",
+          "optimal": "Optimal",
+          "confidence": "Confidence",
+          "aiEngine": "AI ENGINE",
+          "scenarios": "Scenarios",
+          "modelStatus": "Model Status",
+          "training": "Training Complete"
+        }
+      },
+      "citadel": {
+        "name": "CITADEL",
+        "tagline": "Security & digital sovereignty",
+        "description": "Your infrastructure. Your data. Your rules. End-to-end encryption, sovereign data enclaves, and compliance automation across every jurisdiction Harch operates in. Zero-trust architecture from the ground up.",
+        "capabilities": {
+          "0": "8 sovereign data enclaves across Africa",
+          "1": "Automated compliance for 14 jurisdictions",
+          "2": "Zero-trust architecture with granular access control"
+        },
+        "dashboard": {
+          "title": "SOVEREIGNTY & ACCESS",
+          "clearance": "CLEARANCE LEVELS",
+          "compliance": "COMPLIANCE",
+          "enclaves": "SOVEREIGN ENCLAVES",
+          "sovereignZones": "sovereign zones"
+        }
+      },
+      "meridian": {
+        "name": "MERIDIAN",
+        "tagline": "Deployment & operations engine",
+        "description": "From decision to deployment in minutes, not months. Automated pipelines, continuous monitoring, and rollback capabilities that keep 847+ active deployments running at 99.97% uptime across 8 verticals.",
+        "capabilities": {
+          "0": "847+ active deployments across 8 verticals",
+          "1": "99.97% uptime with automated failover",
+          "2": "Zero-downtime continuous deployment pipeline"
+        },
+        "dashboard": {
+          "title": "DEPLOYMENT PIPELINE",
+          "pipeline": "PIPELINE",
+          "plan": "Plan",
+          "build": "Build",
+          "test": "Test",
+          "deploy": "Deploy",
+          "monitor": "Monitor",
+          "activeDeploys": "Active Deploys",
+          "uptime": "Uptime",
+          "verticals": "Verticals",
+          "recentDeploys": "Recent Deployments"
+        }
+      }
     }
   }
 }

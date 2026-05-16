@@ -11142,6 +11142,106 @@
           "verified": "Vérifié"
         }
       }
+    },
+    "modules": {
+      "sentinel": {
+        "name": "SENTINEL",
+        "tagline": "Intelligence infrastructure en temps réel",
+        "description": "Surveillance continue de plus de 2,4 milliards de points de données à travers les réseaux énergie, eau, transport et numérique. Détection d'anomalies multi-signaux, reconnaissance de motifs et alerte souveraine — avant que les incidents ne deviennent des crises.",
+        "capabilities": {
+          "0": "Détection d'anomalies multi-signaux sur 8 verticales",
+          "1": "Alerte souveraine sans fuite de données externe",
+          "2": "Couverture 54 nations avec latence sub-seconde"
+        },
+        "dashboard": {
+          "title": "POULS INFRASTRUCTURE",
+          "energy": "Énergie",
+          "water": "Eau",
+          "transport": "Transport",
+          "digital": "Numérique",
+          "operational": "CAPACITÉ OPÉRATIONNELLE",
+          "activeAlerts": "Alertes actives",
+          "dataPoints": "points de données"
+        }
+      },
+      "nexus": {
+        "name": "NEXUS",
+        "tagline": "Ontologie de données unifiée",
+        "description": "Chaque actif, chaque contrat, chaque capteur — intégrés dans un seul modèle sémantique. Pas de silos. Pas de duplication. Une seule source de vérité pour l'intelligence infrastructure à travers les 8 verticales.",
+        "capabilities": {
+          "0": "2,4 Md+ d'entités dans une ontologie unifiée",
+          "1": "Fusion de données en temps réel depuis 47 systèmes sources",
+          "2": "Relations sémantiques à travers toutes les verticales"
+        },
+        "dashboard": {
+          "title": "GRAPHE ONTOLOGIQUE",
+          "entities": "Entités",
+          "relationships": "Relations",
+          "sources": "Sources",
+          "pipeline": "FUSION DE DONNÉES"
+        }
+      },
+      "oracle": {
+        "name": "ORACLE",
+        "tagline": "Simulation de scénarios par IA",
+        "description": "Ne prédisez pas l'avenir — simulez-le. Exécutez des milliers de scénarios en parallèle. Testez la résistance de l'infrastructure face aux chocs climatiques, géopolitiques et de demande. Trouvez le chemin optimal avant d'engager des capitaux.",
+        "capabilities": {
+          "0": "Simulation Monte Carlo avec plus de 10 000 scénarios",
+          "1": "Scoring de confiance IA avec sorties explicables",
+          "2": "Modélisation des chocs climatiques et de demande"
+        },
+        "dashboard": {
+          "title": "SIMULATION DE SCÉNARIOS",
+          "baseline": "Référence",
+          "stress": "Stress",
+          "optimal": "Optimal",
+          "confidence": "Confiance",
+          "aiEngine": "MOTEUR IA",
+          "scenarios": "Scénarios",
+          "modelStatus": "État du modèle",
+          "training": "Entraînement terminé"
+        }
+      },
+      "citadel": {
+        "name": "CITADEL",
+        "tagline": "Sécurité et souveraineté numérique",
+        "description": "Votre infrastructure. Vos données. Vos règles. Chiffrement de bout en bout, enclaves de données souveraines et automatisation de la conformité dans chaque juridiction où Harch opère. Architecture zéro confiance dès la conception.",
+        "capabilities": {
+          "0": "8 enclaves de données souveraines en Afrique",
+          "1": "Conformité automatisée pour 14 juridictions",
+          "2": "Architecture zéro confiance avec contrôle d'accès granulaire"
+        },
+        "dashboard": {
+          "title": "SOUVERAINETÉ ET ACCÈS",
+          "clearance": "NIVEAUX D'HABILITATION",
+          "compliance": "CONFORMITÉ",
+          "enclaves": "ENCLAVES SOUVERAINES",
+          "sovereignZones": "zones souveraines"
+        }
+      },
+      "meridian": {
+        "name": "MERIDIAN",
+        "tagline": "Moteur de déploiement et d'opérations",
+        "description": "De la décision au déploiement en minutes, pas en mois. Pipelines automatisés, surveillance continue et capacités de retour en arrière qui maintiennent plus de 847 déploiements actifs à 99,97 % de disponibilité sur 8 verticales.",
+        "capabilities": {
+          "0": "847+ déploiements actifs sur 8 verticales",
+          "1": "99,97 % de disponibilité avec basculement automatisé",
+          "2": "Pipeline de déploiement continu sans interruption"
+        },
+        "dashboard": {
+          "title": "PIPELINE DE DÉPLOIEMENT",
+          "pipeline": "PIPELINE",
+          "plan": "Planifier",
+          "build": "Construire",
+          "test": "Tester",
+          "deploy": "Déployer",
+          "monitor": "Surveiller",
+          "activeDeploys": "Déploiements actifs",
+          "uptime": "Disponibilité",
+          "verticals": "Verticales",
+          "recentDeploys": "Déploiements récents"
+        }
+      }
     }
   },
   "status": {

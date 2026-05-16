@@ -38,13 +38,13 @@ import type { Competitor } from '@/components/competitive/CompetitiveComparison'
    ACCENT COLOR MAP — per subsidiary
    ═══════════════════════════════════════════════════════════════ */
 const accentMap: Record<string, string> = {
-  intelligence: '#8B9DAF',
-  cement: '#8B9DAF',
-  energy: '#8B9DAF',
-  technology: '#8B9DAF',
-  mining: '#8B9DAF',
-  agriculture: '#4A7B5F',
-  water: '#8B9DAF',
+  intelligence: '#8B9DAF',  // Slate blue
+  cement: '#A08878',         // Warm stone
+  energy: '#6B9F6B',         // Muted green
+  technology: '#7888A8',     // Steel blue
+  mining: '#A87878',         // Terra cotta
+  agriculture: '#4A7B5F',    // Sage green
+  water: '#6888A8',          // Water blue
 };
 
 /* ═══════════════════════════════════════════════════════════════

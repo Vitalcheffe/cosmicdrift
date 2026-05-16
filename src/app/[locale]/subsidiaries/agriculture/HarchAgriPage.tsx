@@ -1244,7 +1244,7 @@ const data = {
           </FadeIn>
         </div>
       </section>
-      <InteractivePlatform slug="agriculture" />
+      <InteractivePlatform slug="agriculture" accent="#4A7B5F" />
     </div>
   );
 }

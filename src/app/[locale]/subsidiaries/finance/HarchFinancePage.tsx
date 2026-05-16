@@ -829,7 +829,7 @@ const data = {
           </FadeIn>
         </div>
       </section>
-      <InteractivePlatform slug="finance" />
+      <InteractivePlatform slug="finance" accent="#8B9DAF" />
     </div>
   );
 }

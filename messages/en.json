@@ -9301,6 +9301,9 @@
     "rev": "Rev:"
   },
   "interactivePlatform": {
+    "headerLabel": "Platform",
+    "headerTitle": "The operating system for African infrastructure",
+    "headerDescription": "HarchOS integrates data from ERP systems, SCADA networks, IoT sensors, and legacy databases across eight verticals — providing a unified, data-driven approach to infrastructure management that enables faster, more informed decisions.",
     "platform": "Platform",
     "interactivePreview": "Interactive platform preview — explore the interface",
     "allSystemsNominal": "ALL SYSTEMS NOMINAL",
@@ -9985,103 +9988,135 @@
       }
     },
     "modules": {
-      "sentinel": {
-        "name": "SENTINEL",
-        "tagline": "Real-time infrastructure intelligence",
-        "description": "Continuous monitoring of 2.4B+ data points across energy, water, transport, and digital networks. Multi-signal anomaly detection, pattern recognition, and sovereign alerting — before incidents become crises.",
+      "ontology": {
+        "label": "DATA MODEL",
+        "name": "Ontology",
+        "description": "A unified semantic model that represents every asset, contract, sensor, and operational entity across Harch Corp's eight verticals. The Ontology eliminates data silos and establishes a single source of truth — enabling operators, analysts, and decision-makers to work from the same operational picture, whether they manage a cement plant in Casablanca or a desalination facility in Dakar.",
+        "capabilitiesLabel": "CAPABILITIES",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "Multi-signal anomaly detection across 8 verticals",
-          "1": "Sovereign alerting with zero external data leakage",
-          "2": "54-nation coverage with sub-second latency"
+          "0": {
+            "title": "Unified Object Model",
+            "description": "Every physical asset, legal entity, and operational process modeled as a first-class object with typed properties, provenance, and lineage — from turbines to transport contracts."
+          },
+          "1": {
+            "title": "Cross-Vertical Relationship Mapping",
+            "description": "Automatic detection and visualization of dependencies between verticals: how a water shortage impacts cement production, how energy pricing shifts mining output, how logistics bottlenecks cascade across operations."
+          },
+          "2": {
+            "title": "Real-Time Data Synchronization",
+            "description": "Bidirectional sync with ERP systems (SAP, Oracle), SCADA networks, IoT sensor arrays, and legacy databases — ensuring the Ontology reflects operational reality, not stale reports."
+          },
+          "3": {
+            "title": "Temporal Versioning",
+            "description": "Every object maintains a full history of state changes, enabling retrospective analysis, audit compliance, and point-in-time reconstruction of any operational decision."
+          }
         },
-        "dashboard": {
-          "title": "INFRASTRUCTURE PULSE",
-          "energy": "Energy",
-          "water": "Water",
-          "transport": "Transport",
-          "digital": "Digital",
-          "operational": "OPERATIONAL CAPACITY",
-          "activeAlerts": "Active Alerts",
-          "dataPoints": "data points"
-        }
+        "cta": "Explore Ontology"
       },
-      "nexus": {
-        "name": "NEXUS",
-        "tagline": "Unified data ontology",
-        "description": "Every asset, every contract, every sensor — integrated into a single semantic model. No silos. No duplication. One source of truth for infrastructure intelligence across all 8 verticals.",
+      "foundry": {
+        "label": "DATA INTEGRATION",
+        "name": "Foundry",
+        "description": "The data integration layer that connects, transforms, and pipelines information from every source Harch Corp operates. Foundry aggregates data from enterprise resource planning systems, legacy databases, SCADA networks, and operational sources to identify bottlenecks, streamline engineering workflows, and support proactive risk mitigation — ultimately providing a unified, data-driven approach to infrastructure management.",
+        "capabilitiesLabel": "CAPABILITIES",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "2.4B+ entities in a unified ontology",
-          "1": "Real-time data fusion from 47 source systems",
-          "2": "Semantic relationships across all verticals"
+          "0": {
+            "title": "Demand Planning & Procurement Optimization",
+            "description": "Aggregate demand signals across verticals and optimize procurement timelines against supplier capacity, shipping constraints, and storage costs. Reduce overstocking and stockouts through forward-looking pipeline visibility."
+          },
+          "1": {
+            "title": "Dynamic Production Scheduling",
+            "description": "Automatically adjust production schedules based on real-time input: equipment availability, energy costs, labor constraints, and downstream demand shifts. Recalibrate in minutes, not days."
+          },
+          "2": {
+            "title": "Process Optimization & Non-Compliance Reporting",
+            "description": "Detect process deviations against regulatory and internal thresholds in real time. Generate structured non-compliance reports with root-cause analysis and corrective action recommendations."
+          },
+          "3": {
+            "title": "Multi-Source Pipeline Orchestration",
+            "description": "Build, monitor, and audit data pipelines that move information between SAP, Oracle, SQL Server, S3, IoT gateways, and flat files — with full data lineage and quality checks at every stage."
+          }
         },
-        "dashboard": {
-          "title": "ONTOLOGY GRAPH",
-          "entities": "Entities",
-          "relationships": "Relationships",
-          "sources": "Sources",
-          "pipeline": "DATA FUSION"
-        }
+        "cta": "Explore Foundry"
       },
-      "oracle": {
-        "name": "ORACLE",
-        "tagline": "AI-powered scenario simulation",
-        "description": "Don't predict the future — simulate it. Run thousands of scenarios in parallel. Stress-test infrastructure against climate, conflict, and demand shocks. Find the optimal path before you commit capital.",
+      "aip": {
+        "label": "ARTIFICIAL INTELLIGENCE",
+        "name": "AIP",
+        "description": "The AI platform layer that enables operators, engineers, and executives to interact with infrastructure data through natural language, build AI-driven workflows, and deploy intelligent automation across operations. AIP goes beyond chat: it builds AI applications, action-driven logic, and production automations that run on operational data — not training datasets.",
+        "capabilitiesLabel": "CAPABILITIES",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "Monte Carlo simulation with 10,000+ scenarios",
-          "1": "AI confidence scoring with explainable outputs",
-          "2": "Climate and demand shock modeling"
+          "0": {
+            "title": "AI-Driven Workflow Builder",
+            "description": "Design, test, and deploy AI-powered workflows that combine large language models with operational data. Build automations that monitor conditions, evaluate options, and propose actions for human review — not black-box decisions."
+          },
+          "1": {
+            "title": "Action-Driven Logic",
+            "description": "Define business rules and decision logic that trigger real operational actions: reallocate materials, adjust production parameters, escalate maintenance tickets, or reroute logistics — all with full audit trails and human-in-the-loop controls."
+          },
+          "2": {
+            "title": "Scenario Simulation & Stress Testing",
+            "description": "Run Monte Carlo simulations and stress tests against real operational constraints: what happens to cement output if energy prices rise 15%? What if the Tangier port shuts for 48 hours? Quantified answers, not guesses."
+          },
+          "3": {
+            "title": "Predictive Maintenance & Anomaly Detection",
+            "description": "Pattern recognition across sensor data, maintenance logs, and operational telemetry to identify equipment failures before they occur. Reduce unplanned downtime and extend asset lifespan with evidence-based maintenance scheduling."
+          }
         },
-        "dashboard": {
-          "title": "SCENARIO SIMULATION",
-          "baseline": "Baseline",
-          "stress": "Stress",
-          "optimal": "Optimal",
-          "confidence": "Confidence",
-          "aiEngine": "AI ENGINE",
-          "scenarios": "Scenarios",
-          "modelStatus": "Model Status",
-          "training": "Training Complete"
-        }
+        "cta": "Explore AIP"
       },
-      "citadel": {
-        "name": "CITADEL",
-        "tagline": "Security & digital sovereignty",
-        "description": "Your infrastructure. Your data. Your rules. End-to-end encryption, sovereign data enclaves, and compliance automation across every jurisdiction Harch operates in. Zero-trust architecture from the ground up.",
+      "apollo": {
+        "label": "DEPLOYMENT & OPERATIONS",
+        "name": "Apollo",
+        "description": "The deployment and operations engine that manages HarchOS software across production environments — from data centers in Casablanca to edge nodes in remote mining sites. Apollo handles versioning, rollout strategy, health monitoring, and rollback, ensuring that every update to HarchOS reaches every site safely and without downtime.",
+        "capabilitiesLabel": "CAPABILITIES",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "8 sovereign data enclaves across Africa",
-          "1": "Automated compliance for 14 jurisdictions",
-          "2": "Zero-trust architecture with granular access control"
+          "0": {
+            "title": "Zero-Downtime Continuous Deployment",
+            "description": "Deploy HarchOS updates across all production environments with canary strategies, blue-green rollouts, and automatic health gates. Every deployment is reversible, every change is tracked."
+          },
+          "1": {
+            "title": "Multi-Region Operations Management",
+            "description": "Monitor and manage HarchOS instances across Morocco, Senegal, Côte d'Ivoire, and emerging markets from a single control plane. Regional isolation with centralized visibility."
+          },
+          "2": {
+            "title": "Automated Rollback & Incident Response",
+            "description": "When a deployment fails health checks, Apollo automatically reverts to the last stable version and generates an incident report with root-cause analysis. Mean time to recovery measured in seconds, not hours."
+          },
+          "3": {
+            "title": "Infrastructure Access Control",
+            "description": "Granular, role-based access to production environments with full audit logging. No shared credentials, no untracked SSH sessions, no exceptions."
+          }
         },
-        "dashboard": {
-          "title": "SOVEREIGNTY & ACCESS",
-          "clearance": "CLEARANCE LEVELS",
-          "compliance": "COMPLIANCE",
-          "enclaves": "SOVEREIGN ENCLAVES",
-          "sovereignZones": "sovereign zones"
-        }
+        "cta": "Explore Apollo"
       },
-      "meridian": {
-        "name": "MERIDIAN",
-        "tagline": "Deployment & operations engine",
-        "description": "From decision to deployment in minutes, not months. Automated pipelines, continuous monitoring, and rollback capabilities that keep 847+ active deployments running at 99.97% uptime across 8 verticals.",
+      "build": {
+        "label": "INFRASTRUCTURE CONSTRUCTION",
+        "name": "Build",
+        "description": "The construction management platform for Harch Corp's infrastructure pipeline. Build aggregates data from project management systems, site surveys, contractor databases, and financial models to identify schedule risks, optimize resource allocation, and support proactive risk mitigation — providing a unified, data-driven approach to construction project delivery from feasibility to commissioning.",
+        "capabilitiesLabel": "CAPABILITIES",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "847+ active deployments across 8 verticals",
-          "1": "99.97% uptime with automated failover",
-          "2": "Zero-downtime continuous deployment pipeline"
+          "0": {
+            "title": "Demand Planning & Resource Optimization",
+            "description": "Forecast material, labor, and equipment demand across active construction projects. Optimize procurement and allocation against supplier constraints, logistics capacity, and seasonal availability."
+          },
+          "1": {
+            "title": "Dynamic Construction Scheduling",
+            "description": "Automatically adjust project schedules based on weather data, contractor availability, supply chain delays, and regulatory approvals. Recalculate critical paths in real time."
+          },
+          "2": {
+            "title": "Process Optimization for Compliance Reporting",
+            "description": "Track compliance with environmental permits, safety regulations, and contractual milestones. Generate structured reports for regulators, insurers, and financing partners with source-verified data."
+          },
+          "3": {
+            "title": "Site Selection & Terrain Analysis",
+            "description": "Integrate geospatial data, environmental impact assessments, and infrastructure connectivity models to evaluate and compare potential construction sites before committing capital."
+          }
         },
-        "dashboard": {
-          "title": "DEPLOYMENT PIPELINE",
-          "pipeline": "PIPELINE",
-          "plan": "Plan",
-          "build": "Build",
-          "test": "Test",
-          "deploy": "Deploy",
-          "monitor": "Monitor",
-          "activeDeploys": "Active Deploys",
-          "uptime": "Uptime",
-          "verticals": "Verticals",
-          "recentDeploys": "Recent Deployments"
-        }
+        "cta": "Explore Build"
       }
     }
   }

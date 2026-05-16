@@ -10460,14 +10460,17 @@
     "rev": "CA :"
   },
   "interactivePlatform": {
+    "headerLabel": "Plateforme",
+    "headerTitle": "Le syst\u00e8me d'exploitation de l'infrastructure africaine",
+    "headerDescription": "HarchOS int\u00e8gre les donn\u00e9es des syst\u00e8mes ERP, r\u00e9seaux SCADA, capteurs IoT et bases de donn\u00e9es h\u00e9rit\u00e9es \u00e0 travers huit verticales \u2014 fournissant une approche unifi\u00e9e et bas\u00e9e sur les donn\u00e9es de la gestion d'infrastructure qui permet des d\u00e9cisions plus rapides et plus inform\u00e9es.",
     "platform": "Plateforme",
-    "interactivePreview": "Aperçu interactif de la plateforme — explorez l'interface",
-    "allSystemsNominal": "TOUS SYSTÈMES NOMINAUX",
+    "interactivePreview": "Aper\u00e7u interactif de la plateforme \u2014 explorez l'interface",
+    "allSystemsNominal": "TOUS SYST\u00c8MES NOMINAUX",
     "live": "EN DIRECT",
-    "hideDetails": "Masquer les détails",
-    "showDetails": "Afficher les détails",
+    "hideDetails": "Masquer les d\u00e9tails",
+    "showDetails": "Afficher les d\u00e9tails",
     "export": "Exporter",
-    "settings": "Paramètres",
+    "settings": "Param\u00e8tres",
     "intelligence": {
       "platformName": "Console HarchOS",
       "sidebarLabels": {
@@ -11144,103 +11147,135 @@
       }
     },
     "modules": {
-      "sentinel": {
-        "name": "SENTINEL",
-        "tagline": "Intelligence infrastructure en temps réel",
-        "description": "Surveillance continue de plus de 2,4 milliards de points de données à travers les réseaux énergie, eau, transport et numérique. Détection d'anomalies multi-signaux, reconnaissance de motifs et alerte souveraine — avant que les incidents ne deviennent des crises.",
+      "ontology": {
+        "label": "MODÈLE DE DONNÉES",
+        "name": "Ontology",
+        "description": "Un modèle sémantique unifié qui représente chaque actif, contrat, capteur et entité opérationnelle à travers les huit verticales de Harch Corp. L'Ontology élimine les silos de données et établit une source unique de vérité — permettant aux opérateurs, analystes et décideurs de travailler à partir de la même image opérationnelle, qu'ils gèrent une cimenterie à Casablanca ou une usine de dessalement à Dakar.",
+        "capabilitiesLabel": "CAPACITÉS",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "Détection d'anomalies multi-signaux sur 8 verticales",
-          "1": "Alerte souveraine sans fuite de données externe",
-          "2": "Couverture 54 nations avec latence sub-seconde"
+          "0": {
+            "title": "Modèle d'objets unifié",
+            "description": "Chaque actif physique, entité juridique et processus opérationnel modélisé comme un objet de première classe avec des propriétés typées, provenance et lignée — des turbines aux contrats de transport."
+          },
+          "1": {
+            "title": "Cartographie des relations inter-verticales",
+            "description": "Détection et visualisation automatiques des dépendances entre verticales : comment une pénurie d'eau impacte la production de ciment, comment la tarification énergétique modifie la production minière, comment les goulots d'étranglement logistiques se répercutent sur les opérations."
+          },
+          "2": {
+            "title": "Synchronisation des données en temps réel",
+            "description": "Synchronisation bidirectionnelle avec les systèmes ERP (SAP, Oracle), réseaux SCADA, réseaux de capteurs IoT et bases de données héritées — garantissant que l'Ontology reflète la réalité opérationnelle, pas des rapports obsolètes."
+          },
+          "3": {
+            "title": "Versionnement temporel",
+            "description": "Chaque objet conserve un historique complet des changements d'état, permettant l'analyse rétrospective, la conformité d'audit et la reconstruction à un instant t de toute décision opérationnelle."
+          }
         },
-        "dashboard": {
-          "title": "POULS INFRASTRUCTURE",
-          "energy": "Énergie",
-          "water": "Eau",
-          "transport": "Transport",
-          "digital": "Numérique",
-          "operational": "CAPACITÉ OPÉRATIONNELLE",
-          "activeAlerts": "Alertes actives",
-          "dataPoints": "points de données"
-        }
+        "cta": "Explorer Ontology"
       },
-      "nexus": {
-        "name": "NEXUS",
-        "tagline": "Ontologie de données unifiée",
-        "description": "Chaque actif, chaque contrat, chaque capteur — intégrés dans un seul modèle sémantique. Pas de silos. Pas de duplication. Une seule source de vérité pour l'intelligence infrastructure à travers les 8 verticales.",
+      "foundry": {
+        "label": "INTÉGRATION DE DONNÉES",
+        "name": "Foundry",
+        "description": "La couche d'intégration de données qui connecte, transforme et achemine les informations de chaque source exploitée par Harch Corp. Foundry agrège les données des systèmes de planification des ressources, bases de données héritées, réseaux SCADA et sources opérationnelles pour identifier les goulots d'étranglement, rationaliser les flux de travail et soutenir l'atténuation proactive des risques.",
+        "capabilitiesLabel": "CAPACITÉS",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "2,4 Md+ d'entités dans une ontologie unifiée",
-          "1": "Fusion de données en temps réel depuis 47 systèmes sources",
-          "2": "Relations sémantiques à travers toutes les verticales"
+          "0": {
+            "title": "Planification de la demande et optimisation des approvisionnements",
+            "description": "Agréger les signaux de demande à travers les verticales et optimiser les délais d'approvisionnement face à la capacité des fournisseurs, aux contraintes logistiques et aux coûts de stockage. Réduire le surstockage et les ruptures grâce à une visibilité prospective du pipeline."
+          },
+          "1": {
+            "title": "Ordonnancement dynamique de la production",
+            "description": "Ajuster automatiquement les programmes de production en fonction des données en temps réel : disponibilité des équipements, coûts énergétiques, contraintes de main-d'œuvre et évolutions de la demande. Recalibrer en minutes, pas en jours."
+          },
+          "2": {
+            "title": "Optimisation des processus et reporting de non-conformité",
+            "description": "Détecter les déviations de processus par rapport aux seuils réglementaires et internes en temps réel. Générer des rapports structurés de non-conformité avec analyse des causes racines et recommandations d'actions correctives."
+          },
+          "3": {
+            "title": "Orchestration multi-sources de pipelines",
+            "description": "Construire, surveiller et auditer des pipelines de données qui déplacent les informations entre SAP, Oracle, SQL Server, S3, passerelles IoT et fichiers plats — avec lignée de données complète et contrôles qualité à chaque étape."
+          }
         },
-        "dashboard": {
-          "title": "GRAPHE ONTOLOGIQUE",
-          "entities": "Entités",
-          "relationships": "Relations",
-          "sources": "Sources",
-          "pipeline": "FUSION DE DONNÉES"
-        }
+        "cta": "Explorer Foundry"
       },
-      "oracle": {
-        "name": "ORACLE",
-        "tagline": "Simulation de scénarios par IA",
-        "description": "Ne prédisez pas l'avenir — simulez-le. Exécutez des milliers de scénarios en parallèle. Testez la résistance de l'infrastructure face aux chocs climatiques, géopolitiques et de demande. Trouvez le chemin optimal avant d'engager des capitaux.",
+      "aip": {
+        "label": "INTELLIGENCE ARTIFICIELLE",
+        "name": "AIP",
+        "description": "La couche plateforme IA qui permet aux opérateurs, ingénieurs et dirigeants d'interagir avec les données d'infrastructure en langage naturel, de construire des workflows pilotés par l'IA et de déployer l'automatisation intelligente. AIP va au-delà du chat : il construit des applications IA, une logique orientée action et des automatisations de production qui fonctionnent sur des données opérationnelles.",
+        "capabilitiesLabel": "CAPACITÉS",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "Simulation Monte Carlo avec plus de 10 000 scénarios",
-          "1": "Scoring de confiance IA avec sorties explicables",
-          "2": "Modélisation des chocs climatiques et de demande"
+          "0": {
+            "title": "Constructeur de workflows piloté par l'IA",
+            "description": "Concevoir, tester et déployer des workflows alimentés par l'IA combinant modèles de langage et données opérationnelles. Construire des automatisations qui surveillent les conditions, évaluent les options et proposent des actions pour revue humaine — pas des décisions boîte noire."
+          },
+          "1": {
+            "title": "Logique orientée action",
+            "description": "Définir des règles métier et une logique de décision qui déclenchent de véritables actions opérationnelles : réallouer des matériaux, ajuster les paramètres de production, escalader des tickets de maintenance ou rerouter la logistique — le tout avec pistes d'audit complètes et contrôles humains."
+          },
+          "2": {
+            "title": "Simulation de scénarios et tests de résistance",
+            "description": "Exécuter des simulations Monte Carlo et des tests de résistance contre de vraies contraintes opérationnelles : que se passe-t-il pour la production de ciment si les prix de l'énergie augmentent de 15 % ? Et si le port de Tanger ferme pendant 48 heures ? Des réponses chiffrées, pas des suppositions."
+          },
+          "3": {
+            "title": "Maintenance prédictive et détection d'anomalies",
+            "description": "Reconnaissance de motifs à travers les données de capteurs, journaux de maintenance et télémétrie opérationnelle pour identifier les défaillances d'équipement avant qu'elles ne surviennent. Réduire les arrêts non planifiés et prolonger la durée de vie des actifs."
+          }
         },
-        "dashboard": {
-          "title": "SIMULATION DE SCÉNARIOS",
-          "baseline": "Référence",
-          "stress": "Stress",
-          "optimal": "Optimal",
-          "confidence": "Confiance",
-          "aiEngine": "MOTEUR IA",
-          "scenarios": "Scénarios",
-          "modelStatus": "État du modèle",
-          "training": "Entraînement terminé"
-        }
+        "cta": "Explorer AIP"
       },
-      "citadel": {
-        "name": "CITADEL",
-        "tagline": "Sécurité et souveraineté numérique",
-        "description": "Votre infrastructure. Vos données. Vos règles. Chiffrement de bout en bout, enclaves de données souveraines et automatisation de la conformité dans chaque juridiction où Harch opère. Architecture zéro confiance dès la conception.",
+      "apollo": {
+        "label": "DÉPLOIEMENT ET OPÉRATIONS",
+        "name": "Apollo",
+        "description": "Le moteur de déploiement et d'opérations qui gère le logiciel HarchOS à travers les environnements de production — des centres de données de Casablanca aux nœuds en périphérie des sites miniers reculés. Apollo gère le versionnage, la stratégie de déploiement, la surveillance de santé et le retour en arrière.",
+        "capabilitiesLabel": "CAPACITÉS",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "8 enclaves de données souveraines en Afrique",
-          "1": "Conformité automatisée pour 14 juridictions",
-          "2": "Architecture zéro confiance avec contrôle d'accès granulaire"
+          "0": {
+            "title": "Déploiement continu sans interruption",
+            "description": "Déployer les mises à jour HarchOS dans tous les environnements de production avec des stratégies canari, déploiements blue-green et portes de santé automatiques. Chaque déploiement est réversible, chaque changement est tracé."
+          },
+          "1": {
+            "title": "Gestion des opérations multi-régions",
+            "description": "Surveiller et gérer les instances HarchOS au Maroc, au Sénégal, en Côte d'Ivoire et sur les marchés émergents depuis un plan de contrôle unique. Isolation régionale avec visibilité centralisée."
+          },
+          "2": {
+            "title": "Retour en arrière automatisé et réponse aux incidents",
+            "description": "Lorsqu'un déploiement échoue aux contrôles de santé, Apollo revient automatiquement à la dernière version stable et génère un rapport d'incident avec analyse des causes racines. Temps moyen de récupération mesuré en secondes, pas en heures."
+          },
+          "3": {
+            "title": "Contrôle d'accès aux infrastructures",
+            "description": "Accès granulaire basé sur les rôles aux environnements de production avec journalisation d'audit complète. Pas d'identifiants partagés, pas de sessions SSH non tracées, aucune exception."
+          }
         },
-        "dashboard": {
-          "title": "SOUVERAINETÉ ET ACCÈS",
-          "clearance": "NIVEAUX D'HABILITATION",
-          "compliance": "CONFORMITÉ",
-          "enclaves": "ENCLAVES SOUVERAINES",
-          "sovereignZones": "zones souveraines"
-        }
+        "cta": "Explorer Apollo"
       },
-      "meridian": {
-        "name": "MERIDIAN",
-        "tagline": "Moteur de déploiement et d'opérations",
-        "description": "De la décision au déploiement en minutes, pas en mois. Pipelines automatisés, surveillance continue et capacités de retour en arrière qui maintiennent plus de 847 déploiements actifs à 99,97 % de disponibilité sur 8 verticales.",
+      "build": {
+        "label": "CONSTRUCTION D'INFRASTRUCTURE",
+        "name": "Build",
+        "description": "La plateforme de gestion de construction pour le pipeline d'infrastructure de Harch Corp. Build agrège les données des systèmes de gestion de projet, levés de terrain, bases de données d'entrepreneurs et modèles financiers pour identifier les risques de planning, optimiser l'allocation des ressources et soutenir l'atténuation proactive des risques.",
+        "capabilitiesLabel": "CAPACITÉS",
+        "capabilityCount": "4",
         "capabilities": {
-          "0": "847+ déploiements actifs sur 8 verticales",
-          "1": "99,97 % de disponibilité avec basculement automatisé",
-          "2": "Pipeline de déploiement continu sans interruption"
+          "0": {
+            "title": "Planification de la demande et optimisation des ressources",
+            "description": "Prévoir la demande en matériaux, main-d'œuvre et équipements à travers les projets de construction actifs. Optimiser les approvisionnements et l'allocation face aux contraintes fournisseurs, capacités logistiques et disponibilités saisonnières."
+          },
+          "1": {
+            "title": "Planification dynamique des chantiers",
+            "description": "Ajuster automatiquement les plannings de projet en fonction des données météo, disponibilité des entrepreneurs, retards de la chaîne d'approvisionnement et approbations réglementaires. Recalculer les chemins critiques en temps réel."
+          },
+          "2": {
+            "title": "Optimisation des processus pour le reporting de conformité",
+            "description": "Suivre la conformité avec les permis environnementaux, réglementations de sécurité et jalons contractuels. Générer des rapports structurés pour les régulateurs, assureurs et partenaires financiers avec des données vérifiées à la source."
+          },
+          "3": {
+            "title": "Sélection de sites et analyse terrain",
+            "description": "Intégrer les données géospatiales, évaluations d'impact environnemental et modèles de connectivité d'infrastructure pour évaluer et comparer les sites de construction potentiels avant d'engager des capitaux."
+          }
         },
-        "dashboard": {
-          "title": "PIPELINE DE DÉPLOIEMENT",
-          "pipeline": "PIPELINE",
-          "plan": "Planifier",
-          "build": "Construire",
-          "test": "Tester",
-          "deploy": "Déployer",
-          "monitor": "Surveiller",
-          "activeDeploys": "Déploiements actifs",
-          "uptime": "Disponibilité",
-          "verticals": "Verticales",
-          "recentDeploys": "Déploiements récents"
-        }
+        "cta": "Explorer Build"
       }
     }
   },

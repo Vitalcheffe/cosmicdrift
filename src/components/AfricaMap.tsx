@@ -192,7 +192,7 @@ export function AfricaMap() {
   }, []);
 
   return (
-    <div className="relative w-full max-w-[900px] mx-auto">
+    <div className="relative w-full max-w-[680px] mx-auto">
       {/* ── Header ── */}
       <motion.div
         className="flex items-center justify-between mb-4 px-1"
@@ -228,7 +228,7 @@ export function AfricaMap() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <div className="relative w-full" style={{ aspectRatio: '800 / 900' }}>
+        <div className="relative w-full" style={{ aspectRatio: '800 / 550' }}>
           <svg
             className="absolute inset-0 w-full h-full"
             viewBox={`0 0 ${VW} ${VH}`}

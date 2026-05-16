@@ -488,10 +488,10 @@ export default function HomePageClient() {
       {/* ═══════════════════════════════════════════════════════════
           S4: AFRICA MAP — Import from component, FadeIn
           ═══════════════════════════════════════════════════════════ */}
-      <section id="global-presence" className="py-28 md:py-36 bg-[#0D0D0D] relative overflow-hidden">
+      <section id="global-presence" className="py-16 md:py-20 bg-[#0D0D0D] relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <FadeIn>
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <p className="section-label mb-4">{t('sectionLabels.deployments')}</p>
               <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight">
                 {t('sectionLabels.operations')}
@@ -507,7 +507,7 @@ export default function HomePageClient() {
 
           {/* System Health + Live Feed */}
           <FadeIn delay={0.35}>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
               <div className="lg:col-span-2">
                 <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6">
                   <div className="flex items-center justify-between mb-4">

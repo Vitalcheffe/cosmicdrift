@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 interface Competitor {
   name: string
@@ -13,57 +14,58 @@ interface Competitor {
   harchAdvantage: string
 }
 
-const competitors: Competitor[] = [
-  {
-    name: 'Twiga Foods',
-    country: 'Kenya',
-    revenue: '$120M',
-    funding: '$110M',
-    product: 'B2B Marketplace',
-    model: 'Commission 8-12%',
-    harchAdvantage: 'Direct IoT connectivity, not just marketplace',
-  },
-  {
-    name: 'Apollo Agriculture',
-    country: 'Kenya',
-    revenue: '$50M',
-    funding: '$40M',
-    product: 'Agricultural Credit',
-    model: 'Interest 12-18%',
-    harchAdvantage: 'IoT stack reduces default risk by 40%',
-  },
-  {
-    name: 'Aerofarms',
-    country: 'USA',
-    revenue: '$30M',
-    funding: '$250M',
-    product: 'Vertical Farms',
-    model: 'Direct Sales',
-    harchAdvantage: '60% lower cost via African solar energy',
-  },
-  {
-    name: 'Climate Corp',
-    country: 'USA',
-    revenue: '$500M',
-    funding: 'Acquired $1.1B',
-    product: 'Crop Insurance',
-    model: 'SaaS + Premiums',
-    harchAdvantage: 'Proprietary IoT data provides superior accuracy',
-  },
-  {
-    name: 'OCP Group',
-    country: 'Morocco',
-    revenue: '$7.2B',
-    funding: 'State-owned',
-    product: 'Fertilizer + Pilot Farms',
-    model: 'Fertilizer + Services',
-    harchAdvantage: 'Complementary partnership — we digitalize their farms',
-  },
-]
-
 export default function CompetitorComparison() {
+  const t = useTranslations('harchagri.competitorComparison')
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
+
+  const competitors: Competitor[] = [
+    {
+      name: 'Twiga Foods',
+      country: t('competitors.twiga.country'),
+      revenue: '$120M',
+      funding: '$110M',
+      product: t('competitors.twiga.product'),
+      model: t('competitors.twiga.model'),
+      harchAdvantage: t('competitors.twiga.advantage'),
+    },
+    {
+      name: 'Apollo Agriculture',
+      country: t('competitors.apollo.country'),
+      revenue: '$50M',
+      funding: '$40M',
+      product: t('competitors.apollo.product'),
+      model: t('competitors.apollo.model'),
+      harchAdvantage: t('competitors.apollo.advantage'),
+    },
+    {
+      name: 'Aerofarms',
+      country: t('competitors.aerofarms.country'),
+      revenue: '$30M',
+      funding: '$250M',
+      product: t('competitors.aerofarms.product'),
+      model: t('competitors.aerofarms.model'),
+      harchAdvantage: t('competitors.aerofarms.advantage'),
+    },
+    {
+      name: 'Climate Corp',
+      country: t('competitors.climate.country'),
+      revenue: '$500M',
+      funding: 'Acquired $1.1B',
+      product: t('competitors.climate.product'),
+      model: t('competitors.climate.model'),
+      harchAdvantage: t('competitors.climate.advantage'),
+    },
+    {
+      name: 'OCP Group',
+      country: t('competitors.ocp.country'),
+      revenue: '$7.2B',
+      funding: 'State-owned',
+      product: t('competitors.ocp.product'),
+      model: t('competitors.ocp.model'),
+      harchAdvantage: t('competitors.ocp.advantage'),
+    },
+  ]
 
   return (
     <div ref={ref}>
@@ -78,13 +80,13 @@ export default function CompetitorComparison() {
           <table className="data-table">
             <thead>
               <tr>
-                <th>Company</th>
-                <th>Country</th>
-                <th>Revenue</th>
-                <th>Funding</th>
-                <th>Product</th>
-                <th>Model</th>
-                <th>Harch Agri Advantage</th>
+                <th>{t('headers.company')}</th>
+                <th>{t('headers.country')}</th>
+                <th>{t('headers.revenue')}</th>
+                <th>{t('headers.funding')}</th>
+                <th>{t('headers.product')}</th>
+                <th>{t('headers.model')}</th>
+                <th>{t('headers.harchAdvantage')}</th>
               </tr>
             </thead>
             <tbody>
@@ -113,7 +115,7 @@ export default function CompetitorComparison() {
           </table>
         </div>
         <div className="px-6 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)]">
-          <p className="text-[11px] text-[#666666]">Competitive analysis based on public data as of Q1 2026.</p>
+          <p className="text-[11px] text-[#666666]">{t('footnote')}</p>
         </div>
       </motion.div>
 
@@ -129,26 +131,26 @@ export default function CompetitorComparison() {
             <span className="text-[10px] font-bold tracking-[0.15em] text-white font-[family-name:var(--font-space-mono)]">/0.6</span>
           </div>
           <div>
-            <h4 className="font-bold text-white text-lg">Harch Agri</h4>
-            <p className="text-[11px] text-[#666666]">5 countries, 11,800+ sensors, 25,000+ hectares</p>
+            <h4 className="font-bold text-white text-lg">{t('harchAgri.title')}</h4>
+            <p className="text-[11px] text-[#666666]">{t('harchAgri.subtitle')}</p>
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
           <div>
-            <p className="text-[10px] text-[#666666] uppercase tracking-wider">Year 2 Target Revenue</p>
+            <p className="text-[10px] text-[#666666] uppercase tracking-wider">{t('harchAgri.year2Target')}</p>
             <p className="text-lg font-bold text-white stat-mono">$8.5M</p>
           </div>
           <div>
-            <p className="text-[10px] text-[#666666] uppercase tracking-wider">Investment</p>
+            <p className="text-[10px] text-[#666666] uppercase tracking-wider">{t('harchAgri.investment')}</p>
             <p className="text-lg font-bold text-white stat-mono">$2.1M</p>
           </div>
           <div>
-            <p className="text-[10px] text-[#666666] uppercase tracking-wider">Model</p>
-            <p className="text-lg font-bold text-white">SaaS + Hardware + Carbon</p>
+            <p className="text-[10px] text-[#666666] uppercase tracking-wider">{t('harchAgri.modelLabel')}</p>
+            <p className="text-lg font-bold text-white">{t('harchAgri.modelValue')}</p>
           </div>
           <div>
-            <p className="text-[10px] text-[#666666] uppercase tracking-wider">Differentiator</p>
-            <p className="text-[13px] text-white leading-snug">Only integrated platform: IoT + Drones + Vertical + Carbon on the African continent</p>
+            <p className="text-[10px] text-[#666666] uppercase tracking-wider">{t('harchAgri.differentiator')}</p>
+            <p className="text-[13px] text-white leading-snug">{t('harchAgri.differentiatorValue')}</p>
           </div>
         </div>
       </motion.div>

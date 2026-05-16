@@ -6,10 +6,11 @@ import {
   ResponsiveContainer, BarChart, Bar
 } from 'recharts'
 import { Radio, AlertTriangle, Database, Zap } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 // Simulated real-time data
-const generateTimeData = () => {
-  const data = []
+const generateTimeData = (): { time: string; temperature: number; humidity: number; soil: number }[] => {
+  const data: { time: string; temperature: number; humidity: number; soil: number }[] = []
   const now = Date.now()
   for (let i = 30; i >= 0; i--) {
     data.push({
@@ -22,31 +23,32 @@ const generateTimeData = () => {
   return data
 }
 
-const cropData = [
-  { name: 'Wheat', value: 85 },
-  { name: 'Maize', value: 72 },
-  { name: 'Tomatoes', value: 91 },
-  { name: 'Onions', value: 68 },
-]
-
-const carbonData = [
-  { month: 'Jan', sequestered: 120, traded: 45 },
-  { month: 'Feb', sequestered: 145, traded: 52 },
-  { month: 'Mar', sequestered: 168, traded: 61 },
-  { month: 'Apr', sequestered: 190, traded: 78 },
-  { month: 'May', sequestered: 210, traded: 85 },
-  { month: 'Jun', sequestered: 235, traded: 95 },
-]
-
 const statIcons = [Radio, AlertTriangle, Database, Zap]
 
 export default function IoTDashboard() {
-  const [timeData, setTimeData] = useState(generateTimeData)
+  const t = useTranslations('harchagri.iotDashboard')
+  const [timeData, setTimeData] = useState<{ time: string; temperature: number; humidity: number; soil: number }[]>(generateTimeData)
   const [activeMetrics, setActiveMetrics] = useState({
     temperature: true,
     humidity: true,
     soil: true,
   })
+
+  const cropData = [
+    { name: t('crops.wheat'), value: 85 },
+    { name: t('crops.maize'), value: 72 },
+    { name: t('crops.tomatoes'), value: 91 },
+    { name: t('crops.onions'), value: 68 },
+  ]
+
+  const carbonData = [
+    { month: 'Jan', sequestered: 120, traded: 45 },
+    { month: 'Feb', sequestered: 145, traded: 52 },
+    { month: 'Mar', sequestered: 168, traded: 61 },
+    { month: 'Apr', sequestered: 190, traded: 78 },
+    { month: 'May', sequestered: 210, traded: 85 },
+    { month: 'Jun', sequestered: 235, traded: 95 },
+  ]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -86,10 +88,10 @@ export default function IoTDashboard() {
   }, [])
 
   const sensorCards = [
-    { label: 'Active Sensors', value: sensorStats.active.toLocaleString(), Icon: Radio },
-    { label: 'Alerts', value: sensorStats.alerts.toString(), Icon: AlertTriangle },
-    { label: 'Data Points', value: (sensorStats.dataPoints / 1000000).toFixed(2) + 'M', Icon: Database },
-    { label: 'Uptime', value: sensorStats.uptime.toFixed(1) + '%', Icon: Zap },
+    { label: t('activeSensors'), value: sensorStats.active.toLocaleString(), Icon: Radio },
+    { label: t('alerts'), value: sensorStats.alerts.toString(), Icon: AlertTriangle },
+    { label: t('dataPoints'), value: (sensorStats.dataPoints / 1000000).toFixed(2) + 'M', Icon: Database },
+    { label: t('uptime'), value: sensorStats.uptime.toFixed(1) + '%', Icon: Zap },
   ]
 
   return (
@@ -115,13 +117,13 @@ export default function IoTDashboard() {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-white/60 animate-pulse" />
-            <h3 className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">Real-Time Sensor Data</h3>
+            <h3 className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">{t('realTimeSensorData')}</h3>
           </div>
           <div className="flex gap-2">
             {[
-              { key: 'temperature', label: 'Temp °C' },
-              { key: 'humidity', label: 'Humidity %' },
-              { key: 'soil', label: 'Soil %' },
+              { key: 'temperature', label: t('tempC') },
+              { key: 'humidity', label: t('humidityPct') },
+              { key: 'soil', label: t('soilPct') },
             ].map(m => (
               <button
                 key={m.key}
@@ -182,7 +184,7 @@ export default function IoTDashboard() {
       <div className="grid md:grid-cols-2 gap-4">
         {/* Crop health */}
         <div className="card p-5">
-          <h3 className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-4">Crop Health</h3>
+          <h3 className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-4">{t('cropHealth')}</h3>
           <div className="space-y-4">
             {cropData.map((crop, i) => (
               <div key={i}>
@@ -203,7 +205,7 @@ export default function IoTDashboard() {
 
         {/* Carbon credits */}
         <div className="card p-5">
-          <h3 className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-4">Carbon Credits (tCO₂)</h3>
+          <h3 className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-4">{t('carbonCredits')}</h3>
           <ResponsiveContainer width="100%" height={160}>
             <BarChart data={carbonData}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" />

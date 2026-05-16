@@ -12,6 +12,7 @@ import {
   Droplets,
   Landmark,
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface OntologyNode {
   id: string;
@@ -47,6 +48,8 @@ const DEFAULT_NODES: OntologyNode[] = (() => {
   const cx = 400;
   const cy = 300;
   const radius = 200;
+
+  // These will be overridden at render time with translations
   const verticals = [
     { id: 'intelligence', label: 'Intelligence', icon: 'Server', accent: '#8B9DAF' },
     { id: 'cement', label: 'Cement', icon: 'Factory', accent: '#8B9DAF' },
@@ -105,6 +108,7 @@ export default function NetworkOntology({
   nodes = DEFAULT_NODES,
   connections = DEFAULT_CONNECTIONS,
 }: NetworkOntologyProps) {
+  const t = useTranslations('networkOntology');
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-80px' });
   const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -112,9 +116,12 @@ export default function NetworkOntology({
   const handleHoverStart = useCallback((id: string) => setHoveredId(id), []);
   const handleHoverEnd = useCallback(() => setHoveredId(null), []);
 
-  // Resolve icon components
+  // Resolve icon components and translate labels
   const resolvedNodes = nodes.map((n) => ({
     ...n,
+    label: n.id === 'core'
+      ? t('harchCorp')
+      : t(`verticals.${n.id}` as any),
     IconComponent: n.icon || ICON_MAP[n.label] || null,
   }));
 
@@ -146,11 +153,11 @@ export default function NetworkOntology({
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
           <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.2em] text-white/25">
-            Network Ontology
+            {t('networkOntology')}
           </span>
           <div className="flex-1 h-px bg-[rgba(255,255,255,0.04)]" />
           <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.15em] text-white/15">
-            8 Verticals
+            {t('eightVerticals')}
           </span>
         </div>
 
@@ -161,7 +168,7 @@ export default function NetworkOntology({
             className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
             role="img"
-            aria-label="Harch Corp vertical integration network"
+            aria-label={t('ariaLabel')}
           >
             <defs>
               {/* Glow filter for hovered nodes */}

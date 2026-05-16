@@ -11,6 +11,7 @@ import {
   Legend,
 } from 'recharts';
 import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface MetricsData {
   quarter: string;
@@ -37,18 +38,19 @@ interface CustomTooltipProps {
 }
 
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
+  const t = useTranslations('charts');
   if (!active || !payload?.length || !label) return null;
 
   const labels: Record<string, string> = {
-    gpuUtil: 'GPU Utilization',
-    renewableOutput: 'Renewable Output',
-    carbonIntensity: 'Carbon Intensity',
+    gpuUtil: t('operationalMetrics.gpuUtil'),
+    renewableOutput: t('operationalMetrics.renewableOutput'),
+    carbonIntensity: t('operationalMetrics.carbonIntensity'),
   };
 
   const units: Record<string, string> = {
     gpuUtil: '%',
     renewableOutput: ' GWh',
-    carbonIntensity: ' gCO2/kWh',
+    carbonIntensity: ' gCO₂/kWh',
   };
 
   return (
@@ -69,16 +71,17 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
 }
 
 export function OperationalMetricsChart() {
+  const t = useTranslations('charts');
   const data = useMemo(() => rawData, []);
 
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
-          Operational Performance
+          {t('operationalMetrics.title')}
         </h3>
         <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
-          Key operational metrics across all verticals — quarterly
+          {t('operationalMetrics.subtitle')} — quarterly
         </p>
       </div>
       <div style={{ height: 350 }}>
@@ -115,13 +118,20 @@ export function OperationalMetricsChart() {
             <Tooltip content={<CustomTooltip />} />
             <Legend
               wrapperStyle={{ fontFamily: 'var(--font-space-mono)', fontSize: 11 }}
-              formatter={(value: string) => <span className="text-txt-secondary">{value}</span>}
+              formatter={(value: string) => {
+                const keyMap: Record<string, string> = {
+                  gpuUtil: t('operationalMetrics.gpuUtilLegend'),
+                  renewableOutput: t('operationalMetrics.renewableGwh'),
+                  carbonIntensity: t('operationalMetrics.carbonGco2'),
+                };
+                return <span className="text-txt-secondary">{keyMap[value] || value}</span>;
+              }}
             />
             <Line
               yAxisId="left"
               type="monotone"
               dataKey="gpuUtil"
-              name="GPU Util"
+              name="gpuUtil"
               stroke="#8B9DAF"
               strokeWidth={2}
               dot={{ fill: '#8B9DAF', r: 3, strokeWidth: 0 }}
@@ -134,7 +144,7 @@ export function OperationalMetricsChart() {
               yAxisId="right"
               type="monotone"
               dataKey="renewableOutput"
-              name="Renewable GWh"
+              name="renewableOutput"
               stroke="#6B9F6B"
               strokeWidth={2}
               dot={{ fill: '#6B9F6B', r: 3, strokeWidth: 0 }}
@@ -147,7 +157,7 @@ export function OperationalMetricsChart() {
               yAxisId="left"
               type="monotone"
               dataKey="carbonIntensity"
-              name="Carbon gCO2"
+              name="carbonIntensity"
               stroke="#A87878"
               strokeWidth={2}
               strokeDasharray="4 3"

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Server, Cpu, Zap, Droplets, Thermometer, Wind, Sun, Battery, Activity,
@@ -55,32 +56,32 @@ interface DashboardConfig {
 // INTELLIGENCE — HarchOS Console
 // Terminal/code editor aesthetic, monospace fonts, dark navy
 // ═══════════════════════════════════════════════════════════════
-const intelligenceConfig: DashboardConfig = {
-  platformName: 'HarchOS Console',
+const getIntelligenceConfig = (t: any): DashboardConfig => ({
+  platformName: t('intelligence.platformName'),
   platformVersion: '0.1',
   accent: '#8B9DAF',
   bgGradient: 'from-[#0A0F1E] to-[#0D1117]',
   sidebar: [
-    { icon: <Server size={13} />, label: 'Cluster Overview' },
-    { icon: <Cpu size={13} />, label: 'GPU Status' },
-    { icon: <Leaf size={13} />, label: 'Carbon Router' },
-    { icon: <Layers size={13} />, label: 'Workloads' },
-    { icon: <Shield size={13} />, label: 'Data Residency' },
-    { icon: <TerminalIcon size={13} />, label: 'API Console' },
+    { icon: <Server size={13} />, label: t('intelligence.sidebarLabels.clusterOverview') },
+    { icon: <Cpu size={13} />, label: t('intelligence.sidebarLabels.gpuStatus') },
+    { icon: <Leaf size={13} />, label: t('intelligence.sidebarLabels.carbonRouter') },
+    { icon: <Layers size={13} />, label: t('intelligence.sidebarLabels.workloads') },
+    { icon: <Shield size={13} />, label: t('intelligence.sidebarLabels.dataResidency') },
+    { icon: <TerminalIcon size={13} />, label: t('intelligence.sidebarLabels.apiConsole') },
   ],
-  headerTabs: ['Overview', 'Hubs', 'Carbon', 'Terminal'],
+  headerTabs: [t('intelligence.headerTabs.overview'), t('intelligence.headerTabs.hubs'), t('intelligence.headerTabs.carbon'), t('intelligence.headerTabs.terminal')],
   tourSteps: [
-    { targetId: 'intel-metric-gpus', label: 'A', title: 'GPU Cluster Status', description: '1,798 carbon-optimized GPUs across 5 Moroccan hubs. Carbon-aware scheduling routes workloads to the greenest hub in real-time.', position: 'bottom' },
-    { targetId: 'intel-carbon-route', label: 'B', title: 'Carbon-Aware Routing', description: 'Our scheduler automatically selects the hub with the lowest carbon intensity. Average: ~47 gCO2/kWh — 89% below industry standard.', position: 'bottom' },
-    { targetId: 'intel-hub-map', label: 'C', title: 'Hub Network', description: '5 sovereign hubs across Morocco. Dakhla hub connects directly to Europe via submarine cable. All data stays under Moroccan jurisdiction.', position: 'top' },
+    { targetId: 'intel-metric-gpus', label: 'A', title: t('intelligence.tourSteps.gpuClusterStatus'), description: t('intelligence.tourSteps.gpuClusterDesc'), position: 'bottom' },
+    { targetId: 'intel-carbon-route', label: 'B', title: t('intelligence.tourSteps.carbonAwareRouting'), description: t('intelligence.tourSteps.carbonAwareDesc'), position: 'bottom' },
+    { targetId: 'intel-hub-map', label: 'C', title: t('intelligence.tourSteps.hubNetwork'), description: t('intelligence.tourSteps.hubNetworkDesc'), position: 'top' },
   ],
   metricCards: [
-    { id: 'intel-metric-gpus', label: 'Active GPUs', value: '1,798', change: '+120', changeUp: true, icon: <Cpu size={14} /> },
-    { id: 'intel-carbon-route', label: 'Avg Carbon', value: '~47 gCO2/kWh', change: '-12%', changeUp: true, icon: <Leaf size={14} /> },
-    { id: 'intel-metric-renew', label: 'Renewable', value: '81.5%', change: '+3.2%', changeUp: true, icon: <Zap size={14} /> },
-    { id: 'intel-metric-uptime', label: 'Uptime', value: '99.97%', change: '+0.02%', changeUp: true, icon: <Activity size={14} /> },
+    { id: 'intel-metric-gpus', label: t('intelligence.metricCards.activeGpus'), value: '1,798', change: '+120', changeUp: true, icon: <Cpu size={14} /> },
+    { id: 'intel-carbon-route', label: t('intelligence.metricCards.avgCarbon'), value: '~47 gCO2/kWh', change: '-12%', changeUp: true, icon: <Leaf size={14} /> },
+    { id: 'intel-metric-renew', label: t('intelligence.metricCards.renewable'), value: '81.5%', change: '+3.2%', changeUp: true, icon: <Zap size={14} /> },
+    { id: 'intel-metric-uptime', label: t('intelligence.metricCards.uptime'), value: '99.97%', change: '+0.02%', changeUp: true, icon: <Activity size={14} /> },
   ],
-  statusBarText: 'REGION: MOROCCO | 5 HUBS ONLINE',
+  statusBarText: t('intelligence.statusBarText'),
   renderMain: (accent, activeTab, activeSidebar, selectedHub, setSelectedHub, _toggleIrr, _irrState) => {
     const hubs = [
       { name: 'Casablanca', gpus: 384, load: 78, carbon: 42, status: 'online' },
@@ -109,7 +110,7 @@ const intelligenceConfig: DashboardConfig = {
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <Server size={16} style={{ color: accent }} />
-                <span className="text-sm font-bold text-white font-mono">{hub.name} Hub</span>
+                <span className="text-sm font-bold text-white font-mono">{hub.name} {t('intelligence.hubSuffix')}</span>
               </div>
               <span className={`px-2 py-0.5 rounded text-[10px] sm:text-[9px] font-bold uppercase ${hub.status === 'online' ? 'bg-emerald-500/15 text-emerald-400' : 'bg-amber-500/15 text-amber-400'}`}>
                 {hub.status}
@@ -117,24 +118,24 @@ const intelligenceConfig: DashboardConfig = {
             </div>
             <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-4">
               <div>
-                <p className="text-[10px] sm:text-[9px] text-white/30 uppercase tracking-wider mb-1">GPUs</p>
+                <p className="text-[10px] sm:text-[9px] text-white/30 uppercase tracking-wider mb-1">{t('intelligence.gpus')}</p>
                 <p className="text-xl font-bold text-white font-mono">{hub.gpus}</p>
               </div>
               <div>
-                <p className="text-[10px] sm:text-[9px] text-white/30 uppercase tracking-wider mb-1">Load</p>
+                <p className="text-[10px] sm:text-[9px] text-white/30 uppercase tracking-wider mb-1">{t('intelligence.load')}</p>
                 <p className="text-xl font-bold text-white font-mono">{hub.load}%</p>
               </div>
               <div>
-                <p className="text-[10px] sm:text-[9px] text-white/30 uppercase tracking-wider mb-1">Carbon</p>
+                <p className="text-[10px] sm:text-[9px] text-white/30 uppercase tracking-wider mb-1">{t('intelligence.carbon')}</p>
                 <p className="text-xl font-bold text-white font-mono">{hub.carbon}g</p>
               </div>
             </div>
-            <p className="text-[10px] text-white/40 mb-2">GPU Allocation by Workload</p>
+            <p className="text-[10px] text-white/40 mb-2">{t('intelligence.gpuAllocationByWorkload')}</p>
             {[
-              { name: 'LLM Training v3.1', gpus: 128, pct: 33 },
-              { name: 'Inference API', gpus: 64, pct: 17 },
-              { name: 'Fine-tuning Pipeline', gpus: 96, pct: 25 },
-              { name: 'Available', gpus: hub.gpus - 288, pct: 100 - 75 },
+              { name: t('intelligence.workloadNames.llmTraining'), gpus: 128, pct: 33 },
+              { name: t('intelligence.workloadNames.inferenceApi'), gpus: 64, pct: 17 },
+              { name: t('intelligence.workloadNames.fineTuningPipeline'), gpus: 96, pct: 25 },
+              { name: t('intelligence.workloadNames.available'), gpus: hub.gpus - 288, pct: 100 - 75 },
             ].map(w => (
               <div key={w.name} className="mb-2">
                 <div className="flex justify-between text-[10px] sm:text-[9px] mb-0.5">
@@ -148,7 +149,7 @@ const intelligenceConfig: DashboardConfig = {
             ))}
           </div>
           <button onClick={() => {}} className="text-[10px] text-white/30 hover:text-white/60 font-mono flex items-center gap-1 transition-colors">
-            <ArrowRight size={10} /> Back to all hubs
+            <ArrowRight size={10} /> {t('intelligence.backToAllHubs')}
           </button>
         </div>
       );
@@ -160,7 +161,7 @@ const intelligenceConfig: DashboardConfig = {
         <div className="flex flex-col md:flex-row gap-3">
           {/* Server Rack — desktop only */}
           <div className="hidden md:block w-16 flex-shrink-0 bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-2 space-y-1.5">
-            <span className="text-[10px] sm:text-[7px] text-white/25 uppercase tracking-widest text-center block mb-1">RACK</span>
+            <span className="text-[10px] sm:text-[7px] text-white/25 uppercase tracking-widest text-center block mb-1">{t('intelligence.rack')}</span>
             {hubs.map((hub, i) => (
               <button
                 key={hub.name}
@@ -194,9 +195,9 @@ const intelligenceConfig: DashboardConfig = {
                 <div className="px-3 py-2 border-b border-[rgba(139,157,175,0.08)] flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <TerminalIcon size={11} style={{ color: accent }} />
-                    <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/30">Carbon Routing Log</span>
+                    <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/30">{t('intelligence.carbonRoutingLog')}</span>
                   </div>
-                  <span className="text-[10px] sm:text-[8px] text-emerald-400/50">LIVE</span>
+                  <span className="text-[10px] sm:text-[8px] text-emerald-400/50">{t('live')}</span>
                 </div>
                 <div className="p-3 max-h-36 overflow-y-auto space-y-1" style={{ scrollbarWidth: 'thin', scrollbarColor: '#8B9DAF20 transparent' }}>
                   {terminalLines.map((line, i) => (
@@ -253,7 +254,7 @@ const intelligenceConfig: DashboardConfig = {
             {/* Submarine Cable Map — simplified SVG */}
             {activeTab === 1 && (
               <div className="bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-3">
-                <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Submarine Cable — Morocco to Europe</span>
+                <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">{t('intelligence.submarineCableMoroccoEurope')}</span>
                 <svg viewBox="0 0 280 80" className="w-full h-auto">
                   <rect x="0" y="0" width="280" height="80" fill="transparent" />
                   {/* Morocco coast */}
@@ -291,15 +292,15 @@ const intelligenceConfig: DashboardConfig = {
             {(activeTab === 0 || activeTab === 2) && (
               <div className="bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg overflow-hidden">
                 <div className="px-3 py-2 border-b border-[rgba(139,157,175,0.08)] flex items-center justify-between">
-                  <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Active Workloads</span>
-                  <span className="text-[10px] sm:text-[8px] text-emerald-400/50">12 running</span>
+                  <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">{t('intelligence.activeWorkloads')}</span>
+                  <span className="text-[10px] sm:text-[8px] text-emerald-400/50">12 {t('intelligence.running')}</span>
                 </div>
                 <div className="overflow-x-auto">
                   <div className="divide-y divide-[rgba(139,157,175,0.05)] min-w-[300px]">
                     {[
-                      { name: 'LLM Training v3.1', type: 'Training', gpus: 128, hub: 'Casablanca', carbon: 'Optimal' },
-                      { name: 'Inference API — Production', type: 'Inference', gpus: 64, hub: 'Rabat', carbon: 'Low' },
-                      { name: 'Fine-tuning HarchGPT', type: 'Fine-tune', gpus: 256, hub: 'Tangier', carbon: 'Optimal' },
+                      { name: t('intelligence.workloadNames.llmTraining'), type: t('intelligence.workloadTypes.training'), gpus: 128, hub: 'Casablanca', carbon: t('intelligence.carbonRatings.optimal') },
+                      { name: t('intelligence.workloadNames.inferenceApi') + ' — Production', type: t('intelligence.workloadTypes.inference'), gpus: 64, hub: 'Rabat', carbon: t('intelligence.carbonRatings.low') },
+                      { name: t('intelligence.workloadNames.fineTuningPipeline') + ' HarchGPT', type: t('intelligence.workloadTypes.fineTune'), gpus: 256, hub: 'Tangier', carbon: t('intelligence.carbonRatings.optimal') },
                     ].map((wl) => (
                       <div key={wl.name} className="px-3 py-2 flex items-center justify-between hover:bg-[rgba(139,157,175,0.04)] transition-colors cursor-pointer">
                         <div className="flex items-center gap-2 min-w-0">
@@ -326,7 +327,7 @@ const intelligenceConfig: DashboardConfig = {
     <div className="space-y-3 font-mono">
       {/* Carbon Intensity Heatmap */}
       <div className="bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Carbon Intensity (24h)</span>
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">{t('intelligence.sidebar.carbonIntensity24h')}</span>
         <div className="grid grid-cols-8 sm:grid-cols-12 gap-0.5">
           {Array.from({ length: 24 }, (_, i) => {
             const v = [42, 38, 55, 44, 36, 48, 35, 51, 43, 37, 45, 39, 41, 52, 38, 44, 36, 49, 34, 46, 40, 37, 43, 38][i];
@@ -345,17 +346,17 @@ const intelligenceConfig: DashboardConfig = {
           })}
         </div>
         <div className="flex justify-between mt-1.5 text-[10px] sm:text-[6px] text-white/15">
-          <span>00:00</span><span>12:00</span><span>Now</span>
+          <span>00:00</span><span>12:00</span><span>{t('intelligence.sidebar.now')}</span>
         </div>
       </div>
       {/* Energy Mix */}
       <div className="bg-[#0C1220] border border-[rgba(139,157,175,0.12)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Energy Mix</span>
+        <span className="text-[10px] sm:text-[8px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">{t('intelligence.sidebar.energyMix')}</span>
         {[
-          { source: 'Solar', pct: 42, color: '#F59E0B' },
-          { source: 'Wind', pct: 35, color: '#3B82F6' },
-          { source: 'Hydro', pct: 4.5, color: '#06B6D4' },
-          { source: 'Grid', pct: 18.5, color: '#6B7280' },
+          { source: t('intelligence.energySources.solar'), pct: 42, color: '#F59E0B' },
+          { source: t('intelligence.energySources.wind'), pct: 35, color: '#3B82F6' },
+          { source: t('intelligence.energySources.hydro'), pct: 4.5, color: '#06B6D4' },
+          { source: t('intelligence.energySources.grid'), pct: 18.5, color: '#6B7280' },
         ].map((e) => (
           <div key={e.source} className="mb-1.5">
             <div className="flex justify-between text-[10px] sm:text-[8px] mb-0.5">
@@ -371,38 +372,38 @@ const intelligenceConfig: DashboardConfig = {
     </div>
   ),
   backgroundImage: '/images/sections/intelligence-rack.jpg',
-};
+});
 
 // ═══════════════════════════════════════════════════════════════
 // AGRICULTURE — HarchAgri Platform
 // Earthy green tones, clean grid layout, farming SaaS
 // ═══════════════════════════════════════════════════════════════
-const agricultureConfig: DashboardConfig = {
-  platformName: 'HarchAgri Platform',
+const getAgricultureConfig = (t: any): DashboardConfig => ({
+  platformName: t('agriculture.platformName'),
   platformVersion: '0.7',
   accent: '#4A7B5F',
   bgGradient: 'from-[#0A120A] to-[#0D120D]',
   sidebar: [
-    { icon: <Layout size={13} />, label: 'Farm Map' },
-    { icon: <Droplets size={13} />, label: 'Irrigation' },
-    { icon: <Leaf size={13} />, label: 'Crop Health' },
-    { icon: <CloudRain size={13} />, label: 'Weather' },
-    { icon: <Eye size={13} />, label: 'Drone Scans' },
-    { icon: <TrendingUp size={13} />, label: 'Market' },
+    { icon: <Layout size={13} />, label: t('agriculture.sidebarLabels.farmMap') },
+    { icon: <Droplets size={13} />, label: t('agriculture.sidebarLabels.irrigation') },
+    { icon: <Leaf size={13} />, label: t('agriculture.sidebarLabels.cropHealth') },
+    { icon: <CloudRain size={13} />, label: t('agriculture.sidebarLabels.weather') },
+    { icon: <Eye size={13} />, label: t('agriculture.sidebarLabels.droneScans') },
+    { icon: <TrendingUp size={13} />, label: t('agriculture.sidebarLabels.market') },
   ],
-  headerTabs: ['Overview', 'Plots', 'Irrigation', 'Schedule'],
+  headerTabs: [t('agriculture.headerTabs.overview'), t('agriculture.headerTabs.plots'), t('agriculture.headerTabs.irrigation'), t('agriculture.headerTabs.schedule')],
   tourSteps: [
-    { targetId: 'agri-metric-health', label: 'A', title: 'Crop Health Monitor', description: 'Real-time satellite and IoT data tracks crop health across all plots. Green = healthy, yellow = needs attention, red = action required.', position: 'bottom' },
-    { targetId: 'agri-irrigation', label: 'B', title: 'Smart Irrigation Control', description: 'Sensor-driven irrigation reduces water usage by 40% while increasing yield. Soil moisture sensors trigger automated watering cycles.', position: 'bottom' },
-    { targetId: 'agri-farm-map', label: 'C', title: 'Farm Intelligence Map', description: 'Interactive map showing all plots with real-time health indicators. Click any plot for detailed analytics and historical data.', position: 'top' },
+    { targetId: 'agri-metric-health', label: 'A', title: t('agriculture.tourSteps.cropHealthMonitor'), description: t('agriculture.tourSteps.cropHealthDesc'), position: 'bottom' },
+    { targetId: 'agri-irrigation', label: 'B', title: t('agriculture.tourSteps.smartIrrigation'), description: t('agriculture.tourSteps.smartIrrigationDesc'), position: 'bottom' },
+    { targetId: 'agri-farm-map', label: 'C', title: t('agriculture.tourSteps.farmIntelligenceMap'), description: t('agriculture.tourSteps.farmIntelligenceDesc'), position: 'top' },
   ],
   metricCards: [
-    { id: 'agri-metric-health', label: 'Crop Health', value: '94.2%', change: '+2.1%', changeUp: true, icon: <Leaf size={14} /> },
-    { id: 'agri-irrigation', label: 'Water Saved', value: '38.5%', change: '+5.3%', changeUp: true, icon: <Droplets size={14} /> },
-    { id: 'agri-metric-yield', label: 'Yield Forecast', value: '12.4T/ha', change: '+8%', changeUp: true, icon: <Wheat size={14} /> },
-    { id: 'agri-metric-iot', label: 'IoT Sensors', value: '2,847', change: '+340', changeUp: true, icon: <Radio size={14} /> },
+    { id: 'agri-metric-health', label: t('agriculture.metricCards.cropHealth'), value: '94.2%', change: '+2.1%', changeUp: true, icon: <Leaf size={14} /> },
+    { id: 'agri-irrigation', label: t('agriculture.metricCards.waterSaved'), value: '38.5%', change: '+5.3%', changeUp: true, icon: <Droplets size={14} /> },
+    { id: 'agri-metric-yield', label: t('agriculture.metricCards.yieldForecast'), value: '12.4T/ha', change: '+8%', changeUp: true, icon: <Wheat size={14} /> },
+    { id: 'agri-metric-iot', label: t('agriculture.metricCards.iotSensors'), value: '2,847', change: '+340', changeUp: true, icon: <Radio size={14} /> },
   ],
-  statusBarText: 'REGION: CASABLANCA | 48 PLOTS | 6 ZONES',
+  statusBarText: t('agriculture.statusBarText'),
   renderMain: (accent, activeTab, activeSidebar, _selHub, selectedPlot, toggleIrrigation, irrigationState) => {
     const plotData = Array.from({ length: 48 }, (_, i) => ({
       id: i,
@@ -422,13 +423,13 @@ const agricultureConfig: DashboardConfig = {
           <div className="px-4 py-2.5 border-b border-[rgba(74,123,95,0.08)] flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Layout size={11} style={{ color: accent }} />
-              <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-white/30">Farm Plot Map</span>
+              <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-white/30">{t('agriculture.farmPlotMap')}</span>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-3 text-[10px] sm:text-[8px] min-w-0">
               {[
-                { color: '#4A7B5F', label: 'Healthy' },
-                { color: '#EAB308', label: 'Warning' },
-                { color: '#EF4444', label: 'Critical' },
+                { color: '#4A7B5F', label: t('agriculture.healthStatuses.healthy') },
+                { color: '#EAB308', label: t('agriculture.healthStatuses.warning') },
+                { color: '#EF4444', label: t('agriculture.healthStatuses.critical') },
               ].map(l => (
                 <span key={l.label} className="flex items-center gap-1 text-white/25 whitespace-nowrap">
                   <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: l.color }} /> {l.label}
@@ -470,13 +471,13 @@ const agricultureConfig: DashboardConfig = {
               exit={{ opacity: 0, y: -4 }}
               className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-4"
             >
-              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Irrigation Zone Controls</span>
+              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">{t('agriculture.irrigationZoneControls')}</span>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                {['Zone A — North', 'Zone B — East', 'Zone C — South', 'Zone D — West', 'Zone E — Central', 'Zone F — Perimeter'].map((zone, i) => (
+                {[t('agriculture.zoneNames.zoneANorth'), t('agriculture.zoneNames.zoneBEast'), t('agriculture.zoneNames.zoneCSouth'), t('agriculture.zoneNames.zoneDWest'), t('agriculture.zoneNames.zoneECentral'), t('agriculture.zoneNames.zoneFPerimeter')].map((zone, i) => (
                   <div key={zone} className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.12)] rounded-lg p-2.5 flex items-center justify-between">
                     <div>
                       <p className="text-[10px] sm:text-[9px] text-white/50">{zone}</p>
-                      <p className="text-[10px] sm:text-[8px] text-white/25 mt-0.5">Moisture: {55 + i * 5}%</p>
+                      <p className="text-[10px] sm:text-[8px] text-white/25 mt-0.5">{t('agriculture.moisture')}: {55 + i * 5}%</p>
                     </div>
                     <button
                       onClick={() => toggleIrrigation(i)}
@@ -497,18 +498,18 @@ const agricultureConfig: DashboardConfig = {
               className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-4"
             >
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] font-bold text-white/70">Plot {selectedPlotData.id + 1} — {selectedPlotData.crop}</span>
+                <span className="text-[11px] font-bold text-white/70">{t('agriculture.plot')} {selectedPlotData.id + 1} — {selectedPlotData.crop}</span>
                 <span className={`px-2 py-0.5 rounded text-[10px] sm:text-[8px] font-bold ${selectedPlotData.health > 0.7 ? 'bg-emerald-500/15 text-emerald-400' : selectedPlotData.health > 0.4 ? 'bg-amber-500/15 text-amber-400' : 'bg-red-500/15 text-red-400'}`}>
-                  {Math.round(selectedPlotData.health * 100)}% health
+                  {Math.round(selectedPlotData.health * 100)}% {t('agriculture.health')}
                 </span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <div>
-                  <p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">Soil Moisture</p>
+                  <p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">{t('agriculture.soilMoisture')}</p>
                   <p className="text-sm font-bold text-white mt-0.5">{selectedPlotData.soilMoisture}%</p>
                 </div>
                 <div>
-                  <p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">Last Irrigation</p>
+                  <p className="text-[10px] sm:text-[8px] text-white/25 uppercase tracking-wider">{t('agriculture.lastIrrigation')}</p>
                   <p className="text-sm font-bold text-white mt-0.5">{selectedPlotData.lastIrrigation}</p>
                 </div>
                 <div>
@@ -528,8 +529,8 @@ const agricultureConfig: DashboardConfig = {
         {(activeTab === 0 || activeSidebar === 2) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Yield Forecast (T/ha)</span>
-              <span className="text-[10px] sm:text-[8px] text-[#4A7B5F]/50">vs ACTUAL</span>
+              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">{t('agriculture.yieldForecastUnit')}</span>
+              <span className="text-[10px] sm:text-[8px] text-[#4A7B5F]/50">{t('agriculture.vsActual')}</span>
             </div>
             <div className="space-y-1.5">
               {[
@@ -570,14 +571,14 @@ const agricultureConfig: DashboardConfig = {
         {/* Supply Chain Tracker */}
         {(activeTab === 0 || activeSidebar === 5) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Supply Chain — Farm to Market</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">{t('agriculture.supplyChainFarmToMarket')}</span>
             <div className="flex items-center gap-1 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
               {[
-                { stage: 'Harvest', status: 'complete', throughput: '94%', icon: <Wheat size={10} /> },
-                { stage: 'Sorting', status: 'complete', throughput: '98%', icon: <Package size={10} /> },
-                { stage: 'Storage', status: 'active', throughput: '87%', icon: <Warehouse size={10} /> },
-                { stage: 'Transport', status: 'pending', throughput: '72%', icon: <Truck size={10} /> },
-                { stage: 'Market', status: 'pending', throughput: '—', icon: <BarChart3 size={10} /> },
+                { stage: t('agriculture.supplyStages.harvest'), status: 'complete', throughput: '94%', icon: <Wheat size={10} /> },
+                { stage: t('agriculture.supplyStages.sorting'), status: 'complete', throughput: '98%', icon: <Package size={10} /> },
+                { stage: t('agriculture.supplyStages.storage'), status: 'active', throughput: '87%', icon: <Warehouse size={10} /> },
+                { stage: t('agriculture.supplyStages.transport'), status: 'pending', throughput: '72%', icon: <Truck size={10} /> },
+                { stage: t('agriculture.supplyStages.market'), status: 'pending', throughput: '—', icon: <BarChart3 size={10} /> },
               ].map((s, i) => (
                 <div key={s.stage} className="flex-1 cursor-pointer group">
                   <div className={`bg-[rgba(74,123,95,0.04)] border rounded-lg p-2 text-center transition-colors ${
@@ -600,26 +601,26 @@ const agricultureConfig: DashboardConfig = {
         {(activeTab === 0 || activeSidebar === 2) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Carbon Credits</span>
+              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">{t('agriculture.carbonCredits')}</span>
               <Leaf size={10} className="text-emerald-400/30" />
             </div>
             <div className="grid grid-cols-3 gap-2 mb-2">
               {/* carbon credit cards - ok at grid-cols-3 even on mobile */}
               <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
                 <p className="text-sm font-bold text-white">12,450</p>
-                <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">tCO2 Total</p>
+                <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">{t('agriculture.carbonCreditLabels.tco2Total')}</p>
               </div>
               <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
                 <p className="text-sm font-bold text-emerald-400">8,200</p>
-                <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">Certified</p>
+                <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">{t('agriculture.carbonCreditLabels.certified')}</p>
               </div>
               <div className="bg-[rgba(74,123,95,0.06)] border border-[rgba(74,123,95,0.1)] rounded-lg p-2 text-center cursor-pointer hover:bg-[rgba(74,123,95,0.1)] transition-colors">
                 <p className="text-sm font-bold text-amber-400/70">4,250</p>
-                <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">Pending</p>
+                <p className="text-[10px] sm:text-[7px] text-white/25 uppercase">{t('agriculture.carbonCreditLabels.pending')}</p>
               </div>
             </div>
             <div className="flex items-center justify-between text-[10px] sm:text-[8px]">
-              <span className="text-white/25">Revenue</span>
+              <span className="text-white/25">{t('agriculture.carbonCreditLabels.revenue')}</span>
               <span className="text-emerald-400/60 font-bold">$82,000</span>
             </div>
           </div>
@@ -628,7 +629,7 @@ const agricultureConfig: DashboardConfig = {
         {/* Vertical Farming Container Status */}
         {(activeTab === 0 || activeSidebar === 0) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">Vertical Farm Containers</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-2 block">{t('agriculture.verticalFarmContainers')}</span>
             <div className="grid grid-cols-2 gap-2">
               {[
                 { id: 'VFC-01', crop: 'Lettuce', temp: '22C', humidity: '68%', day: 18, eta: '7d', status: 'growing' },
@@ -647,7 +648,7 @@ const agricultureConfig: DashboardConfig = {
                     <span>{c.humidity}</span>
                   </div>
                   <div className="flex items-center justify-between mt-1">
-                    <span className="text-[10px] sm:text-[7px] text-white/20">Day {c.day}</span>
+                    <span className="text-[10px] sm:text-[7px] text-white/20">{t('agriculture.day')} {c.day}</span>
                     <span className={`text-[10px] sm:text-[7px] font-bold ${c.status === 'ready' ? 'text-emerald-400/60' : 'text-white/25'}`}>{c.eta}</span>
                   </div>
                 </button>
@@ -659,7 +660,7 @@ const agricultureConfig: DashboardConfig = {
         {/* Crop Rotation Timeline */}
         {(activeTab === 3 || activeSidebar === 2) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-4">
-            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">Crop Rotation Timeline</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25 mb-3 block">{t('agriculture.cropRotationTimeline')}</span>
             <div className="space-y-2">
               {[
                 { plot: 'Plots 1-8', current: 'Wheat', next: 'Soy', season: 'Spring 2025' },
@@ -682,7 +683,7 @@ const agricultureConfig: DashboardConfig = {
         {(activeSidebar === 4 || activeTab === 3) && (
           <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-4">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Drone Scan Schedule</span>
+              <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">{t('agriculture.droneScanSchedule')}</span>
               <Eye size={11} className="text-white/20" />
             </div>
             <div className="space-y-1.5">
@@ -713,12 +714,12 @@ const agricultureConfig: DashboardConfig = {
     <div className="space-y-3">
       {/* 7-Day Weather Forecast with Rain Probability */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">7-Day Forecast — Casablanca</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">{t('agriculture.sidebar.sevenDayForecast')}</span>
         <div className="flex items-center justify-between mb-2">
           <span className="text-2xl font-light text-white">28</span>
           <div className="text-right">
-            <p className="text-[10px] text-white/40">Partly Cloudy</p>
-            <p className="text-[10px] sm:text-[8px] text-white/20">Humidity 45%</p>
+            <p className="text-[10px] text-white/40">{t('agriculture.sidebar.partlyCloudy')}</p>
+            <p className="text-[10px] sm:text-[8px] text-white/20">{t('agriculture.sidebar.humidity')} 45%</p>
           </div>
         </div>
         <div className="grid grid-cols-4 sm:grid-cols-7 gap-1">
@@ -738,13 +739,13 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Market Prices with Sparklines */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Market Prices</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">{t('agriculture.sidebar.marketPrices')}</span>
         {[
-          { crop: 'Wheat', price: '$285/T', change: '+2.3%', up: true, data: [270, 275, 278, 282, 280, 285] },
-          { crop: 'Corn', price: '$198/T', change: '-1.1%', up: false, data: [205, 202, 200, 198, 199, 198] },
-          { crop: 'Soy', price: '$412/T', change: '+4.7%', up: true, data: [390, 395, 400, 405, 410, 412] },
-          { crop: 'Rice', price: '$340/T', change: '+1.2%', up: true, data: [335, 336, 338, 339, 340, 340] },
-          { crop: 'Cassava', price: '$165/T', change: '-0.5%', up: false, data: [168, 167, 166, 166, 165, 165] },
+          { crop: t('agriculture.cropNames.wheat'), price: '$285/T', change: '+2.3%', up: true, data: [270, 275, 278, 282, 280, 285] },
+          { crop: t('agriculture.cropNames.corn'), price: '$198/T', change: '-1.1%', up: false, data: [205, 202, 200, 198, 199, 198] },
+          { crop: t('agriculture.cropNames.soy'), price: '$412/T', change: '+4.7%', up: true, data: [390, 395, 400, 405, 410, 412] },
+          { crop: t('agriculture.cropNames.rice'), price: '$340/T', change: '+1.2%', up: true, data: [335, 336, 338, 339, 340, 340] },
+          { crop: t('agriculture.cropNames.cassava'), price: '$165/T', change: '-0.5%', up: false, data: [168, 167, 166, 166, 165, 165] },
         ].map((m) => {
           const min = Math.min(...m.data);
           const max = Math.max(...m.data);
@@ -776,7 +777,7 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Soil Composition */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Soil Composition</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">{t('agriculture.sidebar.soilComposition')}</span>
         {[
           { nutrient: 'pH', value: '6.8', level: 68, color: '#4A7B5F' },
           { nutrient: 'Nitrogen', value: '42 ppm', level: 52, color: '#22C55E' },
@@ -797,7 +798,7 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Active Weather Alerts */}
       <div className="bg-[#0D120D] border border-[rgba(234,179,8,0.15)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-amber-400/40 mb-2 block">Weather Alerts</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-amber-400/40 mb-2 block">{t('agriculture.sidebar.weatherAlerts')}</span>
         <div className="space-y-1.5">
           {[
             { severity: 'warning', text: 'Heavy rain expected Wed — 70% probability', icon: <CloudRain size={9} /> },
@@ -813,12 +814,12 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Quick Actions */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Quick Actions</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">{t('agriculture.sidebar.quickActions')}</span>
         <div className="space-y-1.5">
           {[
-            { label: 'Run Drone Scan', icon: <Plane size={10} /> },
-            { label: 'Export Report', icon: <FileCode size={10} /> },
-            { label: 'Irrigate All', icon: <Droplets size={10} /> },
+            { label: t('agriculture.sidebar.actionLabels.runDroneScan'), icon: <Plane size={10} /> },
+            { label: t('agriculture.sidebar.actionLabels.exportReport'), icon: <FileCode size={10} /> },
+            { label: t('agriculture.sidebar.actionLabels.irrigateAll'), icon: <Droplets size={10} /> },
           ].map(a => (
             <button key={a.label} onClick={() => {}} className="w-full flex items-center gap-2 px-2 py-1.5 rounded text-[10px] sm:text-[9px] text-white/35 hover:text-white/60 hover:bg-[rgba(74,123,95,0.08)] transition-all cursor-pointer">
               <span style={{ color: '#4A7B5F60' }}>{a.icon}</span>
@@ -830,7 +831,7 @@ const agricultureConfig: DashboardConfig = {
 
       {/* Soil Moisture Overview */}
       <div className="bg-[#0D120D] border border-[rgba(74,123,95,0.15)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Soil Moisture</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">{t('agriculture.sidebar.soilMoisture')}</span>
         <div className="flex items-end gap-0.5 h-12">
           {[67, 72, 55, 80, 45, 68, 75, 58, 82, 60, 70, 52].map((v, i) => (
             <motion.div
@@ -847,45 +848,45 @@ const agricultureConfig: DashboardConfig = {
     </div>
   ),
   backgroundImage: '/images/sections/agri-vertical-farm.jpg',
-};
+});
 
 // ═══════════════════════════════════════════════════════════════
 // ENERGY — HarchEnergy Grid
 // Power grid aesthetic, slate accents, animated energy flows
 // ═══════════════════════════════════════════════════════════════
-const energyConfig: DashboardConfig = {
-  platformName: 'HarchEnergy Grid',
+const getEnergyConfig = (t: any): DashboardConfig => ({
+  platformName: t('energy.platformName'),
   platformVersion: '0.3',
   accent: '#D4A843',
   bgGradient: 'from-[#120E05] to-[#0D0A05]',
   sidebar: [
-    { icon: <Globe size={13} />, label: 'Grid Map' },
-    { icon: <Sun size={13} />, label: 'Solar Farms' },
-    { icon: <Wind size={13} />, label: 'Wind Parks' },
-    { icon: <Zap size={13} />, label: 'Green H2' },
-    { icon: <Battery size={13} />, label: 'Battery' },
-    { icon: <ArrowRight size={13} />, label: 'Export' },
+    { icon: <Globe size={13} />, label: t('energy.sidebarLabels.gridMap') },
+    { icon: <Sun size={13} />, label: t('energy.sidebarLabels.solarFarms') },
+    { icon: <Wind size={13} />, label: t('energy.sidebarLabels.windParks') },
+    { icon: <Zap size={13} />, label: t('energy.sidebarLabels.greenH2') },
+    { icon: <Battery size={13} />, label: t('energy.sidebarLabels.battery') },
+    { icon: <ArrowRight size={13} />, label: t('energy.sidebarLabels.export') },
   ],
-  headerTabs: ['Generation', 'Storage', 'Export', 'Forecast'],
+  headerTabs: [t('energy.headerTabs.generation'), t('energy.headerTabs.storage'), t('energy.headerTabs.export'), t('energy.headerTabs.forecast')],
   tourSteps: [
-    { targetId: 'energy-metric-gen', label: 'A', title: 'Power Generation', description: '2GW+ renewable pipeline across Morocco and the Sahel. Solar, wind, and green hydrogen producing zero-carbon electricity 24/7.', position: 'bottom' },
-    { targetId: 'energy-h2', label: 'B', title: 'Green Hydrogen Output', description: 'Hydrogen electrolysis powered by surplus solar. Production capacity: 50kT/yr for export to European markets via pipeline.', position: 'bottom' },
-    { targetId: 'energy-grid-map', label: 'C', title: 'Grid Intelligence', description: 'Real-time grid monitoring with optimized load balancing. Prevents blackouts and maximizes renewable utilization across all zones.', position: 'top' },
+    { targetId: 'energy-metric-gen', label: 'A', title: t('energy.tourSteps.powerGeneration'), description: t('energy.tourSteps.powerGenerationDesc'), position: 'bottom' },
+    { targetId: 'energy-h2', label: 'B', title: t('energy.tourSteps.greenHydrogenOutput'), description: t('energy.tourSteps.greenHydrogenDesc'), position: 'bottom' },
+    { targetId: 'energy-grid-map', label: 'C', title: t('energy.tourSteps.gridIntelligence'), description: t('energy.tourSteps.gridIntelligenceDesc'), position: 'top' },
   ],
   metricCards: [
-    { id: 'energy-metric-gen', label: 'Generation', value: '847 MW', change: '+12%', changeUp: true, icon: <Zap size={14} /> },
-    { id: 'energy-h2', label: 'Green H2', value: '12.3kT/yr', change: '+8%', changeUp: true, icon: <Droplets size={14} /> },
-    { id: 'energy-metric-capacity', label: 'Pipeline', value: '2.1 GW', change: '+400MW', changeUp: true, icon: <Globe size={14} /> },
-    { id: 'energy-metric-grid', label: 'Grid Stability', value: '99.8%', change: '+0.1%', changeUp: true, icon: <Activity size={14} /> },
+    { id: 'energy-metric-gen', label: t('energy.metricCards.generation'), value: '847 MW', change: '+12%', changeUp: true, icon: <Zap size={14} /> },
+    { id: 'energy-h2', label: t('energy.metricCards.greenH2'), value: '12.3kT/yr', change: '+8%', changeUp: true, icon: <Droplets size={14} /> },
+    { id: 'energy-metric-capacity', label: t('energy.metricCards.pipeline'), value: '2.1 GW', change: '+400MW', changeUp: true, icon: <Globe size={14} /> },
+    { id: 'energy-metric-grid', label: t('energy.metricCards.gridStability'), value: '99.8%', change: '+0.1%', changeUp: true, icon: <Activity size={14} /> },
   ],
-  statusBarText: 'GRID FREQ: 50.02 Hz | BALANCED | SOLAR PEAK',
+  statusBarText: t('energy.statusBarText'),
   renderMain: (accent) => (
     <div id="energy-grid-map" className="space-y-3">
       {/* Power Flow Map — SVG with animated dots */}
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-4">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">Power Flow Grid</span>
-          <span className="text-[10px] sm:text-[8px] text-emerald-400/50">BALANCED</span>
+          <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/25">{t('energy.powerFlowGrid')}</span>
+          <span className="text-[10px] sm:text-[8px] text-emerald-400/50">{t('energy.balanced')}</span>
         </div>
         <svg viewBox="0 0 320 120" className="w-full h-auto">
           {/* Generation sites */}
@@ -948,7 +949,7 @@ const energyConfig: DashboardConfig = {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Solar Output</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">{t('energy.solarOutput')}</span>
             <Sun size={10} className="text-[#D4A84360]" />
           </div>
           <div className="flex items-end gap-px h-16">
@@ -974,7 +975,7 @@ const energyConfig: DashboardConfig = {
         {/* Wind Speed Gauge */}
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Wind Speed</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">{t('energy.windSpeed')}</span>
             <Wind size={10} className="text-[#3B82F660]" />
           </div>
           <div className="flex items-center justify-center">
@@ -1004,7 +1005,7 @@ const energyConfig: DashboardConfig = {
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center gap-2 mb-2">
             <Battery size={10} className="text-[#D4A84360]" />
-            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Battery</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">{t('energy.battery')}</span>
           </div>
           <div className="h-6 bg-[rgba(255,255,255,0.03)] rounded overflow-hidden relative">
             <motion.div
@@ -1017,19 +1018,19 @@ const energyConfig: DashboardConfig = {
             <span className="absolute inset-0 flex items-center justify-center text-[10px] sm:text-[9px] text-white/60">438 / 600 MWh</span>
           </div>
           <div className="flex justify-between mt-1.5 text-[10px] sm:text-[8px] text-white/20">
-            <span>Charging</span>
+            <span>{t('energy.charging')}</span>
             <span className="text-emerald-400/50">+12 MW</span>
           </div>
         </div>
         <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
           <div className="flex items-center gap-2 mb-2">
             <Droplets size={10} className="text-[#22C55E60]" />
-            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Green H2</span>
+            <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">{t('energy.greenH2')}</span>
           </div>
           <p className="text-lg font-bold text-white">12.3 <span className="text-[10px] text-white/30">kT/yr</span></p>
           <div className="flex items-center gap-1 mt-1">
             <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[10px] sm:text-[8px] text-white/25">Electrolysis active — 45 MW</span>
+            <span className="text-[10px] sm:text-[8px] text-white/25">{t('energy.electrolysisActive')}</span>
           </div>
         </div>
       </div>
@@ -1037,7 +1038,7 @@ const energyConfig: DashboardConfig = {
       {/* Grid Frequency Monitor */}
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">Grid Frequency</span>
+          <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.1em] uppercase text-white/20">{t('energy.gridFrequency')}</span>
           <span className="text-[10px] sm:text-[9px] text-emerald-400/60 font-mono">50.02 Hz</span>
         </div>
         <div className="flex items-end gap-px h-8">
@@ -1062,7 +1063,7 @@ const energyConfig: DashboardConfig = {
   renderSidebar: (accent) => (
     <div className="space-y-3">
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Energy Mix</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">{t('energy.sidebar.energyMix')}</span>
         {[
           { source: 'Solar', pct: 52, color: '#D4A843' },
           { source: 'Wind', pct: 35, color: '#3B82F6' },
@@ -1081,7 +1082,7 @@ const energyConfig: DashboardConfig = {
         ))}
       </div>
       <div className="bg-[#0D0A05] border border-[rgba(212,168,67,0.15)] rounded-lg p-3">
-        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">Export Capacity</span>
+        <span className="text-[10px] sm:text-[9px] font-bold tracking-[0.12em] uppercase text-white/20 mb-2 block">{t('energy.sidebar.exportCapacity')}</span>
         <p className="text-lg font-bold text-white">1.2 <span className="text-[10px] text-white/30">GW</span></p>
         <p className="text-[10px] sm:text-[8px] text-white/20 mt-1">Morocco → Spain: 700 MW</p>
         <p className="text-[10px] sm:text-[8px] text-white/20">Morocco → Mauritania: 500 MW</p>
@@ -1089,14 +1090,14 @@ const energyConfig: DashboardConfig = {
     </div>
   ),
   backgroundImage: '/images/sections/energy-solar-farm.jpg',
-};
+});
 
 // ═══════════════════════════════════════════════════════════════
 // MINING — HarchMine Ops
 // Industrial, amber/brown tones, rugged with sharp corners
 // ═══════════════════════════════════════════════════════════════
-const miningConfig: DashboardConfig = {
-  platformName: 'HarchMine Ops',
+const getMiningConfig = (t: any): DashboardConfig => ({
+  platformName: t('mining.platformName'),
   platformVersion: '0.5',
   accent: '#8B9DAF',
   bgGradient: 'from-[#120D05] to-[#0D0F14]',
@@ -1247,14 +1248,14 @@ const miningConfig: DashboardConfig = {
     </div>
   ),
   backgroundImage: '/images/sections/mining-smelter.jpg',
-};
+});
 
 // ═══════════════════════════════════════════════════════════════
 // CEMENT — HarchCement Plant
 // Industrial factory, warm amber, heavy/massive feel
 // ═══════════════════════════════════════════════════════════════
-const cementConfig: DashboardConfig = {
-  platformName: 'HarchCement Plant',
+const getCementConfig = (t: any): DashboardConfig => ({
+  platformName: t('cement.platformName'),
   platformVersion: '0.2',
   accent: '#C8903A',
   bgGradient: 'from-[#120A02] to-[#0D0802]',
@@ -1429,14 +1430,14 @@ const cementConfig: DashboardConfig = {
     </div>
   ),
   backgroundImage: '/images/sections/cement-factory.jpg',
-};
+});
 
 // ═══════════════════════════════════════════════════════════════
 // WATER — HarchWater Network
 // Blue-teal tones, flowing/wave patterns, clean infrastructure
 // ═══════════════════════════════════════════════════════════════
-const waterConfig: DashboardConfig = {
-  platformName: 'HarchWater Network',
+const getWaterConfig = (t: any): DashboardConfig => ({
+  platformName: t('water.platformName'),
   platformVersion: '0.8',
   accent: '#4A9EB5',
   bgGradient: 'from-[#05101A] to-[#030D14]',
@@ -1597,14 +1598,14 @@ const waterConfig: DashboardConfig = {
     </div>
   ),
   backgroundImage: '/images/sections/water-treatment.jpg',
-};
+});
 
 // ═══════════════════════════════════════════════════════════════
 // TECHNOLOGY — HarchTech DevPortal
 // Developer-focused, monospace, dark code editor feel
 // ═══════════════════════════════════════════════════════════════
-const technologyConfig: DashboardConfig = {
-  platformName: 'HarchTech DevPortal',
+const getTechnologyConfig = (t: any): DashboardConfig => ({
+  platformName: t('technology.platformName'),
   platformVersion: '0.4',
   accent: '#7C8CF5',
   bgGradient: 'from-[#0A0D1A] to-[#0D0F1C]',
@@ -1778,14 +1779,14 @@ const technologyConfig: DashboardConfig = {
     </div>
   ),
   backgroundImage: '/images/sections/tech-cyber.jpg',
-};
+});
 
 // ═══════════════════════════════════════════════════════════════
 // FINANCE — HarchFinance Terminal
 // Bloomberg/professional fintech aesthetic, slate accent, mono fonts
 // ═══════════════════════════════════════════════════════════════
-const financeConfig: DashboardConfig = {
-  platformName: 'HarchFinance Terminal',
+const getFinanceConfig = (t: any): DashboardConfig => ({
+  platformName: t('finance.platformName'),
   platformVersion: '0.8',
   accent: '#8B9DAF',
   bgGradient: 'from-[#0A0A12] to-[#0D0F14]',
@@ -2168,18 +2169,18 @@ const financeConfig: DashboardConfig = {
     </div>
   ),
   backgroundImage: '/images/sections/finance-district.jpg',
-};
+});
 
 // ─── Config Registry ───
-const configs: Record<string, DashboardConfig> = {
-  intelligence: intelligenceConfig,
-  agriculture: agricultureConfig,
-  energy: energyConfig,
-  mining: miningConfig,
-  cement: cementConfig,
-  water: waterConfig,
-  technology: technologyConfig,
-  finance: financeConfig,
+const configFactories: Record<string, (t: any) => DashboardConfig> = {
+  intelligence: getIntelligenceConfig,
+  agriculture: getAgricultureConfig,
+  energy: getEnergyConfig,
+  mining: getMiningConfig,
+  cement: getCementConfig,
+  water: getWaterConfig,
+  technology: getTechnologyConfig,
+  finance: getFinanceConfig,
 };
 
 // ═══════════════════════════════════════════════════════════════
@@ -2191,6 +2192,7 @@ interface InteractivePlatformProps {
 }
 
 export function InteractivePlatform({ slug, accent: accentOverride }: InteractivePlatformProps) {
+  const t = useTranslations('interactivePlatform');
   const [activeTab, setActiveTab] = useState(0);
   const [activeSidebar, setActiveSidebar] = useState(0);
   const [selectedHub, setSelectedHub] = useState<number | null>(null);
@@ -2208,7 +2210,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
 
   // Reset state when slug changes — using key-based approach on the parent
 
-  const config = configs[slug];
+  const config = configFactories[slug]?.(t);
   if (!config) return null;
 
   const accent = accentOverride || config.accent;
@@ -2249,7 +2251,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
           <h2 className={`text-3xl md:text-4xl font-bold text-white tracking-tight ${monoFont}`}>
             {config.platformName}
           </h2>
-          <p className="text-sm text-white/40 mt-2">Interactive platform preview — explore the interface</p>
+          <p className="text-sm text-white/40 mt-2">{t('interactivePreview')}</p>
         </motion.div>
 
         {/* Dashboard Shell */}
@@ -2409,7 +2411,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
                   className="lg:hidden w-full py-2.5 text-[10px] font-bold tracking-[0.1em] uppercase text-white/30 hover:text-white/50 border border-[rgba(255,255,255,0.06)] rounded-md transition-colors cursor-pointer"
                   onClick={() => setShowSidebarDetails(!showSidebarDetails)}
                 >
-                  {showSidebarDetails ? 'Hide Details' : 'Show Details'}
+                  {showSidebarDetails ? t('hideDetails') : t('showDetails')}
                 </button>
               </div>
             </div>
@@ -2420,12 +2422,12 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
             <div className="flex items-center gap-2 md:gap-3 min-w-0 overflow-hidden">
               <span className="flex items-center gap-1.5 flex-shrink-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className={`text-[10px] sm:text-[8px] text-white/25 ${monoFont} hidden sm:inline`}>ALL SYSTEMS NOMINAL</span>
+                <span className={`text-[10px] sm:text-[8px] text-white/25 ${monoFont} hidden sm:inline`}>{t('allSystemsNominal')}</span>
               </span>
               <span className="text-[10px] sm:text-[8px] text-white/15 hidden sm:inline">|</span>
               <span className={`text-[10px] sm:text-[8px] text-white/20 ${monoFont} truncate`}>{config.statusBarText}</span>
             </div>
-            <span className={`text-[10px] sm:text-[8px] text-white/15 ${monoFont} flex-shrink-0 ml-2`}>v{config.platformVersion} — LIVE</span>
+            <span className={`text-[10px] sm:text-[8px] text-white/15 ${monoFont} flex-shrink-0 ml-2`}>v{config.platformVersion} — {t('live')}</span>
           </div>
         </motion.div>
 

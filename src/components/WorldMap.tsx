@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface MapLocation {
   name: string;
@@ -11,18 +12,19 @@ interface MapLocation {
   delay: string;
 }
 
-const locations: MapLocation[] = [
-  { name: 'Casablanca', vertical: 'HQ', stat: 'Global Operations', cx: 295, cy: 140, delay: 'blink-dot-delay-0' },
-  { name: 'Dakhla', vertical: 'Intelligence', stat: '1,798 GPU Carbon-Aware Data Centers', cx: 260, cy: 215, delay: 'blink-dot-delay-1' },
-  { name: 'Gambia', vertical: 'Cement', stat: '500kT/yr Production', cx: 290, cy: 175, delay: 'blink-dot-delay-2' },
-  { name: 'Sahel Region', vertical: 'Energy', stat: '2GW+ Renewable Pipeline', cx: 340, cy: 165, delay: 'blink-dot-delay-3' },
-  { name: 'Mauritania', vertical: 'Mining', stat: '3 Strategic Minerals', cx: 275, cy: 155, delay: 'blink-dot-delay-4' },
-  { name: 'Senegal', vertical: 'Agri', stat: '$35B Market Access', cx: 285, cy: 178, delay: 'blink-dot-delay-5' },
-  { name: 'Mali', vertical: 'Water', stat: '200M m³/yr Desalination', cx: 310, cy: 180, delay: 'blink-dot-delay-6' },
-];
-
 export function WorldMap() {
+  const t = useTranslations('worldMap');
   const [hovered, setHovered] = useState<string | null>(null);
+
+  const locations: MapLocation[] = [
+    { name: t('locations.casablanca.name'), vertical: t('locations.casablanca.vertical'), stat: t('locations.casablanca.stat'), cx: 295, cy: 140, delay: 'blink-dot-delay-0' },
+    { name: t('locations.dakhla.name'), vertical: t('locations.dakhla.vertical'), stat: t('locations.dakhla.stat'), cx: 260, cy: 215, delay: 'blink-dot-delay-1' },
+    { name: t('locations.gambia.name'), vertical: t('locations.gambia.vertical'), stat: t('locations.gambia.stat'), cx: 290, cy: 175, delay: 'blink-dot-delay-2' },
+    { name: t('locations.sahel.name'), vertical: t('locations.sahel.vertical'), stat: t('locations.sahel.stat'), cx: 340, cy: 165, delay: 'blink-dot-delay-3' },
+    { name: t('locations.mauritania.name'), vertical: t('locations.mauritania.vertical'), stat: t('locations.mauritania.stat'), cx: 275, cy: 155, delay: 'blink-dot-delay-4' },
+    { name: t('locations.senegal.name'), vertical: t('locations.senegal.vertical'), stat: t('locations.senegal.stat'), cx: 285, cy: 178, delay: 'blink-dot-delay-5' },
+    { name: t('locations.mali.name'), vertical: t('locations.mali.vertical'), stat: t('locations.mali.stat'), cx: 310, cy: 180, delay: 'blink-dot-delay-6' },
+  ];
 
   return (
     <div className="map-container">
@@ -150,7 +152,7 @@ export function WorldMap() {
 
         {/* Label: Africa */}
         <text x="350" y="260" fontSize="36" fontWeight="800" fill="rgba(255,255,255,0.03)" letterSpacing="0.1em">
-          AFRICA
+          {t('africa')}
         </text>
       </svg>
     </div>

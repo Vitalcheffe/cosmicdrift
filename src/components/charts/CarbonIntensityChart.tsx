@@ -11,6 +11,7 @@ import {
   AreaChart,
 } from 'recharts';
 import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface CarbonData {
   quarter: string;
@@ -51,16 +52,17 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
 }
 
 export function CarbonIntensityChart() {
+  const t = useTranslations('charts');
   const data = useMemo(() => rawData, []);
 
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
-          Carbon Intensity Trend
+          {t('carbonIntensity.title')}
         </h3>
         <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
-          gCO₂/kWh over time vs global average
+          {t('carbonIntensity.subtitle')}
         </p>
       </div>
       <div style={{ height: 350 }}>
@@ -98,7 +100,7 @@ export function CarbonIntensityChart() {
               strokeDasharray="6 4"
               strokeWidth={1.5}
               label={{
-                value: 'Global Avg 450',
+                value: t('carbonIntensity.globalAvg'),
                 position: 'right',
                 fill: '#A0524B',
                 fontSize: 10,

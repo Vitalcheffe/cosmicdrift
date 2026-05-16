@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 /* ═══════════════════════════════════════════════════════════════
    COORDINATE PROJECTION
@@ -109,55 +110,55 @@ interface MapLocation {
 const locations: MapLocation[] = [
   {
     id: 'casa', name: 'Casablanca', vertical: 'HQ', version: '/0.0',
-    stat: 'Global Operations', desc: 'Corporate HQ — Strategy & Capital',
+    stat: '', desc: '',
     lat: 33.57, lon: -7.59, status: 'active',
     labelDx: 16, labelDy: -4,
   },
   {
     id: 'dakhla', name: 'Dakhla', vertical: 'Intelligence', version: '/0.1',
-    stat: '1,798 GPU Carbon-Aware Data Centers', desc: 'Hyperscale GPU Cluster — Sovereign Compute',
+    stat: '', desc: '',
     lat: 23.68, lon: -15.96, status: 'engineering',
     labelDx: 16, labelDy: 5,
   },
   {
     id: 'banjul', name: 'Banjul', vertical: 'Cement', version: '/0.2',
-    stat: '500kT/yr Production', desc: 'Vertically Integrated Cement Plant',
+    stat: '', desc: '',
     lat: 13.45, lon: -16.57, status: 'permitted',
     labelDx: 16, labelDy: 12,
   },
   {
     id: 'nouakchott', name: 'Nouakchott', vertical: 'Mining', version: '/0.5',
-    stat: '3 Strategic Minerals', desc: 'Phosphate, Cobalt & Rare Earths',
+    stat: '', desc: '',
     lat: 18.07, lon: -15.98, status: 'engineering',
     labelDx: 16, labelDy: -4,
   },
   {
     id: 'dakar', name: 'Dakar', vertical: 'Agri', version: '/0.6',
-    stat: '$35B Market Access', desc: 'Precision IoT Farming Hub',
+    stat: '', desc: '',
     lat: 14.69, lon: -17.44, status: 'design',
     labelDx: 16, labelDy: -6,
   },
   {
     id: 'bamako', name: 'Bamako', vertical: 'Water', version: '/0.7',
-    stat: '200M m³/yr', desc: 'AI-Optimized Desalination Network',
+    stat: '', desc: '',
     lat: 12.64, lon: -8.00, status: 'design',
     labelDx: 16, labelDy: 5,
   },
   {
     id: 'sahel', name: 'Sahel', vertical: 'Energy', version: '/0.3',
-    stat: '2GW+ Renewable Pipeline', desc: 'Solar, Wind & Green Hydrogen',
+    stat: '', desc: '',
     lat: 15.0, lon: 0, status: 'active',
     labelDx: 16, labelDy: 5,
   },
 ];
 
 const connections = [
-  { from: 'casa', to: 'dakhla', label: 'Fiber' },
-  { from: 'casa', to: 'banjul', label: 'Logistics' },
-  { from: 'casa', to: 'sahel', label: 'Power Grid' },
-  { from: 'dakhla', to: 'nouakchott', label: 'Data Link' },
-  { from: 'banjul', to: 'dakar', label: 'Supply Chain' },
-  { from: 'sahel', to: 'bamako', label: 'Water-Energy' },
+  { from: 'casa', to: 'dakhla', label: '' },
+  { from: 'casa', to: 'banjul', label: '' },
+  { from: 'casa', to: 'sahel', label: '' },
+  { from: 'dakhla', to: 'nouakchott', label: '' },
+  { from: 'banjul', to: 'dakar', label: '' },
+  { from: 'sahel', to: 'bamako', label: '' },
 ];
 
 function getLoc(id: string) {
@@ -176,6 +177,7 @@ const STATUS_COLORS: Record<string, string> = {
    ═══════════════════════════════════════════════════════════════ */
 
 export function AfricaMap() {
+  const t = useTranslations('africaMap');
   const [hovered, setHovered] = useState<string | null>(null);
 
   /* Pre-compute paths and positions so we don't recalc on every render */
@@ -205,7 +207,7 @@ export function AfricaMap() {
             <div className="w-2 h-2 rounded-full bg-[rgba(139,157,175,0.1)]" />
           </div>
           <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">
-            Deployments / Real-Time
+            {t('deploymentsRealTime')}
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -214,7 +216,7 @@ export function AfricaMap() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4A7B5F]" style={{ boxShadow: '0 0 6px rgba(74,123,95,0.7)' }} />
           </span>
           <span className="text-[9px] text-[rgba(255,255,255,0.5)] font-[family-name:var(--font-space-mono)]">
-            LIVE — {locations.filter((l) => l.status === 'active').length} ACTIVE
+            {t('liveActive', { count: locations.filter((l) => l.status === 'active').length })}
           </span>
         </div>
       </motion.div>
@@ -399,7 +401,7 @@ export function AfricaMap() {
                     letterSpacing="0.08em"
                     className="transition-all duration-300 font-[family-name:var(--font-space-mono)]"
                   >
-                    {loc.name.toUpperCase()}
+                    {t(`locations.${loc.id}.name`).toUpperCase()}
                   </text>
                 </motion.g>
               );
@@ -411,6 +413,10 @@ export function AfricaMap() {
             {hovered &&
               (() => {
                 const loc = getLoc(hovered);
+                const locName = t(`locations.${loc.id}.name`);
+                const locVertical = t(`locations.${loc.id}.vertical`);
+                const locStat = t(`locations.${loc.id}.stat`);
+                const locDesc = t(`locations.${loc.id}.desc`);
                 const [x, y] = locPos.get(loc.id)!;
                 const color = STATUS_COLORS[loc.status];
                 const leftPct = (x / VW) * 100;
@@ -441,12 +447,12 @@ export function AfricaMap() {
                           className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]"
                           style={{ color }}
                         >
-                          {loc.vertical} {loc.version}
+                          {locVertical} {loc.version}
                         </span>
                       </div>
-                      <p className="text-[13px] font-semibold text-white mb-1">{loc.stat}</p>
+                      <p className="text-[13px] font-semibold text-white mb-1">{locStat}</p>
                       <p className="text-[11px] text-[rgba(255,255,255,0.5)] leading-relaxed">
-                        {loc.desc}
+                        {locDesc}
                       </p>
                     </div>
                   </motion.div>
@@ -464,11 +470,11 @@ export function AfricaMap() {
         transition={{ delay: 1.8, duration: 0.6 }}
       >
         {[
-          { color: '#4A7B5F', label: 'ACTIVE' },
-          { color: '#8B9DAF', label: 'ENGINEERING' },
-          { color: '#999999', label: 'PERMITTED' },
-          { color: '#666666', label: 'DESIGN' },
-        ].map(({ color, label }) => (
+          { color: '#4A7B5F', label: t('legend.active'), key: 'active' },
+          { color: '#8B9DAF', label: t('legend.engineering'), key: 'engineering' },
+          { color: '#999999', label: t('legend.permitted'), key: 'permitted' },
+          { color: '#666666', label: t('legend.design'), key: 'design' },
+        ].map(({ color, label, key }) => (
           <div key={label} className="flex items-center gap-2">
             <div
               className="w-2 h-2 rounded-full"

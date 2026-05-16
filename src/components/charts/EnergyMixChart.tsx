@@ -9,6 +9,7 @@ import {
   Legend,
 } from 'recharts';
 import { useMemo, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface EnergyData {
   name: string;
@@ -17,10 +18,10 @@ interface EnergyData {
 }
 
 const rawData: EnergyData[] = [
-  { name: 'Solar', value: 45, color: '#8B9DAF' },
-  { name: 'Wind', value: 30, color: '#6B9F6B' },
-  { name: 'Green Hydrogen', value: 15, color: '#4A5D6E' },
-  { name: 'Grid', value: 10, color: '#333333' },
+  { name: 'solar', value: 45, color: '#8B9DAF' },
+  { name: 'wind', value: 30, color: '#6B9F6B' },
+  { name: 'greenHydrogen', value: 15, color: '#4A5D6E' },
+  { name: 'grid', value: 10, color: '#333333' },
 ];
 
 interface CustomTooltipProps {
@@ -29,12 +30,13 @@ interface CustomTooltipProps {
 }
 
 function CustomTooltip({ active, payload }: CustomTooltipProps) {
+  const t = useTranslations('charts');
   if (!active || !payload?.length) return null;
   const data = payload[0].payload;
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
       <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
-        {data.name}
+        {t('energyMix.' + data.name)}
       </p>
       <p className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
         {data.value}%
@@ -44,6 +46,7 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
 }
 
 function CustomLegend({ payload }: { payload?: Array<{ value: string; color: string }> }) {
+  const t = useTranslations('charts');
   if (!payload?.length) return null;
   return (
     <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -54,7 +57,7 @@ function CustomLegend({ payload }: { payload?: Array<{ value: string; color: str
             style={{ backgroundColor: entry.color }}
           />
           <span className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
-            {entry.value}
+            {t('energyMix.' + entry.value)}
           </span>
         </div>
       ))}
@@ -63,6 +66,7 @@ function CustomLegend({ payload }: { payload?: Array<{ value: string; color: str
 }
 
 export function EnergyMixChart() {
+  const t = useTranslations('charts');
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const data = useMemo(() => rawData, []);
@@ -71,10 +75,10 @@ export function EnergyMixChart() {
     <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
-          Energy Mix
+          {t('energyMix.title')}
         </h3>
         <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
-          Renewable energy pipeline composition
+          {t('energyMix.subtitle')}
         </p>
       </div>
       <div style={{ height: 320 }}>
@@ -132,7 +136,7 @@ export function EnergyMixChart() {
               fontSize={10}
               fontFamily="var(--font-space-mono)"
             >
-              Total Pipeline
+              {t('energyMix.totalPipeline')}
             </text>
           </PieChart>
         </ResponsiveContainer>

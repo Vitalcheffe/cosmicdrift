@@ -287,7 +287,7 @@ export default function HomePageClient() {
           transition={{ delay: 1.5, duration: 0.8 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
         >
-          <span className="text-[9px] tracking-[0.25em] uppercase text-white/30 font-medium">Scroll</span>
+          <span className="text-[9px] tracking-[0.25em] uppercase text-white/30 font-medium">{t('scroll')}</span>
           <ChevronDown size={14} className="text-white/30 animate-bounce-slow" />
         </motion.div>
       </motion.section>
@@ -344,7 +344,7 @@ export default function HomePageClient() {
                         href={v.href}
                         className="inline-flex items-center gap-2 border border-white/12 text-white px-5 py-2.5 rounded-[8px] text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all"
                       >
-                        Explore
+                        {t('explore')}
                       </Link>
                       <Link
                         href={v.href}
@@ -666,12 +666,12 @@ export default function HomePageClient() {
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Proven Impact</p>
+            <p className="section-label mb-4">{t('sectionLabels.provenImpact')}</p>
             <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-4">
-              Proof, Not Promises
+              {t('sectionLabels.proofNotPromises')}
             </h2>
             <p className="max-w-xl text-sm text-[rgba(255,255,255,0.5)] leading-relaxed mb-16">
-              Real deployments. Real metrics. Real sovereignty. See how Harch Corp infrastructure delivers measurable outcomes across industrial and government sectors.
+              {t('sectionLabels.proofDescription')}
             </p>
           </FadeIn>
 
@@ -706,19 +706,19 @@ export default function HomePageClient() {
                     <div className="flex items-center gap-6 mb-4">
                       <div>
                         <p className="text-xl font-bold text-[#4A7B5F] stat-mono">-20%</p>
-                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Energy</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">{t('caseStudy.metricLabels.energy')}</p>
                       </div>
                       <div>
                         <p className="text-xl font-bold text-[#4A7B5F] stat-mono">+15%</p>
-                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Uptime</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">{t('caseStudy.metricLabels.uptime')}</p>
                       </div>
                       <div>
                         <p className="text-xl font-bold text-[#4A7B5F] stat-mono">$4.2M</p>
-                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Saved/yr</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">{t('caseStudy.metricLabels.savedPerYear')}</p>
                       </div>
                     </div>
                     <div className="pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
-                      <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] text-[rgba(74,125,95,0.7)]">Read Case Study</span>
+                      <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] text-[rgba(74,125,95,0.7)]">{t('caseStudy.readCaseStudy')}</span>
                       <ArrowRight size={12} className="text-[rgba(255,255,255,0.25)] group-hover:translate-x-1 group-hover:text-[#4A7B5F] transition-all" />
                     </div>
                   </div>
@@ -756,19 +756,19 @@ export default function HomePageClient() {
                     <div className="flex items-center gap-6 mb-4">
                       <div>
                         <p className="text-xl font-bold text-[#8B9DAF] stat-mono">100%</p>
-                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Localized</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">{t('caseStudy.metricLabels.localized')}</p>
                       </div>
                       <div>
                         <p className="text-xl font-bold text-[#8B9DAF] stat-mono">5</p>
-                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Nations</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">{t('caseStudy.metricLabels.nations')}</p>
                       </div>
                       <div>
                         <p className="text-xl font-bold text-[#8B9DAF] stat-mono">&lt;8ms</p>
-                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">Latency</p>
+                        <p className="text-[10px] text-[rgba(255,255,255,0.3)] uppercase tracking-wide font-[family-name:var(--font-space-mono)]">{t('caseStudy.metricLabels.latency')}</p>
                       </div>
                     </div>
                     <div className="pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
-                      <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] text-[rgba(139,157,175,0.7)]">Read Case Study</span>
+                      <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] text-[rgba(139,157,175,0.7)]">{t('caseStudy.readCaseStudy')}</span>
                       <ArrowRight size={12} className="text-[rgba(255,255,255,0.25)] group-hover:translate-x-1 group-hover:text-[#8B9DAF] transition-all" />
                     </div>
                   </div>
@@ -780,7 +780,7 @@ export default function HomePageClient() {
           <FadeIn delay={0.3}>
             <div className="mt-12 text-center">
               <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm font-semibold text-[rgba(255,255,255,0.6)] hover:text-white transition-colors">
-                View All Case Studies <ArrowRight size={14} />
+                {t('caseStudy.viewAll')} <ArrowRight size={14} />
               </Link>
             </div>
           </FadeIn>
@@ -912,12 +912,12 @@ export default function HomePageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="text-center mb-12">
-              <p className="section-label mb-4">Developer Platform</p>
+              <p className="section-label mb-4">{t('sectionLabels.developerPlatform')}</p>
               <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight">
-                Build on HarchOS<span className="text-[#8B9DAF]">.</span>
+                {t('sectionLabels.buildOnHarchOS')}<span className="text-[#8B9DAF]">.</span>
               </h2>
               <p className="max-w-xl mx-auto mt-4 text-sm text-[rgba(255,255,255,0.5)] leading-relaxed">
-                Native SDKs for Python and TypeScript. Carbon-aware scheduling, sovereign defaults, and zero-config onboarding.
+                {t('sectionLabels.buildDescription')}
               </p>
               <div className="flex items-center justify-center gap-3 mt-6">
                 <img src="https://img.shields.io/pypi/v/harchos.svg" alt="PyPI" className="h-6" />
@@ -936,7 +936,7 @@ export default function HomePageClient() {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3572A5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-white">Python SDK</h3>
+                    <h3 className="text-base font-bold text-white">{t('devPlatform.pythonSdk')}</h3>
                     <div className="flex items-center gap-2 mt-0.5">
                       <img src="https://img.shields.io/pypi/v/harchos.svg?label=PyPI" alt="PyPI" className="h-4" />
                       <span className="text-[10px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">
@@ -975,7 +975,7 @@ export default function HomePageClient() {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B7489" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-white">TypeScript SDK</h3>
+                    <h3 className="text-base font-bold text-white">{t('devPlatform.typeScriptSdk')}</h3>
                     <div className="flex items-center gap-2 mt-0.5">
                       <img src="https://img.shields.io/npm/v/@harchos/sdk.svg?label=npm" alt="npm" className="h-4" />
                       <span className="text-[10px] text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">
@@ -1029,14 +1029,14 @@ export default function HomePageClient() {
               <span className="text-[clamp(4rem,12vw,9rem)] text-[rgba(255,255,255,0.04)] leading-none font-serif block -mb-12">&ldquo;</span>
             </ParallaxSection>
             <TextReveal
-              text="Africa doesn't need aid — it needs infrastructure. It doesn't need pity — it needs partnership on equal terms. We build the systems that convert potential into power."
+              text={t('ceoQuote.text')}
               className="text-[clamp(1.25rem,3vw,2rem)] font-light text-white leading-[1.4] mb-10"
             />
             <div className="flex items-center gap-4">
               <div className="w-12 h-px bg-[#8B9DAF]" />
               <div>
-                <p className="text-sm text-white font-semibold">Amine Harch El Korane</p>
-                <p className="text-[11px] text-[rgba(255,255,255,0.25)] mt-0.5">Founder &amp; CEO, Harch Corp</p>
+                <p className="text-sm text-white font-semibold">{t('ceoQuote.author')}</p>
+                <p className="text-[11px] text-[rgba(255,255,255,0.25)] mt-0.5">{t('ceoQuote.title')}</p>
               </div>
             </div>
           </FadeIn>
@@ -1260,12 +1260,12 @@ export default function HomePageClient() {
               </MagneticButton>
               <MagneticButton className="inline-block">
                 <Link href="/contact" className="inline-flex items-center gap-2.5 border border-[rgba(139,157,175,0.2)] bg-[rgba(139,157,175,0.04)] text-[#8B9DAF] px-8 py-4 rounded-lg text-sm font-semibold hover:border-[rgba(139,157,175,0.3)] hover:text-white transition-all duration-300">
-                  Request Briefing
+                  {t('requestBriefing')}
                 </Link>
               </MagneticButton>
               <MagneticButton className="inline-block">
                 <Link href="/careers" className="inline-flex items-center gap-2.5 border border-[rgba(255,255,255,0.1)] text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.03)] transition-all duration-300">
-                  View Careers
+                  {t('viewCareers')}
                 </Link>
               </MagneticButton>
             </div>

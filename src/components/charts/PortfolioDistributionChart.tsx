@@ -8,6 +8,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { useMemo, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface PortfolioData {
   name: string;
@@ -16,14 +17,14 @@ interface PortfolioData {
 }
 
 const rawData: PortfolioData[] = [
-  { name: 'Intelligence', value: 800, color: '#8B9DAF' },
-  { name: 'Energy', value: 600, color: '#6B9F6B' },
-  { name: 'Technology', value: 400, color: '#7888A8' },
-  { name: 'Cement', value: 200, color: '#A89878' },
-  { name: 'Mining', value: 200, color: '#A87878' },
-  { name: 'Agri', value: 150, color: '#6BAF6B' },
-  { name: 'Water', value: 150, color: '#6888A8' },
-  { name: 'Finance', value: 100, color: '#8B9DAF' },
+  { name: 'intelligence', value: 800, color: '#8B9DAF' },
+  { name: 'energy', value: 600, color: '#6B9F6B' },
+  { name: 'technology', value: 400, color: '#7888A8' },
+  { name: 'cement', value: 200, color: '#A89878' },
+  { name: 'mining', value: 200, color: '#A87878' },
+  { name: 'agri', value: 150, color: '#6BAF6B' },
+  { name: 'water', value: 150, color: '#6888A8' },
+  { name: 'finance', value: 100, color: '#8B9DAF' },
 ];
 
 interface CustomTooltipProps {
@@ -32,6 +33,7 @@ interface CustomTooltipProps {
 }
 
 function CustomTooltip({ active, payload }: CustomTooltipProps) {
+  const t = useTranslations('charts');
   if (!active || !payload?.length) return null;
   const data = payload[0].payload;
   const total = rawData.reduce((sum, d) => sum + d.value, 0);
@@ -41,7 +43,7 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
       <div className="flex items-center gap-2 mb-1">
         <div className="w-2 h-2 rounded-full" style={{ backgroundColor: data.color }} />
         <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
-          {data.name}
+          {t('portfolioDistribution.' + data.name)}
         </p>
       </div>
       <p className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
@@ -52,6 +54,7 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
 }
 
 export function PortfolioDistributionChart() {
+  const t = useTranslations('charts');
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const data = useMemo(() => rawData, []);
 
@@ -61,10 +64,10 @@ export function PortfolioDistributionChart() {
     <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
-          Portfolio Distribution
+          {t('portfolioDistribution.title')}
         </h3>
         <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
-          Capital allocation across 8 verticals — ${total}M deployed
+          {t('portfolioDistribution.subtitle')} — ${total}M deployed
         </p>
       </div>
       <div className="flex flex-col lg:flex-row items-center gap-6">
@@ -110,7 +113,7 @@ export function PortfolioDistributionChart() {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: entry.color }} />
-                <span className="text-[11px] text-txt-secondary truncate flex-1">{entry.name}</span>
+                <span className="text-[11px] text-txt-secondary truncate flex-1">{t('portfolioDistribution.' + entry.name)}</span>
                 <span className="text-[11px] font-bold text-white stat-mono flex-shrink-0">{pct}%</span>
               </div>
             );

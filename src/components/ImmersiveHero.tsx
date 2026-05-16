@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface ImmersiveHeroProps {
   title: string;
@@ -17,8 +18,9 @@ export default function ImmersiveHero({
   subtitle,
   version,
   accent = '#8B9DAF',
-  metaLabel = 'HARCH CORP',
+  metaLabel,
 }: ImmersiveHeroProps) {
+  const t = useTranslations('immersiveHero');
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -131,7 +133,7 @@ export default function ImmersiveHero({
             transition={{ duration: 0.6, delay: 0.5 }}
             className="font-[family-name:var(--font-space-mono)] text-[10px] uppercase tracking-[0.2em] text-white mb-4"
           >
-            YOU ARE NOW ENTERING
+            {t('youAreNowEntering')}
           </motion.p>
 
           {/* Giant title with letter-by-letter animation */}
@@ -191,11 +193,11 @@ export default function ImmersiveHero({
           transition={{ duration: 0.8, delay: 1.5 }}
           className="font-[family-name:var(--font-space-mono)] text-[9px] tracking-[0.15em] uppercase text-white/20"
         >
-          <span>{metaLabel}</span>
+          <span>{metaLabel || t('harchCorp')}</span>
           <span className="mx-2">/</span>
-          <span>TIME: 3 MINS</span>
+          <span>{t('time3Mins')}</span>
           <span className="mx-2">/</span>
-          <span>SCROLL TO EXPLORE</span>
+          <span>{t('scrollToExplore')}</span>
         </motion.div>
 
         {/* Chevron — bottom-right */}

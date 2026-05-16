@@ -267,3 +267,189 @@ Stage Summary:
 - en.json has all placeholder values replaced with real content
 - Build: 0 errors, 328 pages generated statically
 - Committed and pushed to GitHub (fd265e5)
+
+---
+Task ID: 6
+Agent: Subagent (general-purpose)
+Task: Fix remaining hardcoded English strings in HomePageClient.tsx
+
+Work Log:
+- Read HomePageClient.tsx (1,278 lines) completely
+- Read en.json and fr.json "home" sections to understand existing key structure
+- Identified 15+ hardcoded English strings that needed translation keys
+- Added new translation keys to BOTH en.json and fr.json under "home" namespace:
+  - Flat keys: scroll, explore, requestBriefing, viewCareers
+  - sectionLabels: provenImpact, proofNotPromises, proofDescription, developerPlatform, buildOnHarchOS, buildDescription
+  - caseStudy.metricLabels: energy, uptime, savedPerYear, localized, nations, latency
+  - caseStudy: readCaseStudy, viewAll
+  - devPlatform: pythonSdk, typeScriptSdk
+  - ceoQuote: text, author, title
+- Replaced all hardcoded strings in HomePageClient.tsx with t() calls using useTranslations('home')
+- Proper nouns kept as-is (Amine Harch El Korane → kept in translation value, not hardcoded)
+- French translations use proper French with accents (Énergie, Disponibilité, Économies/an, Localisé, Latence, etc.)
+- Build verified: Next.js build succeeds with 0 errors, all pages generated
+
+---
+Task ID: 5
+Agent: Subagent (general-purpose)
+Task: Fix StatusPageClient translations (add French translation support)
+
+Work Log:
+- Read StatusPageClient.tsx (390 lines) — confirmed no useTranslations hook, all text hardcoded in English
+- Read en.json and fr.json to understand existing translation key structure
+- Verified no existing "status" top-level key in either file
+- Added "status" section to en.json with 40+ English translation keys covering:
+  - Hero section: heroLabel, heroTitle, heroDescription
+  - Overall status banner: allSystemsOperational, partialServiceDisruption, descriptions, uptime90Days
+  - Service status section: servicesLabel, serviceStatusTitle, operational, degradedPerformance, serviceOutage
+  - Legend: operational, degraded, outage, daysAgoToToday
+  - Incidents section: incidentsLabel, recentIncidentsTitle, noIncidentsTitle, noIncidentsDescription
+  - Maintenance section: maintenanceLabel, scheduledMaintenanceTitle, maintenanceName, maintenanceServices, maintenanceDate, maintenanceTime, maintenanceBadge, maintenanceDescription
+  - Notifications section: notificationsLabel, stayInformedTitle, stayInformedDescription
+  - Subscribe form: emailNotifications, emailPlaceholder, subscribe, slackIntegration, addToSlack, rssFeed, rssFeedDescription, copyUrl
+  - Footer: lastChecked, supportHub, security, compliance
+  - 8 service objects with name + description keys (services.harchosCoreApi, services.senseDataPipeline, services.thinkAiEngine, services.actExecutionLayer, services.developerPortal, services.cliSdkServices, services.managementConsole, services.authenticationService)
+- Added matching "status" section to fr.json with proper French translations (accents: Sécurité, Conformité, Opérationnel, Dégradée, Planifiée, etc.)
+- Updated StatusPageClient.tsx:
+  - Added `import { useTranslations } from 'next-intl'`
+  - Added `const t = useTranslations('status')` at top of component
+  - Moved services array inside component to access `t` function
+  - Changed service data to use nameKey/descriptionKey referencing translation keys
+  - Replaced ALL hardcoded English strings with t() calls
+  - Updated StatusLabel to accept `t` as prop for status label translations
+  - All functional behavior preserved (status logic, uptime calculations, conditional rendering)
+- Validated both JSON files parse correctly
+- TypeScript transpilation confirmed with no syntax errors
+
+---
+Task ID: 7b
+Agent: Subagent (general-purpose)
+Task: Add French translation support to 8 chart components
+
+Work Log:
+- Read all 8 chart component files in /src/components/charts/
+- Read en.json and fr.json to understand existing translation key structure
+- Added "charts" section to BOTH en.json and fr.json with 8 sub-sections (57 total translation keys):
+  - energyMix (7 keys): title, subtitle, totalPipeline, solar, wind, greenHydrogen, grid
+  - esgRadar (8 keys): title, subtitle, carbonEfficiency, renewableMix, waterRecycling, communityImpact, governance, innovation
+  - portfolioDistribution (10 keys): title, subtitle, intelligence, energy, technology, cement, mining, agri, water, finance
+  - revenue (4 keys): title, subtitle, actual, projected
+  - gpuUtilization (7 keys): title, subtitle, casablanca, dakhla, marrakech, tangier, oujda
+  - investmentPipeline (10 keys): title, subtitle, intelligence, energy, technology, cement, mining, agri, water, finance
+  - operationalMetrics (8 keys): title, subtitle, gpuUtil, renewableOutput, carbonIntensity, gpuUtilLegend, renewableGwh, carbonGco2
+  - carbonIntensity (3 keys): title, subtitle, globalAvg
+- Modified all 8 chart components:
+  - Added `import { useTranslations } from 'next-intl'`
+  - Added `const t = useTranslations('charts')` at top of each component
+  - Replaced all hardcoded English title/subtitle strings with t() calls
+  - Changed raw data name fields to translation key suffixes (e.g., 'Solar' → 'solar', 'Wind' → 'wind')
+  - Added useTranslations to sub-components (CustomTooltip, CustomLegend) for data label translation
+  - Used dynamic key lookup: t('energyMix.' + data.name) pattern for data-driven labels
+  - For ESGRadarChart: used custom tick render function for PolarAngleAxis (formatter prop not supported)
+  - For InvestmentPipelineChart: used tickFormatter prop on YAxis for vertical label translation
+  - For OperationalMetricsChart: translated tooltip labels, legend names via key mapping
+  - For CarbonIntensityChart: translated ReferenceLine label via t() call
+- Verified key parity between en.json and fr.json (8 sections, all sub-keys match)
+- Verified TypeScript compilation: 0 chart-related errors
+- French translations use proper French with accents (Mix Énergétique, Performance ESG, Répartition du Portefeuille, Trajectoire des Revenus, Utilisation GPU par Hub, Pipeline d'Investissement par Verticale, Performance Opérationnelle, Tendance de l'Intensité Carbone, etc.)
+
+---
+Task ID: 7c
+Agent: Subagent (general-purpose)
+Task: Add French translation support to harchagri components + shared components
+
+Work Log:
+- Read all 13 component files to identify hardcoded strings:
+  - Harchagri: CompetitorComparison.tsx, ProductCards.tsx, PartnershipsSection.tsx, IoTDashboard.tsx, AfricaMap.tsx
+  - Shared: LiveDashboard.tsx, LiveFeed.tsx, ImmersiveHero.tsx, GuidedTour.tsx, NetworkOntology.tsx, AfricaMap.tsx, WorldMap.tsx, CompetitiveComparison.tsx
+- Read en.json and fr.json to understand existing translation key structure
+
+- Added 9 new top-level sections to BOTH en.json and fr.json:
+  1. **harchagri** — competitorComparison (headers, 5 competitors, harchAgri highlight), productCards (4 products with names/taglines/descriptions/5 features each/3 stats each, requestDemo button), partnerships (6 partners with type/country/description, statusActive/statusNegotiation, partnerLabel), iotDashboard (10 sensor/chart labels, 4 crop names), africaMap (5 hubs with name/country/type, live/iotSensors/hectares)
+  2. **liveDashboard** — liveMetrics, live, lastUpdated, refresh5s
+  3. **liveFeed** — systemFeed + 15 feed messages
+  4. **immersiveHero** — harchCorp, youAreNowEntering, time3Mins, scrollToExplore
+  5. **guidedTour** — done, next
+  6. **networkOntology** — harchCorp, networkOntology, eightVerticals, ariaLabel, 8 vertical labels
+  7. **africaMap** — deploymentsRealTime, liveActive (with {count} ICU), 7 locations with name/vertical/stat/desc, 6 connection labels, 4 legend labels
+  8. **worldMap** — africa, 7 locations with name/vertical/stat
+  9. **competitive** — dominanceScore, metricsWon (with {wins}/{total}), competitiveLandscape, winRate, metric, edge, visualComparison, pctBetter/pctMore (with {pct}), verdict, harchDominance, metricsWonAcross, everyDimension, est, rev
+
+- Modified all 13 component files:
+  - Added `import { useTranslations } from 'next-intl'` to each
+  - Added `const t = useTranslations('namespace')` hook calls
+  - Replaced ALL hardcoded English strings with t() calls
+  - Used ICU message format for interpolation: {count}, {wins}/{total}, {pct}, {name}
+  - ProductCards: extracted products array to a useProducts() hook to access t() in component body
+  - IoTDashboard: moved cropData inside component to use translated crop names
+  - AfricaMap (harchagri): hubs array now uses t() for name/country/type
+  - AfricaMap (top-level): location data uses dynamic t(`locations.${loc.id}.name`) pattern
+  - LiveDashboard: default title parameter now uses t('liveMetrics')
+  - ImmersiveHero: metaLabel defaults to t('harchCorp') instead of hardcoded 'HARCH CORP'
+  - CompetitiveComparison: DominanceRing accepts t as prop for translated labels
+
+- French translations use proper French with accents:
+  - Entreprise, Chiffre d'affaires, Financement, Avantage Harch Agri
+  - Capteurs actifs, Alertes, Points de données, Disponibilité
+  - Données capteurs en temps réel, Humidité %, Santé des cultures
+  - Crédits carbone (tCO₂), Blé, Maïs, Tomates, Oignons
+  - Métriques en direct, Dernière mise à jour, Actualisation
+  - Flux système, Opérations globales, Pipeline renouvelable
+  - Vous entrez maintenant dans, Temps : 3 min, Défilez pour explorer
+  - Ontologie du réseau, 8 Verticales, Paysage concurrentiel
+  - Taux de réussite, Avantage, Comparaison visuelle, Meilleur
+
+---
+Task ID: 7a
+Agent: Subagent (general-purpose)
+Task: Add French translation support to InteractivePlatform component
+
+Work Log:
+- Read InteractivePlatform.tsx (2,450 lines) completely - massive component with 8 subsidiary dashboard configs
+- Read en.json and fr.json to understand existing translation key structure
+- Identified 100+ hardcoded English strings across Intelligence, Agriculture, Energy, Mining, Cement, Water, Technology, and Finance dashboards
+
+- Added "interactivePlatform" section to BOTH en.json and fr.json with 8 sub-sections:
+  - **Shared keys**: platform, interactivePreview, allSystemsNominal, live, hideDetails, showDetails
+  - **intelligence** (26 keys): platformName, 6 sidebarLabels, 4 headerTabs, 4 metricCards, 6 tourSteps (3 titles + 3 descriptions), statusBarText, rack, carbonRoutingLog, hubSuffix, gpus, load, carbon, gpuAllocationByWorkload, 4 workloadNames, gpuUnit, backToAllHubs, submarineCableMoroccoEurope, activeWorkloads, running, 3 workloadTypes, 2 carbonRatings, 8 terminalMessages, 3 sidebar labels, 4 energySources, 2 hubStatuses
+  - **agriculture** (42 keys): platformName, 6 sidebarLabels, 4 headerTabs, 4 metricCards, 6 tourSteps, statusBarText, farmPlotMap, 3 healthStatuses, 8 cropNames, irrigationZoneControls, 6 zoneNames, moisture, soilMoisture, lastIrrigation, zone, nextAction, irrigate, monitor, health, plot, yieldForecastUnit, vsActual, supplyChainFarmToMarket, 5 supplyStages, 3 supplyStatuses, carbonCredits, 4 carbonCreditLabels, verticalFarmContainers, 4 containerCrops, 4 containerStatuses, day, cropRotationTimeline, 3 rotationPlots, 3 seasons, droneScanSchedule, 3 droneAreas, 3 droneStatuses, 3 droneFindings, 7 sidebar labels (7-day forecast, partly cloudy, humidity, market prices, soil composition, weather alerts, quick actions, soil moisture), 3 actionLabels, 2 alertTexts, 7 dayNames
+  - **energy** (16 keys): platformName, 6 sidebarLabels, 4 headerTabs, 4 metricCards, 6 tourSteps, statusBarText, powerFlowGrid, balanced, solarOutput, windSpeed, battery, charging, greenH2, electrolysisActive, gridFrequency, 4 sidebar labels
+  - **mining** (16 keys): platformName, 6 sidebarLabels, 4 headerTabs, 4 metricCards, 6 tourSteps, statusBarText, geologicalCrossSection, 5 rockLayers, mineralProcessingPipeline, 6 processingStages, inventoryByMineral, 4 mineralNames, 4 sidebar items (safetyMetrics, 4 safetyItems, normal), commodityPrices, 4 commodityNames
+  - **cement** (18 keys): platformName, 6 sidebarLabels, 4 headerTabs, 4 metricCards, 6 tourSteps, statusBarText, productionLineLive, 7 productionStages, kilnTemperature, degreesC, dailyVsTarget, today, target, ofDailyTarget, deliveryFleet, 3 deliveryStatuses, eta, 2 sidebar items (qualityLabResults, 4 qualityTests, rawMaterials, 4 materialNames)
+  - **water** (16 keys): platformName, 6 sidebarLabels, 4 headerTabs, 4 metricCards, 6 tourSteps, statusBarText, desalinationProcess, 5 desalStages, 5 desalDetails, pipelineNetworkFlowRates, demand, 2 sidebar items (qualityParameters, 5 qualityParams, leakDetection, 2 leakStatuses)
+  - **technology** (16 keys): platformName, 6 sidebarLabels, 4 headerTabs, 4 metricCards, 6 tourSteps, statusBarText, apiEndpoints, allHealthy, deploymentPipeline, 5 pipelineStages, serviceHealthMatrix, 5 serviceNames, 5 sidebar items
+  - **finance** (18 keys): platformName, 6 sidebarLabels, 4 headerTabs, 4 metricCards, 6 tourSteps, statusBarText, investmentPipeline, dealsCount, 5 dealLabels, low, bondYieldCurve, cbiCertified, portfolioAllocation, dealFlowFunnel, 5 funnelStages, transactionFeed, 4 sidebar items (riskScoreMatrix, 3 riskLevels, currencyRates, complianceStatus, 3 complianceItems, 3 complianceStatuses)
+
+- Modified InteractivePlatform.tsx:
+  - Added `import { useTranslations } from 'next-intl'`
+  - Added `const t = useTranslations('interactivePlatform')` at top of component
+  - Converted 8 config objects from static constants to factory functions that take `t` parameter: getIntelligenceConfig(t), getAgricultureConfig(t), getEnergyConfig(t), getMiningConfig(t), getCementConfig(t), getWaterConfig(t), getTechnologyConfig(t), getFinanceConfig(t)
+  - Changed config registry from `Record<string, DashboardConfig>` to `Record<string, (t: any) => DashboardConfig>`
+  - Component calls `configFactories[slug]?.(t)` to get translated config
+  - Replaced ALL major hardcoded English strings with t() calls including:
+    - Platform names, sidebar labels, header tabs, metric card labels
+    - Tour step titles and descriptions
+    - Status bar text
+    - Section headers (Carbon Routing Log, Farm Plot Map, Power Flow Grid, etc.)
+    - Metric labels (GPUs, Load, Carbon, Soil Moisture, etc.)
+    - Status labels (Healthy, Warning, Critical, LIVE, BALANCED)
+    - Button text (Irrigate, Monitor, Back to all hubs)
+    - Zone names, crop names, energy source names
+    - Workload names and types
+    - Supply chain stages
+    - Carbon credit labels
+    - Quick action labels
+    - Component-level strings (Platform, Interactive preview, All Systems Nominal, Hide/Show Details)
+
+- French translations use proper French with accents:
+  - Console HarchOS, Plateforme HarchAgri, Réseau HarchEnergy, Ops HarchMine, Usine HarchCement, Réseau HarchWater, DevPortal HarchTech, Terminal HarchFinance
+  - Aperçu, Hubs, Carbone, Terminal, Parcelles, Irrigation, Calendrier
+  - GPUs actifs, Carbone moy., Renouvelable, Disponibilité
+  - RÉGION : MAROC | 5 HUBS EN LIGNE
+  - Sain, Attention, Critique, EN DIRECT
+  - Irriguer, Surveiller, Prochaine action
+  - Blé, Maïs, Soja, Riz, Manioc, Sorgho, Orge, Millet
+  - Solaire, Éolien, Hydro, Réseau
+  - Mix énergétique, Exportation, Fréquence du réseau
+
+- Pre-existing TypeScript errors (4 errors on lines 168, 231, 1882, 1911) are NOT introduced by this change - they exist in the original code due to type mismatches in the DashboardConfig render function signatures

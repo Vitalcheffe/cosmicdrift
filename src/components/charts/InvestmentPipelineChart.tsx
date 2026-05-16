@@ -12,6 +12,7 @@ import {
   LabelList,
 } from 'recharts';
 import { useMemo, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface InvestmentData {
   vertical: string;
@@ -19,14 +20,14 @@ interface InvestmentData {
 }
 
 const rawData: InvestmentData[] = [
-  { vertical: 'Intelligence', value: 800 },
-  { vertical: 'Energy', value: 600 },
-  { vertical: 'Technology', value: 400 },
-  { vertical: 'Cement', value: 200 },
-  { vertical: 'Mining', value: 200 },
-  { vertical: 'Agri', value: 150 },
-  { vertical: 'Water', value: 150 },
-  { vertical: 'Finance', value: 100 },
+  { vertical: 'intelligence', value: 800 },
+  { vertical: 'energy', value: 600 },
+  { vertical: 'technology', value: 400 },
+  { vertical: 'cement', value: 200 },
+  { vertical: 'mining', value: 200 },
+  { vertical: 'agri', value: 150 },
+  { vertical: 'water', value: 150 },
+  { vertical: 'finance', value: 100 },
 ];
 
 const BAR_FILL = '#8B9DAF';
@@ -38,12 +39,13 @@ interface CustomTooltipProps {
 }
 
 function CustomTooltip({ active, payload }: CustomTooltipProps) {
+  const t = useTranslations('charts');
   if (!active || !payload?.length) return null;
   const data = payload[0].payload;
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
       <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
-        {data.vertical}
+        {t('investmentPipeline.' + data.vertical)}
       </p>
       <p className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
         ${data.value}M
@@ -53,6 +55,7 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
 }
 
 export function InvestmentPipelineChart() {
+  const t = useTranslations('charts');
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const data = useMemo(() => rawData, []);
@@ -61,10 +64,10 @@ export function InvestmentPipelineChart() {
     <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
-          Investment Pipeline by Vertical
+          {t('investmentPipeline.title')}
         </h3>
         <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
-          Capital allocation across operating verticals ($M)
+          {t('investmentPipeline.subtitle')}
         </p>
       </div>
       <div style={{ height: 350 }}>
@@ -93,6 +96,7 @@ export function InvestmentPipelineChart() {
               axisLine={false}
               tickLine={false}
               width={80}
+              tickFormatter={(value: string) => t('investmentPipeline.' + value)}
             />
             <Tooltip content={<CustomTooltip />} cursor={false} />
             <Bar

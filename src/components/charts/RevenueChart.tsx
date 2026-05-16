@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface RevenueData {
   year: string;
@@ -36,12 +37,13 @@ interface CustomTooltipProps {
 }
 
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
+  const t = useTranslations('charts');
   if (!active || !payload?.length || !label) return null;
   const isProjected = label >= '2025';
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
       <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
-        FY {label} {isProjected && '(Projected)'}
+        FY {label} {isProjected && `(${t('revenue.projected')})`}
       </p>
       {payload.map((entry, i) => (
         <p key={i} className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
@@ -53,26 +55,27 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
 }
 
 export function RevenueChart() {
+  const t = useTranslations('charts');
   const data = useMemo(() => rawData, []);
 
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
-          Revenue Trajectory
+          {t('revenue.title')}
         </h3>
         <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
-          Actual & projected revenue ($M) — FY2022–FY2027
+          {t('revenue.subtitle')} — FY2022–FY2027
         </p>
       </div>
       <div className="flex gap-4 mb-3">
         <div className="flex items-center gap-2">
           <div className="w-3 h-[2px] bg-[#8B9DAF]" />
-          <span className="text-[10px] text-txt-dim font-[family-name:var(--font-space-mono)]">Actual</span>
+          <span className="text-[10px] text-txt-dim font-[family-name:var(--font-space-mono)]">{t('revenue.actual')}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-[2px] border-t border-dashed border-[#8B9DAF]" />
-          <span className="text-[10px] text-txt-dim font-[family-name:var(--font-space-mono)]">Projected</span>
+          <span className="text-[10px] text-txt-dim font-[family-name:var(--font-space-mono)]">{t('revenue.projected')}</span>
         </div>
       </div>
       <div style={{ height: 350 }}>

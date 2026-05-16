@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Building2, Globe, FlaskConical, Network } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 interface Partner {
   name: string
@@ -10,63 +11,64 @@ interface Partner {
   country: string
   description: string
   icon: React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>
-  status: 'Active' | 'In Negotiation' | 'Prospect'
+  status: string
 }
 
-const partners: Partner[] = [
-  {
-    name: 'OCP Group',
-    type: 'Strategic',
-    country: 'Morocco',
-    description: 'Digitalization of OCP pilot farms — HarchAgri IoT integration across 12 experimental farms for fertilizer and irrigation optimization.',
-    icon: Building2,
-    status: 'Active',
-  },
-  {
-    name: 'Plan Vert Maroc',
-    type: 'Government',
-    country: 'Morocco',
-    description: 'National agricultural modernization program — HarchAgri provides IoT monitoring for 50,000 ha of agricultural land across 6 regions.',
-    icon: Globe,
-    status: 'Active',
-  },
-  {
-    name: 'FAO Morocco',
-    type: 'Institutional',
-    country: 'Morocco',
-    description: 'Joint food security program — satellite and IoT data sharing for cereal yield forecasting.',
-    icon: Globe,
-    status: 'In Negotiation',
-  },
-  {
-    name: 'ISRA',
-    type: 'Research',
-    country: 'Senegal',
-    description: 'Senegalese Agricultural Research Institute — co-development of AI models adapted to West African crops (groundnut, millet, cowpea).',
-    icon: FlaskConical,
-    status: 'Active',
-  },
-  {
-    name: 'AgTech Kenya',
-    type: 'Ecosystem',
-    country: 'Kenya',
-    description: 'Nairobi AgTech hub — access to 200+ agri startups, joint acceleration programs, and connected farmer pipeline.',
-    icon: Network,
-    status: 'Active',
-  },
-  {
-    name: 'Ghana MoFA',
-    type: 'Government',
-    country: 'Ghana',
-    description: 'Ministry of Food and Agriculture — Planting for Food and Jobs program, IoT deployment across 15,000 ha of export crops.',
-    icon: Globe,
-    status: 'In Negotiation',
-  },
-]
-
 export default function PartnershipsSection() {
+  const t = useTranslations('harchagri.partnerships')
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
+
+  const partners: Partner[] = [
+    {
+      name: 'OCP Group',
+      type: t('partners.ocp.type'),
+      country: t('partners.ocp.country'),
+      description: t('partners.ocp.description'),
+      icon: Building2,
+      status: t('statusActive'),
+    },
+    {
+      name: 'Plan Vert Maroc',
+      type: t('partners.planVert.type'),
+      country: t('partners.planVert.country'),
+      description: t('partners.planVert.description'),
+      icon: Globe,
+      status: t('statusActive'),
+    },
+    {
+      name: 'FAO Morocco',
+      type: t('partners.fao.type'),
+      country: t('partners.fao.country'),
+      description: t('partners.fao.description'),
+      icon: Globe,
+      status: t('statusNegotiation'),
+    },
+    {
+      name: 'ISRA',
+      type: t('partners.isra.type'),
+      country: t('partners.isra.country'),
+      description: t('partners.isra.description'),
+      icon: FlaskConical,
+      status: t('statusActive'),
+    },
+    {
+      name: 'AgTech Kenya',
+      type: t('partners.agtechKenya.type'),
+      country: t('partners.agtechKenya.country'),
+      description: t('partners.agtechKenya.description'),
+      icon: Network,
+      status: t('statusActive'),
+    },
+    {
+      name: 'Ghana MoFA',
+      type: t('partners.ghanaMofa.type'),
+      country: t('partners.ghanaMofa.country'),
+      description: t('partners.ghanaMofa.description'),
+      icon: Globe,
+      status: t('statusNegotiation'),
+    },
+  ]
 
   return (
     <div ref={ref}>
@@ -94,7 +96,7 @@ export default function PartnershipsSection() {
                 </div>
                 <span
                   className={`status-badge ${
-                    partner.status === 'Active' ? 'status-badge-active' : 'status-badge-engineering'
+                    partner.status === t('statusActive') ? 'status-badge-active' : 'status-badge-engineering'
                   }`}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-current" />
@@ -111,7 +113,7 @@ export default function PartnershipsSection() {
               <div className="mt-4 pt-3 border-t border-[rgba(255,255,255,0.04)]">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-white/20" />
-                  <span className="text-[9px] text-[#666666] uppercase tracking-wider font-[family-name:var(--font-space-mono)]">Harch Corp Partner</span>
+                  <span className="text-[9px] text-[#666666] uppercase tracking-wider font-[family-name:var(--font-space-mono)]">{t('partnerLabel')}</span>
                 </div>
               </div>
             </motion.div>

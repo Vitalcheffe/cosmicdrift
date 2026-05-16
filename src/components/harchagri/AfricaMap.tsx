@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
+import { useTranslations } from 'next-intl'
 
 interface HubData {
   name: string
@@ -13,18 +14,19 @@ interface HubData {
   type: string
 }
 
-const hubs: HubData[] = [
-  { name: 'Casablanca Hub', country: 'Morocco', lat: 33.57, lon: -7.59, sensors: 2400, hectares: 5000, type: 'IoT + Drones' },
-  { name: 'Dakar Hub', country: 'Senegal', lat: 14.69, lon: -17.44, sensors: 1800, hectares: 3500, type: 'IoT + Carbon' },
-  { name: 'Nairobi Hub', country: 'Kenya', lat: -1.29, lon: 36.82, sensors: 3200, hectares: 8000, type: 'Full Stack' },
-  { name: 'Accra Hub', country: 'Ghana', lat: 5.56, lon: -0.19, sensors: 1500, hectares: 2500, type: 'IoT + Vertical' },
-  { name: 'Lagos Hub', country: 'Nigeria', lat: 6.52, lon: 3.38, sensors: 2100, hectares: 6000, type: 'Drones + Carbon' },
-]
-
 export default function AfricaMap() {
+  const t = useTranslations('harchagri.africaMap')
   const svgRef = useRef<SVGSVGElement>(null)
   const [activeHub, setActiveHub] = useState<HubData | null>(null)
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
+
+  const hubs: HubData[] = [
+    { name: t('hubs.casablanca.name'), country: t('hubs.casablanca.country'), lat: 33.57, lon: -7.59, sensors: 2400, hectares: 5000, type: t('hubs.casablanca.type') },
+    { name: t('hubs.dakar.name'), country: t('hubs.dakar.country'), lat: 14.69, lon: -17.44, sensors: 1800, hectares: 3500, type: t('hubs.dakar.type') },
+    { name: t('hubs.nairobi.name'), country: t('hubs.nairobi.country'), lat: -1.29, lon: 36.82, sensors: 3200, hectares: 8000, type: t('hubs.nairobi.type') },
+    { name: t('hubs.accra.name'), country: t('hubs.accra.country'), lat: 5.56, lon: -0.19, sensors: 1500, hectares: 2500, type: t('hubs.accra.type') },
+    { name: t('hubs.lagos.name'), country: t('hubs.lagos.country'), lat: 6.52, lon: 3.38, sensors: 2100, hectares: 6000, type: t('hubs.lagos.type') },
+  ]
 
   useEffect(() => {
     if (!svgRef.current) return
@@ -214,7 +216,7 @@ export default function AfricaMap() {
       })
     })
 
-  }, [])
+  }, [hubs, t])
 
   return (
     <div className="relative w-full h-full bg-[#0A0A0A]">
@@ -227,7 +229,7 @@ export default function AfricaMap() {
       {/* Top-left live indicator */}
       <div className="absolute top-3 left-3 flex items-center gap-2">
         <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse" />
-        <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/40 font-[family-name:var(--font-space-mono)]">LIVE</span>
+        <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/40 font-[family-name:var(--font-space-mono)]">{t('live')}</span>
       </div>
       {activeHub && (
         <div
@@ -245,11 +247,11 @@ export default function AfricaMap() {
           <div className="flex gap-4 mt-2">
             <div>
               <p className="text-lg font-bold text-white stat-mono">{activeHub.sensors.toLocaleString()}</p>
-              <p className="text-[9px] text-[#666666] uppercase tracking-wider">IoT Sensors</p>
+              <p className="text-[9px] text-[#666666] uppercase tracking-wider">{t('iotSensors')}</p>
             </div>
             <div>
               <p className="text-lg font-bold text-white stat-mono">{activeHub.hectares.toLocaleString()}</p>
-              <p className="text-[9px] text-[#666666] uppercase tracking-wider">Hectares</p>
+              <p className="text-[9px] text-[#666666] uppercase tracking-wider">{t('hectares')}</p>
             </div>
           </div>
         </div>

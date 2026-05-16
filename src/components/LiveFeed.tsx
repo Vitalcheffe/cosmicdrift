@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface FeedItem {
   id: number;
@@ -10,30 +11,32 @@ interface FeedItem {
   vertical?: string;
 }
 
-const feedMessages: Omit<FeedItem, 'id' | 'timestamp'>[] = [
-  { type: 'data', message: 'Dakhla GPU cluster node-47 health check: PASS', vertical: '/0.1' },
-  { type: 'info', message: 'Gambia cement plant permit renewal confirmed — Q3 2026', vertical: '/0.2' },
-  { type: 'system', message: 'Sahel solar farm output: 847MW peak — 98.2% uptime', vertical: '/0.3' },
-  { type: 'data', message: 'Cyber threat scan complete — 0 incidents detected', vertical: '/0.4' },
-  { type: 'info', message: 'Mauritania phosphate core sample analysis: grade 31.2% P2O5', vertical: '/0.5' },
-  { type: 'system', message: 'Dakar IoT sensor mesh: 2,847 nodes online', vertical: '/0.6' },
-  { type: 'data', message: 'Desalination membrane efficiency: 99.1% — within spec', vertical: '/0.7' },
-  { type: 'system', message: 'Submarine cable CAS-DKL latency: 4.2ms — nominal', vertical: '/0.1' },
-  { type: 'info', message: 'Green hydrogen electrolyzer test: 72% efficiency achieved', vertical: '/0.3' },
-  { type: 'data', message: 'Bamako water distribution AI model v2.1 deployed', vertical: '/0.7' },
-  { type: 'system', message: 'Casablanca HQ security perimeter: SECURE', vertical: '/0.0' },
-  { type: 'info', message: 'Cement kiln #2 temperature: 1,420°C — optimal range', vertical: '/0.2' },
-  { type: 'data', message: 'Satellite uplink NOU-ESA signal: -67dBm — strong', vertical: '/0.4' },
-  { type: 'system', message: 'Cobalt refining batch #147 purity: 99.4% Co', vertical: '/0.5' },
-  { type: 'info', message: 'Vertical farm zone-C yield forecast: +12% vs Q1', vertical: '/0.6' },
-];
-
 function getTimestamp() {
   const now = new Date();
   return `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
 }
 
 export function LiveFeed() {
+  const t = useTranslations('liveFeed');
+
+  const feedMessages: Omit<FeedItem, 'id' | 'timestamp'>[] = [
+    { type: 'data', message: t('messages.0'), vertical: '/0.1' },
+    { type: 'info', message: t('messages.1'), vertical: '/0.2' },
+    { type: 'system', message: t('messages.2'), vertical: '/0.3' },
+    { type: 'data', message: t('messages.3'), vertical: '/0.4' },
+    { type: 'info', message: t('messages.4'), vertical: '/0.5' },
+    { type: 'system', message: t('messages.5'), vertical: '/0.6' },
+    { type: 'data', message: t('messages.6'), vertical: '/0.7' },
+    { type: 'system', message: t('messages.7'), vertical: '/0.1' },
+    { type: 'info', message: t('messages.8'), vertical: '/0.3' },
+    { type: 'data', message: t('messages.9'), vertical: '/0.7' },
+    { type: 'system', message: t('messages.10'), vertical: '/0.0' },
+    { type: 'info', message: t('messages.11'), vertical: '/0.2' },
+    { type: 'data', message: t('messages.12'), vertical: '/0.4' },
+    { type: 'system', message: t('messages.13'), vertical: '/0.5' },
+    { type: 'info', message: t('messages.14'), vertical: '/0.6' },
+  ];
+
   const [items, setItems] = useState<FeedItem[]>(() => feedMessages.slice(0, 4).map((msg, i) => ({
     ...msg,
     id: i,
@@ -60,7 +63,7 @@ export function LiveFeed() {
     }, 3500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [feedMessages.length]);
 
   const typeColor = (type: string) => {
     switch(type) {
@@ -78,7 +81,7 @@ export function LiveFeed() {
         <div className="flex items-center gap-2">
           <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
           <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">
-            System Feed
+            {t('systemFeed')}
           </span>
         </div>
         <span className="text-[8px] text-[#444444] font-[family-name:var(--font-space-mono)]">

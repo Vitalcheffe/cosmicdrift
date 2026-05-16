@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/motion';
@@ -22,22 +23,11 @@ import {
 type ServiceStatus = 'operational' | 'degraded' | 'outage';
 
 interface Service {
-  name: string;
+  nameKey: string;
   status: ServiceStatus;
   uptime: number;
-  description: string;
+  descriptionKey: string;
 }
-
-const services: Service[] = [
-  { name: 'HarchOS Core API', status: 'operational', uptime: 99.99, description: 'Central orchestration and management API' },
-  { name: 'SENSE Data Pipeline', status: 'operational', uptime: 99.98, description: 'Real-time data ingestion and processing engine' },
-  { name: 'THINK AI Engine', status: 'operational', uptime: 99.97, description: 'Inference and model serving infrastructure' },
-  { name: 'ACT Execution Layer', status: 'operational', uptime: 99.99, description: 'Automated decision execution and orchestration' },
-  { name: 'Developer Portal', status: 'operational', uptime: 99.99, description: 'API documentation, SDKs, and developer tools' },
-  { name: 'CLI & SDK Services', status: 'operational', uptime: 99.98, description: 'Command-line interface and language SDKs' },
-  { name: 'Management Console', status: 'operational', uptime: 99.99, description: 'Web-based administration and monitoring dashboard' },
-  { name: 'Authentication Service', status: 'operational', uptime: 99.99, description: 'Identity, access management, and SSO' },
-];
 
 function StatusDot({ status }: { status: ServiceStatus }) {
   const colors = {
@@ -55,11 +45,11 @@ function StatusDot({ status }: { status: ServiceStatus }) {
   );
 }
 
-function StatusLabel({ status }: { status: ServiceStatus }) {
+function StatusLabel({ status, t }: { status: ServiceStatus; t: (key: string) => string }) {
   const labels = {
-    operational: 'Operational',
-    degraded: 'Degraded Performance',
-    outage: 'Service Outage',
+    operational: t('operational'),
+    degraded: t('degradedPerformance'),
+    outage: t('serviceOutage'),
   };
   const textColors = {
     operational: 'text-[#4A7B5F]',
@@ -113,6 +103,19 @@ function UptimeBar({ uptime }: { uptime: number }) {
 }
 
 export default function StatusPageClient() {
+  const t = useTranslations('status');
+
+  const services: Service[] = [
+    { nameKey: 'services.harchosCoreApi.name', status: 'operational', uptime: 99.99, descriptionKey: 'services.harchosCoreApi.description' },
+    { nameKey: 'services.senseDataPipeline.name', status: 'operational', uptime: 99.98, descriptionKey: 'services.senseDataPipeline.description' },
+    { nameKey: 'services.thinkAiEngine.name', status: 'operational', uptime: 99.97, descriptionKey: 'services.thinkAiEngine.description' },
+    { nameKey: 'services.actExecutionLayer.name', status: 'operational', uptime: 99.99, descriptionKey: 'services.actExecutionLayer.description' },
+    { nameKey: 'services.developerPortal.name', status: 'operational', uptime: 99.99, descriptionKey: 'services.developerPortal.description' },
+    { nameKey: 'services.cliSdkServices.name', status: 'operational', uptime: 99.98, descriptionKey: 'services.cliSdkServices.description' },
+    { nameKey: 'services.managementConsole.name', status: 'operational', uptime: 99.99, descriptionKey: 'services.managementConsole.description' },
+    { nameKey: 'services.authenticationService.name', status: 'operational', uptime: 99.99, descriptionKey: 'services.authenticationService.description' },
+  ];
+
   const overallUptime = 99.98;
   const allOperational = services.every((s) => s.status === 'operational');
 
@@ -122,16 +125,15 @@ export default function StatusPageClient() {
       <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Status</p>
+            <p className="section-label mb-4">{t('heroLabel')}</p>
             <h1 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">
-              System Status
+              {t('heroTitle')}
             </h1>
             <div className="accent-line mb-6" />
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="max-w-2xl text-[16px] text-[#999999] leading-[1.7]">
-              Real-time operational status for all Harch Corp services. This page is updated automatically 
-              by our monitoring systems — no manual intervention required.
+              {t('heroDescription')}
             </p>
           </FadeIn>
         </div>
@@ -147,19 +149,19 @@ export default function StatusPageClient() {
                   <div className="w-5 h-5 rounded-full bg-[#4A7B5F]" style={{ boxShadow: '0 0 12px rgba(74,123,95,0.5), 0 0 24px rgba(74,123,95,0.2)' }} />
                   <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-white">
-                      {allOperational ? 'All Systems Operational' : 'Partial Service Disruption'}
+                      {allOperational ? t('allSystemsOperational') : t('partialServiceDisruption')}
                     </h2>
                     <p className="text-[14px] text-[#999999] mt-1">
                       {allOperational
-                        ? 'All Harch Corp services are operating normally.'
-                        : 'Some services are experiencing issues. Our team is responding.'}
+                        ? t('allSystemsOperationalDesc')
+                        : t('partialServiceDisruptionDesc')}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-6">
                   <div className="text-right">
                     <p className="stat-mono text-3xl md:text-4xl font-bold text-white">{overallUptime}%</p>
-                    <p className="text-[12px] text-[#666666]">Uptime (90 days)</p>
+                    <p className="text-[12px] text-[#666666]">{t('uptime90Days')}</p>
                   </div>
                 </div>
               </div>
@@ -172,29 +174,29 @@ export default function StatusPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Services</p>
+            <p className="section-label mb-4">{t('servicesLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              Service Status
+              {t('serviceStatusTitle')}
             </h2>
           </FadeIn>
 
           <div className="space-y-4">
             {services.map((service, i) => (
-              <FadeIn key={service.name} delay={i * 0.05}>
+              <FadeIn key={service.nameKey} delay={i * 0.05}>
                 <div className="card p-6">
                   <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
                     <div className="flex items-center gap-3 lg:w-[320px] flex-shrink-0">
                       <StatusDot status={service.status} />
                       <div>
-                        <p className="text-[15px] font-semibold text-white">{service.name}</p>
-                        <p className="text-[11px] text-[#666666]">{service.description}</p>
+                        <p className="text-[15px] font-semibold text-white">{t(service.nameKey)}</p>
+                        <p className="text-[11px] text-[#666666]">{t(service.descriptionKey)}</p>
                       </div>
                     </div>
                     <div className="flex-1">
                       <UptimeBar uptime={service.uptime} />
                     </div>
                     <div className="flex items-center gap-4 flex-shrink-0">
-                      <StatusLabel status={service.status} />
+                      <StatusLabel status={service.status} t={t} />
                       <span className="stat-mono text-[13px] text-[#666666]">{service.uptime}%</span>
                     </div>
                   </div>
@@ -208,17 +210,17 @@ export default function StatusPageClient() {
             <div className="flex items-center gap-6 mt-8 ml-1">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-[2px] bg-[#4A7B5F]/60" />
-                <span className="text-[11px] text-[#666666]">Operational</span>
+                <span className="text-[11px] text-[#666666]">{t('operational')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-[2px] bg-[#FFAA00]/60" />
-                <span className="text-[11px] text-[#666666]">Degraded</span>
+                <span className="text-[11px] text-[#666666]">{t('degraded')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-[2px] bg-[#FF4444]/60" />
-                <span className="text-[11px] text-[#666666]">Outage</span>
+                <span className="text-[11px] text-[#666666]">{t('outage')}</span>
               </div>
-              <span className="text-[11px] text-[#444444] ml-auto">90 days ago → Today</span>
+              <span className="text-[11px] text-[#444444] ml-auto">{t('daysAgoToToday')}</span>
             </div>
           </FadeIn>
         </div>
@@ -228,19 +230,18 @@ export default function StatusPageClient() {
       <section className="py-28 md:py-36 bg-[#121212] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Incidents</p>
+            <p className="section-label mb-4">{t('incidentsLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              Recent Incidents
+              {t('recentIncidentsTitle')}
             </h2>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <div className="card p-12 text-center">
               <CheckCircle2 size={32} className="text-[#4A7B5F]/40 mx-auto mb-4" strokeWidth={1.5} />
-              <p className="text-[16px] font-semibold text-white mb-2">No incidents in the last 90 days</p>
+              <p className="text-[16px] font-semibold text-white mb-2">{t('noIncidentsTitle')}</p>
               <p className="text-[13px] text-[#666666]">
-                All services have been operating within normal parameters. We maintain transparency — 
-                any incidents will be reported here in real-time.
+                {t('noIncidentsDescription')}
               </p>
             </div>
           </FadeIn>
@@ -251,9 +252,9 @@ export default function StatusPageClient() {
       <section className="py-28 md:py-36 bg-[#1A1A1A] border-t border-[rgba(255,255,255,0.06)]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4">Maintenance</p>
+            <p className="section-label mb-4">{t('maintenanceLabel')}</p>
             <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">
-              Scheduled Maintenance
+              {t('scheduledMaintenanceTitle')}
             </h2>
           </FadeIn>
 
@@ -265,26 +266,24 @@ export default function StatusPageClient() {
                     <Calendar size={18} className="text-white" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h3 className="text-[15px] font-bold text-white">Planned Infrastructure Upgrade</h3>
-                    <p className="text-[12px] text-[#666666]">HarchOS Core API & THINK AI Engine</p>
+                    <h3 className="text-[15px] font-bold text-white">{t('maintenanceName')}</h3>
+                    <p className="text-[12px] text-[#666666]">{t('maintenanceServices')}</p>
                   </div>
                 </div>
                 <div className="md:ml-auto flex items-center gap-4">
                   <div className="text-right">
-                    <p className="text-[13px] text-white">March 15, 2026</p>
-                    <p className="text-[11px] text-[#666666]">02:00 — 04:00 UTC</p>
+                    <p className="text-[13px] text-white">{t('maintenanceDate')}</p>
+                    <p className="text-[11px] text-[#666666]">{t('maintenanceTime')}</p>
                   </div>
                   <span className="status-badge status-badge-engineering">
                     <Clock size={10} />
-                    Scheduled
+                    {t('maintenanceBadge')}
                   </span>
                 </div>
               </div>
               <div className="mt-6 pt-6 border-t border-[rgba(255,255,255,0.04)]">
                 <p className="text-[13px] text-[#999999] leading-relaxed">
-                  Routine infrastructure upgrade including security patches, performance optimizations, and capacity expansion. 
-                  No customer-facing downtime is expected — all services will continue operating through redundant failover 
-                  during the maintenance window. Customers with dedicated deployments will be notified 72 hours in advance.
+                  {t('maintenanceDescription')}
                 </p>
               </div>
             </div>
@@ -298,14 +297,13 @@ export default function StatusPageClient() {
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             <div className="lg:w-1/2">
               <FadeIn>
-                <p className="section-label mb-4">Notifications</p>
+                <p className="section-label mb-4">{t('notificationsLabel')}</p>
                 <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-                  Stay Informed
+                  {t('stayInformedTitle')}
                 </h2>
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
-                  Subscribe to receive real-time updates about service incidents, scheduled maintenance, 
-                  and resolution notices. Choose your preferred notification channel.
+                  {t('stayInformedDescription')}
                 </p>
               </FadeIn>
             </div>
@@ -314,16 +312,16 @@ export default function StatusPageClient() {
                 <div className="card p-8">
                   <div className="space-y-6">
                     <div>
-                      <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">Email Notifications</label>
+                      <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-2">{t('emailNotifications')}</label>
                       <div className="flex gap-3">
                         <input
                           type="email"
-                          placeholder="your@email.com"
+                          placeholder={t('emailPlaceholder')}
                           className="flex-1 bg-[#1A1A1A] border border-[rgba(255,255,255,0.08)] rounded-lg px-4 py-3 text-[14px] text-white placeholder:text-[#444444] focus:border-white/20 focus:outline-none transition-colors"
                         />
                         <button className="inline-flex items-center gap-2 bg-white text-black px-5 py-3 rounded-lg text-[13px] font-semibold hover:bg-white/90 transition-all">
                           <Mail size={14} />
-                          Subscribe
+                          {t('subscribe')}
                         </button>
                       </div>
                     </div>
@@ -331,10 +329,10 @@ export default function StatusPageClient() {
                     <div className="divider" />
 
                     <div>
-                      <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-3">Slack Integration</label>
+                      <label className="block text-[12px] font-semibold text-[#999999] uppercase tracking-wider mb-3">{t('slackIntegration')}</label>
                       <button className="inline-flex items-center gap-2 border border-[rgba(255,255,255,0.12)] text-white px-5 py-3 rounded-lg text-[13px] font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
                         <Bell size={14} />
-                        Add to Slack
+                        {t('addToSlack')}
                       </button>
                     </div>
 
@@ -344,12 +342,12 @@ export default function StatusPageClient() {
                       <div className="flex items-center gap-3">
                         <Rss size={16} className="text-[#666666]" />
                         <div>
-                          <p className="text-[13px] text-white">RSS Feed</p>
-                          <p className="text-[11px] text-[#666666]">Subscribe to our status RSS feed</p>
+                          <p className="text-[13px] text-white">{t('rssFeed')}</p>
+                          <p className="text-[11px] text-[#666666]">{t('rssFeedDescription')}</p>
                         </div>
                       </div>
                       <button className="inline-flex items-center gap-1.5 text-[12px] text-[#666666] hover:text-white transition-colors">
-                        Copy URL
+                        {t('copyUrl')}
                         <ExternalLink size={10} />
                       </button>
                     </div>
@@ -368,18 +366,18 @@ export default function StatusPageClient() {
             <div className="flex items-center gap-2">
               <RefreshCw size={12} className="text-[#666666]" />
               <span className="text-[12px] text-[#666666]">
-                Last checked: {new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })} UTC
+                {t('lastChecked')} {new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })} UTC
               </span>
             </div>
             <div className="flex items-center gap-4">
               <Link href="/support" className="text-[12px] text-[#666666] hover:text-white transition-colors">
-                Support Hub
+                {t('supportHub')}
               </Link>
               <Link href="/trust/security" className="text-[12px] text-[#666666] hover:text-white transition-colors">
-                Security
+                {t('security')}
               </Link>
               <Link href="/trust/compliance" className="text-[12px] text-[#666666] hover:text-white transition-colors">
-                Compliance
+                {t('compliance')}
               </Link>
             </div>
           </div>

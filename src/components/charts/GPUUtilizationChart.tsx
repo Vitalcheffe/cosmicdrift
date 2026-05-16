@@ -10,14 +10,15 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface GPUData {
   hour: string;
-  Casablanca: number;
-  Dakhla: number;
-  Marrakech: number;
-  Tangier: number;
-  Oujda: number;
+  casablanca: number;
+  dakhla: number;
+  marrakech: number;
+  tangier: number;
+  oujda: number;
 }
 
 interface HubConfig {
@@ -26,11 +27,11 @@ interface HubConfig {
 }
 
 const hubs: HubConfig[] = [
-  { name: 'Casablanca', color: '#8B9DAF' },
-  { name: 'Dakhla', color: '#6B9F6B' },
-  { name: 'Marrakech', color: '#4A5D6E' },
-  { name: 'Tangier', color: '#A0524B' },
-  { name: 'Oujda', color: '#666666' },
+  { name: 'casablanca', color: '#8B9DAF' },
+  { name: 'dakhla', color: '#6B9F6B' },
+  { name: 'marrakech', color: '#4A5D6E' },
+  { name: 'tangier', color: '#A0524B' },
+  { name: 'oujda', color: '#666666' },
 ];
 
 function generateData(): GPUData[] {
@@ -47,11 +48,11 @@ function generateData(): GPUData[] {
 
     data.push({
       hour,
-      Casablanca: Math.max(5, Math.min(95, casablanca)),
-      Dakhla: Math.max(5, Math.min(95, dakhla)),
-      Marrakech: Math.max(5, Math.min(95, marrakech)),
-      Tangier: Math.max(5, Math.min(95, tangier)),
-      Oujda: Math.max(5, Math.min(95, oujda)),
+      casablanca: Math.max(5, Math.min(95, casablanca)),
+      dakhla: Math.max(5, Math.min(95, dakhla)),
+      marrakech: Math.max(5, Math.min(95, marrakech)),
+      tangier: Math.max(5, Math.min(95, tangier)),
+      oujda: Math.max(5, Math.min(95, oujda)),
     });
   }
   return data;
@@ -64,6 +65,7 @@ interface CustomTooltipProps {
 }
 
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
+  const t = useTranslations('charts');
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
@@ -77,7 +79,7 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
             style={{ backgroundColor: entry.color }}
           />
           <span className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
-            {entry.name}:
+            {t('gpuUtilization.' + entry.name)}:
           </span>
           <span className="font-[family-name:var(--font-space-mono)] text-xs font-bold text-white">
             {entry.value}%
@@ -89,16 +91,17 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
 }
 
 export function GPUUtilizationChart() {
+  const t = useTranslations('charts');
   const data = useMemo(() => generateData(), []);
 
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
-          GPU Utilization by Hub
+          {t('gpuUtilization.title')}
         </h3>
         <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
-          Hourly utilization across 5 Moroccan data center hubs
+          {t('gpuUtilization.subtitle')}
         </p>
       </div>
       <div style={{ height: 350 }}>

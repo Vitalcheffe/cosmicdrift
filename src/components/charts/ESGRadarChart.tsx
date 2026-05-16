@@ -10,6 +10,7 @@ import {
   Tooltip,
 } from 'recharts';
 import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface ESGData {
   metric: string;
@@ -17,14 +18,16 @@ interface ESGData {
   fullMark: number;
 }
 
-const rawData: ESGData[] = [
-  { metric: 'Carbon Efficiency', score: 92, fullMark: 100 },
-  { metric: 'Renewable Mix', score: 82, fullMark: 100 },
-  { metric: 'Water Recycling', score: 65, fullMark: 100 },
-  { metric: 'Community Impact', score: 78, fullMark: 100 },
-  { metric: 'Governance', score: 88, fullMark: 100 },
-  { metric: 'Innovation', score: 95, fullMark: 100 },
-];
+const rawMetrics = ['carbonEfficiency', 'renewableMix', 'waterRecycling', 'communityImpact', 'governance', 'innovation'] as const;
+const rawScores = [92, 82, 65, 78, 88, 95];
+
+function buildData(): ESGData[] {
+  return rawMetrics.map((metric, i) => ({
+    metric,
+    score: rawScores[i],
+    fullMark: 100,
+  }));
+}
 
 interface CustomTooltipProps {
   active?: boolean;
@@ -33,11 +36,12 @@ interface CustomTooltipProps {
 }
 
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
+  const t = useTranslations('charts');
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.1)] bg-surface-4 px-3 py-2 shadow-xl">
       <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-secondary">
-        {label}
+        {t('esgRadar.' + label)}
       </p>
       <p className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
         {payload[0].value}/100
@@ -47,16 +51,17 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
 }
 
 export function ESGRadarChart() {
-  const data = useMemo(() => rawData, []);
+  const t = useTranslations('charts');
+  const data = useMemo(() => buildData(), []);
 
   return (
     <div className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-surface-3 p-6">
       <div className="mb-4">
         <h3 className="font-[family-name:var(--font-space-mono)] text-sm font-bold text-white">
-          ESG Performance
+          {t('esgRadar.title')}
         </h3>
         <p className="font-[family-name:var(--font-space-mono)] text-xs text-txt-dim">
-          Environmental, Social &amp; Governance metrics
+          {t('esgRadar.subtitle')}
         </p>
       </div>
       <div style={{ height: 350 }}>
@@ -73,10 +78,19 @@ export function ESGRadarChart() {
             />
             <PolarAngleAxis
               dataKey="metric"
-              tick={{
-                fill: 'var(--text-secondary)',
-                fontSize: 10,
-                fontFamily: 'var(--font-space-mono)',
+              tick={({ payload, x, y, cx, cy }: { payload?: { value: string }; x: number; y: number; cx: number; cy: number }) => {
+                return (
+                  <text
+                    x={x}
+                    y={y}
+                    textAnchor="middle"
+                    fill="var(--text-secondary)"
+                    fontSize={10}
+                    fontFamily="var(--font-space-mono)"
+                  >
+                    {t('esgRadar.' + (payload?.value ?? ''))}
+                  </text>
+                );
               }}
             />
             <PolarRadiusAxis

@@ -55,22 +55,22 @@
   "blog": {
     "allArticles": "All Articles",
     "articleNotFound": "Article Not Found",
-    "articleNotFoundDescription": "L'articthe that vous searchz n'existe pas ou a été dépthecé.",
+    "articleNotFoundDescription": "The article you are looking for does not exist or has been moved.",
     "backToBlog": "Back To Blog",
     "continueReading": "Continue Reading",
     "copyFeedUrl": "Copy Feed Url",
     "emailPlaceholder": "Email Placeholder",
     "featured": "Featured",
-    "heroDescription": "analysiss technicals, perspectives inof thessortals and updates on the Construction of l'infrastructure souveraine of l'Africa.",
+    "heroDescription": "Technical analysis, industry perspectives, and updates on building Africa's sovereign infrastructure.",
     "heroTitle": "Blog Harch",
     "latestPosts": "Latest Posts",
     "moreArticles": "More Articles",
     "newsletter": "Newsletter",
-    "newsletterDescription": "Rethisvez nos analysiss technicals and perspectives inof thessortals directement in votre boite mail.",
+    "newsletterDescription": "Receive our technical analysis and industry perspectives directly in your inbox.",
     "readArticle": "Read Article",
     "relatedTopics": "Related Topics",
     "rssFeed": "Rss Feed",
-    "rssFeedDescription": "Abonnez-vous au flux RSS for ne manthatr auca articthe.",
+    "rssFeedDescription": "Subscribe to the RSS feed and never miss an article.",
     "stayInTheLoop": "Stay In The Loop",
     "submitAPitch": "Submit A Pitch",
     "subscribe": "Subscribe",
@@ -78,35 +78,35 @@
     "subscribedMessage": "Subscribed Message",
     "title": "Title",
     "writeForUs": "Write For Us",
-    "writeForUsDescription": "bytagez votre expertise en infrastructure souveraine with notre commaity."
+    "writeForUsDescription": "Share your expertise in sovereign infrastructure with our community."
   },
   "careers": {
     "aboutHarchCorp": "About Harch Corp",
     "applyForDeployment": "Apply For Deployment",
     "benefits": {
       "bureaucracy": {
-        "desc": "of the prothisssus agithe, pas of thenteur administrative. Exécution rAPIof.",
-        "title": "Zéro burwatercracy"
+        "desc": "Agile processes, zero administrative overhead. Rapid execution.",
+        "title": "Zero Bureaucracy"
       },
       "compensation": {
-        "desc": "sathery compétitif inofxé on the standards internationaux, with primes of déploiement.",
-        "title": "Rémaération"
+        "desc": "Competitive salary benchmarked against international standards, with deployment bonuses.",
+        "title": "Compensation & Rewards"
       },
       "deployment": {
-        "desc": "Expérienthis of déploiement on the terrain à travers l'Africa and au-oflà.",
-        "title": "Déploiement"
+        "desc": "Hands-on deployment experience in the field across Africa and beyond.",
+        "title": "Deployment"
       },
       "description": "Compensation that reflects the value you create.",
       "development": {
-        "desc": "training continue and thisrtifications professionnelthe financées à 100%.",
-        "title": "Développement"
+        "desc": "Continuous training and professional certifications fully funded at 100%.",
+        "title": "Development"
       },
       "health": {
-        "desc": "Copenure médicathe complète incluant the soins on the terrain and l'évacuation d'urgenthis.",
-        "title": "Santé"
+        "desc": "Comprehensive medical coverage including field care and emergency evacuation.",
+        "title": "Health & Wellness"
       },
       "impact": {
-        "desc": "Travailthez on of the projands who transforment the infrastructures of the continent.",
+        "desc": "Work on projects that transform the continent's infrastructure.",
         "title": "Impact"
       },
       "items": [
@@ -120,7 +120,7 @@
       "title": "Benefits"
     },
     "benefitsLabel": "this that Vous Obtenez",
-    "benefitsTitle": "benefits Opérationnels",
+    "benefitsTitle": "Operational Benefits",
     "clearanceBadge": "Clearance Badge",
     "clearanceRequired": "Clearance Required",
     "cta": {
@@ -129,11 +129,11 @@
       "subtitle": "Don't see a role that fits? Send us a spontaneous application.",
       "title": "Join the Mission"
     },
-    "ctaDescription": "Rejoignez l'opération and construisez l'avenir of l'infrastructure African.",
-    "ctaTitle": "Prêt à Déployer ?",
+    "ctaDescription": "Join the operation and build the future of African infrastructure.",
+    "ctaTitle": "Ready to Deploy?",
     "culture": {
       "crossDomain": {
-        "desc": "Nos opérateurs traversent the frontières disciplinaires — of l'AI aux mining en passant by l'énergie.",
+        "desc": "Our operators cross disciplinary boundaries — from AI to mining through energy.",
         "title": "Expertise Transversale"
       },
       "description": "We operate like an elite unit — discipline, autonomy, and accountability. No bureaucracy, no committees, no endless email threads. Just mission, execution, and results.",
@@ -152,8 +152,8 @@
         "Hierarchy serves the mission, not ego"
       ],
       "sovereignMindset": {
-        "desc": "Chathat décision is prise with the souverainandé African comme principthe directeur.",
-        "title": "État d'spirit Souverain"
+        "desc": "Every decision is made with African sovereignty as the guiding principle.",
+        "title": "Sovereign Mindset"
       },
       "title": "Operator Culture"
     },
@@ -162,7 +162,7 @@
       "all": "Tous",
       "cement": "Ciment",
       "corporate": "Entreprise",
-      "energy": "Énergie",
+      "energy": "Energy",
       "intelligence": "Intelligence",
       "mining": "Mines",
       "technology": "Technologie",
@@ -171,8 +171,8 @@
     "deploymentsLabel": "Deployments Label",
     "description": "Harch Corp doesn't hire employees — we recruit operators. People who think in systems, execute with discipline, and are driven by the mission of African sovereignty.",
     "generalApplications": "General Applications",
-    "heroDescription": "Rejoignez l'éwhope who construit l'infrastructure souveraine of l'Africa. Nous recrutons of the opérateurs d'élite for nos déploiements on the continent.",
-    "heroLabel": "Carrières",
+    "heroDescription": "Join the team building Africa's sovereign infrastructure. We recruit elite operators for our deployments across the continent.",
+    "heroLabel": "Careers",
     "heroTitleLine1": "Hero Title Line1",
     "heroTitleLine2": "Hero Title Line2",
     "missionLabel": "the mission",
@@ -196,7 +196,7 @@
     "missionTitleLine1": "Mission Title Line1",
     "missionTitleLine2": "Mission Title Line2",
     "openPositions": "Open Positions",
-    "openPositionsDescription": "Séthectionnez a débytement for filter the postes disponibthe.",
+    "openPositionsDescription": "Select a department to filter available positions.",
     "openRoles": {
       "apply": "Apply",
       "contract": "Contract",
@@ -315,11 +315,11 @@
         "title": "Technical Title"
       }
     },
-    "selectionDescription": "Notre prothisssus of séthection is conçu for iofntifier the opérateurs capabthe d'exécuter à l'échelthe continental.",
-    "selectionLabel": "Prothisssus of Séthection",
-    "selectionTitle": "Quatre Phases. Zéro Pthethis for the Hasard.",
+    "selectionDescription": "Our selection process is designed to identify operators capable of executing at continental scale.",
+    "selectionLabel": "Selection Process",
+    "selectionTitle": "Four Phases. Zero Room for Chance.",
     "standardLabel": "the Norme",
-    "standardTitle": "the Culture of l'Opérateur",
+    "standardTitle": "The Operator Culture",
     "subtitle": "Build Sovereignty. Not a Resume.",
     "title": "Careers",
     "values": {
@@ -347,7 +347,7 @@
     },
     "deltaLabel": "Delta Label",
     "hero": {
-      "description": "of the ofployments reels. of the results meonabthe. of the infrastructures souveraines en action.",
+      "description": "Real deployments. Measurable results. Sovereign infrastructure in action.",
       "label": "studies of case",
       "title": "Impact prouve"
     },
@@ -358,8 +358,8 @@
     "metrics": "Metrics",
     "moreLabel": "More Label",
     "notFound": {
-      "description": "L'study of case that vous searchz n'existe pas ou a anof ofpthethise.",
-      "title": "study of case introuvabthe"
+      "description": "The case study you are looking for does not exist or has been moved.",
+      "title": "Case Study Not Found"
     },
     "otherCaseStudies": "Other Case Studies",
     "ourApproach": "Our Approach",
@@ -534,7 +534,7 @@
   "community": {
     "champions": {
       "apply": "Devenir Champion",
-      "description": "the program Harch Champions reait the theaofrs technicals and strategics who font avanthisr the mission of sovereignty African.",
+      "description": "The Harch Champions program recognizes technical and strategic leaders who advance the mission of African sovereignty.",
       "label": "Champions",
       "perks": [
         "Perks 0",
@@ -638,13 +638,13 @@
         "Conduct 2",
         "Conduct 3"
       ],
-      "description": "Notre commaity fonctionne selon of the principthe of respect, d'exthislthenthis and of mission comma.",
+      "description": "Our community operates on principles of respect, excellence, and shared mission.",
       "label": "Directives",
       "readFull": "Guidelines Read Full",
-      "title": "coof of conof theite"
+      "title": "Code of Conduct"
     },
     "hero": {
-      "description": "Rejoignez of the milliers d'operators, ofvelopers and theaofrs who construisent l'infrastructure souveraine of l'Africa.",
+      "description": "Join thousands of operators, developers, and leaders building Africa's sovereign infrastructure.",
       "label": "Communaute",
       "title": "Construire Ensemble"
     },
@@ -1213,8 +1213,8 @@
       "cadenceLabel": "Advisory Board Cadence Label",
       "cadenceTitle": "Advisory Board Cadence Title",
       "coCreationLabel": "Advisory Board Co Creation Label",
-      "description1": "the Conseil Consultatif of Harch Corp is a groupe sethect of theaofrs who guiofnt notre vision.",
-      "description2": "Chathat membre apporte a expertise aithat and a nandwork strategic for acthistherate notre mission.",
+      "description1": "The Harch Corp Advisory Board is a select group of leaders who guide our vision.",
+      "description2": "Each member brings unique expertise and a strategic network to accelerate our mission.",
       "form": {
         "fullName": "Form Full Name",
         "fullNamePlaceholder": "Form Full Name Placeholder",
@@ -1545,7 +1545,7 @@
       "ctaLabel": "Open Source Cta Label",
       "ctaTitle1": "Open Source Cta Title1",
       "ctaTitle2": "Open Source Cta Title2",
-      "description": "Tous nos outils and SDK are open sourthis. Consortbuez, forkez and construisez the sovereignty digital.",
+      "description": "All our tools and SDKs are open source. Contribute, fork, and build digital sovereignty.",
       "guidelines": [
         {
           "description": "Write clean, well-documented code with comprehensive tests.",
@@ -3032,7 +3032,7 @@
           "title": "Scale as needed"
         }
       ],
-      "description": "ofmarrez en thatlthats minutes with nos guiof the of ofmarrage rAPIof.",
+      "description": "Get started in minutes with our rapid quickstart guides.",
       "fiveMin": {
         "label": "5-Minute",
         "title": "5-Minute Quickstart"
@@ -3236,7 +3236,7 @@
     "engineeringRssFeed": "Engineering RSS Feed",
     "engineeringRssFeedDescription": "Engineering Rss Feed Description",
     "featuredTechnicalDeepDive": "Featured Technical Deep Dive",
-    "heroDescription": "analysiss technicals approfondies by l'ewhope d'ingenierie Harch. architecture GPU, scheof theling aware of the carbon and infrastructure souveraine.",
+    "heroDescription": "In-depth technical analysis by the Harch engineering team. GPU architecture, carbon-aware scheduling, and sovereign infrastructure.",
     "heroTitle": "Blog Ingenierie",
     "joinEngineeringDescription": "Join the team building Africa's sovereign infrastructure. We're hiring engineers.",
     "joinEngineeringTeam": "Join the Engineering Team",
@@ -3771,7 +3771,7 @@
     "security": "Security",
     "sitemap": "Sitemap",
     "sla": "Sla",
-    "socialMedia": "Réswaterx socAIux",
+    "socialMedia": "Social Media",
     "startupProgram": "Startup Program",
     "status": "Status",
     "strategy": "Strategy",
@@ -4145,7 +4145,7 @@
     "ctaTitle": "Hiring Process",
     "description": "Our hiring process is designed to be fast, transparent, and respectful of your time. No endless interviews, no unpaid homework, no ghosting.",
     "heroAverage": "Hero Average",
-    "heroDescription": "Notre prothisssus of sethection en quatre phases is concu for iofntifier the operators capabthe d'executer a l'continental scathe.",
+    "heroDescription": "Our four-phase selection process is designed to identify operators capable of executing at continental scale.",
     "heroHumanReview": "Hero Human Review",
     "heroLabel": "Carrieres",
     "heroResponse": "Hero Response",
@@ -4510,7 +4510,13 @@
       "scaleAndImpact": "Scale & Impact",
       "systemHealth": "System Health",
       "testimonials": "Testimonials",
-      "verticals": "Our Subsidiaries"
+      "verticals": "Our Subsidiaries",
+      "provenImpact": "Proven Impact",
+      "proofNotPromises": "Proof, Not Promises",
+      "proofDescription": "Real deployments. Real metrics. Real sovereignty. See how Harch Corp infrastructure delivers measurable outcomes across industrial and government sectors.",
+      "developerPlatform": "Developer Platform",
+      "buildOnHarchOS": "Build on HarchOS",
+      "buildDescription": "Native SDKs for Python and TypeScript. Carbon-aware scheduling, sovereign defaults, and zero-config onboarding."
     },
     "stats": {
       "carbonIntensity": {
@@ -4691,6 +4697,31 @@
         "stat": "200M m³/year",
         "tagline": "Desalination & Smart Water Networks"
       }
+    },
+    "scroll": "Scroll",
+    "explore": "Explore",
+    "requestBriefing": "Request Briefing",
+    "viewCareers": "View Careers",
+    "caseStudy": {
+      "metricLabels": {
+        "energy": "Energy",
+        "uptime": "Uptime",
+        "savedPerYear": "Saved/yr",
+        "localized": "Localized",
+        "nations": "Nations",
+        "latency": "Latency"
+      },
+      "readCaseStudy": "Read Case Study",
+      "viewAll": "View All Case Studies"
+    },
+    "devPlatform": {
+      "pythonSdk": "Python SDK",
+      "typeScriptSdk": "TypeScript SDK"
+    },
+    "ceoQuote": {
+      "text": "Africa doesn't need aid — it needs infrastructure. It doesn't need pity — it needs partnership on equal terms. We build the systems that convert potential into power.",
+      "author": "Amine Harch El Korane",
+      "title": "Founder & CEO, Harch Corp"
     }
   },
   "intelligence": {
@@ -5596,7 +5627,7 @@
     },
     "cta": {
       "contactSales": "Cta Contact Sales",
-      "description": "Contactez notre ewhope commercAIthe for a tarification adaptee.",
+      "description": "Contact our sales team for tailored pricing.",
       "label": "Cta",
       "primary": "Request a Quote",
       "secondary": "Compare Plans",
@@ -8726,6 +8757,1188 @@
       "step5Desc": "Vulnerability Step5 Desc",
       "step5Title": "Vulnerability Step5 Title",
       "title": "Vulnerability Title"
+    }
+  },
+  "status": {
+    "heroLabel": "Status",
+    "heroTitle": "System Status",
+    "heroDescription": "Real-time operational status for all Harch Corp services. This page is updated automatically by our monitoring systems — no manual intervention required.",
+    "allSystemsOperational": "All Systems Operational",
+    "partialServiceDisruption": "Partial Service Disruption",
+    "allSystemsOperationalDesc": "All Harch Corp services are operating normally.",
+    "partialServiceDisruptionDesc": "Some services are experiencing issues. Our team is responding.",
+    "uptime90Days": "Uptime (90 days)",
+    "servicesLabel": "Services",
+    "serviceStatusTitle": "Service Status",
+    "operational": "Operational",
+    "degradedPerformance": "Degraded Performance",
+    "serviceOutage": "Service Outage",
+    "degraded": "Degraded",
+    "outage": "Outage",
+    "daysAgoToToday": "90 days ago → Today",
+    "incidentsLabel": "Incidents",
+    "recentIncidentsTitle": "Recent Incidents",
+    "noIncidentsTitle": "No incidents in the last 90 days",
+    "noIncidentsDescription": "All services have been operating within normal parameters. We maintain transparency — any incidents will be reported here in real-time.",
+    "maintenanceLabel": "Maintenance",
+    "scheduledMaintenanceTitle": "Scheduled Maintenance",
+    "maintenanceName": "Planned Infrastructure Upgrade",
+    "maintenanceServices": "HarchOS Core API & THINK AI Engine",
+    "maintenanceDate": "March 15, 2026",
+    "maintenanceTime": "02:00 — 04:00 UTC",
+    "maintenanceBadge": "Scheduled",
+    "maintenanceDescription": "Routine infrastructure upgrade including security patches, performance optimizations, and capacity expansion. No customer-facing downtime is expected — all services will continue operating through redundant failover during the maintenance window. Customers with dedicated deployments will be notified 72 hours in advance.",
+    "notificationsLabel": "Notifications",
+    "stayInformedTitle": "Stay Informed",
+    "stayInformedDescription": "Subscribe to receive real-time updates about service incidents, scheduled maintenance, and resolution notices. Choose your preferred notification channel.",
+    "emailNotifications": "Email Notifications",
+    "emailPlaceholder": "your@email.com",
+    "subscribe": "Subscribe",
+    "slackIntegration": "Slack Integration",
+    "addToSlack": "Add to Slack",
+    "rssFeed": "RSS Feed",
+    "rssFeedDescription": "Subscribe to our status RSS feed",
+    "copyUrl": "Copy URL",
+    "lastChecked": "Last checked:",
+    "supportHub": "Support Hub",
+    "security": "Security",
+    "compliance": "Compliance",
+    "services": {
+      "harchosCoreApi": {
+        "name": "HarchOS Core API",
+        "description": "Central orchestration and management API"
+      },
+      "senseDataPipeline": {
+        "name": "SENSE Data Pipeline",
+        "description": "Real-time data ingestion and processing engine"
+      },
+      "thinkAiEngine": {
+        "name": "THINK AI Engine",
+        "description": "Inference and model serving infrastructure"
+      },
+      "actExecutionLayer": {
+        "name": "ACT Execution Layer",
+        "description": "Automated decision execution and orchestration"
+      },
+      "developerPortal": {
+        "name": "Developer Portal",
+        "description": "API documentation, SDKs, and developer tools"
+      },
+      "cliSdkServices": {
+        "name": "CLI & SDK Services",
+        "description": "Command-line interface and language SDKs"
+      },
+      "managementConsole": {
+        "name": "Management Console",
+        "description": "Web-based administration and monitoring dashboard"
+      },
+      "authenticationService": {
+        "name": "Authentication Service",
+        "description": "Identity, access management, and SSO"
+      }
+    }
+  },
+  "charts": {
+    "energyMix": {
+      "title": "Energy Mix",
+      "subtitle": "Renewable energy pipeline composition",
+      "totalPipeline": "Total Pipeline",
+      "solar": "Solar",
+      "wind": "Wind",
+      "greenHydrogen": "Green Hydrogen",
+      "grid": "Grid"
+    },
+    "esgRadar": {
+      "title": "ESG Performance",
+      "subtitle": "Environmental, Social & Governance metrics",
+      "carbonEfficiency": "Carbon Efficiency",
+      "renewableMix": "Renewable Mix",
+      "waterRecycling": "Water Recycling",
+      "communityImpact": "Community Impact",
+      "governance": "Governance",
+      "innovation": "Innovation"
+    },
+    "portfolioDistribution": {
+      "title": "Portfolio Distribution",
+      "subtitle": "Capital allocation across 8 verticals",
+      "intelligence": "Intelligence",
+      "energy": "Energy",
+      "technology": "Technology",
+      "cement": "Cement",
+      "mining": "Mining",
+      "agri": "Agri",
+      "water": "Water",
+      "finance": "Finance"
+    },
+    "revenue": {
+      "title": "Revenue Trajectory",
+      "subtitle": "Actual & projected revenue ($M)",
+      "actual": "Actual",
+      "projected": "Projected"
+    },
+    "gpuUtilization": {
+      "title": "GPU Utilization by Hub",
+      "subtitle": "Hourly utilization across 5 Moroccan data center hubs",
+      "casablanca": "Casablanca",
+      "dakhla": "Dakhla",
+      "marrakech": "Marrakech",
+      "tangier": "Tangier",
+      "oujda": "Oujda"
+    },
+    "investmentPipeline": {
+      "title": "Investment Pipeline by Vertical",
+      "subtitle": "Capital allocation across operating verticals ($M)",
+      "intelligence": "Intelligence",
+      "energy": "Energy",
+      "technology": "Technology",
+      "cement": "Cement",
+      "mining": "Mining",
+      "agri": "Agri",
+      "water": "Water",
+      "finance": "Finance"
+    },
+    "operationalMetrics": {
+      "title": "Operational Performance",
+      "subtitle": "Key operational metrics across all verticals",
+      "gpuUtil": "GPU Utilization",
+      "renewableOutput": "Renewable Output",
+      "carbonIntensity": "Carbon Intensity",
+      "gpuUtilLegend": "GPU Util",
+      "renewableGwh": "Renewable GWh",
+      "carbonGco2": "Carbon gCO₂"
+    },
+    "carbonIntensity": {
+      "title": "Carbon Intensity Trend",
+      "subtitle": "gCO₂/kWh over time vs global average",
+      "globalAvg": "Global Avg 450"
+    }
+  },
+  "harchagri": {
+    "competitorComparison": {
+      "headers": {
+        "company": "Company",
+        "country": "Country",
+        "revenue": "Revenue",
+        "funding": "Funding",
+        "product": "Product",
+        "model": "Model",
+        "harchAdvantage": "Harch Agri Advantage"
+      },
+      "competitors": {
+        "twiga": {
+          "country": "Kenya",
+          "product": "B2B Marketplace",
+          "model": "Commission 8-12%",
+          "advantage": "Direct IoT connectivity, not just marketplace"
+        },
+        "apollo": {
+          "country": "Kenya",
+          "product": "Agricultural Credit",
+          "model": "Interest 12-18%",
+          "advantage": "IoT stack reduces default risk by 40%"
+        },
+        "aerofarms": {
+          "country": "USA",
+          "product": "Vertical Farms",
+          "model": "Direct Sales",
+          "advantage": "60% lower cost via African solar energy"
+        },
+        "climate": {
+          "country": "USA",
+          "product": "Crop Insurance",
+          "model": "SaaS + Premiums",
+          "advantage": "Proprietary IoT data provides superior accuracy"
+        },
+        "ocp": {
+          "country": "Morocco",
+          "product": "Fertilizer + Pilot Farms",
+          "model": "Fertilizer + Services",
+          "advantage": "Complementary partnership — we digitalize their farms"
+        }
+      },
+      "footnote": "Competitive analysis based on public data as of Q1 2026.",
+      "harchAgri": {
+        "title": "Harch Agri",
+        "subtitle": "5 countries, 11,800+ sensors, 25,000+ hectares",
+        "year2Target": "Year 2 Target Revenue",
+        "investment": "Investment",
+        "modelLabel": "Model",
+        "modelValue": "SaaS + Hardware + Carbon",
+        "differentiator": "Differentiator",
+        "differentiatorValue": "Only integrated platform: IoT + Drones + Vertical + Carbon on the African continent"
+      }
+    },
+    "productCards": {
+      "requestDemo": "Request Demo",
+      "products": {
+        "drone": {
+          "name": "HarchAgri Drone",
+          "tagline": "Autonomous Aerial Surveillance",
+          "description": "Autonomous drones equipped with multispectral sensors, thermal cameras, and onboard AI for early disease detection, crop vigor analysis, and high-resolution precision mapping.",
+          "features": [
+            "5-band multispectral sensors (RGB + NIR + Red Edge)",
+            "45 min flight time — 200 ha/flight coverage",
+            "Onboard AI: real-time disease detection",
+            "High-resolution NDVI mapping (2cm/pixel)",
+            "HarchOS integration for GPU orchestration"
+          ],
+          "stats": {
+            "accuracy": "Accuracy",
+            "coveragePerDay": "Coverage/day",
+            "roi": "ROI"
+          }
+        },
+        "iot": {
+          "name": "HarchAgri IoT",
+          "tagline": "Intelligent Sensor Network",
+          "description": "Mesh network of IoT sensors deployed across agricultural territory. Continuous soil, moisture, temperature, pH, and nutrient measurement with LoRaWAN transmission and real-time cloud analytics.",
+          "features": [
+            "Soil sensors: moisture, temperature, pH, NPK",
+            "LoRaWAN network — 15 km range",
+            "Solar battery — 5-year autonomy",
+            "Intelligent alerts with adaptive thresholds",
+            "Open API + Python/Node.js SDK"
+          ],
+          "stats": {
+            "sensors": "Sensors",
+            "soilAccuracy": "Soil Accuracy",
+            "waterSavings": "Water Savings"
+          }
+        },
+        "vertical": {
+          "name": "HarchAgri Vertical",
+          "tagline": "Automated Vertical Farms",
+          "description": "Turnkey vertical farming modules with full automation: spectrally optimized LED lighting, closed-loop hydroponic irrigation, AI climate control, and 24/7 monitoring. 365 days/year production, 95% less water.",
+          "features": [
+            "Spectrally optimized LED — 40% less energy",
+            "Closed-loop hydroponics — 95% less water",
+            "AI climate control — temperature ±0.5°C",
+            "10x yield per m² vs. field farming",
+            "Video monitoring + sensors 24/7"
+          ],
+          "stats": {
+            "yieldPerM2": "Yield/m²",
+            "waterSavings": "Water Savings",
+            "daysPerYear": "Days/year"
+          }
+        },
+        "carbon": {
+          "name": "HarchAgri Carbon",
+          "tagline": "Agricultural Carbon Credits",
+          "description": "Tokenization and monetization platform for agricultural carbon credits. Measurement, verification, and automated trading of carbon sequestration credits via proprietary blockchain and certified IoT sensors.",
+          "features": [
+            "Carbon measurement via certified IoT sensors",
+            "Blockchain tokenization — full traceability",
+            "Integrated marketplace — direct buyer sales",
+            "Third-party verification by certified auditors",
+            "Automated ISO 14064 compliant reports"
+          ],
+          "stats": {
+            "creditsPerYear": "Credits/year",
+            "avgRevenue": "Avg Revenue",
+            "verification": "Verification"
+          }
+        }
+      }
+    },
+    "partnerships": {
+      "partnerLabel": "Harch Corp Partner",
+      "statusActive": "Active",
+      "statusNegotiation": "In Negotiation",
+      "partners": {
+        "ocp": {
+          "type": "Strategic",
+          "country": "Morocco",
+          "description": "Digitalization of OCP pilot farms — HarchAgri IoT integration across 12 experimental farms for fertilizer and irrigation optimization."
+        },
+        "planVert": {
+          "type": "Government",
+          "country": "Morocco",
+          "description": "National agricultural modernization program — HarchAgri provides IoT monitoring for 50,000 ha of agricultural land across 6 regions."
+        },
+        "fao": {
+          "type": "Institutional",
+          "country": "Morocco",
+          "description": "Joint food security program — satellite and IoT data sharing for cereal yield forecasting."
+        },
+        "isra": {
+          "type": "Research",
+          "country": "Senegal",
+          "description": "Senegalese Agricultural Research Institute — co-development of AI models adapted to West African crops (groundnut, millet, cowpea)."
+        },
+        "agtechKenya": {
+          "type": "Ecosystem",
+          "country": "Kenya",
+          "description": "Nairobi AgTech hub — access to 200+ agri startups, joint acceleration programs, and connected farmer pipeline."
+        },
+        "ghanaMofa": {
+          "type": "Government",
+          "country": "Ghana",
+          "description": "Ministry of Food and Agriculture — Planting for Food and Jobs program, IoT deployment across 15,000 ha of export crops."
+        }
+      }
+    },
+    "iotDashboard": {
+      "activeSensors": "Active Sensors",
+      "alerts": "Alerts",
+      "dataPoints": "Data Points",
+      "uptime": "Uptime",
+      "realTimeSensorData": "Real-Time Sensor Data",
+      "tempC": "Temp °C",
+      "humidityPct": "Humidity %",
+      "soilPct": "Soil %",
+      "cropHealth": "Crop Health",
+      "carbonCredits": "Carbon Credits (tCO₂)",
+      "crops": {
+        "wheat": "Wheat",
+        "maize": "Maize",
+        "tomatoes": "Tomatoes",
+        "onions": "Onions"
+      }
+    },
+    "africaMap": {
+      "live": "LIVE",
+      "iotSensors": "IoT Sensors",
+      "hectares": "Hectares",
+      "hubs": {
+        "casablanca": {
+          "name": "Casablanca Hub",
+          "country": "Morocco",
+          "type": "IoT + Drones"
+        },
+        "dakar": {
+          "name": "Dakar Hub",
+          "country": "Senegal",
+          "type": "IoT + Carbon"
+        },
+        "nairobi": {
+          "name": "Nairobi Hub",
+          "country": "Kenya",
+          "type": "Full Stack"
+        },
+        "accra": {
+          "name": "Accra Hub",
+          "country": "Ghana",
+          "type": "IoT + Vertical"
+        },
+        "lagos": {
+          "name": "Lagos Hub",
+          "country": "Nigeria",
+          "type": "Drones + Carbon"
+        }
+      }
+    }
+  },
+  "liveDashboard": {
+    "liveMetrics": "LIVE METRICS",
+    "live": "LIVE",
+    "lastUpdated": "LAST UPDATED:",
+    "refresh5s": "REFRESH: 5S"
+  },
+  "liveFeed": {
+    "systemFeed": "System Feed",
+    "messages": [
+      "Dakhla GPU cluster node-47 health check: PASS",
+      "Gambia cement plant permit renewal confirmed — Q3 2026",
+      "Sahel solar farm output: 847MW peak — 98.2% uptime",
+      "Cyber threat scan complete — 0 incidents detected",
+      "Mauritania phosphate core sample analysis: grade 31.2% P2O5",
+      "Dakar IoT sensor mesh: 2,847 nodes online",
+      "Desalination membrane efficiency: 99.1% — within spec",
+      "Submarine cable CAS-DKL latency: 4.2ms — nominal",
+      "Green hydrogen electrolyzer test: 72% efficiency achieved",
+      "Bamako water distribution AI model v2.1 deployed",
+      "Casablanca HQ security perimeter: SECURE",
+      "Cement kiln #2 temperature: 1,420°C — optimal range",
+      "Satellite uplink NOU-ESA signal: -67dBm — strong",
+      "Cobalt refining batch #147 purity: 99.4% Co",
+      "Vertical farm zone-C yield forecast: +12% vs Q1"
+    ]
+  },
+  "immersiveHero": {
+    "harchCorp": "HARCH CORP",
+    "youAreNowEntering": "YOU ARE NOW ENTERING",
+    "time3Mins": "TIME: 3 MINS",
+    "scrollToExplore": "SCROLL TO EXPLORE"
+  },
+  "guidedTour": {
+    "done": "Done",
+    "next": "Next"
+  },
+  "networkOntology": {
+    "harchCorp": "HARCH CORP",
+    "networkOntology": "Network Ontology",
+    "eightVerticals": "8 Verticals",
+    "ariaLabel": "Harch Corp vertical integration network",
+    "verticals": {
+      "intelligence": "Intelligence",
+      "cement": "Cement",
+      "energy": "Energy",
+      "technology": "Technology",
+      "mining": "Mining",
+      "agri": "Agri",
+      "water": "Water",
+      "finance": "Finance"
+    }
+  },
+  "africaMap": {
+    "deploymentsRealTime": "Deployments / Real-Time",
+    "liveActive": "LIVE — {count} ACTIVE",
+    "locations": {
+      "casa": {
+        "name": "Casablanca",
+        "vertical": "HQ",
+        "stat": "Global Operations",
+        "desc": "Corporate HQ — Strategy & Capital"
+      },
+      "dakhla": {
+        "name": "Dakhla",
+        "vertical": "Intelligence",
+        "stat": "1,798 GPU Carbon-Aware Data Centers",
+        "desc": "Hyperscale GPU Cluster — Sovereign Compute"
+      },
+      "banjul": {
+        "name": "Banjul",
+        "vertical": "Cement",
+        "stat": "500kT/yr Production",
+        "desc": "Vertically Integrated Cement Plant"
+      },
+      "nouakchott": {
+        "name": "Nouakchott",
+        "vertical": "Mining",
+        "stat": "3 Strategic Minerals",
+        "desc": "Phosphate, Cobalt & Rare Earths"
+      },
+      "dakar": {
+        "name": "Dakar",
+        "vertical": "Agri",
+        "stat": "$35B Market Access",
+        "desc": "Precision IoT Farming Hub"
+      },
+      "bamako": {
+        "name": "Bamako",
+        "vertical": "Water",
+        "stat": "200M m³/yr",
+        "desc": "AI-Optimized Desalination Network"
+      },
+      "sahel": {
+        "name": "Sahel",
+        "vertical": "Energy",
+        "stat": "2GW+ Renewable Pipeline",
+        "desc": "Solar, Wind & Green Hydrogen"
+      }
+    },
+    "connections": {
+      "casaDakhla": "Fiber",
+      "casaBanjul": "Logistics",
+      "casaSahel": "Power Grid",
+      "dakhlaNouakchott": "Data Link",
+      "banjulDakar": "Supply Chain",
+      "sahelBamako": "Water-Energy"
+    },
+    "legend": {
+      "active": "ACTIVE",
+      "engineering": "ENGINEERING",
+      "permitted": "PERMITTED",
+      "design": "DESIGN"
+    }
+  },
+  "worldMap": {
+    "africa": "AFRICA",
+    "locations": {
+      "casablanca": {
+        "name": "Casablanca",
+        "vertical": "HQ",
+        "stat": "Global Operations"
+      },
+      "dakhla": {
+        "name": "Dakhla",
+        "vertical": "Intelligence",
+        "stat": "1,798 GPU Carbon-Aware Data Centers"
+      },
+      "gambia": {
+        "name": "Gambia",
+        "vertical": "Cement",
+        "stat": "500kT/yr Production"
+      },
+      "sahel": {
+        "name": "Sahel Region",
+        "vertical": "Energy",
+        "stat": "2GW+ Renewable Pipeline"
+      },
+      "mauritania": {
+        "name": "Mauritania",
+        "vertical": "Mining",
+        "stat": "3 Strategic Minerals"
+      },
+      "senegal": {
+        "name": "Senegal",
+        "vertical": "Agri",
+        "stat": "$35B Market Access"
+      },
+      "mali": {
+        "name": "Mali",
+        "vertical": "Water",
+        "stat": "200M m³/yr Desalination"
+      }
+    }
+  },
+  "competitive": {
+    "dominanceScore": "Dominance Score",
+    "metricsWon": "{wins}/{total} metrics won",
+    "competitiveLandscape": "Competitive Landscape",
+    "winRate": "Win Rate",
+    "metric": "Metric",
+    "edge": "Edge",
+    "visualComparison": "Visual Comparison",
+    "pctBetter": "{pct}% better",
+    "pctMore": "{pct}% more",
+    "verdict": "Verdict",
+    "harchDominance": "{name} Dominance",
+    "metricsWonAcross": "{wins} of {total} metrics won across {count} competitors",
+    "everyDimension": "Every dimension. Every metric. Every competitor.",
+    "est": "Est.",
+    "rev": "Rev:"
+  },
+  "interactivePlatform": {
+    "platform": "Platform",
+    "interactivePreview": "Interactive platform preview — explore the interface",
+    "allSystemsNominal": "ALL SYSTEMS NOMINAL",
+    "live": "LIVE",
+    "hideDetails": "Hide Details",
+    "showDetails": "Show Details",
+    "intelligence": {
+      "platformName": "HarchOS Console",
+      "sidebarLabels": {
+        "clusterOverview": "Cluster Overview",
+        "gpuStatus": "GPU Status",
+        "carbonRouter": "Carbon Router",
+        "workloads": "Workloads",
+        "dataResidency": "Data Residency",
+        "apiConsole": "API Console"
+      },
+      "headerTabs": {
+        "overview": "Overview",
+        "hubs": "Hubs",
+        "carbon": "Carbon",
+        "terminal": "Terminal"
+      },
+      "metricCards": {
+        "activeGpus": "Active GPUs",
+        "avgCarbon": "Avg Carbon",
+        "renewable": "Renewable",
+        "uptime": "Uptime"
+      },
+      "tourSteps": {
+        "gpuClusterStatus": "GPU Cluster Status",
+        "gpuClusterDesc": "1,798 carbon-optimized GPUs across 5 Moroccan hubs. Carbon-aware scheduling routes workloads to the greenest hub in real-time.",
+        "carbonAwareRouting": "Carbon-Aware Routing",
+        "carbonAwareDesc": "Our scheduler automatically selects the hub with the lowest carbon intensity. Average: ~47 gCO2/kWh — 89% below industry standard.",
+        "hubNetwork": "Hub Network",
+        "hubNetworkDesc": "5 sovereign hubs across Morocco. Dakhla hub connects directly to Europe via submarine cable. All data stays under Moroccan jurisdiction."
+      },
+      "statusBarText": "REGION: MOROCCO | 5 HUBS ONLINE",
+      "rack": "RACK",
+      "carbonRoutingLog": "Carbon Routing Log",
+      "hubSuffix": "Hub",
+      "gpus": "GPUs",
+      "load": "Load",
+      "carbon": "Carbon",
+      "gpuAllocationByWorkload": "GPU Allocation by Workload",
+      "workloadNames": {
+        "llmTraining": "LLM Training v3.1",
+        "inferenceApi": "Inference API",
+        "fineTuningPipeline": "Fine-tuning Pipeline",
+        "available": "Available"
+      },
+      "gpuUnit": "GPU",
+      "backToAllHubs": "Back to all hubs",
+      "submarineCableMoroccoEurope": "Submarine Cable — Morocco to Europe",
+      "activeWorkloads": "Active Workloads",
+      "running": "running",
+      "workloadTypes": {
+        "training": "Training",
+        "inference": "Inference",
+        "fineTune": "Fine-tune"
+      },
+      "carbonRatings": {
+        "optimal": "Optimal",
+        "low": "Low"
+      },
+      "terminalMessages": {
+        "route1": "CARBON-ROUTER: Routing workload #4182 → Dakhla (35 gCO2/kWh)",
+        "alloc1": "GPU-ALLOC: Casablanca hub → 128 GPUs assigned to training job",
+        "health": "HEALTH-CHECK: All 5 hubs responding within SLA (<2ms)",
+        "warn": "CARBON-ROUTER: Tangier carbon intensity rising → 44 gCO2/kWh",
+        "info": "DATA-RESIDENCY: All data queries within Moroccan jurisdiction",
+        "alloc2": "WORKLOAD: Inference API — 99.97% uptime (last 24h)",
+        "route2": "CARBON-ROUTER: Rebalancing 3 workloads toward Dakhla hub",
+        "alloc3": "GPU-ALLOC: Marrakech hub → 256 GPUs → Fine-tuning HarchGPT"
+      },
+      "sidebar": {
+        "carbonIntensity24h": "Carbon Intensity (24h)",
+        "now": "Now",
+        "energyMix": "Energy Mix"
+      },
+      "energySources": {
+        "solar": "Solar",
+        "wind": "Wind",
+        "hydro": "Hydro",
+        "grid": "Grid"
+      },
+      "hubStatuses": {
+        "online": "online",
+        "staging": "staging"
+      }
+    },
+    "agriculture": {
+      "platformName": "HarchAgri Platform",
+      "sidebarLabels": {
+        "farmMap": "Farm Map",
+        "irrigation": "Irrigation",
+        "cropHealth": "Crop Health",
+        "weather": "Weather",
+        "droneScans": "Drone Scans",
+        "market": "Market"
+      },
+      "headerTabs": {
+        "overview": "Overview",
+        "plots": "Plots",
+        "irrigation": "Irrigation",
+        "schedule": "Schedule"
+      },
+      "metricCards": {
+        "cropHealth": "Crop Health",
+        "waterSaved": "Water Saved",
+        "yieldForecast": "Yield Forecast",
+        "iotSensors": "IoT Sensors"
+      },
+      "tourSteps": {
+        "cropHealthMonitor": "Crop Health Monitor",
+        "cropHealthDesc": "Real-time satellite and IoT data tracks crop health across all plots. Green = healthy, yellow = needs attention, red = action required.",
+        "smartIrrigation": "Smart Irrigation Control",
+        "smartIrrigationDesc": "Sensor-driven irrigation reduces water usage by 40% while increasing yield. Soil moisture sensors trigger automated watering cycles.",
+        "farmIntelligenceMap": "Farm Intelligence Map",
+        "farmIntelligenceDesc": "Interactive map showing all plots with real-time health indicators. Click any plot for detailed analytics and historical data."
+      },
+      "statusBarText": "REGION: CASABLANCA | 48 PLOTS | 6 ZONES",
+      "farmPlotMap": "Farm Plot Map",
+      "healthStatuses": {
+        "healthy": "Healthy",
+        "warning": "Warning",
+        "critical": "Critical"
+      },
+      "cropNames": {
+        "wheat": "Wheat",
+        "corn": "Corn",
+        "soy": "Soy",
+        "rice": "Rice",
+        "cassava": "Cassava",
+        "sorghum": "Sorghum",
+        "barley": "Barley",
+        "millet": "Millet"
+      },
+      "irrigationZoneControls": "Irrigation Zone Controls",
+      "zoneNames": {
+        "zoneANorth": "Zone A — North",
+        "zoneBEast": "Zone B — East",
+        "zoneCSouth": "Zone C — South",
+        "zoneDWest": "Zone D — West",
+        "zoneECentral": "Zone E — Central",
+        "zoneFPerimeter": "Zone F — Perimeter"
+      },
+      "moisture": "Moisture",
+      "soilMoisture": "Soil Moisture",
+      "lastIrrigation": "Last Irrigation",
+      "zone": "Zone",
+      "nextAction": "Next Action",
+      "irrigate": "Irrigate",
+      "monitor": "Monitor",
+      "health": "health",
+      "plot": "Plot",
+      "yieldForecastUnit": "Yield Forecast (T/ha)",
+      "vsActual": "vs ACTUAL",
+      "supplyChainFarmToMarket": "Supply Chain — Farm to Market",
+      "supplyStages": {
+        "harvest": "Harvest",
+        "sorting": "Sorting",
+        "storage": "Storage",
+        "transport": "Transport",
+        "market": "Market"
+      },
+      "supplyStatuses": {
+        "complete": "complete",
+        "active": "active",
+        "pending": "pending"
+      },
+      "carbonCredits": "Carbon Credits",
+      "carbonCreditLabels": {
+        "tco2Total": "tCO2 Total",
+        "certified": "Certified",
+        "pending": "Pending",
+        "revenue": "Revenue"
+      },
+      "verticalFarmContainers": "Vertical Farm Containers",
+      "containerCrops": {
+        "lettuce": "Lettuce",
+        "basil": "Basil",
+        "mint": "Mint",
+        "cherryTom": "Cherry Tom."
+      },
+      "containerStatuses": {
+        "growing": "growing",
+        "ready": "ready",
+        "early": "early",
+        "harvest": "Harvest"
+      },
+      "day": "Day",
+      "cropRotationTimeline": "Crop Rotation Timeline",
+      "rotationPlots": {
+        "plots18": "Plots 1-8",
+        "plots916": "Plots 9-16",
+        "plots1724": "Plots 17-24"
+      },
+      "seasons": {
+        "spring2025": "Spring 2025",
+        "summer2025": "Summer 2025",
+        "fall2025": "Fall 2025"
+      },
+      "droneScanSchedule": "Drone Scan Schedule",
+      "droneAreas": {
+        "northFields": "North Fields",
+        "eastFields": "East Fields",
+        "southFields": "South Fields"
+      },
+      "droneStatuses": {
+        "completed": "Completed",
+        "inFlight": "In Flight",
+        "scheduled": "Scheduled"
+      },
+      "droneFindings": {
+        "noIssues": "No issues detected",
+        "scanning": "Scanning...",
+        "pendingFindings": "Pending"
+      },
+      "sidebar": {
+        "sevenDayForecast": "7-Day Forecast — Casablanca",
+        "partlyCloudy": "Partly Cloudy",
+        "humidity": "Humidity",
+        "marketPrices": "Market Prices",
+        "soilComposition": "Soil Composition",
+        "soilNutrients": {
+          "ph": "pH",
+          "nitrogen": "Nitrogen",
+          "phosphorus": "Phosphorus",
+          "potassium": "Potassium"
+        },
+        "weatherAlerts": "Weather Alerts",
+        "quickActions": "Quick Actions",
+        "actionLabels": {
+          "runDroneScan": "Run Drone Scan",
+          "exportReport": "Export Report",
+          "irrigateAll": "Irrigate All"
+        },
+        "soilMoisture": "Soil Moisture",
+        "alertTexts": {
+          "heavyRain": "Heavy rain expected Wed — 70% probability",
+          "highWind": "High wind advisory — Fri 25km/h gusts"
+        }
+      },
+      "dayNames": {
+        "mon": "Mon",
+        "tue": "Tue",
+        "wed": "Wed",
+        "thu": "Thu",
+        "fri": "Fri",
+        "sat": "Sat",
+        "sun": "Sun"
+      }
+    },
+    "energy": {
+      "platformName": "HarchEnergy Grid",
+      "sidebarLabels": {
+        "gridMap": "Grid Map",
+        "solarFarms": "Solar Farms",
+        "windParks": "Wind Parks",
+        "greenH2": "Green H2",
+        "battery": "Battery",
+        "export": "Export"
+      },
+      "headerTabs": {
+        "generation": "Generation",
+        "storage": "Storage",
+        "export": "Export",
+        "forecast": "Forecast"
+      },
+      "metricCards": {
+        "generation": "Generation",
+        "greenH2": "Green H2",
+        "pipeline": "Pipeline",
+        "gridStability": "Grid Stability"
+      },
+      "tourSteps": {
+        "powerGeneration": "Power Generation",
+        "powerGenerationDesc": "2GW+ renewable pipeline across Morocco and the Sahel. Solar, wind, and green hydrogen producing zero-carbon electricity 24/7.",
+        "greenHydrogenOutput": "Green Hydrogen Output",
+        "greenHydrogenDesc": "Hydrogen electrolysis powered by surplus solar. Production capacity: 50kT/yr for export to European markets via pipeline.",
+        "gridIntelligence": "Grid Intelligence",
+        "gridIntelligenceDesc": "Real-time grid monitoring with optimized load balancing. Prevents blackouts and maximizes renewable utilization across all zones."
+      },
+      "statusBarText": "GRID FREQ: 50.02 Hz | BALANCED | SOLAR PEAK",
+      "powerFlowGrid": "Power Flow Grid",
+      "balanced": "BALANCED",
+      "solarOutput": "Solar Output",
+      "windSpeed": "Wind Speed",
+      "battery": "Battery",
+      "charging": "Charging",
+      "greenH2": "Green H2",
+      "electrolysisActive": "Electrolysis active — 45 MW",
+      "gridFrequency": "Grid Frequency",
+      "sidebar": {
+        "energyMix": "Energy Mix",
+        "exportCapacity": "Export Capacity",
+        "moroccoSpain": "Morocco → Spain: 700 MW",
+        "moroccoMauritania": "Morocco → Mauritania: 500 MW"
+      }
+    },
+    "mining": {
+      "platformName": "HarchMine Ops",
+      "sidebarLabels": {
+        "operations": "Operations",
+        "geologicalMap": "Geological Map",
+        "extraction": "Extraction",
+        "processing": "Processing",
+        "inventory": "Inventory",
+        "safety": "Safety"
+      },
+      "headerTabs": {
+        "operations": "Operations",
+        "deposits": "Deposits",
+        "processing": "Processing",
+        "safety": "Safety"
+      },
+      "metricCards": {
+        "output": "Output",
+        "depositAccuracy": "Deposit Accuracy",
+        "valueCapture": "Value Capture",
+        "safetyScore": "Safety Score"
+      },
+      "tourSteps": {
+        "extractionOutput": "Extraction Output",
+        "extractionOutputDesc": "Strategic mineral extraction — phosphates, cobalt, and rare earths processed in-country. Capturing the full value chain from mine to market.",
+        "geologicalSurvey": "Geological Survey",
+        "geologicalSurveyDesc": "Advanced geological mapping identifies new deposits with 94% accuracy. In-country processing eliminates raw mineral export dependency.",
+        "operationsMap": "Operations Map",
+        "operationsMapDesc": "Real-time monitoring of all extraction sites, processing plants, and logistics chains. Full traceability from mine to end product."
+      },
+      "statusBarText": "KHOUIRIBGA SITE | 0 INCIDENTS | ALL SYSTEMS GO",
+      "geologicalCrossSection": "Geological Cross-Section",
+      "rockLayers": {
+        "overburden": "OVERBURDEN",
+        "sedimentary": "SEDIMENTARY",
+        "phosphateLayer": "PHOSPHATE LAYER",
+        "clay": "CLAY",
+        "basement": "BASEMENT"
+      },
+      "mineralProcessingPipeline": "Mineral Processing Pipeline",
+      "processingStages": {
+        "extraction": "Extraction",
+        "crushing": "Crushing",
+        "grinding": "Grinding",
+        "separation": "Separation",
+        "refining": "Refining",
+        "export": "Export"
+      },
+      "inventoryByMineral": "Inventory by Mineral",
+      "mineralNames": {
+        "phosphateRock": "Phosphate Rock",
+        "cobaltConcentrate": "Cobalt Concentrate",
+        "rareEarthOxides": "Rare Earth Oxides",
+        "fluorite": "Fluorite"
+      },
+      "sidebar": {
+        "safetyMetrics": "Safety Metrics",
+        "safetyItems": {
+          "gasLevels": "Gas Levels",
+          "seismicActivity": "Seismic Activity",
+          "airQuality": "Air Quality",
+          "incidentsYtd": "Incidents (YTD)"
+        },
+        "normal": "Normal",
+        "commodityPrices": "Commodity Prices",
+        "commodityNames": {
+          "phosphateRock": "Phosphate Rock",
+          "cobalt": "Cobalt",
+          "neodymium": "Neodymium",
+          "fluorite": "Fluorite"
+        }
+      }
+    },
+    "cement": {
+      "platformName": "HarchCement Plant",
+      "sidebarLabels": {
+        "plantOverview": "Plant Overview",
+        "productionLine": "Production Line",
+        "qualityLab": "Quality Lab",
+        "supplyChain": "Supply Chain",
+        "logistics": "Logistics",
+        "environmental": "Environmental"
+      },
+      "headerTabs": {
+        "production": "Production",
+        "quality": "Quality",
+        "delivery": "Delivery",
+        "environmental": "Environmental"
+      },
+      "metricCards": {
+        "production": "Production",
+        "qualityRate": "Quality Rate",
+        "energyPerTon": "Energy/GT",
+        "onTime": "On-Time"
+      },
+      "tourSteps": {
+        "productionOutput": "Production Output",
+        "productionOutputDesc": "500kT/yr cement production capacity. Vertically integrated from quarry to delivery, serving West Africa's construction boom.",
+        "qualityControl": "Quality Control",
+        "qualityControlDesc": "Automated quality testing at every stage — raw material, clinker, and finished product. ISO 9001 certified processes.",
+        "supplyChainTracker": "Supply Chain Tracker",
+        "supplyChainTrackerDesc": "End-to-end visibility from raw material extraction to customer delivery. Real-time fleet tracking and inventory management."
+      },
+      "statusBarText": "BANJUL PLANT | KILN: 1450C | LINE ACTIVE",
+      "productionLineLive": "Production Line — Live",
+      "productionStages": {
+        "quarry": "Quarry",
+        "crusher": "Crusher",
+        "kiln": "Kiln",
+        "cooler": "Cooler",
+        "grinder": "Grinder",
+        "silos": "Silos",
+        "dispatch": "Dispatch"
+      },
+      "kilnTemperature": "Kiln Temperature",
+      "degreesC": "degrees C",
+      "dailyVsTarget": "Daily vs Target",
+      "today": "Today",
+      "target": "Target",
+      "ofDailyTarget": "of daily target",
+      "deliveryFleet": "Delivery Fleet",
+      "deliveryStatuses": {
+        "inTransit": "In Transit",
+        "loading": "Loading",
+        "scheduled": "Scheduled"
+      },
+      "eta": "ETA",
+      "sidebar": {
+        "qualityLabResults": "Quality Lab Results",
+        "qualityTests": {
+          "compressiveStrength": "Compressive Strength",
+          "settingTime": "Setting Time",
+          "fineness": "Fineness",
+          "soundness": "Soundness"
+        },
+        "rawMaterials": "Raw Materials",
+        "materialNames": {
+          "limestone": "Limestone",
+          "clay": "Clay",
+          "gypsum": "Gypsum",
+          "ironOre": "Iron Ore"
+        }
+      }
+    },
+    "water": {
+      "platformName": "HarchWater Network",
+      "sidebarLabels": {
+        "network": "Network",
+        "desalination": "Desalination",
+        "quality": "Quality",
+        "storage": "Storage",
+        "distribution": "Distribution",
+        "alerts": "Alerts"
+      },
+      "headerTabs": {
+        "overview": "Overview",
+        "desal": "Desal",
+        "quality": "Quality",
+        "distribution": "Distribution"
+      },
+      "metricCards": {
+        "desalOutput": "Desal Output",
+        "qualityScore": "Quality Score",
+        "lossRate": "Loss Rate",
+        "coverage": "Coverage"
+      },
+      "tourSteps": {
+        "desalinationCapacity": "Desalination Capacity",
+        "desalinationDesc": "200M m3/yr desalination with optimized distribution. Solving Africa's water security crisis with sovereign infrastructure.",
+        "waterQualityMonitor": "Water Quality Monitor",
+        "waterQualityDesc": "Real-time quality monitoring across all distribution points. Automated alerts when parameters deviate from WHO standards.",
+        "distributionNetwork": "Distribution Network",
+        "distributionDesc": "Optimized flow routing minimizes waste and maximizes coverage. Pressure monitoring prevents pipe bursts and leaks."
+      },
+      "statusBarText": "CASABLANCA DESAL | WHO COMPLIANT | 3 PLANTS ONLINE",
+      "desalinationProcess": "Desalination Process",
+      "desalStages": {
+        "intake": "Intake",
+        "preTreat": "Pre-treat",
+        "ro": "RO",
+        "postTreat": "Post-treat",
+        "distribute": "Distribute"
+      },
+      "desalDetails": {
+        "seawater": "Seawater",
+        "filtration": "Filtration",
+        "reverseOsmosis": "Reverse Osmosis",
+        "mineralization": "Mineralization",
+        "toNetwork": "To Network"
+      },
+      "pipelineNetworkFlowRates": "Pipeline Network — Flow Rates",
+      "demand": "Demand",
+      "sidebar": {
+        "qualityParameters": "Quality Parameters",
+        "qualityParams": {
+          "phLevel": "pH Level",
+          "turbidity": "Turbidity",
+          "tds": "TDS",
+          "chlorine": "Chlorine",
+          "bacteria": "Bacteria"
+        },
+        "leakDetection": "Leak Detection",
+        "leakStatuses": {
+          "noLeaks": "No leaks",
+          "minorPressureDrop": "Minor pressure drop"
+        }
+      }
+    },
+    "technology": {
+      "platformName": "HarchTech DevPortal",
+      "sidebarLabels": {
+        "dashboard": "Dashboard",
+        "apiExplorer": "API Explorer",
+        "deployments": "Deployments",
+        "monitoring": "Monitoring",
+        "sdks": "SDKs",
+        "security": "Security"
+      },
+      "headerTabs": {
+        "api": "API",
+        "deploys": "Deploys",
+        "monitoring": "Monitoring",
+        "security": "Security"
+      },
+      "metricCards": {
+        "apiLatency": "API Latency",
+        "deployments": "Deployments",
+        "uptime": "Uptime",
+        "sdkDownloads": "SDK Downloads"
+      },
+      "tourSteps": {
+        "apiPerformance": "API Performance",
+        "apiPerformanceDesc": "Sub-50ms latency across all endpoints. 99.99% uptime SLA with automatic failover and carbon-aware routing.",
+        "deploymentPipeline": "Deployment Pipeline",
+        "deploymentPipelineDesc": "CI/CD pipeline with automated testing, security scanning, and carbon-aware deployment to the greenest available hub.",
+        "developerConsole": "Developer Console",
+        "developerConsoleDesc": "Full API playground, SDK documentation, and real-time monitoring. Native Python and TypeScript SDKs."
+      },
+      "statusBarText": "ALL SERVICES UP | 5 REGIONS | v0.4 LIVE",
+      "apiEndpoints": "API Endpoints",
+      "allHealthy": "ALL HEALTHY",
+      "deploymentPipeline": "Deployment Pipeline",
+      "pipelineStages": {
+        "code": "Code",
+        "build": "Build",
+        "test": "Test",
+        "stage": "Stage",
+        "deploy": "Deploy"
+      },
+      "serviceHealthMatrix": "Service Health Matrix",
+      "serviceNames": {
+        "apiGateway": "API Gateway",
+        "authService": "Auth Service",
+        "carbonRouter": "Carbon Router",
+        "scheduler": "Scheduler",
+        "monitor": "Monitor"
+      },
+      "sidebar": {
+        "sdkDownloads": "SDK Downloads",
+        "securityScore": "Security Score",
+        "zeroVulnerabilities": "0 vulnerabilities",
+        "soc2Certified": "SOC 2 Type II Certified",
+        "recentDeploys": "Recent Deploys"
+      }
+    },
+    "finance": {
+      "platformName": "HarchFinance Terminal",
+      "sidebarLabels": {
+        "portfolio": "Portfolio",
+        "pipeline": "Pipeline",
+        "bonds": "Bonds",
+        "risk": "Risk",
+        "transactions": "Transactions",
+        "compliance": "Compliance"
+      },
+      "headerTabs": {
+        "portfolio": "Portfolio",
+        "pipeline": "Pipeline",
+        "bonds": "Bonds",
+        "risk": "Risk"
+      },
+      "metricCards": {
+        "aum": "AUM",
+        "avgIrr": "Avg IRR",
+        "greenBonds": "Green Bonds",
+        "activeDeals": "Active Deals"
+      },
+      "tourSteps": {
+        "investmentPipeline": "Investment Pipeline",
+        "investmentPipelineDesc": "$2.4B across 7 verticals spanning 5 countries. Green bonds, project finance, and Islamic finance instruments.",
+        "greenBondIssuance": "Green Bond Issuance",
+        "greenBondDesc": "$890M in green bonds certified by Climate Bonds Initiative. First African corporate green bond program for sovereign infrastructure.",
+        "riskIntelligence": "Risk Intelligence",
+        "riskIntelligenceDesc": "Real-time risk scoring across all portfolio positions. DFI-backed and MIGA-guaranteed structures minimize downside exposure."
+      },
+      "statusBarText": "DEALS: 7 ACTIVE | 5 COUNTRIES | COMPLIANT",
+      "investmentPipeline": "Investment Pipeline",
+      "dealsCount": "7 DEALS",
+      "dealLabels": {
+        "amount": "Amount",
+        "coupon": "Coupon",
+        "irr": "IRR",
+        "country": "Country",
+        "risk": "Risk"
+      },
+      "low": "LOW",
+      "bondYieldCurve": "Bond Yield Curve",
+      "cbiCertified": "CBI CERTIFIED",
+      "portfolioAllocation": "Portfolio Allocation",
+      "dealFlowFunnel": "Deal Flow Funnel",
+      "funnelStages": {
+        "sourcing": "Sourcing",
+        "dueDiligence": "Due Diligence",
+        "termSheet": "Term Sheet",
+        "committed": "Committed",
+        "closed": "Closed"
+      },
+      "transactionFeed": "Transaction Feed",
+      "sidebar": {
+        "riskScoreMatrix": "Risk Score Matrix",
+        "riskLevels": {
+          "low": "Low",
+          "med": "Med",
+          "high": "High"
+        },
+        "currencyRates": "Currency Rates",
+        "complianceStatus": "Compliance Status",
+        "complianceItems": {
+          "shariaOic": "Sharia (OIC)",
+          "migaCoverage": "MIGA Coverage",
+          "dfiAlignment": "DFI Alignment"
+        },
+        "complianceStatuses": {
+          "compliant": "Compliant",
+          "active": "Active",
+          "verified": "Verified"
+        }
+      }
     }
   }
 }

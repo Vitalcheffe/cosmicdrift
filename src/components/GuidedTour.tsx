@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 /* ═══════════════════════════════════════════════════════════════
    GUIDED TOUR — Palantir-style progressive onboarding
@@ -25,6 +26,7 @@ interface GuidedTourProps {
 }
 
 export function GuidedTour({ steps, storageKey, accent = '#8B9DAF' }: GuidedTourProps) {
+  const t = useTranslations('guidedTour');
   const [activeStep, setActiveStep] = useState<number | null>(null);
   const [visited, setVisited] = useState(false);
   const [dismissed, setDismissed] = useState(false);
@@ -194,7 +196,7 @@ export function GuidedTour({ steps, storageKey, accent = '#8B9DAF' }: GuidedTour
                   className="flex items-center gap-1 text-[10px] font-bold tracking-[0.1em] uppercase transition-colors"
                   style={{ color: accent }}
                 >
-                  {activeStep === steps.length - 1 ? 'Done' : 'Next'}
+                  {activeStep === steps.length - 1 ? t('done') : t('next')}
                   <ChevronRight size={10} />
                 </button>
               </div>

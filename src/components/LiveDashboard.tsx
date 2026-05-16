@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUp, ArrowDown, Minus } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface Metric {
   label: string;
@@ -124,7 +125,8 @@ function TrendIndicator({ trend }: { trend: 'up' | 'down' | 'stable' }) {
   return <Minus size={10} className="text-white/25" />;
 }
 
-export default function LiveDashboard({ metrics, title = 'LIVE METRICS' }: LiveDashboardProps) {
+export default function LiveDashboard({ metrics, title }: LiveDashboardProps) {
+  const t = useTranslations('liveDashboard');
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-80px' });
   const [liveMetrics, setLiveMetrics] = useState<Metric[]>(metrics);
@@ -174,7 +176,7 @@ export default function LiveDashboard({ metrics, title = 'LIVE METRICS' }: LiveD
         {/* Header bar */}
         <div className="flex items-center justify-between mb-6">
           <span className="font-[family-name:var(--font-space-mono)] text-[9px] uppercase tracking-[0.2em] text-white/25">
-            {title}
+            {title || t('liveMetrics')}
           </span>
           <div className="flex items-center gap-2">
             <motion.div
@@ -183,7 +185,7 @@ export default function LiveDashboard({ metrics, title = 'LIVE METRICS' }: LiveD
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             />
             <span className="font-[family-name:var(--font-space-mono)] text-[8px] uppercase tracking-[0.15em] text-[#4A7B5F]">
-              LIVE
+              {t('live')}
             </span>
           </div>
         </div>
@@ -203,10 +205,10 @@ export default function LiveDashboard({ metrics, title = 'LIVE METRICS' }: LiveD
         {/* Bottom bar */}
         <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between gap-2 flex-wrap">
           <span className="font-[family-name:var(--font-space-mono)] text-[8px] uppercase tracking-[0.15em] text-white/15">
-            LAST UPDATED: {lastUpdated}
+            {t('lastUpdated')} {lastUpdated}
           </span>
           <span className="font-[family-name:var(--font-space-mono)] text-[8px] uppercase tracking-[0.1em] text-white/10">
-            REFRESH: 5S
+            {t('refresh5s')}
           </span>
         </div>
       </div>

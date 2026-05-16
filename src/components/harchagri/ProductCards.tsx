@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView, useAnimation } from 'framer-motion'
 import { Plane, Radio, Building2, Leaf } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 interface Product {
   id: string
@@ -16,94 +17,100 @@ interface Product {
   stats: { label: string; value: string }[]
 }
 
-const products: Product[] = [
-  {
-    id: 'drone',
-    icon: Plane,
-    name: 'HarchAgri Drone',
-    tagline: 'Autonomous Aerial Surveillance',
-    price: '$15,000',
-    unit: '/unit',
-    description: 'Autonomous drones equipped with multispectral sensors, thermal cameras, and onboard AI for early disease detection, crop vigor analysis, and high-resolution precision mapping.',
-    features: [
-      '5-band multispectral sensors (RGB + NIR + Red Edge)',
-      '45 min flight time — 200 ha/flight coverage',
-      'Onboard AI: real-time disease detection',
-      'High-resolution NDVI mapping (2cm/pixel)',
-      'HarchOS integration for GPU orchestration',
-    ],
-    stats: [
-      { label: 'Accuracy', value: '97.3%' },
-      { label: 'Coverage/day', value: '800 ha' },
-      { label: 'ROI', value: '3.2x' },
-    ],
-  },
-  {
-    id: 'iot',
-    icon: Radio,
-    name: 'HarchAgri IoT',
-    tagline: 'Intelligent Sensor Network',
-    price: '$500',
-    unit: '/hectare/year',
-    description: 'Mesh network of IoT sensors deployed across agricultural territory. Continuous soil, moisture, temperature, pH, and nutrient measurement with LoRaWAN transmission and real-time cloud analytics.',
-    features: [
-      'Soil sensors: moisture, temperature, pH, NPK',
-      'LoRaWAN network — 15 km range',
-      'Solar battery — 5-year autonomy',
-      'Intelligent alerts with adaptive thresholds',
-      'Open API + Python/Node.js SDK',
-    ],
-    stats: [
-      { label: 'Sensors', value: '11,800+' },
-      { label: 'Soil Accuracy', value: '±2%' },
-      { label: 'Water Savings', value: '35%' },
-    ],
-  },
-  {
-    id: 'vertical',
-    icon: Building2,
-    name: 'HarchAgri Vertical',
-    tagline: 'Automated Vertical Farms',
-    price: '$50,000',
-    unit: '/module',
-    description: 'Turnkey vertical farming modules with full automation: spectrally optimized LED lighting, closed-loop hydroponic irrigation, AI climate control, and 24/7 monitoring. 365 days/year production, 95% less water.',
-    features: [
-      'Spectrally optimized LED — 40% less energy',
-      'Closed-loop hydroponics — 95% less water',
-      'AI climate control — temperature ±0.5°C',
-      '10x yield per m² vs. field farming',
-      'Video monitoring + sensors 24/7',
-    ],
-    stats: [
-      { label: 'Yield/m²', value: '10x' },
-      { label: 'Water Savings', value: '95%' },
-      { label: 'Days/year', value: '365' },
-    ],
-  },
-  {
-    id: 'carbon',
-    icon: Leaf,
-    name: 'HarchAgri Carbon',
-    tagline: 'Agricultural Carbon Credits',
-    price: '2%',
-    unit: 'of carbon revenue',
-    description: 'Tokenization and monetization platform for agricultural carbon credits. Measurement, verification, and automated trading of carbon sequestration credits via proprietary blockchain and certified IoT sensors.',
-    features: [
-      'Carbon measurement via certified IoT sensors',
-      'Blockchain tokenization — full traceability',
-      'Integrated marketplace — direct buyer sales',
-      'Third-party verification by certified auditors',
-      'Automated ISO 14064 compliant reports',
-    ],
-    stats: [
-      { label: 'Credits/year', value: '2,350 tCO₂' },
-      { label: 'Avg Revenue', value: '$47/ha' },
-      { label: 'Verification', value: 'ISO 14064' },
-    ],
-  },
-]
+function useProducts(): Product[] {
+  const t = useTranslations('harchagri.productCards')
 
-function ProductCard({ product, index }: { product: Product; index: number }) {
+  const products: Product[] = [
+    {
+      id: 'drone',
+      icon: Plane,
+      name: t('products.drone.name'),
+      tagline: t('products.drone.tagline'),
+      price: '$15,000',
+      unit: '/unit',
+      description: t('products.drone.description'),
+      features: [
+        t('products.drone.features.0'),
+        t('products.drone.features.1'),
+        t('products.drone.features.2'),
+        t('products.drone.features.3'),
+        t('products.drone.features.4'),
+      ],
+      stats: [
+        { label: t('products.drone.stats.accuracy'), value: '97.3%' },
+        { label: t('products.drone.stats.coveragePerDay'), value: '800 ha' },
+        { label: t('products.drone.stats.roi'), value: '3.2x' },
+      ],
+    },
+    {
+      id: 'iot',
+      icon: Radio,
+      name: t('products.iot.name'),
+      tagline: t('products.iot.tagline'),
+      price: '$500',
+      unit: '/hectare/year',
+      description: t('products.iot.description'),
+      features: [
+        t('products.iot.features.0'),
+        t('products.iot.features.1'),
+        t('products.iot.features.2'),
+        t('products.iot.features.3'),
+        t('products.iot.features.4'),
+      ],
+      stats: [
+        { label: t('products.iot.stats.sensors'), value: '11,800+' },
+        { label: t('products.iot.stats.soilAccuracy'), value: '±2%' },
+        { label: t('products.iot.stats.waterSavings'), value: '35%' },
+      ],
+    },
+    {
+      id: 'vertical',
+      icon: Building2,
+      name: t('products.vertical.name'),
+      tagline: t('products.vertical.tagline'),
+      price: '$50,000',
+      unit: '/module',
+      description: t('products.vertical.description'),
+      features: [
+        t('products.vertical.features.0'),
+        t('products.vertical.features.1'),
+        t('products.vertical.features.2'),
+        t('products.vertical.features.3'),
+        t('products.vertical.features.4'),
+      ],
+      stats: [
+        { label: t('products.vertical.stats.yieldPerM2'), value: '10x' },
+        { label: t('products.vertical.stats.waterSavings'), value: '95%' },
+        { label: t('products.vertical.stats.daysPerYear'), value: '365' },
+      ],
+    },
+    {
+      id: 'carbon',
+      icon: Leaf,
+      name: t('products.carbon.name'),
+      tagline: t('products.carbon.tagline'),
+      price: '2%',
+      unit: 'of carbon revenue',
+      description: t('products.carbon.description'),
+      features: [
+        t('products.carbon.features.0'),
+        t('products.carbon.features.1'),
+        t('products.carbon.features.2'),
+        t('products.carbon.features.3'),
+        t('products.carbon.features.4'),
+      ],
+      stats: [
+        { label: t('products.carbon.stats.creditsPerYear'), value: '2,350 tCO₂' },
+        { label: t('products.carbon.stats.avgRevenue'), value: '$47/ha' },
+        { label: t('products.carbon.stats.verification'), value: 'ISO 14064' },
+      ],
+    },
+  ]
+
+  return products
+}
+
+function ProductCard({ product, index, requestDemoLabel }: { product: Product; index: number; requestDemoLabel: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
   const controls = useAnimation()
@@ -116,7 +123,8 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
     }
   }, [isInView, controls])
 
-  const variants = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const variants: any = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
@@ -215,7 +223,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           whileTap={{ scale: 0.99 }}
           className="mt-5 w-full py-2.5 rounded-lg text-[12px] font-semibold transition-all duration-300 border border-[rgba(255,255,255,0.12)] text-white hover:bg-white hover:text-black"
         >
-          Request Demo
+          {requestDemoLabel}
         </motion.button>
       </motion.div>
     </motion.div>
@@ -223,10 +231,13 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 }
 
 export default function ProductCards() {
+  const products = useProducts()
+  const t = useTranslations('harchagri.productCards')
+
   return (
     <div className="grid md:grid-cols-2 gap-6">
       {products.map((product, index) => (
-        <ProductCard key={product.id} product={product} index={index} />
+        <ProductCard key={product.id} product={product} index={index} requestDemoLabel={t('requestDemo')} />
       ))}
     </div>
   )

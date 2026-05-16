@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FadeIn } from '@/components/ui/motion';
+import { useTranslations } from 'next-intl';
 
 /* ─── Types ─── */
 export interface MetricComparison {
@@ -42,7 +43,7 @@ export interface CompetitiveComparisonProps {
 }
 
 /* ─── Dominance Score Ring ─── */
-function DominanceRing({ wins, total, accentColor }: { wins: number; total: number; accentColor: string }) {
+function DominanceRing({ wins, total, accentColor, t }: { wins: number; total: number; accentColor: string; t: any }) {
   const percentage = Math.round((wins / total) * 100);
   const circumference = 2 * Math.PI * 28;
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
@@ -69,10 +70,10 @@ function DominanceRing({ wins, total, accentColor }: { wins: number; total: numb
       </svg>
       <div>
         <p className="text-[10px] font-bold tracking-[0.15em] uppercase" style={{ color: accentColor }}>
-          Dominance Score
+          {t('dominanceScore')}
         </p>
         <p className="text-[12px] text-[#999999]">
-          {wins}/{total} metrics won
+          {t('metricsWon', { wins, total })}
         </p>
       </div>
     </div>
@@ -119,17 +120,20 @@ function ComparisonBar({ harchNumeric, competitorNumeric, barMax, lowerIsBetter,
 
 /* ─── Main Component ─── */
 export default function CompetitiveComparison({
-  title = 'Competitive Landscape',
+  title,
   subtitle,
   accentColor,
-  sectionLabel = 'Competitive Landscape',
+  sectionLabel,
   competitors,
-  harchName = 'Harch',
+  harchName,
 }: CompetitiveComparisonProps) {
+  const t = useTranslations('competitive');
+
   // Calculate overall stats
   const totalMetrics = competitors.reduce((sum, c) => sum + c.metrics.length, 0);
   const totalWins = competitors.reduce((sum, c) => sum + c.metrics.filter(m => m.harchWins !== false).length, 0);
   const overallWinRate = totalMetrics > 0 ? Math.round((totalWins / totalMetrics) * 100) : 0;
+  const resolvedHarchName = harchName || 'Harch';
 
   return (
     <section className="py-28 md:py-36 bg-[#121212]">
@@ -137,10 +141,10 @@ export default function CompetitiveComparison({
         {/* Section Header */}
         <FadeIn>
           <p className="section-label mb-4" style={{ color: accentColor }}>
-            {sectionLabel}
+            {sectionLabel || t('competitiveLandscape')}
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-            {title}
+            {title || t('competitiveLandscape')}
           </h2>
           <div className="accent-line mb-6" />
           {subtitle && (
@@ -157,18 +161,18 @@ export default function CompetitiveComparison({
               <div className="flex items-center gap-6">
                 <div className="text-center">
                   <p className="text-5xl md:text-6xl font-bold text-white stat-mono">{overallWinRate}%</p>
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mt-1">Win Rate</p>
+                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.15em] font-bold mt-1">{t('winRate')}</p>
                 </div>
                 <div className="h-12 w-px bg-[rgba(255,255,255,0.06)] hidden md:block" />
                 <div>
                   <p className="text-[10px] font-bold tracking-[0.15em] uppercase" style={{ color: accentColor }}>
-                    {harchName} Dominance
+                    {t('harchDominance', { name: resolvedHarchName })}
                   </p>
                   <p className="text-[14px] text-white font-semibold mt-1">
-                    {totalWins} of {totalMetrics} metrics won across {competitors.length} competitors
+                    {t('metricsWonAcross', { wins: totalWins, total: totalMetrics, count: competitors.length })}
                   </p>
                   <p className="text-[12px] text-[#666666] mt-0.5">
-                    Every dimension. Every metric. Every competitor.
+                    {t('everyDimension')}
                   </p>
                 </div>
               </div>
@@ -208,16 +212,16 @@ export default function CompetitiveComparison({
                       </span>
                       {competitor.founded && (
                         <span className="text-[10px] text-[#555555]">
-                          Est. {competitor.founded}
+                          {t('est')} {competitor.founded}
                         </span>
                       )}
                       {competitor.revenue && (
                         <span className="text-[10px] px-2 py-0.5 rounded bg-[rgba(255,255,255,0.04)] text-[#666666]">
-                          Rev: {competitor.revenue}
+                          {t('rev')} {competitor.revenue}
                         </span>
                       )}
                     </div>
-                    <DominanceRing wins={compWins} total={competitor.metrics.length} accentColor={accentColor} />
+                    <DominanceRing wins={compWins} total={competitor.metrics.length} accentColor={accentColor} t={t} />
                   </div>
 
                   {/* Metrics Table */}
@@ -226,16 +230,16 @@ export default function CompetitiveComparison({
                       <thead>
                         <tr className="border-b border-[rgba(255,255,255,0.06)]">
                           <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-4 py-3 w-[30%]">
-                            Metric
+                            {t('metric')}
                           </th>
                           <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-4 py-3 w-[30%]">
-                            {harchName}
+                            {resolvedHarchName}
                           </th>
                           <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-4 py-3 w-[30%]">
                             {competitor.name}
                           </th>
                           <th className="text-center text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-4 py-3 w-[10%]">
-                            Edge
+                            {t('edge')}
                           </th>
                         </tr>
                       </thead>
@@ -302,7 +306,7 @@ export default function CompetitiveComparison({
                   {competitor.metrics.some(m => m.harchNumeric !== undefined) && (
                     <div className="mt-6 pt-6 border-t border-[rgba(255,255,255,0.04)]">
                       <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">
-                        Visual Comparison
+                        {t('visualComparison')}
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {competitor.metrics
@@ -313,8 +317,8 @@ export default function CompetitiveComparison({
                                 <span className="text-[11px] text-[#999999]">{metric.label}</span>
                                 <span className="text-[10px] font-bold" style={{ color: accentColor }}>
                                   {metric.lowerIsBetter
-                                    ? `${Math.round((1 - (metric.harchNumeric! / metric.competitorNumeric!)) * 100)}% better`
-                                    : `${Math.round(((metric.harchNumeric! - metric.competitorNumeric!) / metric.competitorNumeric!) * 100)}% more`
+                                    ? t('pctBetter', { pct: Math.round((1 - (metric.harchNumeric! / metric.competitorNumeric!)) * 100) })
+                                    : t('pctMore', { pct: Math.round(((metric.harchNumeric! - metric.competitorNumeric!) / metric.competitorNumeric!) * 100) })
                                   }
                                 </span>
                               </div>
@@ -344,7 +348,7 @@ export default function CompetitiveComparison({
                         className="font-bold font-[family-name:var(--font-space-mono)] text-[10px] uppercase tracking-wider mr-2"
                         style={{ color: accentColor }}
                       >
-                        Verdict
+                        {t('verdict')}
                       </span>
                       {competitor.verdict}
                     </p>

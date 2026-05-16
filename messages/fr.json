@@ -10466,6 +10466,8 @@
     "live": "EN DIRECT",
     "hideDetails": "Masquer les détails",
     "showDetails": "Afficher les détails",
+    "export": "Exporter",
+    "settings": "Paramètres",
     "intelligence": {
       "platformName": "Console HarchOS",
       "sidebarLabels": {
@@ -10548,6 +10550,48 @@
       "hubStatuses": {
         "online": "en ligne",
         "staging": "staging"
+      }
+    },
+    "supplyChain": {
+      "moduleName": "Tour de Contrôle Supply Chain",
+      "metricSolutions": "Solutions IA Générées",
+      "metricActioned": "Actionnées Automatiquement",
+      "metricApproval": "Approbation Requise",
+      "objectBrowser": "Navigateur d'Objets",
+      "networkMap": "Carte Réseau",
+      "infrastructure": "Infrastructure",
+      "distribution": "Distribution",
+      "customers": "Clients",
+      "proposals": "Propositions de Réallocation",
+      "auto": "Auto",
+      "pending": "En attente",
+      "accept": "Accepter",
+      "modify": "Modifier",
+      "explain": "Expliquer"
+    },
+    "geospatial": {
+      "moduleName": "Intelligence Géospatiale",
+      "targetList": "Liste des Cibles",
+      "geoView": "Vue GEO",
+      "taskAsset": "Actif de Tâche",
+      "headerTabs": {
+        "mapView": "Vue Carte",
+        "timeline": "Chronologie",
+        "analysis": "Analyse"
+      },
+      "status": "Statut",
+      "synced": "SYNCHRONISÉ",
+      "targetsTracked": "cibles suivies",
+      "lastUpdate": "Dernière màj"
+    },
+    "operations": {
+      "moduleName": "Centre d'Opérations",
+      "verticalStatus": "Statut Vertical",
+      "liveFeed": "Flux en Direct",
+      "headerTabs": {
+        "overview": "Aperçu",
+        "metrics": "Métriques",
+        "incidents": "Incidents"
       }
     },
     "agriculture": {

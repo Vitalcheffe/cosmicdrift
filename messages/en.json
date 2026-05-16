@@ -9307,6 +9307,8 @@
     "live": "LIVE",
     "hideDetails": "Hide Details",
     "showDetails": "Show Details",
+    "export": "Export",
+    "settings": "Settings",
     "intelligence": {
       "platformName": "HarchOS Console",
       "sidebarLabels": {
@@ -9389,6 +9391,48 @@
       "hubStatuses": {
         "online": "online",
         "staging": "staging"
+      }
+    },
+    "supplyChain": {
+      "moduleName": "Supply Chain Control Tower",
+      "metricSolutions": "AI-Generated Solutions",
+      "metricActioned": "Automatically Actioned",
+      "metricApproval": "Approval Required",
+      "objectBrowser": "Object Browser",
+      "networkMap": "Network Map",
+      "infrastructure": "Infrastructure",
+      "distribution": "Distribution",
+      "customers": "Customers",
+      "proposals": "Reallocation Proposals",
+      "auto": "Auto",
+      "pending": "Pending",
+      "accept": "Accept",
+      "modify": "Modify",
+      "explain": "Explain"
+    },
+    "geospatial": {
+      "moduleName": "Geospatial Intelligence",
+      "targetList": "Target List",
+      "geoView": "GEO View",
+      "taskAsset": "Task Asset",
+      "headerTabs": {
+        "mapView": "Map View",
+        "timeline": "Timeline",
+        "analysis": "Analysis"
+      },
+      "status": "Status",
+      "synced": "SYNCED",
+      "targetsTracked": "targets tracked",
+      "lastUpdate": "Last update"
+    },
+    "operations": {
+      "moduleName": "Operations Center",
+      "verticalStatus": "Vertical Status",
+      "liveFeed": "Live Feed",
+      "headerTabs": {
+        "overview": "Overview",
+        "metrics": "Metrics",
+        "incidents": "Incidents"
       }
     },
     "agriculture": {

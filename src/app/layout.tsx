@@ -1,4 +1,6 @@
 import "./globals.css";
+import type { Metadata, Viewport } from "next";
+import { Inter, Space_Mono } from "next/font/google";
 import { Sidebar } from "@/components/Sidebar";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";

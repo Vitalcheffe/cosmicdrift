@@ -9,7 +9,7 @@ import { Radio, AlertTriangle, Database, Zap } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 // Simulated real-time data
-const generateTimeData = (): { time: string; temperature: number; humidity: number; soil: number }[] => {
+const generateTimeData = () => {
   const data: { time: string; temperature: number; humidity: number; soil: number }[] = []
   const now = Date.now()
   for (let i = 30; i >= 0; i--) {

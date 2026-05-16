@@ -80,6 +80,7 @@ Stage Summary:
 - Two commits pushed: e2be983 and dc7947e
 
 ---
+
 Task ID: 7
 Agent: Subagent (general-purpose)
 Task: Extract Quote page translations (QuotePageClient.tsx + QuoteReceivedClient.tsx)
@@ -453,3 +454,24 @@ Work Log:
   - Mix énergétique, Exportation, Fréquence du réseau
 
 - Pre-existing TypeScript errors (4 errors on lines 168, 231, 1882, 1911) are NOT introduced by this change - they exist in the original code due to type mismatches in the DashboardConfig render function signatures
+---
+Task ID: TS-FIX
+Agent: Subagent (general-purpose)
+Task: Fix all TypeScript errors in src/
+
+Work Log:
+1. **InteractivePlatform.tsx** (4 errors → fixed): The `renderMain` function signature in `DashboardConfig` interface had 7 params, but implementations expected `setSelectedHub` as a callback (5th param) while the interface declared it as `selectedPlot: number | null`. Fixed by adding `setSelectedHub: (hub: number | null) => void` as 8th parameter to the interface, updating the call site to pass `setSelectedHub`, and updating all 3 `renderMain` implementations (intelligence, agriculture, finance) to accept the new 8th param.
+
+2. **Sidebar.tsx** (4 errors → fixed): `collapsibleSection` function typed its `items` param as `typeof platformItems` (which includes `version`), but `developerItems`, `resourceItems`, `businessItems`, and `companyItems` don't have `version`. Changed type from `typeof platformItems` to `{ name: string; href: string; version?: string }[]` to make `version` optional.
+
+3. **IoTDashboard.tsx** (4 errors → fixed): `const data = []` inferred as `never[]`. Added explicit type annotation: `const data: { time: string; temperature: number; humidity: number; soil: number }[] = []`.
+
+4. **SubsidiaryPageClient.tsx** (2 errors → fixed): (a) `SmoothLink` doesn't accept `style` prop — moved `style={{ color: accent }}` from SmoothLink to a wrapping `<span>` around children. (b) Lucide icon component doesn't accept `style` prop — wrapped icon in `<span style={{ color: accent }}>`.
+
+5. **HarchOSPageClient.tsx** (1 error → fixed): `ringColor` is not a valid CSS property. Replaced with `boxShadow: \`0 0 0 1px ${hub.color}\`` which produces the same visual ring effect.
+
+6. **CursorGlow.tsx** (1 error → fixed): `useRef<number>()` called with 0 arguments but expects 1. Changed to `useRef<number | undefined>(undefined)`.
+
+7. **ProductCards.tsx** (1 error → fixed): `ease: [0.25, 0.46, 0.45, 0.94]` not compatible with Framer Motion `Variants` type. Added tuple type assertion: `ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number]`.
+
+Result: `npx tsc --noEmit 2>&1 | grep "^src/"` returns zero errors. All 17 TypeScript errors in src/ resolved.

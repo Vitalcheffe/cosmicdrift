@@ -46,7 +46,7 @@ interface DashboardConfig {
   headerTabs: string[];
   tourSteps: TourStep[];
   metricCards: MetricCard[];
-  renderMain: (accent: string, activeTab: number, activeSidebar: number, selectedHub: number | null, selectedPlot: number | null, toggleIrrigation: (zone: number) => void, irrigationState: boolean[]) => React.ReactNode;
+  renderMain: (accent: string, activeTab: number, activeSidebar: number, selectedHub: number | null, selectedPlot: number | null, toggleIrrigation: (zone: number) => void, irrigationState: boolean[], setSelectedHub: (hub: number | null) => void) => React.ReactNode;
   renderSidebar: (accent: string, activeTab: number, activeSidebar: number) => React.ReactNode;
   backgroundImage?: string;
   statusBarText: string;
@@ -81,8 +81,8 @@ const getIntelligenceConfig = (t: any): DashboardConfig => ({
     { id: 'intel-metric-renew', label: t('intelligence.metricCards.renewable'), value: '81.5%', change: '+3.2%', changeUp: true, icon: <Zap size={14} /> },
     { id: 'intel-metric-uptime', label: t('intelligence.metricCards.uptime'), value: '99.97%', change: '+0.02%', changeUp: true, icon: <Activity size={14} /> },
   ],
-  statusBarText: t('intelligence.statusBarText'),
-  renderMain: (accent, activeTab, activeSidebar, selectedHub, setSelectedHub, _toggleIrr, _irrState) => {
+statusBarText: t('intelligence.statusBarText'),
+  renderMain: (accent, activeTab, activeSidebar, selectedHub, _selectedPlot, _toggleIrr, _irrState, setSelectedHub) => {
     const hubs = [
       { name: 'Casablanca', gpus: 384, load: 78, carbon: 42, status: 'online' },
       { name: 'Rabat', gpus: 256, load: 65, carbon: 38, status: 'online' },
@@ -403,8 +403,8 @@ const getAgricultureConfig = (t: any): DashboardConfig => ({
     { id: 'agri-metric-yield', label: t('agriculture.metricCards.yieldForecast'), value: '12.4T/ha', change: '+8%', changeUp: true, icon: <Wheat size={14} /> },
     { id: 'agri-metric-iot', label: t('agriculture.metricCards.iotSensors'), value: '2,847', change: '+340', changeUp: true, icon: <Radio size={14} /> },
   ],
-  statusBarText: t('agriculture.statusBarText'),
-  renderMain: (accent, activeTab, activeSidebar, _selHub, selectedPlot, toggleIrrigation, irrigationState) => {
+statusBarText: t('agriculture.statusBarText'),
+  renderMain: (accent, activeTab, activeSidebar, _selHub, selectedPlot, toggleIrrigation, irrigationState, _setSelectedHub) => {
     const plotData = Array.from({ length: 48 }, (_, i) => ({
       id: i,
       crop: ['Wheat', 'Corn', 'Soy', 'Rice', 'Cassava', 'Sorghum', 'Barley', 'Millet'][i % 8],
@@ -1811,7 +1811,7 @@ const getFinanceConfig = (t: any): DashboardConfig => ({
     { id: 'finance-metric-pipeline', label: 'Active Deals', value: '7', change: '+2', changeUp: true, icon: <Layers size={14} /> },
   ],
   statusBarText: 'DEALS: 7 ACTIVE | 5 COUNTRIES | COMPLIANT',
-  renderMain: (accent, activeTab, activeSidebar, selectedHub, setSelectedHub, _toggleIrr, _irrState) => {
+  renderMain: (accent, activeTab, activeSidebar, selectedHub, _selectedPlot, _toggleIrr, _irrState, setSelectedHub) => {
     const deals = [
       { name: 'Harch Intelligence Phase 2', amount: '$400M', irr: '28%', country: 'Morocco', status: 'Active' },
       { name: 'Harch Energy Solar Park', amount: '$350M', irr: '24%', country: 'Morocco', status: 'Funding' },
@@ -2388,7 +2388,7 @@ export function InteractivePlatform({ slug, accent: accentOverride }: Interactiv
                       exit={{ opacity: 0, y: -4 }}
                       transition={{ duration: 0.2 }}
                     >
-                      {config.renderMain(accent, activeTab, activeSidebar, selectedHub, selectedPlot, toggleIrrigation, irrigationState)}
+                      {config.renderMain(accent, activeTab, activeSidebar, selectedHub, selectedPlot, toggleIrrigation, irrigationState, setSelectedHub)}
                     </motion.div>
                   </AnimatePresence>
                 </div>

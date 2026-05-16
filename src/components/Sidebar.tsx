@@ -163,7 +163,7 @@ export function Sidebar() {
   const collapsibleSection = (
     label: string,
     dotColor: string,
-    items: typeof platformItems,
+    items: { name: string; href: string; version?: string }[],
     isSectionOpen: boolean,
     setSectionOpen: (v: boolean) => void,
   ) => (

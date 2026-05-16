@@ -996,8 +996,8 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                 <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('whyThisMatters')}</h2>
                 <div className="accent-line mb-6" />
                 <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">{data.strategicContext}</p>
-                <SmoothLink href="/subsidiaries" className="text-sm" style={{ color: accent }}>
-                  {t('seeAllSubsidiaries')}
+<SmoothLink href="/subsidiaries" className="text-sm">
+                  <span style={{ color: accent }}>{t('seeAllSubsidiaries')}</span>
                 </SmoothLink>
               </FadeIn>
             </div>
@@ -1020,7 +1020,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
               <StaggerItem key={cap.title}>
                 <Card3D className="h-full" glareEnabled>
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${accent}15` }}>
-                    <cap.icon size={18} style={{ color: accent }} strokeWidth={1.5} />
+                    <span style={{ color: accent }}><cap.icon size={18} strokeWidth={1.5} /></span>
                   </div>
                   <h3 className="text-[14px] font-bold text-white mb-2">{cap.title}</h3>
                   <p className="text-[12px] text-[#999999] leading-relaxed">{cap.desc}</p>

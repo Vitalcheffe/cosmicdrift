@@ -12,7 +12,7 @@ export function CursorGlow() {
   const [pos, setPos] = useState({ x: -100, y: -100 });
   const [visible, setVisible] = useState(false);
   const [trail, setTrail] = useState<TrailDot[]>([]);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
   const targetRef = useRef({ x: -100, y: -100 });
   const currentRef = useRef({ x: -100, y: -100 });
   const trailRefs = useRef<{ x: number; y: number }[]>([

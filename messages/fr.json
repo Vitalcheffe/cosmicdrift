@@ -4256,6 +4256,8 @@
       "headline": "Au-delà de",
       "headlineLine2": "l'infrastructure",
       "subheadline": "Explorer HarchOS",
+      "subheadlineSovereign": "Souveraineté",
+      "subheadlineAutonomy": "Autonomie",
       "stats": {
         "gpus": "GPUs",
         "hubs": "Hubs",
@@ -4266,6 +4268,26 @@
         "sovereign": "APP IA SOUVERAINE",
         "carbon": "LOGIQUE ÉCO-RESPONSABLE",
         "automation": "AUTOMATISATION"
+      },
+      "annotations": {
+        "accept": "Accepter",
+        "modify": "Modifier",
+        "explain": "Expliquer",
+        "sovereign": {
+          "a": "Flux d'alertes IA souveraine",
+          "b": "Avertissement d'intensité carbone",
+          "c": "Panneau d'actions proposées par l'IA"
+        },
+        "carbon": {
+          "a": "Hub le plus performant",
+          "b": "Carbone réseau en temps réel",
+          "c": "Comparaison carbone des hubs"
+        },
+        "automation": {
+          "a": "Barre latérale des workflows actifs",
+          "b": "Étapes d'exécution du pipeline",
+          "c": "Suivi de l'état des workflows"
+        }
       }
     },
     "demo": {
@@ -4397,6 +4419,7 @@
       "check3": "Surveillance en temps réel et réponse autonome aux incidents",
       "videoTab": "VIDÉO",
       "diagramTab": "DIAGRAMME",
+      "detailsTab": "DÉTAILS",
       "videoLabel": "Démonstration du constructeur de workflows",
       "videoDuration": "2:34 min",
       "nodes": {
@@ -4410,6 +4433,20 @@
         "n4Sub": "Allocation H100/A100/L40S",
         "n5Label": "Déployer et surveiller",
         "n5Sub": "Réponse en direct <200ms"
+      },
+      "details": {
+        "dataPipelining": {
+          "title": "Pipelining de données piloté par l'IA",
+          "desc": "Ingestion, transformation et routage automatisés des données sur 5 hubs souverains avec ordonnancement éco-responsable en temps réel et garanties de non-franchissement des frontières."
+        },
+        "actions": {
+          "title": "Actions pilotées par l'IA",
+          "desc": "Exécution autonome des décisions d'infrastructure — migration de charges, basculement et mise à l'échelle — basée sur les contraintes carbone, latence et souveraineté en temps réel."
+        },
+        "agents": {
+          "title": "Agents pilotés par l'IA",
+          "desc": "Agents IA persistants qui surveillent, raisonnent et agissent en votre nom — de la réponse aux incidents à la planification de capacité — avec supervision humaine."
+        }
       }
     },
     "evaluate": {
@@ -4420,6 +4457,7 @@
       "check3": "Vérifications de résidence souveraine des données appliquées automatiquement",
       "videoTab": "VIDÉO",
       "diagramTab": "DIAGRAMME",
+      "detailsTab": "DÉTAILS",
       "videoLabel": "Démonstration du pipeline d'évaluation",
       "videoDuration": "1:58 min",
       "steps": {
@@ -4435,6 +4473,16 @@
         "s5Detail": "GDPR + ISO 27001 + SOC 2 + Loi 09-08",
         "s6Label": "Déployer en production",
         "s6Detail": "En attente de la porte de conformité..."
+      },
+      "details": {
+        "debugLogic": {
+          "title": "Logique de débogage",
+          "desc": "Débogage pas-à-pas des chaînes de décision IA avec pistes d'audit complètes — remontez chaque décision d'ordonnancement éco-responsable, vérification de souveraineté et action automatisée à sa source."
+        },
+        "compareModels": {
+          "title": "Comparer les modèles",
+          "desc": "Évaluation comparative des performances, de l'impact carbone et de la latence des modèles entre les hubs. Tests A/B des configurations de déploiement avec portes de conformité intégrées avant la mise en production."
+        }
       }
     },
     "capabilities": {

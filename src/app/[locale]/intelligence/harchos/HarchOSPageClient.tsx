@@ -17,6 +17,18 @@ import CompetitiveComparison from '@/components/competitive/CompetitiveCompariso
 import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
 import type { Competitor } from '@/components/competitive/CompetitiveComparison';
 
+/* ─── Annotation Badge Component ─── */
+function AnnotationBadge({ letter, label }: { letter: string; label: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white shrink-0">
+        {letter}
+      </span>
+      <span className="text-[10px] text-[#999999] leading-[1.3]">{label}</span>
+    </div>
+  );
+}
+
 /* ─── MAIN COMPONENT ─── */
 export default function HarchOSPageClient() {
   const t = useTranslations('harchos');
@@ -25,8 +37,8 @@ export default function HarchOSPageClient() {
   /* ─── State ─── */
   const [heroTab, setHeroTab] = useState<'sovereign' | 'carbon' | 'automation'>('carbon');
   const [activeArchTab, setActiveArchTab] = useState('sense');
-  const [workflowMediaTab, setWorkflowMediaTab] = useState<'video' | 'diagram'>('video');
-  const [evaluateMediaTab, setEvaluateMediaTab] = useState<'video' | 'diagram'>('diagram');
+  const [workflowMediaTab, setWorkflowMediaTab] = useState<'video' | 'details'>('video');
+  const [evaluateMediaTab, setEvaluateMediaTab] = useState<'video' | 'details'>('details');
   const [workflowStep, setWorkflowStep] = useState(1);
   const [evaluateStep, setEvaluateStep] = useState(2);
 
@@ -152,6 +164,19 @@ export default function HarchOSPageClient() {
     { id: 'automation' as const, label: t('hero.tabs.automation'), number: '03' },
   ];
 
+  /* ─── Workflow feature cards ─── */
+  const workflowFeatureCards = [
+    { icon: Database, title: t('workflow.details.dataPipelining.title'), desc: t('workflow.details.dataPipelining.desc') },
+    { icon: Sparkles, title: t('workflow.details.actions.title'), desc: t('workflow.details.actions.desc') },
+    { icon: Brain, title: t('workflow.details.agents.title'), desc: t('workflow.details.agents.desc') },
+  ];
+
+  /* ─── Evaluate feature cards ─── */
+  const evaluateFeatureCards = [
+    { icon: Settings2, title: t('evaluate.details.debugLogic.title'), desc: t('evaluate.details.debugLogic.desc') },
+    { icon: GitBranch, title: t('evaluate.details.compareModels.title'), desc: t('evaluate.details.compareModels.desc') },
+  ];
+
   /* ─── Competitive data builder ─── */
   const buildCompetitorMetrics = (prefix: string, count: number) =>
     Array.from({ length: count }, (_, i) => ({
@@ -231,9 +256,10 @@ export default function HarchOSPageClient() {
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 1: HERO — Palantir AIP "Beyond Chat" Style
-          Dark bg #1A1A2E, headline left, numbered tabs right
+          Dark bg #1E1E2E, headline left, numbered tabs right
+          Annotation circles (A, B, C) in purple
           ═══════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[100dvh] bg-[#1A1A2E] overflow-hidden flex flex-col">
+      <section className="relative min-h-[100dvh] bg-[#1E1E2E] overflow-hidden flex flex-col">
         {/* Subtle grid pattern overlay */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
@@ -252,8 +278,9 @@ export default function HarchOSPageClient() {
                 <h1 className="text-5xl md:text-6xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-4">
                   {t('hero.headline')}<br />{t('hero.headlineLine2')}
                 </h1>
-                <p className="text-xl md:text-2xl text-[#8B9DAF] font-light tracking-[-0.01em] mb-8">
-                  {t('hero.subheadline')}
+                <p className="text-xl md:text-2xl font-light tracking-[-0.01em] mb-8">
+                  <span className="text-[#8B5CF6]">{t('hero.subheadlineSovereign')}</span>{' '}
+                  <span className="text-[#7DD3FC]">{t('hero.subheadlineAutonomy')}</span>
                 </p>
                 <p className="text-[15px] text-[#999999] max-w-md leading-[1.7] mb-10">
                   {t('description')}
@@ -276,7 +303,7 @@ export default function HarchOSPageClient() {
               </div>
             </FadeIn>
 
-            {/* Right: Feature Tabs */}
+            {/* Right: Feature Tabs + Demo Container */}
             <FadeIn delay={0.15}>
               <div>
                 <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -286,8 +313,8 @@ export default function HarchOSPageClient() {
                       onClick={() => setHeroTab(tab.id)}
                       className={`flex items-center gap-3 px-5 py-4 rounded-lg border transition-all text-left flex-1 ${
                         heroTab === tab.id
-                          ? 'bg-white/[0.06] border-white/25 text-white'
-                          : 'bg-white/[0.02] border-white/[0.06] text-[#8B9DAF] hover:bg-white/[0.04] hover:border-white/10'
+                          ? 'bg-white/[0.08] border-white text-white'
+                          : 'bg-white/[0.02] border-white/[0.15] text-[#8B9DAF] hover:bg-white/[0.04] hover:border-white/25'
                       }`}
                     >
                       <span className={`text-[11px] font-bold font-[family-name:var(--font-space-mono)] tracking-wider ${heroTab === tab.id ? 'text-white' : 'text-[#555555]'}`}>
@@ -298,8 +325,8 @@ export default function HarchOSPageClient() {
                   ))}
                 </div>
 
-                {/* Demo Container — always visible, content changes with tab */}
-                <div className="relative rounded-xl border border-white/[0.06] bg-[#12122A] overflow-hidden min-h-[320px] md:min-h-[400px]">
+                {/* Demo Container — Palantir-style with annotation circles */}
+                <div className="relative rounded-xl border border-white/[0.08] bg-[#252538] overflow-hidden min-h-[360px] md:min-h-[440px]">
                   <AnimatePresence mode="wait">
                     {heroTab === 'sovereign' && (
                       <motion.div
@@ -310,7 +337,7 @@ export default function HarchOSPageClient() {
                         transition={{ duration: 0.4 }}
                         className="p-5 md:p-6"
                       >
-                        {/* Sovereign AI App — Alert Dashboard */}
+                        {/* Sovereign AI App — Review Proposal Panel */}
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
@@ -318,33 +345,72 @@ export default function HarchOSPageClient() {
                           </div>
                           <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">{t('demo.sovereign.consoleTitle')}</span>
                         </div>
-                        <div className="space-y-2 max-h-[280px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-2">
-                          {SOVEREIGN_AI_ALERTS.map((alert) => (
-                            <div key={alert.id} className={`rounded-lg border p-3 ${
-                              alert.severity === 'critical' ? 'border-red-500/20 bg-red-500/[0.04]' :
-                              alert.severity === 'warning' ? 'border-amber-500/20 bg-amber-500/[0.04]' :
-                              'border-[#8B9DAF]/10 bg-[#8B9DAF]/[0.03]'
-                            }`}>
-                              <div className="flex items-start gap-2">
-                                <AlertTriangle size={13} className={`mt-0.5 shrink-0 ${
-                                  alert.severity === 'critical' ? 'text-red-400' :
-                                  alert.severity === 'warning' ? 'text-amber-400' : 'text-[#8B9DAF]'
-                                }`} />
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-[12px] font-semibold text-white truncate">{alert.title}</p>
-                                  <p className="text-[11px] text-[#999999] mt-0.5 leading-[1.5]">{alert.detail}</p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {/* Left: Alert list */}
+                          <div className="space-y-2 max-h-[300px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-1">
+                            {SOVEREIGN_AI_ALERTS.slice(0, 3).map((alert) => (
+                              <div key={alert.id} className={`rounded-lg border p-3 relative ${
+                                alert.severity === 'critical' ? 'border-red-500/20 bg-red-500/[0.04]' :
+                                alert.severity === 'warning' ? 'border-amber-500/20 bg-amber-500/[0.04]' :
+                                'border-[#8B9DAF]/10 bg-[#8B9DAF]/[0.03]'
+                              }`}>
+                                {/* Annotation A on first alert */}
+                                {alert.id === 1 && (
+                                  <span className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white z-10">A</span>
+                                )}
+                                {/* Annotation B on second alert */}
+                                {alert.id === 2 && (
+                                  <span className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white z-10">B</span>
+                                )}
+                                <div className="flex items-start gap-2">
+                                  <AlertTriangle size={13} className={`mt-0.5 shrink-0 ${
+                                    alert.severity === 'critical' ? 'text-red-400' :
+                                    alert.severity === 'warning' ? 'text-amber-400' : 'text-[#8B9DAF]'
+                                  }`} />
+                                  <div className="flex-1 min-w-0">
+                                    <p className="text-[12px] font-semibold text-white truncate">{alert.title}</p>
+                                    <p className="text-[11px] text-[#999999] mt-0.5 leading-[1.5]">{alert.detail}</p>
+                                  </div>
                                 </div>
-                                <span className="text-[9px] text-[#555555] font-[family-name:var(--font-space-mono)] shrink-0">{alert.time}</span>
                               </div>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.04]">
-                          <div className="flex gap-4">
-                            <span className="text-[10px] text-[#666666]">{t('demo.sovereign.activeAlerts')}</span>
-                            <span className="text-[10px] text-[#666666]">{t('demo.sovereign.autoResolvedCount')}</span>
+                            ))}
                           </div>
-                          <span className="text-[10px] text-[#8B9DAF] font-semibold flex items-center gap-1">{t('demo.sovereign.viewAll')} <ArrowUpRight size={10} /></span>
+                          {/* Right: Proposed action panel */}
+                          <div className="md:col-span-2 rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 relative">
+                            <span className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white z-10">C</span>
+                            <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.sovereign.aiProposedActions')}</p>
+                            <div className="space-y-2">
+                              {[
+                                { action: t('demo.sovereign.actions.a1Action'), impact: t('demo.sovereign.actions.a1Impact'), status: 'approved' },
+                                { action: t('demo.sovereign.actions.a2Action'), impact: t('demo.sovereign.actions.a2Impact'), status: 'pending' },
+                                { action: t('demo.sovereign.actions.a3Action'), impact: t('demo.sovereign.actions.a3Impact'), status: 'approved' },
+                              ].map((item, i) => (
+                                <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+                                  <Sparkles size={14} className="text-[#8B5CF6] shrink-0 mt-0.5" />
+                                  <div className="flex-1 min-w-0">
+                                    <p className="text-[12px] text-white font-medium">{item.action}</p>
+                                    <span className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)]">{t('demo.sovereign.impactLabel')}: {item.impact}</span>
+                                  </div>
+                                  <span className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded shrink-0 ${
+                                    item.status === 'approved' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'
+                                  }`}>
+                                    {getActionStatusLabel(item.status)}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                            <div className="mt-3 flex gap-3">
+                              <button className="px-4 py-2 rounded bg-white/10 text-white text-[11px] font-semibold hover:bg-white/15 transition-colors">{t('hero.annotations.accept')}</button>
+                              <button className="px-4 py-2 rounded bg-white/[0.04] text-[#8B9DAF] text-[11px] font-semibold hover:bg-white/[0.08] transition-colors">{t('hero.annotations.modify')}</button>
+                              <button className="px-4 py-2 rounded bg-white/[0.04] text-[#8B9DAF] text-[11px] font-semibold hover:bg-white/[0.08] transition-colors">{t('hero.annotations.explain')}</button>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Annotation legend */}
+                        <div className="mt-4 flex flex-wrap gap-4 pt-3 border-t border-white/[0.04]">
+                          <AnnotationBadge letter="A" label={t('hero.annotations.sovereign.a')} />
+                          <AnnotationBadge letter="B" label={t('hero.annotations.sovereign.b')} />
+                          <AnnotationBadge letter="C" label={t('hero.annotations.sovereign.c')} />
                         </div>
                       </motion.div>
                     )}
@@ -358,7 +424,7 @@ export default function HarchOSPageClient() {
                         transition={{ duration: 0.4 }}
                         className="p-5 md:p-6"
                       >
-                        {/* Carbon-Aware Logic — Hub Dashboard */}
+                        {/* Carbon-Aware Logic — Hub Dashboard with Annotations */}
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-2">
                             <Leaf size={14} className="text-emerald-400" />
@@ -366,58 +432,84 @@ export default function HarchOSPageClient() {
                           </div>
                           <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">{t('demo.carbon.liveGridData')}</span>
                         </div>
-                        <div className="space-y-2 max-h-[280px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-2">
-                          {CARBON_HUBS.map((hub) => (
-                            <div key={hub.name} className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
-                              <div className="flex items-center justify-between mb-2">
-                                <div className="flex items-center gap-2">
-                                  <span className={`w-2 h-2 rounded-full ${
-                                    hub.status === 'optimal' ? 'bg-emerald-400' :
-                                    hub.status === 'degraded' ? 'bg-amber-400' : 'bg-red-400'
-                                  }`} />
-                                  <span className="text-[12px] font-semibold text-white">{hub.name}</span>
-                                </div>
-                                <span className={`text-[10px] font-bold font-[family-name:var(--font-space-mono)] px-2 py-0.5 rounded ${
-                                  hub.carbon < 30 ? 'bg-emerald-500/10 text-emerald-400' :
-                                  hub.carbon < 60 ? 'bg-amber-500/10 text-amber-400' : 'bg-red-500/10 text-red-400'
-                                }`}>
-                                  {hub.carbon} gCO₂/kWh
-                                </span>
-                              </div>
-                              <div className="grid grid-cols-4 gap-2 text-[10px]">
-                                <div>
-                                  <span className="text-[#666666]">{t('demo.carbon.renewable')}</span>
-                                  <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.renewable}%</p>
-                                </div>
-                                <div>
-                                  <span className="text-[#666666]">{t('demo.carbon.gpus')}</span>
-                                  <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.gpus}</p>
-                                </div>
-                                <div>
-                                  <span className="text-[#666666]">{t('demo.carbon.type')}</span>
-                                  <p className="text-white font-bold">{hub.type}</p>
-                                </div>
-                                <div>
-                                  <span className="text-[#666666]">{t('demo.carbon.latency')}</span>
-                                  <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.latency}</p>
-                                </div>
-                              </div>
-                              {/* Carbon bar */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {/* Left: Top hub detail */}
+                          <div className="md:col-span-1 space-y-3">
+                            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 relative">
+                              <span className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white z-10">A</span>
+                              <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-2">{t('demo.carbon.bestHubLive')}</p>
+                              <p className="text-[14px] font-bold text-white">{t('demo.carbon.bestHubName')}</p>
+                              <p className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)] mt-1">{t('demo.carbon.bestHubDetail')}</p>
+                            </div>
+                            <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 relative">
+                              <span className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white z-10">B</span>
+                              <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-2">{t('demo.carbon.gridCarbonNow')}</p>
+                              <p className="text-2xl font-bold text-emerald-400 stat-mono">47</p>
+                              <p className="text-[10px] text-[#999999]">{t('demo.carbon.gco2kwhAvg')}</p>
                               <div className="mt-2 h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
-                                <div
-                                  className="h-full rounded-full transition-all duration-1000"
-                                  style={{
-                                    width: `${Math.min((hub.renewable), 100)}%`,
-                                    backgroundColor: hub.renewable > 80 ? '#10B981' : hub.renewable > 50 ? '#F59E0B' : '#EF4444',
-                                  }}
-                                />
+                                <div className="h-full rounded-full bg-emerald-500" style={{ width: '81.5%' }} />
                               </div>
                             </div>
-                          ))}
+                          </div>
+                          {/* Right: Hub list */}
+                          <div className="md:col-span-2 space-y-2 max-h-[300px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-1">
+                            {CARBON_HUBS.map((hub) => (
+                              <div key={hub.name} className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 relative">
+                                {/* Annotation C on first hub */}
+                                {hub.name === 'Harch Ouarzazate' && (
+                                  <span className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white z-10">C</span>
+                                )}
+                                <div className="flex items-center justify-between mb-2">
+                                  <div className="flex items-center gap-2">
+                                    <span className={`w-2 h-2 rounded-full ${
+                                      hub.status === 'optimal' ? 'bg-emerald-400' :
+                                      hub.status === 'degraded' ? 'bg-amber-400' : 'bg-red-400'
+                                    }`} />
+                                    <span className="text-[12px] font-semibold text-white">{hub.name}</span>
+                                  </div>
+                                  <span className={`text-[10px] font-bold font-[family-name:var(--font-space-mono)] px-2 py-0.5 rounded ${
+                                    hub.carbon < 30 ? 'bg-emerald-500/10 text-emerald-400' :
+                                    hub.carbon < 60 ? 'bg-amber-500/10 text-amber-400' : 'bg-red-500/10 text-red-400'
+                                  }`}>
+                                    {hub.carbon} gCO2/kWh
+                                  </span>
+                                </div>
+                                <div className="grid grid-cols-4 gap-2 text-[10px]">
+                                  <div>
+                                    <span className="text-[#666666]">{t('demo.carbon.renewable')}</span>
+                                    <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.renewable}%</p>
+                                  </div>
+                                  <div>
+                                    <span className="text-[#666666]">{t('demo.carbon.gpus')}</span>
+                                    <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.gpus}</p>
+                                  </div>
+                                  <div>
+                                    <span className="text-[#666666]">{t('demo.carbon.type')}</span>
+                                    <p className="text-white font-bold">{hub.type}</p>
+                                  </div>
+                                  <div>
+                                    <span className="text-[#666666]">{t('demo.carbon.latency')}</span>
+                                    <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.latency}</p>
+                                  </div>
+                                </div>
+                                <div className="mt-2 h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
+                                  <div
+                                    className="h-full rounded-full transition-all duration-1000"
+                                    style={{
+                                      width: `${Math.min((hub.renewable), 100)}%`,
+                                      backgroundColor: hub.renewable > 80 ? '#10B981' : hub.renewable > 50 ? '#F59E0B' : '#EF4444',
+                                    }}
+                                  />
+                                </div>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                        <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.04]">
-                          <span className="text-[10px] text-[#666666]">{t('demo.carbon.avgCarbonNote')}</span>
-                          <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">{t('demo.carbon.dashboard')} <ArrowUpRight size={10} /></span>
+                        {/* Annotation legend */}
+                        <div className="mt-4 flex flex-wrap gap-4 pt-3 border-t border-white/[0.04]">
+                          <AnnotationBadge letter="A" label={t('hero.annotations.carbon.a')} />
+                          <AnnotationBadge letter="B" label={t('hero.annotations.carbon.b')} />
+                          <AnnotationBadge letter="C" label={t('hero.annotations.carbon.c')} />
                         </div>
                       </motion.div>
                     )}
@@ -431,7 +523,7 @@ export default function HarchOSPageClient() {
                         transition={{ duration: 0.4 }}
                         className="p-5 md:p-6"
                       >
-                        {/* Automation — Workflow Builder */}
+                        {/* Automation — Workflow Builder with Annotations */}
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-2">
                             <Workflow size={14} className="text-[#8B5CF6]" />
@@ -439,40 +531,53 @@ export default function HarchOSPageClient() {
                           </div>
                           <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">{t('demo.automation.workflowCount')}</span>
                         </div>
-                        <div className="space-y-2 max-h-[280px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-2">
-                          {AUTOMATION_WORKFLOWS.map((wf) => (
-                            <div key={wf.id} className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
-                              <div className="flex items-center justify-between mb-2">
-                                <div className="flex items-center gap-2">
-                                  <span className={`w-2 h-2 rounded-full ${wf.status === 'running' ? 'bg-[#8B5CF6] animate-pulse' : 'bg-[#555555]'}`} />
-                                  <span className="text-[12px] font-semibold text-white">{wf.name}</span>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          {/* Left: Workflow sidebar */}
+                          <div className="md:col-span-1 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 relative">
+                            <span className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white z-10">A</span>
+                            <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.automation.activeWorkflows')}</p>
+                            <div className="space-y-2">
+                              {AUTOMATION_WORKFLOWS.slice(0, 3).map((wf) => (
+                                <div key={wf.id} className="flex items-center gap-2 p-2 rounded bg-white/[0.02] border border-white/[0.04]">
+                                  <span className={`w-2 h-2 rounded-full shrink-0 ${wf.status === 'running' ? 'bg-[#8B5CF6] animate-pulse' : 'bg-[#555555]'}`} />
+                                  <span className="text-[11px] text-white font-medium truncate">{wf.name}</span>
                                 </div>
-                                <span className={`text-[9px] font-bold font-[family-name:var(--font-space-mono)] uppercase px-2 py-0.5 rounded ${
-                                  wf.status === 'running' ? 'bg-[#8B5CF6]/10 text-[#8B5CF6]' : 'bg-white/[0.04] text-[#666666]'
-                                }`}>
-                                  {getWorkflowStatusLabel(wf.status)}
-                                </span>
-                              </div>
-                              {/* Progress bar */}
-                              <div className="flex items-center gap-3">
-                                <div className="flex-1 h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
-                                  <div
-                                    className="h-full rounded-full bg-[#8B5CF6] transition-all duration-700"
-                                    style={{ width: `${(wf.completed / wf.steps) * 100}%` }}
-                                  />
-                                </div>
-                                <span className="text-[10px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">{wf.completed}/{wf.steps}</span>
-                              </div>
-                              <div className="mt-1.5 flex items-center gap-1.5">
-                                <Timer size={10} className="text-[#555555]" />
-                                <span className="text-[10px] text-[#555555]">{t('demo.automation.triggerLabel')}: {wf.trigger}</span>
-                              </div>
+                              ))}
                             </div>
-                          ))}
+                          </div>
+                          {/* Right: Workflow diagram */}
+                          <div className="md:col-span-2 rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 relative">
+                            <span className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white z-10">B</span>
+                            <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.automation.pipelineTitle')}</p>
+                            <div className="space-y-2">
+                              {[
+                                { label: t('demo.automation.steps.s1Label'), detail: t('demo.automation.steps.s1Detail'), done: true },
+                                { label: t('demo.automation.steps.s2Label'), detail: t('demo.automation.steps.s2Detail'), done: true },
+                                { label: t('demo.automation.steps.s3Label'), detail: t('demo.automation.steps.s3Detail'), done: true },
+                                { label: t('demo.automation.steps.s4Label'), detail: t('demo.automation.steps.s4Detail'), done: true },
+                                { label: t('demo.automation.steps.s5Label'), detail: t('demo.automation.steps.s5Detail'), done: false },
+                                { label: t('demo.automation.steps.s6Label'), detail: t('demo.automation.steps.s6Detail'), done: false },
+                              ].map((step, i) => (
+                                <div key={i} className="flex items-center gap-3">
+                                  <div className={`w-5 h-5 rounded flex items-center justify-center shrink-0 text-[9px] font-bold ${
+                                    step.done ? 'bg-emerald-500/10 text-emerald-400' : 'bg-white/[0.04] text-[#666666]'
+                                  }`}>
+                                    {step.done ? '\u2713' : (i + 1)}
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <p className={`text-[11px] font-medium ${step.done ? 'text-white' : 'text-[#666666]'}`}>{step.label}</p>
+                                    <p className="text-[9px] text-[#555555]">{step.detail}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                        <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.04]">
-                          <span className="text-[10px] text-[#666666]">{t('demo.automation.summary')}</span>
-                          <span className="text-[10px] text-[#8B5CF6] font-semibold flex items-center gap-1">{t('demo.automation.builder')} <ArrowUpRight size={10} /></span>
+                        {/* Annotation legend */}
+                        <div className="mt-4 flex flex-wrap gap-4 pt-3 border-t border-white/[0.04]">
+                          <AnnotationBadge letter="A" label={t('hero.annotations.automation.a')} />
+                          <AnnotationBadge letter="B" label={t('hero.annotations.automation.b')} />
+                          <AnnotationBadge letter="C" label={t('hero.annotations.automation.c')} />
                         </div>
                       </motion.div>
                     )}
@@ -485,283 +590,27 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 2: INTERACTIVE DEMO — Expanded Dashboard Views
-          Dark bg #1A1A2E continued
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-[#1A1A2E] py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-          <FadeIn>
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
-              {t('demo.label')}
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              {t('demo.title')}
-            </h2>
-            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              {t('subtitle')}
-            </p>
-          </FadeIn>
-
-          {/* Expanded demo container */}
-          <FadeIn delay={0.1}>
-            <div className="rounded-2xl border border-white/[0.06] bg-[#0F0F24] overflow-hidden">
-              {/* Demo header bar */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06] bg-white/[0.01]">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-                    <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-                    <span className="w-3 h-3 rounded-full bg-[#28CA41]" />
-                  </div>
-                  <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">{t('demo.consoleLabel')}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  {heroTabs.map((tab) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => setHeroTab(tab.id)}
-                      className={`text-[10px] font-bold font-[family-name:var(--font-space-mono)] px-3 py-1.5 rounded transition-all ${
-                        heroTab === tab.id ? 'bg-white/10 text-white' : 'text-[#555555] hover:text-[#8B9DAF]'
-                      }`}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Demo body */}
-              <div className="p-6 md:p-8 min-h-[420px]">
-                <AnimatePresence mode="wait">
-                  {heroTab === 'sovereign' && (
-                    <motion.div
-                      key="demo-sovereign"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="grid grid-cols-1 md:grid-cols-3 gap-6"
-                    >
-                      {/* Left: Stats panel */}
-                      <div className="md:col-span-1 space-y-4">
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.sovereign.activeWorkloads')}</p>
-                          <p className="text-3xl font-bold text-white stat-mono">247</p>
-                          <div className="flex items-center gap-1 mt-1">
-                            <TrendingUp size={12} className="text-emerald-400" />
-                            <span className="text-[10px] text-emerald-400 font-semibold">{t('demo.sovereign.workloadsTrend')}</span>
-                          </div>
-                        </div>
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.sovereign.sovereignScore')}</p>
-                          <p className="text-3xl font-bold text-white stat-mono">100%</p>
-                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.sovereign.sovereignNote')}</p>
-                        </div>
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.sovereign.incidents24h')}</p>
-                          <p className="text-3xl font-bold text-white stat-mono">3</p>
-                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.sovereign.incidentsNote')}</p>
-                        </div>
-                      </div>
-                      {/* Center: Alert timeline */}
-                      <div className="md:col-span-2">
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 h-full">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">{t('demo.sovereign.aiProposedActions')}</p>
-                          <div className="space-y-3">
-                            {[
-                              { action: t('demo.sovereign.actions.a1Action'), impact: t('demo.sovereign.actions.a1Impact'), confidence: t('demo.sovereign.actions.a1Confidence'), status: 'approved' },
-                              { action: t('demo.sovereign.actions.a2Action'), impact: t('demo.sovereign.actions.a2Impact'), confidence: t('demo.sovereign.actions.a2Confidence'), status: 'pending' },
-                              { action: t('demo.sovereign.actions.a3Action'), impact: t('demo.sovereign.actions.a3Impact'), confidence: t('demo.sovereign.actions.a3Confidence'), status: 'approved' },
-                              { action: t('demo.sovereign.actions.a4Action'), impact: t('demo.sovereign.actions.a4Impact'), confidence: t('demo.sovereign.actions.a4Confidence'), status: 'pending' },
-                              { action: t('demo.sovereign.actions.a5Action'), impact: t('demo.sovereign.actions.a5Impact'), confidence: t('demo.sovereign.actions.a5Confidence'), status: 'auto-approved' },
-                            ].map((item, i) => (
-                              <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/[0.04]">
-                                <div className="mt-0.5">
-                                  <Sparkles size={14} className="text-[#8B5CF6]" />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-[12px] text-white font-medium">{item.action}</p>
-                                  <div className="flex items-center gap-3 mt-1.5">
-                                    <span className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)]">{t('demo.sovereign.impactLabel')}: {item.impact}</span>
-                                    <span className="text-[10px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">{t('demo.sovereign.confidenceLabel')}: {item.confidence}</span>
-                                  </div>
-                                </div>
-                                <span className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded shrink-0 ${
-                                  item.status === 'approved' ? 'bg-emerald-500/10 text-emerald-400' :
-                                  item.status === 'auto-approved' ? 'bg-[#8B5CF6]/10 text-[#8B5CF6]' :
-                                  'bg-amber-500/10 text-amber-400'
-                                }`}>
-                                  {getActionStatusLabel(item.status)}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {heroTab === 'carbon' && (
-                    <motion.div
-                      key="demo-carbon"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="grid grid-cols-1 md:grid-cols-3 gap-6"
-                    >
-                      {/* Left: Carbon metrics */}
-                      <div className="md:col-span-1 space-y-4">
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.carbon.gridCarbonNow')}</p>
-                          <p className="text-3xl font-bold text-emerald-400 stat-mono">47</p>
-                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.carbon.gco2kwhAvg')}</p>
-                          <div className="mt-3 h-2 bg-white/[0.04] rounded-full overflow-hidden">
-                            <div className="h-full rounded-full bg-emerald-500" style={{ width: '81.5%' }} />
-                          </div>
-                          <p className="text-[10px] text-[#666666] mt-1">{t('demo.carbon.renewableNote')}</p>
-                        </div>
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.carbon.carbonSavedToday')}</p>
-                          <p className="text-3xl font-bold text-emerald-400 stat-mono">4.7t</p>
-                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.carbon.carbonSavedNote')}</p>
-                        </div>
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.carbon.bestHubLive')}</p>
-                          <p className="text-[14px] font-bold text-white">{t('demo.carbon.bestHubName')}</p>
-                          <p className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)] mt-1">{t('demo.carbon.bestHubDetail')}</p>
-                        </div>
-                      </div>
-                      {/* Center: Hub comparison chart */}
-                      <div className="md:col-span-2">
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 h-full">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">{t('demo.carbon.hubComparisonTitle')}</p>
-                          <div className="space-y-4">
-                            {CARBON_HUBS.map((hub) => (
-                              <div key={hub.name}>
-                                <div className="flex items-center justify-between mb-1.5">
-                                  <span className="text-[12px] text-white font-medium">{hub.name}</span>
-                                  <span className="text-[11px] font-bold font-[family-name:var(--font-space-mono)]" style={{
-                                    color: hub.carbon < 30 ? '#10B981' : hub.carbon < 60 ? '#F59E0B' : '#EF4444'
-                                  }}>
-                                    {hub.carbon} gCO₂/kWh
-                                  </span>
-                                </div>
-                                <div className="h-3 bg-white/[0.04] rounded-full overflow-hidden">
-                                  <div
-                                    className="h-full rounded-full transition-all duration-1000"
-                                    style={{
-                                      width: `${Math.max((1 - hub.carbon / 250) * 100, 5)}%`,
-                                      backgroundColor: hub.carbon < 30 ? '#10B981' : hub.carbon < 60 ? '#F59E0B' : '#EF4444',
-                                    }}
-                                  />
-                                </div>
-                                <div className="flex items-center gap-4 mt-1">
-                                  <span className="text-[10px] text-[#666666]">{t('demo.carbon.percentRenewable', { value: hub.renewable })}</span>
-                                  <span className="text-[10px] text-[#666666]">{hub.gpus} {t('demo.carbon.gpus')}</span>
-                                  <span className="text-[10px] text-[#666666]">{hub.type}</span>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="mt-6 pt-4 border-t border-white/[0.04]">
-                            <p className="text-[10px] text-[#666666]">
-                              {t('demo.carbon.casablancaNote')}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {heroTab === 'automation' && (
-                    <motion.div
-                      key="demo-automation"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="grid grid-cols-1 md:grid-cols-3 gap-6"
-                    >
-                      {/* Left: Automation stats */}
-                      <div className="md:col-span-1 space-y-4">
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.automation.activeWorkflows')}</p>
-                          <p className="text-3xl font-bold text-[#8B5CF6] stat-mono">3</p>
-                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.automation.workflowsNote')}</p>
-                        </div>
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.automation.avgResponseTime')}</p>
-                          <p className="text-3xl font-bold text-white stat-mono">&lt;200ms</p>
-                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.automation.responseNote')}</p>
-                        </div>
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.automation.autoResolved30d')}</p>
-                          <p className="text-3xl font-bold text-white stat-mono">847</p>
-                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.automation.autoResolvedNote')}</p>
-                        </div>
-                      </div>
-                      {/* Center: Workflow visualization */}
-                      <div className="md:col-span-2">
-                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 h-full">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">{t('demo.automation.pipelineTitle')}</p>
-                          {/* Workflow steps visualization */}
-                          <div className="space-y-3">
-                            {[
-                              { step: 1, label: t('demo.automation.steps.s1Label'), detail: t('demo.automation.steps.s1Detail'), status: 'complete' },
-                              { step: 2, label: t('demo.automation.steps.s2Label'), detail: t('demo.automation.steps.s2Detail'), status: 'complete' },
-                              { step: 3, label: t('demo.automation.steps.s3Label'), detail: t('demo.automation.steps.s3Detail'), status: 'complete' },
-                              { step: 4, label: t('demo.automation.steps.s4Label'), detail: t('demo.automation.steps.s4Detail'), status: 'complete' },
-                              { step: 5, label: t('demo.automation.steps.s5Label'), detail: t('demo.automation.steps.s5Detail'), status: 'running' },
-                              { step: 6, label: t('demo.automation.steps.s6Label'), detail: t('demo.automation.steps.s6Detail'), status: 'pending' },
-                            ].map((step) => (
-                              <div key={step.step} className="flex items-start gap-3">
-                                <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-[11px] font-bold font-[family-name:var(--font-space-mono)] ${
-                                  step.status === 'complete' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
-                                  step.status === 'running' ? 'bg-[#8B5CF6]/10 text-[#8B5CF6] border border-[#8B5CF6]/20 animate-pulse' :
-                                  'bg-white/[0.04] text-[#555555] border border-white/[0.06]'
-                                }`}>
-                                  {step.status === 'complete' ? '✓' : step.step}
-                                </div>
-                                <div className="flex-1">
-                                  <p className={`text-[12px] font-medium ${step.status === 'pending' ? 'text-[#555555]' : 'text-white'}`}>{step.label}</p>
-                                  <p className="text-[10px] text-[#666666] mt-0.5">{step.detail}</p>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 3: WORKFLOW BUILDER — Light bg, Palantir "Designed for AI workflow builders"
+          SECTION 2: WORKFLOW BUILDER — White bg, Palantir "Designed for AI workflow builders"
+          VIDEO/DETAILS toggle, feature cards in DETAILS mode
           ═══════════════════════════════════════════════════════════ */}
       <section className="bg-white py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           {/* Progress indicator */}
           <FadeIn>
-            <div className="flex items-center gap-2 mb-12">
+            <div className="flex items-center gap-2 mb-12 font-[family-name:var(--font-space-mono)]">
               {PROGRESS_STEPS.map((step, i) => (
                 <button
                   key={step.id}
                   onClick={() => setWorkflowStep(i)}
                   className="flex items-center gap-2"
                 >
-                  <span className={`text-[11px] font-bold font-[family-name:var(--font-space-mono)] ${
-                    i <= workflowStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'
+                  <span className={`text-[11px] font-bold ${
+                    i === workflowStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'
                   }`}>
-                    [{step.id}]
+                    {i === workflowStep ? `[${step.id}]` : step.id}
                   </span>
                   {i < PROGRESS_STEPS.length - 1 && (
-                    <span className={`w-8 h-px ${i < workflowStep ? 'bg-[#1A1A2E]' : 'bg-[#E5E5E5]'}`} />
+                    <span className={`text-[11px] ${i < workflowStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'}`}>&mdash;</span>
                   )}
                 </button>
               ))}
@@ -797,7 +646,7 @@ export default function HarchOSPageClient() {
               </div>
             </FadeIn>
 
-            {/* Right: Video/Diagram tabs */}
+            {/* Right: VIDEO/DETAILS toggle + container */}
             <FadeIn delay={0.15}>
               <div>
                 <div className="flex items-center gap-1 mb-4">
@@ -810,12 +659,12 @@ export default function HarchOSPageClient() {
                     {t('workflow.videoTab')}
                   </button>
                   <button
-                    onClick={() => setWorkflowMediaTab('diagram')}
+                    onClick={() => setWorkflowMediaTab('details')}
                     className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
-                      workflowMediaTab === 'diagram' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F5F5F5]'
+                      workflowMediaTab === 'details' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F5F5F5]'
                     }`}
                   >
-                    {t('workflow.diagramTab')}
+                    {t('workflow.detailsTab')}
                   </button>
                 </div>
                 <div className="rounded-xl border border-[#E5E5E5] bg-[#FAFAFA] overflow-hidden min-h-[340px]">
@@ -839,33 +688,25 @@ export default function HarchOSPageClient() {
                       </motion.div>
                     ) : (
                       <motion.div
-                        key="wf-diagram"
+                        key="wf-details"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         className="p-6 min-h-[340px]"
                       >
-                        {/* Workflow diagram */}
-                        <div className="flex flex-col items-center gap-4">
-                          {[
-                            { label: t('workflow.nodes.n1Label'), sub: t('workflow.nodes.n1Sub'), color: '#8B9DAF' },
-                            { label: t('workflow.nodes.n2Label'), sub: t('workflow.nodes.n2Sub'), color: '#10B981' },
-                            { label: t('workflow.nodes.n3Label'), sub: t('workflow.nodes.n3Sub'), color: '#8B5CF6' },
-                            { label: t('workflow.nodes.n4Label'), sub: t('workflow.nodes.n4Sub'), color: '#F59E0B' },
-                            { label: t('workflow.nodes.n5Label'), sub: t('workflow.nodes.n5Sub'), color: '#EF4444' },
-                          ].map((node, i) => (
-                            <div key={i} className="flex flex-col items-center">
-                              <div className="flex items-center gap-3 px-5 py-3 rounded-lg border border-[#E5E5E5] bg-white shadow-sm w-64">
-                                <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: node.color }} />
+                        <div className="space-y-4">
+                          {workflowFeatureCards.map((card, i) => (
+                            <div key={i} className="rounded-lg border border-[#E5E5E5] bg-white p-5">
+                              <div className="flex items-start gap-3">
+                                <div className="w-9 h-9 rounded-lg bg-[#F5F5F5] flex items-center justify-center shrink-0">
+                                  <card.icon size={18} className="text-[#8B9DAF]" />
+                                </div>
                                 <div>
-                                  <p className="text-[12px] font-semibold text-[#1A1A2E]">{node.label}</p>
-                                  <p className="text-[10px] text-[#999999]">{node.sub}</p>
+                                  <h4 className="text-[14px] font-bold text-[#1A1A2E] mb-1">{card.title}</h4>
+                                  <p className="text-[13px] text-[#666666] leading-[1.6]">{card.desc}</p>
                                 </div>
                               </div>
-                              {i < 4 && (
-                                <div className="w-px h-4 bg-[#E5E5E5]" />
-                              )}
                             </div>
                           ))}
                         </div>
@@ -880,26 +721,27 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 4: EVALUATE AND SHIP — Light bg, Palantir "Evaluate and ship with confidence"
+          SECTION 3: EVALUATE AND SHIP — Light gray bg, Palantir "Evaluate and ship with confidence"
+          VIDEO/DETAILS toggle, feature cards in DETAILS mode
           ═══════════════════════════════════════════════════════════ */}
       <section className="bg-[#F7F7F8] py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           {/* Progress indicator */}
           <FadeIn>
-            <div className="flex items-center gap-2 mb-12">
+            <div className="flex items-center gap-2 mb-12 font-[family-name:var(--font-space-mono)]">
               {PROGRESS_STEPS.map((step, i) => (
                 <button
                   key={step.id}
                   onClick={() => setEvaluateStep(i)}
                   className="flex items-center gap-2"
                 >
-                  <span className={`text-[11px] font-bold font-[family-name:var(--font-space-mono)] ${
-                    i <= evaluateStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'
+                  <span className={`text-[11px] font-bold ${
+                    i === evaluateStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'
                   }`}>
-                    [{step.id}]
+                    {i === evaluateStep ? `[${step.id}]` : step.id}
                   </span>
                   {i < PROGRESS_STEPS.length - 1 && (
-                    <span className={`w-8 h-px ${i < evaluateStep ? 'bg-[#1A1A2E]' : 'bg-[#E5E5E5]'}`} />
+                    <span className={`text-[11px] ${i < evaluateStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'}`}>&mdash;</span>
                   )}
                 </button>
               ))}
@@ -935,7 +777,7 @@ export default function HarchOSPageClient() {
               </div>
             </FadeIn>
 
-            {/* Right: Video/Diagram tabs */}
+            {/* Right: VIDEO/DETAILS toggle + container */}
             <FadeIn delay={0.15}>
               <div>
                 <div className="flex items-center gap-1 mb-4">
@@ -948,12 +790,12 @@ export default function HarchOSPageClient() {
                     {t('evaluate.videoTab')}
                   </button>
                   <button
-                    onClick={() => setEvaluateMediaTab('diagram')}
+                    onClick={() => setEvaluateMediaTab('details')}
                     className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
-                      evaluateMediaTab === 'diagram' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F0F0F0]'
+                      evaluateMediaTab === 'details' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F0F0F0]'
                     }`}
                   >
-                    {t('evaluate.diagramTab')}
+                    {t('evaluate.detailsTab')}
                   </button>
                 </div>
                 <div className="rounded-xl border border-[#E5E5E5] bg-white overflow-hidden min-h-[340px]">
@@ -977,34 +819,24 @@ export default function HarchOSPageClient() {
                       </motion.div>
                     ) : (
                       <motion.div
-                        key="ev-diagram"
+                        key="ev-details"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         className="p-6 min-h-[340px]"
                       >
-                        {/* Evaluation pipeline diagram */}
                         <div className="space-y-4">
-                          {[
-                            { label: t('evaluate.steps.s1Label'), status: 'passed', detail: t('evaluate.steps.s1Detail') },
-                            { label: t('evaluate.steps.s2Label'), status: 'passed', detail: t('evaluate.steps.s2Detail') },
-                            { label: t('evaluate.steps.s3Label'), status: 'passed', detail: t('evaluate.steps.s3Detail') },
-                            { label: t('evaluate.steps.s4Label'), status: 'passed', detail: t('evaluate.steps.s4Detail') },
-                            { label: t('evaluate.steps.s5Label'), status: 'running', detail: t('evaluate.steps.s5Detail') },
-                            { label: t('evaluate.steps.s6Label'), status: 'pending', detail: t('evaluate.steps.s6Detail') },
-                          ].map((step, i) => (
-                            <div key={i} className="flex items-center gap-3">
-                              <div className={`w-6 h-6 rounded flex items-center justify-center shrink-0 text-[10px] font-bold ${
-                                step.status === 'passed' ? 'bg-emerald-100 text-emerald-600' :
-                                step.status === 'running' ? 'bg-amber-100 text-amber-600 animate-pulse' :
-                                'bg-gray-100 text-gray-400'
-                              }`}>
-                                {step.status === 'passed' ? '✓' : step.status === 'running' ? '●' : (i + 1)}
-                              </div>
-                              <div className="flex-1">
-                                <p className={`text-[12px] font-medium ${step.status === 'pending' ? 'text-[#CCCCCC]' : 'text-[#1A1A2E]'}`}>{step.label}</p>
-                                <p className="text-[10px] text-[#999999]">{step.detail}</p>
+                          {evaluateFeatureCards.map((card, i) => (
+                            <div key={i} className="rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-5">
+                              <div className="flex items-start gap-3">
+                                <div className="w-9 h-9 rounded-lg bg-[#F0F0F0] flex items-center justify-center shrink-0">
+                                  <card.icon size={18} className="text-[#8B9DAF]" />
+                                </div>
+                                <div>
+                                  <h4 className="text-[14px] font-bold text-[#1A1A2E] mb-1">{card.title}</h4>
+                                  <p className="text-[13px] text-[#666666] leading-[1.6]">{card.desc}</p>
+                                </div>
                               </div>
                             </div>
                           ))}
@@ -1020,7 +852,7 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 5: CAPABILITIES — Light bg, numbered feature list
+          SECTION 4: CAPABILITIES — Light bg, numbered feature list
           ═══════════════════════════════════════════════════════════ */}
       <section id="capabilities" className="bg-white py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
@@ -1058,7 +890,7 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 6: ARCHITECTURE — SENSE / THINK / ACT (Light bg, restyled)
+          SECTION 5: ARCHITECTURE — SENSE / THINK / ACT (Light bg, restyled)
           ═══════════════════════════════════════════════════════════ */}
       <section id="architecture" className="bg-[#F7F7F8] py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
@@ -1137,7 +969,7 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 7: SPEC TABLE — Clean 3-column table on white bg
+          SECTION 6: SPEC TABLE — Clean 3-column table on white bg
           ═══════════════════════════════════════════════════════════ */}
       <section className="bg-white py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
@@ -1174,7 +1006,7 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 8: SECURITY & COMPLIANCE — Light bg
+          SECTION 7: SECURITY & COMPLIANCE — Light bg
           ═══════════════════════════════════════════════════════════ */}
       <section className="bg-[#F7F7F8] py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
@@ -1222,7 +1054,7 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 9: DEVELOPER PLATFORM — Code snippet preview (restyled light)
+          SECTION 8: DEVELOPER PLATFORM — Code snippet preview (restyled light)
           ═══════════════════════════════════════════════════════════ */}
       <section className="bg-white py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
@@ -1240,43 +1072,47 @@ export default function HarchOSPageClient() {
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {devPlatform.map((tool, i) => (
-              <FadeIn key={tool.title} delay={i * 0.08}>
-                <div className="bg-[#FAFAFA] rounded-xl border border-[#E5E5E5] p-6 md:p-8 h-full">
+            {devPlatform.map((feat, i) => (
+              <FadeIn key={feat.title} delay={i * 0.08}>
+                <div className="bg-[#FAFAFA] rounded-xl border border-[#E5E5E5] p-6 h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[#F0F0F0] flex items-center justify-center">
-                      <tool.icon size={18} className="text-[#8B9DAF]" />
+                    <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center border border-[#E5E5E5]">
+                      <feat.icon size={18} className="text-[#8B9DAF]" />
                     </div>
-                    <h3 className="text-lg font-bold text-[#1A1A2E]">{tool.title}</h3>
+                    <h3 className="text-lg font-bold text-[#1A1A2E]">{feat.title}</h3>
                   </div>
-                  <div className="w-12 h-0.5 bg-[#E5E5E5] mb-4" />
-                  <p className="text-[14px] text-[#666666] leading-[1.7]">{tool.desc}</p>
+                  <p className="text-[14px] text-[#666666] leading-[1.7]">{feat.desc}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
 
-          {/* Code Snippet Preview */}
+          {/* Code snippet */}
           <FadeIn>
-            <div className="rounded-xl overflow-hidden border border-[#E5E5E5] bg-[#1A1A2E]">
-              <div className="flex items-center gap-2 px-6 py-3 border-b border-white/[0.06]">
+            <div className="bg-[#1E1E2E] rounded-xl border border-[#2A2A3E] overflow-hidden">
+              <div className="flex items-center gap-1.5 px-6 py-4 border-b border-[#2A2A3E]">
                 <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                 <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
                 <span className="w-3 h-3 rounded-full bg-[#28CA41]" />
-                <span className="ml-4 text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">deploy-workload.ts</span>
+                <span className="ml-4 text-[11px] text-[#5C6370] font-[family-name:var(--font-space-mono)]">harchos-sdk.py</span>
               </div>
-              <div className="p-6 font-mono text-[13px] leading-[1.8]">
-                <p><span className="text-[#C678DD]">import</span> <span className="text-[#E5C07B]">HarchOS</span> <span className="text-[#C678DD]">from</span> <span className="text-[#98C379]">&apos;@harchos/sdk&apos;</span>;</p>
-                <p className="mt-2"><span className="text-[#C678DD]">const</span> <span className="text-[#61AFEF]">client</span> = <span className="text-[#C678DD]">await</span> <span className="text-[#E5C07B]">HarchOS</span>.<span className="text-[#61AFEF]">create</span>({'{'}</p>
-                <p className="ml-4"><span className="text-[#E06C75]">region</span>: <span className="text-[#98C379]">&apos;morocco&apos;</span>,</p>
-                <p className="ml-4"><span className="text-[#E06C75]">sovereignty</span>: <span className="text-[#98C379]">&apos;strict&apos;</span>,</p>
-                <p className="ml-4"><span className="text-[#E06C75]">carbonAware</span>: <span className="text-[#D19A66]">true</span>,</p>
-                <p>{'}'});</p>
-                <p className="mt-2"><span className="text-[#C678DD]">const</span> <span className="text-[#61AFEF]">job</span> = <span className="text-[#C678DD]">await</span> <span className="text-[#61AFEF]">client</span>.<span className="text-[#61AFEF]">deploy</span>({'{'}</p>
-                <p className="ml-4"><span className="text-[#E06C75]">gpu</span>: <span className="text-[#98C379]">&apos;H100&apos;</span>,</p>
-                <p className="ml-4"><span className="text-[#E06C75]">count</span>: <span className="text-[#D19A66]">256</span>,</p>
-                <p className="ml-4"><span className="text-[#E06C75]">schedule</span>: <span className="text-[#98C379]">&apos;carbon-optimal&apos;</span>,</p>
-                <p>{'}'});</p>
+              <div className="p-6 overflow-x-auto">
+                <pre className="text-[13px] leading-[1.8] font-[family-name:var(--font-space-mono)]">
+                  <span className="text-[#C678DD]">from</span> <span className="text-[#E5C07B]">harchos</span> <span className="text-[#C678DD]">import</span> <span className="text-[#E5C07B]">HarchOSClient</span>{'\n'}
+                  {'\n'}
+                  <span className="text-[#5C6370]"># Initialize sovereign AI client</span>{'\n'}
+                  <span className="text-[#E5C07B]">client</span> = <span className="text-[#E5C07B]">HarchOSClient</span>(<span className="text-[#98C379]">region=&quot;ouarzazate&quot;</span>){'\n'}
+                  {'\n'}
+                  <span className="text-[#5C6370]"># Deploy with carbon-aware scheduling</span>{'\n'}
+                  <span className="text-[#E5C07B]">job</span> = <span className="text-[#E5C07B]">client</span>.<span className="text-[#61AFEF]">deploy</span>({'\n'}
+                  {'    '}<span className="text-[#98C379]">model=&quot;llama-3.1-70b&quot;</span>,{'\n'}
+                  {'    '}<span className="text-[#98C379]">carbon_threshold=</span><span className="text-[#D19A66]">50</span>,{'\n'}
+                  {'    '}<span className="text-[#98C379]">sovereign=True</span>,{'\n'}
+                  {'    '}<span className="text-[#98C379]">gpus=</span><span className="text-[#D19A66]">8</span>,{'\n'}
+                  ){'\n'}
+                  {'\n'}
+                  <span className="text-[#E5C07B]">print</span>(<span className="text-[#98C379]">f&quot;Deployed to </span><span className="text-[#E06C75]">{'{job.hub}'}</span><span className="text-[#98C379]"> at </span><span className="text-[#E06C75]">{'{job.carbon_intensity}'}</span><span className="text-[#98C379]"> gCO2/kWh&quot;</span>)
+                </pre>
                 <p className="mt-1 text-[#5C6370]">{t('devPlatform.codeComment')}</p>
               </div>
             </div>
@@ -1285,7 +1121,7 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 10: COMPETITIVE COMPARISON — Keep existing component
+          SECTION 9: COMPETITIVE COMPARISON — Keep existing component
           ═══════════════════════════════════════════════════════════ */}
       <CompetitiveComparison
         title={t('competitive.title')}
@@ -1297,7 +1133,7 @@ export default function HarchOSPageClient() {
       />
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 11: CTA — Two cards: white "Request a Briefing" + dark "Explore the Platform"
+          SECTION 10: CTA — Two cards: white "Request a Briefing" + dark "Explore the Platform"
           ═══════════════════════════════════════════════════════════ */}
       <section className="bg-white py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">

@@ -4044,6 +4044,8 @@
       "headline": "Beyond",
       "headlineLine2": "Infrastructure",
       "subheadline": "Explore HarchOS",
+      "subheadlineSovereign": "Sovereign",
+      "subheadlineAutonomy": "Autonomy",
       "stats": {
         "gpus": "GPUs",
         "hubs": "Hubs",
@@ -4054,6 +4056,26 @@
         "sovereign": "SOVEREIGN AI APP",
         "carbon": "CARBON-AWARE LOGIC",
         "automation": "AUTOMATION"
+      },
+      "annotations": {
+        "accept": "Accept",
+        "modify": "Modify",
+        "explain": "Explain",
+        "sovereign": {
+          "a": "Sovereign AI alert feed",
+          "b": "Carbon intensity warning",
+          "c": "AI-proposed action panel"
+        },
+        "carbon": {
+          "a": "Best-performing hub",
+          "b": "Real-time grid carbon",
+          "c": "Hub carbon comparison"
+        },
+        "automation": {
+          "a": "Active workflow sidebar",
+          "b": "Pipeline execution steps",
+          "c": "Workflow status tracking"
+        }
       }
     },
     "demo": {
@@ -4185,6 +4207,7 @@
       "check3": "Real-time monitoring and autonomous incident response",
       "videoTab": "VIDEO",
       "diagramTab": "DIAGRAM",
+      "detailsTab": "DETAILS",
       "videoLabel": "Workflow Builder Demo",
       "videoDuration": "2:34 min",
       "nodes": {
@@ -4198,6 +4221,20 @@
         "n4Sub": "H100/A100/L40S allocation",
         "n5Label": "Deploy & Monitor",
         "n5Sub": "Live <200ms response"
+      },
+      "details": {
+        "dataPipelining": {
+          "title": "AI-driven data pipelining",
+          "desc": "Automated data ingestion, transformation, and routing across 5 sovereign hubs with real-time carbon-aware scheduling and zero-cross-boundary guarantees."
+        },
+        "actions": {
+          "title": "AI-driven actions",
+          "desc": "Autonomous execution of infrastructure decisions — workload migration, failover, and scaling — based on real-time carbon, latency, and sovereignty constraints."
+        },
+        "agents": {
+          "title": "AI-driven agents",
+          "desc": "Persistent AI agents that monitor, reason, and act on your behalf — from incident response to capacity planning — with human-in-the-loop oversight."
+        }
       }
     },
     "evaluate": {
@@ -4208,6 +4245,7 @@
       "check3": "Sovereign data residency checks enforced automatically",
       "videoTab": "VIDEO",
       "diagramTab": "DIAGRAM",
+      "detailsTab": "DETAILS",
       "videoLabel": "Evaluation Pipeline Demo",
       "videoDuration": "1:58 min",
       "steps": {
@@ -4223,6 +4261,16 @@
         "s5Detail": "GDPR + ISO 27001 + SOC 2 + Law 09-08",
         "s6Label": "Deploy to Production",
         "s6Detail": "Waiting for compliance gate..."
+      },
+      "details": {
+        "debugLogic": {
+          "title": "Debug logic",
+          "desc": "Step-through debugging of AI decision chains with full audit trails — trace every carbon-aware scheduling decision, sovereignty check, and automated action back to its source."
+        },
+        "compareModels": {
+          "title": "Compare models",
+          "desc": "Side-by-side evaluation of model performance, carbon impact, and latency across hubs. A/B test deployment configurations with built-in compliance gates before going live."
+        }
       }
     },
     "capabilities": {

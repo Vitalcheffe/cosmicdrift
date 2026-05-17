@@ -17,38 +17,6 @@ import CompetitiveComparison from '@/components/competitive/CompetitiveCompariso
 import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
 import type { Competitor } from '@/components/competitive/CompetitiveComparison';
 
-/* ─── MOCK DEMO DATA ─── */
-const SOVEREIGN_AI_ALERTS = [
-  { id: 1, severity: 'critical', title: 'GPU Throttle Detected — Hub Ouarzazate', detail: 'Node HOU-47 thermal limit at 92°C. Auto-migration initiated to HOU-12.', time: '2s ago' },
-  { id: 2, severity: 'warning', title: 'Carbon Intensity Spike — Hub Casablanca', detail: 'Grid carbon jumped to 210 gCO2/kWh. Scheduling paused for non-critical jobs.', time: '14s ago' },
-  { id: 3, severity: 'info', title: 'Workload Rebalanced — 23 Jobs Migrated', detail: 'HarchOS moved 23 training jobs from Casablanca to Ouarzazate. Carbon saved: 1.2t CO2.', time: '1m ago' },
-  { id: 4, severity: 'warning', title: 'Submarine Cable Latency — 2Africa', detail: 'Round-trip to Marseille increased from 8ms to 12ms. Monitoring active.', time: '3m ago' },
-  { id: 5, severity: 'critical', title: 'Power Anomaly — Hub Dakhla Wind Farm', detail: 'Wind generation dropped 40%. Battery reserves at 78%. Load-shedding protocol engaged.', time: '5m ago' },
-];
-
-const CARBON_HUBS = [
-  { name: 'Harch Ouarzazate', carbon: 18, renewable: 97.2, gpus: 800, type: 'Solar', status: 'optimal', latency: '<5ms to EU' },
-  { name: 'Harch Dakhla', carbon: 32, renewable: 84.1, gpus: 400, type: 'Wind', status: 'optimal', latency: '<8ms to EU' },
-  { name: 'Harch Benguerir', carbon: 55, renewable: 62.3, gpus: 350, type: 'Solar+Wind', status: 'degraded', latency: '<12ms to EU' },
-  { name: 'Harch Tanger', carbon: 41, renewable: 78.9, gpus: 200, type: 'Hybrid', status: 'optimal', latency: '<3ms to EU' },
-  { name: 'Harch Casablanca', carbon: 210, renewable: 12.4, gpus: 48, type: 'Grid', status: 'standby', latency: '<2ms local' },
-];
-
-const AUTOMATION_WORKFLOWS = [
-  { id: 'wf-1', name: 'Carbon-Optimal Training Pipeline', status: 'running', steps: 6, completed: 4, trigger: 'Carbon < 50 gCO2/kWh' },
-  { id: 'wf-2', name: 'Cross-Hub Failover Protocol', status: 'idle', steps: 4, completed: 0, trigger: 'Hub health < 99.9%' },
-  { id: 'wf-3', name: 'EU Data Residency Enforcer', status: 'running', steps: 3, completed: 3, trigger: 'GDPR boundary breach' },
-  { id: 'wf-4', name: 'Renewable Peak Harvester', status: 'running', steps: 5, completed: 2, trigger: 'Solar > 95% capacity' },
-  { id: 'wf-5', name: 'Incident Response Escalation', status: 'idle', steps: 8, completed: 0, trigger: 'Severity >= P2' },
-];
-
-const PROGRESS_STEPS = [
-  { id: '0.1', label: 'Define' },
-  { id: '0.2', label: 'Build' },
-  { id: '0.3', label: 'Evaluate' },
-  { id: '0.4', label: 'Ship' },
-];
-
 /* ─── MAIN COMPONENT ─── */
 export default function HarchOSPageClient() {
   const t = useTranslations('harchos');
@@ -61,6 +29,38 @@ export default function HarchOSPageClient() {
   const [evaluateMediaTab, setEvaluateMediaTab] = useState<'video' | 'diagram'>('diagram');
   const [workflowStep, setWorkflowStep] = useState(1);
   const [evaluateStep, setEvaluateStep] = useState(2);
+
+  /* ─── Mock Data (using t() for translatable content) ─── */
+  const SOVEREIGN_AI_ALERTS = [
+    { id: 1, severity: 'critical', title: t('demo.sovereign.alerts.a1Title'), detail: t('demo.sovereign.alerts.a1Detail'), time: t('demo.sovereign.alerts.a1Time') },
+    { id: 2, severity: 'warning', title: t('demo.sovereign.alerts.a2Title'), detail: t('demo.sovereign.alerts.a2Detail'), time: t('demo.sovereign.alerts.a2Time') },
+    { id: 3, severity: 'info', title: t('demo.sovereign.alerts.a3Title'), detail: t('demo.sovereign.alerts.a3Detail'), time: t('demo.sovereign.alerts.a3Time') },
+    { id: 4, severity: 'warning', title: t('demo.sovereign.alerts.a4Title'), detail: t('demo.sovereign.alerts.a4Detail'), time: t('demo.sovereign.alerts.a4Time') },
+    { id: 5, severity: 'critical', title: t('demo.sovereign.alerts.a5Title'), detail: t('demo.sovereign.alerts.a5Detail'), time: t('demo.sovereign.alerts.a5Time') },
+  ];
+
+  const CARBON_HUBS = [
+    { name: 'Harch Ouarzazate', carbon: 18, renewable: 97.2, gpus: 800, type: t('hubTypes.solar'), status: 'optimal', latency: '<5ms to EU' },
+    { name: 'Harch Dakhla', carbon: 32, renewable: 84.1, gpus: 400, type: t('hubTypes.wind'), status: 'optimal', latency: '<8ms to EU' },
+    { name: 'Harch Benguerir', carbon: 55, renewable: 62.3, gpus: 350, type: t('hubTypes.solarWind'), status: 'degraded', latency: '<12ms to EU' },
+    { name: 'Harch Tanger', carbon: 41, renewable: 78.9, gpus: 200, type: t('hubTypes.hybrid'), status: 'optimal', latency: '<3ms to EU' },
+    { name: 'Harch Casablanca', carbon: 210, renewable: 12.4, gpus: 48, type: t('hubTypes.grid'), status: 'standby', latency: '<2ms local' },
+  ];
+
+  const AUTOMATION_WORKFLOWS = [
+    { id: 'wf-1', name: t('demo.automation.workflows.wf1Name'), status: 'running', steps: 6, completed: 4, trigger: t('demo.automation.workflows.wf1Trigger') },
+    { id: 'wf-2', name: t('demo.automation.workflows.wf2Name'), status: 'idle', steps: 4, completed: 0, trigger: t('demo.automation.workflows.wf2Trigger') },
+    { id: 'wf-3', name: t('demo.automation.workflows.wf3Name'), status: 'running', steps: 3, completed: 3, trigger: t('demo.automation.workflows.wf3Trigger') },
+    { id: 'wf-4', name: t('demo.automation.workflows.wf4Name'), status: 'running', steps: 5, completed: 2, trigger: t('demo.automation.workflows.wf4Trigger') },
+    { id: 'wf-5', name: t('demo.automation.workflows.wf5Name'), status: 'idle', steps: 8, completed: 0, trigger: t('demo.automation.workflows.wf5Trigger') },
+  ];
+
+  const PROGRESS_STEPS = [
+    { id: '0.1', label: t('progress.define') },
+    { id: '0.2', label: t('progress.build') },
+    { id: '0.3', label: t('progress.evaluate') },
+    { id: '0.4', label: t('progress.ship') },
+  ];
 
   /* ─── Data ─── */
   const architectureLayers = [
@@ -100,41 +100,41 @@ export default function HarchOSPageClient() {
   ];
 
   const capabilitiesList = [
-    { number: '0.1', icon: Leaf, title: 'Carbon-Aware Scheduling', desc: 'Automatic workload optimization based on grid carbon intensity, shifting loads to the cleanest periods and regions. Real-time per-job scheduling with 47 parameters.' },
-    { number: '0.2', icon: Shield, title: 'Sovereign Data Residency', desc: '100% African data sovereignty with guaranteed Morocco jurisdiction. GDPR, ISO 27001, SOC 2 Type II, and Law 09-08 compliance — no CLOUD Act exposure.' },
-    { number: '0.3', icon: Brain, title: 'AI Platform Services', desc: 'Full-stack AI platform for training, fine-tuning, and serving models on H100/A100/L40S GPUs. Carbon-optimal scheduling built into every pipeline.' },
-    { number: '0.4', icon: Code2, title: 'Developer SDK', desc: 'Comprehensive TypeScript/Python SDK with OAuth 2.0 authentication, rate limiting, and interactive documentation for seamless integration.' },
+    { number: '0.1', icon: Leaf, title: t('capabilities.carbonAware.title'), desc: t('capabilities.carbonAware.desc') },
+    { number: '0.2', icon: Shield, title: t('capabilities.sovereignData.title'), desc: t('capabilities.sovereignData.desc') },
+    { number: '0.3', icon: Brain, title: t('capabilities.aiPlatform.title'), desc: t('capabilities.aiPlatform.desc') },
+    { number: '0.4', icon: Code2, title: t('capabilities.devSdk.title'), desc: t('capabilities.devSdk.desc') },
   ];
 
   const specs = [
     { category: t('specs.title'), items: [
-      { spec: 'Total GPUs', value: '1,798' },
-      { spec: 'GPU Types', value: 'H100, A100, L40S' },
-      { spec: 'Interconnect', value: 'NVLink + InfiniBand' },
-      { spec: 'Max per Hub', value: '800 GPUs' },
-      { spec: 'Scaling Efficiency', value: '>92% linear' },
+      { spec: t('specs.totalGpus'), value: '1,798' },
+      { spec: t('specs.gpuTypes'), value: 'H100, A100, L40S' },
+      { spec: t('specs.interconnect'), value: 'NVLink + InfiniBand' },
+      { spec: t('specs.maxPerHub'), value: '800 GPUs' },
+      { spec: t('specs.scalingEfficiency'), value: '>92% linear' },
     ]},
     { category: t('specs.compliance'), items: [
-      { spec: 'Renewable Energy', value: '81.5%' },
-      { spec: 'Avg Carbon Intensity', value: '~47 gCO2/kWh' },
-      { spec: 'Best Hub Carbon', value: '18 gCO2/kWh' },
-      { spec: 'PUE Range', value: '1.04 — 1.12' },
-      { spec: 'Best PUE', value: '1.04' },
+      { spec: t('specs.renewableEnergy'), value: '81.5%' },
+      { spec: t('specs.avgCarbonIntensity'), value: '~47 gCO2/kWh' },
+      { spec: t('specs.bestHubCarbon'), value: '18 gCO2/kWh' },
+      { spec: t('specs.pueRange'), value: '1.04 — 1.12' },
+      { spec: t('specs.bestPue'), value: '1.04' },
     ]},
-    { category: 'Network', items: [
-      { spec: 'Backbone', value: '400Gbps' },
-      { spec: 'Dedicated Links', value: '100Gbps each' },
-      { spec: 'Submarine Systems', value: '4 systems' },
-      { spec: 'Latency to Europe', value: '<5-12ms' },
-      { spec: 'Latency to Americas', value: '<35ms' },
+    { category: t('specs.network'), items: [
+      { spec: t('specs.backbone'), value: '400Gbps' },
+      { spec: t('specs.dedicatedLinks'), value: '100Gbps each' },
+      { spec: t('specs.submarineSystems'), value: '4 systems' },
+      { spec: t('specs.latencyToEurope'), value: '<5-12ms' },
+      { spec: t('specs.latencyToAmericas'), value: '<35ms' },
     ]},
   ];
 
   const securityFeatures = [
-    { icon: Lock, title: 'Zero-Trust Architecture', desc: 'Every request authenticated and authorized. No implicit trust between services, hubs, or users. mTLS on all internal connections.' },
-    { icon: Shield, title: 'Sovereign Encryption', desc: 'AES-256 end-to-end encryption with Morocco-held keys. No US key escrow, no CLOUD Act key disclosure possible.' },
-    { icon: Eye, title: '24/7/365 SOC Monitoring', desc: 'AI-driven threat detection with automated incident response. Real-time anomaly detection across all 5 hubs simultaneously.' },
-    { icon: FileCode2, title: 'Automated Compliance', desc: 'Continuous compliance monitoring for GDPR, ISO 27001, SOC 2 Type II, and Law 09-08 with audit trails and automated evidence collection.' },
+    { icon: Lock, title: t('security.zeroTrust.title'), desc: t('security.zeroTrust.desc') },
+    { icon: Shield, title: t('security.sovereignEncryption.title'), desc: t('security.sovereignEncryption.desc') },
+    { icon: Eye, title: t('security.socMonitoring.title'), desc: t('security.socMonitoring.desc') },
+    { icon: FileCode2, title: t('security.autoCompliance.title'), desc: t('security.autoCompliance.desc') },
   ];
 
   const devPlatform = [
@@ -147,10 +147,84 @@ export default function HarchOSPageClient() {
   const activeArch = architectureLayers.find(l => l.id === activeArchTab)!;
 
   const heroTabs = [
-    { id: 'sovereign' as const, label: 'SOVEREIGN AI APP', number: '01' },
-    { id: 'carbon' as const, label: 'CARBON-AWARE LOGIC', number: '02' },
-    { id: 'automation' as const, label: 'AUTOMATION', number: '03' },
+    { id: 'sovereign' as const, label: t('hero.tabs.sovereign'), number: '01' },
+    { id: 'carbon' as const, label: t('hero.tabs.carbon'), number: '02' },
+    { id: 'automation' as const, label: t('hero.tabs.automation'), number: '03' },
   ];
+
+  /* ─── Competitive data builder ─── */
+  const buildCompetitorMetrics = (prefix: string, count: number) =>
+    Array.from({ length: count }, (_, i) => ({
+      label: t(`competitive.${prefix}.m${i}Label`),
+      harchValue: t(`competitive.${prefix}.m${i}Harch`),
+      competitorValue: t(`competitive.${prefix}.m${i}Competitor`),
+      harchWins: true,
+    }));
+
+  const competitors: Competitor[] = [
+    {
+      name: t('competitive.coreweave.name'),
+      country: t('competitive.coreweave.country'),
+      metrics: (() => {
+        const m = buildCompetitorMetrics('coreweave', 14);
+        return m;
+      })(),
+      verdict: t('competitive.coreweave.verdict'),
+    },
+    {
+      name: t('competitive.googleCloud.name'),
+      country: t('competitive.googleCloud.country'),
+      metrics: buildCompetitorMetrics('googleCloud', 12),
+      verdict: t('competitive.googleCloud.verdict'),
+    },
+    {
+      name: t('competitive.africaDataCentres.name'),
+      country: t('competitive.africaDataCentres.country'),
+      metrics: buildCompetitorMetrics('africaDataCentres', 12),
+      verdict: t('competitive.africaDataCentres.verdict'),
+    },
+    {
+      name: t('competitive.qscale.name'),
+      country: t('competitive.qscale.country'),
+      metrics: (() => {
+        const m = buildCompetitorMetrics('qscale', 13);
+        // QScale m8 (carbon intensity) — QScale wins
+        m[8] = { ...m[8], harchWins: false };
+        return m;
+      })(),
+      verdict: t('competitive.qscale.verdict'),
+    },
+    {
+      name: t('competitive.lambdaLabs.name'),
+      country: t('competitive.lambdaLabs.country'),
+      metrics: buildCompetitorMetrics('lambdaLabs', 12),
+      verdict: t('competitive.lambdaLabs.verdict'),
+    },
+    {
+      name: t('competitive.oracleCloud.name'),
+      country: t('competitive.oracleCloud.country'),
+      metrics: buildCompetitorMetrics('oracleCloud', 10),
+      verdict: t('competitive.oracleCloud.verdict'),
+    },
+    {
+      name: t('competitive.equinix.name'),
+      country: t('competitive.equinix.country'),
+      metrics: buildCompetitorMetrics('equinix', 10),
+      verdict: t('competitive.equinix.verdict'),
+    },
+  ];
+
+  /* ─── Status label helper ─── */
+  const getWorkflowStatusLabel = (status: string) => {
+    if (status === 'running') return t('demo.automation.statusRunning');
+    return t('demo.automation.statusIdle');
+  };
+
+  const getActionStatusLabel = (status: string) => {
+    if (status === 'approved') return t('demo.sovereign.statusApproved');
+    if (status === 'auto-approved') return t('demo.sovereign.statusAutoApproved');
+    return t('demo.sovereign.statusPending');
+  };
 
   return (
     <div className="bg-white">
@@ -176,20 +250,20 @@ export default function HarchOSPageClient() {
                   {t('title')} /0.1
                 </p>
                 <h1 className="text-5xl md:text-6xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-4">
-                  Beyond<br />Infrastructure
+                  {t('hero.headline')}<br />{t('hero.headlineLine2')}
                 </h1>
                 <p className="text-xl md:text-2xl text-[#8B9DAF] font-light tracking-[-0.01em] mb-8">
-                  Explore HarchOS
+                  {t('hero.subheadline')}
                 </p>
                 <p className="text-[15px] text-[#999999] max-w-md leading-[1.7] mb-10">
                   {t('description')}
                 </p>
                 <div className="flex flex-wrap gap-6">
                   {[
-                    { value: 1798, suffix: '', label: 'GPUs' },
-                    { value: 5, suffix: '', label: 'Hubs' },
-                    { value: 47, suffix: '', label: 'gCO₂/kWh' },
-                    { value: 99.999, suffix: '%', label: 'Uptime SLA' },
+                    { value: 1798, suffix: '', label: t('hero.stats.gpus') },
+                    { value: 5, suffix: '', label: t('hero.stats.hubs') },
+                    { value: 47, suffix: '', label: t('hero.stats.carbon') },
+                    { value: 99.999, suffix: '%', label: t('hero.stats.uptime') },
                   ].map((stat) => (
                     <div key={stat.label}>
                       <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
@@ -240,9 +314,9 @@ export default function HarchOSPageClient() {
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
-                            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">Live Alerts</span>
+                            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">{t('demo.sovereign.liveAlerts')}</span>
                           </div>
-                          <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">HarchOS Sovereign AI</span>
+                          <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">{t('demo.sovereign.consoleTitle')}</span>
                         </div>
                         <div className="space-y-2 max-h-[280px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-2">
                           {SOVEREIGN_AI_ALERTS.map((alert) => (
@@ -267,10 +341,10 @@ export default function HarchOSPageClient() {
                         </div>
                         <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.04]">
                           <div className="flex gap-4">
-                            <span className="text-[10px] text-[#666666]">5 Active Alerts</span>
-                            <span className="text-[10px] text-[#666666]">2 Auto-Resolved</span>
+                            <span className="text-[10px] text-[#666666]">{t('demo.sovereign.activeAlerts')}</span>
+                            <span className="text-[10px] text-[#666666]">{t('demo.sovereign.autoResolvedCount')}</span>
                           </div>
-                          <span className="text-[10px] text-[#8B9DAF] font-semibold flex items-center gap-1">View All <ArrowUpRight size={10} /></span>
+                          <span className="text-[10px] text-[#8B9DAF] font-semibold flex items-center gap-1">{t('demo.sovereign.viewAll')} <ArrowUpRight size={10} /></span>
                         </div>
                       </motion.div>
                     )}
@@ -288,9 +362,9 @@ export default function HarchOSPageClient() {
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-2">
                             <Leaf size={14} className="text-emerald-400" />
-                            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-emerald-400 font-[family-name:var(--font-space-mono)]">Carbon-Aware Scheduler</span>
+                            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-emerald-400 font-[family-name:var(--font-space-mono)]">{t('demo.carbon.schedulerTitle')}</span>
                           </div>
-                          <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">Live Grid Data</span>
+                          <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">{t('demo.carbon.liveGridData')}</span>
                         </div>
                         <div className="space-y-2 max-h-[280px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-2">
                           {CARBON_HUBS.map((hub) => (
@@ -312,19 +386,19 @@ export default function HarchOSPageClient() {
                               </div>
                               <div className="grid grid-cols-4 gap-2 text-[10px]">
                                 <div>
-                                  <span className="text-[#666666]">Renewable</span>
+                                  <span className="text-[#666666]">{t('demo.carbon.renewable')}</span>
                                   <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.renewable}%</p>
                                 </div>
                                 <div>
-                                  <span className="text-[#666666]">GPUs</span>
+                                  <span className="text-[#666666]">{t('demo.carbon.gpus')}</span>
                                   <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.gpus}</p>
                                 </div>
                                 <div>
-                                  <span className="text-[#666666]">Type</span>
+                                  <span className="text-[#666666]">{t('demo.carbon.type')}</span>
                                   <p className="text-white font-bold">{hub.type}</p>
                                 </div>
                                 <div>
-                                  <span className="text-[#666666]">Latency</span>
+                                  <span className="text-[#666666]">{t('demo.carbon.latency')}</span>
                                   <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.latency}</p>
                                 </div>
                               </div>
@@ -342,8 +416,8 @@ export default function HarchOSPageClient() {
                           ))}
                         </div>
                         <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.04]">
-                          <span className="text-[10px] text-[#666666]">Avg Carbon: 71.2 gCO₂/kWh · 81.5% Renewable</span>
-                          <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">Dashboard <ArrowUpRight size={10} /></span>
+                          <span className="text-[10px] text-[#666666]">{t('demo.carbon.avgCarbonNote')}</span>
+                          <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">{t('demo.carbon.dashboard')} <ArrowUpRight size={10} /></span>
                         </div>
                       </motion.div>
                     )}
@@ -361,9 +435,9 @@ export default function HarchOSPageClient() {
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-2">
                             <Workflow size={14} className="text-[#8B5CF6]" />
-                            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#8B5CF6] font-[family-name:var(--font-space-mono)]">Workflow Engine</span>
+                            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#8B5CF6] font-[family-name:var(--font-space-mono)]">{t('demo.automation.workflowEngine')}</span>
                           </div>
-                          <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">5 Workflows</span>
+                          <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">{t('demo.automation.workflowCount')}</span>
                         </div>
                         <div className="space-y-2 max-h-[280px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-2">
                           {AUTOMATION_WORKFLOWS.map((wf) => (
@@ -376,7 +450,7 @@ export default function HarchOSPageClient() {
                                 <span className={`text-[9px] font-bold font-[family-name:var(--font-space-mono)] uppercase px-2 py-0.5 rounded ${
                                   wf.status === 'running' ? 'bg-[#8B5CF6]/10 text-[#8B5CF6]' : 'bg-white/[0.04] text-[#666666]'
                                 }`}>
-                                  {wf.status}
+                                  {getWorkflowStatusLabel(wf.status)}
                                 </span>
                               </div>
                               {/* Progress bar */}
@@ -391,14 +465,14 @@ export default function HarchOSPageClient() {
                               </div>
                               <div className="mt-1.5 flex items-center gap-1.5">
                                 <Timer size={10} className="text-[#555555]" />
-                                <span className="text-[10px] text-[#555555]">Trigger: {wf.trigger}</span>
+                                <span className="text-[10px] text-[#555555]">{t('demo.automation.triggerLabel')}: {wf.trigger}</span>
                               </div>
                             </div>
                           ))}
                         </div>
                         <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.04]">
-                          <span className="text-[10px] text-[#666666]">3 Running · 2 Idle · 9 Steps Active</span>
-                          <span className="text-[10px] text-[#8B5CF6] font-semibold flex items-center gap-1">Builder <ArrowUpRight size={10} /></span>
+                          <span className="text-[10px] text-[#666666]">{t('demo.automation.summary')}</span>
+                          <span className="text-[10px] text-[#8B5CF6] font-semibold flex items-center gap-1">{t('demo.automation.builder')} <ArrowUpRight size={10} /></span>
                         </div>
                       </motion.div>
                     )}
@@ -418,10 +492,10 @@ export default function HarchOSPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
-              Platform Demo
+              {t('demo.label')}
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              Enterprise Autonomy
+              {t('demo.title')}
             </h2>
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
               {t('subtitle')}
@@ -439,7 +513,7 @@ export default function HarchOSPageClient() {
                     <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
                     <span className="w-3 h-3 rounded-full bg-[#28CA41]" />
                   </div>
-                  <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">harchos-console — live</span>
+                  <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">{t('demo.consoleLabel')}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   {heroTabs.map((tab) => (
@@ -471,35 +545,35 @@ export default function HarchOSPageClient() {
                       {/* Left: Stats panel */}
                       <div className="md:col-span-1 space-y-4">
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Active Workloads</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.sovereign.activeWorkloads')}</p>
                           <p className="text-3xl font-bold text-white stat-mono">247</p>
                           <div className="flex items-center gap-1 mt-1">
                             <TrendingUp size={12} className="text-emerald-400" />
-                            <span className="text-[10px] text-emerald-400 font-semibold">+12% from yesterday</span>
+                            <span className="text-[10px] text-emerald-400 font-semibold">{t('demo.sovereign.workloadsTrend')}</span>
                           </div>
                         </div>
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Sovereign Score</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.sovereign.sovereignScore')}</p>
                           <p className="text-3xl font-bold text-white stat-mono">100%</p>
-                          <p className="text-[10px] text-[#999999] mt-1">All data in Morocco jurisdiction</p>
+                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.sovereign.sovereignNote')}</p>
                         </div>
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Incidents (24h)</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.sovereign.incidents24h')}</p>
                           <p className="text-3xl font-bold text-white stat-mono">3</p>
-                          <p className="text-[10px] text-[#999999] mt-1">2 auto-resolved · 1 escalated</p>
+                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.sovereign.incidentsNote')}</p>
                         </div>
                       </div>
                       {/* Center: Alert timeline */}
                       <div className="md:col-span-2">
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 h-full">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">AI App — Proposed Actions</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">{t('demo.sovereign.aiProposedActions')}</p>
                           <div className="space-y-3">
                             {[
-                              { action: 'Migrate 23 training jobs from Casablanca to Ouarzazate', impact: '-1.2t CO₂', confidence: '94%', status: 'approved' },
-                              { action: 'Scale down Hub Casablanca standby GPUs', impact: '-18kW load', confidence: '89%', status: 'pending' },
-                              { action: 'Preemptively failover Hub Dakhla to Wind Farm B', impact: 'Zero downtime', confidence: '91%', status: 'approved' },
-                              { action: 'Reroute EU traffic from 2Africa to SEAMEWE-3', impact: '-4ms latency', confidence: '87%', status: 'pending' },
-                              { action: 'Increase Hub Ouarzazate solar commitment by 15%', impact: '+120 GPU-hrs', confidence: '96%', status: 'auto-approved' },
+                              { action: t('demo.sovereign.actions.a1Action'), impact: t('demo.sovereign.actions.a1Impact'), confidence: t('demo.sovereign.actions.a1Confidence'), status: 'approved' },
+                              { action: t('demo.sovereign.actions.a2Action'), impact: t('demo.sovereign.actions.a2Impact'), confidence: t('demo.sovereign.actions.a2Confidence'), status: 'pending' },
+                              { action: t('demo.sovereign.actions.a3Action'), impact: t('demo.sovereign.actions.a3Impact'), confidence: t('demo.sovereign.actions.a3Confidence'), status: 'approved' },
+                              { action: t('demo.sovereign.actions.a4Action'), impact: t('demo.sovereign.actions.a4Impact'), confidence: t('demo.sovereign.actions.a4Confidence'), status: 'pending' },
+                              { action: t('demo.sovereign.actions.a5Action'), impact: t('demo.sovereign.actions.a5Impact'), confidence: t('demo.sovereign.actions.a5Confidence'), status: 'auto-approved' },
                             ].map((item, i) => (
                               <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/[0.04]">
                                 <div className="mt-0.5">
@@ -508,8 +582,8 @@ export default function HarchOSPageClient() {
                                 <div className="flex-1 min-w-0">
                                   <p className="text-[12px] text-white font-medium">{item.action}</p>
                                   <div className="flex items-center gap-3 mt-1.5">
-                                    <span className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)]">Impact: {item.impact}</span>
-                                    <span className="text-[10px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">Confidence: {item.confidence}</span>
+                                    <span className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)]">{t('demo.sovereign.impactLabel')}: {item.impact}</span>
+                                    <span className="text-[10px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">{t('demo.sovereign.confidenceLabel')}: {item.confidence}</span>
                                   </div>
                                 </div>
                                 <span className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded shrink-0 ${
@@ -517,7 +591,7 @@ export default function HarchOSPageClient() {
                                   item.status === 'auto-approved' ? 'bg-[#8B5CF6]/10 text-[#8B5CF6]' :
                                   'bg-amber-500/10 text-amber-400'
                                 }`}>
-                                  {item.status}
+                                  {getActionStatusLabel(item.status)}
                                 </span>
                               </div>
                             ))}
@@ -539,29 +613,29 @@ export default function HarchOSPageClient() {
                       {/* Left: Carbon metrics */}
                       <div className="md:col-span-1 space-y-4">
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Grid Carbon (Now)</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.carbon.gridCarbonNow')}</p>
                           <p className="text-3xl font-bold text-emerald-400 stat-mono">47</p>
-                          <p className="text-[10px] text-[#999999] mt-1">gCO₂/kWh average</p>
+                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.carbon.gco2kwhAvg')}</p>
                           <div className="mt-3 h-2 bg-white/[0.04] rounded-full overflow-hidden">
                             <div className="h-full rounded-full bg-emerald-500" style={{ width: '81.5%' }} />
                           </div>
-                          <p className="text-[10px] text-[#666666] mt-1">81.5% renewable — 89% below global avg</p>
+                          <p className="text-[10px] text-[#666666] mt-1">{t('demo.carbon.renewableNote')}</p>
                         </div>
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Carbon Saved (Today)</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.carbon.carbonSavedToday')}</p>
                           <p className="text-3xl font-bold text-emerald-400 stat-mono">4.7t</p>
-                          <p className="text-[10px] text-[#999999] mt-1">CO₂ equivalent avoided via scheduling</p>
+                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.carbon.carbonSavedNote')}</p>
                         </div>
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Best Hub (Live)</p>
-                          <p className="text-[14px] font-bold text-white">Harch Ouarzazate</p>
-                          <p className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)] mt-1">18 gCO₂/kWh · 97.2% solar</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.carbon.bestHubLive')}</p>
+                          <p className="text-[14px] font-bold text-white">{t('demo.carbon.bestHubName')}</p>
+                          <p className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)] mt-1">{t('demo.carbon.bestHubDetail')}</p>
                         </div>
                       </div>
                       {/* Center: Hub comparison chart */}
                       <div className="md:col-span-2">
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 h-full">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">Hub Carbon Intensity Comparison</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">{t('demo.carbon.hubComparisonTitle')}</p>
                           <div className="space-y-4">
                             {CARBON_HUBS.map((hub) => (
                               <div key={hub.name}>
@@ -583,8 +657,8 @@ export default function HarchOSPageClient() {
                                   />
                                 </div>
                                 <div className="flex items-center gap-4 mt-1">
-                                  <span className="text-[10px] text-[#666666]">{hub.renewable}% renewable</span>
-                                  <span className="text-[10px] text-[#666666]">{hub.gpus} GPUs</span>
+                                  <span className="text-[10px] text-[#666666]">{t('demo.carbon.percentRenewable', { value: hub.renewable })}</span>
+                                  <span className="text-[10px] text-[#666666]">{hub.gpus} {t('demo.carbon.gpus')}</span>
                                   <span className="text-[10px] text-[#666666]">{hub.type}</span>
                                 </div>
                               </div>
@@ -592,7 +666,7 @@ export default function HarchOSPageClient() {
                           </div>
                           <div className="mt-6 pt-4 border-t border-white/[0.04]">
                             <p className="text-[10px] text-[#666666]">
-                              * Casablanca hub operates in standby mode during high-carbon grid periods. Carbon-aware scheduling automatically redirects workloads to cleaner hubs.
+                              {t('demo.carbon.casablancaNote')}
                             </p>
                           </div>
                         </div>
@@ -612,34 +686,34 @@ export default function HarchOSPageClient() {
                       {/* Left: Automation stats */}
                       <div className="md:col-span-1 space-y-4">
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Active Workflows</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.automation.activeWorkflows')}</p>
                           <p className="text-3xl font-bold text-[#8B5CF6] stat-mono">3</p>
-                          <p className="text-[10px] text-[#999999] mt-1">of 5 total · 9 steps running</p>
+                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.automation.workflowsNote')}</p>
                         </div>
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Avg Response Time</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.automation.avgResponseTime')}</p>
                           <p className="text-3xl font-bold text-white stat-mono">&lt;200ms</p>
-                          <p className="text-[10px] text-[#999999] mt-1">From trigger to first action</p>
+                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.automation.responseNote')}</p>
                         </div>
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Auto-Resolved (30d)</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">{t('demo.automation.autoResolved30d')}</p>
                           <p className="text-3xl font-bold text-white stat-mono">847</p>
-                          <p className="text-[10px] text-[#999999] mt-1">Zero human intervention required</p>
+                          <p className="text-[10px] text-[#999999] mt-1">{t('demo.automation.autoResolvedNote')}</p>
                         </div>
                       </div>
                       {/* Center: Workflow visualization */}
                       <div className="md:col-span-2">
                         <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 h-full">
-                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">Carbon-Optimal Training Pipeline (Active)</p>
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">{t('demo.automation.pipelineTitle')}</p>
                           {/* Workflow steps visualization */}
                           <div className="space-y-3">
                             {[
-                              { step: 1, label: 'Monitor Grid Carbon', detail: 'Polling 5 hubs every 60 seconds', status: 'complete' },
-                              { step: 2, label: 'Evaluate Scheduling Window', detail: 'Carbon threshold: <50 gCO₂/kWh · Window: 4h ahead', status: 'complete' },
-                              { step: 3, label: 'Select Optimal Hub', detail: 'Selected: Harch Ouarzazate (18 gCO₂/kWh, 800 GPUs)', status: 'complete' },
-                              { step: 4, label: 'Provision GPU Cluster', detail: 'Allocating 256x H100 on HOU-Rack-07', status: 'complete' },
-                              { step: 5, label: 'Deploy Training Job', detail: 'Uploading model weights and dataset shards...', status: 'running' },
-                              { step: 6, label: 'Monitor & Auto-Migrate', detail: 'Waiting for job start...', status: 'pending' },
+                              { step: 1, label: t('demo.automation.steps.s1Label'), detail: t('demo.automation.steps.s1Detail'), status: 'complete' },
+                              { step: 2, label: t('demo.automation.steps.s2Label'), detail: t('demo.automation.steps.s2Detail'), status: 'complete' },
+                              { step: 3, label: t('demo.automation.steps.s3Label'), detail: t('demo.automation.steps.s3Detail'), status: 'complete' },
+                              { step: 4, label: t('demo.automation.steps.s4Label'), detail: t('demo.automation.steps.s4Detail'), status: 'complete' },
+                              { step: 5, label: t('demo.automation.steps.s5Label'), detail: t('demo.automation.steps.s5Detail'), status: 'running' },
+                              { step: 6, label: t('demo.automation.steps.s6Label'), detail: t('demo.automation.steps.s6Detail'), status: 'pending' },
                             ].map((step) => (
                               <div key={step.step} className="flex items-start gap-3">
                                 <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-[11px] font-bold font-[family-name:var(--font-space-mono)] ${
@@ -702,17 +776,17 @@ export default function HarchOSPageClient() {
                   {t('features.title')} /0.2
                 </p>
                 <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-6">
-                  Designed for AI workflow builders
+                  {t('workflow.title')}
                 </h2>
                 <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
                 <p className="text-[15px] text-[#666666] leading-[1.7] mb-8">
-                  HarchOS provides the tools and infrastructure to build, test, and deploy carbon-aware AI workflows at scale. From data ingestion to model serving, every step is optimized for sovereignty and sustainability.
+                  {t('workflow.description')}
                 </p>
                 <div className="space-y-3">
                   {[
-                    'Carbon-optimal scheduling built into every pipeline',
-                    'Visual workflow builder with drag-and-drop automation',
-                    'Real-time monitoring and autonomous incident response',
+                    t('workflow.check1'),
+                    t('workflow.check2'),
+                    t('workflow.check3'),
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-2.5">
                       <CheckCircle2 size={16} className="text-[#8B9DAF] shrink-0 mt-0.5" />
@@ -733,7 +807,7 @@ export default function HarchOSPageClient() {
                       workflowMediaTab === 'video' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F5F5F5]'
                     }`}
                   >
-                    VIDEO
+                    {t('workflow.videoTab')}
                   </button>
                   <button
                     onClick={() => setWorkflowMediaTab('diagram')}
@@ -741,7 +815,7 @@ export default function HarchOSPageClient() {
                       workflowMediaTab === 'diagram' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F5F5F5]'
                     }`}
                   >
-                    DIAGRAM
+                    {t('workflow.diagramTab')}
                   </button>
                 </div>
                 <div className="rounded-xl border border-[#E5E5E5] bg-[#FAFAFA] overflow-hidden min-h-[340px]">
@@ -759,8 +833,8 @@ export default function HarchOSPageClient() {
                           <div className="w-16 h-16 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center mx-auto mb-3">
                             <Play size={24} className="text-[#1A1A2E] ml-1" />
                           </div>
-                          <p className="text-[13px] text-[#999999]">Workflow Builder Demo</p>
-                          <p className="text-[11px] text-[#CCCCCC] mt-1">2:34 min</p>
+                          <p className="text-[13px] text-[#999999]">{t('workflow.videoLabel')}</p>
+                          <p className="text-[11px] text-[#CCCCCC] mt-1">{t('workflow.videoDuration')}</p>
                         </div>
                       </motion.div>
                     ) : (
@@ -775,11 +849,11 @@ export default function HarchOSPageClient() {
                         {/* Workflow diagram */}
                         <div className="flex flex-col items-center gap-4">
                           {[
-                            { label: 'Data Source', sub: 'IoT / API / Satellite', color: '#8B9DAF' },
-                            { label: 'Carbon Evaluation', sub: '47-param grid analysis', color: '#10B981' },
-                            { label: 'Hub Selection', sub: 'RL + GNN optimization', color: '#8B5CF6' },
-                            { label: 'GPU Provisioning', sub: 'H100/A100/L40S allocation', color: '#F59E0B' },
-                            { label: 'Deploy & Monitor', sub: 'Live <200ms response', color: '#EF4444' },
+                            { label: t('workflow.nodes.n1Label'), sub: t('workflow.nodes.n1Sub'), color: '#8B9DAF' },
+                            { label: t('workflow.nodes.n2Label'), sub: t('workflow.nodes.n2Sub'), color: '#10B981' },
+                            { label: t('workflow.nodes.n3Label'), sub: t('workflow.nodes.n3Sub'), color: '#8B5CF6' },
+                            { label: t('workflow.nodes.n4Label'), sub: t('workflow.nodes.n4Sub'), color: '#F59E0B' },
+                            { label: t('workflow.nodes.n5Label'), sub: t('workflow.nodes.n5Sub'), color: '#EF4444' },
                           ].map((node, i) => (
                             <div key={i} className="flex flex-col items-center">
                               <div className="flex items-center gap-3 px-5 py-3 rounded-lg border border-[#E5E5E5] bg-white shadow-sm w-64">
@@ -840,17 +914,17 @@ export default function HarchOSPageClient() {
                   {t('features.security.title')} /0.3
                 </p>
                 <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-6">
-                  Evaluate and ship with confidence
+                  {t('evaluate.title')}
                 </h2>
                 <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
                 <p className="text-[15px] text-[#666666] leading-[1.7] mb-8">
-                  Built-in evaluation frameworks, A/B testing, and automated compliance checks ensure every deployment meets sovereign, security, and carbon standards before going live.
+                  {t('evaluate.description')}
                 </p>
                 <div className="space-y-3">
                   {[
-                    'Automated compliance validation before every deployment',
-                    'Carbon impact assessment integrated into CI/CD pipeline',
-                    'Sovereign data residency checks enforced automatically',
+                    t('evaluate.check1'),
+                    t('evaluate.check2'),
+                    t('evaluate.check3'),
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-2.5">
                       <CheckCircle2 size={16} className="text-[#8B9DAF] shrink-0 mt-0.5" />
@@ -871,7 +945,7 @@ export default function HarchOSPageClient() {
                       evaluateMediaTab === 'video' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F0F0F0]'
                     }`}
                   >
-                    VIDEO
+                    {t('evaluate.videoTab')}
                   </button>
                   <button
                     onClick={() => setEvaluateMediaTab('diagram')}
@@ -879,7 +953,7 @@ export default function HarchOSPageClient() {
                       evaluateMediaTab === 'diagram' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F0F0F0]'
                     }`}
                   >
-                    DIAGRAM
+                    {t('evaluate.diagramTab')}
                   </button>
                 </div>
                 <div className="rounded-xl border border-[#E5E5E5] bg-white overflow-hidden min-h-[340px]">
@@ -897,8 +971,8 @@ export default function HarchOSPageClient() {
                           <div className="w-16 h-16 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center mx-auto mb-3">
                             <Play size={24} className="text-[#1A1A2E] ml-1" />
                           </div>
-                          <p className="text-[13px] text-[#999999]">Evaluation Pipeline Demo</p>
-                          <p className="text-[11px] text-[#CCCCCC] mt-1">1:58 min</p>
+                          <p className="text-[13px] text-[#999999]">{t('evaluate.videoLabel')}</p>
+                          <p className="text-[11px] text-[#CCCCCC] mt-1">{t('evaluate.videoDuration')}</p>
                         </div>
                       </motion.div>
                     ) : (
@@ -913,12 +987,12 @@ export default function HarchOSPageClient() {
                         {/* Evaluation pipeline diagram */}
                         <div className="space-y-4">
                           {[
-                            { label: 'Code Commit', status: 'passed', detail: 'All unit tests passing' },
-                            { label: 'Carbon Impact Check', status: 'passed', detail: 'Estimated +0.3t CO₂ — within threshold' },
-                            { label: 'Sovereign Data Scan', status: 'passed', detail: 'No data boundary violations detected' },
-                            { label: 'Security Audit', status: 'passed', detail: 'No CVEs in dependencies' },
-                            { label: 'Compliance Validation', status: 'running', detail: 'GDPR + ISO 27001 + SOC 2 + Law 09-08' },
-                            { label: 'Deploy to Production', status: 'pending', detail: 'Waiting for compliance gate...' },
+                            { label: t('evaluate.steps.s1Label'), status: 'passed', detail: t('evaluate.steps.s1Detail') },
+                            { label: t('evaluate.steps.s2Label'), status: 'passed', detail: t('evaluate.steps.s2Detail') },
+                            { label: t('evaluate.steps.s3Label'), status: 'passed', detail: t('evaluate.steps.s3Detail') },
+                            { label: t('evaluate.steps.s4Label'), status: 'passed', detail: t('evaluate.steps.s4Detail') },
+                            { label: t('evaluate.steps.s5Label'), status: 'running', detail: t('evaluate.steps.s5Detail') },
+                            { label: t('evaluate.steps.s6Label'), status: 'pending', detail: t('evaluate.steps.s6Detail') },
                           ].map((step, i) => (
                             <div key={i} className="flex items-center gap-3">
                               <div className={`w-6 h-6 rounded flex items-center justify-center shrink-0 text-[10px] font-bold ${
@@ -955,7 +1029,7 @@ export default function HarchOSPageClient() {
               {t('features.title')} /0.4
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-4">
-              Core Capabilities
+              {t('capabilities.title')}
             </h2>
             <div className="w-16 h-0.5 bg-[#8B9DAF] mb-12" />
           </FadeIn>
@@ -1203,7 +1277,7 @@ export default function HarchOSPageClient() {
                 <p className="ml-4"><span className="text-[#E06C75]">count</span>: <span className="text-[#D19A66]">256</span>,</p>
                 <p className="ml-4"><span className="text-[#E06C75]">schedule</span>: <span className="text-[#98C379]">&apos;carbon-optimal&apos;</span>,</p>
                 <p>{'}'});</p>
-                <p className="mt-1 text-[#5C6370]">{'// Deployed to Harch Ouarzazate — solar energy at 97.2% capacity'}</p>
+                <p className="mt-1 text-[#5C6370]">{t('devPlatform.codeComment')}</p>
               </div>
             </div>
           </FadeIn>
@@ -1214,145 +1288,12 @@ export default function HarchOSPageClient() {
           SECTION 10: COMPETITIVE COMPARISON — Keep existing component
           ═══════════════════════════════════════════════════════════ */}
       <CompetitiveComparison
-        title="Competitive Landscape"
-        subtitle="HarchOS vs. the world's GPU infrastructure providers. We don't just run green — we schedule green. No competitor matches us on a single metric."
+        title={t('competitive.title')}
+        subtitle={t('competitive.subtitle')}
         accentColor="#8B9DAF"
-        sectionLabel="Competitive Landscape"
-        harchName="HarchOS"
-        competitors={[
-          {
-            name: 'CoreWeave',
-            country: 'USA',
-            metrics: [
-              { label: 'Carbon-Aware GPU Scheduling', harchValue: 'Real-time, per-job, 47-params', competitorValue: 'None — static placement', harchWins: true },
-              { label: 'African Sovereign DC', harchValue: '5 hubs — Morocco jurisdiction', competitorValue: '0 hubs in Africa', harchWins: true },
-              { label: 'Uptime SLA', harchValue: '99.999% (5-nines)', competitorValue: '99.99% (4-nines)', harchWins: true },
-              { label: 'Renewable Energy', harchValue: '81.5% avg — 97.2% best hub', competitorValue: '0% disclosed — US fossil grid', harchWins: true },
-              { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh (89% below avg)', competitorValue: '~450 gCO2/kWh (US grid)', harchWins: true },
-              { label: 'PUE', harchValue: '1.04 — 1.12 range', competitorValue: 'Undisclosed — likely 1.3+', harchWins: true },
-              { label: 'Submarine Cable Hub', harchValue: '4 systems — 8ms to EU', competitorValue: '0 — US-only peering', harchWins: true },
-              { label: 'Sovereign Compliance', harchValue: 'GDPR + ISO 27001 + SOC 2 + Law 09-08', competitorValue: 'US CLOUD Act jurisdiction', harchWins: true },
-              { label: 'Energy Cost /kWh', harchValue: '$0.03 (4x cheaper)', competitorValue: '$0.08-0.12', harchWins: true },
-              { label: 'Data Residency Guarantee', harchValue: '100% African — sovereign', competitorValue: 'US-controlled — CLOUD Act', harchWins: true },
-              { label: 'GPU-per-Watt Efficiency', harchValue: 'Industry-leading (1.04 PUE)', competitorValue: 'Undisclosed — no carbon metrics', harchWins: true },
-              { label: 'Live Container Migration', harchValue: '<200ms — zero-downtime', competitorValue: 'Not available', harchWins: true },
-              { label: 'Failover Time', harchValue: '<200ms — cross-hub', competitorValue: 'Minutes — single-site only', harchWins: true },
-              { label: 'Cross-Vertical Energy Integration', harchValue: 'Harch Energy direct supply', competitorValue: 'None — grid-dependent', harchWins: true },
-            ],
-            verdict: 'CoreWeave has more GPUs. HarchOS has everything else — 9.5x lower carbon intensity, 4x cheaper energy, 5-nines SLA, live container migration, real-time carbon-aware scheduling, African sovereignty, and submarine cable gateway to Europe. Scale without sovereignty is just rented infrastructure.',
-          },
-          {
-            name: 'Google Cloud (Hamina)',
-            country: 'Finland',
-            metrics: [
-              { label: 'Carbon-Aware Scheduling', harchValue: 'Real-time per-job — 47 params', competitorValue: 'None — static green DC only', harchWins: true },
-              { label: 'GPU Cloud Access', harchValue: 'H100/A100/L40S — on-demand', competitorValue: 'No GPU cloud — internal only', harchWins: true },
-              { label: 'African Data Sovereignty', harchValue: '100% — Morocco jurisdiction', competitorValue: '0% — Finland/US jurisdiction', harchWins: true },
-              { label: 'Latency to Africa', harchValue: '<5ms from Morocco hubs', competitorValue: '>100ms from Finland', harchWins: true },
-              { label: 'Energy Cost /kWh', harchValue: '$0.03 (2-3x cheaper)', competitorValue: '$0.06-0.10', harchWins: true },
-              { label: 'EU CBAM Compliance', harchValue: 'Zero-margin — natively green', competitorValue: 'N/A — no GPU cloud to tax', harchWins: true },
-              { label: 'Submarine Cable Gateway', harchValue: '4 systems — Africa-EU hub', competitorValue: 'Nordic — no Africa path', harchWins: true },
-              { label: 'Data Residency', harchValue: '100% African — guaranteed', competitorValue: 'US/Finnish — no African option', harchWins: true },
-              { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh', competitorValue: '~80 gCO2/kWh (Nordic grid)', harchWins: true },
-              { label: 'Sovereign Compliance', harchValue: 'GDPR + ISO 27001 + SOC 2 + Law 09-08', competitorValue: 'GDPR only — US CLOUD Act applies', harchWins: true },
-              { label: 'Live Workload Migration', harchValue: '<200ms cross-hub failover', competitorValue: 'Not available — static DC', harchWins: true },
-              { label: 'Price per GPU-hour (H100)', harchValue: '$1.89 — renewable-powered', competitorValue: 'N/A — no GPU cloud offering', harchWins: true },
-            ],
-            verdict: 'Google Hamina is a green data center you cannot use for GPU compute. HarchOS is a green GPU cloud you can — at 3x lower energy cost, with African sovereignty, real-time carbon-aware scheduling, and the only submarine cable gateway between Africa and Europe. Access matters.',
-          },
-          {
-            name: 'Africa Data Centres (Cassava)',
-            country: 'South Africa',
-            metrics: [
-              { label: 'GPU Compute', harchValue: '1,798 GPUs (H100/A100/L40S)', competitorValue: '0 GPUs — colocation only', harchWins: true },
-              { label: 'Carbon-Aware Scheduling', harchValue: 'Real-time per-job — 47 params', competitorValue: 'None', harchWins: true },
-              { label: 'MW Pipeline', harchValue: '500MW (17x larger)', competitorValue: '30MW', harchWins: true },
-              { label: 'Sovereign AI Platform', harchValue: 'Full-stack (train/tune/serve)', competitorValue: 'None — no AI platform', harchWins: true },
-              { label: 'PUE', harchValue: '1.04 — 1.12 range', competitorValue: 'Undisclosed — likely 1.4+', harchWins: true },
-              { label: 'Renewable Energy', harchValue: '81.5% avg — 97.2% best hub', competitorValue: 'Undisclosed — likely <20%', harchWins: true },
-              { label: 'Submarine Cable Hub', harchValue: '4 systems — Europe gateway', competitorValue: 'None — colocation only', harchWins: true },
-              { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh', competitorValue: '~500 gCO2/kWh (SA grid)', harchWins: true },
-              { label: 'Energy Cost /kWh', harchValue: '$0.03', competitorValue: '$0.08-0.15 (SA grid)', harchWins: true },
-              { label: 'Data Residency Guarantee', harchValue: '100% African — Morocco law', competitorValue: 'South Africa — US CLOUD Act via partners', harchWins: true },
-              { label: 'Cross-Vertical Energy', harchValue: 'Harch Energy direct supply', competitorValue: 'Eskom grid — unreliable', harchWins: true },
-              { label: 'Failover', harchValue: '<200ms cross-hub', competitorValue: 'Single-site — no mesh', harchWins: true },
-            ],
-            verdict: 'Africa\'s largest DC operator has zero GPUs, zero carbon-awareness, zero AI platform, 17x less power pipeline, 10x higher carbon intensity, and 3x higher energy costs. HarchOS is not competing with Africa Data Centres — we are in a different category entirely.',
-          },
-          {
-            name: 'QScale',
-            country: 'Canada',
-            metrics: [
-              { label: 'Carbon-Aware Scheduling', harchValue: 'Real-time per-job — 47 params', competitorValue: 'None — no scheduling', harchWins: true },
-              { label: 'GPU Cloud (Accessible)', harchValue: 'On-demand + reserved — H100/A100/L40S', competitorValue: 'Colocation only — no GPU cloud', harchWins: true },
-              { label: 'African Data Sovereignty', harchValue: '100% — Morocco jurisdiction', competitorValue: '0% — Canada only', harchWins: true },
-              { label: 'Latency to Europe', harchValue: '<8ms via submarine cable', competitorValue: '>80ms from Quebec', harchWins: true },
-              { label: 'Latency to Africa', harchValue: '<5ms', competitorValue: '>150ms', harchWins: true },
-              { label: 'EU Market Access', harchValue: '8ms — same timezone', competitorValue: '80ms+ — transatlantic', harchWins: true },
-              { label: 'Energy Cost /kWh', harchValue: '$0.03 (1.5x cheaper)', competitorValue: '$0.04-0.05 (Hydro-Quebec)', harchWins: true },
-              { label: 'Sovereign Compliance', harchValue: 'GDPR + ISO 27001 + SOC 2 + Law 09-08', competitorValue: 'Canadian jurisdiction — no GDPR', harchWins: true },
-              { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh', competitorValue: '~30 gCO2/kWh (hydro)', harchWins: false },
-              { label: 'Live Workload Migration', harchValue: '<200ms — cross-hub mesh', competitorValue: 'Not available', harchWins: true },
-              { label: 'Submarine Cable Hub', harchValue: '4 systems — Africa-EU gateway', competitorValue: 'None — Canadian peering only', harchWins: true },
-              { label: 'Price per GPU-hour (H100)', harchValue: '$1.89 — all-inclusive', competitorValue: 'N/A — colocation pricing model', harchWins: true },
-              { label: 'Cross-Vertical Integration', harchValue: 'Energy + Mining + Cement + Agri + Water', competitorValue: 'None — standalone compute', harchWins: true },
-            ],
-            verdict: 'QScale runs on a clean grid with lower grid carbon, but cannot schedule carbon per-job, cannot serve GPU cloud workloads, cannot reach Europe in under 80ms, cannot reach Africa at all, and cannot offer sovereignty. HarchOS is the only platform that combines carbon-awareness + GPU cloud + EU proximity + African sovereignty + industrial integration.',
-          },
-          {
-            name: 'Lambda Labs',
-            country: 'USA',
-            metrics: [
-              { label: 'Carbon-Aware Scheduling', harchValue: 'Real-time per-job — 47 params', competitorValue: 'None — static allocation', harchWins: true },
-              { label: 'African Data Sovereignty', harchValue: '5 hubs — Morocco jurisdiction', competitorValue: '0 — US-only', harchWins: true },
-              { label: 'Renewable Energy', harchValue: '81.5% avg — 97.2% best hub', competitorValue: '0% disclosed — US fossil grid', harchWins: true },
-              { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh', competitorValue: '~450 gCO2/kWh (US grid)', harchWins: true },
-              { label: 'Uptime SLA', harchValue: '99.999% (5-nines)', competitorValue: '99.9% (3-nines)', harchWins: true },
-              { label: 'Energy Cost /kWh', harchValue: '$0.03 (3-4x cheaper)', competitorValue: '$0.08-0.12', harchWins: true },
-              { label: 'PUE', harchValue: '1.04 — 1.12', competitorValue: 'Undisclosed — likely 1.3+', harchWins: true },
-              { label: 'Submarine Cable Hub', harchValue: '4 systems — EU gateway', competitorValue: '0 — US-only peering', harchWins: true },
-              { label: 'Live Workload Migration', harchValue: '<200ms — cross-hub', competitorValue: 'Not available', harchWins: true },
-              { label: 'Data Residency Guarantee', harchValue: '100% African — sovereign', competitorValue: 'US-controlled — CLOUD Act', harchWins: true },
-              { label: 'Cross-Vertical Integration', harchValue: 'Energy + Mining + Cement + Agri + Water', competitorValue: 'None — GPU cloud only', harchWins: true },
-              { label: 'Failover', harchValue: '<200ms — distributed mesh', competitorValue: 'Single-site — manual restart', harchWins: true },
-            ],
-            verdict: 'Lambda Labs offers cheap GPU access on a fossil-fueled US grid. HarchOS offers sovereign GPU compute at 4x lower energy cost, 10x lower carbon, 5-nines SLA, cross-hub live migration, and African jurisdiction. Cheap is not the same as superior.',
-          },
-          {
-            name: 'Oracle Cloud Infrastructure',
-            country: 'USA',
-            metrics: [
-              { label: 'Carbon-Aware Scheduling', harchValue: 'Real-time per-job — 47 params', competitorValue: 'None — static allocation', harchWins: true },
-              { label: 'African GPU Hubs', harchValue: '5 hubs — Morocco', competitorValue: '1 region — South Africa only', harchWins: true },
-              { label: 'Renewable Energy', harchValue: '81.5% avg — 97.2% best hub', competitorValue: '~42% global — 0% in Africa', harchWins: true },
-              { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh', competitorValue: '~400 gCO2/kWh (SA grid)', harchWins: true },
-              { label: 'Energy Cost /kWh', harchValue: '$0.03', competitorValue: '$0.08-0.15', harchWins: true },
-              { label: 'Data Residency Guarantee', harchValue: '100% African — Morocco law', competitorValue: 'South Africa — US CLOUD Act', harchWins: true },
-              { label: 'Sovereign Compliance', harchValue: 'GDPR + ISO 27001 + SOC 2 + Law 09-08', competitorValue: 'SOC 2 only — US jurisdiction', harchWins: true },
-              { label: 'Live Workload Migration', harchValue: '<200ms — cross-hub mesh', competitorValue: 'Not available — region-locked', harchWins: true },
-              { label: 'Submarine Cable Hub', harchValue: '4 systems — EU gateway', competitorValue: 'None — standard peering', harchWins: true },
-              { label: 'Cross-Vertical Energy', harchValue: 'Harch Energy direct supply', competitorValue: 'Grid-dependent — no verticals', harchWins: true },
-            ],
-            verdict: 'Oracle has one African region on a fossil-fueled grid, with no carbon-awareness, no sovereign guarantees, and US CLOUD Act exposure. HarchOS has 5 hubs on 81.5% renewable energy, 100% African sovereignty, carbon-aware scheduling, and 4x lower energy costs. Sovereignty is not a feature — it is the architecture.',
-          },
-          {
-            name: 'Equinix',
-            country: 'USA',
-            metrics: [
-              { label: 'GPU Cloud', harchValue: '1,798 GPUs — H100/A100/L40S on-demand', competitorValue: '0 GPUs — colocation only', harchWins: true },
-              { label: 'Carbon-Aware Scheduling', harchValue: 'Real-time per-job — 47 params', competitorValue: 'None — colocation model', harchWins: true },
-              { label: 'African Presence', harchValue: '5 hubs — Morocco', competitorValue: '3 colo facilities — South Africa only', harchWins: true },
-              { label: 'Renewable Energy', harchValue: '81.5% avg — verified', competitorValue: '~95% global — RECs (not direct)', harchWins: true },
-              { label: 'Carbon Intensity', harchValue: '~47 gCO2/kWh (direct generation)', competitorValue: '~100 gCO2/kWh (RECs do not reduce)', harchWins: true },
-              { label: 'AI Platform Services', harchValue: 'Full-stack — train/tune/serve', competitorValue: 'None — bare metal only', harchWins: true },
-              { label: 'Sovereign Compliance', harchValue: 'GDPR + ISO 27001 + SOC 2 + Law 09-08', competitorValue: 'US jurisdiction — CLOUD Act', harchWins: true },
-              { label: 'Energy Cost /kWh', harchValue: '$0.03 (direct renewable)', competitorValue: '$0.10-0.18 (commercial rates)', harchWins: true },
-              { label: 'Live Workload Migration', harchValue: '<200ms — cross-hub mesh', competitorValue: 'Not applicable — colocation', harchWins: true },
-              { label: 'Submarine Cable Hub', harchValue: '4 systems — Africa-EU gateway', competitorValue: 'Standard peering — no gateway', harchWins: true },
-            ],
-            verdict: 'Equinix buys RECs to claim 95% renewable — but RECs do not reduce actual carbon. HarchOS runs on 81.5% direct renewable generation at 47 gCO2/kWh — no accounting tricks, no offsets, just clean power from our own solar and wind farms. Direct beats purchased. Always.',
-          },
-        ]}
+        sectionLabel={t('competitive.title')}
+        harchName={t('competitive.harchName')}
+        competitors={competitors}
       />
 
       {/* ═══════════════════════════════════════════════════════════
@@ -1372,9 +1313,9 @@ export default function HarchOSPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FadeIn>
               <Link href="/contact" className="block bg-[#FAFAFA] rounded-xl border border-[#E5E5E5] p-8 md:p-10 h-full hover:border-[#8B9DAF] transition-all group">
-                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">Briefing</p>
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">{t('cta.briefing')}</p>
                 <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-4 group-hover:text-[#8B9DAF] transition-colors">
-                  Request a Briefing
+                  {t('cta.briefingTitle')}
                 </h3>
                 <p className="text-[14px] text-[#666666] leading-[1.7] mb-6">
                   {t('cta.subtitle')}
@@ -1388,12 +1329,12 @@ export default function HarchOSPageClient() {
 
             <FadeIn delay={0.1}>
               <Link href="#architecture" className="block bg-[#1A1A2E] rounded-xl border border-[#1A1A2E] p-8 md:p-10 h-full hover:bg-[#252545] transition-all group">
-                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">Platform</p>
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">{t('cta.platform')}</p>
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Explore the Platform
+                  {t('cta.platformTitle')}
                 </h3>
                 <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">
-                  Dive into the SENSE-THINK-ACT architecture, carbon-aware scheduling engine, and sovereign GPU cloud.
+                  {t('cta.platformDescription')}
                 </p>
                 <div className="flex items-center gap-2 text-white group-hover:text-[#8B9DAF] transition-colors">
                   <span className="text-[13px] font-semibold">{t('cta.secondary')}</span>

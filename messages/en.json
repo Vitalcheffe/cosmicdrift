@@ -4037,6 +4037,60 @@
     }
   },
   "harchos": {
+    "header": {
+      "requestAccess": "Request Access"
+    },
+    "navOverlay": {
+      "platform": {
+        "title": "PLATFORM",
+        "items": {
+          "i1": "HarchOS",
+          "i2": "Carbon-Aware AI",
+          "i3": "Sovereign Data",
+          "i4": "GPU Compute",
+          "i5": "Edge Inference",
+          "i6": "Pipeline Builder",
+          "i7": "Workflow Engine",
+          "i8": "Real-Time Alerting"
+        }
+      },
+      "industries": {
+        "title": "INDUSTRIES",
+        "items": {
+          "i1": "Energy & Utilities",
+          "i2": "Telecommunications",
+          "i3": "Transport & Logistics",
+          "i4": "Water & Sanitation",
+          "i5": "Construction & Real Estate",
+          "i6": "Healthcare",
+          "i7": "Agriculture",
+          "i8": "Mining & Minerals"
+        }
+      },
+      "caseStudies": {
+        "title": "CASE STUDIES",
+        "items": {
+          "i1": "Ouarzazate Solar Complex",
+          "i2": "Dakhla Wind Farm",
+          "i3": "Tanger Med Port",
+          "i4": "Benguerir Green City",
+          "i5": "Casablanca Finance City",
+          "i6": "Morocco Rail Network"
+        }
+      },
+      "resources": {
+        "title": "RESOURCES",
+        "items": {
+          "i1": "Documentation",
+          "i2": "API Reference",
+          "i3": "Status Page",
+          "i4": "Trust Center",
+          "i5": "Security Whitepaper",
+          "i6": "Privacy Policy",
+          "i7": "Terms of Service"
+        }
+      }
+    },
     "title": "HarchOS",
     "description": "HarchOS is the central nervous system of the Harch Corp portfolio — unifying monitoring, decision-making, and execution across 8 infrastructure subsidiaries.",
     "subtitle": "The Operating System for Sovereign Infrastructure",
@@ -4210,6 +4264,33 @@
       "detailsTab": "DETAILS",
       "videoLabel": "Workflow Builder Demo",
       "videoDuration": "2:34 min",
+      "video": {
+        "sidebar": {
+          "overview": "Overview",
+          "pipeline": "Pipeline Builder",
+          "carbon": "Carbon Scheduler",
+          "workflows": "Workflows",
+          "apiDocs": "API Docs"
+        },
+        "pipelineBuilder": "Pipeline Builder",
+        "resources": "Resources",
+        "generation": "SDK Generation",
+        "nodes": {
+          "ingest": "[HarchOS] Data Ingestion Pipeline",
+          "ingestType": "IoT + Satellite + API Sources",
+          "transform": "[HarchOS] AI Transform Layer",
+          "transformType": "RL + Transformer + GNN",
+          "schedule": "[HarchOS] Carbon-Aware Scheduler",
+          "scheduleType": "Real-time Grid Optimization",
+          "deploy": "[HarchOS] Sovereign Deploy",
+          "deployType": "Zero-Downtime Failover"
+        },
+        "stats": {
+          "throughput": "Throughput",
+          "latency": "Latency",
+          "carbonSaved": "CO2 Saved"
+        }
+      },
       "nodes": {
         "n1Label": "Data Source",
         "n1Sub": "IoT / API / Satellite",
@@ -4248,6 +4329,27 @@
       "detailsTab": "DETAILS",
       "videoLabel": "Evaluation Pipeline Demo",
       "videoDuration": "1:58 min",
+      "video": {
+        "sidebar": {
+          "overview": "Overview",
+          "monitoring": "Monitoring",
+          "alerts": "Alerts",
+          "compliance": "Compliance",
+          "auditLog": "Audit Log"
+        },
+        "monitoringDashboard": "Monitoring Dashboard",
+        "metrics": {
+          "uptime": "Uptime (30d)",
+          "latency": "Avg Latency",
+          "sovereignScore": "Sovereign Score"
+        },
+        "recentAlerts": "Recent Alerts",
+        "alerts": {
+          "a1": "Hub Ouarzazate — All systems nominal",
+          "a2": "Hub Dakhla — Wind generation stable",
+          "a3": "Hub Benguerir — Degraded mode, failover active"
+        }
+      },
       "steps": {
         "s1Label": "Code Commit",
         "s1Detail": "All unit tests passing",

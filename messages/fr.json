@@ -4249,6 +4249,60 @@
     "noResultsTitle": "No Results Title"
   },
   "harchos": {
+    "header": {
+      "requestAccess": "Demander l'accès"
+    },
+    "navOverlay": {
+      "platform": {
+        "title": "PLATEFORME",
+        "items": {
+          "i1": "HarchOS",
+          "i2": "IA Carbone-Aware",
+          "i3": "Données Souveraines",
+          "i4": "Calcul GPU",
+          "i5": "Inférence Edge",
+          "i6": "Pipeline Builder",
+          "i7": "Moteur de Workflows",
+          "i8": "Alertes Temps Réel"
+        }
+      },
+      "industries": {
+        "title": "INDUSTRIES",
+        "items": {
+          "i1": "Énergie & Services Publics",
+          "i2": "Télécommunications",
+          "i3": "Transport & Logistique",
+          "i4": "Eau & Assainissement",
+          "i5": "Construction & Immobilier",
+          "i6": "Santé",
+          "i7": "Agriculture",
+          "i8": "Mines & Minéraux"
+        }
+      },
+      "caseStudies": {
+        "title": "ÉTUDES DE CAS",
+        "items": {
+          "i1": "Complexe Solaire Ouarzazate",
+          "i2": "Parc Éolien Dakhla",
+          "i3": "Port Tanger Med",
+          "i4": "Cité Verte Benguerir",
+          "i5": "Casablanca Finance City",
+          "i6": "Réseau Ferroviaire Maroc"
+        }
+      },
+      "resources": {
+        "title": "RESSOURCES",
+        "items": {
+          "i1": "Documentation",
+          "i2": "Référence API",
+          "i3": "Page de Statut",
+          "i4": "Centre de Confiance",
+          "i5": "Livre Blanc Sécurité",
+          "i6": "Politique de Confidentialité",
+          "i7": "Conditions d'Utilisation"
+        }
+      }
+    },
     "title": "HarchOS",
     "description": "HarchOS est le système nerveux central du portefeuille Harch Corp — unifiant la surveillance, la prise de décision et l'exécution à travers 8 filiales d'infrastructure.",
     "subtitle": "Le système d'exploitation pour l'infrastructure souveraine",
@@ -4422,6 +4476,33 @@
       "detailsTab": "DÉTAILS",
       "videoLabel": "Démonstration du constructeur de workflows",
       "videoDuration": "2:34 min",
+      "video": {
+        "sidebar": {
+          "overview": "Aperçu",
+          "pipeline": "Pipeline Builder",
+          "carbon": "Planificateur Carbone",
+          "workflows": "Workflows",
+          "apiDocs": "Docs API"
+        },
+        "pipelineBuilder": "Pipeline Builder",
+        "resources": "Ressources",
+        "generation": "Génération SDK",
+        "nodes": {
+          "ingest": "[HarchOS] Pipeline d'Ingestion",
+          "ingestType": "IoT + Satellite + Sources API",
+          "transform": "[HarchOS] Couche IA Transformation",
+          "transformType": "RL + Transformer + GNN",
+          "schedule": "[HarchOS] Planificateur Carbone-Aware",
+          "scheduleType": "Optimisation Temps Réel du Réseau",
+          "deploy": "[HarchOS] Déploiement Souverain",
+          "deployType": "Basculement Sans Interruption"
+        },
+        "stats": {
+          "throughput": "Débit",
+          "latency": "Latence",
+          "carbonSaved": "CO2 Économisé"
+        }
+      },
       "nodes": {
         "n1Label": "Source de données",
         "n1Sub": "IoT / API / Satellite",
@@ -4460,6 +4541,27 @@
       "detailsTab": "DÉTAILS",
       "videoLabel": "Démonstration du pipeline d'évaluation",
       "videoDuration": "1:58 min",
+      "video": {
+        "sidebar": {
+          "overview": "Aperçu",
+          "monitoring": "Surveillance",
+          "alerts": "Alertes",
+          "compliance": "Conformité",
+          "auditLog": "Journal d'Audit"
+        },
+        "monitoringDashboard": "Tableau de Bord Surveillance",
+        "metrics": {
+          "uptime": "Disponibilité (30j)",
+          "latency": "Latence Moy.",
+          "sovereignScore": "Score Souverain"
+        },
+        "recentAlerts": "Alertes Récentes",
+        "alerts": {
+          "a1": "Hub Ouarzazate — Tous systèmes nominaux",
+          "a2": "Hub Dakhla — Production éolienne stable",
+          "a3": "Hub Benguerir — Mode dégradé, basculement actif"
+        }
+      },
       "steps": {
         "s1Label": "Commit de code",
         "s1Detail": "Tous les tests unitaires passent",

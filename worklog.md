@@ -1,131 +1,85 @@
-# Worklog: Rewrite HarchOS Page to Match Palantir AIP
+# HarchOS Page Enhancement Worklog
 
-**Date**: 2026-03-04
-**Task**: Rewrite HarchOS page hero/workflow/evaluate sections to match Palantir AIP page exactly
+## Date: 2026-03-05
 
-## Changes Made
-
-### 1. HarchOSPageClient.tsx — Complete Rewrite of Sections 1-3
-
-**Section 1: Hero (Dark bg #1E1E2E)**
-- Changed hero background from `#1A1A2E` to `#1E1E2E` to match Palantir AIP
-- Changed demo container background from `#12122A` to `#252538` to match Palantir's dark panel style
-- Updated tab active border to solid `white` (from `white/25`) matching Palantir's bold active state
-- Added purple (`#8B5CF6`) "Sovereign" and light blue (`#7DD3FC`) "Autonomy" colored subheadline text
-- Added **Annotation Badge component** with purple circles (`#6366F1`) containing letters A, B, C
-- Each hero tab now shows annotation circles pointing to specific UI elements:
-  - **Sovereign AI App tab**: Alert feed (A), Carbon warning (B), AI action panel (C) with Accept/Modify/Explain buttons
-  - **Carbon-Aware Logic tab**: Best hub (A), Grid carbon (B), Hub comparison (C)
-  - **Automation tab**: Workflow sidebar (A), Pipeline steps (B), Status tracking (C)
-- Each tab's demo includes an annotation legend bar at the bottom
-
-**Section 2: Removed Interactive Demo section**
-- Completely removed the old Section 2 (expanded dark demo with macOS window chrome) — not part of Palantir AIP design
-- This eliminated ~250 lines of redundant demo code
-
-**Section 3: Workflow Builder (White bg)**
-- Changed `DIAGRAM` tab to `DETAILS` tab matching Palantir's VIDEO/DETAILS toggle
-- Updated progress indicator to use Palantir-style `[0.1] — 0.2 — 0.3 — 0.4` format with brackets on active step
-- When DETAILS tab is active, shows feature cards instead of workflow diagram:
-  - AI-driven data pipelining
-  - AI-driven actions
-  - AI-driven agents
-- Each card has icon, title, and description
-
-**Section 4: Evaluate (Light gray bg #F7F7F8)**
-- Same VIDEO/DETAILS toggle pattern as workflow section
-- Progress indicator with `[0.2]` active
-- When DETAILS tab is active, shows feature cards:
-  - Debug logic
-  - Compare models
-
-**State variable changes:**
-- `workflowMediaTab` type changed from `'video' | 'diagram'` to `'video' | 'details'`
-- `evaluateMediaTab` type changed from `'video' | 'diagram'` to `'video' | 'details'`
-
-**New imports:** None needed (used existing Database, Sparkles, Brain, Settings2, GitBranch)
-
-**Bug fix:** Escaped `{job.hub}` and `{job.carbon_intensity}` in code snippet JSX to prevent TypeScript error
-
-### 2. en.json — New Translation Keys Added
-
-Under `harchos.hero`:
-- `subheadlineSovereign`: "Sovereign"
-- `subheadlineAutonomy`: "Autonomy"
-- `annotations.accept`: "Accept"
-- `annotations.modify`: "Modify"
-- `annotations.explain`: "Explain"
-- `annotations.sovereign.a/b/c`: Sovereign tab annotation descriptions
-- `annotations.carbon.a/b/c`: Carbon tab annotation descriptions
-- `annotations.automation.a/b/c`: Automation tab annotation descriptions
-
-Under `harchos.workflow`:
-- `detailsTab`: "DETAILS"
-- `details.dataPipelining.title/desc`: AI-driven data pipelining
-- `details.actions.title/desc`: AI-driven actions
-- `details.agents.title/desc`: AI-driven agents
-
-Under `harchos.evaluate`:
-- `detailsTab`: "DETAILS"
-- `details.debugLogic.title/desc`: Debug logic
-- `details.compareModels.title/desc`: Compare models
-
-### 3. fr.json — French Translation Keys Added
-
-All new keys from en.json translated to French:
-- `subheadlineSovereign`: "Souveraineté"
-- `subheadlineAutonomy`: "Autonomie"
-- All annotation descriptions translated
-- `detailsTab`: "DÉTAILS"
-- All feature card titles and descriptions translated
-
-### Build Verification
-- `bun run build` completed successfully with 0 errors
-- All routes generated correctly
-
-### Git
-- Committed as: `feat: rewrite HarchOS hero/workflow/evaluate sections to match Palantir AIP exactly`
-- Pushed to: `origin main`
-
----
-
-**Date**: 2026-03-04
-**Task**: Add 3 new Palantir-style sections to HarchOS page (Sectors, Build Now, Page Footer)
+## Summary
+Enhanced the HarchOS page with three major Palantir-style features: sticky header, navigation overlay, and rich interface mockups replacing VIDEO tab placeholders.
 
 ## Changes Made
 
-### 1. HarchOSPageClient.tsx — 3 New Sections
+### 1. HarchOSPageClient.tsx (`/home/z/my-project/src/app/[locale]/intelligence/harchos/HarchOSPageClient.tsx`)
 
-**Section: Sectors (after Hero, before Workflow Builder)**
-- Dark bg `#1E1E2E`, Palantir "Solving complex problems across all industries" style
-- Left column (40%): Headline + CTA button with white border
-- Right column (60%): 13-item numbered list of infrastructure sectors with dividers
-- Hover effects: text turns white, slides right via framer-motion
+#### A. Import Updates
+- Added `Search`, `Menu`, `X` icons to lucide-react imports
 
-**Section: Build Now (after Competitive Comparison, before Footer)**
-- Dark bg `#1E1E2E`, Palantir "Build now with AIP" style
-- Centered headline, two cards with circular arrow icons
-- Cards numbered 01/02 with hover border effects
+#### B. State Addition
+- Added `const [navOpen, setNavOpen] = useState(false)` for navigation overlay toggle
 
-**Section: Page Footer (replaced old CTA Section 10)**
-- Darkest bg `#0A0A0A`, Palantir comprehensive footer
-- Left sidebar: Harch Corp, copyright, regions, social buttons
-- 4-column grid: OFFERINGS, IMPACT STUDIES, CAPABILITIES, DOCUMENTS
-- "Back to Intelligence" link preserved at bottom
+#### C. Sticky Header Bar (new, at top of component return)
+- Fixed header at top of viewport (`z-50`, `fixed`)
+- Left: Cpu icon + "HarchOS" text
+- Right: "Request Access" button (hidden on mobile), Search icon, Menu (hamburger) icon
+- Background: `bg-[#1E1E2E]/95` with `backdrop-blur-sm`
+- Border: subtle `border-white/[0.04]`
 
-### 2. en.json — New Translation Keys
-- `harchos.sectors` (title, cta, items.s1-s13)
-- `harchos.buildNow` (title, build.title/desc, explore.title/desc)
-- `harchos.pageFooter` (copyright, regions, social, offerings, impactStudies, capabilities, documents with 11-12 items each)
+#### D. Hero Section Padding
+- Changed `pt-24` to `pt-28` to account for 56px sticky header
 
-### 3. fr.json — French Translation Keys
-- All new keys translated to proper French
-- Technical terms kept in English where appropriate
+#### E. Workflow VIDEO Tab Replacement
+- Replaced simple Play button circle with rich HarchOS Pipeline Builder interface mockup
+- Left sidebar: HarchOS logo, 5 menu items (Overview, Pipeline Builder active, Carbon Scheduler, Workflows, API Docs)
+- Main content: Pipeline Builder title with LIVE badge, Resources/SDK Generation labels
+- 4 pipeline nodes: Data Ingestion, AI Transform, Carbon-Aware Scheduler, Sovereign Deploy
+- Each node has icon, name, type, and status indicator (green dot = active, gray = pending)
+- Stats row: Throughput (5.2K/s), Latency (<50ms), CO2 Saved (-1.2t)
 
-### Build Verification
-- `bun run build` completed successfully with 0 errors
-- No lint errors in HarchOSPageClient.tsx
+#### F. Evaluate VIDEO Tab Replacement
+- Replaced simple Play button circle with rich HarchOS Monitoring Dashboard interface mockup
+- Left sidebar: HarchOS logo, 5 menu items (Overview, Monitoring active, Alerts, Compliance, Audit Log)
+- Main content: Monitoring Dashboard title with HEALTHY badge
+- 3 metric cards: Uptime 99.999%, Avg Latency <5ms, Sovereign Score 98/100
+- Recent Alerts feed with 3 entries (2 green/ok, 1 amber/warn)
 
-### Git
-- Committed as: `feat: add Palantir-style sectors, build now, and footer sections to HarchOS page`
-- Pushed to: `origin main`
+#### G. Full-Screen Navigation Overlay (new, before closing div)
+- AnimatePresence-wrapped overlay with fade animation
+- Full viewport coverage (`z-[60]`, `bg-[#0A0A0A]`)
+- Close button (X) top right
+- "Harch Corp" logo top left
+- 4-column responsive grid (2 cols mobile, 4 cols desktop):
+  - PLATFORM: 8 items (HarchOS, Carbon-Aware AI, Sovereign Data, etc.)
+  - INDUSTRIES: 8 items (Energy, Telecom, Transport, etc.)
+  - CASE STUDIES: 6 items (Ouarzazate Solar, Dakhla Wind, etc.)
+  - RESOURCES: 7 items (Documentation, API Reference, etc.)
+- Social pill buttons at bottom (YOUTUBE, X, LINKEDIN, GITHUB)
+- All strings use `t()` for i18n
+
+### 2. en.json (`/home/z/my-project/messages/en.json`)
+
+Added to `harchos` section:
+- `header.requestAccess`: "Request Access"
+- `navOverlay.platform.title` + 8 items
+- `navOverlay.industries.title` + 8 items
+- `navOverlay.caseStudies.title` + 6 items
+- `navOverlay.resources.title` + 7 items
+- `workflow.video.sidebar` (5 items)
+- `workflow.video.pipelineBuilder`, `resources`, `generation`
+- `workflow.video.nodes` (8 keys: ingest, ingestType, transform, transformType, schedule, scheduleType, deploy, deployType)
+- `workflow.video.stats` (throughput, latency, carbonSaved)
+- `evaluate.video.sidebar` (5 items)
+- `evaluate.video.monitoringDashboard`
+- `evaluate.video.metrics` (uptime, latency, sovereignScore)
+- `evaluate.video.recentAlerts`
+- `evaluate.video.alerts` (a1, a2, a3)
+
+### 3. fr.json (`/home/z/my-project/messages/fr.json`)
+
+Added identical structure to `harchos` section with French translations:
+- `header.requestAccess`: "Demander l'accès"
+- All navOverlay items with French translations
+- All workflow.video items with French translations
+- All evaluate.video items with French translations
+
+## Verification
+- Both `/en/intelligence/harchos` and `/fr/intelligence/harchos` return HTTP 200
+- Dev server compiles successfully with no new errors
+- Pre-existing lint errors (in Sidebar.tsx) are unrelated to these changes

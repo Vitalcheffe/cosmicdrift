@@ -10,7 +10,8 @@ import {
   CloudCog, FileCode2, GitBranch, Boxes, Eye, Rocket, CheckCircle2,
   Sun, Droplets, MapPin, ArrowUpRight, Play, AlertTriangle,
   TrendingUp, CircleDot, Workflow, Settings2, BarChart2, Timer,
-  CpuIcon, Users, ChevronRight, ExternalLink, Sparkles
+  CpuIcon, Users, ChevronRight, ExternalLink, Sparkles,
+  Search, Menu, X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
@@ -41,6 +42,7 @@ export default function HarchOSPageClient() {
   const [evaluateMediaTab, setEvaluateMediaTab] = useState<'video' | 'details'>('details');
   const [workflowStep, setWorkflowStep] = useState(1);
   const [evaluateStep, setEvaluateStep] = useState(2);
+  const [navOpen, setNavOpen] = useState(false);
 
   /* ─── Mock Data (using t() for translatable content) ─── */
   const SOVEREIGN_AI_ALERTS = [
@@ -254,6 +256,24 @@ export default function HarchOSPageClient() {
   return (
     <div className="bg-white">
 
+      {/* Sticky Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#1E1E2E]/95 backdrop-blur-sm border-b border-white/[0.04]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-14">
+          <div className="flex items-center gap-2">
+            <Cpu size={16} className="text-[#8B9DAF]" />
+            <span className="text-[13px] font-bold text-white tracking-[-0.01em]">HarchOS</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <button className="hidden md:inline-flex items-center gap-2 px-4 py-1.5 rounded border border-white/[0.2] text-white text-[11px] font-semibold hover:bg-white/[0.08] transition-colors">
+              {t('header.requestAccess')}
+              <ArrowUpRight size={12} />
+            </button>
+            <button className="text-[#8B9DAF] hover:text-white transition-colors"><Search size={16} /></button>
+            <button onClick={() => setNavOpen(true)} className="text-[#8B9DAF] hover:text-white transition-colors"><Menu size={16} /></button>
+          </div>
+        </div>
+      </header>
+
       {/* ═══════════════════════════════════════════════════════════
           SECTION 1: HERO — Palantir AIP "Beyond Chat" Style
           Dark bg #1E1E2E, headline left, numbered tabs right
@@ -266,7 +286,7 @@ export default function HarchOSPageClient() {
           backgroundSize: '60px 60px',
         }} />
 
-        <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto w-full pt-24 pb-8">
+        <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto w-full pt-28 pb-8">
           {/* Top section: Headline + Tabs */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-12">
             {/* Left: Headline */}
@@ -720,14 +740,77 @@ export default function HarchOSPageClient() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="flex items-center justify-center min-h-[340px]"
+                        className="min-h-[340px] bg-[#1E1E2E] p-0"
                       >
-                        <div className="text-center">
-                          <div className="w-16 h-16 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center mx-auto mb-3">
-                            <Play size={24} className="text-[#1A1A2E] ml-1" />
+                        {/* Pipeline Builder Interface Mockup */}
+                        <div className="flex h-full min-h-[340px]">
+                          {/* Sidebar */}
+                          <div className="w-[180px] border-r border-white/[0.06] p-3 shrink-0 hidden md:block">
+                            <p className="text-[10px] font-bold tracking-[0.15em] text-[#555555] uppercase mb-3 font-[family-name:var(--font-space-mono)]">HarchOS</p>
+                            {[
+                              { label: t('workflow.video.sidebar.overview'), active: false },
+                              { label: t('workflow.video.sidebar.pipeline'), active: true },
+                              { label: t('workflow.video.sidebar.carbon'), active: false },
+                              { label: t('workflow.video.sidebar.workflows'), active: false },
+                              { label: t('workflow.video.sidebar.apiDocs'), active: false },
+                            ].map((item, i) => (
+                              <div key={i} className={`px-2.5 py-1.5 rounded text-[11px] mb-0.5 cursor-pointer ${
+                                item.active ? 'bg-white/[0.08] text-white font-semibold' : 'text-[#666666] hover:text-[#999999]'
+                              }`}>
+                                {item.label}
+                              </div>
+                            ))}
                           </div>
-                          <p className="text-[13px] text-[#999999]">{t('workflow.videoLabel')}</p>
-                          <p className="text-[11px] text-[#CCCCCC] mt-1">{t('workflow.videoDuration')}</p>
+                          {/* Main content */}
+                          <div className="flex-1 p-4">
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="flex items-center gap-2">
+                                <span className="text-[12px] font-semibold text-white">{t('workflow.video.pipelineBuilder')}</span>
+                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#8B5CF6]/10 text-[#8B5CF6] font-bold font-[family-name:var(--font-space-mono)]">LIVE</span>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">{t('workflow.video.resources')}</span>
+                                <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">{t('workflow.video.generation')}</span>
+                              </div>
+                            </div>
+                            {/* Pipeline nodes */}
+                            <div className="space-y-2">
+                              {[
+                                { name: t('workflow.video.nodes.ingest'), type: t('workflow.video.nodes.ingestType'), status: 'active', icon: Database },
+                                { name: t('workflow.video.nodes.transform'), type: t('workflow.video.nodes.transformType'), status: 'active', icon: Brain },
+                                { name: t('workflow.video.nodes.schedule'), type: t('workflow.video.nodes.scheduleType'), status: 'active', icon: Leaf },
+                                { name: t('workflow.video.nodes.deploy'), type: t('workflow.video.nodes.deployType'), status: 'pending', icon: Zap },
+                              ].map((node, i) => (
+                                <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.03] border border-white/[0.04]">
+                                  <div className={`w-7 h-7 rounded flex items-center justify-center shrink-0 ${
+                                    node.status === 'active' ? 'bg-[#8B5CF6]/10' : 'bg-white/[0.04]'
+                                  }`}>
+                                    <node.icon size={14} className={node.status === 'active' ? 'text-[#8B5CF6]' : 'text-[#555555]'} />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <p className="text-[11px] font-semibold text-white">{node.name}</p>
+                                    <p className="text-[9px] text-[#555555] font-[family-name:var(--font-space-mono)]">{node.type}</p>
+                                  </div>
+                                  <span className={`w-2 h-2 rounded-full shrink-0 ${node.status === 'active' ? 'bg-emerald-400' : 'bg-[#555555]'}`} />
+                                </div>
+                              ))}
+                            </div>
+                            {/* Pipeline stats */}
+                            <div className="mt-3 flex gap-4 pt-3 border-t border-white/[0.04]">
+                              <div>
+                                <span className="text-[9px] text-[#555555]">{t('workflow.video.stats.throughput')}</span>
+                                <p className="text-[12px] font-bold text-white font-[family-name:var(--font-space-mono)]">5.2K/s</p>
+                              </div>
+                              <div>
+                                <span className="text-[9px] text-[#555555]">{t('workflow.video.stats.latency')}</span>
+                                <p className="text-[12px] font-bold text-white font-[family-name:var(--font-space-mono)]">&lt;50ms</p>
+                              </div>
+                              <div>
+                                <span className="text-[9px] text-[#555555]">{t('workflow.video.stats.carbonSaved')}</span>
+                                <p className="text-[12px] font-bold text-emerald-400 font-[family-name:var(--font-space-mono)]">-1.2t</p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </motion.div>
                     ) : (
@@ -851,14 +934,64 @@ export default function HarchOSPageClient() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="flex items-center justify-center min-h-[340px]"
+                        className="min-h-[340px] bg-[#1E1E2E] p-0"
                       >
-                        <div className="text-center">
-                          <div className="w-16 h-16 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center mx-auto mb-3">
-                            <Play size={24} className="text-[#1A1A2E] ml-1" />
+                        {/* Monitoring Dashboard Interface Mockup */}
+                        <div className="flex h-full min-h-[340px]">
+                          {/* Sidebar */}
+                          <div className="w-[180px] border-r border-white/[0.06] p-3 shrink-0 hidden md:block">
+                            <p className="text-[10px] font-bold tracking-[0.15em] text-[#555555] uppercase mb-3 font-[family-name:var(--font-space-mono)]">HarchOS</p>
+                            {[
+                              { label: t('evaluate.video.sidebar.overview'), active: false },
+                              { label: t('evaluate.video.sidebar.monitoring'), active: true },
+                              { label: t('evaluate.video.sidebar.alerts'), active: false },
+                              { label: t('evaluate.video.sidebar.compliance'), active: false },
+                              { label: t('evaluate.video.sidebar.auditLog'), active: false },
+                            ].map((item, i) => (
+                              <div key={i} className={`px-2.5 py-1.5 rounded text-[11px] mb-0.5 cursor-pointer ${
+                                item.active ? 'bg-white/[0.08] text-white font-semibold' : 'text-[#666666] hover:text-[#999999]'
+                              }`}>
+                                {item.label}
+                              </div>
+                            ))}
                           </div>
-                          <p className="text-[13px] text-[#999999]">{t('evaluate.videoLabel')}</p>
-                          <p className="text-[11px] text-[#CCCCCC] mt-1">{t('evaluate.videoDuration')}</p>
+                          {/* Main content */}
+                          <div className="flex-1 p-4">
+                            <div className="flex items-center justify-between mb-4">
+                              <span className="text-[12px] font-semibold text-white">{t('evaluate.video.monitoringDashboard')}</span>
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold font-[family-name:var(--font-space-mono)]">HEALTHY</span>
+                            </div>
+                            {/* Metrics grid */}
+                            <div className="grid grid-cols-3 gap-2 mb-3">
+                              {[
+                                { label: t('evaluate.video.metrics.uptime'), value: '99.999%', color: 'text-emerald-400' },
+                                { label: t('evaluate.video.metrics.latency'), value: '<5ms', color: 'text-white' },
+                                { label: t('evaluate.video.metrics.sovereignScore'), value: '98/100', color: 'text-[#8B5CF6]' },
+                              ].map((metric, i) => (
+                                <div key={i} className="rounded-lg bg-white/[0.03] border border-white/[0.04] p-2.5">
+                                  <p className="text-[9px] text-[#555555] mb-1">{metric.label}</p>
+                                  <p className={`text-[14px] font-bold font-[family-name:var(--font-space-mono)] ${metric.color}`}>{metric.value}</p>
+                                </div>
+                              ))}
+                            </div>
+                            {/* Alert feed */}
+                            <p className="text-[9px] text-[#555555] uppercase tracking-wider font-bold mb-2">{t('evaluate.video.recentAlerts')}</p>
+                            <div className="space-y-1.5">
+                              {[
+                                { msg: t('evaluate.video.alerts.a1'), time: '2m ago', severity: 'ok' },
+                                { msg: t('evaluate.video.alerts.a2'), time: '8m ago', severity: 'ok' },
+                                { msg: t('evaluate.video.alerts.a3'), time: '15m ago', severity: 'warn' },
+                              ].map((alert, i) => (
+                                <div key={i} className="flex items-center gap-2 px-2.5 py-2 rounded bg-white/[0.02] border border-white/[0.03]">
+                                  <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                                    alert.severity === 'ok' ? 'bg-emerald-400' : 'bg-amber-400'
+                                  }`} />
+                                  <p className="text-[10px] text-[#999999] flex-1 truncate">{alert.msg}</p>
+                                  <span className="text-[9px] text-[#555555] font-[family-name:var(--font-space-mono)] shrink-0">{alert.time}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       </motion.div>
                     ) : (
@@ -1336,6 +1469,56 @@ export default function HarchOSPageClient() {
           </FadeIn>
         </div>
       </section>
+
+      {/* Full-Screen Navigation Overlay */}
+      <AnimatePresence>
+        {navOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[60] bg-[#0A0A0A] overflow-y-auto"
+          >
+            <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-8">
+              {/* Close button */}
+              <div className="flex items-center justify-between mb-12">
+                <span className="text-xl font-bold text-white">Harch Corp</span>
+                <button onClick={() => setNavOpen(false)} className="text-[#8B9DAF] hover:text-white transition-colors">
+                  <X size={24} />
+                </button>
+              </div>
+              {/* 4-column grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                {['platform', 'industries', 'caseStudies', 'resources'].map((col) => (
+                  <div key={col}>
+                    <p className="text-[11px] font-bold tracking-[0.15em] text-white mb-4 font-[family-name:var(--font-space-mono)]">
+                      {t(`navOverlay.${col}.title`)}
+                    </p>
+                    <ul className="space-y-2.5">
+                      {Array.from({ length: col === 'platform' ? 8 : col === 'industries' ? 8 : col === 'caseStudies' ? 6 : 7 }, (_, i) => i + 1).map((idx) => (
+                        <li key={idx}>
+                          <span className="text-[13px] text-[#888888] hover:text-white transition-colors cursor-pointer leading-[1.6]">
+                            {t(`navOverlay.${col}.items.i${idx}`)}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+              {/* Social buttons */}
+              <div className="mt-12 flex flex-wrap gap-2">
+                {(['youtube', 'x', 'linkedin', 'github'] as const).map((social) => (
+                  <span key={social} className="px-4 py-2 rounded border border-[#2A2A2A] text-[11px] font-bold text-[#999999] tracking-[0.1em] hover:text-white hover:border-[#555555] transition-colors cursor-pointer">
+                    {t(`pageFooter.social.${social}`)}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

@@ -5204,6 +5204,13 @@
     "devPlatform": {
       "pythonSdk": "SDK Python",
       "typeScriptSdk": "SDK TypeScript"
+    },
+    "statement": "Nous construisons l’infrastructure que l’Afrique possède, exploite et contrôle. Huit verticales. Cinq pays. Un système d’exploitation.",
+    "cta": {
+      "requestBriefing": "Demander un Briefing",
+      "requestBriefingDesc": "Pour investisseurs, partenaires et gouvernements",
+      "explorePlatform": "Explorer la Plateforme",
+      "explorePlatformDesc": "Console HarchOS et données opérationnelles"
     }
   },
   "intelligence": {
@@ -10461,16 +10468,16 @@
   },
   "interactivePlatform": {
     "headerLabel": "Plateforme",
-    "headerTitle": "Le syst\u00e8me d'exploitation de l'infrastructure africaine",
-    "headerDescription": "HarchOS int\u00e8gre les donn\u00e9es des syst\u00e8mes ERP, r\u00e9seaux SCADA, capteurs IoT et bases de donn\u00e9es h\u00e9rit\u00e9es \u00e0 travers huit verticales \u2014 fournissant une approche unifi\u00e9e et bas\u00e9e sur les donn\u00e9es de la gestion d'infrastructure qui permet des d\u00e9cisions plus rapides et plus inform\u00e9es.",
+    "headerTitle": "Le système d'exploitation de l'infrastructure africaine",
+    "headerDescription": "HarchOS intègre les données des systèmes ERP, réseaux SCADA, capteurs IoT et bases de données héritées à travers huit verticales — fournissant une approche unifiée et basée sur les données de la gestion d'infrastructure qui permet des décisions plus rapides et plus informées.",
     "platform": "Plateforme",
-    "interactivePreview": "Aper\u00e7u interactif de la plateforme \u2014 explorez l'interface",
-    "allSystemsNominal": "TOUS SYST\u00c8MES NOMINAUX",
+    "interactivePreview": "Aperçu interactif de la plateforme — explorez l'interface",
+    "allSystemsNominal": "TOUS SYSTÈMES NOMINAUX",
     "live": "EN DIRECT",
-    "hideDetails": "Masquer les d\u00e9tails",
-    "showDetails": "Afficher les d\u00e9tails",
+    "hideDetails": "Masquer les détails",
+    "showDetails": "Afficher les détails",
     "export": "Exporter",
-    "settings": "Param\u00e8tres",
+    "settings": "Paramètres",
     "intelligence": {
       "platformName": "Console HarchOS",
       "sidebarLabels": {

@@ -1,56 +1,49 @@
-# Worklog — Task 3: Rewrite HarchOSPageClient.tsx (Palantir AIP Style)
+# Work Log: Fix i18n/Translation Issues in HarchOS Page
+
+## Date: 2026-03-04
 
 ## Summary
-Completely rewrote `/home/z/my-project/src/app/[locale]/intelligence/harchos/HarchOSPageClient.tsx` to match Palantir's AIP product page style.
+Fixed all i18n/translation issues in the HarchOS page by replacing dozens of hardcoded English strings with `t()` translation function calls, creating comprehensive translation keys in both `en.json` and `fr.json`.
+
+## Files Modified
+1. **`/home/z/my-project/messages/en.json`** — Replaced the `harchos` section (was 82 lines, now 630+ lines) with comprehensive keys covering every string in the page
+2. **`/home/z/my-project/messages/fr.json`** — Replaced the `harchos` section with proper French translations (was 117 lines of mixed English/French, now 630+ lines of proper French)
+3. **`/home/z/my-project/src/app/[locale]/intelligence/harchos/HarchOSPageClient.tsx`** — Rewrote to use `t()` for all hardcoded strings
 
 ## Changes Made
 
-### Section Structure (11 sections total)
-1. **HERO** (Dark bg `#1A1A2E`) — "Beyond Infrastructure / Explore HarchOS" headline with live stats (1,798 GPUs, 5 Hubs, 47 gCO₂/kWh, 99.999% Uptime). Three numbered feature tabs (SOVEREIGN AI APP 01, CARBON-AWARE LOGIC 02, AUTOMATION 03) with inline demo containers that swap via `AnimatePresence`.
+### en.json harchos section
+- Expanded from ~82 lines to ~630 lines
+- Added nested key structure: `hero.*`, `demo.sovereign.*`, `demo.carbon.*`, `demo.automation.*`, `workflow.*`, `evaluate.*`, `capabilities.*`, `specs.*`, `security.*`, `devPlatform.*`, `competitive.*`, `cta.*`, `hubTypes.*`, `progress.*`
+- Preserved all existing keys that were already used with `t()`
+- Added new keys for: stat labels, tab labels, demo UI labels, alert data, workflow data, carbon hub data, automation pipeline steps, workflow diagram nodes, evaluation pipeline steps, spec labels, security feature descriptions, competitive comparison data (7 competitors × ~12 metrics each), CTA labels
 
-2. **INTERACTIVE DEMO** (Dark bg `#1A1A2E`) — Full-width console-style demo container with terminal chrome (dots, tab switching). Three detailed mock dashboards:
-   - **Sovereign AI App**: Live alerts panel with severity-coded items, proposed AI actions with confidence scores and approval status
-   - **Carbon-Aware Logic**: Hub comparison with carbon intensity bars, renewable percentages, GPU counts, and latency metrics
-   - **Automation**: Workflow engine with running/idle states, step progress bars, trigger conditions
+### fr.json harchos section
+- Replaced mixed English/French with proper French translations
+- Technical terms (GPU, H100, A100, PUE, GDPR, ISO 27001, SOC 2, CLOUD Act) kept as-is
+- Proper French for UI terms: "Ordonnancement éco-responsable", "Résidence souveraine des données", "Services de plateforme IA", "SDK Développeur", "Architecture Zero-Trust", "Chiffrement souverain", "Conformité automatisée", etc.
+- All competitive comparison verdicts translated to proper French
 
-3. **WORKFLOW BUILDER** (White bg) — Progress indicator ([0.1]—0.2—0.3—0.4), headline "Designed for AI workflow builders", VIDEO/DIAGRAM toggle tabs. Diagram view shows a 5-step vertical pipeline (Data Source → Carbon Evaluation → Hub Selection → GPU Provisioning → Deploy & Monitor).
+### HarchOSPageClient.tsx
+- Moved mock data arrays (SOVEREIGN_AI_ALERTS, CARBON_HUBS, AUTOMATION_WORKFLOWS, PROGRESS_STEPS) inside the component to access `t()`
+- Replaced all hardcoded strings with `t()` calls:
+  - Hero section: "Beyond Infrastructure" → `t('hero.headline')` + `t('hero.headlineLine2')`, "Explore HarchOS" → `t('hero.subheadline')`, stat labels, tab labels
+  - Demo section: "Live Alerts", "Carbon-Aware Scheduler", "Workflow Engine", "5 Active Alerts", "View All", "Dashboard", "Builder", all demo stat labels, etc.
+  - Workflow section: "Designed for AI workflow builders", "VIDEO", "DIAGRAM", all check items, diagram node labels
+  - Evaluate section: "Evaluate and ship with confidence", all pipeline step labels and details
+  - Capabilities section: "Core Capabilities", all capability titles and descriptions
+  - Specs section: "Network" category, all spec labels (15 total)
+  - Security section: all 4 security feature titles and descriptions
+  - Developer section: code comment translatable
+  - Competitive section: all 7 competitors with full metric data using `buildCompetitorMetrics()` helper
+  - CTA section: "Briefing", "Request a Briefing", "Platform", "Explore the Platform", platform description
+- Added `getWorkflowStatusLabel()` and `getActionStatusLabel()` helper functions for status translations
+- CSS, layout, and visual structure preserved exactly
 
-4. **EVALUATE AND SHIP** (Light gray `#F7F7F8`) — Similar layout with VIDEO/DIAGRAM tabs. Diagram shows CI/CD evaluation pipeline (Code Commit → Carbon Impact Check → Sovereign Data Scan → Security Audit → Compliance Validation → Deploy).
+## Build Verification
+- `bun run lint` — No new errors in HarchOSPageClient.tsx
+- `npx next build` — Build succeeded with 0 errors, both `/en/intelligence/harchos` and `/fr/intelligence/harchos` pages generated successfully
 
-5. **CAPABILITIES** (White bg) — Numbered feature list (/0.1 through /0.4): Carbon-Aware Scheduling, Sovereign Data Residency, AI Platform Services, Developer SDK. Thin dividers between items.
-
-6. **ARCHITECTURE** (Light gray bg) — SENSE / THINK / ACT tabs restyled for light background. Clean white card with specs.
-
-7. **SPEC TABLE** (White bg) — Clean 3-column grid (Compute, Sustainability, Network) with bordered cards.
-
-8. **SECURITY & COMPLIANCE** (Light gray bg) — 4 feature cards + compliance badges (GDPR, ISO 27001, SOC 2 Type II, Law 09-08, FIPS 140-2 L3, TLS 1.3).
-
-9. **DEVELOPER PLATFORM** (White bg) — 4 tool cards + code snippet preview (deploy-workload.ts in dark terminal style).
-
-10. **COMPETITIVE COMPARISON** — Preserved all 7 competitors with full metrics and verdicts (CoreWeave, Google Cloud Hamina, Africa Data Centres, QScale, Lambda Labs, Oracle Cloud, Equinix).
-
-11. **CTA** (White bg) — Two cards: white "Request a Briefing" + dark `#1A1A2E` "Explore the Platform". Back to Intelligence link.
-
-### Key Design Decisions
-- Dark sections use `#1A1A2E` (deep navy, not pure black) for Palantir AIP aesthetic
-- Light sections alternate between white and `#F7F7F8` for visual rhythm
-- Mock demo data includes realistic hub names (Ouarzazate, Dakhla, Benguerir, Tanger, Casablanca), carbon readings, GPU counts, latency metrics
-- Used `motion` and `AnimatePresence` for all tab switching animations
-- All existing translation keys preserved and reused
-- CompetitiveComparison component preserved with all 7 competitors and 70+ metrics intact
-- Code snippet (deploy-workload.ts) preserved with original syntax highlighting
-
-### State Management
-- `heroTab`: 'sovereign' | 'carbon' | 'automation' (default: 'carbon')
-- `activeArchTab`: 'sense' | 'think' | 'act' (default: 'sense')
-- `workflowMediaTab`: 'video' | 'diagram' (default: 'video')
-- `evaluateMediaTab`: 'video' | 'diagram' (default: 'diagram')
-- `workflowStep`: 0-3 (default: 1)
-- `evaluateStep`: 0-3 (default: 2)
-
-### Build Verification
-- `npx next build` ✅ Success
-- `bun run lint` ✅ No errors in this file (pre-existing errors in other files are unrelated)
-
-## Time
-Completed in single pass with full rewrite.
+## Git
+- Committed: `fix: complete i18n for HarchOS page - all strings now use t() translations`
+- Pushed to `main` branch successfully

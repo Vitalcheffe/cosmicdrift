@@ -4925,6 +4925,113 @@
       "build": "Construire",
       "evaluate": "Évaluer",
       "ship": "Déployer"
+    },
+    "sectors": {
+      "title": "Résoudre les problèmes complexes dans chaque secteur de l'infrastructure souveraine",
+      "cta": "Explorer HarchOS Maintenant",
+      "items": {
+        "s1": "ÉNERGIE & RENOUVELABLES",
+        "s2": "MINES & MINÉRAUX",
+        "s3": "CIMENT & CONSTRUCTION",
+        "s4": "AGRICULTURE & AGRITECH",
+        "s5": "EAU & DESSALEMENT",
+        "s6": "DÉFENSE & SOUVERAINETÉ",
+        "s7": "GOUVERNEMENT & SECTEUR PUBLIC",
+        "s8": "SANTÉ & SCIENCES DE LA VIE",
+        "s9": "SERVICES FINANCIERS & BANQUE",
+        "s10": "FABRICATION & INDUSTRIELS",
+        "s11": "TÉLÉCOMMUNICATIONS",
+        "s12": "TRANSPORT & LOGISTIQUE",
+        "s13": "PÉTROLE & GAZ"
+      }
+    },
+    "buildNow": {
+      "title": "Construisez maintenant avec HarchOS",
+      "build": {
+        "title": "Construire avec HarchOS",
+        "desc": "Demandez l'accès à HarchOS et commencez à construire. Déploiement en un clic vers l'infrastructure IA souveraine, puis personnalisez à volonté."
+      },
+      "explore": {
+        "title": "Explorer HarchOS Maintenant",
+        "desc": "Visitez HarchOS pour découvrir des dizaines de cas d'usage IA souveraine qui alimentent l'infrastructure fondamentale, disponibles en déploiement en un clic."
+      }
+    },
+    "pageFooter": {
+      "copyright": "© 2026 Harch Corp S.A. Tous droits réservés.",
+      "regions": "MA  EU  AF",
+      "social": {
+        "youtube": "YOUTUBE",
+        "x": "X",
+        "linkedin": "LINKEDIN",
+        "github": "GITHUB"
+      },
+      "offerings": {
+        "title": "OFFRES",
+        "items": {
+          "i1": "Calcul Conscient du Carbone",
+          "i2": "Plateforme IA Souveraine",
+          "i3": "IA en Périphérie",
+          "i4": "Intégration de Données",
+          "i5": "Jumeau Numérique",
+          "i6": "Ordonnancement Dynamique",
+          "i7": "Constructeur de Pipelines",
+          "i8": "Exploration de Processus",
+          "i9": "Alertes en Temps Réel",
+          "i10": "Streaming",
+          "i11": "Architecture Maillée"
+        }
+      },
+      "impactStudies": {
+        "title": "ÉTUDES D'IMPACT",
+        "items": {
+          "i1": "Hub Solaire Ouarzazate",
+          "i2": "Parc Éolien Dakhla",
+          "i3": "Hub Mixte Benguerir",
+          "i4": "Tanger Méditerranée",
+          "i5": "Optimisation du Réseau National",
+          "i6": "Réseau de Dessalement d'Eau",
+          "i7": "Automatisation Cimenterie",
+          "i8": "Hub Opérations Minières",
+          "i9": "Intelligence Agricole",
+          "i10": "Infrastructure Portuaire",
+          "i11": "Gestion Ferroviaire",
+          "i12": "Planification Urbaine"
+        }
+      },
+      "capabilities": {
+        "title": "CAPACITÉS",
+        "items": {
+          "i1": "Ordonnancement Conscient du Carbone",
+          "i2": "Maillage de Données Souveraines",
+          "i3": "Plateforme IA/ML",
+          "i4": "SDK Développeur",
+          "i5": "Sécurité Zero-Trust",
+          "i6": "Surveillance SOC",
+          "i7": "Conformité Automatisée",
+          "i8": "SDK Ontologie",
+          "i9": "Orchestration Maillée",
+          "i10": "Déploiement IA Périphérique",
+          "i11": "Prêt pour le Quantique",
+          "i12": "SLA Vert"
+        }
+      },
+      "documents": {
+        "title": "DOCUMENTS",
+        "items": {
+          "i1": "Documentation de la Plateforme",
+          "i2": "Communauté Développeurs",
+          "i3": "Centre de Confiance",
+          "i4": "Vie Privée & Libertés Civiles",
+          "i5": "Durabilité",
+          "i6": "Politique des Droits Humains",
+          "i7": "Déclaration de Confidentialité",
+          "i8": "Conditions d'Utilisation",
+          "i9": "HarchOS Expliqué",
+          "i10": "Référence API",
+          "i11": "Page de Statut",
+          "i12": "Livre Blanc de Sécurité"
+        }
+      }
     }
   },
   "hiringProcess": {

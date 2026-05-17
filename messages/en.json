@@ -4713,6 +4713,113 @@
       "build": "Build",
       "evaluate": "Evaluate",
       "ship": "Ship"
+    },
+    "sectors": {
+      "title": "Solving complex problems across every sector of sovereign infrastructure",
+      "cta": "Explore HarchOS Now",
+      "items": {
+        "s1": "ENERGY & RENEWABLES",
+        "s2": "MINING & MINERALS",
+        "s3": "CEMENT & CONSTRUCTION",
+        "s4": "AGRICULTURE & AGRITECH",
+        "s5": "WATER & DESALINATION",
+        "s6": "DEFENSE & SOVEREIGNTY",
+        "s7": "GOVERNMENT & PUBLIC SECTOR",
+        "s8": "HEALTHCARE & LIFESCIENCES",
+        "s9": "FINANCIAL SERVICES & BANKING",
+        "s10": "MANUFACTURING & INDUSTRIALS",
+        "s11": "TELECOMMUNICATIONS",
+        "s12": "TRANSPORT & LOGISTICS",
+        "s13": "OIL & GAS"
+      }
+    },
+    "buildNow": {
+      "title": "Build now with HarchOS",
+      "build": {
+        "title": "Build with HarchOS",
+        "desc": "Request access for HarchOS and start building. One-click deploy to sovereign AI infrastructure, then customize as you wish."
+      },
+      "explore": {
+        "title": "Explore HarchOS Now",
+        "desc": "Visit HarchOS Now to view dozens of sovereign AI use cases that power foundational infrastructure, available in one-click deploy."
+      }
+    },
+    "pageFooter": {
+      "copyright": "© 2026 Harch Corp S.A. All rights reserved.",
+      "regions": "MA  EU  AF",
+      "social": {
+        "youtube": "YOUTUBE",
+        "x": "X",
+        "linkedin": "LINKEDIN",
+        "github": "GITHUB"
+      },
+      "offerings": {
+        "title": "OFFERINGS",
+        "items": {
+          "i1": "Carbon-Aware Compute",
+          "i2": "Sovereign AI Platform",
+          "i3": "Edge AI",
+          "i4": "Data Integration",
+          "i5": "Digital Twin",
+          "i6": "Dynamic Scheduling",
+          "i7": "Pipeline Builder",
+          "i8": "Process Mining",
+          "i9": "Real-Time Alerting",
+          "i10": "Streaming",
+          "i11": "Mesh Architecture"
+        }
+      },
+      "impactStudies": {
+        "title": "IMPACT STUDIES",
+        "items": {
+          "i1": "Ouarzazate Solar Hub",
+          "i2": "Dakhla Wind Farm",
+          "i3": "Benguerir Mixed Hub",
+          "i4": "Tanger Mediterranean",
+          "i5": "National Grid Optimization",
+          "i6": "Water Desalination Network",
+          "i7": "Cement Plant Automation",
+          "i8": "Mining Operations Hub",
+          "i9": "Agricultural Intelligence",
+          "i10": "Port Infrastructure",
+          "i11": "Railway Management",
+          "i12": "Urban Planning"
+        }
+      },
+      "capabilities": {
+        "title": "CAPABILITIES",
+        "items": {
+          "i1": "Carbon-Aware Scheduling",
+          "i2": "Sovereign Data Mesh",
+          "i3": "AI/ML Platform",
+          "i4": "Developer SDK",
+          "i5": "Zero-Trust Security",
+          "i6": "SOC Monitoring",
+          "i7": "Auto-Compliance",
+          "i8": "Ontology SDK",
+          "i9": "Mesh Orchestration",
+          "i10": "Edge AI Deployment",
+          "i11": "Quantum-Ready",
+          "i12": "Green SLA"
+        }
+      },
+      "documents": {
+        "title": "DOCUMENTS",
+        "items": {
+          "i1": "Platform Documentation",
+          "i2": "Developer Community",
+          "i3": "Trust Center",
+          "i4": "Privacy & Civil Liberties",
+          "i5": "Sustainability",
+          "i6": "Human Rights Policy",
+          "i7": "Privacy Statement",
+          "i8": "Terms of Use",
+          "i9": "HarchOS Explained",
+          "i10": "API Reference",
+          "i11": "Status Page",
+          "i12": "Security Whitepaper"
+        }
+      }
     }
   },
   "hiringProcess": {

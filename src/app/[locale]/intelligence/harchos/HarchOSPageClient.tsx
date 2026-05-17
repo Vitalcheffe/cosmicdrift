@@ -590,6 +590,50 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
+          SECTORS — Palantir "Solving complex problems across all industries" Style
+          Dark bg #1E1E2E, headline left, numbered sector list right
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-[#1E1E2E] py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12 lg:gap-20">
+            {/* Left: Headline + CTA */}
+            <FadeIn>
+              <div>
+                <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.02em] leading-[1.1] mb-8">
+                  {t('sectors.title')}
+                </h2>
+                <button className="inline-flex items-center gap-2 px-6 py-3 rounded border border-white text-white text-[13px] font-semibold hover:bg-white/[0.08] transition-colors">
+                  {t('sectors.cta')}
+                  <ArrowUpRight size={16} />
+                </button>
+              </div>
+            </FadeIn>
+
+            {/* Right: Numbered sector list */}
+            <FadeIn delay={0.15}>
+              <div>
+                {Array.from({ length: 13 }, (_, i) => i + 1).map((num) => (
+                  <motion.div
+                    key={num}
+                    className="group flex items-center gap-4 py-3.5 border-b border-white/[0.08] hover:bg-white/[0.03] transition-colors cursor-pointer px-2 -mx-2 rounded"
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <span className="text-[13px] font-bold font-[family-name:var(--font-space-mono)] text-[#555555] w-8 shrink-0">
+                      {String(num).padStart(2, '0')}
+                    </span>
+                    <span className="text-[14px] font-semibold text-[#999999] uppercase tracking-[0.08em] group-hover:text-white transition-colors">
+                      {t(`sectors.items.s${num}`)}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
           SECTION 2: WORKFLOW BUILDER — White bg, Palantir "Designed for AI workflow builders"
           VIDEO/DETAILS toggle, feature cards in DETAILS mode
           ═══════════════════════════════════════════════════════════ */}
@@ -1133,56 +1177,159 @@ export default function HarchOSPageClient() {
       />
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 10: CTA — Two cards: white "Request a Briefing" + dark "Explore the Platform"
+          BUILD NOW WITH HarchOS — Palantir "Build now with AIP" Style
+          Dark bg #1E1E2E, centered headline, two cards
           ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
+      <section className="bg-[#1E1E2E] py-20 md:py-28">
+        <div className="max-w-[1000px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
-              {t('cta.title')} /0.9
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-12">
-              {t('cta.title')}
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-[-0.02em] leading-[1.1] mb-12 text-center">
+              {t('buildNow.title')}
             </h2>
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FadeIn>
-              <Link href="/contact" className="block bg-[#FAFAFA] rounded-xl border border-[#E5E5E5] p-8 md:p-10 h-full hover:border-[#8B9DAF] transition-all group">
-                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">{t('cta.briefing')}</p>
-                <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-4 group-hover:text-[#8B9DAF] transition-colors">
-                  {t('cta.briefingTitle')}
+              <div className="relative rounded-xl border border-white/[0.12] bg-white/[0.04] p-8 md:p-10 h-full hover:border-white/25 transition-all group">
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">01</p>
+                <h3 className="text-2xl md:text-[28px] font-bold text-white mb-4 group-hover:text-[#8B9DAF] transition-colors">
+                  {t('buildNow.build.title')}
                 </h3>
-                <p className="text-[14px] text-[#666666] leading-[1.7] mb-6">
-                  {t('cta.subtitle')}
+                <p className="text-[14px] text-[#999999] leading-[1.7] mb-8">
+                  {t('buildNow.build.desc')}
                 </p>
-                <div className="flex items-center gap-2 text-[#1A1A2E] group-hover:text-[#8B9DAF] transition-colors">
-                  <span className="text-[13px] font-semibold">{t('cta.primary')}</span>
-                  <ArrowUpRight size={16} />
+                <div className="absolute bottom-8 right-8">
+                  <span className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:border-white group-hover:bg-white/[0.08] transition-all">
+                    <ArrowUpRight size={18} className="text-white/60 group-hover:text-white transition-colors" />
+                  </span>
                 </div>
-              </Link>
+              </div>
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <Link href="#architecture" className="block bg-[#1A1A2E] rounded-xl border border-[#1A1A2E] p-8 md:p-10 h-full hover:bg-[#252545] transition-all group">
-                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">{t('cta.platform')}</p>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  {t('cta.platformTitle')}
+              <div className="relative rounded-xl border border-white/[0.12] bg-white/[0.04] p-8 md:p-10 h-full hover:border-white/25 transition-all group">
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">02</p>
+                <h3 className="text-2xl md:text-[28px] font-bold text-white mb-4 group-hover:text-[#8B9DAF] transition-colors">
+                  {t('buildNow.explore.title')}
                 </h3>
-                <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">
-                  {t('cta.platformDescription')}
+                <p className="text-[14px] text-[#999999] leading-[1.7] mb-8">
+                  {t('buildNow.explore.desc')}
                 </p>
-                <div className="flex items-center gap-2 text-white group-hover:text-[#8B9DAF] transition-colors">
-                  <span className="text-[13px] font-semibold">{t('cta.secondary')}</span>
-                  <ArrowUpRight size={16} />
+                <div className="absolute bottom-8 right-8">
+                  <span className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:border-white group-hover:bg-white/[0.08] transition-all">
+                    <ArrowUpRight size={18} className="text-white/60 group-hover:text-white transition-colors" />
+                  </span>
                 </div>
-              </Link>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          HARCHOS PAGE FOOTER — Palantir comprehensive footer style
+          Darkest bg #0A0A0A, left sidebar + 4-column grid
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-[#0A0A0A] py-16 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[20%_80%] gap-12 lg:gap-16">
+            {/* Left sidebar: Logo, copyright, regions, social */}
+            <FadeIn>
+              <div>
+                <p className="text-xl font-bold text-white mb-6 tracking-[-0.01em]">Harch Corp</p>
+                <p className="text-[12px] text-[#666666] leading-[1.7] mb-4">
+                  {t('pageFooter.copyright')}
+                </p>
+                <p className="text-[12px] text-[#999999] font-bold tracking-[0.15em] mb-8 font-[family-name:var(--font-space-mono)]">
+                  {t('pageFooter.regions')}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {(['youtube', 'x', 'linkedin', 'github'] as const).map((social) => (
+                    <span
+                      key={social}
+                      className="px-3 py-1.5 rounded bg-[#1A1A1A] border border-[#2A2A2A] text-[10px] font-bold text-[#999999] tracking-[0.1em] hover:text-white hover:border-[#555555] transition-colors cursor-pointer"
+                    >
+                      {t(`pageFooter.social.${social}`)}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Right: 4-column grid */}
+            <FadeIn delay={0.1}>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {/* Column 1: Offerings */}
+                <div>
+                  <p className="text-[11px] font-bold tracking-[0.15em] text-white mb-4 font-[family-name:var(--font-space-mono)]">
+                    {t('pageFooter.offerings.title')}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {Array.from({ length: 11 }, (_, i) => i + 1).map((idx) => (
+                      <li key={idx}>
+                        <span className="text-[12px] text-[#888888] hover:text-white transition-colors cursor-pointer leading-[1.6]">
+                          {t(`pageFooter.offerings.items.i${idx}`)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Column 2: Impact Studies */}
+                <div>
+                  <p className="text-[11px] font-bold tracking-[0.15em] text-white mb-4 font-[family-name:var(--font-space-mono)]">
+                    {t('pageFooter.impactStudies.title')}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {Array.from({ length: 12 }, (_, i) => i + 1).map((idx) => (
+                      <li key={idx}>
+                        <span className="text-[12px] text-[#888888] hover:text-white transition-colors cursor-pointer leading-[1.6]">
+                          {t(`pageFooter.impactStudies.items.i${idx}`)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Column 3: Capabilities */}
+                <div>
+                  <p className="text-[11px] font-bold tracking-[0.15em] text-white mb-4 font-[family-name:var(--font-space-mono)]">
+                    {t('pageFooter.capabilities.title')}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {Array.from({ length: 12 }, (_, i) => i + 1).map((idx) => (
+                      <li key={idx}>
+                        <span className="text-[12px] text-[#888888] hover:text-white transition-colors cursor-pointer leading-[1.6]">
+                          {t(`pageFooter.capabilities.items.i${idx}`)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Column 4: Documents */}
+                <div>
+                  <p className="text-[11px] font-bold tracking-[0.15em] text-white mb-4 font-[family-name:var(--font-space-mono)]">
+                    {t('pageFooter.documents.title')}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {Array.from({ length: 12 }, (_, i) => i + 1).map((idx) => (
+                      <li key={idx}>
+                        <span className="text-[12px] text-[#888888] hover:text-white transition-colors cursor-pointer leading-[1.6]">
+                          {t(`pageFooter.documents.items.i${idx}`)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </FadeIn>
           </div>
 
-          <FadeIn delay={0.15}>
-            <div className="mt-8 flex justify-center">
-              <Link href="/subsidiaries/intelligence" className="inline-flex items-center gap-2 text-[13px] text-[#999999] hover:text-[#8B9DAF] transition-colors">
+          {/* Back to Intelligence link */}
+          <FadeIn delay={0.2}>
+            <div className="mt-16 pt-8 border-t border-[#1A1A1A] flex justify-center">
+              <Link href="/subsidiaries/intelligence" className="inline-flex items-center gap-2 text-[13px] text-[#666666] hover:text-[#999999] transition-colors">
                 <ArrowLeft size={14} /> {tCommon('back')} Intelligence
               </Link>
             </div>

@@ -4644,7 +4644,8 @@
           ],
           "title": "Key Outcomes"
         },
-        "tagline": "Carbon-Aware GPU Cloud"
+        "tagline": "Carbon-Aware GPU Cloud",
+        "headline": "IA Souveraine à Conscience Carbone"
       },
       "cement": {
         "name": "Ciment",
@@ -4658,7 +4659,8 @@
           ],
           "title": "Key Outcomes"
         },
-        "tagline": "Industrial Cement Production"
+        "tagline": "Industrial Cement Production",
+        "headline": "Construire l'Avenir de l'Afrique de l'Ouest"
       },
       "energy": {
         "name": "Énergie",
@@ -4672,7 +4674,8 @@
           ],
           "title": "Key Outcomes"
         },
-        "tagline": "Renewable Energy & Green Hydrogen"
+        "tagline": "Renewable Energy & Green Hydrogen",
+        "headline": "Alimenter le Continent"
       },
       "technology": {
         "name": "Technologie",
@@ -4686,7 +4689,8 @@
           ],
           "title": "Key Outcomes"
         },
-        "tagline": "Sovereign Technology Stack"
+        "tagline": "Sovereign Technology Stack",
+        "headline": "Stack Numérique Souverain"
       },
       "mining": {
         "name": "Mines",
@@ -4700,7 +4704,8 @@
           ],
           "title": "Key Outcomes"
         },
-        "tagline": "Strategic Mineral Extraction"
+        "tagline": "Strategic Mineral Extraction",
+        "headline": "Capturer la Chaîne de Valeur"
       },
       "agriculture": {
         "name": "Agriculture",
@@ -4714,7 +4719,8 @@
           ],
           "title": "Key Outcomes"
         },
-        "tagline": "Précision Agriculture & Vertical Farms"
+        "tagline": "Précision Agriculture & Vertical Farms",
+        "headline": "Nourrir un Continent"
       },
       "water": {
         "name": "Eau",
@@ -4728,7 +4734,8 @@
           ],
           "title": "Key Outcomes"
         },
-        "tagline": "Desalination & Smart Water Networks"
+        "tagline": "Desalination & Smart Water Networks",
+        "headline": "Résoudre la Sécurité Hydrique"
       },
       "finance": {
         "name": "Finance",
@@ -4742,7 +4749,8 @@
           ],
           "title": "Key Outcomes"
         },
-        "tagline": "Green Bonds & Project Finance"
+        "tagline": "Green Bonds & Project Finance",
+        "headline": "Structurer le Capital Souverain"
       }
     },
     "stats": {

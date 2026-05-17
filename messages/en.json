@@ -4597,7 +4597,8 @@
           "title": "Key Outcomes"
         },
         "stat": "$35B Market",
-        "tagline": "Precision Agriculture & Vertical Farms"
+        "tagline": "Precision Agriculture & Vertical Farms",
+        "headline": "Feeding a Continent"
       },
       "cement": {
         "description": "Industrial cement production — 500kT/year serving West Africa's construction boom. Vertical integration from quarry to delivery.",
@@ -4611,7 +4612,8 @@
           "title": "Key Outcomes"
         },
         "stat": "500kT/year",
-        "tagline": "Industrial Cement Production"
+        "tagline": "Industrial Cement Production",
+        "headline": "Building West Africa's Future"
       },
       "energy": {
         "description": "Renewable energy & green hydrogen — 2GW+ pipeline of solar, wind, and green hydrogen in Morocco and the Sahel. Zero-carbon industrial electricity.",
@@ -4625,7 +4627,8 @@
           "title": "Key Outcomes"
         },
         "stat": "2GW+ Pipeline",
-        "tagline": "Renewable Energy & Green Hydrogen"
+        "tagline": "Renewable Energy & Green Hydrogen",
+        "headline": "Powering the Continent"
       },
       "finance": {
         "description": "Green bonds, project finance & Islamic finance — Structuring capital flows for sovereign infrastructure. Green bonds, sustainability-linked loans, trade finance, and carbon credit monetization.",
@@ -4639,7 +4642,8 @@
           "title": "Key Outcomes"
         },
         "stat": "$2.4B+",
-        "tagline": "Green Bonds & Project Finance"
+        "tagline": "Green Bonds & Project Finance",
+        "headline": "Structuring Sovereign Capital"
       },
       "intelligence": {
         "description": "Carbon-Aware GPU Cloud — 1,798 GPUs across 5 Moroccan hubs at ~47 gCO2/kWh. Sovereign AI compute with carbon-aware scheduling.",
@@ -4653,7 +4657,8 @@
           "title": "Key Outcomes"
         },
         "stat": "1,798 GPUs",
-        "tagline": "Carbon-Aware GPU Cloud"
+        "tagline": "Carbon-Aware GPU Cloud",
+        "headline": "Carbon-Aware Sovereign AI"
       },
       "mining": {
         "description": "Strategic mineral extraction — Phosphates, cobalt, and rare earths. Capture the full value chain.",
@@ -4667,7 +4672,8 @@
           "title": "Key Outcomes"
         },
         "stat": "3 gisements",
-        "tagline": "Strategic Mineral Extraction"
+        "tagline": "Strategic Mineral Extraction",
+        "headline": "Capturing the Value Chain"
       },
       "technology": {
         "description": "Sovereign technology stack — Carbon-aware GPU cloud, cybersecurity, and satellite communications.",
@@ -4681,7 +4687,8 @@
           "title": "Key Outcomes"
         },
         "stat": "1,798 GPUs",
-        "tagline": "Sovereign Technology Stack"
+        "tagline": "Sovereign Technology Stack",
+        "headline": "Sovereign Digital Stack"
       },
       "water": {
         "description": "Desalination & smart water networks — 200M m³/year desalination capacity with AI-optimized distribution. Solving Africa's water security crisis.",
@@ -4695,7 +4702,8 @@
           "title": "Key Outcomes"
         },
         "stat": "200M m³/year",
-        "tagline": "Desalination & Smart Water Networks"
+        "tagline": "Desalination & Smart Water Networks",
+        "headline": "Solving Water Security"
       }
     },
     "scroll": "Scroll",

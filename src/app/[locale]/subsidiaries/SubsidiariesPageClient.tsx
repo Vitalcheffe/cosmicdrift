@@ -1,202 +1,264 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
-import { ArrowRight, Server, Zap, Factory, Mountain, Wheat, Droplets, Cpu, Landmark } from 'lucide-react';
-import { FadeIn, StaggerContainer, StaggerItem, Card3D, SectionDivider } from '@/components/ui/motion';
-import ImmersiveHero from '@/components/ImmersiveHero';
-import { PortfolioDistributionChart } from '@/components/charts/PortfolioDistributionChart';
-import { InvestmentPipelineChart } from '@/components/charts/InvestmentPipelineChart';
-import { OperationalMetricsChart } from '@/components/charts/OperationalMetricsChart';
+import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { FadeIn } from '@/components/ui/motion';
 
-const NetworkOntology = dynamic(
-  () => import('@/components/NetworkOntology'),
-  { ssr: false, loading: () => <div className="h-[400px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
-);
+/* ═══════════════════════════════════════════════════════════════
+   PALANTIR "PLATFORMS" STYLE — Subsidiaries Listing
+   Like Palantir's Platforms page (Foundry / Gotham / Apollo):
+   - White background
+   - Large "Subsidiaries" title
+   - List of subsidiaries: name + tagline + "Explore →"
+   - Thin dividers between items
+   - Section indicators (01, 02, etc.)
+   ═══════════════════════════════════════════════════════════════ */
 
 export default function SubsidiariesPageClient() {
   const t = useTranslations('subsidiaries');
 
   const subsidiaries = [
     {
+      num: '/01',
       name: t('intelligence.name'),
       slug: 'intelligence',
-      version: '/0.1',
+      tagline: t('intelligence.tagline'),
       desc: t('intelligence.desc'),
       stat: t('intelligence.stat'),
-      icon: Server,
-      accent: '#8B9DAF',
-      image: '/images/sections/intelligence-exterior.jpg',
     },
     {
+      num: '/02',
       name: t('cement.name'),
       slug: 'cement',
-      version: '/0.2',
+      tagline: t('cement.tagline'),
       desc: t('cement.desc'),
       stat: t('cement.stat'),
-      icon: Factory,
-      accent: '#8B9DAF',
-      image: '/images/sections/cement-factory.jpg',
     },
     {
+      num: '/03',
       name: t('energy.name'),
       slug: 'energy',
-      version: '/0.3',
+      tagline: t('energy.tagline'),
       desc: t('energy.desc'),
       stat: t('energy.stat'),
-      icon: Zap,
-      accent: '#6B9F6B',
-      image: '/images/sections/energy-solar-farm.jpg',
     },
     {
+      num: '/04',
       name: t('technology.name'),
       slug: 'technology',
-      version: '/0.4',
+      tagline: t('technology.tagline'),
       desc: t('technology.desc'),
       stat: t('technology.stat'),
-      icon: Cpu,
-      accent: '#7888A8',
-      image: '/images/sections/tech-ground-station.jpg',
     },
     {
+      num: '/05',
       name: t('mining.name'),
       slug: 'mining',
-      version: '/0.5',
+      tagline: t('mining.tagline'),
       desc: t('mining.desc'),
       stat: t('mining.stat'),
-      icon: Mountain,
-      accent: '#A87878',
-      image: '/images/sections/mining-smelter.jpg',
     },
     {
+      num: '/06',
       name: t('agriculture.name'),
       slug: 'agriculture',
-      version: '/0.6',
+      tagline: t('agriculture.tagline'),
       desc: t('agriculture.desc'),
       stat: t('agriculture.stat'),
-      icon: Wheat,
-      accent: '#6BAF6B',
-      image: '/images/sections/agri-vertical-farm.jpg',
     },
     {
+      num: '/07',
       name: t('water.name'),
       slug: 'water',
-      version: '/0.7',
+      tagline: t('water.tagline'),
       desc: t('water.desc'),
       stat: t('water.stat'),
-      icon: Droplets,
-      accent: '#6888A8',
-      image: '/images/sections/water-desal.jpg',
     },
     {
+      num: '/08',
       name: t('finance.name'),
       slug: 'finance',
-      version: '/0.8',
+      tagline: t('finance.tagline'),
       desc: t('finance.desc'),
       stat: t('finance.stat'),
-      icon: Landmark,
-      accent: '#8B9DAF',
-      image: '/images/sections/finance-trading.jpg',
     },
   ];
 
   return (
-    <div className="bg-surface-1">
-      {/* Immersive Hero */}
-      <ImmersiveHero
-        title={t('heroTitle')}
-        subtitle={t('heroSubtitle')}
-        version="/0.8"
-        metaLabel={t('heroMetaLabel')}
-      />
+    <div className="bg-white min-h-screen">
 
-      {/* Network Ontology */}
-      <section className="py-16 md:py-24 bg-surface-1">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <NetworkOntology />
-        </div>
-      </section>
-
-      <SectionDivider />
-
-      {/* Data Visualization — Portfolio Overview */}
-      <section className="py-16 md:py-24 bg-surface-1">
+      {/* ═══════════════ HEADER / TITLE ═══════════════ */}
+      <section className="pt-24 md:pt-32 pb-8 md:pb-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <div className="mb-10">
-              <span className="section-label">{t('analyticsLabel')}</span>
-              <h2 className="section-title mt-2">{t('portfolioTitle')}</h2>
-              <p className="section-subtitle mt-2">
-                {t('portfolioSubtitle')}
-              </p>
-            </div>
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-black/30 mb-6">
+              {t('operatingVerticalsLabel')}
+            </p>
+            <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold text-black tracking-[-0.03em] leading-[1.05]">
+              {t('pageTitle')}
+            </h1>
+            <p className="text-[clamp(1rem,2vw,1.25rem)] text-black/50 mt-6 max-w-2xl leading-relaxed">
+              {t('heroSubtitle')}
+            </p>
           </FadeIn>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <FadeIn delay={0.1}>
-              <PortfolioDistributionChart />
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <InvestmentPipelineChart />
-            </FadeIn>
-          </div>
-          <div className="mt-6">
-            <FadeIn delay={0.3}>
-              <OperationalMetricsChart />
-            </FadeIn>
-          </div>
         </div>
       </section>
 
-      <SectionDivider />
+      {/* ═══════════════ SUBSIDIARY LIST ═══════════════
+          Like Palantir's Platforms page:
+          Each subsidiary is a row with name + tagline + "Explore →"
+          Separated by thin black dividers
+      */}
+      <section className="bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          {/* Top border */}
+          <div className="border-t border-black/[0.08]" />
 
-      <section className="py-16 md:py-24">
+          {subsidiaries.map((sub, i) => (
+            <motion.div
+              key={sub.slug}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.4, delay: i * 0.04 }}
+            >
+              <Link
+                href={`/subsidiaries/${sub.slug}`}
+                className="group block border-b border-black/[0.06] hover:bg-black/[0.02] transition-colors duration-300"
+              >
+                <div className="py-10 md:py-14 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-8">
+                  {/* Left: Number + Name */}
+                  <div className="flex items-start md:items-center gap-4 md:gap-6">
+                    <span className="text-[11px] font-medium text-black/20 font-mono tracking-tight pt-1 md:pt-0 shrink-0">
+                      {sub.num}
+                    </span>
+                    <div>
+                      <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-black/90 tracking-[-0.01em] group-hover:text-black transition-colors">
+                        {sub.name}
+                      </h2>
+                      <p className="text-[14px] md:text-[15px] text-black/40 mt-1 leading-relaxed max-w-md">
+                        {sub.tagline}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right: Explore link */}
+                  <div className="flex items-center gap-2 md:gap-3 shrink-0 ml-10 md:ml-0">
+                    <span className="text-[14px] font-medium text-black/30 group-hover:text-black/70 transition-colors">
+                      {t('explorePlatform')}
+                    </span>
+                    <ArrowUpRight
+                      size={16}
+                      className="text-black/20 group-hover:text-black/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                    />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ═══════════════ STATEMENT SECTION ═══════════════
+          Like Palantir's centered statement on white background
+      */}
+      <section className="py-24 md:py-36 bg-[#F5F5F5]">
+        <div className="max-w-[900px] mx-auto px-6 md:px-12 text-center">
+          <FadeIn>
+            <p className="text-[clamp(1.75rem,4vw,3rem)] font-semibold text-black/90 leading-[1.2] tracking-[-0.02em]">
+              {t('statement')}
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════ FEATURE LIST ═══════════════
+          Like Palantir's numbered features with /0.x indicators
+      */}
+      <section className="py-24 md:py-32 bg-white border-t border-black/[0.06]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <div className="mb-10">
-              <span className="section-label">{t('operatingVerticalsLabel')}</span>
-              <h2 className="section-title mt-2">{t('operatingVerticalsTitle')}</h2>
-            </div>
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-black/30 mb-16">
+              {t('operatorPrinciplesLabel')}
+            </p>
           </FadeIn>
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
-            {subsidiaries.map((sub) => {
-              const Icon = sub.icon;
-              return (
-                <StaggerItem key={sub.slug}>
-                  <Link href={`/subsidiaries/${sub.slug}`} className="group block">
-                    <Card3D className="bg-surface-3 border border-[rgba(255,255,255,0.06)] rounded-xl overflow-hidden hover:border-[rgba(255,255,255,0.12)] transition-all duration-500">
-                      <div className="relative h-[200px] overflow-hidden">
-                        <Image src={sub.image} alt={sub.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/50 to-transparent" />
-                        <div className="absolute top-3 left-3">
-                          <span className="px-2 py-1 rounded text-[9px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)] bg-[rgba(0,0,0,0.6)] backdrop-blur-md" style={{ color: sub.accent, border: `1px solid ${sub.accent}30` }}>{sub.version}</span>
-                        </div>
-                        <div className="absolute top-3 right-3">
-                          <span className="px-2.5 py-1 rounded text-[10px] font-bold tracking-[0.1em] stat-mono bg-[rgba(0,0,0,0.6)] text-white/70 backdrop-blur-md border border-[rgba(255,255,255,0.06)]">{sub.stat}</span>
-                        </div>
-                      </div>
-                      <div className="p-6">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${sub.accent}15`, border: `1px solid ${sub.accent}30` }}>
-                            <Icon size={16} style={{ color: sub.accent }} />
-                          </div>
-                          <h3 className="text-lg font-bold text-white tracking-tight">{sub.name}</h3>
-                        </div>
-                        <p className="text-[13px] text-[rgba(255,255,255,0.45)] leading-relaxed mb-4">{sub.desc}</p>
-                        <div className="pt-4 border-t border-[rgba(255,255,255,0.04)] flex items-center justify-between">
-                          <span className="text-[10px] font-bold tracking-[0.15em] uppercase font-[family-name:var(--font-space-mono)]" style={{ color: `${sub.accent}90` }}>{t('explorePlatform')}</span>
-                          <ArrowRight size={12} className="text-[rgba(255,255,255,0.25)] group-hover:translate-x-1 group-hover:text-white transition-all" />
-                        </div>
-                      </div>
-                    </Card3D>
-                  </Link>
-                </StaggerItem>
-              );
-            })}
-          </StaggerContainer>
+
+          <div className="space-y-0">
+            {[
+              { label: t('principles.sovereignByDesign.title'), description: t('principles.sovereignByDesign.description') },
+              { label: t('principles.verticalIntegration.title'), description: t('principles.verticalIntegration.description') },
+              { label: t('principles.speedAtScale.title'), description: t('principles.speedAtScale.description') },
+              { label: t('principles.worldClassStandards.title'), description: t('principles.worldClassStandards.description') },
+            ].map((f, i) => (
+              <FadeIn key={f.label} delay={i * 0.08}>
+                <div className="group flex items-start justify-between py-8 md:py-10 border-b border-black/[0.06] hover:border-black/[0.15] transition-colors">
+                  <div className="flex-1 pr-8">
+                    <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-black/90 tracking-[-0.01em] mb-2">
+                      {f.label}
+                    </h3>
+                    <p className="text-[15px] text-black/50 leading-relaxed max-w-xl">
+                      {f.description}
+                    </p>
+                  </div>
+                  <span className="text-[12px] font-medium text-black/20 font-mono tracking-tight pt-2 shrink-0">
+                    /0.{i + 1}
+                  </span>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* ═══════════════ CTA SECTION ═══════════════ */}
+      <section className="py-24 md:py-32 bg-[#F5F5F5]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Link
+                href="/contact"
+                className="group flex items-center justify-between p-8 md:p-12 bg-white rounded-lg hover:bg-black/5 transition-all duration-300 border border-black/[0.06]"
+              >
+                <div>
+                  <p className="text-[clamp(1.25rem,2vw,1.75rem)] font-bold text-black tracking-[-0.01em] mb-2">
+                    {t('cta.requestBriefing')}
+                  </p>
+                  <p className="text-[14px] text-black/40">
+                    {t('cta.requestBriefingDesc')}
+                  </p>
+                </div>
+                <ArrowUpRight size={24} className="text-black/20 group-hover:text-black/60 transition-colors shrink-0 ml-4" />
+              </Link>
+
+              <Link
+                href="/subsidiaries/intelligence"
+                className="group flex items-center justify-between p-8 md:p-12 bg-[#0A0A0A] rounded-lg hover:bg-[#1A1A1A] transition-all duration-300"
+              >
+                <div>
+                  <p className="text-[clamp(1.25rem,2vw,1.75rem)] font-bold text-white tracking-[-0.01em] mb-2">
+                    {t('cta.explorePlatform')}
+                  </p>
+                  <p className="text-[14px] text-white/40">
+                    {t('cta.explorePlatformDesc')}
+                  </p>
+                </div>
+                <ArrowUpRight size={24} className="text-white/20 group-hover:text-white/60 transition-colors shrink-0 ml-4" />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Section indicator */}
+      <div className="py-6 bg-white border-t border-black/[0.06]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <p className="text-[11px] font-medium text-black/20 font-mono">
+            02 {t('operatingVerticalsLabel')}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

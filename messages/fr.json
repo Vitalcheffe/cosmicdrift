@@ -7293,27 +7293,32 @@
     "intelligence": {
       "name": "Intelligence",
       "desc": "Cloud GPU conscient du carbone et IA souveraine depuis le Maroc",
-      "stat": "1 798 GPU"
+      "stat": "1 798 GPU",
+      "tagline": "Système d'Exploitation pour le Calcul IA Souverain de l'Afrique"
     },
     "cement": {
       "name": "Ciment",
       "desc": "Production cimenterie pour l'infrastructure régionale",
-      "stat": "500kT/an"
+      "stat": "500kT/an",
+      "tagline": "Système d'Exploitation pour l'Indépendance Construction de l'Afrique de l'Ouest"
     },
     "energy": {
       "name": "Énergie",
       "desc": "Énergie renouvelable à grande échelle — solaire, éolien et hydrogène vert",
-      "stat": "2GW+"
+      "stat": "2GW+",
+      "tagline": "Système d'Exploitation pour le Réseau d'Énergie Renouvelable de l'Afrique"
     },
     "technology": {
       "name": "Technologie",
       "desc": "Pile technologique souveraine et cybersécurité",
-      "stat": "HarchOS"
+      "stat": "HarchOS",
+      "tagline": "Système d'Exploitation pour l'Infrastructure Digitale Souveraine"
     },
     "mining": {
       "name": "Mines",
       "desc": "Extraction minerale stratégique — phosphates, cobalt, terres rares",
-      "stat": "3 gisements"
+      "stat": "3 gisements",
+      "tagline": "Système d'Exploitation pour la Souveraineté Minérale de l'Afrique"
     },
     "agriculture": {
       "name": "Agriculture",
@@ -7829,12 +7834,14 @@
       "sustainability": "Agriculture Sustainability",
       "sustainabilityLabel": "Agriculture Sustainability Label",
       "sustainabilityTitle": "Agriculture Sustainability Title",
-      "title": "Agriculture Title"
+      "title": "Agriculture Title",
+      "tagline": "Système d'Exploitation pour la Sécurité Alimentaire de l'Afrique"
     },
     "water": {
       "name": "Eau",
       "desc": "Dessalement et distribution optimisee par IA",
-      "stat": "200M m3/an"
+      "stat": "200M m3/an",
+      "tagline": "Système d'Exploitation pour l'Indépendance Hydrique de l'Afrique"
     },
     "finance": {
       "name": "Finance",
@@ -8225,7 +8232,8 @@
       "strategicAdvantagesLabel": "Finance Strategic Advantages Label",
       "strategicAdvantagesSubtitle": "Finance Strategic Advantages Subtitle",
       "strategicAdvantagesTitle": "Finance Strategic Advantages Title",
-      "title": "Finance Title"
+      "title": "Finance Title",
+      "tagline": "Système d'Exploitation pour la Formation du Capital de l'Afrique"
     },
     "detail": {
       "title": "Détails de la filiale",
@@ -8256,7 +8264,34 @@
       "prospecting": "Prospecting"
     },
     "subtitle": "8 Subsidiaries. 5 Countries. 1 Vision.",
-    "viewDetails": "View détails"
+    "viewDetails": "View détails",
+    "pageTitle": "Filiales",
+    "statement": "Huit filiales verticalement intégrées. Une plateforme d'infrastructure souveraine. Chaque opération alimente la suivante — l'énergie alimente les centres de données, le ciment les construit, les mines fournissent les matières premières, et la finance orchestre le capital.",
+    "operatorPrinciplesLabel": "Principes d'Exploitation",
+    "principles": {
+      "sovereignByDesign": {
+        "title": "Souverain par Conception",
+        "description": "Toute l'infrastructure opère sous juridiction africaine avec résidence complète des données, gouvernance locale et indépendance de tout contrôle étranger."
+      },
+      "verticalIntegration": {
+        "title": "Intégration Verticale",
+        "description": "Chaque filiale alimente les autres — l'énergie alimente les centres de données, le ciment les construit, les mines fournissent les matières premières, et l'eau soutient les opérations."
+      },
+      "speedAtScale": {
+        "title": "Vitesse à Grande Échelle",
+        "description": "Du concept à la mise en service en un temps record. L'architecture modulaire permet un déploiement par phases sans sacrifier la qualité."
+      },
+      "worldClassStandards": {
+        "title": "Standards de Classe Mondiale",
+        "description": "Certifications ISO, LEED, BREEAM dès le premier jour. Conforme EU CBAM. Construit selon les plus hauts standards internationaux."
+      }
+    },
+    "cta": {
+      "requestBriefing": "Demander un Briefing",
+      "requestBriefingDesc": "Planifiez un briefing confidentiel avec notre équipe de direction.",
+      "explorePlatform": "Explorer la Plateforme",
+      "explorePlatformDesc": "Découvrez Harch Intelligence — notre filiale phare."
+    }
   },
   "subsidiaryDetail": {
     "title": "Détails",

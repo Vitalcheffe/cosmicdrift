@@ -6887,20 +6887,23 @@
       "sustainability": "Agriculture Sustainability",
       "sustainabilityLabel": "Agriculture Sustainability Label",
       "sustainabilityTitle": "Agriculture Sustainability Title",
-      "title": "Agriculture Title"
+      "title": "Agriculture Title",
+      "tagline": "Operating System for Africa's Food Security"
     },
     "allSectors": "All sectors",
     "analyticsLabel": "Analytics Label",
     "cement": {
       "desc": "Cement Description",
       "name": "Cement Name",
-      "stat": "Cement Stat"
+      "stat": "Cement Stat",
+      "tagline": "Operating System for West Africa's Construction Independence"
     },
     "description": "Each Harch subsidiary is designed to operate autonomously while benefiting from the integrated ecosystem. Together, they form Africa's most comprehensive sovereign infrastructure system.",
     "energy": {
       "desc": "Energy Description",
       "name": "Energy Name",
-      "stat": "Energy Stat"
+      "stat": "Energy Stat",
+      "tagline": "Operating System for Africa's Renewable Energy Grid"
     },
     "explorePlatform": "Explore Platform",
     "filterBy": "Filter by sector",
@@ -7293,7 +7296,8 @@
       "strategicAdvantagesLabel": "Finance Strategic Advantages Label",
       "strategicAdvantagesSubtitle": "Finance Strategic Advantages Subtitle",
       "strategicAdvantagesTitle": "Finance Strategic Advantages Title",
-      "title": "Finance Title"
+      "title": "Finance Title",
+      "tagline": "Operating System for Africa's Capital Formation"
     },
     "heroMetaLabel": "Hero Meta Label",
     "heroSubtitle": "8 verticales. Un ecosysteme souverain.",
@@ -7301,12 +7305,14 @@
     "intelligence": {
       "desc": "Intelligence Description",
       "name": "Intelligence Name",
-      "stat": "Intelligence Stat"
+      "stat": "Intelligence Stat",
+      "tagline": "Operating System for Africa's Sovereign AI Compute"
     },
     "mining": {
       "desc": "Mining Description",
       "name": "Mining Name",
-      "stat": "Mining Stat"
+      "stat": "Mining Stat",
+      "tagline": "Operating System for Africa's Mineral Sovereignty"
     },
     "operatingVerticalsLabel": "Operating Verticals Label",
     "operatingVerticalsTitle": "Operating Verticals Title",
@@ -7331,14 +7337,43 @@
     "technology": {
       "desc": "Technology Description",
       "name": "Technology Name",
-      "stat": "Technology Stat"
+      "stat": "Technology Stat",
+      "tagline": "Operating System for Sovereign Digital Infrastructure"
     },
     "title": "Our Subsidiaries",
     "viewDetails": "View details",
     "water": {
       "desc": "Water Description",
       "name": "Water Name",
-      "stat": "Water Stat"
+      "stat": "Water Stat",
+      "tagline": "Operating System for Africa's Water Independence"
+    },
+    "pageTitle": "Subsidiaries",
+    "statement": "Eight vertically integrated subsidiaries. One sovereign infrastructure platform. Every operation feeds the next — energy powers data centers, cement builds them, mining supplies the raw materials, and finance orchestrates the capital.",
+    "operatorPrinciplesLabel": "Operator Principles",
+    "principles": {
+      "sovereignByDesign": {
+        "title": "Sovereign by Design",
+        "description": "All infrastructure operates under African jurisdiction with full data residency, local governance, and independence from foreign control."
+      },
+      "verticalIntegration": {
+        "title": "Vertical Integration",
+        "description": "Each subsidiary feeds the others — energy powers data centers, cement builds them, mining supplies raw materials, and water sustains operations."
+      },
+      "speedAtScale": {
+        "title": "Speed at Scale",
+        "description": "From concept to commissioning in record time. Modular architecture enables phased deployment without sacrificing quality."
+      },
+      "worldClassStandards": {
+        "title": "World-Class Standards",
+        "description": "ISO, LEED, BREEAM certifications from day one. EU CBAM compliant. Built to the highest international standards."
+      }
+    },
+    "cta": {
+      "requestBriefing": "Request a Briefing",
+      "requestBriefingDesc": "Schedule a confidential briefing with our leadership team.",
+      "explorePlatform": "Explore the Platform",
+      "explorePlatformDesc": "Discover Harch Intelligence — our flagship vertical."
     }
   },
   "subsidiaryDetail": {

@@ -4,33 +4,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-import { ArrowRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets, Satellite, Lock, Eye, Factory, Mountain, Wheat, Waves, MapPin, Calendar, TrendingUp, Leaf } from 'lucide-react';
+import { ArrowUpRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets, Satellite, Lock, Eye, Factory, Mountain, Wheat, Waves, MapPin, Calendar, TrendingUp, Leaf } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import dynamic from 'next/dynamic';
 
 import {
   FadeIn,
-  StaggerContainer,
-  StaggerItem,
-  Card3D,
-  MagneticButton,
-  SmoothLink,
-  TextReveal,
-  SectionDivider,
   CountUp,
-  ParallaxSection,
 } from '@/components/ui/motion';
 
 const InteractivePlatform = dynamic(
   () => import('@/components/InteractivePlatform').then((mod) => mod.InteractivePlatform),
-  { ssr: false, loading: () => <div className="h-[600px] bg-[#0A0A0A] animate-pulse" /> }
+  { ssr: false, loading: () => <div className="h-[600px] bg-neutral-100 animate-pulse" /> }
 );
 
-const NetworkGrid = dynamic(
-  () => import('@/components/NetworkGrid').then((mod) => mod.NetworkGrid),
-  { ssr: false }
-);
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
 import type { Competitor } from '@/components/competitive/CompetitiveComparison';
 
@@ -56,10 +44,10 @@ function StatBar({ stat, value, max, accent }: { stat: string; value: number; ma
   return (
     <div ref={ref} className="mb-5">
       <div className="flex justify-between mb-2">
-        <span className="text-[12px] text-[#999999]">{stat}</span>
-        <span className="text-[12px] font-bold text-white">{value}%</span>
+        <span className="text-[12px] text-neutral-500">{stat}</span>
+        <span className="text-[12px] font-bold text-neutral-900">{value}%</span>
       </div>
-      <div className="h-1 bg-[#1A1A1A] rounded-full overflow-hidden">
+      <div className="h-1 bg-neutral-200 rounded-full overflow-hidden">
         <div
           className="h-full rounded-full transition-all duration-[2s] ease-out"
           style={{
@@ -870,71 +858,69 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
   const accent = accentMap[slug] ?? '#8B9DAF';
 
   /* ═══════════════════════════════════════════════════════════════
-      RENDERING — unified design system + real images + animations
+      RENDERING — Palantir-style clean corporate layout
       ═══════════════════════════════════════════════════════════════ */
   return (
-    <div className="bg-[#0D0D0D]">
+    <div className="bg-white text-neutral-900">
 
-      {/* ═══════════════ HERO ═══════════════ */}
-      <section className="relative min-h-[85vh] flex items-end overflow-hidden">
-        <ParallaxSection speed={0.25} className="absolute inset-0">
-          <Image
-            src={data.heroImage}
-            alt={data.name}
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/80 to-[#0D0D0D]/30" />
-        </ParallaxSection>
+      {/* ═══════════════ 1. HERO ═══════════════ */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <Image
+          src={data.heroImage}
+          alt={data.name}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pb-20 md:pb-32 w-full">
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm">
-                <span className="version-tag">{data.name} {data.version}</span>
-              </span>
-              <span
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm"
-                style={{ backgroundColor: `${accent}20`, border: `1px solid ${accent}40` }}
-              >
-                <span className="text-[10px] font-bold tracking-[0.15em] uppercase" style={{ color: accent }}>
-                  {data.investment} {t('investment')}
-                </span>
-              </span>
-            </div>
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-6" style={{ color: accent }}>
+              {data.name} {data.version}
+            </p>
           </FadeIn>
-
-          <TextReveal
-            text={data.heroTitle}
-            className="text-4xl md:text-5xl lg:text-[72px] font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-4 whitespace-pre-line"
-          />
-
-          <FadeIn delay={0.4}>
-            <p className="text-lg md:text-xl text-white/70 max-w-xl mb-8">{data.heroSubtitle}</p>
-            <MagneticButton>
-              <SmoothLink href="/subsidiaries" className="text-white/80 text-sm">
-                {t('backToSubsidiaries')}
-              </SmoothLink>
-            </MagneticButton>
+          <FadeIn delay={0.15}>
+            <h1 className="text-4xl md:text-6xl lg:text-[80px] font-bold text-white leading-[1.05] tracking-[-0.02em] mb-6 whitespace-pre-line">
+              {data.heroTitle}
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.3}>
+            <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+              {data.heroSubtitle}
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.45}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href={`/quote?vertical=${slug}`}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-neutral-900 text-[13px] font-semibold tracking-[0.05em] uppercase rounded-none hover:bg-neutral-100 transition-colors"
+              >
+                {t('requestQuote')}
+                <ArrowUpRight size={16} />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-neutral-900 text-white text-[13px] font-semibold tracking-[0.05em] uppercase rounded-none hover:bg-neutral-800 transition-colors"
+              >
+                {t('requestBriefing')}
+                <ArrowUpRight size={16} />
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>
 
-      <SectionDivider />
-
       {/* ═══════════════ INTERACTIVE PLATFORM ═══════════════ */}
       <InteractivePlatform slug={slug} accent={accent} />
 
-      <SectionDivider />
-
-      {/* ═══════════════ OVERVIEW — Image Left + Text Right ═══════════════ */}
-      <section className="py-28 md:py-36 bg-[#111111]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      {/* ═══════════════ 2. OVERVIEW ═══════════════ */}
+      <section className="py-24 md:py-32 bg-white border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <FadeIn direction="left">
-              <div className="relative aspect-[4/3] rounded-[12px] overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={data.sectionImage1}
                   alt={`${data.name} overview`}
@@ -942,280 +928,166 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/40 to-transparent" />
               </div>
             </FadeIn>
 
             <div>
               <FadeIn>
-                <p className="section-label mb-4" style={{ color: accent }}>{t('overview')}</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{data.name}</h2>
-                <div className="accent-line mb-6" />
-                <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">{data.overview}</p>
+                <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: accent }}>
+                  {t('overview')}
+                </p>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">{data.name}</h2>
+                <div className="w-12 h-px bg-neutral-300 mb-6" />
+                <p className="text-[15px] text-neutral-600 leading-[1.8] mb-10">{data.overview}</p>
               </FadeIn>
 
-              <StaggerContainer className="grid grid-cols-2 gap-4" staggerDelay={0.1}>
-                {data.metrics.map((m) => (
-                  <StaggerItem key={m.label}>
-                    <div className="card p-5 text-center">
-                      <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
+              <div className="grid grid-cols-2 gap-6">
+                {data.metrics.map((m, i) => (
+                  <FadeIn key={m.label} delay={0.1 * i}>
+                    <div>
+                      <p className="text-3xl md:text-4xl font-bold tracking-tight">
                         <CountUp to={m.value} prefix={m.prefix} suffix={m.suffix} duration={2.5} />
                       </p>
-                      <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1">{m.label}</p>
+                      <p className="text-[11px] text-neutral-500 uppercase tracking-[0.1em] font-semibold mt-1">{m.label}</p>
                     </div>
-                  </StaggerItem>
+                  </FadeIn>
                 ))}
-              </StaggerContainer>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════ STRATEGIC CONTEXT — Reversed Split ═══════════════ */}
-      <section className="py-28 md:py-36 bg-[#0D0D0D]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="lg:order-2">
-              <FadeIn direction="right">
-                <div className="relative aspect-[4/3] rounded-[12px] overflow-hidden">
-                  <Image
-                    src={data.sectionImage2}
-                    alt={`${data.name} strategic context`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/40 to-transparent" />
-                </div>
-              </FadeIn>
-            </div>
-
-            <div className="lg:order-1">
-              <FadeIn>
-                <p className="section-label mb-4" style={{ color: accent }}>{t('strategicContext')}</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('whyThisMatters')}</h2>
-                <div className="accent-line mb-6" />
-                <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">{data.strategicContext}</p>
-<SmoothLink href="/subsidiaries" className="text-sm">
-                  <span style={{ color: accent }}>{t('seeAllSubsidiaries')}</span>
-                </SmoothLink>
-              </FadeIn>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <SectionDivider />
-
-      {/* ═══════════════ CAPABILITIES GRID ═══════════════ */}
-      <section className="py-28 md:py-36 bg-[#111111]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      {/* ═══════════════ 3. CAPABILITIES LIST ═══════════════ */}
+      <section className="py-24 md:py-32 bg-white border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: accent }}>{t('capabilities')}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-16">{t('whatWeBuild')}</h2>
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: accent }}>
+              {t('capabilities')}
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16">{t('whatWeBuild')}</h2>
           </FadeIn>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
-            {data.capabilities.map((cap) => (
-              <StaggerItem key={cap.title}>
-                <Card3D className="h-full" glareEnabled>
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${accent}15` }}>
-                    <span style={{ color: accent }}><cap.icon size={18} strokeWidth={1.5} /></span>
-                  </div>
-                  <h3 className="text-[14px] font-bold text-white mb-2">{cap.title}</h3>
-                  <p className="text-[12px] text-[#999999] leading-relaxed">{cap.desc}</p>
-                </Card3D>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ═══════════════ STRATEGIC ADVANTAGES + STATS ═══════════════ */}
-      <section className="py-28 md:py-36 bg-[#0D0D0D]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <FadeIn>
-                <p className="section-label mb-4" style={{ color: accent }}>{t('strategicAdvantages')}</p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('competitiveEdge')}</h2>
-                <div className="accent-line mb-8" />
-              </FadeIn>
-
-              <StaggerContainer className="space-y-4" staggerDelay={0.08}>
-                {data.strategicAdvantages.map((adv) => (
-                  <StaggerItem key={adv.title}>
-                    <div className="card p-5">
-                      <div className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: accent }} />
-                        <div>
-                          <h4 className="text-[14px] font-bold text-white mb-1">{adv.title}</h4>
-                          <p className="text-[12px] text-[#999999] leading-relaxed">{adv.desc}</p>
-                        </div>
-                      </div>
+          <div className="divide-y divide-neutral-200">
+            {data.capabilities.map((cap, i) => {
+              const num = `/0.${i + 1}`;
+              return (
+                <FadeIn key={cap.title} delay={0.05 * i}>
+                  <div className="py-10 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 md:gap-8 items-start">
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3">{cap.title}</h3>
+                      <p className="text-[14px] text-neutral-600 leading-[1.8] max-w-[720px]">{cap.desc}</p>
                     </div>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-            </div>
-
-            <div>
-              <FadeIn delay={0.15}>
-                <p className="section-label mb-4" style={{ color: accent }}>{t('performanceMetrics')}</p>
-                <h3 className="text-2xl font-bold text-white mb-8">{t('byTheNumbers')}</h3>
-              </FadeIn>
-
-              <div className="space-y-2">
-                {data.stats.map((s) => (
-                  <StatBar key={s.stat} stat={s.stat} value={s.value} max={s.max} accent={accent} />
-                ))}
-              </div>
-
-              <FadeIn delay={0.3}>
-                <div className="mt-10 relative aspect-[4/3] rounded-[12px] overflow-hidden">
-                  <Image
-                    src={data.sectionImage3}
-                    alt={`${data.name} performance`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/60 to-transparent" />
-                </div>
-              </FadeIn>
-            </div>
+                    <span className="text-[11px] font-semibold tracking-[0.15em] text-neutral-400 whitespace-nowrap mt-1">
+                      {num}
+                    </span>
+                  </div>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <SectionDivider />
+      {/* ═══════════════ 4. STRATEGIC CONTEXT ═══════════════ */}
+      <section className="py-24 md:py-32 bg-[#F5F5F5] border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <FadeIn>
+                <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: accent }}>
+                  {t('strategicContext')}
+                </p>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">{t('whyThisMatters')}</h2>
+                <div className="w-12 h-px bg-neutral-300 mb-6" />
+                <p className="text-[15px] text-neutral-600 leading-[1.8]">{data.strategicContext}</p>
+              </FadeIn>
+            </div>
 
-      {/* ═══════════════ INVESTMENT & LOCATION ═══════════════ */}
-      <section className="py-28 md:py-36 bg-[#111111]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <FadeIn>
-              <p className="section-label mb-4" style={{ color: accent }}>{t('investment')}</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('capitalDeployment')}</h2>
-              <div className="accent-line mb-8" />
-
-              <div className="space-y-4 mb-8">
-                <div className="card p-5">
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mb-1">{t('totalInvestment')}</p>
-                  <p className="text-4xl font-bold text-white stat-mono" style={{ color: accent }}>{data.investment}</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  {data.metrics.slice(0, 2).map((m) => (
-                    <div key={m.label} className="card p-4 text-center">
-                      <p className="text-xl font-bold text-white stat-mono">
-                        <CountUp to={m.value} prefix={m.prefix} suffix={m.suffix} duration={2} />
-                      </p>
-                      <p className="text-[10px] text-[#666666] uppercase tracking-[0.08em] font-bold mt-1">{m.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.15}>
-              <p className="section-label mb-4" style={{ color: accent }}>{t('location')}</p>
-              <h3 className="text-2xl font-bold text-white mb-6">{t('strategicPosition')}</h3>
-
-              <div className="card p-6 mb-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <MapPin size={18} style={{ color: accent }} />
-                  <span className="text-[14px] font-bold text-white">{data.location}</span>
-                </div>
-                <p className="text-[13px] text-[#999999] leading-[1.7]">{data.locationDesc}</p>
-              </div>
-
-              <div className="relative aspect-[16/9] rounded-[12px] overflow-hidden">
+            <FadeIn direction="right">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src={data.sectionImage4}
-                  alt={`${data.name} location`}
+                  src={data.sectionImage2}
+                  alt={`${data.name} strategic context`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full pulse-glow" style={{ backgroundColor: accent }} />
-                  <span className="text-[11px] font-bold text-white tracking-[0.1em] uppercase">{data.location}</span>
-                </div>
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════ TECH SPECS TABLE ═══════════════ */}
-      <section className="py-28 md:py-36 bg-[#0D0D0D]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      {/* ═══════════════ 5. SPEC TABLE ═══════════════ */}
+      <section className="py-24 md:py-32 bg-white border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: accent }}>{t('technicalSpecifications')}</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('specSheet')}</h2>
-            <div className="accent-line mb-10" />
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: accent }}>
+              {t('technicalSpecifications')}
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">{t('specSheet')}</h2>
+            <div className="w-12 h-px bg-neutral-300 mb-10" />
           </FadeIn>
 
-          <div className="card overflow-hidden !p-0">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[600px]">
-                <thead>
-                  <tr className="border-b border-[rgba(255,255,255,0.06)]">
-                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[35%]">{t('specification')}</th>
-                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[30%]">{t('value')}</th>
-                    <th className="text-left text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] px-6 py-4 w-[35%]">{t('phase')}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.specTable.map((row, i) => (
-                    <motion.tr
-                      key={row.spec}
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true, margin: '-20px' }}
-                      transition={{ duration: 0.3, delay: i * 0.03 }}
-                      className="border-b border-[rgba(255,255,255,0.03)] last:border-0 hover:bg-[rgba(255,255,255,0.02)] transition-colors"
-                    >
-                      <td className="px-6 py-3.5 text-[13px] text-[#CCCCCC]">{row.spec}</td>
-                      <td className="px-6 py-3.5 text-[13px] font-bold text-white stat-mono">{row.value}</td>
-                      <td className="px-6 py-3.5 text-[12px] text-[#666666]">{row.phase}</td>
-                    </motion.tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[600px]">
+              <thead>
+                <tr className="border-b border-neutral-300">
+                  <th className="text-left text-[10px] font-semibold tracking-[0.15em] uppercase text-neutral-500 px-0 py-4 w-[35%]">{t('specification')}</th>
+                  <th className="text-left text-[10px] font-semibold tracking-[0.15em] uppercase text-neutral-500 px-0 py-4 w-[30%]">{t('value')}</th>
+                  <th className="text-left text-[10px] font-semibold tracking-[0.15em] uppercase text-neutral-500 px-0 py-4 w-[35%]">{t('phase')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.specTable.map((row, i) => (
+                  <motion.tr
+                    key={row.spec}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: '-20px' }}
+                    transition={{ duration: 0.3, delay: i * 0.02 }}
+                    className="border-b border-neutral-100 last:border-0"
+                  >
+                    <td className="px-0 py-3 text-[13px] text-neutral-700">{row.spec}</td>
+                    <td className="px-0 py-3 text-[13px] font-bold text-neutral-900">{row.value}</td>
+                    <td className="px-0 py-3 text-[12px] text-neutral-500">{row.phase}</td>
+                  </motion.tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
-      <SectionDivider />
+      {/* ═══════════════ 6. SUSTAINABILITY ═══════════════ */}
+      <section className="py-24 md:py-32 bg-white border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <div>
+              <FadeIn>
+                <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: '#4A7B5F' }}>
+                  {t('sustainability')}
+                </p>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">{t('builtToLast')}</h2>
+                <div className="w-12 h-px bg-neutral-300 mb-6" />
+                <p className="text-[15px] text-neutral-600 leading-[1.8] mb-6">{data.sustainability}</p>
 
-      {/* ═══════════════ SUSTAINABILITY ═══════════════ */}
-      <section className="py-28 md:py-36 bg-[#111111]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <FadeIn>
-              <p className="section-label mb-4" style={{ color: '#4A7B5F' }}>{t('sustainability')}</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('builtToLast')}</h2>
-              <div className="accent-line mb-6" />
-              <p className="text-[15px] text-[#999999] leading-[1.7]">{data.sustainability}</p>
-
-              <div className="flex flex-wrap gap-2 mt-6">
-                {[t('badges.renewable'), t('badges.carbonAware'), t('badges.circularEconomy'), t('badges.zeroWaste')].map((badge) => (
-                  <span
-                    key={badge}
-                    className="px-3 py-1.5 rounded-full text-[10px] font-bold tracking-[0.1em] uppercase"
-                    style={{ backgroundColor: '#4A7B5F20', color: '#4A7B5F', border: '1px solid #4A7B5F30' }}
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </div>
-            </FadeIn>
+                <div className="flex flex-wrap gap-2">
+                  {[t('badges.renewable'), t('badges.carbonAware'), t('badges.circularEconomy'), t('badges.zeroWaste')].map((badge) => (
+                    <span
+                      key={badge}
+                      className="px-3 py-1.5 rounded-full text-[10px] font-semibold tracking-[0.08em] uppercase bg-[#4A7B5F10] text-[#4A7B5F] border border-[#4A7B5F25]"
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              </FadeIn>
+            </div>
 
             <FadeIn delay={0.15}>
-              <div className="relative aspect-[4/3] rounded-[12px] overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={data.sectionImage2}
                   alt={`${data.name} sustainability`}
@@ -1223,64 +1095,48 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/50 to-transparent" />
-                <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                  <Leaf size={14} className="text-[#4A7B5F]" />
-                  <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-[#4A7B5F]">{t('sustainableByDesign')}</span>
-                </div>
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════ TIMELINE / MILESTONES ═══════════════ */}
-      <section className="py-28 md:py-36 bg-[#0D0D0D]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      {/* ═══════════════ 7. MILESTONES ═══════════════ */}
+      <section className="py-24 md:py-32 bg-white border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: accent }}>{t('timeline')}</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('keyMilestones')}</h2>
-            <div className="accent-line mb-12" />
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: accent }}>
+              {t('timeline')}
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">{t('keyMilestones')}</h2>
+            <div className="w-12 h-px bg-neutral-300 mb-12" />
           </FadeIn>
 
           <div className="relative">
-            {/* Animated vertical line */}
-            <div className="absolute left-[19px] md:left-[23px] top-0 bottom-0 w-px bg-[rgba(255,255,255,0.06)]">
-              <motion.div
-                className="w-full"
-                style={{ backgroundColor: accent, originY: 0 }}
-                initial={{ height: '0%' }}
-                whileInView={{ height: '100%' }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-              />
-            </div>
+            {/* Vertical line */}
+            <div className="absolute left-[7px] top-0 bottom-0 w-px bg-neutral-200" />
 
-            <StaggerContainer className="space-y-8" staggerDelay={0.1}>
-              {data.milestones.map((ms) => (
-                <StaggerItem key={ms.year + ms.title}>
-                  <div className="flex gap-6 md:gap-8 pl-0">
-                    <div className="flex-shrink-0 relative z-10">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accent}20`, border: `2px solid ${accent}` }}>
-                        <Calendar size={14} style={{ color: accent }} />
-                      </div>
+            <div className="space-y-10">
+              {data.milestones.map((ms, i) => (
+                <FadeIn key={ms.year + ms.title} delay={0.05 * i}>
+                  <div className="flex gap-6 md:gap-8">
+                    <div className="flex-shrink-0 relative z-10 mt-1.5">
+                      <div className="w-[15px] h-[15px] rounded-full border-2 bg-white" style={{ borderColor: accent }} />
                     </div>
                     <div className="pb-2">
-                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase mb-1" style={{ color: accent }}>{ms.year}</p>
-                      <h4 className="text-[15px] font-bold text-white mb-1">{ms.title}</h4>
-                      <p className="text-[12px] text-[#999999] leading-relaxed">{ms.desc}</p>
+                      <p className="text-[11px] font-semibold tracking-[0.15em] uppercase mb-1" style={{ color: accent }}>{ms.year}</p>
+                      <h4 className="text-lg font-bold text-neutral-900 mb-1">{ms.title}</h4>
+                      <p className="text-[14px] text-neutral-600 leading-relaxed">{ms.desc}</p>
                     </div>
                   </div>
-                </StaggerItem>
+                </FadeIn>
               ))}
-            </StaggerContainer>
+            </div>
           </div>
         </div>
       </section>
 
-      <SectionDivider />
-
-      {/* ═══════════════ COMPETITIVE COMPARISON ═══════════════ */}
+      {/* ═══════════════ 8. COMPETITIVE COMPARISON ═══════════════ */}
       {data.competitors && data.competitors.length > 0 && (
         <CompetitiveComparison
           title={`${data.competitorHarchName ?? data.name} vs Competition`}
@@ -1292,67 +1148,73 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         />
       )}
 
-      {/* ═══════════════ PARTNERSHIP MODEL ═══════════════ */}
-      <section className="py-28 md:py-36 bg-[#111111]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      {/* ═══════════════ 9. PARTNERSHIP MODEL ═══════════════ */}
+      <section className="py-24 md:py-32 bg-white border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4" style={{ color: accent }}>{t('partnership')}</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t('howToWorkWithUs')}</h2>
-            <div className="accent-line mb-12" />
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: accent }}>
+              {t('partnership')}
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">{t('howToWorkWithUs')}</h2>
+            <div className="w-12 h-px bg-neutral-300 mb-12" />
           </FadeIn>
 
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
-            {data.partnershipModel.map((pm) => (
-              <StaggerItem key={pm.title}>
-                <Card3D className="h-full" glareEnabled>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {data.partnershipModel.map((pm, i) => (
+              <FadeIn key={pm.title} delay={0.08 * i}>
+                <div className="border border-neutral-200 p-6 h-full hover:border-neutral-300 transition-colors">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: accent }} />
-                    <h4 className="text-[14px] font-bold text-white">{pm.title}</h4>
+                    <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: accent }} />
+                    <h4 className="text-[15px] font-bold text-neutral-900">{pm.title}</h4>
                   </div>
-                  <p className="text-[12px] text-[#999999] leading-relaxed">{pm.desc}</p>
-                </Card3D>
-              </StaggerItem>
+                  <p className="text-[13px] text-neutral-600 leading-relaxed">{pm.desc}</p>
+                </div>
+              </FadeIn>
             ))}
-          </StaggerContainer>
+          </div>
         </div>
       </section>
 
-      {/* ═══════════════ CTA SECTION ═══════════════ */}
-      <section className="relative py-32 md:py-44 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D] via-[#0D0D0D] to-[#0D0D0D]" />
-        <NetworkGrid nodeCount={30} maxDistance={100} opacity={0.04} />
-
-        <div className="relative z-10 max-w-[800px] mx-auto px-6 md:px-12 text-center">
-          <FadeIn>
-            <p className="section-label mb-4" style={{ color: accent }}>{data.name}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6">
-              {t('readyToBuildTheFuture')}
-            </h2>
-            <p className="text-[15px] text-[#999999] leading-[1.7] mb-10">
-              {t('seekingPartners')}
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <MagneticButton className="inline-block">
-                <Link
-                  href={`/quote?vertical=${slug}`}
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[13px] font-bold tracking-[0.05em] uppercase text-black bg-white transition-all duration-300 hover:scale-105"
-                >
+      {/* ═══════════════ 10. CTA ═══════════════ */}
+      <section className="py-24 md:py-32 bg-white border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <FadeIn>
+              <Link
+                href={`/quote?vertical=${slug}`}
+                className="block bg-white border border-neutral-200 p-10 md:p-14 group hover:border-neutral-400 transition-colors"
+              >
+                <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: accent }}>
+                  {data.name}
+                </p>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">
                   {t('requestQuote')}
-                  <ArrowRight size={16} />
-                </Link>
-              </MagneticButton>
-              <MagneticButton className="inline-block">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[13px] font-bold tracking-[0.05em] uppercase text-white border border-[rgba(255,255,255,0.15)] hover:border-[rgba(255,255,255,0.3)] transition-all duration-300 hover:scale-105"
-                >
-                  {t('requestBriefing')}
-                  <ArrowRight size={16} />
-                </Link>
-              </MagneticButton>
-            </div>
-          </FadeIn>
+                </h3>
+                <div className="flex items-center gap-2 text-neutral-500 group-hover:text-neutral-900 transition-colors">
+                  <span className="text-[13px] font-semibold">{t('requestBriefing')}</span>
+                  <ArrowUpRight size={14} />
+                </div>
+              </Link>
+            </FadeIn>
+
+            <FadeIn delay={0.1}>
+              <Link
+                href="/contact"
+                className="block bg-neutral-900 text-white p-10 md:p-14 group hover:bg-neutral-800 transition-colors"
+              >
+                <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: accent }}>
+                  {t('partnership')}
+                </p>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">
+                  {t('seekingPartners')}
+                </h3>
+                <div className="flex items-center gap-2 text-neutral-400 group-hover:text-white transition-colors">
+                  <span className="text-[13px] font-semibold">{t('readyToBuildTheFuture')}</span>
+                  <ArrowUpRight size={14} />
+                </div>
+              </Link>
+            </FadeIn>
+          </div>
         </div>
       </section>
     </div>

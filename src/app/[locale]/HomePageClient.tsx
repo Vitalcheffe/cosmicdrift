@@ -171,7 +171,7 @@ export default function HomePageClient() {
     <div className="bg-[#0D0D0D]">
 
       {/* ═══════════════════════════════════════════════════════════
-          S1: HERO — Per-slide background images with text carousel
+          STEP 1: HOOK — S1 HERO — Per-slide background images with text carousel
           ═══════════════════════════════════════════════════════════ */}
       <motion.section
         ref={heroRef}
@@ -295,198 +295,33 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S2: VERTICALS GRID — Card3D, StaggerContainer, real images
+          STEP 2: PROBLEM — Why Africa Needs This
+          Stark, urgent, minimal. Create the emotional deficit before the solution.
           ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-[#111111]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-20 md:pt-28">
+      <section className="relative py-28 md:py-40 bg-[#000000] overflow-hidden">
+        <div className="absolute inset-0 dot-pattern opacity-10" />
+        <div className="relative z-10 max-w-[960px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <div className="mb-12">
-              <p className="section-label mb-4">{t('sectionLabels.verticals')}</p>
-              <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight leading-tight">
-                {t('sectionLabels.infrastructure')}
-              </h2>
-            </div>
+            <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-[rgba(255,255,255,0.2)] font-[family-name:var(--font-space-mono)] mb-12">
+              The Deficit
+            </p>
+            <h2 className="text-[clamp(1.75rem,4.5vw,3.5rem)] font-extrabold text-white leading-[1.1] tracking-[-0.02em] mb-8">
+              1.4 billion people.<br />
+              <span className="text-[rgba(255,255,255,0.3)]">The world&apos;s youngest continent.</span><br />
+              <span className="text-[rgba(255,255,255,0.15)]">Running on infrastructure built for someone else.</span>
+            </h2>
+            <div className="accent-line mx-auto mb-8" />
+            <p className="text-sm md:text-base text-[rgba(255,255,255,0.35)] leading-[1.7] max-w-lg mx-auto">
+              Africa doesn&apos;t need another consultancy. It doesn&apos;t need another report. It needs sovereign infrastructure &mdash; owned, operated, and governed by Africans. That&apos;s the only thing that has ever moved a continent forward.
+            </p>
           </FadeIn>
-
-          {/* Card Grid — Pattern 1: Explore Solutions, 2 col desktop */}
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16" staggerDelay={0.08}>
-            {verticals.map((v) => (
-              <StaggerItem key={v.version}>
-                <div className="bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-[8px] overflow-hidden hover:border-[rgba(255,255,255,0.12)] transition-all duration-500">
-                  {/* Full-width image at top */}
-                  <div className="relative h-[180px] md:h-[200px] overflow-hidden">
-                    <Image
-                      src={v.image}
-                      alt={v.fullName}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      loading="lazy"
-                    />
-                  </div>
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <h3 className="text-[20px] font-bold text-white">{v.name}</h3>
-                      <span
-                        className="version-tag"
-                        style={{ color: v.accent }}
-                      >
-                        {v.version}
-                      </span>
-                    </div>
-                    <p className="text-[14px] text-[#999999] leading-relaxed mb-4 line-clamp-2">
-                      {v.desc}
-                    </p>
-                    {/* Pattern 1: Two buttons side by side */}
-                    <div className="flex gap-3">
-                      <Link
-                        href={v.href}
-                        className="inline-flex items-center gap-2 border border-white/12 text-white px-5 py-2.5 rounded-[8px] text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all"
-                      >
-                        {t('explore')}
-                      </Link>
-                      <Link
-                        href={v.href}
-                        className="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-[8px] text-sm font-semibold hover:bg-white/90 transition-all"
-                      >
-                        {tCommon('learnMore')}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-
-        {/* Deep Dive Carousel — enhanced with real images */}
-        <div className="border-t border-[rgba(255,255,255,0.04)]">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-12 pb-4">
-            <div className="flex items-center justify-between mb-4">
-              <p className="section-label">{t('sectionLabels.deepDive')}</p>
-              <div className="flex gap-1 overflow-x-auto no-scrollbar">
-                {verticals.map((v, i) => (
-                  <button
-                    key={v.version}
-                    onClick={() => setActiveVertical(i)}
-                    className={`shrink-0 px-3 py-1.5 text-[10px] font-bold tracking-[0.1em] uppercase rounded transition-all duration-300 ${
-                      i === activeVertical
-                        ? 'bg-white text-black'
-                        : 'text-[rgba(255,255,255,0.25)] hover:text-white hover:bg-[rgba(255,255,255,0.06)]'
-                    }`}
-                  >
-                    {v.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Deep dive feature section with real background image */}
-          <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-            {verticals.map((v, i) => (
-              <div
-                key={v.version}
-                className={`absolute inset-0 transition-opacity ${
-                  i === activeVertical ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                }`}
-                style={{ transition: 'opacity 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
-              >
-                <Image
-                  src={v.deepDiveImage}
-                  alt={v.fullName}
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.95)] via-[rgba(13,13,13,0.6)] to-[rgba(13,13,13,0.3)]" />
-                <div
-                  className="absolute inset-0"
-                  style={{ background: `radial-gradient(ellipse at 30% 50%, ${v.accent}10, transparent 60%)` }}
-                />
-              </div>
-            ))}
-
-            {/* Text overlay */}
-            <div className="relative z-30 max-w-[1400px] mx-auto px-6 md:px-12 h-full flex items-end pb-12 md:pb-16">
-              <motion.div
-                key={activeVertical}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{verticals[activeVertical].version}</span>
-                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/60 stat-mono">{verticals[activeVertical].stat}</span>
-                </div>
-                <TextReveal
-                  text={verticals[activeVertical].name}
-                  className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-[-0.02em] mb-3"
-                />
-                <p className="max-w-lg text-sm text-[rgba(255,255,255,0.5)] leading-relaxed mb-6">
-                  {verticals[activeVertical].desc}
-                </p>
-                <SmoothLink href={verticals[activeVertical].href} className="text-sm font-semibold text-white">
-                  {tCommon('learnMore')}
-                </SmoothLink>
-              </motion.div>
-            </div>
-
-            {/* Navigation arrows */}
-            <div className="absolute right-6 md:right-12 bottom-12 md:bottom-16 z-30 flex items-center gap-3">
-              <button onClick={() => setActiveVertical((prev) => (prev - 1 + verticals.length) % verticals.length)} className="w-11 h-11 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors" aria-label="Previous">
-                <ChevronLeft size={16} />
-              </button>
-              <span className="text-[11px] text-white/30 font-medium tabular-nums font-[family-name:var(--font-space-mono)]">
-                {String(activeVertical + 1).padStart(2, '0')} / {String(verticals.length).padStart(2, '0')}
-              </span>
-              <button onClick={() => setActiveVertical((prev) => (prev + 1) % verticals.length)} className="w-11 h-11 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-white/50 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors" aria-label="Next">
-                <ChevronRight size={16} />
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S2.5: PLATFORM PREVIEW — Interactive HarchOS Console
-          ═══════════════════════════════════════════════════════════ */}
-      <InteractivePlatform slug="intelligence" accent="#8B9DAF" />
-
-      <SectionDivider />
-
-      {/* ═══════════════════════════════════════════════════════════
-          S3: OVERVIEW BREAK — Parallax with real image
-          ═══════════════════════════════════════════════════════════ */}
-      <ParallaxSection speed={0.15} className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-        <Image
-          src="/images/sections/overview-casablanca.jpg"
-          alt="Casablanca overview"
-          fill
-          className="object-cover"
-          sizes="100vw"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-[rgba(13,13,13,0.8)]" />
-        <div className="absolute inset-0 dot-pattern opacity-20" />
-        <div className="relative z-10 text-center">
-          <FadeIn>
-            <p className="text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-white tracking-[-0.02em] mb-4">
-              {t('sectionLabels.eightVerticals')}
-            </p>
-            <p className="text-xl md:text-2xl font-light text-[rgba(255,255,255,0.4)]">{t('sectionLabels.investmentPipeline')}</p>
-          </FadeIn>
-        </div>
-      </ParallaxSection>
-
-      <SectionDivider />
-
-      {/* ═══════════════════════════════════════════════════════════
-          S4: AFRICA MAP — Import from component, FadeIn
+          STEP 3: PROOF OF EXISTENCE — S4 AFRICA MAP — Live deployments
           ═══════════════════════════════════════════════════════════ */}
       <section id="global-presence" className="py-16 md:py-20 bg-[#0D0D0D] relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
@@ -563,7 +398,7 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S5: STATS — "By the Numbers" with CountUp, Card3D, PulseIndicator
+          STEP 4: SCALE — S5 STATS — "By the Numbers" with CountUp
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -602,7 +437,84 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S6: INVESTMENT TABLE — Row stagger, consistent badges
+          STEP 5: THE MACHINE — S2 VERTICALS GRID — 8 verticals = the integrated machine
+          (Deep Dive Carousel removed — redundant, too long)
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-[#111111]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-20 md:pt-28 pb-16 md:pb-24">
+          <FadeIn>
+            <div className="mb-12">
+              <p className="section-label mb-4">{t('sectionLabels.verticals')}</p>
+              <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight leading-tight">
+                {t('sectionLabels.infrastructure')}
+              </h2>
+            </div>
+          </FadeIn>
+
+          {/* Card Grid — Pattern 1: Explore Solutions, 2 col desktop */}
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16" staggerDelay={0.08}>
+            {verticals.map((v) => (
+              <StaggerItem key={v.version}>
+                <div className="bg-[#111111] border border-[rgba(255,255,255,0.06)] rounded-[8px] overflow-hidden hover:border-[rgba(255,255,255,0.12)] transition-all duration-500">
+                  {/* Full-width image at top */}
+                  <div className="relative h-[180px] md:h-[200px] overflow-hidden">
+                    <Image
+                      src={v.image}
+                      alt={v.fullName}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-[20px] font-bold text-white">{v.name}</h3>
+                      <span
+                        className="version-tag"
+                        style={{ color: v.accent }}
+                      >
+                        {v.version}
+                      </span>
+                    </div>
+                    <p className="text-[14px] text-[#999999] leading-relaxed mb-4 line-clamp-2">
+                      {v.desc}
+                    </p>
+                    {/* Pattern 1: Two buttons side by side */}
+                    <div className="flex gap-3">
+                      <Link
+                        href={v.href}
+                        className="inline-flex items-center gap-2 border border-white/12 text-white px-5 py-2.5 rounded-[8px] text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all"
+                      >
+                        {t('explore')}
+                      </Link>
+                      <Link
+                        href={v.href}
+                        className="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-[8px] text-sm font-semibold hover:bg-white/90 transition-all"
+                      >
+                        {tCommon('learnMore')}
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          STEP 6: THE OS — S2.5 InteractivePlatform — HarchOS connects them all
+          ═══════════════════════════════════════════════════════════ */}
+      <InteractivePlatform slug="intelligence" accent="#8B9DAF" />
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════
+          STEP 7: DEPLOYMENT DETAIL — S6 INVESTMENT TABLE — Where the money goes
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -661,7 +573,7 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S6.5: PROVEN IMPACT — Case Studies Preview
+          STEP 8: REAL IMPACT — S6.5 CASE STUDIES — Proof, not promises
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -790,7 +702,7 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S7: IMPACT STUDY — Intelligence (IMAGE + TEXT)
+          STEP 8 (continued): REAL IMPACT — S7 IMPACT STUDY — Intelligence (IMAGE + TEXT)
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -848,65 +760,7 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S8: IMPACT STUDY — Energy (TEXT + IMAGE, reversed)
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#111111]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-8">Impact Study &mdash; {t('verticals.energy.name')} /0.3</p>
-          </FadeIn>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Text on left */}
-            <FadeIn delay={0.15} direction="right" className="order-2 lg:order-1">
-              <TextReveal
-                text={t('verticals.energy.tagline')}
-                className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-4"
-              />
-              <div className="accent-line mb-6" />
-              <p className="text-sm text-[rgba(255,255,255,0.5)] leading-[1.7] mb-8">
-                {t('verticals.energy.description')}
-              </p>
-              <div className="grid grid-cols-3 gap-6 mb-8">
-                {[
-                  { val: '2GW+', label: 'Pipeline' },
-                  { val: '3', label: 'Energy Sources' },
-                  { val: 'Zero', label: 'Carbon' },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <p className="text-2xl font-bold text-white stat-mono">{s.val}</p>
-                    <p className="text-[10px] text-[rgba(255,255,255,0.25)] uppercase tracking-[0.1em] font-bold">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-              <SmoothLink href="/subsidiaries/energy" className="text-sm font-semibold text-[rgba(255,255,255,0.5)] hover:text-white">
-                {tCommon('readMore')}
-              </SmoothLink>
-            </FadeIn>
-            {/* Image on right */}
-            <FadeIn direction="left" className="order-1 lg:order-2">
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
-                <Image
-                  src="/images/sections/energy-solar-farm.jpg"
-                  alt={t('verticals.energy.name')}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,13,13,0.6)] to-transparent" />
-                <div className="absolute bottom-4 left-4 bg-[rgba(0,0,0,0.6)] backdrop-blur-md px-4 py-2 rounded-md border border-[rgba(255,255,255,0.06)]">
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-white/70">{t('verticals.energy.stat')}</p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      <SectionDivider />
-
-      {/* ═══════════════════════════════════════════════════════════
-          S9: HarchOS DEVELOPER PLATFORM — Typing animation on code
+          STEP 9: BUILD ON IT — S9 HarchOS DEVELOPER PLATFORM
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -1020,7 +874,7 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S10: CEO QUOTE — TextReveal, subtle parallax quotation mark
+          STEP 10: THE WORD — S10 CEO QUOTE — Emotional anchor
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[960px] mx-auto px-6 md:px-12">
@@ -1046,38 +900,7 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S11: AFRICA'S POTENTIAL — CountUp, StaggerContainer
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#0D0D0D]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4">{t('sectionLabels.africaFocus')}</p>
-            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-tight mb-16">
-              {t('sectionLabels.africaFocus')}
-            </h2>
-          </FadeIn>
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
-            {africaStats.map((item, i) => (
-              <StaggerItem key={i}>
-                <Card3D className="card h-full">
-                  <p className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-white mb-2 leading-none stat-mono">
-                    {i === 0 && <CountUp to={30} suffix="%" duration={2} />}
-                    {i === 1 && <CountUp to={60} suffix="%" duration={2} />}
-                    {i === 2 && <CountUp to={1400} suffix="M+" duration={2.5} />}
-                  </p>
-                  <div className="accent-line mb-5" />
-                  <p className="text-[13px] text-[rgba(255,255,255,0.5)] leading-relaxed">{item.desc}</p>
-                </Card3D>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      <SectionDivider />
-
-      {/* ═══════════════════════════════════════════════════════════
-          S12: TIMELINE/ROADMAP — Animated line, pulse dots, stagger
+          STEP 11: THE FUTURE — S12 TIMELINE/ROADMAP
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -1142,7 +965,7 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S13: OPERATOR MODEL — TextReveal, Card3D principles
+          STEP 12: WHO WE ARE — S13 OPERATOR MODEL — The philosophy
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -1181,7 +1004,7 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S14: NEWSROOM PREVIEW — Card3D, Stagger entrance
+          STEP 13: STAY INFORMED — S14 NEWSROOM PREVIEW
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-28 md:py-36 bg-[#111111]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
@@ -1236,7 +1059,7 @@ export default function HomePageClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════
-          S15: CTA SECTION — NetworkGrid, ParallaxSection, MagneticButton
+          STEP 14: ACT — S15 CTA SECTION — The inevitable next step
           ═══════════════════════════════════════════════════════════ */}
       <ParallaxSection speed={0.1} className="relative bg-[#000000] overflow-hidden">
         <NetworkGrid nodeCount={35} maxDistance={100} opacity={0.04} />

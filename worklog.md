@@ -475,3 +475,36 @@ Work Log:
 7. **ProductCards.tsx** (1 error → fixed): `ease: [0.25, 0.46, 0.45, 0.94]` not compatible with Framer Motion `Variants` type. Added tuple type assertion: `ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number]`.
 
 Result: `npx tsc --noEmit 2>&1 | grep "^src/"` returns zero errors. All 17 TypeScript errors in src/ resolved.
+
+---
+Task ID: 1
+Agent: Main Agent
+Task: Redesign homepage with Palantir-style video hero and verticals carousel below
+
+Work Log:
+- Analyzed 10 uploaded Palantir screenshots using VLM to understand exact section order
+- Read current HomePageClient.tsx (338 lines, image carousel hero)
+- Downloaded and verified 7 drone/infrastructure videos from Mixkit (free stock):
+  - Factory night aerial (ID 1673)
+  - Factory day aerial (ID 1947)
+  - Industrial complex aerial (ID 25226)
+  - Renewable energy farm (ID 8271, 7900)
+  - Warehouses/port aerial (ID 36298)
+  - Trucks/warehouse aerial (ID 36293)
+- Trimmed and concatenated clips into hero.mp4 (44s, 8.6MB) and infrastructure.mp4 (28s, 4.2MB)
+- Redesigned HomePageClient.tsx to match Palantir's exact section order:
+  1. HERO — Full-screen drone infrastructure video background + "Harch Corp" + tagline
+  2. STATEMENT — One powerful line
+  3. VERTICALS CAROUSEL — Auto-cycling showcase of all 8 verticals with crossfade images
+  4. NUMBERS — Four big stats
+  5. VIDEO BREAK — Second infrastructure footage video
+  6. CTA — Two doors
+- Built successfully (0 errors) and pushed to GitHub for Vercel auto-deploy
+
+Stage Summary:
+- hero.mp4: 1280x720, 44s, 8.6MB (factory night → industrial complex → factory day → renewable farm → warehouses → energy farm)
+- infrastructure.mp4: 1280x720, 28s, 4.2MB
+- Both videos: muted, autoplay, loop, with poster fallback
+- Verticals carousel moved BELOW the statement (not in hero anymore)
+- Active vertical highlighted in the quick-scan list below carousel
+- Commit: 78b56e7 on main

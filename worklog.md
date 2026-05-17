@@ -1,49 +1,88 @@
-# Work Log: Fix i18n/Translation Issues in HarchOS Page
+# Worklog: Rewrite HarchOS Page to Match Palantir AIP
 
-## Date: 2026-03-04
-
-## Summary
-Fixed all i18n/translation issues in the HarchOS page by replacing dozens of hardcoded English strings with `t()` translation function calls, creating comprehensive translation keys in both `en.json` and `fr.json`.
-
-## Files Modified
-1. **`/home/z/my-project/messages/en.json`** — Replaced the `harchos` section (was 82 lines, now 630+ lines) with comprehensive keys covering every string in the page
-2. **`/home/z/my-project/messages/fr.json`** — Replaced the `harchos` section with proper French translations (was 117 lines of mixed English/French, now 630+ lines of proper French)
-3. **`/home/z/my-project/src/app/[locale]/intelligence/harchos/HarchOSPageClient.tsx`** — Rewrote to use `t()` for all hardcoded strings
+**Date**: 2026-03-04
+**Task**: Rewrite HarchOS page hero/workflow/evaluate sections to match Palantir AIP page exactly
 
 ## Changes Made
 
-### en.json harchos section
-- Expanded from ~82 lines to ~630 lines
-- Added nested key structure: `hero.*`, `demo.sovereign.*`, `demo.carbon.*`, `demo.automation.*`, `workflow.*`, `evaluate.*`, `capabilities.*`, `specs.*`, `security.*`, `devPlatform.*`, `competitive.*`, `cta.*`, `hubTypes.*`, `progress.*`
-- Preserved all existing keys that were already used with `t()`
-- Added new keys for: stat labels, tab labels, demo UI labels, alert data, workflow data, carbon hub data, automation pipeline steps, workflow diagram nodes, evaluation pipeline steps, spec labels, security feature descriptions, competitive comparison data (7 competitors × ~12 metrics each), CTA labels
+### 1. HarchOSPageClient.tsx — Complete Rewrite of Sections 1-3
 
-### fr.json harchos section
-- Replaced mixed English/French with proper French translations
-- Technical terms (GPU, H100, A100, PUE, GDPR, ISO 27001, SOC 2, CLOUD Act) kept as-is
-- Proper French for UI terms: "Ordonnancement éco-responsable", "Résidence souveraine des données", "Services de plateforme IA", "SDK Développeur", "Architecture Zero-Trust", "Chiffrement souverain", "Conformité automatisée", etc.
-- All competitive comparison verdicts translated to proper French
+**Section 1: Hero (Dark bg #1E1E2E)**
+- Changed hero background from `#1A1A2E` to `#1E1E2E` to match Palantir AIP
+- Changed demo container background from `#12122A` to `#252538` to match Palantir's dark panel style
+- Updated tab active border to solid `white` (from `white/25`) matching Palantir's bold active state
+- Added purple (`#8B5CF6`) "Sovereign" and light blue (`#7DD3FC`) "Autonomy" colored subheadline text
+- Added **Annotation Badge component** with purple circles (`#6366F1`) containing letters A, B, C
+- Each hero tab now shows annotation circles pointing to specific UI elements:
+  - **Sovereign AI App tab**: Alert feed (A), Carbon warning (B), AI action panel (C) with Accept/Modify/Explain buttons
+  - **Carbon-Aware Logic tab**: Best hub (A), Grid carbon (B), Hub comparison (C)
+  - **Automation tab**: Workflow sidebar (A), Pipeline steps (B), Status tracking (C)
+- Each tab's demo includes an annotation legend bar at the bottom
 
-### HarchOSPageClient.tsx
-- Moved mock data arrays (SOVEREIGN_AI_ALERTS, CARBON_HUBS, AUTOMATION_WORKFLOWS, PROGRESS_STEPS) inside the component to access `t()`
-- Replaced all hardcoded strings with `t()` calls:
-  - Hero section: "Beyond Infrastructure" → `t('hero.headline')` + `t('hero.headlineLine2')`, "Explore HarchOS" → `t('hero.subheadline')`, stat labels, tab labels
-  - Demo section: "Live Alerts", "Carbon-Aware Scheduler", "Workflow Engine", "5 Active Alerts", "View All", "Dashboard", "Builder", all demo stat labels, etc.
-  - Workflow section: "Designed for AI workflow builders", "VIDEO", "DIAGRAM", all check items, diagram node labels
-  - Evaluate section: "Evaluate and ship with confidence", all pipeline step labels and details
-  - Capabilities section: "Core Capabilities", all capability titles and descriptions
-  - Specs section: "Network" category, all spec labels (15 total)
-  - Security section: all 4 security feature titles and descriptions
-  - Developer section: code comment translatable
-  - Competitive section: all 7 competitors with full metric data using `buildCompetitorMetrics()` helper
-  - CTA section: "Briefing", "Request a Briefing", "Platform", "Explore the Platform", platform description
-- Added `getWorkflowStatusLabel()` and `getActionStatusLabel()` helper functions for status translations
-- CSS, layout, and visual structure preserved exactly
+**Section 2: Removed Interactive Demo section**
+- Completely removed the old Section 2 (expanded dark demo with macOS window chrome) — not part of Palantir AIP design
+- This eliminated ~250 lines of redundant demo code
 
-## Build Verification
-- `bun run lint` — No new errors in HarchOSPageClient.tsx
-- `npx next build` — Build succeeded with 0 errors, both `/en/intelligence/harchos` and `/fr/intelligence/harchos` pages generated successfully
+**Section 3: Workflow Builder (White bg)**
+- Changed `DIAGRAM` tab to `DETAILS` tab matching Palantir's VIDEO/DETAILS toggle
+- Updated progress indicator to use Palantir-style `[0.1] — 0.2 — 0.3 — 0.4` format with brackets on active step
+- When DETAILS tab is active, shows feature cards instead of workflow diagram:
+  - AI-driven data pipelining
+  - AI-driven actions
+  - AI-driven agents
+- Each card has icon, title, and description
 
-## Git
-- Committed: `fix: complete i18n for HarchOS page - all strings now use t() translations`
-- Pushed to `main` branch successfully
+**Section 4: Evaluate (Light gray bg #F7F7F8)**
+- Same VIDEO/DETAILS toggle pattern as workflow section
+- Progress indicator with `[0.2]` active
+- When DETAILS tab is active, shows feature cards:
+  - Debug logic
+  - Compare models
+
+**State variable changes:**
+- `workflowMediaTab` type changed from `'video' | 'diagram'` to `'video' | 'details'`
+- `evaluateMediaTab` type changed from `'video' | 'diagram'` to `'video' | 'details'`
+
+**New imports:** None needed (used existing Database, Sparkles, Brain, Settings2, GitBranch)
+
+**Bug fix:** Escaped `{job.hub}` and `{job.carbon_intensity}` in code snippet JSX to prevent TypeScript error
+
+### 2. en.json — New Translation Keys Added
+
+Under `harchos.hero`:
+- `subheadlineSovereign`: "Sovereign"
+- `subheadlineAutonomy`: "Autonomy"
+- `annotations.accept`: "Accept"
+- `annotations.modify`: "Modify"
+- `annotations.explain`: "Explain"
+- `annotations.sovereign.a/b/c`: Sovereign tab annotation descriptions
+- `annotations.carbon.a/b/c`: Carbon tab annotation descriptions
+- `annotations.automation.a/b/c`: Automation tab annotation descriptions
+
+Under `harchos.workflow`:
+- `detailsTab`: "DETAILS"
+- `details.dataPipelining.title/desc`: AI-driven data pipelining
+- `details.actions.title/desc`: AI-driven actions
+- `details.agents.title/desc`: AI-driven agents
+
+Under `harchos.evaluate`:
+- `detailsTab`: "DETAILS"
+- `details.debugLogic.title/desc`: Debug logic
+- `details.compareModels.title/desc`: Compare models
+
+### 3. fr.json — French Translation Keys Added
+
+All new keys from en.json translated to French:
+- `subheadlineSovereign`: "Souveraineté"
+- `subheadlineAutonomy`: "Autonomie"
+- All annotation descriptions translated
+- `detailsTab`: "DÉTAILS"
+- All feature card titles and descriptions translated
+
+### Build Verification
+- `bun run build` completed successfully with 0 errors
+- All routes generated correctly
+
+### Git
+- Committed as: `feat: rewrite HarchOS hero/workflow/evaluate sections to match Palantir AIP exactly`
+- Pushed to: `origin main`

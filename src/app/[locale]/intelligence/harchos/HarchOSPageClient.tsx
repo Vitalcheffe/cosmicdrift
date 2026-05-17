@@ -2,60 +2,67 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight, ArrowLeft, Activity, BarChart3, Brain, Cpu, Database,
   Gauge, Globe, Layers, Leaf, Lock, Monitor, Network, Radio,
   Server, Shield, Thermometer, Wifi, Wind, Zap, Code2, Key,
   CloudCog, FileCode2, GitBranch, Boxes, Eye, Rocket, CheckCircle2,
-  Sun, Droplets, MapPin
+  Sun, Droplets, MapPin, ArrowUpRight, Play, AlertTriangle,
+  TrendingUp, CircleDot, Workflow, Settings2, BarChart2, Timer,
+  CpuIcon, Users, ChevronRight, ExternalLink, Sparkles
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
 import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
 import type { Competitor } from '@/components/competitive/CompetitiveComparison';
 
+/* ─── MOCK DEMO DATA ─── */
+const SOVEREIGN_AI_ALERTS = [
+  { id: 1, severity: 'critical', title: 'GPU Throttle Detected — Hub Ouarzazate', detail: 'Node HOU-47 thermal limit at 92°C. Auto-migration initiated to HOU-12.', time: '2s ago' },
+  { id: 2, severity: 'warning', title: 'Carbon Intensity Spike — Hub Casablanca', detail: 'Grid carbon jumped to 210 gCO2/kWh. Scheduling paused for non-critical jobs.', time: '14s ago' },
+  { id: 3, severity: 'info', title: 'Workload Rebalanced — 23 Jobs Migrated', detail: 'HarchOS moved 23 training jobs from Casablanca to Ouarzazate. Carbon saved: 1.2t CO2.', time: '1m ago' },
+  { id: 4, severity: 'warning', title: 'Submarine Cable Latency — 2Africa', detail: 'Round-trip to Marseille increased from 8ms to 12ms. Monitoring active.', time: '3m ago' },
+  { id: 5, severity: 'critical', title: 'Power Anomaly — Hub Dakhla Wind Farm', detail: 'Wind generation dropped 40%. Battery reserves at 78%. Load-shedding protocol engaged.', time: '5m ago' },
+];
+
+const CARBON_HUBS = [
+  { name: 'Harch Ouarzazate', carbon: 18, renewable: 97.2, gpus: 800, type: 'Solar', status: 'optimal', latency: '<5ms to EU' },
+  { name: 'Harch Dakhla', carbon: 32, renewable: 84.1, gpus: 400, type: 'Wind', status: 'optimal', latency: '<8ms to EU' },
+  { name: 'Harch Benguerir', carbon: 55, renewable: 62.3, gpus: 350, type: 'Solar+Wind', status: 'degraded', latency: '<12ms to EU' },
+  { name: 'Harch Tanger', carbon: 41, renewable: 78.9, gpus: 200, type: 'Hybrid', status: 'optimal', latency: '<3ms to EU' },
+  { name: 'Harch Casablanca', carbon: 210, renewable: 12.4, gpus: 48, type: 'Grid', status: 'standby', latency: '<2ms local' },
+];
+
+const AUTOMATION_WORKFLOWS = [
+  { id: 'wf-1', name: 'Carbon-Optimal Training Pipeline', status: 'running', steps: 6, completed: 4, trigger: 'Carbon < 50 gCO2/kWh' },
+  { id: 'wf-2', name: 'Cross-Hub Failover Protocol', status: 'idle', steps: 4, completed: 0, trigger: 'Hub health < 99.9%' },
+  { id: 'wf-3', name: 'EU Data Residency Enforcer', status: 'running', steps: 3, completed: 3, trigger: 'GDPR boundary breach' },
+  { id: 'wf-4', name: 'Renewable Peak Harvester', status: 'running', steps: 5, completed: 2, trigger: 'Solar > 95% capacity' },
+  { id: 'wf-5', name: 'Incident Response Escalation', status: 'idle', steps: 8, completed: 0, trigger: 'Severity >= P2' },
+];
+
+const PROGRESS_STEPS = [
+  { id: '0.1', label: 'Define' },
+  { id: '0.2', label: 'Build' },
+  { id: '0.3', label: 'Evaluate' },
+  { id: '0.4', label: 'Ship' },
+];
+
 /* ─── MAIN COMPONENT ─── */
 export default function HarchOSPageClient() {
   const t = useTranslations('harchos');
   const tCommon = useTranslations('common');
+
+  /* ─── State ─── */
+  const [heroTab, setHeroTab] = useState<'sovereign' | 'carbon' | 'automation'>('carbon');
   const [activeArchTab, setActiveArchTab] = useState('sense');
-  const [activeHub, setActiveHub] = useState<string | null>(null);
+  const [workflowMediaTab, setWorkflowMediaTab] = useState<'video' | 'diagram'>('video');
+  const [evaluateMediaTab, setEvaluateMediaTab] = useState<'video' | 'diagram'>('diagram');
+  const [workflowStep, setWorkflowStep] = useState(1);
+  const [evaluateStep, setEvaluateStep] = useState(2);
 
-  const hubs = [
-    {
-      id: 'ouarzazate', name: 'Harch Ouarzazate', location: 'Ouarzazate', energy: t('architecture.sense.description'),
-      power: '800 GPUs', latency: '18 gCO2/kWh — Enterprise Tier', color: '#F59E0B',
-      icon: Sun, image: '/images/intelligence/harchos-energy-mix.png',
-      description: t('architecture.sense.description'),
-    },
-    {
-      id: 'dakhla', name: 'Harch Dakhla', location: 'Dakhla', energy: t('architecture.sense.description'),
-      power: '400 GPUs', latency: '32 gCO2/kWh — Enterprise Tier', color: '#5B8FB9',
-      icon: Wind, image: '/images/intelligence/harchos-tanger.png',
-      description: t('architecture.think.description'),
-    },
-    {
-      id: 'benguerir', name: 'Harch Benguerir', location: 'Benguerir', energy: t('architecture.think.description'),
-      power: '350 GPUs', latency: '55 gCO2/kWh — Performance Tier', color: '#10B981',
-      icon: Leaf, image: '/images/intelligence/harchos-architecture.png',
-      description: t('architecture.act.description'),
-    },
-    {
-      id: 'tanger', name: 'Harch Tanger', location: 'Tanger', energy: t('architecture.act.description'),
-      power: '200 GPUs', latency: '<5ms to Europe — Performance Tier', color: '#8B9DAF',
-      icon: Droplets, image: '/images/intelligence/harchos-facility-night.png',
-      description: t('architecture.sense.description'),
-    },
-    {
-      id: 'casablanca', name: 'Harch Casablanca', location: 'Casablanca', energy: t('architecture.think.description'),
-      power: '48 GPUs', latency: '210 gCO2/kWh — Standard Tier', color: '#8B5CF6',
-      icon: Network, image: '/images/intelligence/harchos-mesh-map.png',
-      description: t('architecture.act.description'),
-    },
-  ];
-
+  /* ─── Data ─── */
   const architectureLayers = [
     {
       id: 'sense', name: t('architecture.sense.title'), tag: t('architecture.sense.subtitle'),
@@ -77,7 +84,7 @@ export default function HarchOSPageClient() {
         { label: t('features.carbonAware.title'), value: 'RL, Transformer, GNN' },
         { label: t('features.security.title'), value: 'Multi-objective' },
         { label: t('features.compliance.title'), value: '<50ms' },
-    ],
+      ],
     },
     {
       id: 'act', name: t('architecture.act.title'), tag: t('architecture.act.subtitle'),
@@ -92,69 +99,42 @@ export default function HarchOSPageClient() {
     },
   ];
 
-  const capabilities = [
-    {
-      icon: Boxes, title: t('features.dashboard.title'),
-      desc: t('features.dashboard.description'),
-    },
-    {
-      icon: Brain, title: t('features.carbonAware.title'),
-      desc: t('features.carbonAware.description'),
-    },
-    {
-      icon: Leaf, title: t('features.security.title'),
-      desc: t('features.security.description'),
-    },
-    {
-      icon: Shield, title: t('features.compliance.title'),
-      desc: t('features.compliance.description'),
-    },
-    {
-      icon: CloudCog, title: t('features.api.title'),
-      desc: t('features.api.description'),
-    },
-    {
-      icon: Key, title: t('features.mobile.title'),
-      desc: t('features.mobile.description'),
-    },
+  const capabilitiesList = [
+    { number: '0.1', icon: Leaf, title: 'Carbon-Aware Scheduling', desc: 'Automatic workload optimization based on grid carbon intensity, shifting loads to the cleanest periods and regions. Real-time per-job scheduling with 47 parameters.' },
+    { number: '0.2', icon: Shield, title: 'Sovereign Data Residency', desc: '100% African data sovereignty with guaranteed Morocco jurisdiction. GDPR, ISO 27001, SOC 2 Type II, and Law 09-08 compliance — no CLOUD Act exposure.' },
+    { number: '0.3', icon: Brain, title: 'AI Platform Services', desc: 'Full-stack AI platform for training, fine-tuning, and serving models on H100/A100/L40S GPUs. Carbon-optimal scheduling built into every pipeline.' },
+    { number: '0.4', icon: Code2, title: 'Developer SDK', desc: 'Comprehensive TypeScript/Python SDK with OAuth 2.0 authentication, rate limiting, and interactive documentation for seamless integration.' },
   ];
 
   const specs = [
     { category: t('specs.title'), items: [
-      { spec: t('features.dashboard.title'), value: '1,798 GPUs' },
-      { spec: t('features.carbonAware.title'), value: 'H100, A100, L40S' },
-      { spec: t('features.security.title'), value: 'NVLink + InfiniBand' },
-      { spec: t('features.compliance.title'), value: '800 GPUs per hub' },
-      { spec: t('features.api.title'), value: '>92% linear' },
+      { spec: 'Total GPUs', value: '1,798' },
+      { spec: 'GPU Types', value: 'H100, A100, L40S' },
+      { spec: 'Interconnect', value: 'NVLink + InfiniBand' },
+      { spec: 'Max per Hub', value: '800 GPUs' },
+      { spec: 'Scaling Efficiency', value: '>92% linear' },
     ]},
     { category: t('specs.compliance'), items: [
-      { spec: t('features.dashboard.title'), value: '81.5%' },
-      { spec: t('features.carbonAware.title'), value: '~47 gCO2/kWh' },
-      { spec: t('features.security.title'), value: '18 gCO2/kWh' },
-      { spec: t('features.compliance.title'), value: '1.12' },
-      { spec: t('features.api.title'), value: '1.04' },
+      { spec: 'Renewable Energy', value: '81.5%' },
+      { spec: 'Avg Carbon Intensity', value: '~47 gCO2/kWh' },
+      { spec: 'Best Hub Carbon', value: '18 gCO2/kWh' },
+      { spec: 'PUE Range', value: '1.04 — 1.12' },
+      { spec: 'Best PUE', value: '1.04' },
     ]},
-    { category: t('features.mobile.title'), items: [
-      { spec: t('features.dashboard.title'), value: '400Gbps' },
-      { spec: t('features.carbonAware.title'), value: '100Gbps dedicated' },
-      { spec: t('features.security.title'), value: '4 systems' },
-      { spec: t('features.compliance.title'), value: '<5-12ms' },
-      { spec: t('features.api.title'), value: '<35ms' },
-    ]},
-    { category: t('architecture.title'), items: [
-      { spec: t('features.dashboard.title'), value: '99.999%' },
-      { spec: t('features.carbonAware.title'), value: '<200ms' },
-      { spec: t('features.security.title'), value: '11 nines' },
-      { spec: t('features.compliance.title'), value: '3-2-1 + geo-redundant' },
-      { spec: t('features.api.title'), value: 'RPO <1min, RTO <5min' },
+    { category: 'Network', items: [
+      { spec: 'Backbone', value: '400Gbps' },
+      { spec: 'Dedicated Links', value: '100Gbps each' },
+      { spec: 'Submarine Systems', value: '4 systems' },
+      { spec: 'Latency to Europe', value: '<5-12ms' },
+      { spec: 'Latency to Americas', value: '<35ms' },
     ]},
   ];
 
   const securityFeatures = [
-    { icon: Lock, title: t('features.dashboard.title'), desc: t('features.dashboard.description') },
-    { icon: Shield, title: t('features.carbonAware.title'), desc: t('features.carbonAware.description') },
-    { icon: Eye, title: t('features.security.title'), desc: t('features.security.description') },
-    { icon: FileCode2, title: t('features.compliance.title'), desc: t('features.compliance.description') },
+    { icon: Lock, title: 'Zero-Trust Architecture', desc: 'Every request authenticated and authorized. No implicit trust between services, hubs, or users. mTLS on all internal connections.' },
+    { icon: Shield, title: 'Sovereign Encryption', desc: 'AES-256 end-to-end encryption with Morocco-held keys. No US key escrow, no CLOUD Act key disclosure possible.' },
+    { icon: Eye, title: '24/7/365 SOC Monitoring', desc: 'AI-driven threat detection with automated incident response. Real-time anomaly detection across all 5 hubs simultaneously.' },
+    { icon: FileCode2, title: 'Automated Compliance', desc: 'Continuous compliance monitoring for GDPR, ISO 27001, SOC 2 Type II, and Law 09-08 with audit trails and automated evidence collection.' },
   ];
 
   const devPlatform = [
@@ -164,123 +144,265 @@ export default function HarchOSPageClient() {
     { icon: Database, title: t('features.compliance.title'), desc: t('features.compliance.description') },
   ];
 
-  const roadmap = [
-    { phase: 'Q1 2025', title: t('architecture.sense.subtitle'), items: [t('specs.uptime'), t('specs.latency'), t('specs.dataPoints')] },
-    { phase: 'Q3 2025', title: t('architecture.act.subtitle'), items: [t('specs.integrations'), t('specs.compliance'), t('specs.encryption')] },
-    { phase: 'Q1 2026', title: t('architecture.think.subtitle'), items: [t('specs.uptime'), t('specs.latency'), t('specs.dataPoints')] },
-    { phase: 'Q3 2026', title: t('architecture.sense.subtitle'), items: [t('specs.integrations'), t('specs.compliance'), t('specs.encryption')] },
-    { phase: 'Q1 2027', title: t('architecture.act.subtitle'), items: [t('specs.uptime'), t('specs.latency'), t('specs.dataPoints')] },
-    { phase: 'Q4 2027', title: t('architecture.think.subtitle'), items: [t('specs.integrations'), t('specs.compliance'), t('specs.encryption')] },
-  ];
-
   const activeArch = architectureLayers.find(l => l.id === activeArchTab)!;
 
+  const heroTabs = [
+    { id: 'sovereign' as const, label: 'SOVEREIGN AI APP', number: '01' },
+    { id: 'carbon' as const, label: 'CARBON-AWARE LOGIC', number: '02' },
+    { id: 'automation' as const, label: 'AUTOMATION', number: '03' },
+  ];
+
   return (
-    <div className="bg-[#1A1A1A]">
+    <div className="bg-white">
 
-      {/* ═══════════════════════════════════════════
-          SECTION 1: HERO — Full-screen immersive
-          ═══════════════════════════════════════════ */}
-      <section className="relative h-[100dvh] min-h-[700px] overflow-hidden">
-        <Image
-          src="/images/intelligence/harchos-hero.png"
-          alt="HarchOS Data Center Infrastructure"
-          fill
-          className="object-cover"
-          priority
-          style={{ filter: 'brightness(0.35) contrast(1.1) saturate(0.5)' }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A]/60 via-transparent to-[#1A1A1A]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/80 via-transparent to-transparent" />
-        <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto">
-          <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">{t('title')} /0.1</p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-6">
-              HarchOS<span className="text-[#8B9DAF]">™</span>
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="text-lg md:text-xl text-[#CCCCCC] max-w-2xl leading-relaxed mb-4">
-              {t('subtitle')}
-            </p>
-            <p className="text-[15px] text-[#999999] max-w-xl leading-[1.7] mb-8">
-              {t('description')}
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="flex flex-col sm:flex-row items-start gap-4">
-              <Link href="#architecture" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                {t('architecture.title')} <ArrowRight size={14} />
-              </Link>
-              <Link href="#capabilities" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                {t('features.title')}
-              </Link>
-            </div>
-          </FadeIn>
-          {/* Floating stats */}
-          <FadeIn delay={0.5}>
-            <div className="mt-16 flex flex-wrap gap-8 md:gap-12">
-              {[
-                { value: 1798, suffix: '', label: 'GPUs' },
-                { value: 5, suffix: '', label: 'Hubs' },
-                { value: 400, suffix: 'Gbps', label: 'Backbone' },
-                { value: 47, suffix: '', label: 'gCO2/kWh' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  </p>
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1 font-[family-name:var(--font-space-mono)]">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 1: HERO — Palantir AIP "Beyond Chat" Style
+          Dark bg #1A1A2E, headline left, numbered tabs right
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="relative min-h-[100dvh] bg-[#1A1A2E] overflow-hidden flex flex-col">
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }} />
 
-      {/* ═══════════════════════════════════════════
-          SECTION 2: MANIFESTO
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-8 text-[#8B9DAF]">{t('cta.title')}</p>
-            <blockquote className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white leading-[1.15] tracking-[-0.01em] max-w-4xl">
-              &ldquo;{t('description')}&rdquo;
-            </blockquote>
-            <div className="accent-line mt-8 mb-6" />
-            <p className="text-[15px] text-[#999999] max-w-2xl leading-[1.7]">
-              {t('subtitle')}
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 3: INFRASTRUCTURE PHOTO BREAK
-          ═══════════════════════════════════════════ */}
-      <section className="py-0 bg-[#1A1A1A]">
-        <div className="max-w-[1800px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto w-full pt-24 pb-8">
+          {/* Top section: Headline + Tabs */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-12">
+            {/* Left: Headline */}
             <FadeIn>
-              <div className="relative h-[50vh] lg:h-[70vh] overflow-hidden">
-                <Image src="/images/intelligence/harchos-facility-night.png" alt="Data Center Infrastructure" fill className="object-cover industrial-image" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
-                <div className="absolute bottom-8 left-8 right-8">
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.2em] font-bold font-[family-name:var(--font-space-mono)]">{t('architecture.title')}</p>
-                  <p className="text-xl font-bold text-white mt-1">{t('features.dashboard.title')}</p>
+              <div>
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-6 font-[family-name:var(--font-space-mono)]">
+                  {t('title')} /0.1
+                </p>
+                <h1 className="text-5xl md:text-6xl lg:text-[80px] font-extrabold text-white tracking-[-0.03em] leading-[0.95] mb-4">
+                  Beyond<br />Infrastructure
+                </h1>
+                <p className="text-xl md:text-2xl text-[#8B9DAF] font-light tracking-[-0.01em] mb-8">
+                  Explore HarchOS
+                </p>
+                <p className="text-[15px] text-[#999999] max-w-md leading-[1.7] mb-10">
+                  {t('description')}
+                </p>
+                <div className="flex flex-wrap gap-6">
+                  {[
+                    { value: 1798, suffix: '', label: 'GPUs' },
+                    { value: 5, suffix: '', label: 'Hubs' },
+                    { value: 47, suffix: '', label: 'gCO₂/kWh' },
+                    { value: 99.999, suffix: '%', label: 'Uptime SLA' },
+                  ].map((stat) => (
+                    <div key={stat.label}>
+                      <p className="text-2xl md:text-3xl font-bold text-white stat-mono">
+                        <AnimatedCounter value={stat.value} suffix={stat.suffix} decimals={stat.value === 99.999 ? 3 : 0} />
+                      </p>
+                      <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1 font-[family-name:var(--font-space-mono)]">{stat.label}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </FadeIn>
+
+            {/* Right: Feature Tabs */}
             <FadeIn delay={0.15}>
-              <div className="relative h-[50vh] lg:h-[70vh] overflow-hidden">
-                <Image src="/images/intelligence/harchos-energy-mix.png" alt="Renewable Energy Infrastructure" fill className="object-cover industrial-image" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
-                <div className="absolute bottom-8 left-8 right-8">
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.2em] font-bold font-[family-name:var(--font-space-mono)]">{t('specs.compliance')}</p>
-                  <p className="text-xl font-bold text-white mt-1">{t('features.carbonAware.title')}</p>
+              <div>
+                <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                  {heroTabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setHeroTab(tab.id)}
+                      className={`flex items-center gap-3 px-5 py-4 rounded-lg border transition-all text-left flex-1 ${
+                        heroTab === tab.id
+                          ? 'bg-white/[0.06] border-white/25 text-white'
+                          : 'bg-white/[0.02] border-white/[0.06] text-[#8B9DAF] hover:bg-white/[0.04] hover:border-white/10'
+                      }`}
+                    >
+                      <span className={`text-[11px] font-bold font-[family-name:var(--font-space-mono)] tracking-wider ${heroTab === tab.id ? 'text-white' : 'text-[#555555]'}`}>
+                        {tab.number}
+                      </span>
+                      <span className="text-[12px] font-semibold tracking-wide whitespace-nowrap">{tab.label}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Demo Container — always visible, content changes with tab */}
+                <div className="relative rounded-xl border border-white/[0.06] bg-[#12122A] overflow-hidden min-h-[320px] md:min-h-[400px]">
+                  <AnimatePresence mode="wait">
+                    {heroTab === 'sovereign' && (
+                      <motion.div
+                        key="sovereign-demo"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4 }}
+                        className="p-5 md:p-6"
+                      >
+                        {/* Sovereign AI App — Alert Dashboard */}
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
+                            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">Live Alerts</span>
+                          </div>
+                          <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">HarchOS Sovereign AI</span>
+                        </div>
+                        <div className="space-y-2 max-h-[280px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-2">
+                          {SOVEREIGN_AI_ALERTS.map((alert) => (
+                            <div key={alert.id} className={`rounded-lg border p-3 ${
+                              alert.severity === 'critical' ? 'border-red-500/20 bg-red-500/[0.04]' :
+                              alert.severity === 'warning' ? 'border-amber-500/20 bg-amber-500/[0.04]' :
+                              'border-[#8B9DAF]/10 bg-[#8B9DAF]/[0.03]'
+                            }`}>
+                              <div className="flex items-start gap-2">
+                                <AlertTriangle size={13} className={`mt-0.5 shrink-0 ${
+                                  alert.severity === 'critical' ? 'text-red-400' :
+                                  alert.severity === 'warning' ? 'text-amber-400' : 'text-[#8B9DAF]'
+                                }`} />
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-[12px] font-semibold text-white truncate">{alert.title}</p>
+                                  <p className="text-[11px] text-[#999999] mt-0.5 leading-[1.5]">{alert.detail}</p>
+                                </div>
+                                <span className="text-[9px] text-[#555555] font-[family-name:var(--font-space-mono)] shrink-0">{alert.time}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.04]">
+                          <div className="flex gap-4">
+                            <span className="text-[10px] text-[#666666]">5 Active Alerts</span>
+                            <span className="text-[10px] text-[#666666]">2 Auto-Resolved</span>
+                          </div>
+                          <span className="text-[10px] text-[#8B9DAF] font-semibold flex items-center gap-1">View All <ArrowUpRight size={10} /></span>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {heroTab === 'carbon' && (
+                      <motion.div
+                        key="carbon-demo"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4 }}
+                        className="p-5 md:p-6"
+                      >
+                        {/* Carbon-Aware Logic — Hub Dashboard */}
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-2">
+                            <Leaf size={14} className="text-emerald-400" />
+                            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-emerald-400 font-[family-name:var(--font-space-mono)]">Carbon-Aware Scheduler</span>
+                          </div>
+                          <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">Live Grid Data</span>
+                        </div>
+                        <div className="space-y-2 max-h-[280px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-2">
+                          {CARBON_HUBS.map((hub) => (
+                            <div key={hub.name} className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
+                              <div className="flex items-center justify-between mb-2">
+                                <div className="flex items-center gap-2">
+                                  <span className={`w-2 h-2 rounded-full ${
+                                    hub.status === 'optimal' ? 'bg-emerald-400' :
+                                    hub.status === 'degraded' ? 'bg-amber-400' : 'bg-red-400'
+                                  }`} />
+                                  <span className="text-[12px] font-semibold text-white">{hub.name}</span>
+                                </div>
+                                <span className={`text-[10px] font-bold font-[family-name:var(--font-space-mono)] px-2 py-0.5 rounded ${
+                                  hub.carbon < 30 ? 'bg-emerald-500/10 text-emerald-400' :
+                                  hub.carbon < 60 ? 'bg-amber-500/10 text-amber-400' : 'bg-red-500/10 text-red-400'
+                                }`}>
+                                  {hub.carbon} gCO₂/kWh
+                                </span>
+                              </div>
+                              <div className="grid grid-cols-4 gap-2 text-[10px]">
+                                <div>
+                                  <span className="text-[#666666]">Renewable</span>
+                                  <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.renewable}%</p>
+                                </div>
+                                <div>
+                                  <span className="text-[#666666]">GPUs</span>
+                                  <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.gpus}</p>
+                                </div>
+                                <div>
+                                  <span className="text-[#666666]">Type</span>
+                                  <p className="text-white font-bold">{hub.type}</p>
+                                </div>
+                                <div>
+                                  <span className="text-[#666666]">Latency</span>
+                                  <p className="text-white font-bold font-[family-name:var(--font-space-mono)]">{hub.latency}</p>
+                                </div>
+                              </div>
+                              {/* Carbon bar */}
+                              <div className="mt-2 h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
+                                <div
+                                  className="h-full rounded-full transition-all duration-1000"
+                                  style={{
+                                    width: `${Math.min((hub.renewable), 100)}%`,
+                                    backgroundColor: hub.renewable > 80 ? '#10B981' : hub.renewable > 50 ? '#F59E0B' : '#EF4444',
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.04]">
+                          <span className="text-[10px] text-[#666666]">Avg Carbon: 71.2 gCO₂/kWh · 81.5% Renewable</span>
+                          <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">Dashboard <ArrowUpRight size={10} /></span>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {heroTab === 'automation' && (
+                      <motion.div
+                        key="automation-demo"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4 }}
+                        className="p-5 md:p-6"
+                      >
+                        {/* Automation — Workflow Builder */}
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-2">
+                            <Workflow size={14} className="text-[#8B5CF6]" />
+                            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#8B5CF6] font-[family-name:var(--font-space-mono)]">Workflow Engine</span>
+                          </div>
+                          <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">5 Workflows</span>
+                        </div>
+                        <div className="space-y-2 max-h-[280px] md:max-h-[340px] overflow-y-auto custom-scrollbar pr-2">
+                          {AUTOMATION_WORKFLOWS.map((wf) => (
+                            <div key={wf.id} className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
+                              <div className="flex items-center justify-between mb-2">
+                                <div className="flex items-center gap-2">
+                                  <span className={`w-2 h-2 rounded-full ${wf.status === 'running' ? 'bg-[#8B5CF6] animate-pulse' : 'bg-[#555555]'}`} />
+                                  <span className="text-[12px] font-semibold text-white">{wf.name}</span>
+                                </div>
+                                <span className={`text-[9px] font-bold font-[family-name:var(--font-space-mono)] uppercase px-2 py-0.5 rounded ${
+                                  wf.status === 'running' ? 'bg-[#8B5CF6]/10 text-[#8B5CF6]' : 'bg-white/[0.04] text-[#666666]'
+                                }`}>
+                                  {wf.status}
+                                </span>
+                              </div>
+                              {/* Progress bar */}
+                              <div className="flex items-center gap-3">
+                                <div className="flex-1 h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
+                                  <div
+                                    className="h-full rounded-full bg-[#8B5CF6] transition-all duration-700"
+                                    style={{ width: `${(wf.completed / wf.steps) * 100}%` }}
+                                  />
+                                </div>
+                                <span className="text-[10px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">{wf.completed}/{wf.steps}</span>
+                              </div>
+                              <div className="mt-1.5 flex items-center gap-1.5">
+                                <Timer size={10} className="text-[#555555]" />
+                                <span className="text-[10px] text-[#555555]">Trigger: {wf.trigger}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.04]">
+                          <span className="text-[10px] text-[#666666]">3 Running · 2 Idle · 9 Steps Active</span>
+                          <span className="text-[10px] text-[#8B5CF6] font-semibold flex items-center gap-1">Builder <ArrowUpRight size={10} /></span>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
             </FadeIn>
@@ -288,18 +410,593 @@ export default function HarchOSPageClient() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 4: ARCHITECTURE — SENSE / THINK / ACT
-          ═══════════════════════════════════════════ */}
-      <section id="architecture" className="py-28 md:py-36 bg-[#1A1A1A]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 2: INTERACTIVE DEMO — Expanded Dashboard Views
+          Dark bg #1A1A2E continued
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-[#1A1A2E] py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">{t('architecture.title')}</p>
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
+              Platform Demo
+            </p>
             <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              {t('architecture.sense.title')}.<br/>{t('architecture.think.title')}.
+              Enterprise Autonomy
             </h2>
-            <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
+              {t('subtitle')}
+            </p>
+          </FadeIn>
+
+          {/* Expanded demo container */}
+          <FadeIn delay={0.1}>
+            <div className="rounded-2xl border border-white/[0.06] bg-[#0F0F24] overflow-hidden">
+              {/* Demo header bar */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06] bg-white/[0.01]">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                    <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                    <span className="w-3 h-3 rounded-full bg-[#28CA41]" />
+                  </div>
+                  <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">harchos-console — live</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  {heroTabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setHeroTab(tab.id)}
+                      className={`text-[10px] font-bold font-[family-name:var(--font-space-mono)] px-3 py-1.5 rounded transition-all ${
+                        heroTab === tab.id ? 'bg-white/10 text-white' : 'text-[#555555] hover:text-[#8B9DAF]'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Demo body */}
+              <div className="p-6 md:p-8 min-h-[420px]">
+                <AnimatePresence mode="wait">
+                  {heroTab === 'sovereign' && (
+                    <motion.div
+                      key="demo-sovereign"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                    >
+                      {/* Left: Stats panel */}
+                      <div className="md:col-span-1 space-y-4">
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Active Workloads</p>
+                          <p className="text-3xl font-bold text-white stat-mono">247</p>
+                          <div className="flex items-center gap-1 mt-1">
+                            <TrendingUp size={12} className="text-emerald-400" />
+                            <span className="text-[10px] text-emerald-400 font-semibold">+12% from yesterday</span>
+                          </div>
+                        </div>
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Sovereign Score</p>
+                          <p className="text-3xl font-bold text-white stat-mono">100%</p>
+                          <p className="text-[10px] text-[#999999] mt-1">All data in Morocco jurisdiction</p>
+                        </div>
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Incidents (24h)</p>
+                          <p className="text-3xl font-bold text-white stat-mono">3</p>
+                          <p className="text-[10px] text-[#999999] mt-1">2 auto-resolved · 1 escalated</p>
+                        </div>
+                      </div>
+                      {/* Center: Alert timeline */}
+                      <div className="md:col-span-2">
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 h-full">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">AI App — Proposed Actions</p>
+                          <div className="space-y-3">
+                            {[
+                              { action: 'Migrate 23 training jobs from Casablanca to Ouarzazate', impact: '-1.2t CO₂', confidence: '94%', status: 'approved' },
+                              { action: 'Scale down Hub Casablanca standby GPUs', impact: '-18kW load', confidence: '89%', status: 'pending' },
+                              { action: 'Preemptively failover Hub Dakhla to Wind Farm B', impact: 'Zero downtime', confidence: '91%', status: 'approved' },
+                              { action: 'Reroute EU traffic from 2Africa to SEAMEWE-3', impact: '-4ms latency', confidence: '87%', status: 'pending' },
+                              { action: 'Increase Hub Ouarzazate solar commitment by 15%', impact: '+120 GPU-hrs', confidence: '96%', status: 'auto-approved' },
+                            ].map((item, i) => (
+                              <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+                                <div className="mt-0.5">
+                                  <Sparkles size={14} className="text-[#8B5CF6]" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-[12px] text-white font-medium">{item.action}</p>
+                                  <div className="flex items-center gap-3 mt-1.5">
+                                    <span className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)]">Impact: {item.impact}</span>
+                                    <span className="text-[10px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">Confidence: {item.confidence}</span>
+                                  </div>
+                                </div>
+                                <span className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded shrink-0 ${
+                                  item.status === 'approved' ? 'bg-emerald-500/10 text-emerald-400' :
+                                  item.status === 'auto-approved' ? 'bg-[#8B5CF6]/10 text-[#8B5CF6]' :
+                                  'bg-amber-500/10 text-amber-400'
+                                }`}>
+                                  {item.status}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {heroTab === 'carbon' && (
+                    <motion.div
+                      key="demo-carbon"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                    >
+                      {/* Left: Carbon metrics */}
+                      <div className="md:col-span-1 space-y-4">
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Grid Carbon (Now)</p>
+                          <p className="text-3xl font-bold text-emerald-400 stat-mono">47</p>
+                          <p className="text-[10px] text-[#999999] mt-1">gCO₂/kWh average</p>
+                          <div className="mt-3 h-2 bg-white/[0.04] rounded-full overflow-hidden">
+                            <div className="h-full rounded-full bg-emerald-500" style={{ width: '81.5%' }} />
+                          </div>
+                          <p className="text-[10px] text-[#666666] mt-1">81.5% renewable — 89% below global avg</p>
+                        </div>
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Carbon Saved (Today)</p>
+                          <p className="text-3xl font-bold text-emerald-400 stat-mono">4.7t</p>
+                          <p className="text-[10px] text-[#999999] mt-1">CO₂ equivalent avoided via scheduling</p>
+                        </div>
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Best Hub (Live)</p>
+                          <p className="text-[14px] font-bold text-white">Harch Ouarzazate</p>
+                          <p className="text-[10px] text-emerald-400 font-[family-name:var(--font-space-mono)] mt-1">18 gCO₂/kWh · 97.2% solar</p>
+                        </div>
+                      </div>
+                      {/* Center: Hub comparison chart */}
+                      <div className="md:col-span-2">
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 h-full">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">Hub Carbon Intensity Comparison</p>
+                          <div className="space-y-4">
+                            {CARBON_HUBS.map((hub) => (
+                              <div key={hub.name}>
+                                <div className="flex items-center justify-between mb-1.5">
+                                  <span className="text-[12px] text-white font-medium">{hub.name}</span>
+                                  <span className="text-[11px] font-bold font-[family-name:var(--font-space-mono)]" style={{
+                                    color: hub.carbon < 30 ? '#10B981' : hub.carbon < 60 ? '#F59E0B' : '#EF4444'
+                                  }}>
+                                    {hub.carbon} gCO₂/kWh
+                                  </span>
+                                </div>
+                                <div className="h-3 bg-white/[0.04] rounded-full overflow-hidden">
+                                  <div
+                                    className="h-full rounded-full transition-all duration-1000"
+                                    style={{
+                                      width: `${Math.max((1 - hub.carbon / 250) * 100, 5)}%`,
+                                      backgroundColor: hub.carbon < 30 ? '#10B981' : hub.carbon < 60 ? '#F59E0B' : '#EF4444',
+                                    }}
+                                  />
+                                </div>
+                                <div className="flex items-center gap-4 mt-1">
+                                  <span className="text-[10px] text-[#666666]">{hub.renewable}% renewable</span>
+                                  <span className="text-[10px] text-[#666666]">{hub.gpus} GPUs</span>
+                                  <span className="text-[10px] text-[#666666]">{hub.type}</span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="mt-6 pt-4 border-t border-white/[0.04]">
+                            <p className="text-[10px] text-[#666666]">
+                              * Casablanca hub operates in standby mode during high-carbon grid periods. Carbon-aware scheduling automatically redirects workloads to cleaner hubs.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {heroTab === 'automation' && (
+                    <motion.div
+                      key="demo-automation"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                    >
+                      {/* Left: Automation stats */}
+                      <div className="md:col-span-1 space-y-4">
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Active Workflows</p>
+                          <p className="text-3xl font-bold text-[#8B5CF6] stat-mono">3</p>
+                          <p className="text-[10px] text-[#999999] mt-1">of 5 total · 9 steps running</p>
+                        </div>
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Avg Response Time</p>
+                          <p className="text-3xl font-bold text-white stat-mono">&lt;200ms</p>
+                          <p className="text-[10px] text-[#999999] mt-1">From trigger to first action</p>
+                        </div>
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-3">Auto-Resolved (30d)</p>
+                          <p className="text-3xl font-bold text-white stat-mono">847</p>
+                          <p className="text-[10px] text-[#999999] mt-1">Zero human intervention required</p>
+                        </div>
+                      </div>
+                      {/* Center: Workflow visualization */}
+                      <div className="md:col-span-2">
+                        <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-4 h-full">
+                          <p className="text-[10px] text-[#666666] uppercase tracking-wider font-bold mb-4">Carbon-Optimal Training Pipeline (Active)</p>
+                          {/* Workflow steps visualization */}
+                          <div className="space-y-3">
+                            {[
+                              { step: 1, label: 'Monitor Grid Carbon', detail: 'Polling 5 hubs every 60 seconds', status: 'complete' },
+                              { step: 2, label: 'Evaluate Scheduling Window', detail: 'Carbon threshold: <50 gCO₂/kWh · Window: 4h ahead', status: 'complete' },
+                              { step: 3, label: 'Select Optimal Hub', detail: 'Selected: Harch Ouarzazate (18 gCO₂/kWh, 800 GPUs)', status: 'complete' },
+                              { step: 4, label: 'Provision GPU Cluster', detail: 'Allocating 256x H100 on HOU-Rack-07', status: 'complete' },
+                              { step: 5, label: 'Deploy Training Job', detail: 'Uploading model weights and dataset shards...', status: 'running' },
+                              { step: 6, label: 'Monitor & Auto-Migrate', detail: 'Waiting for job start...', status: 'pending' },
+                            ].map((step) => (
+                              <div key={step.step} className="flex items-start gap-3">
+                                <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-[11px] font-bold font-[family-name:var(--font-space-mono)] ${
+                                  step.status === 'complete' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
+                                  step.status === 'running' ? 'bg-[#8B5CF6]/10 text-[#8B5CF6] border border-[#8B5CF6]/20 animate-pulse' :
+                                  'bg-white/[0.04] text-[#555555] border border-white/[0.06]'
+                                }`}>
+                                  {step.status === 'complete' ? '✓' : step.step}
+                                </div>
+                                <div className="flex-1">
+                                  <p className={`text-[12px] font-medium ${step.status === 'pending' ? 'text-[#555555]' : 'text-white'}`}>{step.label}</p>
+                                  <p className="text-[10px] text-[#666666] mt-0.5">{step.detail}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 3: WORKFLOW BUILDER — Light bg, Palantir "Designed for AI workflow builders"
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
+          {/* Progress indicator */}
+          <FadeIn>
+            <div className="flex items-center gap-2 mb-12">
+              {PROGRESS_STEPS.map((step, i) => (
+                <button
+                  key={step.id}
+                  onClick={() => setWorkflowStep(i)}
+                  className="flex items-center gap-2"
+                >
+                  <span className={`text-[11px] font-bold font-[family-name:var(--font-space-mono)] ${
+                    i <= workflowStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'
+                  }`}>
+                    [{step.id}]
+                  </span>
+                  {i < PROGRESS_STEPS.length - 1 && (
+                    <span className={`w-8 h-px ${i < workflowStep ? 'bg-[#1A1A2E]' : 'bg-[#E5E5E5]'}`} />
+                  )}
+                </button>
+              ))}
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+            {/* Left: Headline */}
+            <FadeIn>
+              <div>
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
+                  {t('features.title')} /0.2
+                </p>
+                <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-6">
+                  Designed for AI workflow builders
+                </h2>
+                <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
+                <p className="text-[15px] text-[#666666] leading-[1.7] mb-8">
+                  HarchOS provides the tools and infrastructure to build, test, and deploy carbon-aware AI workflows at scale. From data ingestion to model serving, every step is optimized for sovereignty and sustainability.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    'Carbon-optimal scheduling built into every pipeline',
+                    'Visual workflow builder with drag-and-drop automation',
+                    'Real-time monitoring and autonomous incident response',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2.5">
+                      <CheckCircle2 size={16} className="text-[#8B9DAF] shrink-0 mt-0.5" />
+                      <span className="text-[14px] text-[#555555]">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Right: Video/Diagram tabs */}
+            <FadeIn delay={0.15}>
+              <div>
+                <div className="flex items-center gap-1 mb-4">
+                  <button
+                    onClick={() => setWorkflowMediaTab('video')}
+                    className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
+                      workflowMediaTab === 'video' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F5F5F5]'
+                    }`}
+                  >
+                    VIDEO
+                  </button>
+                  <button
+                    onClick={() => setWorkflowMediaTab('diagram')}
+                    className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
+                      workflowMediaTab === 'diagram' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F5F5F5]'
+                    }`}
+                  >
+                    DIAGRAM
+                  </button>
+                </div>
+                <div className="rounded-xl border border-[#E5E5E5] bg-[#FAFAFA] overflow-hidden min-h-[340px]">
+                  <AnimatePresence mode="wait">
+                    {workflowMediaTab === 'video' ? (
+                      <motion.div
+                        key="wf-video"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="flex items-center justify-center min-h-[340px]"
+                      >
+                        <div className="text-center">
+                          <div className="w-16 h-16 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center mx-auto mb-3">
+                            <Play size={24} className="text-[#1A1A2E] ml-1" />
+                          </div>
+                          <p className="text-[13px] text-[#999999]">Workflow Builder Demo</p>
+                          <p className="text-[11px] text-[#CCCCCC] mt-1">2:34 min</p>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="wf-diagram"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="p-6 min-h-[340px]"
+                      >
+                        {/* Workflow diagram */}
+                        <div className="flex flex-col items-center gap-4">
+                          {[
+                            { label: 'Data Source', sub: 'IoT / API / Satellite', color: '#8B9DAF' },
+                            { label: 'Carbon Evaluation', sub: '47-param grid analysis', color: '#10B981' },
+                            { label: 'Hub Selection', sub: 'RL + GNN optimization', color: '#8B5CF6' },
+                            { label: 'GPU Provisioning', sub: 'H100/A100/L40S allocation', color: '#F59E0B' },
+                            { label: 'Deploy & Monitor', sub: 'Live <200ms response', color: '#EF4444' },
+                          ].map((node, i) => (
+                            <div key={i} className="flex flex-col items-center">
+                              <div className="flex items-center gap-3 px-5 py-3 rounded-lg border border-[#E5E5E5] bg-white shadow-sm w-64">
+                                <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: node.color }} />
+                                <div>
+                                  <p className="text-[12px] font-semibold text-[#1A1A2E]">{node.label}</p>
+                                  <p className="text-[10px] text-[#999999]">{node.sub}</p>
+                                </div>
+                              </div>
+                              {i < 4 && (
+                                <div className="w-px h-4 bg-[#E5E5E5]" />
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 4: EVALUATE AND SHIP — Light bg, Palantir "Evaluate and ship with confidence"
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-[#F7F7F8] py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
+          {/* Progress indicator */}
+          <FadeIn>
+            <div className="flex items-center gap-2 mb-12">
+              {PROGRESS_STEPS.map((step, i) => (
+                <button
+                  key={step.id}
+                  onClick={() => setEvaluateStep(i)}
+                  className="flex items-center gap-2"
+                >
+                  <span className={`text-[11px] font-bold font-[family-name:var(--font-space-mono)] ${
+                    i <= evaluateStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'
+                  }`}>
+                    [{step.id}]
+                  </span>
+                  {i < PROGRESS_STEPS.length - 1 && (
+                    <span className={`w-8 h-px ${i < evaluateStep ? 'bg-[#1A1A2E]' : 'bg-[#E5E5E5]'}`} />
+                  )}
+                </button>
+              ))}
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+            {/* Left: Headline */}
+            <FadeIn>
+              <div>
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
+                  {t('features.security.title')} /0.3
+                </p>
+                <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-6">
+                  Evaluate and ship with confidence
+                </h2>
+                <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
+                <p className="text-[15px] text-[#666666] leading-[1.7] mb-8">
+                  Built-in evaluation frameworks, A/B testing, and automated compliance checks ensure every deployment meets sovereign, security, and carbon standards before going live.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    'Automated compliance validation before every deployment',
+                    'Carbon impact assessment integrated into CI/CD pipeline',
+                    'Sovereign data residency checks enforced automatically',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2.5">
+                      <CheckCircle2 size={16} className="text-[#8B9DAF] shrink-0 mt-0.5" />
+                      <span className="text-[14px] text-[#555555]">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Right: Video/Diagram tabs */}
+            <FadeIn delay={0.15}>
+              <div>
+                <div className="flex items-center gap-1 mb-4">
+                  <button
+                    onClick={() => setEvaluateMediaTab('video')}
+                    className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
+                      evaluateMediaTab === 'video' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F0F0F0]'
+                    }`}
+                  >
+                    VIDEO
+                  </button>
+                  <button
+                    onClick={() => setEvaluateMediaTab('diagram')}
+                    className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
+                      evaluateMediaTab === 'diagram' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F0F0F0]'
+                    }`}
+                  >
+                    DIAGRAM
+                  </button>
+                </div>
+                <div className="rounded-xl border border-[#E5E5E5] bg-white overflow-hidden min-h-[340px]">
+                  <AnimatePresence mode="wait">
+                    {evaluateMediaTab === 'video' ? (
+                      <motion.div
+                        key="ev-video"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="flex items-center justify-center min-h-[340px]"
+                      >
+                        <div className="text-center">
+                          <div className="w-16 h-16 rounded-full bg-[#1A1A2E]/5 flex items-center justify-center mx-auto mb-3">
+                            <Play size={24} className="text-[#1A1A2E] ml-1" />
+                          </div>
+                          <p className="text-[13px] text-[#999999]">Evaluation Pipeline Demo</p>
+                          <p className="text-[11px] text-[#CCCCCC] mt-1">1:58 min</p>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="ev-diagram"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="p-6 min-h-[340px]"
+                      >
+                        {/* Evaluation pipeline diagram */}
+                        <div className="space-y-4">
+                          {[
+                            { label: 'Code Commit', status: 'passed', detail: 'All unit tests passing' },
+                            { label: 'Carbon Impact Check', status: 'passed', detail: 'Estimated +0.3t CO₂ — within threshold' },
+                            { label: 'Sovereign Data Scan', status: 'passed', detail: 'No data boundary violations detected' },
+                            { label: 'Security Audit', status: 'passed', detail: 'No CVEs in dependencies' },
+                            { label: 'Compliance Validation', status: 'running', detail: 'GDPR + ISO 27001 + SOC 2 + Law 09-08' },
+                            { label: 'Deploy to Production', status: 'pending', detail: 'Waiting for compliance gate...' },
+                          ].map((step, i) => (
+                            <div key={i} className="flex items-center gap-3">
+                              <div className={`w-6 h-6 rounded flex items-center justify-center shrink-0 text-[10px] font-bold ${
+                                step.status === 'passed' ? 'bg-emerald-100 text-emerald-600' :
+                                step.status === 'running' ? 'bg-amber-100 text-amber-600 animate-pulse' :
+                                'bg-gray-100 text-gray-400'
+                              }`}>
+                                {step.status === 'passed' ? '✓' : step.status === 'running' ? '●' : (i + 1)}
+                              </div>
+                              <div className="flex-1">
+                                <p className={`text-[12px] font-medium ${step.status === 'pending' ? 'text-[#CCCCCC]' : 'text-[#1A1A2E]'}`}>{step.label}</p>
+                                <p className="text-[10px] text-[#999999]">{step.detail}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 5: CAPABILITIES — Light bg, numbered feature list
+          ═══════════════════════════════════════════════════════════ */}
+      <section id="capabilities" className="bg-white py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
+          <FadeIn>
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
+              {t('features.title')} /0.4
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-4">
+              Core Capabilities
+            </h2>
+            <div className="w-16 h-0.5 bg-[#8B9DAF] mb-12" />
+          </FadeIn>
+
+          <div className="space-y-0">
+            {capabilitiesList.map((cap, i) => (
+              <FadeIn key={cap.number} delay={i * 0.08}>
+                <div className="py-8 border-b border-[#E5E5E5] last:border-0 group">
+                  <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
+                    <div className="flex items-center gap-4 shrink-0">
+                      <span className="text-[14px] font-bold text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">/{cap.number}</span>
+                      <div className="w-10 h-10 rounded-lg bg-[#F5F5F5] flex items-center justify-center">
+                        <cap.icon size={18} className="text-[#8B9DAF]" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-[#1A1A2E] mb-2 group-hover:text-[#8B9DAF] transition-colors">{cap.title}</h3>
+                      <p className="text-[14px] text-[#666666] leading-[1.7] max-w-2xl">{cap.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 6: ARCHITECTURE — SENSE / THINK / ACT (Light bg, restyled)
+          ═══════════════════════════════════════════════════════════ */}
+      <section id="architecture" className="bg-[#F7F7F8] py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
+          <FadeIn>
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
+              {t('architecture.title')} /0.5
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-4">
+              {t('architecture.sense.title')}. {t('architecture.think.title')}. {t('architecture.act.title')}.
+            </h2>
+            <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#666666] leading-[1.7] mb-12">
               {t('architecture.act.description')}
             </p>
           </FadeIn>
@@ -314,14 +1011,14 @@ export default function HarchOSPageClient() {
                     onClick={() => setActiveArchTab(layer.id)}
                     className={`flex items-center gap-3 px-5 py-4 rounded-lg border transition-all text-left min-w-[180px] ${
                       activeArchTab === layer.id
-                        ? 'bg-[rgba(255,255,255,0.06)] border-white/15 text-white'
-                        : 'border-transparent text-[#999999] hover:text-white hover:bg-[rgba(255,255,255,0.02)]'
+                        ? 'bg-white border-[#E5E5E5] text-[#1A1A2E] shadow-sm'
+                        : 'border-transparent text-[#999999] hover:text-[#1A1A2E] hover:bg-white/60'
                     }`}
                   >
                     <layer.icon size={18} style={{ color: layer.color }} />
                     <div>
                       <p className="text-sm font-bold">{layer.name}</p>
-                      <p className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{layer.tag}</p>
+                      <p className="text-[10px] text-[#999999] font-[family-name:var(--font-space-mono)]">{layer.tag}</p>
                     </div>
                   </button>
                 ))}
@@ -336,38 +1033,27 @@ export default function HarchOSPageClient() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+                  className="bg-white rounded-xl border border-[#E5E5E5] p-6 md:p-8"
                 >
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${activeArch.color}15` }}>
-                        <activeArch.icon size={20} style={{ color: activeArch.color }} />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">{activeArch.name}</h3>
-                        <p className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">{activeArch.tag}</p>
-                      </div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${activeArch.color}15` }}>
+                      <activeArch.icon size={20} style={{ color: activeArch.color }} />
                     </div>
-                    <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
-                      {activeArch.description}
-                    </p>
-                    <div className="space-y-4">
-                      {activeArch.specs.map((spec) => (
-                        <div key={spec.label} className="flex justify-between items-center py-2 border-b border-white/[0.04]">
-                          <span className="text-[13px] text-[#999999]">{spec.label}</span>
-                          <span className="text-[13px] font-bold text-white font-[family-name:var(--font-space-mono)]">{spec.value}</span>
-                        </div>
-                      ))}
+                    <div>
+                      <h3 className="text-2xl font-bold text-[#1A1A2E]">{activeArch.name}</h3>
+                      <p className="text-[11px] text-[#999999] font-[family-name:var(--font-space-mono)]">{activeArch.tag}</p>
                     </div>
                   </div>
-                  <div className="relative h-[300px] lg:h-full min-h-[300px] rounded-xl overflow-hidden">
-                    <Image
-                      src="/images/intelligence/harchos-gpu-cluster.png"
-                      alt={`${activeArch.name} Layer`}
-                      fill
-                      className="object-cover industrial-image"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/80 via-transparent to-transparent" />
+                  <p className="text-[15px] text-[#666666] leading-[1.7] mb-8">
+                    {activeArch.description}
+                  </p>
+                  <div className="space-y-4">
+                    {activeArch.specs.map((spec) => (
+                      <div key={spec.label} className="flex justify-between items-center py-2.5 border-b border-[#F0F0F0] last:border-0">
+                        <span className="text-[13px] text-[#999999]">{spec.label}</span>
+                        <span className="text-[13px] font-bold text-[#1A1A2E] font-[family-name:var(--font-space-mono)]">{spec.value}</span>
+                      </div>
+                    ))}
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -376,90 +1062,36 @@ export default function HarchOSPageClient() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 5: DISTRIBUTED MESH — Interactive Hub Map
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <Image src="/images/intelligence/harchos-energy-mix.png" alt="" fill className="object-cover" style={{ filter: 'brightness(0.2) saturate(0)' }} />
-        </div>
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 7: SPEC TABLE — Clean 3-column table on white bg
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">{t('features.carbonAware.title')}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              {t('specs.integrations')}.<br/>{t('features.dashboard.title')}.
-            </h2>
-            <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              {t('description')}
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
+              {t('specs.title')} /0.6
             </p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#1A1A2E] tracking-[-0.01em] mb-4">
+              {t('specs.title')}
+            </h2>
+            <div className="w-16 h-0.5 bg-[#8B9DAF] mb-12" />
           </FadeIn>
 
-          {/* Hub Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {hubs.map((hub, i) => (
-              <FadeIn key={hub.id} delay={i * 0.08}>
-                <div
-                  onClick={() => setActiveHub(activeHub === hub.id ? null : hub.id)}
-                  className={`card cursor-pointer overflow-hidden group ${activeHub === hub.id ? 'ring-1' : ''}`}
-                  style={activeHub === hub.id ? { boxShadow: `0 0 0 1px ${hub.color}`, borderColor: `${hub.color}30` } : {}}
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <Image src={hub.image} alt={hub.name} fill className="object-cover industrial-image group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1E1E1E] via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: hub.color }} />
-                        <span className="text-[10px] text-white/70 font-[family-name:var(--font-space-mono)] uppercase tracking-wider">{t('specs.uptime')}</span>
+          <FadeIn delay={0.1}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {specs.map((category) => (
+                <div key={category.category} className="bg-[#FAFAFA] rounded-xl border border-[#E5E5E5] overflow-hidden">
+                  <div className="px-6 py-4 border-b border-[#E5E5E5] bg-white">
+                    <h3 className="text-[14px] font-bold text-[#1A1A2E]">{category.category}</h3>
+                  </div>
+                  <div className="p-6 space-y-0">
+                    {category.items.map((item) => (
+                      <div key={item.spec} className="flex justify-between items-center py-3 border-b border-[#F0F0F0] last:border-0">
+                        <span className="text-[13px] text-[#999999]">{item.spec}</span>
+                        <span className="text-[13px] font-bold text-[#1A1A2E] font-[family-name:var(--font-space-mono)]">{item.value}</span>
                       </div>
-                    </div>
+                    ))}
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <hub.icon size={16} style={{ color: hub.color }} />
-                      <h3 className="text-lg font-bold text-white">{hub.name}</h3>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="px-2 py-1 rounded text-[10px] font-semibold bg-[rgba(255,255,255,0.04)] text-[#999999]">
-                        <MapPin size={10} className="inline mr-1" />{hub.location}
-                      </span>
-                      <span className="px-2 py-1 rounded text-[10px] font-semibold bg-[rgba(255,255,255,0.04)] text-[#999999]">
-                        <Zap size={10} className="inline mr-1" />{hub.power}
-                      </span>
-                    </div>
-                    <p className="text-[13px] text-[#666666] leading-[1.6] mb-2">
-                      {hub.energy}
-                    </p>
-                    <p className="text-[10px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
-                      {hub.latency}
-                    </p>
-                    {activeHub === hub.id && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        className="mt-4 pt-4 border-t border-white/[0.04]"
-                      >
-                        <p className="text-[13px] text-[#999999] leading-[1.7]">{hub.description}</p>
-                      </motion.div>
-                    )}
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-
-          {/* Mesh Summary Stats */}
-          <FadeIn>
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { label: t('specs.dataPoints'), value: '1,798', accent: '#8B9DAF' },
-                { label: t('specs.compliance'), value: '~47 gCO2/kWh', accent: '#10B981' },
-                { label: t('specs.encryption'), value: '81.5%', accent: '#F59E0B' },
-                { label: t('specs.integrations'), value: '400Gbps', accent: '#8B5CF6' },
-              ].map((stat) => (
-                <div key={stat.label} className="card p-6 text-center">
-                  <p className="text-2xl font-bold text-white stat-mono mb-1">{stat.value}</p>
-                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold font-[family-name:var(--font-space-mono)]">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -467,129 +1099,20 @@ export default function HarchOSPageClient() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 6: OPS CENTER DASHBOARD
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
-        <div className="max-w-[1800px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <FadeIn>
-              <div>
-                <p className="section-label mb-4 text-[#8B9DAF]">{t('features.dashboard.title')}</p>
-                <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
-                  {t('features.dashboard.title')}<br/>{t('features.security.title')}
-                </h2>
-                <div className="accent-line mb-6" />
-                <p className="text-[15px] text-[#999999] leading-[1.7] mb-8">
-                  {t('features.dashboard.description')}
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { value: 1798, suffix: '', label: t('specs.dataPoints') },
-                    { value: 47, suffix: '', label: t('specs.compliance') },
-                    { value: 800, suffix: '', label: t('specs.integrations') },
-                    { value: 400, suffix: 'Gbps', label: t('specs.encryption') },
-                  ].map((stat) => (
-                    <div key={stat.label} className="card p-5">
-                      <p className="text-2xl font-bold text-white stat-mono">
-                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                      </p>
-                      <p className="text-[10px] text-[#666666] uppercase tracking-[0.1em] font-bold mt-1 font-[family-name:var(--font-space-mono)]">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="relative rounded-xl overflow-hidden h-[500px] lg:h-[600px]">
-                <Image src="/images/intelligence/harchos-ops-center.png" alt="HarchOS Operations Center" fill className="object-cover industrial-image" />
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#1A1A1A]/30" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 7: CAPABILITIES
-          ═══════════════════════════════════════════ */}
-      <section id="capabilities" className="py-28 md:py-36 bg-[#121212]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 8: SECURITY & COMPLIANCE — Light bg
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-[#F7F7F8] py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">{t('features.title')}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4">
-              {t('features.carbonAware.title')}<br/>{t('features.dashboard.title')}
-            </h2>
-            <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
-              {t('description')}
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
+              {tCommon('security')} /0.7
             </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {capabilities.map((cap, i) => (
-              <FadeIn key={cap.title} delay={i * 0.08}>
-                <div className="card p-8 h-full group">
-                  <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center mb-5">
-                    <cap.icon size={18} className="text-[#8B9DAF]" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-3">{cap.title}</h3>
-                  <div className="accent-line mb-4" />
-                  <p className="text-[14px] text-[#999999] leading-[1.7]">{cap.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 8: TECHNICAL SPECS
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">{t('specs.title')}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              {t('specs.title')}
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#1A1A2E] tracking-[-0.01em] mb-4">
+              {t('features.security.title')} & {t('features.compliance.title')}
             </h2>
-            <div className="accent-line mb-12" />
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {specs.map((category) => (
-              <FadeIn key={category.category}>
-                <div className="card p-8">
-                  <h3 className="text-lg font-bold text-white mb-1">{category.category}</h3>
-                  <div className="accent-line mb-6" />
-                  <div className="space-y-0">
-                    {category.items.map((item) => (
-                      <div key={item.spec} className="flex justify-between items-center py-3 border-b border-white/[0.04] last:border-0">
-                        <span className="text-[13px] text-[#999999]">{item.spec}</span>
-                        <span className="text-[13px] font-bold text-white font-[family-name:var(--font-space-mono)]">{item.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 9: SECURITY & COMPLIANCE
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">{tCommon('security')}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              {t('features.security.title')}<br/>{t('features.compliance.title')}
-            </h2>
-            <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
+            <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#666666] leading-[1.7] mb-16">
               {t('features.security.description')}
             </p>
           </FadeIn>
@@ -597,15 +1120,15 @@ export default function HarchOSPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {securityFeatures.map((feat, i) => (
               <FadeIn key={feat.title} delay={i * 0.08}>
-                <div className="card p-8 h-full">
+                <div className="bg-white rounded-xl border border-[#E5E5E5] p-6 md:p-8 h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-[#F5F5F5] flex items-center justify-center">
                       <feat.icon size={18} className="text-[#8B9DAF]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">{feat.title}</h3>
+                    <h3 className="text-lg font-bold text-[#1A1A2E]">{feat.title}</h3>
                   </div>
-                  <div className="accent-line mb-4" />
-                  <p className="text-[14px] text-[#999999] leading-[1.7]">{feat.desc}</p>
+                  <div className="w-12 h-0.5 bg-[#E5E5E5] mb-4" />
+                  <p className="text-[14px] text-[#666666] leading-[1.7]">{feat.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -615,7 +1138,7 @@ export default function HarchOSPageClient() {
           <FadeIn>
             <div className="mt-12 flex flex-wrap gap-3">
               {['GDPR', 'ISO 27001', 'SOC 2 Type II', 'Law 09-08', 'FIPS 140-2 L3', 'TLS 1.3'].map((cert) => (
-                <span key={cert} className="px-4 py-2 rounded-lg bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.15)] text-[11px] font-semibold text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
+                <span key={cert} className="px-4 py-2 rounded-lg bg-white border border-[#E5E5E5] text-[11px] font-semibold text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
                   {cert}
                 </span>
               ))}
@@ -624,34 +1147,36 @@ export default function HarchOSPageClient() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 10: DEVELOPER PLATFORM
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 9: DEVELOPER PLATFORM — Code snippet preview (restyled light)
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">{t('features.api.title')}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              {t('features.api.title')}<br/>{t('features.mobile.title')}
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
+              {t('features.api.title')} /0.8
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#1A1A2E] tracking-[-0.01em] mb-4">
+              {t('features.api.title')} & {t('features.mobile.title')}
             </h2>
-            <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">
+            <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
+            <p className="max-w-2xl text-[15px] text-[#666666] leading-[1.7] mb-16">
               {t('features.api.description')}
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {devPlatform.map((tool, i) => (
               <FadeIn key={tool.title} delay={i * 0.08}>
-                <div className="card p-8 h-full">
+                <div className="bg-[#FAFAFA] rounded-xl border border-[#E5E5E5] p-6 md:p-8 h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-[rgba(139,157,175,0.08)] flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-[#F0F0F0] flex items-center justify-center">
                       <tool.icon size={18} className="text-[#8B9DAF]" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">{tool.title}</h3>
+                    <h3 className="text-lg font-bold text-[#1A1A2E]">{tool.title}</h3>
                   </div>
-                  <div className="accent-line mb-4" />
-                  <p className="text-[14px] text-[#999999] leading-[1.7]">{tool.desc}</p>
+                  <div className="w-12 h-0.5 bg-[#E5E5E5] mb-4" />
+                  <p className="text-[14px] text-[#666666] leading-[1.7]">{tool.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -659,8 +1184,8 @@ export default function HarchOSPageClient() {
 
           {/* Code Snippet Preview */}
           <FadeIn>
-            <div className="mt-12 card overflow-hidden">
-              <div className="flex items-center gap-2 px-6 py-3 border-b border-white/[0.04]">
+            <div className="rounded-xl overflow-hidden border border-[#E5E5E5] bg-[#1A1A2E]">
+              <div className="flex items-center gap-2 px-6 py-3 border-b border-white/[0.06]">
                 <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                 <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
                 <span className="w-3 h-3 rounded-full bg-[#28CA41]" />
@@ -685,51 +1210,9 @@ export default function HarchOSPageClient() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 11: NETWORK INFRASTRUCTURE
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#121212]">
-        <div className="max-w-[1800px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[60vh]">
-            <FadeIn>
-              <div className="flex items-center px-8 md:px-16 lg:px-24 py-20">
-                <div className="max-w-xl">
-                  <p className="section-label mb-4 text-[#8B9DAF]">{t('specs.integrations')}</p>
-                  <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-6">
-                    400Gbps<br/>{t('specs.integrations')}
-                  </h2>
-                  <div className="accent-line mb-6" />
-                  <p className="text-[15px] text-[#999999] leading-[1.7] mb-6">
-                    {t('architecture.act.description')}
-                  </p>
-                  <div className="space-y-4">
-                    {[
-                      { label: t('specs.latency') + ' Europe', value: '<5-12ms' },
-                      { label: t('specs.latency') + ' Americas', value: '<35ms' },
-                      { label: t('specs.integrations'), value: '4 systems' },
-                      { label: t('specs.encryption'), value: '100Gbps each' },
-                    ].map((item) => (
-                      <div key={item.label} className="flex justify-between items-center py-2 border-b border-white/[0.04]">
-                        <span className="text-[13px] text-[#999999]">{item.label}</span>
-                        <span className="text-[13px] font-bold text-white font-[family-name:var(--font-space-mono)]">{item.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.15}>
-              <div className="relative min-h-[40vh] lg:min-h-0 overflow-hidden">
-                <Image src="/images/intelligence/harchos-fibre.png" alt="Network Infrastructure" fill className="object-cover industrial-image" />
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 11B: COMPETITIVE LANDSCAPE
-          ═══════════════════════════════════════════ */}
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 10: COMPETITIVE COMPARISON — Keep existing component
+          ═══════════════════════════════════════════════════════════ */}
       <CompetitiveComparison
         title="Competitive Landscape"
         subtitle="HarchOS vs. the world's GPU infrastructure providers. We don't just run green — we schedule green. No competitor matches us on a single metric."
@@ -872,72 +1355,57 @@ export default function HarchOSPageClient() {
         ]}
       />
 
-      {/* ═══════════════════════════════════════════
-          SECTION 12: ROADMAP
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#1A1A1A]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 11: CTA — Two cards: white "Request a Briefing" + dark "Explore the Platform"
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">{t('architecture.title')}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
-              {t('specs.integrations')}
-            </h2>
-            <div className="accent-line mb-12" />
-          </FadeIn>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-white/[0.06]" />
-
-            <div className="space-y-12">
-              {roadmap.map((phase, i) => (
-                <FadeIn key={phase.phase} delay={i * 0.08}>
-                  <div className={`relative flex flex-col md:flex-row gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                    {/* Timeline dot */}
-                    <div className="absolute left-4 md:left-1/2 w-2 h-2 bg-[#8B9DAF] rounded-full -translate-x-1/2 mt-2" />
-
-                    <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'} pl-10 md:pl-0`}>
-                      <p className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)] font-bold mb-1">{phase.phase}</p>
-                      <h3 className="text-xl font-bold text-white mb-3">{phase.title}</h3>
-                      <ul className="space-y-2">
-                        {phase.items.map((item) => (
-                          <li key={item} className={`flex items-center gap-2 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
-                            <CheckCircle2 size={12} className="text-[#8B9DAF] shrink-0" />
-                            <span className="text-[13px] text-[#999999]">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="flex-1" />
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 13: CTA + BACK
-          ═══════════════════════════════════════════ */}
-      <section className="py-28 md:py-36 bg-[#000000] relative overflow-hidden">
-        <div className="absolute inset-0 dot-pattern opacity-100" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
-          <FadeIn>
-            <p className="section-label mb-4 text-[#8B9DAF]">{t('cta.title')}</p>
-            <h2 className="text-3xl md:text-4xl lg:text-[52px] font-bold text-white tracking-[-0.01em] mb-6">
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
+              {t('cta.title')} /0.9
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-12">
               {t('cta.title')}
             </h2>
-            <p className="max-w-xl mx-auto text-[15px] text-white/30 leading-relaxed mb-12">
-              {t('cta.subtitle')}
-            </p>
           </FadeIn>
-          <FadeIn delay={0.15}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                {t('cta.primary')} <ArrowRight size={14} />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <FadeIn>
+              <Link href="/contact" className="block bg-[#FAFAFA] rounded-xl border border-[#E5E5E5] p-8 md:p-10 h-full hover:border-[#8B9DAF] transition-all group">
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">Briefing</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A2E] mb-4 group-hover:text-[#8B9DAF] transition-colors">
+                  Request a Briefing
+                </h3>
+                <p className="text-[14px] text-[#666666] leading-[1.7] mb-6">
+                  {t('cta.subtitle')}
+                </p>
+                <div className="flex items-center gap-2 text-[#1A1A2E] group-hover:text-[#8B9DAF] transition-colors">
+                  <span className="text-[13px] font-semibold">{t('cta.primary')}</span>
+                  <ArrowUpRight size={16} />
+                </div>
               </Link>
-              <Link href="/subsidiaries/intelligence" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
+            </FadeIn>
+
+            <FadeIn delay={0.1}>
+              <Link href="#architecture" className="block bg-[#1A1A2E] rounded-xl border border-[#1A1A2E] p-8 md:p-10 h-full hover:bg-[#252545] transition-all group">
+                <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">Platform</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  Explore the Platform
+                </h3>
+                <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">
+                  Dive into the SENSE-THINK-ACT architecture, carbon-aware scheduling engine, and sovereign GPU cloud.
+                </p>
+                <div className="flex items-center gap-2 text-white group-hover:text-[#8B9DAF] transition-colors">
+                  <span className="text-[13px] font-semibold">{t('cta.secondary')}</span>
+                  <ArrowUpRight size={16} />
+                </div>
+              </Link>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={0.15}>
+            <div className="mt-8 flex justify-center">
+              <Link href="/subsidiaries/intelligence" className="inline-flex items-center gap-2 text-[13px] text-[#999999] hover:text-[#8B9DAF] transition-colors">
                 <ArrowLeft size={14} /> {tCommon('back')} Intelligence
               </Link>
             </div>

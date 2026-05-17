@@ -1,55 +1,56 @@
-# Worklog — Task 4
+# Worklog — Task 3: Rewrite HarchOSPageClient.tsx (Palantir AIP Style)
 
-## Task: Rewrite SubsidiaryPageClient.tsx JSX to Palantir-style layout
+## Summary
+Completely rewrote `/home/z/my-project/src/app/[locale]/intelligence/harchos/HarchOSPageClient.tsx` to match Palantir's AIP product page style.
 
-**File**: `/home/z/my-project/src/app/[locale]/subsidiaries/[slug]/SubsidiaryPageClient.tsx`
+## Changes Made
 
-### Summary
+### Section Structure (11 sections total)
+1. **HERO** (Dark bg `#1A1A2E`) — "Beyond Infrastructure / Explore HarchOS" headline with live stats (1,798 GPUs, 5 Hubs, 47 gCO₂/kWh, 99.999% Uptime). Three numbered feature tabs (SOVEREIGN AI APP 01, CARBON-AWARE LOGIC 02, AUTOMATION 03) with inline demo containers that swap via `AnimatePresence`.
 
-Rewrote the rendering JSX of the subsidiary page from a dark-themed design system (Card3D, ParallaxSection, MagneticButton, TextReveal, etc.) to a clean, minimal Palantir product-page style with white backgrounds and corporate typography.
+2. **INTERACTIVE DEMO** (Dark bg `#1A1A2E`) — Full-width console-style demo container with terminal chrome (dots, tab switching). Three detailed mock dashboards:
+   - **Sovereign AI App**: Live alerts panel with severity-coded items, proposed AI actions with confidence scores and approval status
+   - **Carbon-Aware Logic**: Hub comparison with carbon intensity bars, renewable percentages, GPU counts, and latency metrics
+   - **Automation**: Workflow engine with running/idle states, step progress bars, trigger conditions
 
-### Changes Made
+3. **WORKFLOW BUILDER** (White bg) — Progress indicator ([0.1]—0.2—0.3—0.4), headline "Designed for AI workflow builders", VIDEO/DIAGRAM toggle tabs. Diagram view shows a 5-step vertical pipeline (Data Source → Carbon Evaluation → Hub Selection → GPU Provisioning → Deploy & Monitor).
 
-#### 1. Imports (lines 1-23)
-- **Removed**: `StaggerContainer`, `StaggerItem`, `Card3D`, `MagneticButton`, `SmoothLink`, `TextReveal`, `SectionDivider`, `ParallaxSection`, `NetworkGrid` dynamic import, `ArrowRight`
-- **Added**: `ArrowUpRight` from lucide-react
-- **Kept**: `FadeIn`, `CountUp`, `InteractivePlatform`, `CompetitiveComparison`, `motion`, `useInView`, `useRef`, all icon imports (still referenced in data)
+4. **EVALUATE AND SHIP** (Light gray `#F7F7F8`) — Similar layout with VIDEO/DIAGRAM tabs. Diagram shows CI/CD evaluation pipeline (Code Commit → Carbon Impact Check → Sovereign Data Scan → Security Audit → Compliance Validation → Deploy).
 
-#### 2. StatBar Component (lines 41-61)
-- Changed text colors from dark theme (`text-white`, `text-[#999999]`) to white-bg compatible (`text-neutral-900`, `text-neutral-500`)
-- Changed progress bar track from `bg-[#1A1A1A]` to `bg-neutral-200`
+5. **CAPABILITIES** (White bg) — Numbered feature list (/0.1 through /0.4): Carbon-Aware Scheduling, Sovereign Data Residency, AI Platform Services, Developer SDK. Thin dividers between items.
 
-#### 3. Data Section (lines ~62-854)
-- **Preserved EXACTLY as-is**: All 7 subsidiaries' data including competitors, specTables, milestones, stats, etc.
+6. **ARCHITECTURE** (Light gray bg) — SENSE / THINK / ACT tabs restyled for light background. Clean white card with specs.
 
-#### 4. Rendering JSX (lines 855-1222) — Complete Rewrite
+7. **SPEC TABLE** (White bg) — Clean 3-column grid (Compute, Sustainability, Network) with bordered cards.
 
-New Palantir-style layout with 10 sections:
+8. **SECURITY & COMPLIANCE** (Light gray bg) — 4 feature cards + compliance badges (GDPR, ISO 27001, SOC 2 Type II, Law 09-08, FIPS 140-2 L3, TLS 1.3).
 
-1. **HERO** — Full-screen image with `bg-black/60` overlay, centered headline (80px bold), subtitle, 2 CTA buttons (white bg + dark bg, no border-radius)
-2. **INTERACTIVE PLATFORM** — Kept as-is with updated loading state (neutral-100 instead of dark)
-3. **OVERVIEW** — White bg, 2 columns (image left, text right), accent label, bold heading, thin divider, description, 2x2 metrics grid with CountUp
-4. **CAPABILITIES LIST** — White bg with border-top, divided items with `/0.1`, `/0.2` numbering on right, bold titles + descriptions
-5. **STRATEGIC CONTEXT** — `#F5F5F5` light gray bg, 2 columns (text left, image right)
-6. **SPEC TABLE** — White bg, clean table with thin borders, three columns (Specification | Value | Phase)
-7. **SUSTAINABILITY** — White bg, 2 columns (text left, image right), sustainability badge pills
-8. **MILESTONES** — White bg, vertical timeline with dots and line, clean minimal design
-9. **COMPETITIVE COMPARISON** — Kept CompetitiveComparison component as-is
-10. **PARTNERSHIP MODEL** — White bg, 2-column grid of cards with thin borders
-11. **CTA** — Two side-by-side cards: white card "Request a Briefing" + dark card "Explore the Platform"
+9. **DEVELOPER PLATFORM** (White bg) — 4 tool cards + code snippet preview (deploy-workload.ts in dark terminal style).
 
-### Design Principles Applied
-- White backgrounds throughout (no dark backgrounds)
-- `border-t border-neutral-200` between sections (thin dividers)
-- Large bold typography (`text-3xl md:text-5xl font-bold tracking-tight`)
-- Small accent labels (`text-[11px] font-semibold tracking-[0.2em] uppercase`)
-- Minimal thin dividers (`w-12 h-px bg-neutral-300`)
-- Numbered section indicators (`/0.1`, `/0.2`)
-- No rounded corners on CTAs (`rounded-none`)
-- ArrowUpRight icons instead of ArrowRight
-- FadeIn-only animations (no Card3D, ParallaxSection, MagneticButton, TextReveal)
+10. **COMPETITIVE COMPARISON** — Preserved all 7 competitors with full metrics and verdicts (CoreWeave, Google Cloud Hamina, Africa Data Centres, QScale, Lambda Labs, Oracle Cloud, Equinix).
+
+11. **CTA** (White bg) — Two cards: white "Request a Briefing" + dark `#1A1A2E` "Explore the Platform". Back to Intelligence link.
+
+### Key Design Decisions
+- Dark sections use `#1A1A2E` (deep navy, not pure black) for Palantir AIP aesthetic
+- Light sections alternate between white and `#F7F7F8` for visual rhythm
+- Mock demo data includes realistic hub names (Ouarzazate, Dakhla, Benguerir, Tanger, Casablanca), carbon readings, GPU counts, latency metrics
+- Used `motion` and `AnimatePresence` for all tab switching animations
+- All existing translation keys preserved and reused
+- CompetitiveComparison component preserved with all 7 competitors and 70+ metrics intact
+- Code snippet (deploy-workload.ts) preserved with original syntax highlighting
+
+### State Management
+- `heroTab`: 'sovereign' | 'carbon' | 'automation' (default: 'carbon')
+- `activeArchTab`: 'sense' | 'think' | 'act' (default: 'sense')
+- `workflowMediaTab`: 'video' | 'diagram' (default: 'video')
+- `evaluateMediaTab`: 'video' | 'diagram' (default: 'diagram')
+- `workflowStep`: 0-3 (default: 1)
+- `evaluateStep`: 0-3 (default: 2)
 
 ### Build Verification
-- `next build` completed successfully with no errors
-- `bun run lint` shows only pre-existing errors (Sidebar.tsx, ProductCards.tsx), none from this file
-- Dev server running without issues
+- `npx next build` ✅ Success
+- `bun run lint` ✅ No errors in this file (pre-existing errors in other files are unrelated)
+
+## Time
+Completed in single pass with full rewrite.

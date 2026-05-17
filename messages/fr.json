@@ -4253,54 +4253,53 @@
       "requestAccess": "Demander l'accès"
     },
     "navOverlay": {
-      "platform": {
-        "title": "PLATEFORME",
-        "items": {
-          "i1": "HarchOS",
-          "i2": "IA Carbone-Aware",
-          "i3": "Données Souveraines",
-          "i4": "Calcul GPU",
-          "i5": "Inférence Edge",
-          "i6": "Pipeline Builder",
-          "i7": "Moteur de Workflows",
-          "i8": "Alertes Temps Réel"
-        }
+      "getStarted": "Commencer",
+      "navigation": "NAVIGATION",
+      "nav": {
+        "generateAlpha": "Infrastructure Souveraine",
+        "aip": "HarchOS",
+        "foundry": "Foundry",
+        "gotham": "Intelligence",
+        "ontology": "Ontologie",
+        "apollo": "Opérations",
+        "offerings": "Offres",
+        "impactStudies": "Études d'Impact"
       },
-      "industries": {
-        "title": "INDUSTRIES",
-        "items": {
-          "i1": "Énergie & Services Publics",
-          "i2": "Télécommunications",
-          "i3": "Transport & Logistique",
-          "i4": "Eau & Assainissement",
-          "i5": "Construction & Immobilier",
-          "i6": "Santé",
-          "i7": "Agriculture",
-          "i8": "Mines & Minéraux"
-        }
+      "latestNews": "DERNIÈRES ACTUALITÉS",
+      "newsroom": "RÉDACTION",
+      "news": {
+        "card1Source": "MOROCCO WORLD NEWS, JANVIER 2025",
+        "card1ImageAlt": "PDG de Harch Corp au Sommet Africain des Infrastructures",
+        "card1Title": "Le PDG de Harch Corp discute de l'infrastructure IA souveraine et de l'indépendance numérique de l'Afrique au Sommet Africain des Infrastructures",
+        "card1Desc": "Le PDG de Harch Corp a évoqué la construction de la première plateforme de calcul IA souveraine d'Afrique, le rôle de l'infrastructure carbone-aware et l'avenir de la souveraineté technologique sur le continent.",
+        "card2Source": "AFRICA TECH NOW, MARS 2025",
+        "card2ImageAlt": "Hub GPU Solaire d'Ouarzazate",
+        "card2Title": "Les hubs GPU carbone-aware de Harch Corp alimentent les charges de travail IA en Afrique et en Europe",
+        "card2Desc": "Le premier cluster GPU alimenté par l'énergie solaire au monde à Ouarzazate dessert désormais des charges IA à 18 gCO2/kWh — 89% en dessous de la moyenne mondiale — avec une latence inférieure à 5ms vers les marchés européens."
       },
-      "caseStudies": {
-        "title": "ÉTUDES DE CAS",
-        "items": {
-          "i1": "Complexe Solaire Ouarzazate",
-          "i2": "Parc Éolien Dakhla",
-          "i3": "Port Tanger Med",
-          "i4": "Cité Verte Benguerir",
-          "i5": "Casablanca Finance City",
-          "i6": "Réseau Ferroviaire Maroc"
-        }
-      },
-      "resources": {
-        "title": "RESSOURCES",
-        "items": {
-          "i1": "Documentation",
-          "i2": "Référence API",
-          "i3": "Page de Statut",
-          "i4": "Centre de Confiance",
-          "i5": "Livre Blanc Sécurité",
-          "i6": "Politique de Confidentialité",
-          "i7": "Conditions d'Utilisation"
-        }
+      "offerings": "OFFRES",
+      "viewAllOfferings": "VOIR TOUTES LES OFFRES",
+      "offeringsDesc": "Nos plateformes sont utilisées dans les secteurs public, privé et à but non lucratif pour aider les organisations à mettre en œuvre rapidement des solutions aux problèmes d'infrastructure les plus complexes auxquels elles sont confrontées.",
+      "learnMoreAIP": "En savoir plus sur HarchOS",
+      "impactStudy": "ÉTUDE D'IMPACT",
+      "viewAllImpactStudies": "VOIR TOUTES LES ÉTUDES D'IMPACT",
+      "impactTitle": "Complexe Solaire d'Ouarzazate",
+      "impactDesc": "Comment HarchOS a transformé l'installation solaire phare du Maroc en le hub de calcul GPU le plus vert au monde — atteignant 97,2% d'énergie renouvelable et 18 gCO2/kWh d'intensité carbone tout en servant des charges de travail IA souveraines en Afrique et en Europe.",
+      "readMore": "Lire la Suite",
+      "impactImageAlt": "Complexe Solaire-GPU d'Ouarzazate",
+      "impactCaption": "Alimenter l'IA souveraine du Sahara à l'Europe",
+      "bottomLinks": {
+        "about": "À Propos de Harch Corp",
+        "blog": "Blog",
+        "investorRelations": "Relations Investisseurs",
+        "lettersCeo": "Lettres du PDG",
+        "privacy": "Vie Privée & Libertés Civiles",
+        "infoSecurity": "Sécurité de l'Information",
+        "cloudPartners": "Partenaires Cloud",
+        "learning": "Formation HarchOS",
+        "customerSuccess": "Services de Réussite Client",
+        "store": "Boutique Harch Corp",
+        "contact": "Contact"
       }
     },
     "title": "HarchOS",

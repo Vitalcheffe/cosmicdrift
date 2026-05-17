@@ -4041,54 +4041,53 @@
       "requestAccess": "Request Access"
     },
     "navOverlay": {
-      "platform": {
-        "title": "PLATFORM",
-        "items": {
-          "i1": "HarchOS",
-          "i2": "Carbon-Aware AI",
-          "i3": "Sovereign Data",
-          "i4": "GPU Compute",
-          "i5": "Edge Inference",
-          "i6": "Pipeline Builder",
-          "i7": "Workflow Engine",
-          "i8": "Real-Time Alerting"
-        }
+      "getStarted": "Get Started",
+      "navigation": "NAVIGATION",
+      "nav": {
+        "generateAlpha": "Sovereign Infrastructure",
+        "aip": "HarchOS",
+        "foundry": "Foundry",
+        "gotham": "Intelligence",
+        "ontology": "Ontology",
+        "apollo": "Operations",
+        "offerings": "Offerings",
+        "impactStudies": "Impact Studies"
       },
-      "industries": {
-        "title": "INDUSTRIES",
-        "items": {
-          "i1": "Energy & Utilities",
-          "i2": "Telecommunications",
-          "i3": "Transport & Logistics",
-          "i4": "Water & Sanitation",
-          "i5": "Construction & Real Estate",
-          "i6": "Healthcare",
-          "i7": "Agriculture",
-          "i8": "Mining & Minerals"
-        }
+      "latestNews": "LATEST NEWS",
+      "newsroom": "NEWSROOM",
+      "news": {
+        "card1Source": "MOROCCO WORLD NEWS, JANUARY 2025",
+        "card1ImageAlt": "Harch Corp CEO at African Infrastructure Summit",
+        "card1Title": "Harch Corp CEO discusses sovereign AI infrastructure and Africa's digital independence at the African Infrastructure Summit",
+        "card1Desc": "Harch Corp CEO spoke about building Africa's first sovereign AI compute platform, the role of carbon-aware infrastructure, and the future of technological sovereignty across the continent.",
+        "card2Source": "AFRICA TECH NOW, MARCH 2025",
+        "card2ImageAlt": "Ouarzazate Solar-Powered GPU Hub",
+        "card2Title": "Harch Corp's carbon-aware GPU hubs are powering AI workloads across Africa and Europe",
+        "card2Desc": "The world's first solar-powered GPU cluster in Ouarzazate now serves AI workloads at 18 gCO2/kWh — 89% below the global average — with sub-5ms latency to European markets."
       },
-      "caseStudies": {
-        "title": "CASE STUDIES",
-        "items": {
-          "i1": "Ouarzazate Solar Complex",
-          "i2": "Dakhla Wind Farm",
-          "i3": "Tanger Med Port",
-          "i4": "Benguerir Green City",
-          "i5": "Casablanca Finance City",
-          "i6": "Morocco Rail Network"
-        }
-      },
-      "resources": {
-        "title": "RESOURCES",
-        "items": {
-          "i1": "Documentation",
-          "i2": "API Reference",
-          "i3": "Status Page",
-          "i4": "Trust Center",
-          "i5": "Security Whitepaper",
-          "i6": "Privacy Policy",
-          "i7": "Terms of Service"
-        }
+      "offerings": "OFFERINGS",
+      "viewAllOfferings": "VIEW ALL OFFERINGS",
+      "offeringsDesc": "Our platforms are used throughout the public, private, and non-profit sectors to help organizations quickly implement solutions to the hardest infrastructure problems they face.",
+      "learnMoreAIP": "Learn more about HarchOS",
+      "impactStudy": "IMPACT STUDY",
+      "viewAllImpactStudies": "VIEW ALL IMPACT STUDIES",
+      "impactTitle": "Ouarzazate Solar Complex",
+      "impactDesc": "How HarchOS transformed Morocco's flagship solar facility into the world's greenest GPU compute hub — achieving 97.2% renewable energy and 18 gCO2/kWh carbon intensity while serving sovereign AI workloads across Africa and Europe.",
+      "readMore": "Read More",
+      "impactImageAlt": "Ouarzazate Solar-GPU Complex",
+      "impactCaption": "Powering sovereign AI from the Sahara to Europe",
+      "bottomLinks": {
+        "about": "About Harch Corp",
+        "blog": "Blog",
+        "investorRelations": "Investor Relations",
+        "lettersCeo": "Letters from the CEO",
+        "privacy": "Privacy & Civil Liberties",
+        "infoSecurity": "Information Security",
+        "cloudPartners": "Cloud Partners",
+        "learning": "HarchOS Learning",
+        "customerSuccess": "Customer Success Services",
+        "store": "Harch Corp Store",
+        "contact": "Contact"
       }
     },
     "title": "HarchOS",

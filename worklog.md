@@ -83,3 +83,28 @@ Added identical structure to `harchos` section with French translations:
 - Both `/en/intelligence/harchos` and `/fr/intelligence/harchos` return HTTP 200
 - Dev server compiles successfully with no new errors
 - Pre-existing lint errors (in Sidebar.tsx) are unrelated to these changes
+---
+Task ID: 1
+Agent: Main Agent
+Task: Complete translation overhaul for Harch Corp website
+
+Work Log:
+- Read and analyzed current en.json (~11K lines) and fr.json (~12K lines) translation files
+- Found en.json was catastrophically broken: garbled words, French text, 120+ placeholders
+- Found fr.json had mostly good French but 120+ placeholders and accent issues
+- Rewrote en.json completely via subagent: 0 French chars, 0 French words, proper English throughout
+- Fixed fr.json via Python script: replaced 120+ placeholders with proper French, fixed 25+ accent issues, translated testimonials/case studies to French
+- Audited all page components for hardcoded strings via Explore subagent
+- Refactored SubsidiaryPageClient.tsx: extracted 500+ hardcoded strings to en.json/fr.json, now uses t.raw(slug) for i18n
+- Verified LanguageSwitcher component already exists and works (Palantir-style)
+- QA'd both translation files with parallel subagents
+- Fixed critical QA issues: garbled text in investors/press/startupProgram, currency formatting, accent fixes
+- Build passes successfully, pushed to GitHub
+- Created 5 logo proposals (3 SVG + 2 AI-generated PNG) in /download/logo-proposals/
+
+Stage Summary:
+- en.json: Complete rewrite, zero French contamination, zero garbled text
+- fr.json: All placeholders replaced, accents fixed, testimonials translated, subsidiary data added
+- SubsidiaryPageClient.tsx: Fully internationalized using t.raw(slug) pattern
+- Build passes, site deploys correctly
+- Logo proposals saved locally (not pushed to git)

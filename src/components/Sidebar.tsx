@@ -7,6 +7,7 @@ import { Menu, ChevronDown, PanelLeftClose } from 'lucide-react';
 import { HarchLogo } from '@/components/HarchLogo';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 // Navigation items are now built inside the component using translations
 // to support the current locale dynamically.
@@ -312,6 +313,7 @@ export function Sidebar() {
                 >
                   {t('joinTeam')}
                 </Link>
+                <LanguageSwitcher variant="sidebar" />
                 <div className="flex items-center justify-center gap-2 pt-1">
                   <span className="inline-block w-0.5 h-0.5 rounded-full bg-[#4A7B5F]" />
                   <p className="text-[9px] text-[rgba(255,255,255,0.2)] font-[family-name:var(--font-space-mono)]">

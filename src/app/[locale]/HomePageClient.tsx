@@ -25,6 +25,7 @@ import {
 
 export default function HomePageClient() {
   const t = useTranslations('home');
+  const tCommon = useTranslations('common');
 
   const [activeVertical, setActiveVertical] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -253,7 +254,7 @@ export default function HomePageClient() {
             <div className="relative h-[50vh] md:h-auto overflow-hidden">
               <Image
                 src="/images/sections/energy-solar-farm.jpg"
-                alt="Harch Corp Infrastructure"
+                alt={t('splitImageAlt')}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -275,7 +276,7 @@ export default function HomePageClient() {
                   href="/about"
                   className="group inline-flex items-center gap-2 text-[14px] font-semibold text-black/70 hover:text-black transition-colors"
                 >
-                  Learn more
+                  {tCommon('learnMore')}
                   <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
               </FadeIn>

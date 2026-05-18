@@ -10,6 +10,7 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { CursorGlow } from "@/components/CursorGlow";
 import { ClientLayout } from "@/components/ClientLayout";
 import { LanguageDetector, GoogleTranslateScript } from "@/components/LanguageDetector";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -146,6 +147,7 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const tCommon = await getTranslations({ locale, namespace: 'common' });
 
   // ═══ JSON-LD: Organization Schema ═══
   const schemaOrg = {
@@ -541,9 +543,10 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <a href="#main-content" className="skip-link">
-            {locale === 'fr' ? 'Aller au contenu principal' : 'Skip to main content'}
+            {tCommon('skipToContent')}
           </a>
           <Sidebar />
+          <LanguageSwitcher />
           <div className="flex-1 flex flex-col w-full">
             <main id="main-content" className="flex-1 pb-6">
               <ClientLayout>{children}</ClientLayout>

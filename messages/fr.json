@@ -71,7 +71,7 @@
     "relatedTopics": "Sujets connexes",
     "rssFeed": "Flux RSS",
     "rssFeedDescription": "Abonnez-vous au flux RSS pour ne manquer aucun article.",
-    "stayInTheLoop": "Restez informe",
+    "stayInTheLoop": "Restez informé",
     "submitAPitch": "Soumettre une proposition",
     "subscribe": "S'abonner",
     "subscribed": "Inscrit",
@@ -234,7 +234,7 @@
         "type": "Temps plein"
       },
       "corpFinanceAnalyst": {
-        "department": "Corporate",
+        "department": "Entreprise",
         "level": "Intermédiaire",
         "location": "Casablanca, Maroc",
         "title": "Analyste Finance Corporate",
@@ -248,7 +248,7 @@
         "type": "Temps plein"
       },
       "esgComplianceMgr": {
-        "department": "Corporate",
+        "department": "Entreprise",
         "level": "Sénior",
         "location": "Casablanca, Maroc",
         "title": "Responsable Conformité ESG",
@@ -554,7 +554,7 @@
             "développement"
           ],
           "cta": "Rejoindre Discord",
-          "desc": "Communauté principale pour les discussions en temps reel et le support technique.",
+          "desc": "Communauté principale pour les discussions en temps réel et le support technique.",
           "members": "2 400+",
           "name": "Discord"
         },
@@ -587,7 +587,7 @@
             "communauté"
           ],
           "cta": "Suivre sur X",
-          "desc": "Actualités en temps reel, annonces et conversations avec l'équipe.",
+          "desc": "Actualités en temps réel, annonces et conversations avec l'équipe.",
           "members": "3 800+",
           "name": "X (Twitter)"
         }
@@ -611,21 +611,21 @@
       "items": [
         {
           "date": "Mars 2026",
-          "desc": "Conference annuelle sur l'infrastructure souveraine africaine et l'IA consciente du carbone.",
-          "name": "Harch Summit Casablanca",
-          "type": "Conference"
+          "desc": "Conférence annuelle sur l'infrastructure souveraine africaine et l'IA consciente du carbone.",
+          "name": "Sommet Harch Casablanca",
+          "type": "Conférence"
         },
         {
           "date": "Juin 2026",
           "desc": "Atelier pratique sur les SDK HarchOS et l'intégration du cloud GPU.",
-          "name": "Developer Workshop Dakar",
+          "name": "Atelier Développeurs Dakar",
           "type": "Atelier"
         },
         {
           "date": "Septembre 2026",
-          "desc": "Rencontré régionale des opérateurs et partenaires de l'écosystème Harch.",
-          "name": "Operator Meetup Nairobi",
-          "type": "Meetup"
+          "desc": "Rencontre régionale des opérateurs et partenaires de l'écosystème Harch.",
+          "name": "Rencontre Opérateurs Nairobi",
+          "type": "Rencontre"
         }
       ],
       "label": "Événements",
@@ -635,7 +635,7 @@
       "conduct": [
         "Respecter chaque membre de la communauté indépendamment de son niveau",
         "Contribuer de manière constructive et professionnelle",
-        "Ne pas tolerer le harcelement, la discrimination ou les comportements toxiques",
+        "Ne pas tolérer le harcèlement, la discrimination ou les comportements toxiques",
         "Signaler tout comportement inapproprié à l'équipe de modiration"
       ],
       "description": "Notre communauté fonctionne selon des principes de respect, d'excellence et de mission commune.",
@@ -740,15 +740,15 @@
           "title": "Formation anti-biais"
         },
         {
-          "description": "Partenariats avec 15 universites africaines pour identifier et former les talents sous-représentés.",
+          "description": "Partenariats avec 15 universités africaines pour identifier et former les talents sous-représentés.",
           "metric": "15",
-          "metricLabel": "Universites partenaires",
+          "metricLabel": "Universités partenaires",
           "title": "Partenariats universitaires"
         },
         {
           "description": "Transparence totale sur les données de diversité avec rapport annuel public et vérifiable.",
           "metric": "Annuel",
-          "metricLabel": "Frequence du rapport",
+          "metricLabel": "Fréquence du rapport",
           "title": "Rapport de transparence"
         }
       ],
@@ -782,7 +782,7 @@
         }
       ],
       "transparency": [
-        "Rapport DEI annuel publie et accessible au public",
+        "Rapport DEI annuel publié et accessible au public",
         "Données salariales auditées pour garantir l'équité",
         "Indicateurs de diversité suivis au niveau du conseil",
         "Retours anonymes des employés collectés trimestriellement",
@@ -825,7 +825,7 @@
       "ctaButton1": "Voir l'équipe",
       "ctaButton2": "Nous contacter",
       "ctaDescription": "Découvrez les dirigeants qui construisent l'infrastructure souveraine de l'Afrique.",
-      "ctaTitle": "Rejoindre le leadership",
+      "ctaTitle": "Rejoindre la direction",
       "execTeamLabel": "Direction",
       "execTeamTitle": "Équipe de direction",
       "executives": [
@@ -870,7 +870,7 @@
       "approach": [
         {
           "desc": "Nous investissons dans des entreprises qui renforcent la souveraineté industrielle africaine et complètent nos filiales existantes.",
-          "title": "Thesis d'investissement"
+          "title": "Thèse d'investissement"
         },
         {
           "desc": "Participation active dans la stratégie, le recrutement et l'accès à notre réseau d'infrastructure continentale.",
@@ -885,7 +885,7 @@
           "title": "Suivi de performance"
         }
       ],
-      "approachDescription": "Notre approche d'investissement combine thesis stratégique, accompagnement opérationnel et intégration écosystème.",
+      "approachDescription": "Notre approche d'investissement combine thèse stratégique, accompagnement opérationnel et intégration écosystème.",
       "approachLabel": "Approche",
       "approachTitle1": "Notre",
       "approachTitle2": "Approche",
@@ -899,7 +899,7 @@
           "title": "Innovation distinctive"
         },
         {
-          "description": "Équipe fondatrice avec une exécution prouvee et un engagement envers le continent.",
+          "description": "Équipe fondatrice avec une exécution prouvée et un engagement envers le continent.",
           "title": "Équipe exceptionnelle"
         },
         {
@@ -912,7 +912,7 @@
       "criteriaTitle": "Critères d'investissement",
       "ctaButton1": "Soumettre un projet",
       "ctaButton2": "Voir le portefeuille",
-      "ctaDescription": "Vous construisez une entreprise qui renforcé la souveraineté africaine ? Parlons-en.",
+      "ctaDescription": "Vous construisez une entreprise qui renforce la souveraineté africaine ? Parlons-en.",
       "ctaTitle": "Présenter votre startup",
       "details": [
         {
@@ -924,7 +924,7 @@
           "value": "500K - 5M $"
         },
         {
-          "label": "Stades vises",
+          "label": "Stades visés",
           "value": "Pre-Seed à Series A"
         },
         {
@@ -987,7 +987,7 @@
       "portfolioTitle": "Portefeuille",
       "thesis": [
         {
-          "description": "L'Afrique doit construire sa propre infrastructure technologique pour ne pas dependre de fournisseurs étrangers.",
+          "description": "L'Afrique doit construire sa propre infrastructure technologique pour ne pas dépendre de fournisseurs étrangers.",
           "title": "Souveraineté numérique"
         },
         {
@@ -1007,9 +1007,9 @@
           "title": "Intégration régionale"
         }
       ],
-      "thesisDescription": "Notre thesis d'investissement est guidée par la souveraineté industrielle africaine.",
-      "thesisLabel": "Thesis",
-      "thesisTitle": "Thesis d'investissement"
+      "thesisDescription": "Notre thèse d'investissement est guidée par la souveraineté industrielle africaine.",
+      "thesisLabel": "Thèse",
+      "thesisTitle": "Thèse d'investissement"
     }
   },
   "contact": {
@@ -1113,7 +1113,7 @@
           "value": "25+"
         },
         {
-          "label": "Projets supervises",
+          "label": "Projets supervisés",
           "value": "150+"
         },
         {
@@ -1139,8 +1139,8 @@
           "label": "Impact continental"
         },
         {
-          "desc": "Rémunération et avantages adaptes aux leaders de votre calibre.",
-          "label": "Compensation"
+          "desc": "Rémunération et avantages adaptés aux leaders de votre calibre.",
+          "label": "Rémunération"
         }
       ],
       "benefitsDescription": "Les membres du conseil beneficient d'un accès privilegie a l'écosystème Harch.",
@@ -1149,7 +1149,7 @@
           "description": "Participation aux réunions stratégiques trimestrielles avec le conseil d'administration.",
           "details": [
             "Revue stratégique trimestrielle",
-            "Analyse des marchs africains",
+            "Analyse des marchés africains",
             "Validation des nouveaux projets",
             "Évaluation des risques"
           ],
@@ -1166,9 +1166,9 @@
           "title": "Partenariats"
         },
         {
-          "description": "Contribution à la reflexion sur la thesis d'investissement et l'allocation du capital.",
+          "description": "Contribution à la réflexion sur la thèse d'investissement et l'allocation du capital.",
           "details": [
-            "Thesis d'investissement",
+            "Thèse d'investissement",
             "Allocation sectorielle",
             "Analyse de risque",
             "Gouvernance financière"
@@ -1212,8 +1212,8 @@
       ],
       "cadenceLabel": "Cadence",
       "cadenceTitle": "Calendrier des réunions",
-      "coCreationLabel": "Co-creation",
-      "description1": "Le Conseil Consultatif de Harch Corp est un groupe select de leaders qui guident notre vision.",
+      "coCreationLabel": "Co-création",
+      "description1": "Le Conseil Consultatif de Harch Corp est un groupe sélect de leaders qui guident notre vision.",
       "description2": "Chaque membre apporte une expertise unique et un réseau stratégique pour accélérer notre mission.",
       "form": {
         "fullName": "Nom complet",
@@ -1222,8 +1222,8 @@
         "organizationPlaceholder": "Votre organisation",
         "submit": "Soumettre la candidature",
         "talkToUs": "Parlez-nous",
-        "titleRole": "Titre / Role",
-        "titleRolePlaceholder": "Votre titre et role actuels",
+        "titleRole": "Titre / Rôle",
+        "titleRolePlaceholder": "Votre titre et rôle actuels",
         "whyJoin": "Pourquoi rejoindre ?",
         "whyJoinPlaceholder": "Votre motivation et ce que vous apporterez"
       },
@@ -1236,8 +1236,8 @@
           "title": "Candidature"
         },
         {
-          "description": "Entretien avec le comité de selection pour évaluer l'alignement et l'expertise.",
-          "title": "Selection"
+          "description": "Entretien avec le comité de sélection pour évaluer l'alignement et l'expertise.",
+          "title": "Sélection"
         },
         {
           "description": "Onboarding dans l'écosystème Harch avec accès complet aux équipes et projets.",
@@ -1253,198 +1253,198 @@
         {
           "fullName": "Dr. Fatima El Amrani",
           "organization": "Banque Africaine de Développement",
-          "representative": "Financial Infrastructure",
+          "representative": "Infrastructure Financière",
           "sector": "Finance",
-          "title": "Advisory Board"
+          "title": "Conseil Consultatif"
         },
         {
           "fullName": "Prof. Youssef Benali",
           "organization": "MIT Africa",
-          "representative": "Technology & AI",
-          "sector": "Technology",
-          "title": "Advisory Board"
+          "representative": "Technologie & IA",
+          "sector": "Technologie",
+          "title": "Conseil Consultatif"
         },
         {
           "fullName": "Aminata Diallo",
           "organization": "ONU Développement Industriel",
-          "representative": "Industrial Strategy",
-          "sector": "Industry",
-          "title": "Advisory Board"
+          "representative": "Stratégie Industrielle",
+          "sector": "Industrie",
+          "title": "Conseil Consultatif"
         },
         {
           "fullName": "Kwame Asante",
           "organization": "AfCFTA Secretariat",
-          "representative": "Continental Trade",
-          "sector": "Trade",
-          "title": "Advisory Board"
+          "representative": "Commerce Continental",
+          "sector": "Commerce",
+          "title": "Conseil Consultatif"
         },
         {
           "fullName": "Hassan El Fadili",
           "organization": "Office Cherifien des Phosphates",
-          "representative": "Mining & Phosphates",
-          "sector": "Mining",
-          "title": "Advisory Board"
+          "representative": "Mines & Phosphates",
+          "sector": "Mines",
+          "title": "Conseil Consultatif"
         },
         {
           "fullName": "Marie Ndiaye",
           "organization": "Orange Afrique",
           "representative": "Télécommunications",
           "sector": "Télécom",
-          "title": "Advisory Board"
+          "title": "Conseil Consultatif"
         }
       ],
-      "readFull": "Lire la charte complete",
+      "readFull": "Lire la charte complète",
       "titleLabel": "Conseil Consultatif",
-      "membersDescription": "Advisory Board Members Description",
-      "membersLabel": "Advisory Board Members Label",
-      "membersTitle": "Advisory Board Members Title",
-      "processDescription": "Advisory Board Process Description",
-      "processLabel": "Advisory Board Process Label",
-      "processTitle": "Advisory Board Process Title",
-      "title": "Advisory Board"
+      "membersDescription": "Des leaders de classe mondiale en finance, technologie et stratégie qui guident notre vision continentale.",
+      "membersLabel": "Membres",
+      "membersTitle": "Membres du conseil",
+      "processDescription": "Un processus de sélection rigoureux garantit l'alignement de chaque membre avec notre mission de souveraineté africaine.",
+      "processLabel": "Processus",
+      "processTitle": "Processus de sélection",
+      "title": "Conseil Consultatif"
     },
-    "heroDescription": "Les organisations qui font confiance a Harch Corp pour leur infrastructure souveraine.",
+    "heroDescription": "Les organisations qui font confiance à Harch Corp pour leur infrastructure souveraine.",
     "heroLabel": "Clients",
     "heroTitle": "Nos Clients",
     "testimonialAuthor": "Directeur des Opérations, Ministère de l'Énergie",
-    "testimonialQuote": "Harch Corp a transformé notre approche de l'infrastructure. Leur expertise en énergie renouvelable et en cloud souverain est inegalee en Afrique.",
+    "testimonialQuote": "Harch Corp a transformé notre approche de l'infrastructure. Leur expertise en énergie renouvelable et en cloud souverain est inégalée en Afrique.",
     "title": "Clients",
     "caseStudies": [
       {
-        "description": "Deployed sovereign GPU cloud infrastructure for government AI initiatives.",
-        "fullName": "0 Full Name",
-        "metric": "99.98%",
-        "metricLabel": "0 Metric Label",
-        "organization": "Government of Morocco",
-        "result": "3x faster AI inference",
-        "sector": "Government",
-        "useCase": "0 Use Case",
+        "description": "Déploiement d'une infrastructure cloud GPU souveraine pour les initiatives IA du gouvernement.",
+        "fullName": "Direction des Systèmes d'Information",
+        "metric": "99,98%",
+        "metricLabel": "Disponibilité",
+        "organization": "Gouvernement du Maroc",
+        "result": "Inférence IA 3x plus rapide",
+        "sector": "Gouvernement",
+        "useCase": "Cloud GPU Souverain",
         "vertical": "Intelligence"
       },
       {
-        "description": "Built 500MW solar farm to power industrial opérations with renewable energy.",
-        "fullName": "1 Full Name",
+        "description": "Construction d'un parc solaire de 500MW pour alimenter les opérations industrielles en énergie renouvelable.",
+        "fullName": "Directeur des Opérations",
         "metric": "2GW",
-        "metricLabel": "1 Metric Label",
-        "organization": "Energy Ministry",
-        "result": "80% carbon réduction",
-        "sector": "Energy",
-        "useCase": "1 Use Case",
-        "vertical": "Energy"
+        "metricLabel": "Capacité installée",
+        "organization": "Ministère de l'Énergie",
+        "result": "80% de réduction carbone",
+        "sector": "Énergie",
+        "useCase": "Parc Solaire Industriel",
+        "vertical": "Énergie"
       },
       {
-        "description": "Established cement production facility to support régional construction boom.",
-        "fullName": "2 Full Name",
+        "description": "Établissement d'une cimenterie pour soutenir le boom de la construction régionale.",
+        "fullName": "Responsable Infrastructure",
         "metric": "500kT",
-        "metricLabel": "2 Metric Label",
-        "organization": "Gambia Housing Authority",
-        "result": "40% cost réduction",
+        "metricLabel": "Capacité de production",
+        "organization": "Autorité du Logement de Gambie",
+        "result": "40% de réduction des coûts",
         "sector": "Construction",
-        "useCase": "2 Use Case",
-        "vertical": "Cement"
+        "useCase": "Cimenterie Régionale",
+        "vertical": "Ciment"
       },
       {
-        "description": "Implemented précision agriculture system across 50,000 hectares of farmland.",
-        "fullName": "3 Full Name",
+        "description": "Déploiement d'un système d'agriculture de précision sur 50 000 hectares de terres agricoles.",
+        "fullName": "Directeur Technique",
         "metric": "35%",
-        "metricLabel": "3 Metric Label",
-        "organization": "Ministry of Agriculture",
-        "result": "Doubled crop yields",
+        "metricLabel": "Augmentation des rendements",
+        "organization": "Ministère de l'Agriculture",
+        "result": "Rendements doublés",
         "sector": "Agriculture",
-        "useCase": "3 Use Case",
+        "useCase": "Agriculture de Précision",
         "vertical": "Agriculture"
       },
       {
-        "description": "Deployed desalination plant with AI-optimized water distribution network.",
-        "fullName": "4 Full Name",
+        "description": "Déploiement d'une usine de dessalement avec un réseau de distribution d'eau optimisé par IA.",
+        "fullName": "Ingénieur en Chef",
         "metric": "200M m³",
-        "metricLabel": "4 Metric Label",
-        "organization": "Water Utility Corp",
-        "result": "Zero water shortages",
-        "sector": "Water",
-        "useCase": "4 Use Case",
-        "vertical": "Water"
+        "metricLabel": "Capacité de traitement",
+        "organization": "Société Nationale des Eaux",
+        "result": "Zéro pénurie d'eau",
+        "sector": "Eau",
+        "useCase": "Dessalement Intelligent",
+        "vertical": "Eau"
       },
       {
-        "description": "Developed sovereign fintech platform for cross-border African payments.",
-        "fullName": "5 Full Name",
-        "metric": "$2B+",
-        "metricLabel": "5 Metric Label",
+        "description": "Développement d'une plateforme fintech souveraine pour les paiements transfrontaliers africains.",
+        "fullName": "Directeur Financier",
+        "metric": "2 Md$+",
+        "metricLabel": "Volume traité",
         "organization": "BCEAO",
-        "result": "60% cost réduction",
+        "result": "60% de réduction des coûts",
         "sector": "Finance",
-        "useCase": "5 Use Case",
+        "useCase": "Paiements Souverains",
         "vertical": "Finance"
       }
     ],
-    "caseStudiesDescription": "Case Studies Description",
-    "caseStudiesLabel": "Case Studies Label",
-    "caseStudiesTitle": "Case Studies Title",
-    "ctaButton1": "Cta Button1",
-    "ctaButton2": "Cta Button2",
-    "ctaDescription": "Cta Description",
-    "ctaTitle": "Cta Title",
+    "caseStudiesDescription": "Découvrez comment nos clients transforment leur infrastructure grâce à nos solutions souveraines.",
+    "caseStudiesLabel": "Études de cas",
+    "caseStudiesTitle": "Études de cas",
+    "ctaButton1": "Voir les études de cas",
+    "ctaButton2": "Demander un briefing",
+    "ctaDescription": "Découvrez comment Harch Corp peut transformer votre infrastructure.",
+    "ctaTitle": "Prêt à construire ?",
     "featured": {
       "keyResults": [
-        "Key Results 0",
-        "Key Results 1",
-        "Key Results 2",
-        "Key Results 3",
-        "Key Results 4",
-        "Key Results 5"
+        "Infrastructure cloud GPU souveraine déployée pour les initiatives IA du gouvernement",
+        "99,98% de disponibilité garantie pour les workloads critiques",
+        "Inférence IA 3x plus rapide grâce à l'optimisation matérielle",
+        "Réduction de 80% des émissions carbone via l'énergie renouvelable",
+        "Économie de 40% sur les coûts d'infrastructure",
+        "Zéro pénurie d'eau grâce au réseau de distribution optimisé par IA"
       ],
-      "keyResultsLabel": "Featured Key Results Label",
-      "orgFull": "Featured Org Full",
-      "orgShort": "Featured Org Short",
-      "paragraph1": "Featured Paragraph1",
-      "paragraph2": "Featured Paragraph2",
-      "stat0Label": "Featured Stat0 Label",
-      "stat0Value": "Featured Stat0 Value",
-      "stat1Label": "Featured Stat1 Label",
-      "stat1Value": "Featured Stat1 Value",
-      "stat2Label": "Featured Stat2 Label",
-      "stat2Value": "Featured Stat2 Value",
-      "stat3Label": "Featured Stat3 Label",
-      "stat3Value": "Featured Stat3 Value"
+      "keyResultsLabel": "Résultats clés",
+      "orgFull": "Gouvernement du Royaume du Maroc",
+      "orgShort": "Gouvernement marocain",
+      "paragraph1": "Le gouvernement marocain a fait appel à Harch Corp pour déployer une infrastructure cloud GPU souveraine, permettant aux initiatives IA nationales de fonctionner sans dépendance étrangère.",
+      "paragraph2": "Grâce à notre intégration verticale — de l'énergie renouvelable au compute souverain — nous avons livré une disponibilité de 99,98% avec une empreinte carbone minimale.",
+      "stat0Label": "Disponibilité",
+      "stat0Value": "99,98%",
+      "stat1Label": "Inférence IA",
+      "stat1Value": "3x plus rapide",
+      "stat2Label": "Économie de coûts",
+      "stat2Value": "40%",
+      "stat3Label": "Réduction carbone",
+      "stat3Value": "80%"
     },
-    "featuredLabel": "Featured Label",
-    "featuredTitle": "Featured Title",
-    "heroTitle1": "Hero Title1",
-    "heroTitle2": "Hero Title2",
+    "featuredLabel": "En vedette",
+    "featuredTitle": "Étude de cas en vedette",
+    "heroTitle1": "Nos",
+    "heroTitle2": "Clients",
     "industries": {
-      "agriculture": "Industries Agriculture",
-      "all": "Industries All",
-      "energy": "Industries Energy",
-      "finance": "Industries Finance",
-      "government": "Industries Government",
-      "industrial": "Industries Industrial",
-      "mining": "Industries Mining",
-      "water": "Industries Water"
+      "agriculture": "Agriculture",
+      "all": "Tous les secteurs",
+      "energy": "Énergie",
+      "finance": "Finance",
+      "government": "Gouvernement",
+      "industrial": "Industriel",
+      "mining": "Mines",
+      "water": "Eau"
     },
-    "readCaseStudy": "Read Case Study",
+    "readCaseStudy": "Lire l'étude de cas",
     "testimonials": [
       {
         "name": "Ahmed Benkirane",
-        "organization": "Ministry of Energy",
-        "quote": "Harch Corp transformed our approach to infrastructure. Their expertise in renewable energy and sovereign cloud is unmatched in Africa.",
-        "title": "Director of Opérations"
+        "organization": "Ministère de l'Énergie",
+        "quote": "Harch Corp a transformé notre approche de l'infrastructure. Leur expertise en énergie renouvelable et en cloud souverain est inégalée en Afrique.",
+        "title": "Directeur des Opérations"
       },
       {
         "name": "Fatou Sow",
-        "organization": "African Development Bank",
-        "quote": "The vertical intégration model is unique. Harch Corp delivers end-to-end solutions that no other company can match on the continent.",
-        "title": "Infrastructure Analyst"
+        "organization": "Banque Africaine de Développement",
+        "quote": "Le modèle d'intégration verticale est unique. Harch Corp fournit des solutions de bout en bout qu'aucune autre entreprise ne peut égaler sur le continent.",
+        "title": "Analyste Infrastructure"
       },
       {
         "name": "Youssef El Idrissi",
-        "organization": "OCP Group",
-        "quote": "Working with Harch Mining has been exceptional. Their sovereign approach to resource extraction sets a new standard for Africa.",
-        "title": "VP Strategic Partnerships"
+        "organization": "Groupe OCP",
+        "quote": "Travailler avec Harch Mining a été exceptionnel. Leur approche souveraine de l'extraction des ressources établit une nouvelle norme pour l'Afrique.",
+        "title": "VP Partenariats Stratégiques"
       }
     ],
-    "testimonialsDescription": "Testimonials Description",
-    "testimonialsLabel": "Testimonials Label",
-    "testimonialsTitle": "Testimonials Title"
+    "testimonialsDescription": "Ce que nos partenaires et clients disent de leur collaboration avec Harch Corp.",
+    "testimonialsLabel": "Témoignages",
+    "testimonialsTitle": "Témoignages"
   },
   "developers": {
     "apiPlayground": "Playground API",
@@ -1459,15 +1459,15 @@
       "button2": "Rejoindre Discord",
       "description": "Commencez à construire sur l'infrastructure souveraine de l'Afrique avec nos SDK et outils.",
       "title": "Pret à construire ?",
-      "label": "Cta Label",
-      "title1": "Cta Title1",
-      "title2": "Cta Title2"
+      "label": "Contact",
+      "title1": "Commencez",
+      "title2": "aujourd'hui"
     },
     "developerCenter": "Centre développeurs",
     "documentation": "Documentation",
     "features": {
       "carbonAware": {
-        "description": "Planification intelligente des charges GPU en fonction de la disponibilité d'énergie renouvelable en temps reel.",
+        "description": "Planification intelligente des charges GPU en fonction de la disponibilité d'énergie renouvelable en temps réel.",
         "title": "GPU Conscient du Carbone"
       },
       "sdkTitle": "SDK natifs",
@@ -1539,16 +1539,16 @@
           "title": "Code Review"
         }
       ],
-      "contributingDescription": "Open Source Contributing Description",
-      "contributingLabel": "Open Source Contributing Label",
-      "contributingTitle1": "Open Source Contributing Title1",
-      "contributingTitle2": "Open Source Contributing Title2",
-      "ctaButton1": "Open Source Cta Button1",
-      "ctaButton2": "Open Source Cta Button2",
-      "ctaDescription": "Open Source Cta Description",
-      "ctaLabel": "Open Source Cta Label",
-      "ctaTitle1": "Open Source Cta Title1",
-      "ctaTitle2": "Open Source Cta Title2",
+      "contributingDescription": "Contribuez au code ouvert et aidez-nous à construire la souveraineté numérique de l'Afrique.",
+      "contributingLabel": "Contribuer",
+      "contributingTitle1": "Comment",
+      "contributingTitle2": "contribuer",
+      "ctaButton1": "Voir les dépôts",
+      "ctaButton2": "Contribuer",
+      "ctaDescription": "Rejoignez notre communauté open source et construisez la souveraineté numérique ensemble.",
+      "ctaLabel": "Contribuer",
+      "ctaTitle1": "Commencez à",
+      "ctaTitle2": "contribuer",
       "guidelines": [
         {
           "description": "Write clean, well-documented code with comprehensive tests.",
@@ -1563,11 +1563,11 @@
           "title": "CI/CD Requirements"
         }
       ],
-      "heroDescription": "Open Source Hero Description",
-      "heroLabel": "Open Source Hero Label",
-      "heroSubtitle": "Open Source Hero Subtitle",
-      "heroTitle1": "Open Source Hero Title1",
-      "heroTitle2": "Open Source Hero Title2",
+      "heroDescription": "Tous nos outils et SDK sont open source. Contribuez, forkez et construisez la souveraineté numérique.",
+      "heroLabel": "Open Source",
+      "heroSubtitle": "Code ouvert pour une infrastructure souveraine",
+      "heroTitle1": "Open",
+      "heroTitle2": "Source",
       "projects": [
         {
           "description": "Carbon-aware GPU scheduler for sovereign workloads"
@@ -1588,12 +1588,12 @@
           "description": "Monitoring and observability dashboards"
         }
       ],
-      "projectsDescription": "Open Source Projects Description",
-      "projectsLabel": "Open Source Projects Label",
-      "projectsTitle1": "Open Source Projects Title1",
-      "projectsTitle2": "Open Source Projects Title2",
-      "title1": "Open Source Title1",
-      "title2": "Open Source Title2",
+      "projectsDescription": "Explorez nos projets open source et contribuez à l'infrastructure souveraine de l'Afrique.",
+      "projectsLabel": "Projets",
+      "projectsTitle1": "Nos",
+      "projectsTitle2": "projets",
+      "title1": "Open",
+      "title2": "Source",
       "values": [
         {
           "description": "Every component is auditable, forkable, and customizable.",
@@ -1608,9 +1608,9 @@
           "title": "Community"
         }
       ],
-      "valuesDescription": "Open Source Values Description",
-      "valuesLabel": "Open Source Values Label",
-      "valuesTitle": "Open Source Values Title",
+      "valuesDescription": "Nos valeurs open source guident chaque ligne de code que nous écrivons.",
+      "valuesLabel": "Valeurs",
+      "valuesTitle": "Nos valeurs",
       "viewAll": "Open Source View All"
     },
     "quickStart": [
@@ -1631,10 +1631,10 @@
     "title": "Développeurs",
     "toolsLabel": "Outils",
     "toolsTitle": "Outils développeurs",
-    "codeExampleDescription": "Code Example Description",
-    "codeExampleLabel": "Code Example Label",
-    "codeExampleTitle1": "Code Example Title1",
-    "codeExampleTitle2": "Code Example Title2",
+    "codeExampleDescription": "Démarrez en quelques minutes avec nos SDK natifs et notre API ouverte.",
+    "codeExampleLabel": "Exemples de code",
+    "codeExampleTitle1": "Démarrage",
+    "codeExampleTitle2": "rapide",
     "codeFeatures": [
       "Code Features 0",
       "Code Features 1",
@@ -1659,10 +1659,10 @@
         "members": "5,000+",
         "title": "LinkedIn Group"
       },
-      "description": "Community Description",
-      "label": "Community Label",
-      "membersLabel": "Community Members Label",
-      "title": "Community Title"
+      "description": "Rejoignez des milliers de développeurs qui construisent sur l'infrastructure souveraine de l'Afrique.",
+      "label": "Communauté",
+      "membersLabel": "Membres",
+      "title": "Communauté développeurs"
     },
     "dxMetrics": [
       {
@@ -1686,15 +1686,15 @@
         "value": "12K+"
       }
     ],
-    "dxMetricsDescription": "Dx Metrics Description",
-    "dxMetricsLabel": "Dx Metrics Label",
-    "dxMetricsTitle1": "Dx Metrics Title1",
-    "dxMetricsTitle2": "Dx Metrics Title2",
-    "heroButton1": "Hero Button1",
-    "heroButton2": "Hero Button2",
-    "heroSubtitle": "Hero Subtitle",
-    "heroTitle1": "Hero Title1",
-    "heroTitle2": "Hero Title2",
+    "dxMetricsDescription": "Des métriques de développement conçues pour la productivité et la performance.",
+    "dxMetricsLabel": "Métriques",
+    "dxMetricsTitle1": "Expérience",
+    "dxMetricsTitle2": "Développeur",
+    "heroButton1": "Voir les clients",
+    "heroButton2": "Demander un briefing",
+    "heroSubtitle": "Infrastructure souveraine en action",
+    "heroTitle1": "Nos",
+    "heroTitle2": "Clients",
     "openSourceProjects": [
       {
         "description": "Carbon-aware GPU scheduler — intelligent workload placement"
@@ -1728,19 +1728,19 @@
           "label": "Opérations"
         }
       ],
-      "apiGroupsLabel": "Playground Api Groups Label",
+      "apiGroupsLabel": "Groupes d'API",
       "apiVersion": "Playground Api Version",
       "auth": "Playground Auth",
-      "authDescription": "Playground Auth Description",
-      "authTitle": "Playground Auth Title",
+      "authDescription": "Authentification sécurisée pour accéder à nos API souveraines.",
+      "authTitle": "Authentification",
       "authWarning": "Playground Auth Warning",
       "backToDevelopers": "Playground Back To Developers",
       "body": "Playground Body",
-      "burstLabel": "Playground Burst Label",
-      "codeGenTitle": "Playground Code Gen Title",
+      "burstLabel": "Limites de burst",
+      "codeGenTitle": "Génération de code",
       "copied": "Playground Copied",
       "copy": "Playground Copy",
-      "description": "Playground Description",
+      "description": "Testez nos API en temps réel directement depuis votre navigateur.",
       "endpoints": {
         "compute": [
           "Compute 0",
@@ -1772,15 +1772,15 @@
           "Opérations 4"
         ]
       },
-      "endpointsLabel": "Playground Endpoints Label",
+      "endpointsLabel": "Endpoints",
       "headers": "Playground Headers",
-      "heroDescription": "Playground Hero Description",
-      "heroLabel": "Playground Hero Label",
-      "heroTitle": "Playground Hero Title",
-      "label": "Playground Label",
+      "heroDescription": "Explorez et testez nos API souveraines en temps réel.",
+      "heroLabel": "Playground",
+      "heroTitle": "Playground API",
+      "label": "Playground",
       "noAuthRequired": "Playground No Auth Required",
-      "openFull": "Playground Open Full",
-      "rateLimitLabel": "Playground Rate Limit Label",
+      "openFull": "Ouvrir le playground complet",
+      "rateLimitLabel": "Limite de requêtes",
       "rateLimits": [
         {
           "burst": "10/min",
@@ -1798,12 +1798,12 @@
           "tier": "Enterprise"
         }
       ],
-      "rateLimitsDescription": "Playground Rate Limits Description",
-      "rateLimitsTitle": "Playground Rate Limits Title",
+      "rateLimitsDescription": "Limites de requêtes par endpoint pour garantir la stabilité du service.",
+      "rateLimitsTitle": "Limites de requêtes",
       "requestBody": "Playground Request Body",
       "requestHeaders": "Playground Request Headers",
       "send": "Playground Send",
-      "title": "Playground Title",
+      "title": "Playground API",
       "urlPlaceholder": "Playground Url Placeholder"
     },
     "pythonSdkTitle": "Python Sdk Title",
@@ -1873,7 +1873,7 @@
   },
   "docs": {
     "api": {
-      "description": "Documentation complete de l'API REST et GraphQL pour l'écosystème HarchOS.",
+      "description": "Documentation complète de l'API REST et GraphQL pour l'écosystème HarchOS.",
       "title": "Référence API",
       "sections": {
         "authentication": "Authentification",
@@ -1905,7 +1905,7 @@
           "useCase": "2 Use Case"
         }
       ],
-      "baseUrlLabel": "Api Base Url Label",
+      "baseUrlLabel": "URL de base",
       "codeExamples": {
         "copied": "Copied!",
         "copy": "Copy",
@@ -2561,7 +2561,7 @@
             "New Features 6",
             "New Features 7"
           ],
-          "statusLabel": "0 Status Label"
+          "statusLabel": "Opérationnel"
         },
         {
           "bugFixes": [
@@ -2591,7 +2591,7 @@
             "New Features 2",
             "New Features 3"
           ],
-          "statusLabel": "1 Status Label"
+          "statusLabel": "Opérationnel"
         },
         {
           "date": "2025-12-01",
@@ -2618,7 +2618,7 @@
             "New Features 18",
             "New Features 19"
           ],
-          "statusLabel": "2 Status Label"
+          "statusLabel": "Opérationnel"
         }
       ],
       "backToDocs": "Changelog Back To Docs",
@@ -2635,7 +2635,7 @@
       }
     },
     "guides": {
-      "description": "Guides pas a pas pour integrer et déployer sur l'infrastructure Harch.",
+      "description": "Guides pas à pas pour intégrer et déployer sur l'infrastructure Harch.",
       "title": "Guides",
       "topics": {
         "deployment": "Déploiement",
@@ -3113,7 +3113,7 @@
           "status": "Operational"
         }
       ],
-      "title": "Api Status Title"
+      "title": "État des services"
     },
     "categories": {
       "label": "Categories",
@@ -3559,7 +3559,7 @@
     "hero": {
       "description": "Sustainability is not an add-on — it's the foundation of every infrastructure décision we make.",
       "label": "ESG",
-      "title": "Hero Title"
+      "title": "Nos Clients"
     },
     "metrics": {
       "label": "Metrics",
@@ -3704,7 +3704,7 @@
     },
     "flagship": {
       "attendees": "2,000+",
-      "conferenceType": "Flagship Conference Type",
+      "conferenceType": "Flagship Conférence Type",
       "date": "March 15-17",
       "days": "3",
       "description": "The premier conference on African sovereign infrastructure, AI, and sustainable development.",
@@ -5140,7 +5140,7 @@
     "heroLabel": "Carrières",
     "heroTitle": "Processus de",
     "heroTitle2": "recrutement",
-    "heroDescription": "Notre processus de selection en quatre phases est concu pour identifier les opérateurs capables d'executer a l'échelle continentale.",
+    "heroDescription": "Notre processus de sélection en quatre phases est conçu pour identifier les opérateurs capables d'exécuter a l'échelle continentale.",
     "phases": {
       "application": {
         "title": "Candidature",
@@ -5174,10 +5174,10 @@
       },
       "interview": {
         "title": "Entretien final",
-        "description": "Rencontré finale avec l'équipe de direction pour valider l'adequation culturelle.",
+        "description": "Rencontre finale avec l'équipe de direction pour valider l'adequation culturelle.",
         "details": [
           "Entretien avec le PDG",
-          "Rencontré avec l'équipe",
+          "Rencontre avec l'équipe",
           "Discussion compensation",
           "Décision finale"
         ]
@@ -5218,8 +5218,8 @@
         "title": "Specific Impact Title"
       },
       "understandThesis": {
-        "description": "Understand Thesis Description",
-        "title": "Understand Thesis Title"
+        "description": "Understand Thèse Description",
+        "title": "Understand Thèse Title"
       }
     },
     "accessibilityLabel": "Accessibility Label",
@@ -5273,10 +5273,10 @@
         "title": "Initial Screen Title"
       },
       "leadershipInterview": {
-        "description": "Leadership Interview Description",
+        "description": "Entretiens exclusifs avec les dirigeants de Harch Corp et de nos filiales.",
         "detail": "Leadership Interview Détail",
         "timeline": "Leadership Interview Timeline",
-        "title": "Leadership Interview Title"
+        "title": "Entretiens leadership"
       },
       "offer": {
         "description": "Offer Description",
@@ -5895,7 +5895,7 @@
       "proofDescription": "Des déploiements réels. Des métriques réelles. Des résultats verifiables.",
       "developerPlatform": "Plateforme développeurs",
       "buildOnHarchOS": "Construisez sur HarchOS",
-      "buildDescription": "SDK natifs pour Python et TypeScript. Documentation complete. Communauté active.",
+      "buildDescription": "SDK natifs pour Python et TypeScript. Documentation complète. Communauté active.",
       "africaFocus": "Africa in Numbers",
       "capitalDeployment": "Capital Deployment",
       "cta": "Ready to Build",
@@ -5974,6 +5974,7 @@
       "readCaseStudy": "Lire l'étude de cas",
       "viewAll": "Voir toutes les études de cas"
     },
+    "splitImageAlt": "Infrastructure Harch Corp",
     "ceoQuote": {
       "author": "Amine Harch El Korane",
       "text": "L'Afrique n'a pas besoin d'aide — elle a besoin d'infrastructure. Elle n'a pas besoin de pitié — elle a besoin de partenariats sur des bases égales. Nous construisons les systèmes qui rendent la souveraineté possible.",
@@ -6191,8 +6192,8 @@
     "subtitle": "Investing in Africa's infrastructure sovereignty",
     "thesis": {
       "description": "Africa's infrastructure deficit is estimated at $68-108 billion per year. Harch Corp captures this opportunity through vertical intégration, carbon advantage, and data sovereignty.",
-      "readFullThesis": "Read the Full Thesis",
-      "title": "Investment Thesis"
+      "readFullThesis": "Read the Full Thèse",
+      "title": "Investment Thèse"
     }
   },
   "learn": {
@@ -6538,7 +6539,7 @@
     "news": "News",
     "resources": "Resources",
     "security": "Security",
-    "thesis": "Thesis"
+    "thesis": "Thèse"
   },
   "newsroom": {
     "title": "Actualités",
@@ -6560,7 +6561,7 @@
     "articleNotFoundDescription": "L'article que vous recherchez n'existe pas.",
     "emailPlaceholder": "votre@email.com",
     "newsletter": "Newsletter",
-    "stayInTheLoop": "Restez informe",
+    "stayInTheLoop": "Restez informé",
     "newsletterDescription": "Recevez nos communiques et annonces directement.",
     "writeForUs": "Soumettre un article",
     "writeForUsDescription": "Proposez un article ou un communique de presse.",
@@ -6712,7 +6713,7 @@
         },
         {
           "title": "Gestion énergétique",
-          "description": "Optimisation en temps reel de la production et consommation d'énergie renouvelable."
+          "description": "Optimisation en temps réel de la production et consommation d'énergie renouvelable."
         },
         {
           "title": "Souveraineté des données",
@@ -6734,10 +6735,10 @@
     },
     "architecture": {
       "title": "Architecture",
-      "description": "Architecture distribuee et résilient pour l'infrastructure souveraine a l'échelle continentale."
+      "description": "Architecture distribuée et résilient pour l'infrastructure souveraine a l'échelle continentale."
     },
     "integrations": {
-      "title": "Integrations",
+      "title": "Intégrations",
       "description": "Connectivité native avec l'écosystème d'infrastructure africaine et mondiale.",
       "agriculture": "Harch Agri — Crop monitoring and IoT management",
       "cement": "Harch Cement — Industrial process control and logistics",
@@ -7077,15 +7078,15 @@
       "annualPricing": "Calculator Annual Pricing",
       "backToPricing": "Calculator Back To Pricing",
       "calculate": "Calculate",
-      "capacityLabel": "Calculator Capacity Label",
-      "carbonAwareDescription": "Calculator Carbon Aware Description",
+      "capacityLabel": "Capacité",
+      "carbonAwareDescription": "Planification intelligente des charges GPU en fonction de la disponibilité d'énergie renouvelable.",
       "carbonEstimate": "Calculator Carbon Estimate",
       "carbonIntensity": "Calculator Carbon Intensity",
       "carbonSavings": "Carbon savings vs. grid average",
-      "cdnDescription": "Calculator Cdn Description",
+      "cdnDescription": "Réseau de distribution de contenu souverain pour l'Afrique.",
       "cloudComparison": "Calculator Cloud Comparison",
       "comparisonDisclaimer": "Calculator Comparison Disclaimer",
-      "computeTitle": "Calculator Compute Title",
+      "computeTitle": "Calcul",
       "contactSales": "Calculator Contact Sales",
       "descriptionPrefix": "Calculator Description Prefix",
       "descriptionSuffix": "Calculator Description Suffix",
@@ -7095,16 +7096,16 @@
       "estimatedCost": "Estimated Cost",
       "estimatedExcludesTaxes": "Calculator Estimated Excludes Taxes",
       "estimatedMonthlyCost": "Calculator Estimated Monthly Cost",
-      "fullCalculatorButton": "Calculator Full Calculator Button",
+      "fullCalculatorButton": "Calculateur complet",
       "fullCalculatorLink": "Calculator Full Calculator Link",
       "gco2kwh": "Calculator Gco2Kwh",
       "gpuCount": "Calculator Gpu Count",
-      "gpuHoursLabel": "Calculator Gpu Hours Label",
+      "gpuHoursLabel": "Heures GPU",
       "gpuType": "GPU Type",
       "gpus": "Calculator Gpus",
-      "heroLabel": "Calculator Hero Label",
+      "heroLabel": "Calculateur",
       "heroSubtitle": "Calculator Hero Subtitle",
-      "heroTitle": "Calculator Hero Title",
+      "heroTitle": "Calculateur de coûts",
       "hoursPerMonth": "Hours per month",
       "hoursRangeMax": "Calculator Hours Range Max",
       "hoursRangeMin": "Calculator Hours Range Min",
@@ -7112,11 +7113,11 @@
       "monthUnit": "Calculator Month Unit",
       "monthlyEstimate": "Calculator Monthly Estimate",
       "monthlyNoCommitment": "Calculator Monthly No Commitment",
-      "networkTitle": "Calculator Network Title",
+      "networkTitle": "Réseau",
       "perMonthEstimated": "Calculator Per Month Estimated",
       "pricePerGbMo": "Calculator Price Per Gb Mo",
       "pricePerHour": "Calculator Price Per Hour",
-      "regionTitle": "Calculator Région Title",
+      "regionTitle": "Région",
       "regions": {
         "algeria": "Régions Algeria",
         "egypt": "Régions Egypt",
@@ -7131,10 +7132,10 @@
         "tunisia": "Régions Tunisia"
       },
       "saveVsCloud": "Calculator Save Vs Cloud",
-      "sectionLabel": "Calculator Section Label",
+      "sectionLabel": "Configuration",
       "startFreeTrial": "Calculator Start Free Trial",
-      "storageLabel": "Calculator Storage Label",
-      "storageTitle": "Calculator Storage Title",
+      "storageLabel": "Stockage",
+      "storageTitle": "Stockage",
       "storageType": "Calculator Storage Type",
       "titleLine1": "Calculator Title Line1",
       "titleLine2": "Calculator Title Line2",
@@ -7190,11 +7191,11 @@
       "titleLine2": "Cta Title Line2"
     },
     "carbonSavings": {
-      "description": "Carbon Savings Description",
-      "stat1Label": "Carbon Savings Stat1 Label",
-      "stat2Label": "Carbon Savings Stat2 Label",
-      "stat3Label": "Carbon Savings Stat3 Label",
-      "title": "Carbon Savings Title"
+      "description": "Économies carbone réalisées grâce à notre infrastructure optimisée.",
+      "stat1Label": "Émissions évitées",
+      "stat2Label": "Énergie renouvelable",
+      "stat3Label": "Crédits carbone générés",
+      "title": "Économies carbone"
     },
     "costOptimization": {
       "description": "Cost Optimization Description",
@@ -7293,7 +7294,7 @@
     "hero": {
       "description": "Description for hero",
       "label": "Hero",
-      "subtitle": "Hero Subtitle",
+      "subtitle": "Infrastructure souveraine en action",
       "titleLine1": "Hero Title Line1",
       "titleLine2": "Hero Title Line2"
     },
@@ -7335,7 +7336,7 @@
         "features": [
           "Unlimited GPU hours",
           "Dedicated opérations center",
-          "Dedicated API + integrations",
+          "Dedicated API + intégrations",
           "24/7 dedicated support",
           "Unlimited projects",
           "Advanced carbon-aware scheduling",
@@ -7628,7 +7629,7 @@
       "phone": "Phone",
       "referralSource": "How did you hear about us?",
       "referralSources": {
-        "conference": "Conference or Event",
+        "conference": "Conférence or Event",
         "government": "Government Tender",
         "other": "Other",
         "press": "Press Article",
@@ -7920,17 +7921,17 @@
     "benefitsDescription": "Description for startupProgram",
     "benefitsLabel": "Startupprogram",
     "benefitsTitle": "Startup Program",
-    "ctaButton1": "Cta Button1",
-    "ctaButton2": "Cta Button2",
+    "ctaButton1": "Voir les études de cas",
+    "ctaButton2": "Demander un briefing",
     "ctaDescription": "Description for startupProgram",
     "ctaTitle": "Startup Program",
     "eligibilityDescription": "Eligibility Description",
     "eligibilityLabel": "Eligibility Label",
     "eligibilityTitle": "Eligibility Title",
-    "heroButton1": "Hero Button1",
-    "heroButton2": "Hero Button2",
-    "heroTitle1": "Hero Title1",
-    "heroTitle2": "Hero Title2",
+    "heroButton1": "Voir les clients",
+    "heroButton2": "Demander un briefing",
+    "heroTitle1": "Nos",
+    "heroTitle2": "Clients",
     "label": "Label",
     "process": [
       {
@@ -8094,8 +8095,8 @@
       "name": "Agriculture",
       "desc": "Agriculture de précision — IoT, drones et fermes verticales",
       "stat": "50 000 ha",
-      "competitiveAdvantageLabel": "Agriculture Competitive Advantage Label",
-      "competitiveAdvantageTitle": "Agriculture Competitive Advantage Title",
+      "competitiveAdvantageLabel": "Avantages concurrentiels",
+      "competitiveAdvantageTitle": "Avantages concurrentiels",
       "competitiveAnalysis": {
         "africa": "Competitive Analysis Africa",
         "africaPresence": "Competitive Analysis Africa Presence",
@@ -8114,9 +8115,9 @@
         "target2031": "Competitive Analysis Target2031",
         "target2031Value": "Competitive Analysis Target2031 Value"
       },
-      "competitiveAnalysisLabel": "Agriculture Competitive Analysis Label",
+      "competitiveAnalysisLabel": "Analyse concurrentielle",
       "competitiveAnalysisSubtitle": "Agriculture Competitive Analysis Subtitle",
-      "competitiveAnalysisTitle": "Agriculture Competitive Analysis Title",
+      "competitiveAnalysisTitle": "Analyse concurrentielle",
       "competitors": {
         "aerofarms": {
           "advantage": "Aerofarms Advantage",
@@ -8181,10 +8182,10 @@
       },
       "heroBadge": "Agriculture Hero Badge",
       "heroSubtitle": "Agriculture Hero Subtitle",
-      "heroTitle": "Agriculture Hero Title",
+      "heroTitle": "Agriculture de Précision",
       "iotSensorSubtitle": "Agriculture Iot Sensor Subtitle",
-      "iotSensorTitle": "Agriculture Iot Sensor Title",
-      "liveMonitoringLabel": "Agriculture Live Monitoring Label",
+      "iotSensorTitle": "Capteurs IoT",
+      "liveMonitoringLabel": "Surveillance en temps réel",
       "locations": {
         "agadir": {
           "city": "Agadir City",
@@ -8258,9 +8259,9 @@
         "segment": "Market Analysis Segment",
         "title": "Agriculture Market Analysis"
       },
-      "marketAnalysisLabel": "Agriculture Market Analysis Label",
+      "marketAnalysisLabel": "Analyse de marché",
       "marketAnalysisSubtitle": "Agriculture Market Analysis Subtitle",
-      "marketAnalysisTitle": "Agriculture Market Analysis Title",
+      "marketAnalysisTitle": "Analyse de marché",
       "metrics": {
         "foodImports": "Metrics Food Imports",
         "postHarvestLosses": "Metrics Post Harvest Losses",
@@ -8269,8 +8270,8 @@
       },
       "moats": {
         "carbonApi": {
-          "desc": "Carbon Api Description",
-          "title": "Carbon Api Title"
+          "desc": "API de suivi des émissions carbone en temps réel pour optimiser vos workloads.",
+          "title": "API Carbone"
         },
         "esgPositioning": {
           "desc": "Esg Positioning Description",
@@ -8282,8 +8283,8 @@
         }
       },
       "overview": "Agriculture Overview",
-      "overviewLabel": "Agriculture Overview Label",
-      "overviewTitle": "Agriculture Overview Title",
+      "overviewLabel": "Aperçu",
+      "overviewTitle": "Aperçu",
       "partners": {
         "agritechKenya": {
           "country": "Agritech Kenya Country",
@@ -8340,9 +8341,9 @@
           "type": "Ocp Type"
         }
       },
-      "partnershipsLabel": "Agriculture Partnerships Label",
+      "partnershipsLabel": "Partenariats",
       "partnershipsSubtitle": "Agriculture Partnerships Subtitle",
-      "partnershipsTitle": "Agriculture Partnerships Title",
+      "partnershipsTitle": "Partenariats",
       "pricing": {
         "carbon": {
           "price": "Carbon Price",
@@ -8385,12 +8386,12 @@
           "unit": "Vertical Unit"
         }
       },
-      "pricingLabel": "Agriculture Pricing Label",
+      "pricingLabel": "Tarification",
       "pricingSubtitle": "Agriculture Pricing Subtitle",
-      "pricingTitle": "Agriculture Pricing Title",
+      "pricingTitle": "Tarification",
       "products": {
         "carbon": {
-          "description": "Carbon Description",
+          "description": "Optimisation carbone pour une infrastructure responsable.",
           "features": [
             "Features 0",
             "Features 1",
@@ -8494,9 +8495,9 @@
           "unit": "Vertical Unit"
         }
       },
-      "productsLabel": "Agriculture Products Label",
+      "productsLabel": "Produits",
       "productsSubtitle": "Agriculture Products Subtitle",
-      "productsTitle": "Agriculture Products Title",
+      "productsTitle": "Nos produits",
       "risks": {
         "carbonRegulation": {
           "impact": "Carbon Regulation Impact",
@@ -8588,7 +8589,7 @@
           "title": "Phase4 Title"
         }
       },
-      "roiLabel": "Agriculture Roi Label",
+      "roiLabel": "Retour sur investissement",
       "starterKit": {
         "contents": "Starter Kit Contents",
         "eliminatesBarrier": "Starter Kit Eliminates Barrier",
@@ -8599,12 +8600,12 @@
         "title": "Starter Kit Title"
       },
       "strategicContext": "Agriculture Strategic Context",
-      "strategicContextLabel": "Agriculture Strategic Context Label",
-      "strategicContextTitle": "Agriculture Strategic Context Title",
+      "strategicContextLabel": "Contexte stratégique",
+      "strategicContextTitle": "Contexte stratégique",
       "sustainability": "Agriculture Sustainability",
-      "sustainabilityLabel": "Agriculture Sustainability Label",
-      "sustainabilityTitle": "Agriculture Sustainability Title",
-      "title": "Agriculture Title",
+      "sustainabilityLabel": "Durabilité",
+      "sustainabilityTitle": "Durabilité",
+      "title": "Harch Agriculture",
       "tagline": "Système d'Exploitation pour la Sécurité Alimentaire de l'Afrique"
     },
     "water": {
@@ -8618,19 +8619,19 @@
       "desc": "Financement d'infrastructure souveraine — obligations vertes et finance islamique",
       "stat": "2,4 Md$+",
       "crossVerticalDesc": "Finance Cross Vertical Desc",
-      "crossVerticalTitle": "Finance Cross Vertical Title",
-      "ctaLabel": "Finance Cta Label",
+      "crossVerticalTitle": "Synergies inter-verticalités",
+      "ctaLabel": "Investir",
       "ctaPrimary": "Finance Cta Primary",
       "ctaSecondary": "Finance Cta Secondary",
       "ctaSubtitle": "Finance Cta Subtitle",
-      "ctaTitle": "Finance Cta Title",
+      "ctaTitle": "Investir dans l'avenir",
       "heroBadge": "Finance Hero Badge",
       "heroSubtitle": "Finance Hero Subtitle",
-      "heroTitle": "Finance Hero Title",
+      "heroTitle": "Finance d'Infrastructure",
       "impact": "Finance Impact",
       "instruments": {
         "carbonCredit": {
-          "description": "Carbon Credit Description",
+          "description": "Programme de crédits carbone pour compenser les émissions de votre infrastructure.",
           "features": [
             "Features 0",
             "Features 1",
@@ -8768,12 +8769,12 @@
           "tagline": "Trade Finance Tagline"
         }
       },
-      "instrumentsLabel": "Finance Instruments Label",
+      "instrumentsLabel": "Instruments financiers",
       "instrumentsSubtitle": "Finance Instruments Subtitle",
-      "instrumentsTitle": "Finance Instruments Title",
+      "instrumentsTitle": "Instruments financiers",
       "investmentPhilosophy": "Finance Investment Philosophy",
-      "investmentPhilosophyLabel": "Finance Investment Philosophy Label",
-      "investmentPhilosophyTitle": "Finance Investment Philosophy Title",
+      "investmentPhilosophyLabel": "Philosophie d'investissement",
+      "investmentPhilosophyTitle": "Philosophie d'investissement",
       "metrics": {
         "countriesActive": "Metrics Countries Active",
         "investmentPipeline": "Metrics Investment Pipeline",
@@ -8782,8 +8783,8 @@
       },
       "mitigation": "Finance Mitigation",
       "overview": "Finance Overview",
-      "overviewLabel": "Finance Overview Label",
-      "overviewTitle": "Finance Overview Title",
+      "overviewLabel": "Aperçu",
+      "overviewTitle": "Aperçu",
       "partnershipModels": {
         "coinvestment": {
           "desc": "Coinvestment Description",
@@ -8802,9 +8803,9 @@
           "title": "Swf Partnerships Title"
         }
       },
-      "partnershipModelsLabel": "Finance Partnership Models Label",
+      "partnershipModelsLabel": "Modèles de partenariat",
       "partnershipModelsSubtitle": "Finance Partnership Models Subtitle",
-      "partnershipModelsTitle": "Finance Partnership Models Title",
+      "partnershipModelsTitle": "Modèles de partenariat",
       "pipeline": {
         "agri": {
           "country": "Agri Country",
@@ -8849,7 +8850,7 @@
           "vertical": "Water Vertical"
         }
       },
-      "pipelineLabel": "Finance Pipeline Label",
+      "pipelineLabel": "Pipeline",
       "pipelineSubtitle": "Finance Pipeline Subtitle",
       "pipelineTable": {
         "amount": "Pipeline Table Amount",
@@ -8859,8 +8860,8 @@
         "status": "Pipeline Table Status",
         "vertical": "Pipeline Table Vertical"
       },
-      "pipelineTargetLabel": "Finance Pipeline Target Label",
-      "pipelineTitle": "Finance Pipeline Title",
+      "pipelineTargetLabel": "Objectif",
+      "pipelineTitle": "Pipeline d'investissement",
       "probability": "Finance Probability",
       "riskManagement": {
         "crossVertical": {
@@ -8884,12 +8885,12 @@
           "title": "Political Risk Title"
         }
       },
-      "riskManagementLabel": "Finance Risk Management Label",
+      "riskManagementLabel": "Gestion des risques",
       "riskManagementSubtitle": "Finance Risk Management Subtitle",
-      "riskManagementTitle": "Finance Risk Management Title",
-      "riskRegisterLabel": "Finance Risk Register Label",
+      "riskManagementTitle": "Gestion des risques",
+      "riskRegisterLabel": "Registre des risques",
       "riskRegisterSubtitle": "Finance Risk Register Subtitle",
-      "riskRegisterTitle": "Finance Risk Register Title",
+      "riskRegisterTitle": "Registre des risques",
       "risks": {
         "carbonVolatility": {
           "impact": "Carbon Volatility Impact",
@@ -8978,9 +8979,9 @@
           "title": "Phase4 Title"
         }
       },
-      "roadmapLabel": "Finance Roadmap Label",
+      "roadmapLabel": "Feuille de route",
       "roadmapSubtitle": "Finance Roadmap Subtitle",
-      "roadmapTitle": "Finance Roadmap Title",
+      "roadmapTitle": "Feuille de route",
       "strategicAdvantages": {
         "doubleTaxationTreaties": {
           "desc": "Double Taxation Treaties Description",
@@ -8999,10 +9000,10 @@
           "title": "Regulatory Framework Title"
         }
       },
-      "strategicAdvantagesLabel": "Finance Strategic Advantages Label",
+      "strategicAdvantagesLabel": "Avantages stratégiques",
       "strategicAdvantagesSubtitle": "Finance Strategic Advantages Subtitle",
-      "strategicAdvantagesTitle": "Finance Strategic Advantages Title",
-      "title": "Finance Title",
+      "strategicAdvantagesTitle": "Avantages stratégiques",
+      "title": "Harch Finance",
       "tagline": "Système d'Exploitation pour la Formation du Capital de l'Afrique"
     },
     "detail": {
@@ -9069,7 +9070,261 @@
     "overview": "Apercu",
     "metrics": "Métriques",
     "leadership": "Direction",
-    "technology": "Technologie",
+    "technology": {
+      "name": "Harch Technology",
+      "version": "/0.4",
+      "heroTitle": "Infrastructure Numérique\nSouveraine",
+      "heroSubtitle": "Plateformes IA, cybersécurité et communications par satellite pour la souveraineté numérique de l'Afrique",
+      "overview": "Harch Technology fournit l'infrastructure numérique souveraine qui alimente la transformation industrielle et numérique de l'Afrique. Des plateformes IA à la cybersécurité et aux communications par satellite, nous veillons à ce que l'Afrique contrôle sa propre pile technologique — ses données, son calcul, ses communications et sa sécurité.",
+      "strategicContext": "L'économie numérique de l'Afrique croît à 25 % annuellement, pourtant 95 % de l'infrastructure cloud, des outils de cybersécurité et des systèmes de communication du continent sont fournis par des entreprises étrangères opérant sous juridictions étrangères. Harch Technology adresse chacune de ces vulnérabilités avec des solutions souveraines conçues pour les exigences africaines.",
+      "marketAnalysis": "Le marché technologique de l'Afrique est évalué à 35 milliards de dollars et croît à un TCAM de 20 % — le plus rapide de toute région mondiale. Les segments de croissance clés incluent les services cloud (8 G$ d'ici 2027), la cybersécurité (5 G$ d'ici 2026), les communications par satellite (3 G$ d'ici 2027) et les plateformes IA (10 G$ d'ici 2028).",
+      "sustainability": "Harch Technology conçoit pour l'efficacité et la longévité. Notre infrastructure cloud souveraine fonctionne à 100 % en énergie renouvelable de Harch Energy, avec un PUE inférieur à 1,2 dans toutes les installations. Tout le matériel suit des protocoles de recyclage de déchets électroniques certifiés.",
+      "investment": "400 M$",
+      "metrics": [
+        {
+          "value": 1798,
+          "prefix": "",
+          "suffix": "",
+          "label": "GPU"
+        },
+        {
+          "value": 4,
+          "prefix": "",
+          "suffix": "",
+          "label": "Lignes de produits"
+        },
+        {
+          "value": 47,
+          "prefix": "~",
+          "suffix": " gCO2/kWh",
+          "label": "Intensité carbone"
+        },
+        {
+          "value": 400,
+          "prefix": "$",
+          "suffix": "M",
+          "label": "Investissement"
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "Plateforme IA souveraine",
+          "desc": "Plateforme IA complète pour l'entraînement, le fine-tuning et l'inférence avec services gérés et SLA entreprise — tout hébergé dans la juridiction africaine avec résidence des données garantie."
+        },
+        {
+          "title": "Suite de cybersécurité",
+          "desc": "Plateforme de cybersécurité de bout en bout de la surveillance réseau à la réponse aux incidents. Conçue pour la protection des infrastructures critiques avec intelligence de menace en temps réel."
+        },
+        {
+          "title": "Communications par satellite",
+          "desc": "Connectivité satellite en orbite basse pour les opérations industrielles éloignées. L'accès multi-orbite fournit une garantie de disponibilité de 99,99 %."
+        },
+        {
+          "title": "Réseau edge computing",
+          "desc": "Infrastructure edge computing distribuée dans 5 pays avec 50+ nœuds fournissant un traitement à faible latence pour IoT, inférence IA et analytique en temps réel."
+        },
+        {
+          "title": "Cloud souverain",
+          "desc": "Infrastructure cloud hébergée en Afrique avec souveraineté complète des données et résidence garantie. Aucune donnée ne quitte le continent."
+        },
+        {
+          "title": "Analytique données industrielles",
+          "desc": "Plateforme de surveillance en temps réel et d'analytique prédictive combinant les flux de données IoT de toutes les verticales Harch. La détection d'anomalies par IA réduit les temps d'arrêt de 40 %."
+        }
+      ],
+      "specTable": [
+        {
+          "spec": "Hubs GPU",
+          "value": "5 (1 798 GPU)",
+          "phase": "Optimisé carbone"
+        },
+        {
+          "spec": "Plateforme IA",
+          "value": "Pile complète",
+          "phase": "Entraînement + Inférence"
+        },
+        {
+          "spec": "Suite cyber",
+          "value": "Entreprise",
+          "phase": "Grade infrastructure critique"
+        },
+        {
+          "spec": "Orbites satellite",
+          "value": "LEO + MEO",
+          "phase": "SLA 99,99 %"
+        },
+        {
+          "spec": "Nœuds edge",
+          "value": "50+",
+          "phase": "Couverture 5 pays"
+        },
+        {
+          "spec": "Régions cloud",
+          "value": "3 africaines",
+          "phase": "Résidence données souveraine"
+        },
+        {
+          "spec": "Résidence données",
+          "value": "100 % Afrique",
+          "phase": "Conformité complète"
+        },
+        {
+          "spec": "Certifications",
+          "value": "ISO 27001 + SOC 2",
+          "phase": "Sécurité information"
+        },
+        {
+          "spec": "Disponibilité API",
+          "value": "99,99 %",
+          "phase": "SLA entreprise"
+        },
+        {
+          "spec": "Intelligence menace",
+          "value": "Temps réel",
+          "phase": "Détection par IA"
+        }
+      ],
+      "milestones": [
+        {
+          "year": "2025 T2",
+          "title": "Architecture plateforme validée",
+          "desc": "Architecture plateforme IA souveraine conçue, validée et comparée aux standards mondiaux."
+        },
+        {
+          "year": "2026 T1",
+          "title": "Lancement suite cybersécurité",
+          "desc": "Suite produit de cybersécurité lancée commercialement pour clients entreprise et gouvernementaux."
+        },
+        {
+          "year": "2026 T4",
+          "title": "Déploiement edge computing",
+          "desc": "Premiers 20 nœuds edge computing déployés au Maroc, en Gambie et en Mauritanie."
+        },
+        {
+          "year": "2027 T3",
+          "title": "Intégration satellite terminée",
+          "desc": "Connectivité satellite LEO intégrée à l'infrastructure edge. Réseau complet opérationnel."
+        },
+        {
+          "year": "2028 T2",
+          "title": "Cloud souverain GA",
+          "desc": "Plateforme cloud souveraine complète en disponibilité générale avec 3 régions africaines."
+        }
+      ],
+      "stats": [
+        {
+          "stat": "Souveraineté données",
+          "value": 100,
+          "max": 100
+        },
+        {
+          "stat": "Disponibilité plateforme",
+          "value": 99,
+          "max": 100
+        },
+        {
+          "stat": "Détection menaces cyber",
+          "value": 95,
+          "max": 100
+        },
+        {
+          "stat": "Ratio talents africains",
+          "value": 85,
+          "max": 100
+        }
+      ],
+      "location": "Casablanca, Maroc",
+      "locationDesc": "Siège technologique dans le quartier financier de Casablanca avec opérations distribuées dans 5 pays.",
+      "strategicAdvantages": [
+        {
+          "title": "Souverain par conception",
+          "desc": "Chaque produit est construit dès la base pour la souveraineté des données, avec résidence des données africaine garantie et aucun accès juridiction étrangère."
+        },
+        {
+          "title": "Pile sécurité intégrée",
+          "desc": "La cybersécurité n'est pas un add-on mais intégrée à chaque couche — de la sécurité physique du centre de données au chiffrement au niveau application."
+        },
+        {
+          "title": "Expertise IoT industriel",
+          "desc": "Expertise approfondie dans les opérations industrielles (énergie, mines, ciment, agriculture) permettant des solutions analytiques et IA sur mesure que les fournisseurs cloud génériques ne peuvent pas délivrer."
+        },
+        {
+          "title": "Accès satellite multi-orbite",
+          "desc": "Les partenariats avec plusieurs opérateurs de constellations LEO et MEO fournissent une connectivité redondante pour les opérations éloignées, assurant 99,99 % de disponibilité."
+        }
+      ],
+      "partnershipModel": [
+        {
+          "title": "Migration cloud souverain",
+          "desc": "Services de migration gérés pour les organisations déplaçant leurs charges vers le cloud souverain africain."
+        },
+        {
+          "title": "Services de sécurité gérés",
+          "desc": "Centre d'opérations de sécurité 24/7 avec détection et réponse gérées pour les infrastructures critiques."
+        },
+        {
+          "title": "Licenciement technologique",
+          "desc": "Licenciement en marque blanche des plateformes Harch Technology pour les opérateurs télécom et intégrateurs de systèmes."
+        },
+        {
+          "title": "Partenariats de recherche",
+          "desc": "Programmes de R&D collaboratifs avec les universités et institutions de recherche africaines."
+        }
+      ],
+      "competitorHarchName": "Harch Technology",
+      "competitorAccentColor": "#8B9DAF",
+      "competitors": [
+        {
+          "name": "AWS Africa (Le Cap)",
+          "country": "USA",
+          "founded": "2006",
+          "revenue": "105 G$ (AWS total)",
+          "metrics": [
+            {
+              "label": "Calcul GPU africain",
+              "harchValue": "1 798 GPU — Maroc",
+              "competitorValue": "0 GPU en Afrique — US/UE uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Souveraineté données",
+              "harchValue": "100 % africaine — loi Maroc",
+              "competitorValue": "US CLOUD Act — AWS peut être contraint",
+              "harchWins": true
+            },
+            {
+              "label": "Énergie renouvelable",
+              "harchValue": "81,5 % — Harch Energy direct",
+              "competitorValue": "~42 % RECs globaux — réseau SA fossile",
+              "harchWins": true
+            },
+            {
+              "label": "Intensité carbone",
+              "harchValue": "~47 gCO2/kWh",
+              "competitorValue": "~400 gCO2/kWh (région SA)",
+              "harchWins": true,
+              "harchNumeric": 47,
+              "competitorNumeric": 400,
+              "barMax": 450,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Edge computing",
+              "harchValue": "50+ nœuds — 5 pays",
+              "competitorValue": "2 Outposts — SA uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Intégration satellite",
+              "harchValue": "LEO + MEO — SLA 99,99 %",
+              "competitorValue": "Ground Station — pas de flotte LEO/MEO",
+              "harchWins": true
+            }
+          ],
+          "verdict": "AWS Le Cap est une région cloud US sur le sol sud-africain. Harch Technology est une plateforme souveraine africaine sur le sol africain — avec du calcul GPU qu'AWS n'a pas en Afrique."
+        }
+      ]
+    },
     "sustainability": "Durabilité",
     "contact": "Contact",
     "backToSubsidiaries": "Retour aux filiales",
@@ -9150,7 +9405,2362 @@
     "totalInvestment": "Total Investment",
     "value": "Value",
     "whatWeBuild": "What We Build",
-    "whyThisMatters": "Why This Matters"
+    "whyThisMatters": "Why This Matters",
+    "intelligence": {
+      "name": "Harch Intelligence",
+      "version": "/0.1",
+      "heroTitle": "Le Plus Grand Centre de Données\nHyperscale IA d'Afrique",
+      "heroSubtitle": "1 798 GPU optimisés en carbone sur 5 hubs — infrastructure de calcul IA souveraine alimentée par l'électricité la plus basse en carbone d'Afrique",
+      "overview": "Harch Intelligence exploite 1 798 GPU optimisés en carbone sur 5 hubs au Maroc — alimentés principalement par l'énergie renouvelable et conçus pour servir de colonne vertébrale à l'infrastructure de calcul IA souveraine de l'Afrique. Avec la planification sensible au carbone comme notre n°1 atout différenciant, nous acheminons les charges de travail vers les hubs les plus verts en temps réel, atteignant une intensité carbone moyenne de ~47 gCO2/kWh — 89 % en dessous de la moyenne de l'industrie. Notre Pipeline de 500 MW étend la capacité à Dakhla avec une connectivité directe par câble sous-marin vers l'Europe et les Amériques. Il ne s'agit pas simplement d'un centre de données — c'est le fondement de la souveraineté numérique de l'Afrique, garantissant que les données, la puissance de calcul et les capacités IA du continent restent sous contrôle africain.",
+      "strategicContext": "La course mondiale à l'infrastructure IA s'accélère, avec plus de 300 milliards de dollars investis dans la capacité de centres de données en 2024 seule. Pourtant l'Afrique, qui abrite 1,4 milliard de personnes et l'économie numérique à la croissance la plus rapide au monde, héberge moins de 1 % de la capacité mondiale de centres de données. Ce déficit structurel oblige les entreprises, gouvernements et chercheurs africains à dépendre d'infrastructures étrangères — créant des dépendances qui compromettent la souveraineté des données, augmentent la latence et extraient le capital du continent. Harch Intelligence adresse directement ce déséquilibre en construisant une capacité de calcul IA souveraine à l'échelle que le continent exige. Nos 5 hubs au Maroc délivrent 1 798 GPU avec planification sensible au carbone, et notre Pipeline de 500 MW à Dakhla positionne le Maroc comme passerelle pour le calcul IA entre l'Europe et l'Afrique, tirant parti des ressources exceptionnelles en énergie renouvelable du pays, de son littoral atlantique stratégique avec stations d'atterrissement de câbles sous-marins, et de sa stabilité politique.",
+      "marketAnalysis": "Le marché africain du cloud et des centres de données devrait atteindre 15 milliards de dollars d'ici 2028, avec un TCAM de 25 % — le taux de croissance le plus rapide au monde. Les principaux moteurs de demande incluent les mandats de localisation des données gouvernementaux balayant le Nigeria, le Kenya, l'Afrique du Sud et l'Égypte ; la croissance explosive de la fintech africaine traitant plus de 500 milliards de dollars annuellement ; l'expansion des diagnostics de santé alimentés par l'IA desservant 300 millions de patients ; et l'essor des initiatives IA souveraines de l'Union Africaine et des organes régionaux. Les 1 798 GPU de Harch Intelligence sur 5 hubs capturent une part significative de cette demande tout en opérant à des structures de coûts 40 à 60 % moins chères qu'AWS/GCP/Azure, grâce aux coûts d'énergie renouvelable de Dakhla de 0,03 $/kWh — parmi les plus bas sur la planète. Notre planification sensible au carbone atteint une intensité carbone moyenne de ~47 gCO2/kWh, 89 % en dessous de la moyenne de l'industrie de ~450 gCO2/kWh.",
+      "sustainability": "Chaque aspect de Harch Intelligence est conçu pour un impact environnemental minimal et une durabilité maximale. L'installation fonctionne à 100 % en énergie renouvelable provenant des installations solaires et éoliennes de Harch Energy, éliminant entièrement les émissions de portée 2. Notre système de refroidissement hybride liquide-air atteint un PUE inférieur à 1,15 — parmi les plus efficaces de l'industrie mondiale — tout en utilisant l'eau de mer pour le rejet thermique afin de minimiser la consommation d'eau douce. La chaleur résiduelle des clusters GPU est captée et dirigée vers des serres agricoles adjacentes, créant un modèle énergétique circulaire. La construction de l'installation utilise 40 % d'acier recyclé et du béton bas carbone de Harch Cement, tandis que tous les déchets électroniques suivent des protocoles de recyclage certifiés. Nous visons les certifications LEED Platinum et BREEAM Outstanding.",
+      "investment": "1,14 G$",
+      "metrics": [
+        {
+          "value": 1798,
+          "prefix": "",
+          "suffix": "",
+          "label": "GPU actuels"
+        },
+        {
+          "value": 100000,
+          "prefix": "",
+          "suffix": "+",
+          "label": "GPU cibles"
+        },
+        {
+          "value": 47,
+          "prefix": "~",
+          "suffix": " gCO2/kWh",
+          "label": "Intensité carbone"
+        },
+        {
+          "value": 1140,
+          "prefix": "$",
+          "suffix": "M",
+          "label": "Investissement"
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "Centres de données sensibles au carbone",
+          "desc": "5 hubs GPU au Maroc avec planification sensible au carbone comme notre n°1 atout différenciant. Notre Pipeline de 500 MW à Dakhla est conçu pour les charges de calcul les plus exigeantes, avec une architecture modulaire permettant de faire évoluer la capacité de 100 MW à 500 MW par phases. Chaque hub dispose de chemins d'alimentation redondants, d'entrées de fibre diversifiées et d'une redondance de refroidissement N+1. Chaque rack est pré-câblé pour le refroidissement liquide, permettant le déploiement de GPU de nouvelle génération sans rétrofit."
+        },
+        {
+          "title": "Clusters GPU",
+          "desc": "1 798 GPU sur 5 hubs optimisés pour l'entraînement et l'inférence avec planification sensible au carbone. Harch Ouarzazate (800 GPU, 97,2 % renouvelable, 18 gCO2/kWh), Harch Dakhla (400 GPU, 94,8 % renouvelable, 32 gCO2/kWh), Harch Benguerir (350 GPU, 88,5 % renouvelable, 55 gCO2/kWh), Harch Tanger (200 GPU, 82,1 % renouvelable, 95 gCO2/kWh), Harch Casablanca (48 GPU, 45 % renouvelable, 210 gCO2/kWh). Notre plus grand hub prend en charge l'entraînement distribué sur des partitions de 800 GPU à Ouarzazate, permettant l'entraînement de modèles à grande échelle avec une efficacité carbone de pointe."
+        },
+        {
+          "title": "Intégration d'énergie renouvelable",
+          "desc": "81,5 % d'énergie renouvelable en moyenne sur tous les hubs, alimentée par l'infrastructure solaire et éolienne de Harch Energy. La planification sensible au carbone achemine les charges de travail vers le hub le plus vert en temps réel, atteignant ~47 gCO2/kWh en moyenne — 89 % en dessous de la moyenne de l'industrie de ~450 gCO2/kWh. L'électricité sans carbone à Ouarzazate et Dakhla offre des avantages de coûts 40 à 60 % moins chers qu'AWS/GCP/Azure. Le stockage sur batterie sur site fournit une sauvegarde pour des opérations ininterrompues lors des transitions de réseau."
+        },
+        {
+          "title": "Connectivité sous-marine",
+          "desc": "Connexion directe à 4 systèmes de câbles sous-marins — incluant l'Africa Coast to Europe (ACE), MainOne et les câbles Maroc Telecom — fournissant une ultra-faible latence vers l'Europe (8 ms), les Amériques (35 ms) et le Moyen-Orient (20 ms). Deux stations d'atterrissement diversifiées assurent la redondance de chemin pour tout le trafic international."
+        },
+        {
+          "title": "Sécurité souveraine",
+          "desc": "Sécurité de bout en bout de l'accès physique au chiffrement des données. L'installation opère sous un cadre de sécurité souveraine avec sécurité périmétrique armée, contrôles d'accès biométriques et surveillance 24/7. La suite de cybersécurité de Harch Technology fournit une protection de grade souverain incluant l'atténuation DDoS, la détection d'intrusion et des voies de données chiffrées pour les charges de calcul sensibles."
+        },
+        {
+          "title": "Services de plateforme IA",
+          "desc": "Plateforme IA complète de l'ingestion de données au déploiement de modèles. Services gérés pour l'entraînement, le fine-tuning et l'inférence avec des SLA entreprise garantissant 99,99 % de disponibilité. La plateforme prend en charge nativement PyTorch, TensorFlow et JAX, avec des pipelines MLOps pré-construits pour la gestion automatisée du cycle de vie des modèles."
+        }
+      ],
+      "specTable": [
+        {
+          "spec": "Capacité totale",
+          "value": "Pipeline 500 MW",
+          "phase": "Construction complète d'ici 2028"
+        },
+        {
+          "spec": "Phase 1",
+          "value": "100 MW",
+          "phase": "T3 2027"
+        },
+        {
+          "spec": "Phase 2",
+          "value": "200 MW",
+          "phase": "T1 2028"
+        },
+        {
+          "spec": "Phase 3",
+          "value": "500 MW",
+          "phase": "T4 2028"
+        },
+        {
+          "spec": "GPU actuels",
+          "value": "1 798",
+          "phase": "5 hubs opérationnels"
+        },
+        {
+          "spec": "PUE",
+          "value": "<1,15",
+          "phase": "Efficacité de pointe"
+        },
+        {
+          "spec": "Latence vers l'Europe",
+          "value": "8 ms",
+          "phase": "Via câble sous-marin"
+        },
+        {
+          "spec": "Refroidissement",
+          "value": "Liquide + Air",
+          "phase": "Système hybride"
+        },
+        {
+          "spec": "Sécurité",
+          "value": "Tier IV+",
+          "phase": "Grade souverain"
+        },
+        {
+          "spec": "Moy. renouvelable",
+          "value": "81,5 %",
+          "phase": "Approvisionnement Harch Energy"
+        },
+        {
+          "spec": "Intensité carbone",
+          "value": "~47 gCO2/kWh",
+          "phase": "89 % sous moy. industrie"
+        },
+        {
+          "spec": "Alimentation secours",
+          "value": "200 MWh",
+          "phase": "Batterie + Diesel"
+        },
+        {
+          "spec": "Réseau",
+          "value": "4 câbles sous-marins",
+          "phase": "Chemins diversifiés doubles"
+        },
+        {
+          "spec": "Localisation",
+          "value": "Dakhla, Maroc",
+          "phase": "Côte atlantique — vent 9,7 m/s"
+        },
+        {
+          "spec": "Coût énergie",
+          "value": "0,018 $/kWh",
+          "phase": "72 % inférieur à l'UE"
+        },
+        {
+          "spec": "Irradiation solaire",
+          "value": "2 800 kWh/m²/an",
+          "phase": "40 % au-dessus de l'Europe du S."
+        },
+        {
+          "spec": "Câbles sous-marins",
+          "value": "14 systèmes",
+          "phase": ">80 Tbps de capacité"
+        },
+        {
+          "spec": "Latence vers UE",
+          "value": "<30 ms",
+          "phase": "Prêt centres financiers"
+        },
+        {
+          "spec": "Free Cooling",
+          "value": "~8 500 h/an",
+          "phase": "Température moy. 22 °C"
+        },
+        {
+          "spec": "Revenus 5 ans",
+          "value": "1,9 G$",
+          "phase": "TCAM 137 %"
+        },
+        {
+          "spec": "TRI scénario de base",
+          "value": "24,7 %",
+          "phase": "~30 mois de récupération"
+        },
+        {
+          "spec": "VAN (12 %)",
+          "value": "2 850 M$",
+          "phase": "Rendement 4,6x"
+        }
+      ],
+      "milestones": [
+        {
+          "year": "2025 T1",
+          "title": "Sélection du site et acquisition foncière",
+          "desc": "Site de 50 hectares sécurisé dans le parc technologique de Dakhla avec options d'expansion à 100 hectares. Localisation stratégique adjacente aux stations d'atterrissement de câbles sous-marins."
+        },
+        {
+          "year": "2025 T3",
+          "title": "Conception technique terminée",
+          "desc": "Conception architecturale et technique achevée par Arup et Jacobs. Conception modulaire validée pour déploiement par phases de 100 MW à 500 MW."
+        },
+        {
+          "year": "2026 T2",
+          "title": "Début de la construction Phase 1",
+          "desc": "Première pierre de la Phase 1. Début de la construction du module de 100 MW avec fondations, acier structurel et installation des systèmes mécaniques."
+        },
+        {
+          "year": "2026 T4",
+          "title": "Infrastructure énergie et connectivité",
+          "desc": "Ligne de transmission dédiée 400 kV depuis la ferme solaire de Harch Energy achevée. Intégration de la station d'atterrissement de câbles sous-marins opérationnelle."
+        },
+        {
+          "year": "2027 T3",
+          "title": "Phase 1 en service",
+          "desc": "Premier module de 100 MW opérationnel. Clusters GPU au-delà de 1 798. Les clients entreprise commencent l'onboarding."
+        },
+        {
+          "year": "2028 T1",
+          "title": "Phase 2 en ligne",
+          "phase": "200 MW de capacité totale. Base clients entreprise complète. Services de plateforme IA lancés commercialement."
+        },
+        {
+          "year": "2028 T4",
+          "title": "Capacité totale opérationnelle",
+          "desc": "Pipeline total de 500 MW. 1 798+ GPU en croissance. Épine dorsale IA continentale pleinement opérationnelle. Dakhla établie comme hub de calcul IA premier d'Afrique."
+        }
+      ],
+      "stats": [
+        {
+          "stat": "Souveraineté des données",
+          "value": 100,
+          "max": 100
+        },
+        {
+          "stat": "Énergie renouvelable",
+          "value": 100,
+          "max": 100
+        },
+        {
+          "stat": "Avantage coût vs UE",
+          "value": 55,
+          "max": 100
+        },
+        {
+          "stat": "Latence vers l'Europe",
+          "value": 92,
+          "max": 100
+        }
+      ],
+      "location": "Dakhla, Maroc",
+      "locationDesc": "Localisation stratégique sur la côte atlantique avec accès direct aux stations d'atterrissement de câbles sous-marins et ressources exceptionnelles en énergie renouvelable. Dakhla offre plus de 3 000 heures d'ensoleillement annuel et des vitesses de vent constantes moyennes de 8,5 m/s — créant des conditions idéales pour des opérations alimentées à 100 % par le renouvelable.",
+      "strategicAdvantages": [
+        {
+          "title": "Planification sensible au carbone",
+          "desc": "Notre n°1 différenciateur : la planification sensible au carbone en temps réel achemine les charges de travail vers le hub le plus vert, atteignant ~47 gCO2/kWh en moyenne — 89 % en dessous de la moyenne de l'industrie de ~450 gCO2/kWh. Aucun concurrent n'offre ce niveau d'optimisation carbone."
+        },
+        {
+          "title": "Leadership du coût de l'énergie",
+          "desc": "Électricité à 0,03 $/kWh provenant d'installations renouvelables dédiées — 40 à 60 % moins cher qu'AWS/GCP/Azure. Cet avantage structurel se compose annuellement, créant un fossé concurrentiel sans cesse grandissant."
+        },
+        {
+          "title": "Évolutivité modulaire",
+          "desc": "Le déploiement par phases de 100 MW à un Pipeline de 500 MW adapte la capacité à la demande, minimisant le risque capitalistique tout en maintenant l'option d'expansion rapide. Chaque module de 100 MW est opérationnellement indépendant en 14 mois après le début de la construction."
+        },
+        {
+          "title": "Hub de câbles sous-marins",
+          "desc": "L'atterrissement direct de 4 systèmes de câbles sous-marins fournit le chemin de latence le plus bas entre l'Afrique, l'Europe et les Amériques. Aucune autre localisation africaine n'offre cette combinaison de diversité de câbles et de proximité avec les centres financiers européens."
+        },
+        {
+          "title": "Coût énergétique le plus bas au monde",
+          "desc": "Dakhla offre l'électricité à 0,018 $/kWh — 72 % moins cher que la moyenne de l'UE et 80 % moins cher que Singapour. Cet avantage structurel économise 118 à 178 M$ par an pour 10 000 GPU comparé aux déploiements en Virginie, Francfort ou Singapour."
+        }
+      ],
+      "partnershipModel": [
+        {
+          "title": "GPU en tant que service",
+          "desc": "Provisionnement flexible de calcul avec capacité GPU à la demande et réservée. Tarification à l'usage avec remises d'engagement pour des termes de 1 à 3 ans. Idéal pour les startups IA, institutions de recherche et équipes ML entreprise."
+        },
+        {
+          "title": "Cloud IA souverain",
+          "desc": "Infrastructure dédiée pour les charges gouvernementales et de défense avec contrôles de sécurité souverains. Options de déploiement en air-gap, cadres de conformité personnalisés et résidence des données garantie dans la juridiction africaine."
+        },
+        {
+          "title": "Services de colocalisation",
+          "desc": "Colocalisation neutre en transporteurs avec rampes d'accès cloud directes vers AWS, Azure et GCP. Suites privées de 500 kW à 10 MW avec densités de puissance personnalisées jusqu'à 150 kW par rack pour les clusters d'entraînement IA."
+        },
+        {
+          "title": "Partenariats stratégiques",
+          "desc": "Structures de co-entreprise pour les fonds souverains, institutions de financement du développement et partenaires technologiques stratégiques. Participation en capital avec accès préféré à la capacité et droits de gouvernance."
+        }
+      ],
+      "competitorHarchName": "HarchOS",
+      "competitorAccentColor": "#8B9DAF",
+      "competitors": [
+        {
+          "name": "CoreWeave",
+          "country": "USA",
+          "founded": "2017",
+          "revenue": "2,1 G$ (2024)",
+          "metrics": [
+            {
+              "label": "Planification GPU sensible au carbone",
+              "harchValue": "En temps réel, par tâche, 47 paramètres",
+              "competitorValue": "Aucune — placement statique",
+              "harchWins": true
+            },
+            {
+              "label": "DC souverain africain",
+              "harchValue": "5 hubs — juridiction Maroc",
+              "competitorValue": "0 hub en Afrique",
+              "harchWins": true
+            },
+            {
+              "label": "Énergie renouvelable",
+              "harchValue": "81,5 % moy. — 97,2 % meilleur hub",
+              "competitorValue": "0 % divulgué — réseau fossile US",
+              "harchWins": true
+            },
+            {
+              "label": "Intensité carbone",
+              "harchValue": "~47 gCO2/kWh (89 % sous moy.)",
+              "competitorValue": "~450 gCO2/kWh (réseau US)",
+              "harchWins": true,
+              "harchNumeric": 47,
+              "competitorNumeric": 450,
+              "barMax": 500,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Coût énergie /kWh",
+              "harchValue": "0,03 $ (4x moins cher)",
+              "competitorValue": "0,08-0,12 $",
+              "harchWins": true,
+              "harchNumeric": 3,
+              "competitorNumeric": 10,
+              "barMax": 15,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "SLA disponibilité",
+              "harchValue": "99,999 % (5 neuf)",
+              "competitorValue": "99,99 % (4 neuf)",
+              "harchWins": true,
+              "harchNumeric": 99.999,
+              "competitorNumeric": 99.99,
+              "barMax": 100
+            },
+            {
+              "label": "Résidence des données",
+              "harchValue": "100 % africaine — souveraine",
+              "competitorValue": "Contrôlé US — CLOUD Act",
+              "harchWins": true
+            },
+            {
+              "label": "Hub câbles sous-marins",
+              "harchValue": "4 systèmes — 8 ms vers UE",
+              "competitorValue": "0 — peering US uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Intégration transversale",
+              "harchValue": "Énergie + Mines + Ciment + Agri + Eau",
+              "competitorValue": "Aucune — cloud GPU uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Conformité EU CBAM",
+              "harchValue": "Plein conforme — 89 % sous seuil",
+              "competitorValue": "Non applicable — opérations US uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Source énergie GPU",
+              "harchValue": "Ferme renouvelable dédiée (Harch Energy)",
+              "competitorValue": "Réseau US — charbon + gaz naturel",
+              "harchWins": true
+            },
+            {
+              "label": "Framework IA open source",
+              "harchValue": "HarchOS SDK — boîte à outils IA souveraine",
+              "competitorValue": "Aucun — API propriétaire uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Audit sécurité souverain",
+              "harchValue": "ISO 27001 + SOC 2 + Loi 09-08",
+              "competitorValue": "SOC 2 uniquement — juridiction US",
+              "harchWins": true
+            },
+            {
+              "label": "Récupération chaleur & économie circulaire",
+              "harchValue": "Chaleur résiduelle vers serres — circulaire",
+              "competitorValue": "Aucune — chaleur gaspillée dans l'atmosphère",
+              "harchWins": true
+            }
+          ],
+          "verdict": "CoreWeave a plus de GPU. HarchOS a 9,5x moins de carbone, une énergie 4x moins chère, un SLA 5 neuf, la souveraineté africaine et la seule passerelle de câble sous-marin entre l'Afrique et l'Europe."
+        },
+        {
+          "name": "Google Cloud (Hamina)",
+          "country": "Finlande",
+          "founded": "2008",
+          "revenue": "33 G$+ (GCP total)",
+          "metrics": [
+            {
+              "label": "Accès cloud GPU",
+              "harchValue": "H100/A100/L40S — à la demande",
+              "competitorValue": "Pas de cloud GPU — interne uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Souveraineté données africaines",
+              "harchValue": "100 % — juridiction Maroc",
+              "competitorValue": "0 % — juridiction Finlande/US",
+              "harchWins": true
+            },
+            {
+              "label": "Planification sensible au carbone",
+              "harchValue": "Routage par tâche en temps réel",
+              "competitorValue": "Aucune — DC vert statique",
+              "harchWins": true
+            },
+            {
+              "label": "Latence vers l'Afrique",
+              "harchValue": "<5 ms depuis le Maroc",
+              "competitorValue": ">100 ms depuis la Finlande",
+              "harchWins": true,
+              "harchNumeric": 5,
+              "competitorNumeric": 100,
+              "barMax": 120,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Coût énergie /kWh",
+              "harchValue": "0,03 $ (2-3x moins cher)",
+              "competitorValue": "0,06-0,10 $",
+              "harchWins": true,
+              "harchNumeric": 3,
+              "competitorNumeric": 8,
+              "barMax": 12,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Passerelle câbles sous-marins",
+              "harchValue": "4 systèmes — hub Afrique-UE",
+              "competitorValue": "Nordique — pas de chemin Afrique",
+              "harchWins": true
+            },
+            {
+              "label": "GPU-as-a-Service pour l'Afrique",
+              "harchValue": "1 798 GPU — clients africains",
+              "competitorValue": "0 GPU disponibles pour l'Afrique",
+              "harchWins": true
+            },
+            {
+              "label": "Conformité localisation données",
+              "harchValue": "Loi Maroc 09-08 + cadre UA",
+              "competitorValue": "RGPD UE uniquement — pas de conformité africaine",
+              "harchWins": true
+            },
+            {
+              "label": "Intégration IA industrielle",
+              "harchValue": "Mines + Énergie + Agri + Ciment + Eau",
+              "competitorValue": "Aucune — SaaS consommateur/entreprise",
+              "harchWins": true
+            },
+            {
+              "label": "Contributions open source (Afrique)",
+              "harchValue": "HarchOS SDK + boîte à outils IA souveraine",
+              "competitorValue": "TensorFlow — pas spécifique à l'Afrique",
+              "harchWins": true
+            },
+            {
+              "label": "Partage revenus communauté",
+              "harchValue": "5 % — fonds développement local",
+              "competitorValue": "0 % — rapatriement profits corporate",
+              "harchWins": true
+            }
+          ],
+          "verdict": "Google Hamina est un centre de données vert que vous ne pouvez pas utiliser pour le calcul GPU. HarchOS est un cloud GPU vert que vous pouvez — à 3x moindre coût énergétique, avec souveraineté africaine."
+        },
+        {
+          "name": "Africa Data Centres (Cassava)",
+          "country": "Afrique du Sud",
+          "founded": "2018",
+          "revenue": "Non divulgué (privé)",
+          "metrics": [
+            {
+              "label": "Calcul GPU",
+              "harchValue": "1 798 GPU (H100/A100/L40S)",
+              "competitorValue": "0 GPU — colocalisation uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Planification sensible au carbone",
+              "harchValue": "En temps réel par tâche",
+              "competitorValue": "Aucune",
+              "harchWins": true
+            },
+            {
+              "label": "Pipeline MW",
+              "harchValue": "500 MW (17x plus grand)",
+              "competitorValue": "30 MW",
+              "harchWins": true,
+              "harchNumeric": 500,
+              "competitorNumeric": 30,
+              "barMax": 550
+            },
+            {
+              "label": "Énergie renouvelable",
+              "harchValue": "81,5 % moy.",
+              "competitorValue": "Non divulgué",
+              "harchWins": true
+            },
+            {
+              "label": "Intensité carbone",
+              "harchValue": "~47 gCO2/kWh",
+              "competitorValue": "~500 gCO2/kWh (réseau SA)",
+              "harchWins": true,
+              "harchNumeric": 47,
+              "competitorNumeric": 500,
+              "barMax": 550,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Coût énergie /kWh",
+              "harchValue": "0,03 $",
+              "competitorValue": "0,08-0,15 $ (réseau SA)",
+              "harchWins": true,
+              "harchNumeric": 3,
+              "competitorNumeric": 12,
+              "barMax": 15,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Intégration transversale",
+              "harchValue": "5 filiales — écosystème",
+              "competitorValue": "Aucune — colocalisation uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Contrôles sécurité souverains",
+              "harchValue": "ISO 27001 + SOC 2 + loi marocaine",
+              "competitorValue": "ISO 27001 uniquement — juridiction SA",
+              "harchWins": true
+            },
+            {
+              "label": "Accès câbles sous-marins",
+              "harchValue": "4 systèmes — direct vers UE/US",
+              "competitorValue": "2 câbles — hub SA uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Services plateforme IA",
+              "harchValue": "MLOps complet + entraînement + inférence",
+              "competitorValue": "Aucun — espace rack uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Écosystème développeurs",
+              "harchValue": "HarchOS SDK + API + playground",
+              "competitorValue": "Aucun — pas d'outils développeur",
+              "harchWins": true
+            },
+            {
+              "label": "Garantie résidence données",
+              "harchValue": "100 % — juridiction africaine",
+              "competitorValue": "Partielle — SA uniquement, pas transfrontalier",
+              "harchWins": true
+            }
+          ],
+          "verdict": "Le plus grand opérateur de DC d'Afrique a zéro GPU, zéro sensibilisation au carbone, 17x moins de puissance et 10x plus d'intensité carbone. HarchOS est dans une catégorie entièrement différente."
+        },
+        {
+          "name": "QScale",
+          "country": "Canada",
+          "founded": "2020",
+          "revenue": "Pré-revenu (startup)",
+          "metrics": [
+            {
+              "label": "Présence DC africain",
+              "harchValue": "5 hubs — Maroc opérationnel",
+              "competitorValue": "0 — Québec, Canada uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Nombre de GPU",
+              "harchValue": "1 798 GPU opérationnels",
+              "competitorValue": "~4 000 GPU (annoncé)",
+              "harchWins": false
+            },
+            {
+              "label": "Planification sensible au carbone",
+              "harchValue": "En temps réel par tâche — 47 paramètres",
+              "competitorValue": "Statique — hydro Québec uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Intensité carbone",
+              "harchValue": "~47 gCO2/kWh moy.",
+              "competitorValue": "~15 gCO2/kWh (hydro Québec)",
+              "harchWins": false
+            },
+            {
+              "label": "Latence vers l'Afrique",
+              "harchValue": "<5 ms depuis le Maroc",
+              "competitorValue": ">120 ms depuis Québec",
+              "harchWins": true,
+              "harchNumeric": 5,
+              "competitorNumeric": 120,
+              "barMax": 140,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Souveraineté données (Afrique)",
+              "harchValue": "100 % — juridiction Maroc",
+              "competitorValue": "0 % — juridiction canadienne",
+              "harchWins": true
+            },
+            {
+              "label": "Hub câbles sous-marins",
+              "harchValue": "4 systèmes — passerelle Afrique-UE",
+              "competitorValue": "Aucun — pas de hub câble transatlantique",
+              "harchWins": true
+            },
+            {
+              "label": "Intégration transversale",
+              "harchValue": "5 filiales — écosystème complet",
+              "competitorValue": "Aucune — calcul uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Plateforme IA & MLOps",
+              "harchValue": "Pile complète — entraînement au déploiement",
+              "competitorValue": "GPU bare-metal — pas de plateforme",
+              "harchWins": true
+            },
+            {
+              "label": "Création d'emplois africains",
+              "harchValue": "500+ emplois directs au Maroc",
+              "competitorValue": "0 emploi en Afrique",
+              "harchWins": true
+            },
+            {
+              "label": "Coût énergie /kWh",
+              "harchValue": "0,03 $",
+              "competitorValue": "0,04-0,06 $",
+              "harchWins": true,
+              "harchNumeric": 3,
+              "competitorNumeric": 5,
+              "barMax": 8,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Conformité réglementaire (Afrique)",
+              "harchValue": "Loi Maroc 09-08 + cadre UA",
+              "competitorValue": "Aucune — pas de conformité africaine",
+              "harchWins": true
+            }
+          ],
+          "verdict": "QScale a d'excellents GPU alimentés par l'hydro du Québec. Mais 0 hub africain, 0 souveraineté africaine, 120+ ms de latence vers l'Afrique. Le calcul vert au Canada ne sert pas l'Afrique."
+        }
+      ]
+    },
+    "cement": {
+      "name": "Harch Cement",
+      "version": "/0.2",
+      "heroTitle": "Construire l'Avenir\nde l'Afrique de l'Ouest",
+      "heroSubtitle": "Production de ciment de 500 kT/an au service du boom de la construction avec des opérations verticalement intégrées",
+      "overview": "Harch Cement développe une installation de production de ciment de 500 kT/an en Gambie, au service du boom de la construction en Afrique de l'Ouest avec des opérations verticalement intégrées de la carrière à la livraison. Notre modèle capture l'ensemble de la chaîne de valeur — de l'extraction du calcaire à la production de clinker jusqu'à la distribution de ciment fini — créant des avantages de coûts structurels de 30 à 50 % par rapport aux concurrents dépendants des importations. Il ne s'agit pas simplement d'une cimenterie ; c'est une ancre industrielle qui catalyse le développement des infrastructures, crée des centaines d'emplois directs et élimine la dépendance de l'Afrique de l'Ouest aux matériaux de construction importés.",
+      "strategicContext": "L'Afrique de l'Ouest fait face à un déficit fondamental en matériaux de construction. La région importe plus de 15 millions de tonnes de ciment annuellement, payant des prix premium qui gonflent les coûts d'infrastructure de 40 à 70 % par rapport aux marchés avec production nationale. La Gambie, avec une population de 2,5 millions et un PIB en croissance de 6 % annuellement, importe actuellement 100 % de son ciment — une vulnérabilité structurelle qui s'accentue à chaque projet d'infrastructure. L'installation de 500 kT/an de Harch Cement capture une part significative de cette demande tout en construisant une capacité industrielle nationale qui renforce la souveraineté économique.",
+      "marketAnalysis": "Le marché du ciment en Afrique de l'Ouest est évalué à 8,5 milliards de dollars et croît à un TCAM de 8 %, porté par l'urbanisation, les programmes gouvernementaux d'infrastructure totalisant 45 milliards de dollars dans les pays de la CEDEAO, et un déficit de logements dépassant 50 millions d'unités. La Gambie seule importe 400 000 tonnes de ciment annuellement à des prix premium moyennant 120 $/tonne contre 65-75 $/tonne pour le ciment produit localement.",
+      "sustainability": "Harch Cement intègre la durabilité à chaque niveau des opérations. Nos formulations de ciment vert utilisent des matériaux pouzzolaniques sourcés localement pour réduire le facteur clinker en dessous de 85 %, réduisant les émissions de CO2 de 25 % par rapport au ciment Portland ordinaire. Le four incorpore une technologie de récupération de chaleur résiduelle qui capte 30 % de l'énergie thermique pour la production d'électricité, réduisant la consommation d'électricité du réseau.",
+      "investment": "200 M$",
+      "metrics": [
+        {
+          "value": 500,
+          "prefix": "",
+          "suffix": " kT/an",
+          "label": "Capacité de production"
+        },
+        {
+          "value": 38,
+          "prefix": "",
+          "suffix": ",2 %",
+          "label": "TRI"
+        },
+        {
+          "value": 10500,
+          "prefix": "$",
+          "suffix": "",
+          "label": "CAPEX total"
+        },
+        {
+          "value": 265,
+          "prefix": "",
+          "suffix": " %",
+          "label": "ROI 5 ans"
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "Opérations de carrière",
+          "desc": "Carrière de calcaire verticalement intégrée avec réserves vérifiées de plus de 50 ans. L'approvisionnement en matières premières locales élimine la dépendance aux importations et réduit les coûts de matières premières de 30 %."
+        },
+        {
+          "title": "Technologie de four moderne",
+          "desc": "Four rotatif de pointe avec récupération de chaleur résiduelle et contrôle de production optimisé par IA. Le préchauffeur à 5 étages avec calcinateur atteint 40 % de consommation d'énergie inférieure aux concurrents régionaux."
+        },
+        {
+          "title": "Innovation ciment vert",
+          "desc": "Formulations de ciment mélangé utilisant des matériaux pouzzolaniques et laitier sourcés localement, réduisant le facteur clinker à moins de 85 % et l'empreinte carbone de 25 %. Notre équipe R&D développe des formulations d'argile calcinée (LC3) ciblant des facteurs clinker inférieurs à 70 % d'ici 2029."
+        },
+        {
+          "title": "Réseau de distribution régional",
+          "desc": "Localisation stratégique sur le fleuve Gambie avec accès par barge et route vers le Sénégal, la Guinée-Bissau et la Guinée. Rayon de distribution de 500 km desservi par une flotte de 40 camions-citernes et barges fluviales."
+        },
+        {
+          "title": "Systèmes d'assurance qualité",
+          "desc": "Production certifiée ISO 9001 avec surveillance qualité par IA et échantillonnage automatisé à chaque étape de production. Qualité de produit constante qui dépasse les normes EN 197 et ASTM C150."
+        },
+        {
+          "title": "Position marché & stratégie",
+          "desc": "Avantage de premier entrant en Gambie avec barrières significatives à l'entrée pour les concurrents. Objectif de 60 % de part de marché nationale dans les 3 ans suivant la mise en service."
+        }
+      ],
+      "specTable": [
+        {
+          "spec": "Capacité",
+          "value": "500 kT/an",
+          "phase": "Production complète"
+        },
+        {
+          "spec": "Type de four",
+          "value": "Rotatif + Préchauffeur",
+          "phase": "5 étages avec calcinateur"
+        },
+        {
+          "spec": "Facteur clinker",
+          "value": "<85 %",
+          "phase": "Formulation verte"
+        },
+        {
+          "spec": "Réserves carrière",
+          "value": "50+ ans",
+          "phase": "Calcaire vérifié"
+        },
+        {
+          "spec": "Distribution",
+          "value": "Rayon 500 km",
+          "phase": "Réseau fleuve + route"
+        },
+        {
+          "spec": "Source énergie",
+          "value": "Harch Energy",
+          "phase": "Hybride renouvelable + réseau"
+        },
+        {
+          "spec": "Certifications",
+          "value": "ISO 9001 / EN 197",
+          "phase": "Management qualité"
+        },
+        {
+          "spec": "Effectif",
+          "value": "800+ directs",
+          "phase": "Priorité embauche locale"
+        },
+        {
+          "spec": "Recyclage eau",
+          "value": "95 %",
+          "phase": "Systèmes en boucle fermée"
+        },
+        {
+          "spec": "Émissions poussière",
+          "value": "50 % sous normes UE",
+          "phase": "Technologie filtre à manches"
+        },
+        {
+          "spec": "CAPEX",
+          "value": "10,5 M$",
+          "phase": "Équipement 69,5 %"
+        },
+        {
+          "spec": "TCAM marché",
+          "value": "12-14 %",
+          "phase": "Boom construction Gambie"
+        },
+        {
+          "spec": "Droits importation",
+          "value": "Augmentation 500 %",
+          "phase": "Déc 2025 — avantage locale"
+        },
+        {
+          "spec": "Période récupération",
+          "value": "2,8 ans",
+          "phase": "TRI 38,2 %"
+        },
+        {
+          "spec": "VAN 5 ans",
+          "value": "6,8 M$",
+          "phase": "Au taux d'actualisation 10 %"
+        },
+        {
+          "spec": "Emplois directs",
+          "value": "85-120",
+          "phase": "Objectif 80 % personnel gambien"
+        },
+        {
+          "spec": "Économies devises",
+          "value": "~8 M$/an",
+          "phase": "Substitution importations"
+        }
+      ],
+      "milestones": [
+        {
+          "year": "2024 T4",
+          "title": "Demande de permis déposée",
+          "desc": "Permis environnementaux et de construction déposés auprès des autorités gambiennes."
+        },
+        {
+          "year": "2025 T2",
+          "title": "Programme d'engagement communautaire",
+          "desc": "Programme complet d'engagement communautaire lancé dans 12 villages."
+        },
+        {
+          "year": "2025 T4",
+          "title": "Permis approuvés",
+          "desc": "Tous les permis de construction et environnementaux approuvés."
+        },
+        {
+          "year": "2026 T2",
+          "title": "Début de la construction",
+          "desc": "Travaux de fondation, installation du four et développement de la carrière commencent simultanément."
+        },
+        {
+          "year": "2027 T2",
+          "title": "Installation du four terminée",
+          "desc": "Four rotatif et tour de préchauffeur installés. Systèmes électriques et de contrôle commissionnés."
+        },
+        {
+          "year": "2027 T4",
+          "title": "Commissionnement & essais",
+          "desc": "Commissionnement du four et essais de production. Processus de certification qualité initié."
+        },
+        {
+          "year": "2028 T1",
+          "title": "Production commerciale",
+          "desc": "Production commerciale complète à la capacité de 500 kT/an. Premières livraisons aux marchés gambien et sénégalais."
+        }
+      ],
+      "stats": [
+        {
+          "stat": "Substitution importations",
+          "value": 85,
+          "max": 100
+        },
+        {
+          "stat": "Avantage coût vs importations",
+          "value": 45,
+          "max": 100
+        },
+        {
+          "stat": "Emploi local",
+          "value": 90,
+          "max": 100
+        },
+        {
+          "stat": "Réduction carbone vs pairs",
+          "value": 30,
+          "max": 100
+        }
+      ],
+      "location": "Gambie",
+      "locationDesc": "Localisation stratégique sur le fleuve Gambie avec accès barge en eau profonde et connexions routières vers le Sénégal, la Guinée-Bissau et la Guinée. Le site se trouve sur des gisements de calcaire vérifiés avec plus de 50 ans de réserves.",
+      "strategicAdvantages": [
+        {
+          "title": "Intégration verticale",
+          "desc": "Chaîne de valeur complète de la carrière au produit fini élimine les intermédiaires et les coûts d'importation. Les coûts de matières premières sont 30 % inférieurs aux concurrents qui doivent importer du clinker ou du ciment fini."
+        },
+        {
+          "title": "Hub de distribution fluviale",
+          "desc": "Accès direct par barge sur le fleuve Gambie fournit un transport en vrac à bas coût vers les marchés intérieurs que les concurrents uniquement routiers ne peuvent pas desservir économiquement."
+        },
+        {
+          "title": "Premier entrant en Gambie",
+          "desc": "Aucune production de ciment nationale n'existe actuellement en Gambie. Notre installation crée la première base cimentière industrielle du pays, générant des barrières significatives à l'entrée."
+        },
+        {
+          "title": "Positionnement premium vert",
+          "desc": "Les formulations de ciment bas carbone commandent des prix premium sur les marchés sensibles à l'ESG tout en réduisant les coûts de production via des facteurs clinker inférieurs et la récupération d'énergie."
+        }
+      ],
+      "partnershipModel": [
+        {
+          "title": "Accords de prélèvement",
+          "desc": "Contrats de fourniture de ciment à long terme avec entreprises de construction, agences gouvernementales et développeurs d'infrastructures. Tarification fixe avec protection inflation pour des termes de 3 à 5 ans."
+        },
+        {
+          "title": "Opérations en co-entreprise",
+          "desc": "Structures de partenariat pour producteurs de ciment régionaux cherchant une entrée sur le marché ouest-africain. Infrastructure, distribution et transfert de technologie partagés."
+        },
+        {
+          "title": "Partenariats gouvernementaux",
+          "desc": "Modèles de partenariat public-privé pour les programmes d'infrastructure nationaux. Allocation de production dédiée pour les projets gouvernementaux avec livraison prioritaire."
+        },
+        {
+          "title": "Synergies industrielles",
+          "desc": "Intégration transversale avec Harch Energy pour l'approvisionnement en énergie renouvelable et Harch Mining pour les matières premières complémentaires. Coûts énergétiques captifs 40 % sous tarifs réseau."
+        }
+      ],
+      "competitorHarchName": "Harch Cement",
+      "competitorAccentColor": "#8B9DAF",
+      "competitors": [
+        {
+          "name": "Dangote Cement",
+          "country": "Nigeria",
+          "founded": "1981",
+          "revenue": "3,6 G$ (2024)",
+          "metrics": [
+            {
+              "label": "Ciment vert (LC3)",
+              "harchValue": "En développement — <70 % clinker d'ici 2029",
+              "competitorValue": "Aucun — pas de gamme verte",
+              "harchWins": true
+            },
+            {
+              "label": "Trajectoire facteur clinker",
+              "harchValue": "<85 % → <70 % (LC3)",
+              "competitorValue": "~80 %+ — pas de plan de réduction",
+              "harchWins": true
+            },
+            {
+              "label": "Énergie renouvelable",
+              "harchValue": "100 % approvisionnement Harch Energy",
+              "competitorValue": "Camions GNC uniquement — <5 % opérations",
+              "harchWins": true
+            },
+            {
+              "label": "Intensité carbone",
+              "harchValue": "Quasi zéro — four 100 % renouvelable",
+              "competitorValue": "~630 kgCO2/t ciment (moy. industrie)",
+              "harchWins": true,
+              "harchNumeric": 10,
+              "competitorNumeric": 630,
+              "barMax": 700,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Recyclage eau",
+              "harchValue": "95 % boucle fermée",
+              "competitorValue": "Non divulgué",
+              "harchWins": true
+            },
+            {
+              "label": "Émissions poussière",
+              "harchValue": "50 % sous normes UE",
+              "competitorValue": "Non divulgué",
+              "harchWins": true
+            },
+            {
+              "label": "Préparation EU CBAM",
+              "harchValue": "Plein conforme — traitement zéro carbone",
+              "competitorValue": "Non conforme — risque pénalité carbone",
+              "harchWins": true
+            },
+            {
+              "label": "Synergie transversale",
+              "harchValue": "Énergie + Mines + Eau + Agri",
+              "competitorValue": "Aucune — ciment uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Récupération chaleur résiduelle",
+              "harchValue": "30 % énergie thermique recaptée",
+              "competitorValue": "Non divulgué",
+              "harchWins": true
+            },
+            {
+              "label": "Certifications durabilité",
+              "harchValue": "LEED + BREEAM + ISO 14001 dès le premier jour",
+              "competitorValue": "Aucune certification verte divulguée",
+              "harchWins": true
+            }
+          ],
+          "verdict": "Dangote produit en volume. Harch Cement produit l'avenir — ciment vert LC3 à 30-50 % sous les prix d'importation, alimenté par 100 % d'énergie renouvelable."
+        },
+        {
+          "name": "Holcim (ECOPact)",
+          "country": "Suisse",
+          "founded": "1912",
+          "revenue": "27 G$ (2024)",
+          "metrics": [
+            {
+              "label": "Opérations Afrique de l'Ouest",
+              "harchValue": "Gambie — en construction",
+              "competitorValue": "Sorti en 2025 (vendu à Huaxin)",
+              "harchWins": true
+            },
+            {
+              "label": "Tarification verte",
+              "harchValue": "Pas de premium — avantage coût",
+              "competitorValue": "Premium vert 5-15 %",
+              "harchWins": true
+            },
+            {
+              "label": "Énergie renouvelable",
+              "harchValue": "100 % Harch Energy — approvisionnement direct",
+              "competitorValue": "Partiel — pas de chaîne d'approvisionnement africaine",
+              "harchWins": true
+            },
+            {
+              "label": "Emploi local",
+              "harchValue": "800+ emplois directs en Gambie",
+              "competitorValue": "0 emploi en Afrique de l'Ouest (sorti)",
+              "harchWins": true
+            },
+            {
+              "label": "Intensité carbone",
+              "harchValue": "Quasi zéro — 100 % renouvelable",
+              "competitorValue": "~400 kgCO2/t (gamme ECOPact)",
+              "harchWins": true,
+              "harchNumeric": 10,
+              "competitorNumeric": 400,
+              "barMax": 450,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Préparation EU CBAM",
+              "harchValue": "Zéro carbone — pas de taxe frontalière",
+              "competitorValue": "Partiel — varie par usine",
+              "harchWins": true
+            },
+            {
+              "label": "Substitution importations",
+              "harchValue": "100 % — remplaçant toutes les importations gambiennes",
+              "competitorValue": "0 % — n'opère plus dans la région",
+              "harchWins": true
+            },
+            {
+              "label": "Partage revenus communauté",
+              "harchValue": "5 % — fonds développement local",
+              "competitorValue": "0 % divulgué",
+              "harchWins": true
+            }
+          ],
+          "verdict": "Holcim fabrique ECOPact à Zurich. Harch Cement fabrique du ciment vert en Gambie — avec un avantage coût et non un premium, 100 % d'énergie renouvelable et 800 emplois locaux."
+        },
+        {
+          "name": "Heidelberg Materials",
+          "country": "Allemagne",
+          "founded": "1873",
+          "revenue": "22 G$ (2024)",
+          "metrics": [
+            {
+              "label": "Opérations Afrique de l'Ouest",
+              "harchValue": "Gambie — en construction",
+              "competitorValue": "Limité — principalement Europe/Amérique du Nord",
+              "harchWins": true
+            },
+            {
+              "label": "Calendrier CCS",
+              "harchValue": "Zéro carbone par conception — pas de CCS nécessaire",
+              "competitorValue": "Objectif CCS d'ici 2030 — non prouvé à l'échelle",
+              "harchWins": true
+            },
+            {
+              "label": "Tarification verte",
+              "harchValue": "Pas de premium — avantage coût structurel",
+              "competitorValue": "Tarification premium evoZero",
+              "harchWins": true
+            },
+            {
+              "label": "Intensité carbone",
+              "harchValue": "Quasi zéro — 100 % renouvelable",
+              "competitorValue": "~550 kgCO2/t (conventionnel) — CCS planifié",
+              "harchWins": true,
+              "harchNumeric": 10,
+              "competitorNumeric": 550,
+              "barMax": 600,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Substitution importations",
+              "harchValue": "100 % — remplaçant toutes les importations gambiennes",
+              "competitorValue": "0 % — pas d'opérations Gambie/Afrique de l'Ouest",
+              "harchWins": true
+            },
+            {
+              "label": "Risque CCS",
+              "harchValue": "Pas de CCS nécessaire — zéro par conception",
+              "competitorValue": "Élevé — CCS non prouvé à l'échelle cimentière",
+              "harchWins": true
+            }
+          ],
+          "verdict": "Heidelberg mise sur le CCS — capture de carbone qui reste non prouvée à l'échelle. Harch Cement élimine le carbone à la source grâce à 100 % d'énergie renouvelable. La prévention vaut mieux que la capture."
+        }
+      ]
+    },
+    "energy": {
+      "name": "Harch Energy",
+      "version": "/0.3",
+      "heroTitle": "Pipeline d'Énergie\nRenouvelable 2 GW+",
+      "heroSubtitle": "Solaire, éolien et hydrogène vert alimentant la souveraineté industrielle à travers le continent",
+      "overview": "Harch Energy développe plus de 2 GW+ de Pipeline de capacité d'énergie renouvelable au Maroc et dans la région du Sahel — combinant production solaire, éolienne et d'hydrogène vert pour alimenter les opérations industrielles et centres de données avec de l'électricité sans carbone. Notre approche intégrée assure la souveraineté énergétique du continent tout en créant un modèle d'industrialisation durable mondiale.",
+      "strategicContext": "L'Afrique possède le plus grand potentiel d'énergie renouvelable au monde — 40 % de l'irradiance solaire mondiale et des couloirs éoliens exceptionnels à travers le Sahel. Pourtant le continent génère seulement 3 % de l'électricité renouvelable mondiale, et plus de 600 millions d'Africains manquent d'accès à une électricité fiable. Harch Energy saisit cette opportunité à l'échelle industrielle, construisant l'infrastructure renouvelable qui alimente non seulement les verticales de Harch Corp mais catalyse une transformation énergétique continentale.",
+      "marketAnalysis": "Le marché de l'énergie renouvelable en Afrique devrait atteindre 80 milliards de dollars d'investissement annuel d'ici 2030, porté par la baisse des coûts technologiques (les coûts solaires PV ont chuté de 90 % depuis 2010), les engagements de financement climatique international dépassant 100 milliards de dollars annuellement, et la demande d'électricité en croissance rapide. Le Maroc seul prévoit 6 GW de nouvelle capacité renouvelable d'ici 2030.",
+      "sustainability": "L'ensemble du modèle commercial de Harch Energy repose sur la durabilité. Chaque mégawatt que nous générons déplace la production d'énergie fossile, évitant environ 1 000 tonnes d'émissions de CO2 annuellement. Notre Pipeline de 2 GW+ compensera plus de 3,2 millions de tonnes de CO2 par an — équivalant à retirer 700 000 voitures de la route.",
+      "investment": "600 M$",
+      "metrics": [
+        {
+          "value": 2000,
+          "prefix": "",
+          "suffix": " MW+",
+          "label": "Capacité Pipeline"
+        },
+        {
+          "value": 600,
+          "prefix": "$",
+          "suffix": "M",
+          "label": "Investissement"
+        },
+        {
+          "value": 53,
+          "prefix": "",
+          "suffix": " kWh/m²/jour",
+          "label": "Irradiance solaire"
+        },
+        {
+          "value": 45,
+          "prefix": "",
+          "suffix": " %",
+          "label": "Facteur capacité éolien"
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "Solaire photovoltaïque",
+          "desc": "1,2 GW de capacité solaire photovoltaïque dans les régions sud du Maroc utilisant des panneaux bifaciaux Tier-1 avec suivi mono-axe pour un rendement énergétique maximal. Facteurs de capacité de 28 % — nettement au-dessus de la moyenne mondiale."
+        },
+        {
+          "title": "Énergie éolienne onshore",
+          "desc": "800 MW de capacité éolienne onshore dans le couloir du Sahel, l'une des ressources éoliennes les plus remarquables au monde. Facteurs de capacité supérieurs à 45 %, générant de l'électricité à 18 $/MWh — compétitif avec toute source de production mondiale."
+        },
+        {
+          "title": "Production d'hydrogène vert",
+          "desc": "Capacité d'électrolyseur de 200 MW pour la production d'hydrogène vert utilisant la technologie PEM. Coût de production ciblé à 2,50 $/kg d'ici 2028 — compétitif avec l'hydrogène gris sur les marchés européens."
+        },
+        {
+          "title": "Intégration réseau & stockage",
+          "desc": "Gestion réseau optimisée par IA avec 400 MWh de stockage sur batterie assurant une alimentation stable 24/7 pour les charges industrielles critiques."
+        },
+        {
+          "title": "Structuration PPA",
+          "desc": "Contrats d'achat d'électricité à long terme de 20+ ans avec protection inflation, fournissant une visibilité de revenus soutenant le financement de projet à des conditions favorables."
+        },
+        {
+          "title": "Génération de crédits carbone",
+          "desc": "Crédits carbone vérifiés de toutes les installations renouvelables enregistrés sous les frameworks Gold Standard et Verra VCS. Flux de revenus supplémentaire améliorant l'économie de projet de 8 à 12 %."
+        }
+      ],
+      "specTable": [
+        {
+          "spec": "Solaire PV",
+          "value": "1,2 GW",
+          "phase": "Sud Maroc"
+        },
+        {
+          "spec": "Éolien onshore",
+          "value": "800 MW",
+          "phase": "Région Sahel"
+        },
+        {
+          "spec": "Électrolyseur H₂ vert",
+          "value": "200 MW",
+          "phase": "Technologie PEM"
+        },
+        {
+          "spec": "Stockage batterie",
+          "value": "400 MWh",
+          "phase": "Chimie LFP"
+        },
+        {
+          "spec": "Durée PPA",
+          "value": "20+ ans",
+          "phase": "Protégé inflation"
+        },
+        {
+          "spec": "LCOE solaire",
+          "value": "14 $/MWh",
+          "phase": "Leader industrie"
+        },
+        {
+          "spec": "LCOE éolien",
+          "value": "18 $/MWh",
+          "phase": "Compétitif mondialement"
+        },
+        {
+          "spec": "Compensation carbone",
+          "value": "3,2 Mt CO2/an",
+          "phase": "Crédits vérifiés"
+        },
+        {
+          "spec": "Connexion réseau",
+          "value": "400 kV",
+          "phase": "Transmission haute tension"
+        },
+        {
+          "spec": "Partage revenus communauté",
+          "value": "5 %",
+          "phase": "Fonds développement local"
+        }
+      ],
+      "milestones": [
+        {
+          "year": "2025 T1",
+          "title": "Demandes de licences déposées",
+          "desc": "Licences d'énergie renouvelable et permis environnementaux déposés pour projets solaires et éoliens sur 3 sites totalisant 2 GW+."
+        },
+        {
+          "year": "2025 T4",
+          "title": "Licences obtenues & PPA signé",
+          "desc": "Licences d'énergie renouvelable 2 GW+ approuvées. Premier PPA signé avec Harch Intelligence pour approvisionnement dédié Pipeline 500 MW."
+        },
+        {
+          "year": "2026 T3",
+          "title": "Début construction ferme solaire",
+          "desc": "Début de la construction de la première ferme solaire de 400 MW dans le sud du Maroc."
+        },
+        {
+          "year": "2027 T2",
+          "title": "Première production d'électricité",
+          "desc": "Ferme solaire de 400 MW en ligne et en production. Premières livraisons PPA au centre de données Harch Intelligence."
+        },
+        {
+          "year": "2027 T4",
+          "title": "Construction ferme éolienne",
+          "desc": "Début de la construction de la ferme éolienne de 300 MW dans le couloir du Sahel."
+        },
+        {
+          "year": "2028 T4",
+          "title": "Jalon 1 GW opérationnel",
+          "desc": "1 GW de capacité renouvelable totale opérationnelle. Pilote hydrogène vert lancé."
+        },
+        {
+          "year": "2030 T1",
+          "title": "Pipeline complet opérationnel",
+          "desc": "Pipeline 2 GW+ pleinement opérationnel sur solaire, éolien et hydrogène vert."
+        }
+      ],
+      "stats": [
+        {
+          "stat": "Facteur capacité solaire",
+          "value": 28,
+          "max": 35
+        },
+        {
+          "stat": "Facteur capacité éolien",
+          "value": 45,
+          "max": 55
+        },
+        {
+          "stat": "Compétitivité coût",
+          "value": 90,
+          "max": 100
+        },
+        {
+          "stat": "Objectif compensation carbone",
+          "value": 85,
+          "max": 100
+        }
+      ],
+      "location": "Région du Sahel",
+      "locationDesc": "Irradiance solaire exceptionnelle (2 400+ kWh/m²/an) et ressources éoliennes (moyenne 8,5 m/s) au Maroc et dans le couloir du Sahel. Sites stratégiquement situés à proximité des infrastructures de transmission haute tension et des centres de demande industrielle.",
+      "strategicAdvantages": [
+        {
+          "title": "LCOE le plus bas au monde",
+          "desc": "La combinaison du Maroc d'irradiance solaire exceptionnelle, de faibles coûts fonciers et d'infrastructure en développement crée un LCOE solaire de 14 $/MWh — parmi les plus bas au monde."
+        },
+        {
+          "title": "Demande captive des verticales Harch",
+          "desc": "Prélèvement garanti de Harch Intelligence (Pipeline 500 MW), Harch Cement, Harch Mining et Harch Water fournit un plancher de revenus qui réduit le risque du financement de projet."
+        },
+        {
+          "title": "Potentiel d'exportation d'hydrogène vert",
+          "desc": "La proximité du Maroc avec les marchés européens de l'hydrogène positionne Harch Energy comme fournisseur compétitif d'hydrogène vert aux clients industriels de l'UE."
+        },
+        {
+          "title": "Revenus de crédits carbone",
+          "desc": "Les crédits carbone vérifiés du Pipeline 2 GW+ d'installations renouvelables génèrent 25 à 40 M$ annuellement en revenus supplémentaires."
+        }
+      ],
+      "partnershipModel": [
+        {
+          "title": "PPA entreprises",
+          "desc": "Contrats d'achat d'électricité à long terme pour clients industriels cherchant un approvisionnement en énergie renouvelable. Termes de 10 à 20 ans avec tarification fixe ou indexée inflation."
+        },
+        {
+          "title": "Partenariats de financement de projet",
+          "desc": "Structures de développement conjoint avec investisseurs internationaux en infrastructure et institutions de financement du développement."
+        },
+        {
+          "title": "Prélèvement hydrogène vert",
+          "desc": "Accords de fourniture d'hydrogène avec clients industriels européens. Prix cible : 2,50 $/kg d'ici 2028."
+        },
+        {
+          "title": "Programmes énergie communautaire",
+          "desc": "Partenariats mini-réseau et d'électrification rurale avec gouvernements et agences de développement. 5 % de la capacité de génération allouée à l'accès énergétique communautaire."
+        }
+      ],
+      "competitorHarchName": "Harch Energy",
+      "competitorAccentColor": "#8B9DAF",
+      "competitors": [
+        {
+          "name": "ACWA Power",
+          "country": "Arabie Saoudite",
+          "founded": "2004",
+          "revenue": "3,1 G$ (2024)",
+          "metrics": [
+            {
+              "label": "LCOE solaire",
+              "harchValue": "14 $/MWh (leader industrie)",
+              "competitorValue": "~16-20 $/MWh",
+              "harchWins": true,
+              "harchNumeric": 14,
+              "competitorNumeric": 18,
+              "barMax": 25,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Objectif H₂ vert",
+              "harchValue": "2,50 $/kg d'ici 2028 — en cours",
+              "competitorValue": "Non divulgué — pas de produit H2",
+              "harchWins": true
+            },
+            {
+              "label": "Focus industriel africain",
+              "harchValue": "5 pays, 7 verticales",
+              "competitorValue": "1 pays (dessalement Sénégal uniquement)",
+              "harchWins": true
+            },
+            {
+              "label": "Demande industrielle captive",
+              "harchValue": "Intelligence + Ciment + Mines + Agri + Eau",
+              "competitorValue": "Aucune — énergie + eau uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Synergie transversale",
+              "harchValue": "Énergie → DC → Mines → Ciment → Agri → Eau",
+              "competitorValue": "Énergie uniquement — pas d'intégration verticale",
+              "harchWins": true
+            },
+            {
+              "label": "Souveraineté africaine",
+              "harchValue": "Possédé par l'Afrique, opéré par l'Afrique",
+              "competitorValue": "Fonds souverain saoudien — propriété étrangère",
+              "harchWins": true
+            }
+          ],
+          "verdict": "ACWA construit des centrales électriques. Harch Energy alimente un écosystème industriel — chaque MWh alimente une filiale Harch, chaque molécule H2 alimente un processus Harch."
+        },
+        {
+          "name": "Masdar",
+          "country": "Abou Dhabi",
+          "founded": "2006",
+          "revenue": "1,5 G$+ (est.)",
+          "metrics": [
+            {
+              "label": "Risque exécution H₂ vert",
+              "harchValue": "200 MW ciblé — livrer d'abord",
+              "competitorValue": "4 GW annoncé — échelle non prouvée",
+              "harchWins": true
+            },
+            {
+              "label": "Demande industrielle captive",
+              "harchValue": "5 filiales consommant la production",
+              "competitorValue": "Pas de prélèvement industriel",
+              "harchWins": true
+            },
+            {
+              "label": "Opérations souveraines africaines",
+              "harchValue": "5 pays africains — propriété africaine",
+              "competitorValue": "Fonds souverain EAU — propriété étrangère",
+              "harchWins": true
+            },
+            {
+              "label": "Historique d'exécution",
+              "harchValue": "Aucun projet annulé — discipliné",
+              "competitorValue": "4 GW annoncé — risque d'exécution élevé",
+              "harchWins": true
+            },
+            {
+              "label": "Stockage batterie",
+              "harchValue": "400 MWh — dédié",
+              "competitorValue": "Non divulgué",
+              "harchWins": true
+            }
+          ],
+          "verdict": "Masdar a le capital des EAU. Harch Energy a l'intégration africaine — chaque MWh alimente une filiale Harch, chaque dollar reste sur le continent."
+        }
+      ]
+    },
+    "mining": {
+      "name": "Harch Mining",
+      "version": "/0.5",
+      "heroTitle": "Capturer la\nChaîne de Valeur",
+      "heroSubtitle": "Extraction minérale stratégique et traitement sur place pour la transition énergétique",
+      "overview": "Harch Mining extrait et traite des minéraux stratégiques — phosphates, cobalt et terres rares — construisant une capacité de traitement sur place qui capture la chaîne de valeur pour l'Afrique. Alors que le continent détient 30 % des réserves mondiales de minéraux, il capture moins de 5 % de la valeur. Nous changeons cette équation en traitant les minéraux là où ils sont extraits.",
+      "strategicContext": "La transition énergétique mondiale crée une demande sans précédent pour les minéraux critiques. Les batteries de véhicules électriques nécessitent du cobalt et des terres rares ; les panneaux solaires ont besoin de silicium et de tellure ; les éoliennes dépendent d'aimants permanents en terres rares ; et la production d'engrais nécessite du phosphate. L'Afrique détient des réserves de classe mondiale de tous ces minéraux, pourtant reste principalement exportatrice de matières premières.",
+      "marketAnalysis": "Le marché mondial des minéraux critiques est évalué à 320 milliards de dollars et croît à un TCAM de 12 %. La part de l'Afrique dans les réserves mondiales est saisissante : 75 % des phosphates (Maroc), 60 % du cobalt (RDC) et des gisements significatifs de terres rares. La stratégie de Harch Mining de traitement sur place capture 5 à 8x plus de valeur par tonne par rapport à l'exportation de minerai brut.",
+      "sustainability": "Harch Mining opère sous un cadre environnemental zéro dommage. Toutes les opérations sont certifiées ISO 14001 avec rejet nul de résidus par la technologie d'empilage à sec. Les plans de réhabilitation progressive restaurent les terres exploitées dans les 5 ans. Tout le traitement est alimenté par l'infrastructure renouvelable de Harch Energy.",
+      "investment": "200 M$",
+      "metrics": [
+        {
+          "value": 75,
+          "prefix": "",
+          "suffix": " %",
+          "label": "Phosphates mondiaux (Maroc)"
+        },
+        {
+          "value": 70,
+          "prefix": "",
+          "suffix": " %",
+          "label": "Cobalt mondial (RDC)"
+        },
+        {
+          "value": 3,
+          "prefix": "",
+          "suffix": "",
+          "label": "Minéraux cibles"
+        },
+        {
+          "value": 200,
+          "prefix": "$",
+          "suffix": "M",
+          "label": "Investissement"
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "Extraction et traitement des phosphates",
+          "desc": "Extraction et traitement de phosphate à grande échelle pour la production d'engrais à partir des gisements de classe mondiale du Maroc. Opération intégrée qui extrait, enrichit et transforme la roche phosphatée en produits de grade marchand — capturant 5x plus de valeur que l'exportation de minerai brut."
+        },
+        {
+          "title": "Extraction et raffinage du cobalt",
+          "desc": "Extraction et raffinage du cobalt pour la production de batteries à partir des gisements mauritaniens. L'usine de traitement hydrométallurgique produit du sulfate de cobalt et de l'hydroxyde de cobalt de grade batterie."
+        },
+        {
+          "title": "Traitement des éléments de terres rares",
+          "desc": "Extraction et séparation des éléments de terres rares pour les applications électroniques et de défense. Le traitement sur place élimine la dépendance aux chaînes d'approvisionnement chinoises. L'usine de séparation produit des oxydes de terres rares individuels à 99,9 % de pureté."
+        },
+        {
+          "title": "Gestion environnementale",
+          "desc": "Management environnemental ISO 14001 avec rejet nul de résidus par technologie d'empilage à sec. Les programmes de réhabilitation progressive restaurent les terres exploitées dans les 5 ans."
+        },
+        {
+          "title": "Traitement alimenté par le renouvelable",
+          "desc": "Toutes les opérations minières et de traitement alimentées par l'infrastructure renouvelable de Harch Energy. Minéraux zéro carbone pour la transition énergétique — 80 % d'émissions de cycle de vie inférieures aux alternatives traitées en Chine."
+        },
+        {
+          "title": "Infrastructure d'exportation",
+          "desc": "Infrastructure portuaire et ferroviaire pour l'exportation efficace des minéraux vers les marchés européens et asiatiques. Les routes d'expédition directes réduisent les coûts logistiques de 30 %."
+        }
+      ],
+      "specTable": [
+        {
+          "spec": "Production phosphate",
+          "value": "5 Mt/an",
+          "phase": "Opérations Maroc"
+        },
+        {
+          "spec": "Production cobalt",
+          "value": "10 kt/an",
+          "phase": "Opérations Mauritanie"
+        },
+        {
+          "spec": "Terres rares",
+          "value": "2 kt/an",
+          "phase": "Phase exploration"
+        },
+        {
+          "spec": "Traitement",
+          "value": "Sur place",
+          "phase": "Raffinage complet vers produit"
+        },
+        {
+          "spec": "Standard environnemental",
+          "value": "ISO 14001",
+          "phase": "Rejet zéro"
+        },
+        {
+          "spec": "Source énergie",
+          "value": "100 % renouvelable",
+          "phase": "Approvisionnement Harch Energy"
+        },
+        {
+          "spec": "Routes exportation",
+          "value": "3 ports atlantiques",
+          "phase": "Accès expédition directe"
+        },
+        {
+          "spec": "Réhabilitation",
+          "value": "Progressive",
+          "phase": "Cycle restauration 5 ans"
+        },
+        {
+          "spec": "Capture valeur vs export",
+          "value": "5-8x",
+          "phase": "Premium produit raffiné"
+        },
+        {
+          "spec": "Carbone vs traitement chinois",
+          "value": "80 % inférieur",
+          "phase": "Éligible premium vert"
+        }
+      ],
+      "milestones": [
+        {
+          "year": "2025 T3",
+          "title": "Droits d'exploration obtenus",
+          "desc": "Droits d'exploration minière obtenus en Mauritanie pour les gisements de cobalt."
+        },
+        {
+          "year": "2026 T2",
+          "title": "Évaluation ressources terminée",
+          "desc": "Enquête géologique complète et évaluation des ressources conforme JORC achevées. Les ressources dépassent les projections initiales de 25 %."
+        },
+        {
+          "year": "2027 T1",
+          "title": "Permis miniers approuvés",
+          "desc": "Permis d'extraction et de traitement approuvés par le Ministère mauritanien des Mines."
+        },
+        {
+          "year": "2027 T4",
+          "title": "Construction usine de traitement",
+          "desc": "Début de la construction de l'usine de traitement hydrométallurgique."
+        },
+        {
+          "year": "2028 T2",
+          "title": "Usine de traitement opérationnelle",
+          "desc": "Construction de l'usine de traitement minéral achevée et commissionnée. Première production de sulfate et d'hydroxyde de cobalt."
+        },
+        {
+          "year": "2029 T1",
+          "title": "Pleine production atteinte",
+          "desc": "Les trois minéraux en production. Opérations d'exportation via le port de Nouakchott pleinement opérationnelles."
+        }
+      ],
+      "stats": [
+        {
+          "stat": "Capture valeur vs export brut",
+          "value": 85,
+          "max": 100
+        },
+        {
+          "stat": "Usage énergie renouvelable",
+          "value": 100,
+          "max": 100
+        },
+        {
+          "stat": "Réduction carbone vs pairs",
+          "value": 80,
+          "max": 100
+        },
+        {
+          "stat": "Indépendance chaîne approvisionnement",
+          "value": 75,
+          "max": 100
+        }
+      ],
+      "location": "Mauritanie",
+      "locationDesc": "Riches gisements minéraux dans les ceintures de roches vertes archéennes de Mauritanie avec accès portuaire atlantique à Nouakchott pour l'exportation efficace. Proximité des marchés européens réduit les délais et coûts d'expédition.",
+      "strategicAdvantages": [
+        {
+          "title": "Premium de traitement sur place",
+          "desc": "Raffiner les minéraux là où ils sont extraits capture 5 à 8x plus de valeur par tonne par rapport à l'exportation de minerai brut. Ce modèle crée des emplois industriels, génère des revenus fiscaux et construit une expertise de traitement nationale."
+        },
+        {
+          "title": "Minéraux zéro carbone",
+          "desc": "Le traitement 100 % alimenté par le renouvelable donne à Harch Mining un avantage carbone de 80 % par rapport aux minéraux traités en Chine, commandant des primes vertes de 10 à 15 % sur les marchés sensibles à l'ESG."
+        },
+        {
+          "title": "Chaîne d'approvisionnement non chinoise",
+          "desc": "Le traitement des terres rares et du cobalt en dehors de la juridiction chinoise fournit une sécurité de chaîne d'approvisionnement pour les clients occidentaux de défense et de technologie."
+        },
+        {
+          "title": "Approvisionnement Harch Energy intégré",
+          "desc": "L'énergie renouvelable dédiée de Harch Energy à 0,03 $/kWh élimine la volatilité des coûts énergétiques — le plus grand coût opérationnel dans le traitement minéral."
+        }
+      ],
+      "partnershipModel": [
+        {
+          "title": "Prélèvement minéral stratégique",
+          "desc": "Accords de fourniture à long terme avec fabricants de batteries, entreprises d'électronique et contractants de défense."
+        },
+        {
+          "title": "Co-entreprises minières",
+          "desc": "Structures de partenariat avec entreprises minières internationales cherchant une entrée sur le marché africain."
+        },
+        {
+          "title": "Partage revenus gouvernemental",
+          "desc": "Partage de revenus transparent avec les gouvernements hôtes dépassant les standards de l'industrie."
+        },
+        {
+          "title": "Flux minéraux circulaires",
+          "desc": "Partenariats avec recycleurs de batteries et fabricants d'électronique pour la récupération des minéraux en fin de vie."
+        }
+      ],
+      "competitorHarchName": "Harch Mining",
+      "competitorAccentColor": "#8B9DAF",
+      "competitors": [
+        {
+          "name": "Glencore",
+          "country": "Suisse",
+          "founded": "1974",
+          "revenue": "230 G$ (2024)",
+          "metrics": [
+            {
+              "label": "Traitement alimenté par renouvelable",
+              "harchValue": "100 % — Harch Energy",
+              "competitorValue": "<15 % — surtout fossile",
+              "harchWins": true
+            },
+            {
+              "label": "Carbone vs traitement chinois",
+              "harchValue": "80 % inférieur",
+              "competitorValue": "Moyenne industrie — pas d'avantage",
+              "harchWins": true,
+              "harchNumeric": 20,
+              "competitorNumeric": 100,
+              "barMax": 100,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Capture valeur par tonne",
+              "harchValue": "5-8x vs export minerai brut",
+              "competitorValue": "2-3x",
+              "harchWins": true
+            },
+            {
+              "label": "Premium vert (EU CBAM)",
+              "harchValue": "10-15 % premium éligible",
+              "competitorValue": "Pas de premium vert — risque pénalité carbone",
+              "harchWins": true
+            },
+            {
+              "label": "Coût énergie /kWh",
+              "harchValue": "0,03 $ (Harch Energy)",
+              "competitorValue": "0,06-0,10 $ (réseau/marché)",
+              "harchWins": true,
+              "harchNumeric": 3,
+              "competitorNumeric": 8,
+              "barMax": 12,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Gestion résidus",
+              "harchValue": "Empilage à sec — rejet zéro",
+              "competitorValue": "Conventionnel — risque rupture barrage",
+              "harchWins": true
+            },
+            {
+              "label": "Intégration transversale",
+              "harchValue": "Énergie + Technologie + Eau + Ciment",
+              "competitorValue": "Aucune — mines uniquement",
+              "harchWins": true
+            }
+          ],
+          "verdict": "Glencore mine plus de cobalt. Harch Mining mine plus intelligemment — 100 % renouvelable, 80 % moins de carbone, capture de valeur 5-8x, éligible au premium vert dès le premier jour."
+        },
+        {
+          "name": "OCP Group",
+          "country": "Maroc",
+          "founded": "1920",
+          "revenue": "11,4 G$ (2025)",
+          "metrics": [
+            {
+              "label": "Traitement vert",
+              "harchValue": "100 % renouvelable — dès le premier jour",
+              "competitorValue": "Plan vert 13 G$ — objectif 2040",
+              "harchWins": true
+            },
+            {
+              "label": "Diversité minérale",
+              "harchValue": "3 minéraux stratégiques pour transition énergétique",
+              "competitorValue": "1 minéral (phosphate) — sécurité alimentaire uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Préparation EU CBAM",
+              "harchValue": "Déjà conforme — traitement zéro carbone",
+              "competitorValue": "En transition — pénalités carbone jusqu'en 2040",
+              "harchWins": true
+            },
+            {
+              "label": "Traitement cobalt",
+              "harchValue": "Sulfate de cobalt grade batterie — direct",
+              "competitorValue": "Aucun — phosphate uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Traitement terres rares",
+              "harchValue": "99,9 % pureté — approvisionnement non chinois",
+              "competitorValue": "Aucun — pas de capacité REE",
+              "harchWins": true
+            }
+          ],
+          "verdict": "OCP domine le phosphate. Harch Mining domine la pile minérale de la transition énergétique — cobalt pour les batteries, terres rares pour la défense, phosphate pour l'alimentation."
+        }
+      ]
+    },
+    "agriculture": {
+      "name": "Harch Agri",
+      "version": "/0.6",
+      "heroTitle": "Agriculture de Précision\npour l'Afrique",
+      "heroSubtitle": "IoT, drones, fermes verticales et crédits carbone — 5 pays, 11 800+ capteurs, 25 000+ hectares",
+      "overview": "Harch Agri déploie l'agriculture de précision, les capteurs IoT et la technologie de fermes verticales sur les 60 % de terres arables non cultivées du monde en Afrique. Notre approche combine technologie de pointe et connaissance locale approfondie pour convertir le potentiel inexploité en sécurité alimentaire et revenus d'exportation.",
+      "strategicContext": "L'Afrique détient 60 % des terres arables non cultivées du monde — environ 600 millions d'hectares — pourtant le continent reste un importateur net de denrées alimentaires, dépensant 35 milliards de dollars annuellement en importations alimentaires. Ce paradoxe résulte de faibles rendements, d'irrigation limitée et de pertes post-récolte dépassant 30 %. Harch Agri adresse chacune de ces contraintes avec des solutions pilotées par la technologie.",
+      "marketAnalysis": "Le marché agricole et alimentaire de l'Afrique est évalué à 280 milliards de dollars et croît à un TCAM de 6 %. L'opportunité adressable inclut 35 milliards de dollars en substitution d'importations alimentaires actuelles, 50 milliards en potentiel d'exportation pour les cultures à haute valeur et 20 milliards en services technologiques agricoles.",
+      "sustainability": "La durabilité est fondamentale au modèle commercial de Harch Agri. Les systèmes d'irrigation de précision réduisent l'utilisation d'eau de 60 % tout en augmentant les rendements de 30 %. La pulvérisation de précision par drone réduit l'utilisation de produits chimiques de 90 %. L'agriculture verticale utilise 95 % moins d'eau et 99 % moins de terre que l'agriculture en plein champ. Toute l'énergie est fournie par l'infrastructure renouvelable de Harch Energy.",
+      "investment": "150 M$",
+      "metrics": [
+        {
+          "value": 60,
+          "prefix": "",
+          "suffix": " %",
+          "label": "Terres arables non cultivées"
+        },
+        {
+          "value": 50,
+          "prefix": "$",
+          "suffix": " G$/an",
+          "label": "Facture importations alimentaires"
+        },
+        {
+          "value": 100000,
+          "prefix": "",
+          "suffix": " ha",
+          "label": "Objectif d'ici 2030"
+        },
+        {
+          "value": 150,
+          "prefix": "$",
+          "suffix": "M",
+          "label": "Investissement"
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "Plateforme d'agriculture de précision",
+          "desc": "Réseaux de capteurs IoT et gestion des cultures optimisée par IA. La surveillance en temps réel permet l'application précise d'eau, d'engrais et de protection des cultures — réduisant les intrants de 40 % tout en augmentant les rendements de 30 %."
+        },
+        {
+          "title": "Flotte de drones autonomes",
+          "desc": "Flottes de drones autonomes pour la surveillance des cultures, la détection de nuisibles et la pulvérisation de précision. La flotte de 50+ drones couvre 5 000 hectares quotidiennement avec imagerie multispectrale. 10x plus rapide que les méthodes traditionnelles avec 90 % moins de produits chimiques."
+        },
+        {
+          "title": "Installations de fermes verticales",
+          "desc": "Agriculture verticale en intérieur pour les cultures à haute valeur. 95 % moins d'eau, 10x de rendement par mètre carré, production toute l'année. Nos 3 premières installations ciblent les marchés d'exportation européens avec des produits bio premium."
+        },
+        {
+          "title": "Chaîne d'approvisionnement ferme-marché",
+          "desc": "Infrastructure de chaîne d'approvisionnement intégrée de la exploitation au marché d'exportation. Logistique chaîne du froid, installations de transformation et réseaux d'exportation. Taux de perte post-récolte inférieur à 5 % contre la moyenne africaine de 30 %+."
+        },
+        {
+          "title": "Irrigation optimisée par IA",
+          "desc": "Systèmes d'irrigation intelligents réduisant l'utilisation d'eau de 60 % tout en augmentant les rendements de 30 %. Alimentés par l'infrastructure de dessalement de Harch Water et des pompes solaires."
+        },
+        {
+          "title": "Plateforme d'intelligence marché",
+          "desc": "Pricing de commodités et prévision de demande optimisés par IA permettant aux agriculteurs de chronométrer les ventes pour un revenu maximal et planifier les cultures pour des conditions de marché optimales."
+        }
+      ],
+      "specTable": [
+        {
+          "spec": "Zone d'essai",
+          "value": "5 000 ha",
+          "phase": "Vallée du fleuve Sénégal"
+        },
+        {
+          "spec": "Capteurs IoT",
+          "value": "10 000+",
+          "phase": "Sol + météo + culture"
+        },
+        {
+          "spec": "Flotte drones",
+          "value": "50+ unités",
+          "phase": "Opérations autonomes"
+        },
+        {
+          "spec": "Ferms verticales",
+          "value": "3 installations",
+          "phase": "En développement"
+        },
+        {
+          "spec": "Réduction eau",
+          "value": "60 %",
+          "phase": "vs. irrigation traditionnelle"
+        },
+        {
+          "spec": "Augmentation rendement",
+          "value": "30 %",
+          "phase": "vs. agriculture traditionnelle"
+        },
+        {
+          "spec": "Réduction chimiques",
+          "value": "90 %",
+          "phase": "Pulvérisation précision drone"
+        },
+        {
+          "spec": "Cultures export",
+          "value": "12 types",
+          "phase": "Bio haute valeur"
+        },
+        {
+          "spec": "Perte post-récolte",
+          "value": "<5 %",
+          "phase": "vs. 30 % moyenne africaine"
+        },
+        {
+          "spec": "Source énergie",
+          "value": "100 % renouvelable",
+          "phase": "Approvisionnement Harch Energy"
+        }
+      ],
+      "milestones": [
+        {
+          "year": "2025 T2",
+          "title": "Lancement essai agriculture précision",
+          "desc": "Essai d'agriculture de précision de 5 000 hectares lancé dans la vallée du fleuve Sénégal."
+        },
+        {
+          "year": "2026 T1",
+          "title": "Réseau IoT pleinement déployé",
+          "desc": "10 000+ capteurs IoT déployés. Pipeline de données et plateforme d'analytique IA opérationnels."
+        },
+        {
+          "year": "2026 T4",
+          "title": "Résultats première récolte",
+          "desc": "Première récolte d'agriculture de précision démontre 25 % d'amélioration du rendement et 50 % d'économie d'eau."
+        },
+        {
+          "year": "2027 T2",
+          "title": "Flotte drones opérationnelle",
+          "desc": "Flotte de drones autonomes opérationnelle pour la surveillance des cultures et la pulvérisation de précision."
+        },
+        {
+          "year": "2028 T1",
+          "title": "Commissionnement ferme verticale",
+          "desc": "Première installation de ferme verticale commissionnée et en production. Contrats d'exportation européens signés."
+        },
+        {
+          "year": "2029 T2",
+          "title": "Opérations agricoles complètes",
+          "desc": "Tous les systèmes Agri opérationnels à l'échelle. Revenus d'exportation en cours. Expansion phase 2 initiée."
+        }
+      ],
+      "stats": [
+        {
+          "stat": "Amélioration rendement",
+          "value": 75,
+          "max": 100
+        },
+        {
+          "stat": "Efficacité eau",
+          "value": 85,
+          "max": 100
+        },
+        {
+          "stat": "Réduction chimiques",
+          "value": 90,
+          "max": 100
+        },
+        {
+          "stat": "Réduction perte post-récolte",
+          "value": 83,
+          "max": 100
+        }
+      ],
+      "location": "Sénégal",
+      "locationDesc": "Terres agricoles de premier plan dans la vallée du fleuve Sénégal avec saisons de croissance toute l'année, eau d'irrigation fiable et proximité du port de Dakar pour l'exportation européenne.",
+      "strategicAdvantages": [
+        {
+          "title": "Fermeture de l'écart de rendement par la technologie",
+          "desc": "L'écart de rendement de l'Afrique représente la plus grande opportunité agricole inexploitée au monde. La technologie d'agriculture de précision peut combler 60 à 80 % de cet écart en 3 saisons de culture."
+        },
+        {
+          "title": "Nexus eau-énergie-agri intégré",
+          "desc": "Harch Water fournit l'eau d'irrigation dessalée, Harch Energy alimente les pompes solaires et Harch Technology délivre l'IoT et l'analytique IA — une pile intégrée qu'aucune entreprise agricole autonome ne peut répliquer."
+        },
+        {
+          "title": "Proximité export européenne",
+          "desc": "La localisation du Sénégal offre 4 jours d'expédition vers les marchés européens contre 14+ jours depuis les concurrents asiatiques et sud-américains."
+        },
+        {
+          "title": "Mandat sécurité alimentaire",
+          "desc": "Les programmes gouvernementaux de sécurité alimentaire en Afrique de l'Ouest fournissent un prélèvement garanti et un soutien subventionnel pour la production alimentaire nationale."
+        }
+      ],
+      "partnershipModel": [
+        {
+          "title": "Agriculture contractuelle",
+          "desc": "Services agricoles gérés pour propriétaires fonciers et investisseurs. Rendements minimums garantis avec partage de bénéfices au-dessus du seuil."
+        },
+        {
+          "title": "Licenciement AgTech",
+          "desc": "Licenciement de plateforme d'agriculture de précision pour coopératives agricoles et organisations de développement. Modèle SaaS avec tarification à l'hectare."
+        },
+        {
+          "title": "Co-entreprises export",
+          "desc": "Partenariats avec distributeurs et détaillants alimentaires européens pour les produits africains premium."
+        },
+        {
+          "title": "Partenariats finance développement",
+          "desc": "Programmes collaboratifs avec le FIDA, la BAD et les agences bilatérales de développement pour le transfert technologique aux petits exploitants."
+        }
+      ],
+      "competitorHarchName": "Harch Agri",
+      "competitorAccentColor": "#4A7B5F",
+      "competitors": [
+        {
+          "name": "AeroFarms",
+          "country": "USA",
+          "founded": "2004",
+          "revenue": "Post-restructuration Ch.11",
+          "metrics": [
+            {
+              "label": "Pile produits intégrée",
+              "harchValue": "5 produits (Drone+IoT+Vertical+Carbone+Kit)",
+              "competitorValue": "1 produit (ferme aéroponique uniquement)",
+              "harchWins": true
+            },
+            {
+              "label": "Stabilité financière",
+              "harchValue": "Pipeline 150 M$ — en croissance",
+              "competitorValue": "Chapter 11 en 2023 — sauvée",
+              "harchWins": true
+            },
+            {
+              "label": "Opérations africaines",
+              "harchValue": "Sénégal + Maroc — en construction",
+              "competitorValue": "Aucune — USA uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Coût énergie",
+              "harchValue": "0,03 $/kWh (solaire Harch Energy)",
+              "competitorValue": "0,12-0,18 $/kWh (réseau US)",
+              "harchWins": true,
+              "harchNumeric": 3,
+              "competitorNumeric": 15,
+              "barMax": 20,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Revenus crédits carbone",
+              "harchValue": "Oui — Verra VCS + Gold Standard",
+              "competitorValue": "Aucun",
+              "harchWins": true
+            },
+            {
+              "label": "Synergie transversale",
+              "harchValue": "Harch Energy + Eau + Technologie",
+              "competitorValue": "Aucune — ferme autonome",
+              "harchWins": true
+            },
+            {
+              "label": "Flotte drones",
+              "harchValue": "50+ drones autonomes",
+              "competitorValue": "0 — pas de capacité drone",
+              "harchWins": true
+            },
+            {
+              "label": "Réseau IoT",
+              "harchValue": "10 000+ capteurs — temps réel",
+              "competitorValue": "0 — pas de capacité IoT",
+              "harchWins": true
+            }
+          ],
+          "verdict": "3 des 4 principaux concurrents de fermes verticales ont fait faillite. Harch Agri entre au creux du marché avec 5 produits intégrés, des coûts énergétiques 4x inférieurs et 30 M de petits exploitants africains mal desservis."
+        },
+        {
+          "name": "CropX / Climate Corp",
+          "country": "USA / Israël",
+          "founded": "2013 / 2006",
+          "revenue": "50 G$+ (Bayer total)",
+          "metrics": [
+            {
+              "label": "Focus petits exploitants",
+              "harchValue": "Oui — 30 M petits exploitants africains",
+              "competitorValue": "Non — grandes fermes US/BR uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Drone-as-a-Service",
+              "harchValue": "Oui — 50 $/ha/mois",
+              "competitorValue": "Aucun — plateforme logicielle uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Intégration IoT + irrigation",
+              "harchValue": "Pile complète — capteurs + irrigation + IA",
+              "competitorValue": "Partielle — détection uniquement, pas irrigation",
+              "harchWins": true
+            },
+            {
+              "label": "Crédits carbone pour agriculteurs",
+              "harchValue": "Oui — commission 2 %, Verra VCS",
+              "competitorValue": "Indigo Ag (US uniquement, pas Afrique)",
+              "harchWins": true
+            },
+            {
+              "label": "Opérations africaines",
+              "harchValue": "Essais 5 000 ha — Sénégal + Maroc",
+              "competitorValue": "0 hectare en Afrique",
+              "harchWins": true
+            },
+            {
+              "label": "Prix kit de démarrage",
+              "harchValue": "200 $ — 3 capteurs + passerelle LoRaWAN",
+              "competitorValue": "749-1 499 $/an (tarification US)",
+              "harchWins": true,
+              "harchNumeric": 200,
+              "competitorNumeric": 749,
+              "barMax": 1500,
+              "lowerIsBetter": true
+            }
+          ],
+          "verdict": "CropX et Climate Corp servent les grandes fermes commerciales américaines à 749 $/an. Harch Agri sert 30 M de petits exploitants africains à 200 $ — avec drones, irrigation IoT, crédits carbone et fermes verticales qu'ils n'offrent pas."
+        }
+      ]
+    },
+    "water": {
+      "name": "Harch Water",
+      "version": "/0.7",
+      "heroTitle": "Résoudre la Crise\nde l'Eau en Afrique",
+      "heroSubtitle": "Dessalement de 200 M m³/an avec distribution optimisée par IA pour les besoins industriels et communautaires",
+      "overview": "Harch Water déploie une capacité de dessalement de 200 M m³/an avec distribution optimisée par IA, résolvant la crise de sécurité hydrique de l'Afrique à l'échelle continentale. Chaque projet alloue 10 % de la capacité pour l'usage communautaire sans frais, garantissant que le développement industriel et les besoins humains sont satisfaits simultanément.",
+      "strategicContext": "Plus de 400 millions d'Africains manquent d'accès à l'eau potable, et 700 millions manquent d'assainissement adéquat. Le changement climatique intensifie le stress hydrique à travers le Sahel et l'Afrique du Nord. Le dessalement alimenté par l'énergie renouvelable représente la seule solution scalable et résiliente au climat. Harch Water construit cette solution à l'échelle que le continent exige.",
+      "marketAnalysis": "Le marché de l'infrastructure hydrique de l'Afrique est évalué à 25 milliards de dollars annuellement et croît à un TCAM de 10 %. Le dessalement spécifiquement est le segment à la croissance la plus rapide, avec la capacité installée africaine projetée de passer de 6 M m³/jour à 25 M m³/jour d'ici 2030.",
+      "sustainability": "Les usines de dessalement de Harch Water sont entièrement alimentées par l'infrastructure renouvelable de Harch Energy. Les dispositifs de récupération d'énergie réduisent la consommation électrique à 2,5 kWh/m³ — 40 % sous la moyenne de l'industrie. La gestion de la saumure suit des protocoles de diffusion exemplaires qui protègent les écosystèmes marins. L'allocation communautaire de 10 % fournit de l'eau potable pour plus de 50 M de personnes sans frais.",
+      "investment": "150 M$",
+      "metrics": [
+        {
+          "value": 200,
+          "prefix": "",
+          "suffix": " M m³/an",
+          "label": "Capacité dessalement"
+        },
+        {
+          "value": 400,
+          "prefix": "",
+          "suffix": " M",
+          "label": "Personnes sans eau potable"
+        },
+        {
+          "value": 25,
+          "prefix": "",
+          "suffix": "",
+          "label": "Pays en stress hydrique"
+        },
+        {
+          "value": 150,
+          "prefix": "$",
+          "suffix": "M",
+          "label": "Investissement"
+        }
+      ],
+      "capabilities": [
+        {
+          "title": "Dessalement par osmose inverse",
+          "desc": "Usines de dessalement par osmose inverse de dernière génération alimentées par l'infrastructure renouvelable de Harch Energy. Capacité de 200 M m³/an avec consommation d'énergie de seulement 2,5 kWh/m³."
+        },
+        {
+          "title": "Distribution optimisée par IA",
+          "desc": "Réseaux de distribution d'eau optimisés par IA qui réduisent le gaspillage de 40 % et assurent une allocation équitable entre utilisateurs industriels et communautaires."
+        },
+        {
+          "title": "Surveillance réseau intelligent",
+          "desc": "Réseaux de distribution d'eau activés par IoT avec surveillance en temps réel, détection de fuites et maintenance prédictive. 10 000+ capteurs avec 99,5 % de disponibilité réseau."
+        },
+        {
+          "title": "Assurance qualité de l'eau",
+          "desc": "Filtration multi-étapes et surveillance continue de la qualité garantissant une eau potable aux normes OMS pour toutes les allocations communautaires."
+        },
+        {
+          "title": "Systèmes de récupération d'énergie",
+          "desc": "Dispositifs avancés de récupération d'énergie réduisant la consommation de 40 % par rapport aux systèmes conventionnels. Alimentés par Harch Energy à 0,03 $/kWh — produisant de l'eau à 0,45 $/m³."
+        },
+        {
+          "title": "Accès eau communautaire",
+          "desc": "10 % de toute la capacité de dessalement allouée pour l'usage communautaire sans frais — fournissant de l'eau potable pour plus de 50 M de personnes dans nos régions d'exploitation."
+        }
+      ],
+      "specTable": [
+        {
+          "spec": "Capacité totale",
+          "value": "200 M m³/an",
+          "phase": "Construction complète"
+        },
+        {
+          "spec": "Technologie",
+          "value": "Osmose inverse",
+          "phase": "Membranes dernière génération"
+        },
+        {
+          "spec": "Utilisation énergie",
+          "value": "2,5 kWh/m³",
+          "phase": "Efficacité leader industrie"
+        },
+        {
+          "spec": "Taux récupération",
+          "value": "45 %",
+          "phase": "Membranes haute efficacité"
+        },
+        {
+          "spec": "Allocation communautaire",
+          "value": "10 % gratuit",
+          "phase": "20 M m³/an pour communautés"
+        },
+        {
+          "spec": "Disponibilité réseau",
+          "value": "99,5 %",
+          "phase": "Systèmes surveillance IoT"
+        },
+        {
+          "spec": "Qualité eau",
+          "value": "Norme OMS",
+          "phase": "Surveillance continue"
+        },
+        {
+          "spec": "Détection fuites",
+          "value": "Alimentée par IA",
+          "phase": "Alertes temps réel"
+        },
+        {
+          "spec": "Coût production",
+          "value": "0,45 $/m³",
+          "phase": "Alimenté énergie renouvelable"
+        },
+        {
+          "spec": "Gestion saumure",
+          "value": "Protocole diffusion",
+          "phase": "Protection écosystème marin"
+        }
+      ],
+      "milestones": [
+        {
+          "year": "2025 T3",
+          "title": "Lancement pilote dessalement",
+          "desc": "Projet pilote de dessalement lancé dans le sud du Maroc. Capacité de 10 000 m³/jour validant la technologie."
+        },
+        {
+          "year": "2026 T2",
+          "title": "Résultats pilote validés",
+          "desc": "Le projet pilote atteint tous les objectifs de performance : consommation 2,5 kWh/m³, taux de récupération 45 %."
+        },
+        {
+          "year": "2026 T4",
+          "title": "Plateforme distribution IA",
+          "desc": "Système de distribution optimisé par IA validé. Détection de fuites réduisant les pertes de 35 %."
+        },
+        {
+          "year": "2027 T3",
+          "title": "Première usine pleine échelle",
+          "desc": "Début de la construction de la première usine de dessalement pleine échelle de 50 M m³/an."
+        },
+        {
+          "year": "2029 T1",
+          "title": "Première usine en ligne",
+          "desc": "Première usine de dessalement opérationnelle. Capacité de 50 M m³/an desservant les besoins industriels et communautaires."
+        },
+        {
+          "year": "2030 T4",
+          "title": "Capacité complète 200 M m³/an",
+          "desc": "Capacité totale de 200 M m³/an opérationnelle. Plus de 50 M de personnes recevant l'accès eau communautaire."
+        }
+      ],
+      "stats": [
+        {
+          "stat": "Efficacité énergétique vs moyenne",
+          "value": 90,
+          "max": 100
+        },
+        {
+          "stat": "Réduction pertes réseau",
+          "value": 85,
+          "max": 100
+        },
+        {
+          "stat": "Objectif accès communautaire",
+          "value": 75,
+          "max": 100
+        },
+        {
+          "stat": "Compétitivité coût",
+          "value": 88,
+          "max": 100
+        }
+      ],
+      "location": "Mali",
+      "locationDesc": "Opérations dans les régions ouest-africaines en stress hydrique avec besoins communautaires critiques. Déploiement initial dans le sud du Maroc avec expansion vers le Mali et le couloir du Sahel.",
+      "strategicAdvantages": [
+        {
+          "title": "Leadership coût alimenté par renouvelable",
+          "desc": "Dessalement à 0,45 $/m³ — 40 % sous les usines alimentées par réseau — grâce à l'électricité renouvelable de Harch Energy à 0,03 $/kWh. Cet avantage de coût structurel est permanent."
+        },
+        {
+          "title": "Intégration transversale",
+          "desc": "Chaque verticale Harch nécessite de l'eau — pour le refroidissement des centres de données, le mélange du ciment, l'irrigation des cultures et le traitement des minéraux. La base de demande captive fournit un plancher de revenus."
+        },
+        {
+          "title": "Distribution optimisée par IA",
+          "desc": "La plateforme de distribution IA propriétaire réduit les pertes réseau à <5 % contre la moyenne africaine de 40 %+."
+        },
+        {
+          "title": "Mandat communautaire",
+          "desc": "L'allocation communautaire gratuite de 10 % construit une licence sociale, un soutien gouvernemental et une éligibilité au financement du développement que les opérateurs purement commerciaux ne peuvent pas obtenir."
+        }
+      ],
+      "partnershipModel": [
+        {
+          "title": "Approvisionnement eau industriel",
+          "desc": "Accords de fourniture d'eau à long terme avec entreprises minières, parcs industriels et opérations agricoles."
+        },
+        {
+          "title": "Concessions eau gouvernementales",
+          "desc": "Partenariats public-privé pour l'approvisionnement et la distribution d'eau municipale. Modèles construire-opérer-transférer."
+        },
+        {
+          "title": "Programmes eau communautaire",
+          "desc": "Programmes collaboratifs avec l'UNICEF, WaterAid et agences gouvernementales pour l'accès rural à l'eau."
+        },
+        {
+          "title": "Partenariats finance développement",
+          "desc": "Structures de financement de projet avec la BAD, l'IFC et les institutions bilatérales de financement du développement."
+        }
+      ],
+      "competitorHarchName": "Harch Water",
+      "competitorAccentColor": "#8B9DAF",
+      "competitors": [
+        {
+          "name": "Veolia",
+          "country": "France",
+          "founded": "1853",
+          "revenue": "45 G$ (2024)",
+          "metrics": [
+            {
+              "label": "Coût production",
+              "harchValue": "0,45 $/m³",
+              "competitorValue": "0,60-1,00 $/m³",
+              "harchWins": true,
+              "harchNumeric": 45,
+              "competitorNumeric": 80,
+              "barMax": 100,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Utilisation énergie",
+              "harchValue": "2,5 kWh/m³",
+              "competitorValue": "3,0-4,0 kWh/m³",
+              "harchWins": true,
+              "harchNumeric": 2.5,
+              "competitorNumeric": 3.5,
+              "barMax": 5,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Pertes réseau",
+              "harchValue": "<5 %",
+              "competitorValue": "15-25 % typique",
+              "harchWins": true
+            },
+            {
+              "label": "Distribution IA",
+              "harchValue": "Propriétaire — temps réel",
+              "competitorValue": "Limitée (Xylem tiers)",
+              "harchWins": true
+            },
+            {
+              "label": "Allocation communautaire",
+              "harchValue": "10 % gratuit",
+              "competitorValue": "0 % — commercial uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Énergie renouvelable",
+              "harchValue": "100 % — Harch Energy",
+              "competitorValue": "Mix réseau — partiel",
+              "harchWins": true
+            },
+            {
+              "label": "Intensité carbone",
+              "harchValue": "Quasi zéro — 100 % renouvelable",
+              "competitorValue": "Élevée — usines fossiles",
+              "harchWins": true
+            },
+            {
+              "label": "Intégration transversale",
+              "harchValue": "5 filiales — écosystème industriel",
+              "competitorValue": "Aucune — eau autonome",
+              "harchWins": true
+            },
+            {
+              "label": "Coût livré",
+              "harchValue": "0,50 $/m³ (tout inclus)",
+              "competitorValue": "0,75-1,20 $/m³ (avec pertes distribution)",
+              "harchWins": true,
+              "harchNumeric": 50,
+              "competitorNumeric": 97,
+              "barMax": 120,
+              "lowerIsBetter": true
+            }
+          ],
+          "verdict": "Veolia construit la plus grande usine de dessalement d'Afrique à 2x notre coût et 3x notre consommation d'énergie, perdant 20 % de l'eau en distribution. Harch Water construit le plus intelligent — 40 % moins cher, 60 % moins d'énergie, 5x moins de pertes réseau."
+        },
+        {
+          "name": "IDE Technologies",
+          "country": "Israël",
+          "founded": "1965",
+          "revenue": "1 G$+ (est.)",
+          "metrics": [
+            {
+              "label": "Coût production",
+              "harchValue": "0,45 $/m³",
+              "competitorValue": "0,50-0,60 $/m³",
+              "harchWins": true,
+              "harchNumeric": 45,
+              "competitorNumeric": 55,
+              "barMax": 70,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Utilisation énergie",
+              "harchValue": "2,5 kWh/m³",
+              "competitorValue": "3,0-3,5 kWh/m³",
+              "harchWins": true,
+              "harchNumeric": 2.5,
+              "competitorNumeric": 3.25,
+              "barMax": 4.5,
+              "lowerIsBetter": true
+            },
+            {
+              "label": "Distribution IA",
+              "harchValue": "Plateforme propriétaire — 10K+ capteurs",
+              "competitorValue": "Aucune — pas de tech distribution",
+              "harchWins": true
+            },
+            {
+              "label": "Allocation communautaire",
+              "harchValue": "10 % gratuit — 20 M m³/an",
+              "competitorValue": "0 %",
+              "harchWins": true
+            },
+            {
+              "label": "Opérations Afrique",
+              "harchValue": "Mali + Maroc — en construction",
+              "competitorValue": "Aucune — Israël/Moyen-Orient uniquement",
+              "harchWins": true
+            },
+            {
+              "label": "Énergie renouvelable",
+              "harchValue": "100 % — Harch Energy",
+              "competitorValue": "Alimentée par réseau — pas d'approvisionnement renouvelable",
+              "harchWins": true
+            }
+          ],
+          "verdict": "IDE construit d'excellentes usines de dessalement — en Israël. Harch Water construit d'excellents systèmes de dessalement en Afrique — usine + distribution IA + allocation communautaire + 100 % énergie renouvelable. Usine vs système. Pas de concours."
+        }
+      ]
+    }
   },
   "support": {
     "title": "Support",
@@ -9701,7 +12311,7 @@
       },
       "monitoring": {
         "title": "Surveillance",
-        "description": "Monitoring 24/7 avec alertes en temps reel et audit logs."
+        "description": "Monitoring 24/7 avec alertes en temps réel et audit logs."
       },
       "incident": {
         "title": "Reponse aux incidents",
@@ -9713,14 +12323,14 @@
       },
       "application": {
         "codeReview": {
-          "desc": "Code Review Description",
-          "metric1Label": "Code Review Metric1 Label",
-          "metric1Value": "Code Review Metric1 Value",
-          "metric2Label": "Code Review Metric2 Label",
-          "metric2Value": "Code Review Metric2 Value",
-          "metric3Label": "Code Review Metric3 Label",
-          "metric3Value": "Code Review Metric3 Value",
-          "title": "Code Review Title"
+          "desc": "Des processus de revue de code rigoureux pour garantir la qualité et la sécurité.",
+          "metric1Label": "Temps de réponse moyen",
+          "metric1Value": "< 24h",
+          "metric2Label": "Taux d'approbation",
+          "metric2Value": "94%",
+          "metric3Label": "Contributeurs actifs",
+          "metric3Value": "200+",
+          "title": "Revue de code"
         },
         "description": "Application Description",
         "label": "Application Label",
@@ -9843,8 +12453,8 @@
         "label": "Data Label",
         "title": "Data Title"
       },
-      "heroDescription": "Security Hero Description",
-      "heroTitle": "Security Hero Title",
+      "heroDescription": "Sécurité de niveau militaire pour protéger votre infrastructure souveraine.",
+      "heroTitle": "Sécurité",
       "identity": {
         "auditCompliance": {
           "desc": "Audit Compliance Description",
@@ -10064,7 +12674,7 @@
         "tableType": "Audit Reports Table Type",
         "title": "Audit Reports Title"
       },
-      "auditorLabel": "Compliance Auditor Label",
+      "auditorLabel": "Auditeur",
       "certifications": {
         "ccpa": {
           "description": "Ccpa Description",
@@ -10169,14 +12779,14 @@
         "summary": "Dpa Summary",
         "title": "Dpa Title"
       },
-      "heroDescription": "Compliance Hero Description",
-      "heroTitle": "Compliance Hero Title",
-      "lastAuditLabel": "Compliance Last Audit Label",
+      "heroDescription": "Conformité et certifications de niveau international pour votre tranquillité.",
+      "heroTitle": "Conformité",
+      "lastAuditLabel": "Dernier audit",
       "ongoing": "Compliance Ongoing",
       "pending": "Compliance Pending",
       "regionEU": "Compliance Région Eu",
       "regionGlobal": "Compliance Région Global",
-      "regionLabel": "Compliance Région Label",
+      "regionLabel": "Région",
       "regionMorocco": "Compliance Région Morocco",
       "regionUS": "Compliance Région Us",
       "regionalPrograms": "Compliance Régional Programs",
@@ -10216,7 +12826,7 @@
         },
         "title": "Régions Title"
       },
-      "scopeLabel": "Compliance Scope Label",
+      "scopeLabel": "Périmètre",
       "subtitle": "Compliance Subtitle"
     },
     "aiEthics": {
@@ -10274,9 +12884,9 @@
           "title": "Adversarial Title"
         },
         "communityFeedback": {
-          "desc": "Community Feedback Description",
+          "desc": "Votre avis compte. Aidez-nous à améliorer nos outils et notre documentation.",
           "frequency": "Community Feedback Frequency",
-          "title": "Community Feedback Title"
+          "title": "Retours de la communauté"
         },
         "continuousMonitoring": {
           "desc": "Continuous Monitoring Description",
@@ -10342,8 +12952,8 @@
         "title": "Fairness Title"
       },
       "fairnessScore": "Ai Ethics Fairness Score",
-      "heroDescription": "Ai Ethics Hero Description",
-      "heroTitle": "Ai Ethics Hero Title",
+      "heroDescription": "Notre engagement pour une IA éthique, responsable et souveraine.",
+      "heroTitle": "Éthique de l'IA",
       "modelTransparency": "Ai Ethics Model Transparency",
       "oversight": {
         "description": "Oversight Description",
@@ -10385,9 +12995,9 @@
           "title": "Chief Ethics Officer Title"
         },
         "communityRep": {
-          "desc": "Community Rep Description",
+          "desc": "Représentants communautaires qui font le pont entre les développeurs et l'équipe produit.",
           "role": "Community Rep Role",
-          "title": "Community Rep Title"
+          "title": "Représentants communautaires"
         },
         "description": "Review Board Description",
         "externalAdvisor": {
@@ -10521,9 +13131,9 @@
         "title": "Cta"
       },
       "fullPolicy": "Vulnerability Full Policy",
-      "helpUsTitle": "Vulnerability Help Us Title",
-      "heroDescription": "Vulnerability Hero Description",
-      "heroTitle": "Vulnerability Hero Title",
+      "helpUsTitle": "Aidez-nous à sécuriser",
+      "heroDescription": "Aidez-nous à identifier et corriger les vulnérabilités pour renforcer notre infrastructure.",
+      "heroTitle": "Divulgation de vulnérabilités",
       "hof": {
         "awaitingDescription": "Hof Awaiting Description",
         "awaitingTitle": "Hof Awaiting Title",
@@ -10605,15 +13215,15 @@
         "title": "Rules Title"
       },
       "step1Desc": "Vulnerability Step1 Desc",
-      "step1Title": "Vulnerability Step1 Title",
+      "step1Title": "Identification",
       "step2Desc": "Vulnerability Step2 Desc",
-      "step2Title": "Vulnerability Step2 Title",
+      "step2Title": "Vérification",
       "step3Desc": "Vulnerability Step3 Desc",
-      "step3Title": "Vulnerability Step3 Title",
+      "step3Title": "Correction",
       "step4Desc": "Vulnerability Step4 Desc",
-      "step4Title": "Vulnerability Step4 Title",
+      "step4Title": "Validation",
       "step5Desc": "Vulnerability Step5 Desc",
-      "step5Title": "Vulnerability Step5 Title"
+      "step5Title": "Publication"
     },
     "applicationConfigLayer": "Application Config Layer",
     "architecture": "Architecture",
@@ -10660,7 +13270,7 @@
       }
     },
     "certifiedAuditedVerified": "Certified Audited Verified",
-    "complianceDescription": "Compliance Description",
+    "complianceDescription": "Notre infrastructure est conforme aux normes internationales les plus strictes.",
     "ctaDescription": "Description for trust",
     "ctaTitle": "Trust",
     "customerSecures": "Customer Secures",
@@ -10729,8 +13339,8 @@
         "name": "Platform Name"
       }
     },
-    "securityLayersDescription": "Security Layers Description",
-    "securityLayersTitle": "Security Layers Title",
+    "securityLayersDescription": "Plusieurs couches de sécurité protégeant chaque niveau de l'infrastructure.",
+    "securityLayersTitle": "Couches de sécurité",
     "securityOverview": {
       "accessControl": {
         "desc": "Access Control Description",
@@ -10749,7 +13359,7 @@
         "title": "Infrastructure Title"
       }
     },
-    "securityOverviewDescription": "Security Overview Description",
+    "securityOverviewDescription": "Vue d'ensemble de notre architecture de sécurité multicouche.",
     "sharedResponsibility": {
       "customer": {
         "accessManagement": "Access Management",

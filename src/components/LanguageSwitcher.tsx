@@ -2,13 +2,18 @@
 
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
-import { Globe } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const locales = [
+  { code: 'en' as const, label: 'English', flag: 'EN' },
+  { code: 'fr' as const, label: 'Français', flag: 'FR' },
+];
 
 /**
- * Palantir-style language switcher — clean, minimal, dark aesthetic.
- * Appears as a subtle button showing current locale (EN | FR).
- * On click, toggles between English and French using next-intl routing.
+ * Palantir-style language switcher — premium, minimal, dark aesthetic.
+ * A refined pill button showing the active locale with a smooth dropdown.
+ * Designed to feel like a native part of the interface.
  */
 export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' | 'sidebar' }) {
   const locale = useLocale();
@@ -18,7 +23,12 @@ export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' 
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const nextLocale = locale === 'en' ? 'fr' : 'en';
+  const switchLocale = useCallback((newLocale: 'en' | 'fr') => {
+    if (newLocale !== locale) {
+      router.replace(pathname, { locale: newLocale });
+    }
+    setOpen(false);
+  }, [locale, pathname, router]);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -26,70 +36,181 @@ export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' 
         setOpen(false);
       }
     }
-    if (open) document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === 'Escape') setOpen(false);
+    }
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
   }, [open]);
 
-  const switchLocale = () => {
-    router.replace(pathname, { locale: nextLocale });
-    setOpen(false);
-  };
-
+  // Sidebar variant — compact toggle
   if (variant === 'sidebar') {
+    const nextLocale = locale === 'en' ? 'fr' : 'en';
     return (
       <button
-        onClick={switchLocale}
-        className="flex items-center gap-2 w-full px-4 py-2 text-[11px] font-medium text-[rgba(255,255,255,0.4)] hover:text-white hover:bg-[rgba(139,157,175,0.06)] rounded-r-md transition-all duration-200"
+        onClick={() => switchLocale(nextLocale)}
+        className="flex items-center gap-2.5 w-full px-4 py-2.5 text-[11px] font-medium text-[rgba(255,255,255,0.35)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] rounded-md transition-all duration-200 group"
         aria-label={t('switchLanguage')}
       >
-        <Globe size={13} strokeWidth={1.5} className="shrink-0" />
-        <span className="font-[family-name:var(--font-space-mono)] tracking-[0.12em] uppercase">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="shrink-0 opacity-50 group-hover:opacity-100 transition-opacity"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+          <path d="M2 12h20" />
+        </svg>
+        <span className="font-[family-name:var(--font-space-mono)] tracking-[0.14em] uppercase">
           {locale === 'en' ? 'EN → FR' : 'FR → EN'}
         </span>
       </button>
     );
   }
 
+  // Default variant — premium Palantir-style switcher
   return (
     <div ref={ref} className="fixed top-5 right-5 z-50">
+      {/* Trigger button */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 text-[10px] font-semibold tracking-[0.14em] uppercase font-[family-name:var(--font-space-mono)] text-[rgba(255,255,255,0.5)] hover:text-white bg-[#111111]/90 backdrop-blur-md border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.12)] rounded-lg shadow-lg transition-all duration-200"
+        className={`
+          flex items-center gap-2 px-3 py-1.5
+          text-[11px] font-medium tracking-[0.1em] uppercase
+          font-[family-name:var(--font-space-mono)]
+          rounded-full
+          transition-all duration-300 ease-out
+          border
+          ${open
+            ? 'bg-[rgba(255,255,255,0.08)] border-[rgba(255,255,255,0.15)] text-white shadow-lg shadow-black/20'
+            : 'bg-[#0A0A0A]/80 border-[rgba(255,255,255,0.06)] text-[rgba(255,255,255,0.45)] hover:text-[rgba(255,255,255,0.8)] hover:border-[rgba(255,255,255,0.1)] hover:bg-[#0A0A0A]/95'
+          }
+          backdrop-blur-xl
+        `}
         aria-label={t('switchLanguage')}
         aria-expanded={open}
+        aria-haspopup="listbox"
       >
-        <Globe size={12} strokeWidth={1.5} />
-        {locale.toUpperCase()}
+        {/* Globe icon */}
+        <svg
+          width="13"
+          height="13"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="shrink-0"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+          <path d="M2 12h20" />
+        </svg>
+        <span>{locale.toUpperCase()}</span>
+        {/* Chevron indicator */}
+        <motion.svg
+          width="10"
+          height="10"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="shrink-0 opacity-40"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </motion.svg>
       </button>
 
-      {open && (
-        <div className="absolute top-full right-0 mt-1.5 w-[120px] bg-[#111111] border border-[rgba(255,255,255,0.08)] rounded shadow-2xl overflow-hidden z-50">
-          {(['en', 'fr'] as const).map((loc) => (
-            <button
-              key={loc}
-              onClick={() => {
-                if (loc !== locale) {
-                  router.replace(pathname, { locale: loc });
-                }
-                setOpen(false);
-              }}
-              className={`flex items-center gap-2 w-full px-3 py-2 text-[11px] font-medium transition-colors ${
-                loc === locale
-                  ? 'text-white bg-[rgba(139,157,175,0.08)]'
-                  : 'text-[rgba(255,255,255,0.5)] hover:text-white hover:bg-[rgba(139,157,175,0.05)]'
-              }`}
-            >
-              <span className="font-[family-name:var(--font-space-mono)] tracking-[0.1em] uppercase">{loc}</span>
-              <span className="text-[10px] text-[rgba(255,255,255,0.3)]">
-                {loc === 'en' ? 'English' : 'Français'}
-              </span>
-              {loc === locale && (
-                <span className="ml-auto w-1 h-1 rounded-full bg-[#4A7B5F]" />
-              )}
-            </button>
-          ))}
-        </div>
-      )}
+      {/* Dropdown */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -4, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -4, scale: 0.96 }}
+            transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
+            className="absolute top-full right-0 mt-2 w-[160px] origin-top-right"
+          >
+            <div className="bg-[#111111]/95 backdrop-blur-xl border border-[rgba(255,255,255,0.08)] rounded-lg shadow-2xl shadow-black/40 overflow-hidden">
+              <div className="py-1">
+                {locales.map((loc) => {
+                  const isActive = loc.code === locale;
+                  return (
+                    <button
+                      key={loc.code}
+                      onClick={() => switchLocale(loc.code)}
+                      className={`
+                        flex items-center gap-3 w-full px-3.5 py-2.5
+                        text-[12px] font-medium
+                        transition-all duration-150
+                        ${isActive
+                          ? 'text-white bg-[rgba(255,255,255,0.06)]'
+                          : 'text-[rgba(255,255,255,0.45)] hover:text-white hover:bg-[rgba(255,255,255,0.04)]'
+                        }
+                      `}
+                      role="option"
+                      aria-selected={isActive}
+                    >
+                      {/* Language code badge */}
+                      <span
+                        className={`
+                          inline-flex items-center justify-center
+                          w-7 h-5 rounded text-[9px] font-bold tracking-wider
+                          font-[family-name:var(--font-space-mono)]
+                          transition-colors duration-150
+                          ${isActive
+                            ? 'bg-[rgba(255,255,255,0.1)] text-white'
+                            : 'bg-[rgba(255,255,255,0.04)] text-[rgba(255,255,255,0.35)]'
+                          }
+                        `}
+                      >
+                        {loc.flag}
+                      </span>
+
+                      {/* Language name */}
+                      <span className="flex-1 text-left">{loc.label}</span>
+
+                      {/* Active indicator */}
+                      {isActive && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ duration: 0.2, type: 'spring', stiffness: 500, damping: 30 }}
+                          className="w-1.5 h-1.5 rounded-full bg-[#4A7B5F]"
+                        />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Subtle separator and current indicator */}
+              <div className="border-t border-[rgba(255,255,255,0.04)] px-3.5 py-2">
+                <p className="text-[9px] text-[rgba(255,255,255,0.2)] tracking-[0.08em] uppercase font-[family-name:var(--font-space-mono)]">
+                  {locale === 'en' ? 'Language' : 'Langue'}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

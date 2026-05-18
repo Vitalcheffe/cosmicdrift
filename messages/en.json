@@ -5475,7 +5475,7 @@
           ],
           "title": "Key Outcomes"
         },
-        "stat": "3 gisements",
+        "stat": "3 deposits",
         "tagline": "Strategic Mineral Extraction",
         "headline": "Capturing the Value Chain"
       },
@@ -6001,8 +6001,8 @@
     "factSheet": "Fact Sheet",
     "factSheetDescription": "Key facts and figures about Harch Corp's operations, infrastructure, and market position.",
     "featured": "Featured",
-    "heroDescription": "press retheases officiels, copenure medAI and annonthiss of l'ecosysteme Harch Corp.",
-    "heroTitle": "Actualites Harch",
+    "heroDescription": "Official press releases, media coverage and announcements from the Harch Corp ecosystem.",
+    "heroTitle": "Harch Newsroom",
     "mediaContact": "Media Contact",
     "mediaContactDescription": "Press and media contact information for Harch Corp communications and interview requests.",
     "mediaKit": "Media Kit",
@@ -8105,8 +8105,8 @@
       "tagline": "Operating System for Africa's Capital Formation"
     },
     "heroMetaLabel": "Details",
-    "heroSubtitle": "8 verticales. Un ecosysteme souverain.",
-    "heroTitle": "Nos Filiales",
+    "heroSubtitle": "8 Verticals. A Sovereign Ecosystem.",
+    "heroTitle": "Our Subsidiaries",
     "intelligence": {
       "desc": "Intelligence Description",
       "name": "Intelligence Name",
@@ -11665,7 +11665,7 @@
     "defenseInDepth": "Defense In Depth",
     "description": "Complete documentation for HarchOS — the operating system for sovereign infrastructure.",
     "harchCorpSecures": "Harch Corp Secures",
-    "heroTitle": "thisntre of ConfAInthis",
+    "heroTitle": "Centre of Confidence",
     "infrastructurePlatformLayer": "Infrastructure Platform Layer",
     "learnMore": "Learn More",
     "requestBriefing": "Request Briefing",
@@ -12105,9 +12105,9 @@
       },
       "process": {
         "ackSla": "Process Ack Sla",
-        "description": "Comment signather a vulnerabilite of maniere responsabthe.",
+        "description": "How to report a vulnerability in a responsible manner.",
         "label": "Process",
-        "title": "Processus",
+        "title": "Process",
         "triageSla": "Process Triage Sla"
       },
       "reportVulnerability": "Vulnerability Report Vulnerability",

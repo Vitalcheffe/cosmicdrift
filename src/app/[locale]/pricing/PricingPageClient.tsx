@@ -19,7 +19,7 @@ export default function PricingPageClient() {
   const [gpuHours, setGpuHours] = useState(100);
   const [storage, setStorage] = useState(500);
 
-  const estimatedCost = (gpuHours * 0.5 + storage * 0.02).toFixed(2);
+  const estimatedCost = (gpuHours * 1.80 + storage * 0.05).toFixed(2);
 
   const tiers = [
     {
@@ -341,6 +341,7 @@ export default function PricingPageClient() {
                   <Link href="/pricing/calculator" className="mt-4 inline-flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-lg text-[13px] font-semibold hover:bg-white/90 transition-all">
                     {t('calculator.fullCalculatorButton')} <ArrowRight size={14} />
                   </Link>
+                  <p className="mt-3 text-[11px] text-[#666666] text-center lg:text-left">{t('calculator.estimateNote')}</p>
                 </div>
               </div>
             </div>

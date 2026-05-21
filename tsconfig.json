@@ -40,6 +40,8 @@
     "node_modules",
     "examples",
     "skills",
-    "scripts"
+    "scripts",
+    "dakhla-amenagement",
+    "dakhla-review"
   ]
 }

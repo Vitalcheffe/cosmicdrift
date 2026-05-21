@@ -35,99 +35,99 @@ const verticals = [
     icon: Server,
     version: '/0.1',
     stat: '1,798 GPUs',
-    capabilities: ['GPU Clusters', 'AI Training', 'Inference at Scale', 'Sovereign Cloud'],
+    capabilityKeys: ['step1.verticals.intelligence.capabilities.gpuClusters', 'step1.verticals.intelligence.capabilities.aiTraining', 'step1.verticals.intelligence.capabilities.inferenceScale', 'step1.verticals.intelligence.capabilities.sovereignCloud'],
   },
   {
     id: 'cement',
     icon: Factory,
     version: '/0.2',
     stat: '500kT/yr',
-    capabilities: ['Clinker Production', 'AI-Optimized Kilns', 'Regional Distribution', 'Green Cement'],
+    capabilityKeys: ['step1.verticals.cement.capabilities.clinkerProduction', 'step1.verticals.cement.capabilities.aiKilns', 'step1.verticals.cement.capabilities.regionalDistribution', 'step1.verticals.cement.capabilities.greenCement'],
   },
   {
     id: 'energy',
     icon: Zap,
     version: '/0.3',
     stat: '2GW+',
-    capabilities: ['Solar Farms', 'Wind Turbines', 'Hybrid Plants', 'Grid Integration'],
+    capabilityKeys: ['step1.verticals.energy.capabilities.solarFarms', 'step1.verticals.energy.capabilities.windTurbines', 'step1.verticals.energy.capabilities.hybridPlants', 'step1.verticals.energy.capabilities.gridIntegration'],
   },
   {
     id: 'technology',
     icon: Cpu,
     version: '/0.4',
     stat: '1,798 GPUs',
-    capabilities: ['Ground Stations', 'Satellite Comms', 'Edge Computing', 'IoT Platforms'],
+    capabilityKeys: ['step1.verticals.technology.capabilities.groundStations', 'step1.verticals.technology.capabilities.satelliteComms', 'step1.verticals.technology.capabilities.edgeComputing', 'step1.verticals.technology.capabilities.iotPlatforms'],
   },
   {
     id: 'mining',
     icon: Mountain,
     version: '/0.5',
     stat: '3 Minerals',
-    capabilities: ['Phosphate Mining', 'Cobalt Extraction', 'Lithium Processing', 'AI Exploration'],
+    capabilityKeys: ['step1.verticals.mining.capabilities.phosphateMining', 'step1.verticals.mining.capabilities.cobaltExtraction', 'step1.verticals.mining.capabilities.lithiumProcessing', 'step1.verticals.mining.capabilities.aiExploration'],
   },
   {
     id: 'agriculture',
     icon: Wheat,
     version: '/0.6',
     stat: '$35B Market',
-    capabilities: ['Vertical Farms', 'Precision Agri', 'Supply Chain AI', 'Food Processing'],
+    capabilityKeys: ['step1.verticals.agriculture.capabilities.verticalFarms', 'step1.verticals.agriculture.capabilities.precisionAgri', 'step1.verticals.agriculture.capabilities.supplyChainAi', 'step1.verticals.agriculture.capabilities.foodProcessing'],
   },
   {
     id: 'water',
     icon: Droplets,
     version: '/0.7',
     stat: '200M m\u00B3/yr',
-    capabilities: ['Desalination', 'Water Treatment', 'Distribution Networks', 'Smart Metering'],
+    capabilityKeys: ['step1.verticals.water.capabilities.desalination', 'step1.verticals.water.capabilities.waterTreatment', 'step1.verticals.water.capabilities.distributionNetworks', 'step1.verticals.water.capabilities.smartMetering'],
   },
   {
     id: 'finance',
     icon: Landmark,
     version: '/0.8',
     stat: '$2.4B+',
-    capabilities: ['Project Finance', 'Capital Advisory', 'Risk Modeling', 'Islamic Finance'],
+    capabilityKeys: ['step1.verticals.finance.capabilities.projectFinance', 'step1.verticals.finance.capabilities.capitalAdvisory', 'step1.verticals.finance.capabilities.riskModeling', 'step1.verticals.finance.capabilities.islamicFinance'],
   },
 ];
 
-const projectTypes: Record<string, { label: string; examples: string[] }[]> = {
+const projectTypes: Record<string, { labelKey: string; exampleKeys: string[] }[]> = {
   intelligence: [
-    { label: 'GPU Cluster Deployment', examples: ['Training cluster', 'Inference farm', 'Hybrid cloud'] },
-    { label: 'Sovereign AI Platform', examples: ['National AI strategy', 'Government platform', 'Defense intelligence'] },
-    { label: 'Data Center Infrastructure', examples: ['Greenfield DC', 'Colocation', 'Edge DC'] },
+    { labelKey: 'step2.projectTypes.intelligence.gpuCluster.label', exampleKeys: ['step2.projectTypes.intelligence.gpuCluster.ex1', 'step2.projectTypes.intelligence.gpuCluster.ex2', 'step2.projectTypes.intelligence.gpuCluster.ex3'] },
+    { labelKey: 'step2.projectTypes.intelligence.sovereignAi.label', exampleKeys: ['step2.projectTypes.intelligence.sovereignAi.ex1', 'step2.projectTypes.intelligence.sovereignAi.ex2', 'step2.projectTypes.intelligence.sovereignAi.ex3'] },
+    { labelKey: 'step2.projectTypes.intelligence.dataCenter.label', exampleKeys: ['step2.projectTypes.intelligence.dataCenter.ex1', 'step2.projectTypes.intelligence.dataCenter.ex2', 'step2.projectTypes.intelligence.dataCenter.ex3'] },
   ],
   cement: [
-    { label: 'New Cement Plant', examples: ['Greenfield plant', 'Expansion', 'Modernization'] },
-    { label: 'AI-Optimized Production', examples: ['Kiln optimization', 'Predictive maintenance', 'Quality AI'] },
-    { label: 'Supply Chain Integration', examples: ['Regional distribution', 'Logistics AI', 'Last-mile'] },
+    { labelKey: 'step2.projectTypes.cement.newPlant.label', exampleKeys: ['step2.projectTypes.cement.newPlant.ex1', 'step2.projectTypes.cement.newPlant.ex2', 'step2.projectTypes.cement.newPlant.ex3'] },
+    { labelKey: 'step2.projectTypes.cement.aiOptimized.label', exampleKeys: ['step2.projectTypes.cement.aiOptimized.ex1', 'step2.projectTypes.cement.aiOptimized.ex2', 'step2.projectTypes.cement.aiOptimized.ex3'] },
+    { labelKey: 'step2.projectTypes.cement.supplyChain.label', exampleKeys: ['step2.projectTypes.cement.supplyChain.ex1', 'step2.projectTypes.cement.supplyChain.ex2', 'step2.projectTypes.cement.supplyChain.ex3'] },
   ],
   energy: [
-    { label: 'Solar Farm Development', examples: ['Utility-scale solar', 'Rooftop C&I', 'Hybrid plant'] },
-    { label: 'Wind Energy Project', examples: ['Onshore wind', 'Offshore assessment', 'Hybrid wind-solar'] },
-    { label: 'Grid Infrastructure', examples: ['Transmission lines', 'Substation', 'Smart grid'] },
+    { labelKey: 'step2.projectTypes.energy.solarFarm.label', exampleKeys: ['step2.projectTypes.energy.solarFarm.ex1', 'step2.projectTypes.energy.solarFarm.ex2', 'step2.projectTypes.energy.solarFarm.ex3'] },
+    { labelKey: 'step2.projectTypes.energy.windEnergy.label', exampleKeys: ['step2.projectTypes.energy.windEnergy.ex1', 'step2.projectTypes.energy.windEnergy.ex2', 'step2.projectTypes.energy.windEnergy.ex3'] },
+    { labelKey: 'step2.projectTypes.energy.gridInfra.label', exampleKeys: ['step2.projectTypes.energy.gridInfra.ex1', 'step2.projectTypes.energy.gridInfra.ex2', 'step2.projectTypes.energy.gridInfra.ex3'] },
   ],
   technology: [
-    { label: 'Ground Station Network', examples: ['Satellite comms', 'Earth observation', 'TT&C station'] },
-    { label: 'Edge Computing Deploy', examples: ['Edge nodes', 'IoT gateway', '5G edge'] },
-    { label: 'Sovereign Tech Stack', examples: ['Custom silicon', 'OS platform', 'Security stack'] },
+    { labelKey: 'step2.projectTypes.technology.groundStation.label', exampleKeys: ['step2.projectTypes.technology.groundStation.ex1', 'step2.projectTypes.technology.groundStation.ex2', 'step2.projectTypes.technology.groundStation.ex3'] },
+    { labelKey: 'step2.projectTypes.technology.edgeComputing.label', exampleKeys: ['step2.projectTypes.technology.edgeComputing.ex1', 'step2.projectTypes.technology.edgeComputing.ex2', 'step2.projectTypes.technology.edgeComputing.ex3'] },
+    { labelKey: 'step2.projectTypes.technology.sovereignTech.label', exampleKeys: ['step2.projectTypes.technology.sovereignTech.ex1', 'step2.projectTypes.technology.sovereignTech.ex2', 'step2.projectTypes.technology.sovereignTech.ex3'] },
   ],
   mining: [
-    { label: 'Mineral Extraction', examples: ['Phosphate mining', 'Cobalt extraction', 'Lithium processing'] },
-    { label: 'AI-Driven Exploration', examples: ['Geological survey', 'Seismic analysis', 'Resource mapping'] },
-    { label: 'Processing & Refining', examples: ['Ore processing', 'Concentrate plant', 'Refinery'] },
+    { labelKey: 'step2.projectTypes.mining.mineralExtraction.label', exampleKeys: ['step2.projectTypes.mining.mineralExtraction.ex1', 'step2.projectTypes.mining.mineralExtraction.ex2', 'step2.projectTypes.mining.mineralExtraction.ex3'] },
+    { labelKey: 'step2.projectTypes.mining.aiExploration.label', exampleKeys: ['step2.projectTypes.mining.aiExploration.ex1', 'step2.projectTypes.mining.aiExploration.ex2', 'step2.projectTypes.mining.aiExploration.ex3'] },
+    { labelKey: 'step2.projectTypes.mining.processing.label', exampleKeys: ['step2.projectTypes.mining.processing.ex1', 'step2.projectTypes.mining.processing.ex2', 'step2.projectTypes.mining.processing.ex3'] },
   ],
   agriculture: [
-    { label: 'Vertical Farm Setup', examples: ['Indoor farming', 'Greenhouse tech', 'Hydroponics'] },
-    { label: 'Precision Agriculture', examples: ['Drone monitoring', 'Soil sensors', 'Yield prediction'] },
-    { label: 'Food Processing', examples: ['Packaging plant', 'Cold chain', 'Quality control'] },
+    { labelKey: 'step2.projectTypes.agriculture.verticalFarm.label', exampleKeys: ['step2.projectTypes.agriculture.verticalFarm.ex1', 'step2.projectTypes.agriculture.verticalFarm.ex2', 'step2.projectTypes.agriculture.verticalFarm.ex3'] },
+    { labelKey: 'step2.projectTypes.agriculture.precisionAgri.label', exampleKeys: ['step2.projectTypes.agriculture.precisionAgri.ex1', 'step2.projectTypes.agriculture.precisionAgri.ex2', 'step2.projectTypes.agriculture.precisionAgri.ex3'] },
+    { labelKey: 'step2.projectTypes.agriculture.foodProcessing.label', exampleKeys: ['step2.projectTypes.agriculture.foodProcessing.ex1', 'step2.projectTypes.agriculture.foodProcessing.ex2', 'step2.projectTypes.agriculture.foodProcessing.ex3'] },
   ],
   water: [
-    { label: 'Desalination Plant', examples: ['SWRO plant', 'Brackish water', 'Containerized'] },
-    { label: 'Water Treatment', examples: ['Wastewater treatment', 'Purification', 'Recycling'] },
-    { label: 'Distribution Network', examples: ['Pipeline network', 'Smart metering', 'Reservoir'] },
+    { labelKey: 'step2.projectTypes.water.desalination.label', exampleKeys: ['step2.projectTypes.water.desalination.ex1', 'step2.projectTypes.water.desalination.ex2', 'step2.projectTypes.water.desalination.ex3'] },
+    { labelKey: 'step2.projectTypes.water.treatment.label', exampleKeys: ['step2.projectTypes.water.treatment.ex1', 'step2.projectTypes.water.treatment.ex2', 'step2.projectTypes.water.treatment.ex3'] },
+    { labelKey: 'step2.projectTypes.water.distribution.label', exampleKeys: ['step2.projectTypes.water.distribution.ex1', 'step2.projectTypes.water.distribution.ex2', 'step2.projectTypes.water.distribution.ex3'] },
   ],
   finance: [
-    { label: 'Project Finance', examples: ['Greenfield financing', 'PPP structure', 'ECA-backed'] },
-    { label: 'Capital Advisory', examples: ['Capital raise', 'Debt restructuring', 'IPO advisory'] },
-    { label: 'Islamic Finance', examples: ['Sukuk issuance', 'Murabaha', 'Ijarah structure'] },
+    { labelKey: 'step2.projectTypes.finance.projectFinance.label', exampleKeys: ['step2.projectTypes.finance.projectFinance.ex1', 'step2.projectTypes.finance.projectFinance.ex2', 'step2.projectTypes.finance.projectFinance.ex3'] },
+    { labelKey: 'step2.projectTypes.finance.capitalAdvisory.label', exampleKeys: ['step2.projectTypes.finance.capitalAdvisory.ex1', 'step2.projectTypes.finance.capitalAdvisory.ex2', 'step2.projectTypes.finance.capitalAdvisory.ex3'] },
+    { labelKey: 'step2.projectTypes.finance.islamicFinance.label', exampleKeys: ['step2.projectTypes.finance.islamicFinance.ex1', 'step2.projectTypes.finance.islamicFinance.ex2', 'step2.projectTypes.finance.islamicFinance.ex3'] },
   ],
 };
 
@@ -145,6 +145,8 @@ export default function QuotePageClient() {
 
   const [currentStep, setCurrentStep] = useState<Step>(1);
   const [transmitStep, setTransmitStep] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const [selectedVertical, setSelectedVertical] = useState<string | null>(null);
   const [selectedProjectType, setSelectedProjectType] = useState<string | null>(null);
@@ -172,20 +174,58 @@ export default function QuotePageClient() {
 
   const selectedVerticalData = verticals.find((v) => v.id === selectedVertical);
   const projectTypeOptions = selectedVertical ? projectTypes[selectedVertical] || [] : [];
-
   const canProceedStep1 = selectedVertical !== null;
   const canProceedStep2 = selectedProjectType !== null && selectedBudget !== null && selectedTimeline !== null;
   const canProceedStep3 = formState.name !== '' && formState.email !== '' && formState.organization !== '';
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(async () => {
+    setIsSubmitting(true);
+    setSubmitError(null);
     setTransmitStep(1);
-    setTimeout(() => setTransmitStep(2), 800);
-    setTimeout(() => setTransmitStep(3), 1600);
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          organization: formState.organization,
+          designation: formState.designation,
+          country: formState.country,
+          phone: formState.phone,
+          vertical: selectedVertical,
+          projectType: selectedProjectType,
+          budgetRange: selectedBudget,
+          timeline: selectedTimeline,
+          projectDescription: projectDesc,
+        }),
+      });
+
+      setTransmitStep(2);
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        setTransmitStep(0);
+        setSubmitError(data.error || t('step4.submitError'));
+        setIsSubmitting(false);
+        return;
+      }
+
+      setTransmitStep(3);
+
+      setTimeout(() => {
+        setTransmitStep(0);
+        setIsSubmitting(false);
+        router.push('/quote/received');
+      }, 800);
+    } catch {
       setTransmitStep(0);
-      router.push('/quote/received');
-    }, 2600);
-  }, [router]);
+      setSubmitError(t('step4.submitError'));
+      setIsSubmitting(false);
+    }
+  }, [router, formState, selectedVertical, selectedProjectType, selectedBudget, selectedTimeline, projectDesc]);
 
   const stepLabels = [t('step1.title'), t('step2.title'), t('step3.title'), t('step4.title')];
 
@@ -314,12 +354,12 @@ export default function QuotePageClient() {
                         <p className="text-[12px] text-[#666666] leading-relaxed">{t(`step1.verticals.${v.id}.description`)}</p>
                         {selectedVertical === v.id && (
                           <div className="flex flex-wrap gap-1.5 mt-2">
-                            {v.capabilities.map((cap) => (
+                            {v.capabilityKeys.map((capKey) => (
                               <span
-                                key={cap}
+                                key={capKey}
                                 className="px-2 py-0.5 bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] rounded text-[9px] font-semibold text-[#8B9DAF] tracking-wide"
                               >
-                                {cap}
+                                {t(capKey)}
                               </span>
                             ))}
                           </div>
@@ -383,20 +423,20 @@ export default function QuotePageClient() {
                       <div className="space-y-3">
                         {projectTypeOptions.map((pt) => (
                           <button
-                            key={pt.label}
-                            onClick={() => setSelectedProjectType(pt.label)}
+                            key={pt.labelKey}
+                            onClick={() => setSelectedProjectType(pt.labelKey)}
                             className={`w-full text-left py-4 px-5 rounded-lg border transition-all ${
-                              selectedProjectType === pt.label
+                              selectedProjectType === pt.labelKey
                                 ? 'border-[rgba(139,157,175,0.2)] bg-[rgba(139,157,175,0.04)]'
                                 : 'border-[rgba(255,255,255,0.04)] bg-[rgba(255,255,255,0.01)] hover:bg-[rgba(255,255,255,0.02)]'
                             }`}
                           >
-                            <h4 className={`text-[14px] font-bold mb-1 ${selectedProjectType === pt.label ? 'text-white' : 'text-[#999999]'}`}>
-                              {pt.label}
+                            <h4 className={`text-[14px] font-bold mb-1 ${selectedProjectType === pt.labelKey ? 'text-white' : 'text-[#999999]'}`}>
+                              {t(pt.labelKey)}
                             </h4>
                             <div className="flex flex-wrap gap-2">
-                              {pt.examples.map((ex) => (
-                                <span key={ex} className="text-[10px] text-[#666666]">{ex}</span>
+                              {pt.exampleKeys.map((exKey) => (
+                                <span key={exKey} className="text-[10px] text-[#666666]">{t(exKey)}</span>
                               ))}
                             </div>
                           </button>
@@ -488,10 +528,10 @@ export default function QuotePageClient() {
                       <div className="card p-6">
                         <p className="section-label mb-4">{tc('capabilities')}</p>
                         <div className="space-y-2">
-                          {selectedVerticalData?.capabilities.map((cap) => (
-                            <div key={cap} className="flex items-center gap-2">
+                          {selectedVerticalData?.capabilityKeys.map((capKey) => (
+                            <div key={capKey} className="flex items-center gap-2">
                               <div className="w-1 h-1 rounded-full bg-[#8B9DAF]" />
-                              <span className="text-[12px] text-[#999999]">{cap}</span>
+                              <span className="text-[12px] text-[#999999]">{t(capKey)}</span>
                             </div>
                           ))}
                         </div>
@@ -505,7 +545,7 @@ export default function QuotePageClient() {
                           <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{tc('encrypted')}</span>
                         </div>
                         <p className="text-[12px] text-[#666666] leading-relaxed">
-                          All quote requests are encrypted with AES-256 at rest and TLS 1.3 in transit. Data processed on sovereign Moroccan infrastructure.
+                          {t('step2.encryptedDescription')}
                         </p>
                       </div>
                     </FadeIn>
@@ -580,7 +620,7 @@ export default function QuotePageClient() {
                           value={formState.email}
                           onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                           className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                          placeholder="you@organization.com"
+                          placeholder={t('step3.emailPlaceholder')}
                         />
                       </div>
                     </div>
@@ -640,18 +680,18 @@ export default function QuotePageClient() {
                           <option value="ivoryCoast" className="bg-[#1A1A1A]">{t('step2.countries.ivoryCoast')}</option>
                           <option value="nigeria" className="bg-[#1A1A1A]">{t('step2.countries.nigeria')}</option>
                           <option value="ghana" className="bg-[#1A1A1A]">{t('step2.countries.ghana')}</option>
-                          <option value="Mali" className="bg-[#1A1A1A]">Mali</option>
-                          <option value="Guinea" className="bg-[#1A1A1A]">Guinea</option>
-                          <option value="Burkina Faso" className="bg-[#1A1A1A]">Burkina Faso</option>
+                          <option value="mali" className="bg-[#1A1A1A]">{t('step2.countries.mali')}</option>
+                          <option value="guinea" className="bg-[#1A1A1A]">{t('step2.countries.guinea')}</option>
+                          <option value="burkinaFaso" className="bg-[#1A1A1A]">{t('step2.countries.burkinaFaso')}</option>
                           <option value="tunisia" className="bg-[#1A1A1A]">{t('step2.countries.tunisia')}</option>
                           <option value="algeria" className="bg-[#1A1A1A]">{t('step2.countries.algeria')}</option>
                           <option value="egypt" className="bg-[#1A1A1A]">{t('step2.countries.egypt')}</option>
                           <option value="mauritania" className="bg-[#1A1A1A]">{t('step2.countries.mauritania')}</option>
-                          <option value="UAE" className="bg-[#1A1A1A]">United Arab Emirates</option>
-                          <option value="Saudi Arabia" className="bg-[#1A1A1A]">Saudi Arabia</option>
-                          <option value="France" className="bg-[#1A1A1A]">France</option>
-                          <option value="United Kingdom" className="bg-[#1A1A1A]">United Kingdom</option>
-                          <option value="United States" className="bg-[#1A1A1A]">United States</option>
+                          <option value="uae" className="bg-[#1A1A1A]">{t('step2.countries.uae')}</option>
+                          <option value="saudiArabia" className="bg-[#1A1A1A]">{t('step2.countries.saudiArabia')}</option>
+                          <option value="france" className="bg-[#1A1A1A]">{t('step2.countries.france')}</option>
+                          <option value="unitedKingdom" className="bg-[#1A1A1A]">{t('step2.countries.unitedKingdom')}</option>
+                          <option value="unitedStates" className="bg-[#1A1A1A]">{t('step2.countries.unitedStates')}</option>
                           <option value="other" className="bg-[#1A1A1A]">{t('step2.countries.other')}</option>
                         </select>
                       </div>
@@ -664,7 +704,7 @@ export default function QuotePageClient() {
                           value={formState.phone}
                           onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                           className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                          placeholder="+212 / +221 / +220 ..."
+                          placeholder={t('step3.phonePlaceholder')}
                         />
                       </div>
                     </div>
@@ -675,14 +715,14 @@ export default function QuotePageClient() {
                     <div className="flex items-center gap-3">
                       <span className="text-[13px]">💬</span>
                       <div>
-                        <p className="text-[12px] text-white/70">Prefer WhatsApp? Reach us directly</p>
+                        <p className="text-[12px] text-white/70">{t('step3.whatsappText')}</p>
                         <a
                           href="https://wa.me/212522000000?text=Hello%20Harch%20Corp%2C%20I%27d%20like%20to%20discuss%20a%20project."
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-[12px] text-[#4A7B5F] hover:text-[#5A9B7F] font-semibold transition-colors"
                         >
-                          +212 522 000 000 on WhatsApp →
+                          {t('step3.whatsappLink')}
                         </a>
                       </div>
                     </div>
@@ -864,6 +904,11 @@ export default function QuotePageClient() {
                   </div>
                 )}
 
+                {submitError && (
+                  <div className="mt-6 px-4 py-3 bg-[rgba(160,82,75,0.08)] border border-[rgba(160,82,75,0.15)] rounded-lg">
+                    <span className="text-[12px] text-[#A0524B]">{submitError}</span>
+                  </div>
+                )}
                 <div className="flex items-center justify-between mt-10">
                   <button
                     onClick={() => setCurrentStep(3)}
@@ -878,9 +923,10 @@ export default function QuotePageClient() {
                     </div>
                     <button
                       onClick={handleSubmit}
-                      className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {t('step4.submit')} <ArrowRight size={14} />
+                      {isSubmitting ? t('step4.submitting') || 'Submitting...' : t('step4.submit')} <ArrowRight size={14} />
                     </button>
                   </div>
                 </div>

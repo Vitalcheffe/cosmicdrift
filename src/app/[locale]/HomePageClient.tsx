@@ -15,7 +15,7 @@ import {
    EXACT PALANTIR LAYOUT — Section by section:
    1. HERO — Full-screen image + centered headline
    2. VERTICALS SHOWCASE — Tags row + big image (click to switch)
-   3. TEXT — White bg, centered statement
+   3. TEXT — Dark bg, centered statement
    4. FEATURE LIST — Numbered items with /0.x indicators
    5. SPLIT — Image LEFT + text RIGHT
    6. NUMBERS — Four big stats
@@ -54,7 +54,7 @@ export default function HomePageClient() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#0A0A0A]">
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 1 — HERO: Full-screen image + centered headline
@@ -113,7 +113,7 @@ export default function HomePageClient() {
           - Row of clickable tags at top
           - Full-width image below with overlay text
           ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-[#F5F5F5]">
+      <section className="bg-[#0D0D0D]">
         {/* Tags row — like Palantir's ShipOS, Warp Speed, etc. */}
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 pt-16 md:pt-20 pb-6">
           <div className="flex items-center gap-2 md:gap-3 flex-wrap">
@@ -123,8 +123,8 @@ export default function HomePageClient() {
                 onClick={() => setActiveVertical(i)}
                 className={`px-4 py-2 text-[13px] font-medium rounded-full transition-all duration-300 ${
                   i === activeVertical
-                    ? 'bg-[#0A0A0A] text-white'
-                    : 'bg-white text-black/60 hover:bg-black/5 hover:text-black/80'
+                    ? 'bg-white text-black'
+                    : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/80'
                 }`}
               >
                 {v.name}
@@ -132,7 +132,7 @@ export default function HomePageClient() {
             ))}
             <Link
               href="/subsidiaries/intelligence"
-              className="px-4 py-2 text-[13px] font-medium text-black/40 hover:text-black/60 transition-colors ml-auto"
+              className="px-4 py-2 text-[13px] font-medium text-white/30 hover:text-white/60 transition-colors ml-auto"
             >
               {t('sectionLabels.verticals')} →
             </Link>
@@ -196,13 +196,13 @@ export default function HomePageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 3 — TEXT: White bg, centered statement
+          SECTION 3 — TEXT: Dark bg, centered statement
           Like Palantir's "Software that powers real-time decisions"
           ═══════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-36 bg-white">
+      <section className="py-24 md:py-36 bg-[#0A0A0A]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="text-[clamp(1.75rem,4vw,3rem)] font-semibold text-black/90 leading-[1.2] tracking-[-0.02em]">
+            <p className="text-[clamp(1.75rem,4vw,3rem)] font-semibold text-white/90 leading-[1.2] tracking-[-0.02em]">
               {t('statement')}
             </p>
           </FadeIn>
@@ -213,10 +213,10 @@ export default function HomePageClient() {
           SECTION 4 — FEATURE LIST: Numbered items with /0.x
           Like Palantir's feature section with /0.1 /0.2 indicators
           ═══════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-white border-t border-black/[0.06]">
+      <section className="py-24 md:py-32 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-black/30 mb-16">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/50 mb-16">
               {t('sectionLabels.principles')}
             </p>
           </FadeIn>
@@ -224,16 +224,16 @@ export default function HomePageClient() {
           <div className="space-y-0">
             {features.map((f, i) => (
               <FadeIn key={f.label} delay={i * 0.08}>
-                <div className="group flex items-start justify-between py-8 md:py-10 border-b border-black/[0.06] hover:border-black/[0.15] transition-colors">
+                <div className="group flex items-start justify-between py-8 md:py-10 border-b border-white/5 hover:border-white/10 transition-colors">
                   <div className="flex-1 pr-8">
-                    <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-black/90 tracking-[-0.01em] mb-2">
+                    <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-white/90 tracking-[-0.01em] mb-2">
                       {f.label}
                     </h3>
-                    <p className="text-[15px] text-black/50 leading-relaxed max-w-xl">
+                    <p className="text-[15px] text-white/50 leading-relaxed max-w-xl">
                       {f.description}
                     </p>
                   </div>
-                  <span className="text-[12px] font-medium text-black/20 font-mono tracking-tight pt-2 shrink-0">
+                  <span className="text-[12px] font-medium text-white/20 font-mono tracking-tight pt-2 shrink-0">
                     /0.{i + 1}
                   </span>
                 </div>
@@ -247,7 +247,7 @@ export default function HomePageClient() {
           SECTION 5 — SPLIT: Image LEFT + text RIGHT
           Like Palantir's "There is so much left to build"
           ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-white">
+      <section className="bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 min-h-[60vh]">
             {/* Image LEFT */}
@@ -263,18 +263,18 @@ export default function HomePageClient() {
             </div>
 
             {/* Text RIGHT */}
-            <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20 py-16 md:py-20 bg-[#F5F5F5]">
+            <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20 py-16 md:py-20 bg-[#0D0D0D]">
               <FadeIn>
-                <blockquote className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-black/90 leading-[1.2] tracking-[-0.02em] mb-6">
+                <blockquote className="text-[clamp(1.5rem,3vw,2.5rem)] font-semibold text-white/90 leading-[1.2] tracking-[-0.02em] mb-6">
                   {t('ceoQuote.text')}
                 </blockquote>
                 <div className="mb-8">
-                  <p className="text-[14px] font-semibold text-black/80">{t('ceoQuote.author')}</p>
-                  <p className="text-[13px] text-black/40">{t('ceoQuote.title')}</p>
+                  <p className="text-[14px] font-semibold text-white/80">{t('ceoQuote.author')}</p>
+                  <p className="text-[13px] text-white/40">{t('ceoQuote.title')}</p>
                 </div>
                 <Link
                   href="/about"
-                  className="group inline-flex items-center gap-2 text-[14px] font-semibold text-black/70 hover:text-black transition-colors"
+                  className="group inline-flex items-center gap-2 text-[14px] font-semibold text-white/70 hover:text-white transition-colors"
                 >
                   {tCommon('learnMore')}
                   <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -288,10 +288,10 @@ export default function HomePageClient() {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 6 — NUMBERS: Four big stats
           ═══════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-white border-t border-black/[0.06]">
+      <section className="py-24 md:py-32 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-black/30 mb-16">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/50 mb-16">
               {t('sectionLabels.inNumbers')}
             </p>
           </FadeIn>
@@ -304,10 +304,10 @@ export default function HomePageClient() {
               { value: 25000, prefix: '', suffix: '+', label: t('stats.employment2030.label') },
             ].map((stat, i) => (
               <FadeIn key={stat.label} delay={i * 0.08}>
-                <p className="text-[clamp(2.5rem,6vw,5rem)] font-bold text-black tracking-[-0.03em] leading-none mb-3 font-mono">
+                <p className="text-[clamp(2.5rem,6vw,5rem)] font-bold text-white tracking-[-0.03em] leading-none mb-3 font-mono">
                   <CountUp to={stat.value} prefix={stat.prefix} suffix={stat.suffix} duration={2.5} decimals={stat.decimals ?? 0} />
                 </p>
-                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-black/30">
+                <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">
                   {stat.label}
                 </p>
               </FadeIn>
@@ -345,23 +345,23 @@ export default function HomePageClient() {
           SECTION 8 — CTA: Two doors side by side
           Like Palantir's "Request a Demo" + "Start Building"
           ═══════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#F5F5F5]">
+      <section className="py-24 md:py-32 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Link
                 href="/contact"
-                className="group flex items-center justify-between p-8 md:p-12 bg-white rounded-lg hover:bg-black/5 transition-all duration-300 border border-black/[0.06]"
+                className="group flex items-center justify-between p-8 md:p-12 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 border border-white/5"
               >
                 <div>
-                  <p className="text-[clamp(1.25rem,2vw,1.75rem)] font-bold text-black tracking-[-0.01em] mb-2">
+                  <p className="text-[clamp(1.25rem,2vw,1.75rem)] font-bold text-white tracking-[-0.01em] mb-2">
                     {t('cta.requestBriefing')}
                   </p>
-                  <p className="text-[14px] text-black/40">
+                  <p className="text-[14px] text-white/40">
                     {t('cta.requestBriefingDesc')}
                   </p>
                 </div>
-                <ArrowUpRight size={24} className="text-black/20 group-hover:text-black/60 transition-colors shrink-0 ml-4" />
+                <ArrowUpRight size={24} className="text-white/20 group-hover:text-white/60 transition-colors shrink-0 ml-4" />
               </Link>
 
               <Link

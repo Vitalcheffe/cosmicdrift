@@ -155,15 +155,21 @@ const connections = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   CHART DATA
+   DETERMINISTIC CHART DATA (seeded random for SSR hydration)
    ═══════════════════════════════════════════════════════════════ */
+
+const seededRandom = (index: number) => {
+  const seed = 42;
+  const x = Math.sin(seed + index) * 10000;
+  return x - Math.floor(x);
+};
 
 const energyData = Array.from({ length: 24 }, (_, i) => {
   const hour = i;
   // Solar peaks at midday, wind morning/evening
   const solarBase = Math.max(0, Math.sin((hour - 6) * Math.PI / 12)) * 180;
   const windBase = (Math.sin(hour * Math.PI / 8) * 40 + 50) * (hour < 6 || hour > 20 ? 1.3 : 0.7);
-  const noise = (Math.random() - 0.5) * 12;
+  const noise = (seededRandom(i) - 0.5) * 12;
   return {
     hour: `${hour.toString().padStart(2, '0')}:00`,
     output: Math.max(8, Math.round((solarBase + windBase + noise) * 10) / 10),
@@ -180,8 +186,8 @@ const gpuUtilData = [
 
 const latencyData = Array.from({ length: 20 }, (_, i) => {
   const base = 14 + Math.sin(i * 0.4) * 2;
-  const spike = (i === 7 || i === 15) ? 8 + Math.random() * 4 : 0;
-  const noise = (Math.random() - 0.5) * 1.5;
+  const spike = (i === 7 || i === 15) ? 8 + seededRandom(100 + i) * 4 : 0;
+  const noise = (seededRandom(200 + i) - 0.5) * 1.5;
   return {
     point: `T+${(i * 3).toString().padStart(2, '0')}s`,
     ms: Math.round((base + spike + noise) * 10) / 10,
@@ -190,7 +196,7 @@ const latencyData = Array.from({ length: 20 }, (_, i) => {
 
 const efficiencyData = Array.from({ length: 12 }, (_, i) => {
   const base = 93.2 + Math.sin(i * 0.5) * 1.2;
-  const noise = (Math.random() - 0.5) * 0.6;
+  const noise = (seededRandom(300 + i) - 0.5) * 0.6;
   return {
     hour: `H${(i + 1).toString().padStart(2, '0')}`,
     eff: Math.round((base + noise) * 10) / 10,

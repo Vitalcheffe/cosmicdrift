@@ -10,7 +10,7 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { CursorGlow } from "@/components/CursorGlow";
 import { ClientLayout } from "@/components/ClientLayout";
 import { LanguageDetector, GoogleTranslateScript } from "@/components/LanguageDetector";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { TopNavBarWithSidebar } from "@/components/TopNavBarWithSidebar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -545,9 +545,9 @@ export default async function LocaleLayout({
           <a href="#main-content" className="skip-link">
             {tCommon('skipToContent')}
           </a>
+          <TopNavBarWithSidebar />
           <Sidebar />
-          <LanguageSwitcher />
-          <div className="flex-1 flex flex-col w-full">
+          <div className="flex-1 flex flex-col w-full pt-14">
             <main id="main-content" className="flex-1 pb-6">
               <ClientLayout>{children}</ClientLayout>
             </main>

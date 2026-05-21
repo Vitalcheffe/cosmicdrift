@@ -105,6 +105,13 @@ export function Sidebar() {
     { name: t('requestBriefing'), href: '/contact' },
   ];
 
+  // Listen for custom toggle event from TopNavBar
+  useEffect(() => {
+    const handleToggle = () => setIsOpen(prev => !prev);
+    window.addEventListener('toggle-sidebar', handleToggle);
+    return () => window.removeEventListener('toggle-sidebar', handleToggle);
+  }, []);
+
   // Lock body scroll when sidebar is open
   useEffect(() => {
     if (isOpen) {

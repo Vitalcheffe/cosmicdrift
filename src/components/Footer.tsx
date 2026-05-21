@@ -97,10 +97,10 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10">
           {/* Column 1: Verticals */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('verticals')}</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/55 mb-4">{t('verticals')}</p>
             <nav className="space-y-2">
               {verticalLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="flex items-center justify-between text-[11px] text-white/30 hover:text-white/70 transition-colors group">
+                <Link key={link.href} href={link.href} className="flex items-center justify-between text-[11px] text-white/60 hover:text-white/70 transition-colors group">
                   <span>{link.name}</span>
                   <span className="version-tag text-[9px]">{link.version}</span>
                 </Link>
@@ -110,10 +110,10 @@ export function Footer() {
 
           {/* Column 2: Company */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('company')}</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/55 mb-4">{t('company')}</p>
             <nav className="space-y-2">
               {companyLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/60 hover:text-white/70 transition-colors">
                   {link.name}
                 </Link>
               ))}
@@ -122,10 +122,10 @@ export function Footer() {
 
           {/* Column 3: Developers */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('developers')}</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/55 mb-4">{t('developers')}</p>
             <nav className="space-y-2">
               {developerLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/60 hover:text-white/70 transition-colors">
                   {link.name}
                 </Link>
               ))}
@@ -134,10 +134,10 @@ export function Footer() {
 
           {/* Column 4: Resources */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('resources')}</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/55 mb-4">{t('resources')}</p>
             <nav className="space-y-2">
               {resourceLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/60 hover:text-white/70 transition-colors">
                   {link.name}
                 </Link>
               ))}
@@ -146,18 +146,18 @@ export function Footer() {
 
           {/* Column 5: Trust & Business */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('trust')}</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/55 mb-4">{t('trust')}</p>
             <nav className="space-y-2">
               {trustLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/60 hover:text-white/70 transition-colors">
                   {link.name}
                 </Link>
               ))}
             </nav>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4 mt-6">{t('business')}</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/55 mb-4 mt-6">{t('business')}</p>
             <nav className="space-y-2">
               {businessLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="block text-[11px] text-white/30 hover:text-white/70 transition-colors">
+                <Link key={link.href} href={link.href} className="block text-[11px] text-white/60 hover:text-white/70 transition-colors">
                   {link.name}
                 </Link>
               ))}
@@ -166,19 +166,19 @@ export function Footer() {
 
           {/* Column 6: Latest News + Corporate */}
           <div>
-            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/15 mb-4">{t('latestNews')}</p>
+            <p className="text-[9px] font-bold tracking-[0.15em] uppercase text-white/55 mb-4">{t('latestNews')}</p>
             <div className="space-y-4">
               {latestNews.map((item, i) => (
                 <Link key={i} href="/newsroom" className="block group">
                   <p className="text-[11px] text-white/40 group-hover:text-white/80 transition-colors leading-snug mb-1">
                     {item.title}
                   </p>
-                  <p className="text-[9px] text-white/15 tracking-wide">{item.date}</p>
+                  <p className="text-[9px] text-white/55 tracking-wide">{item.date}</p>
                 </Link>
               ))}
             </div>
             <div className="mt-6 pt-4 border-t border-[rgba(255,255,255,0.04)]">
-              <p className="text-[10px] text-white/15 leading-relaxed">
+              <p className="text-[10px] text-white/55 leading-relaxed">
                 Harch Corp S.A.<br />
                 {t('location')}<br />
                 {t('capital')}
@@ -228,20 +228,20 @@ export function Footer() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-6">
             <Image src="/logo.svg" alt="Harch Corp" width={100} height={20} className="h-4 w-auto brightness-0 invert" />
-            <p className="text-[10px] text-white/15 tracking-wide">
+            <p className="text-[10px] text-white/55 tracking-wide">
               &copy; 2026 Harch Corp S.A. {t('allRightsReserved')}
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://wa.me/212522000000" target="_blank" rel="noopener noreferrer" aria-label="Contact Harch Corp on WhatsApp" className="text-[10px] text-white/15 hover:text-white/40 transition-colors flex items-center gap-1">WhatsApp</a>
-              <a href="https://linkedin.com/company/harchcorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp LinkedIn" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">LinkedIn</a>
-              <a href="https://twitter.com/harchcorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp Twitter" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">Twitter</a>
-              <a href="https://github.com/HarchCorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp GitHub — Open Source" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">GitHub</a>
-              <a href="https://www.youtube.com/@harchcorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp YouTube" className="text-[10px] text-white/15 hover:text-white/40 transition-colors">YouTube</a>
+              <a href="https://wa.me/212522000000" target="_blank" rel="noopener noreferrer" aria-label="Contact Harch Corp on WhatsApp" className="text-[10px] text-white/55 hover:text-white/70 transition-colors flex items-center gap-1">WhatsApp</a>
+              <a href="https://linkedin.com/company/harchcorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp LinkedIn" className="text-[10px] text-white/55 hover:text-white/70 transition-colors">LinkedIn</a>
+              <a href="https://twitter.com/harchcorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp Twitter" className="text-[10px] text-white/55 hover:text-white/70 transition-colors">Twitter</a>
+              <a href="https://github.com/HarchCorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp GitHub — Open Source" className="text-[10px] text-white/55 hover:text-white/70 transition-colors">GitHub</a>
+              <a href="https://www.youtube.com/@harchcorp" target="_blank" rel="noopener noreferrer" aria-label="Harch Corp YouTube" className="text-[10px] text-white/55 hover:text-white/70 transition-colors">YouTube</a>
             </div>
           </div>
           <div className="flex items-center gap-4 flex-wrap justify-center">
             {legalLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-[10px] text-white/15 hover:text-white/40 transition-colors">{link.name}</Link>
+              <Link key={link.href} href={link.href} className="text-[10px] text-white/55 hover:text-white/70 transition-colors">{link.name}</Link>
             ))}
           </div>
         </div>

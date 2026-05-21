@@ -254,10 +254,10 @@ export default function HarchOSPageClient() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#0A0A0A]">
 
       {/* Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#1E1E2E]/95 backdrop-blur-sm border-b border-white/[0.04]">
+      <header className="fixed top-0 left-0 right-0 z-[45] bg-[#1E1E2E]/95 backdrop-blur-sm border-b border-white/[0.04]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-14">
           <div className="flex items-center gap-2">
             <Cpu size={16} className="text-[#8B9DAF]" />
@@ -657,7 +657,7 @@ export default function HarchOSPageClient() {
           SECTION 2: WORKFLOW BUILDER — White bg, Palantir "Designed for AI workflow builders"
           VIDEO/DETAILS toggle, feature cards in DETAILS mode
           ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-[#0A0A0A] py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           {/* Progress indicator */}
           <FadeIn>
@@ -669,12 +669,12 @@ export default function HarchOSPageClient() {
                   className="flex items-center gap-2"
                 >
                   <span className={`text-[11px] font-bold ${
-                    i === workflowStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'
+                    i === workflowStep ? 'text-white' : 'text-[#CCCCCC]'
                   }`}>
                     {i === workflowStep ? `[${step.id}]` : step.id}
                   </span>
                   {i < PROGRESS_STEPS.length - 1 && (
-                    <span className={`text-[11px] ${i < workflowStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'}`}>&mdash;</span>
+                    <span className={`text-[11px] ${i < workflowStep ? 'text-white' : 'text-[#CCCCCC]'}`}>&mdash;</span>
                   )}
                 </button>
               ))}
@@ -688,7 +688,7 @@ export default function HarchOSPageClient() {
                 <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
                   {t('features.title')} /0.2
                 </p>
-                <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-[-0.02em] leading-[1.1] mb-6">
                   {t('workflow.title')}
                 </h2>
                 <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
@@ -717,7 +717,7 @@ export default function HarchOSPageClient() {
                   <button
                     onClick={() => setWorkflowMediaTab('video')}
                     className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
-                      workflowMediaTab === 'video' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F5F5F5]'
+                      workflowMediaTab === 'video' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-white/[0.04]'
                     }`}
                   >
                     {t('workflow.videoTab')}
@@ -725,13 +725,13 @@ export default function HarchOSPageClient() {
                   <button
                     onClick={() => setWorkflowMediaTab('details')}
                     className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
-                      workflowMediaTab === 'details' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F5F5F5]'
+                      workflowMediaTab === 'details' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-white/[0.04]'
                     }`}
                   >
                     {t('workflow.detailsTab')}
                   </button>
                 </div>
-                <div className="rounded-xl border border-[#E5E5E5] bg-[#FAFAFA] overflow-hidden min-h-[340px]">
+                <div className="rounded-xl border border-white/[0.06] bg-[#141414] overflow-hidden min-h-[340px]">
                   <AnimatePresence mode="wait">
                     {workflowMediaTab === 'video' ? (
                       <motion.div
@@ -824,13 +824,13 @@ export default function HarchOSPageClient() {
                       >
                         <div className="space-y-4">
                           {workflowFeatureCards.map((card, i) => (
-                            <div key={i} className="rounded-lg border border-[#E5E5E5] bg-white p-5">
+                            <div key={i} className="rounded-lg border border-white/[0.06] bg-[#141414] p-5">
                               <div className="flex items-start gap-3">
                                 <div className="w-9 h-9 rounded-lg bg-[#F5F5F5] flex items-center justify-center shrink-0">
                                   <card.icon size={18} className="text-[#8B9DAF]" />
                                 </div>
                                 <div>
-                                  <h4 className="text-[14px] font-bold text-[#1A1A2E] mb-1">{card.title}</h4>
+                                  <h4 className="text-[14px] font-bold text-white mb-1">{card.title}</h4>
                                   <p className="text-[13px] text-[#666666] leading-[1.6]">{card.desc}</p>
                                 </div>
                               </div>
@@ -863,12 +863,12 @@ export default function HarchOSPageClient() {
                   className="flex items-center gap-2"
                 >
                   <span className={`text-[11px] font-bold ${
-                    i === evaluateStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'
+                    i === evaluateStep ? 'text-white' : 'text-[#CCCCCC]'
                   }`}>
                     {i === evaluateStep ? `[${step.id}]` : step.id}
                   </span>
                   {i < PROGRESS_STEPS.length - 1 && (
-                    <span className={`text-[11px] ${i < evaluateStep ? 'text-[#1A1A2E]' : 'text-[#CCCCCC]'}`}>&mdash;</span>
+                    <span className={`text-[11px] ${i < evaluateStep ? 'text-white' : 'text-[#CCCCCC]'}`}>&mdash;</span>
                   )}
                 </button>
               ))}
@@ -882,7 +882,7 @@ export default function HarchOSPageClient() {
                 <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
                   {t('features.security.title')} /0.3
                 </p>
-                <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-[-0.02em] leading-[1.1] mb-6">
                   {t('evaluate.title')}
                 </h2>
                 <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
@@ -911,7 +911,7 @@ export default function HarchOSPageClient() {
                   <button
                     onClick={() => setEvaluateMediaTab('video')}
                     className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
-                      evaluateMediaTab === 'video' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F0F0F0]'
+                      evaluateMediaTab === 'video' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-white/[0.04]'
                     }`}
                   >
                     {t('evaluate.videoTab')}
@@ -919,13 +919,13 @@ export default function HarchOSPageClient() {
                   <button
                     onClick={() => setEvaluateMediaTab('details')}
                     className={`px-4 py-2 text-[12px] font-semibold rounded-md transition-all ${
-                      evaluateMediaTab === 'details' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-[#F0F0F0]'
+                      evaluateMediaTab === 'details' ? 'bg-[#1A1A2E] text-white' : 'text-[#999999] hover:bg-white/[0.04]'
                     }`}
                   >
                     {t('evaluate.detailsTab')}
                   </button>
                 </div>
-                <div className="rounded-xl border border-[#E5E5E5] bg-white overflow-hidden min-h-[340px]">
+                <div className="rounded-xl border border-white/[0.06] bg-[#141414] overflow-hidden min-h-[340px]">
                   <AnimatePresence mode="wait">
                     {evaluateMediaTab === 'video' ? (
                       <motion.div
@@ -1005,13 +1005,13 @@ export default function HarchOSPageClient() {
                       >
                         <div className="space-y-4">
                           {evaluateFeatureCards.map((card, i) => (
-                            <div key={i} className="rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-5">
+                            <div key={i} className="rounded-lg border border-white/[0.06] bg-[#141414] p-5">
                               <div className="flex items-start gap-3">
                                 <div className="w-9 h-9 rounded-lg bg-[#F0F0F0] flex items-center justify-center shrink-0">
                                   <card.icon size={18} className="text-[#8B9DAF]" />
                                 </div>
                                 <div>
-                                  <h4 className="text-[14px] font-bold text-[#1A1A2E] mb-1">{card.title}</h4>
+                                  <h4 className="text-[14px] font-bold text-white mb-1">{card.title}</h4>
                                   <p className="text-[13px] text-[#666666] leading-[1.6]">{card.desc}</p>
                                 </div>
                               </div>
@@ -1031,13 +1031,13 @@ export default function HarchOSPageClient() {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 4: CAPABILITIES — Light bg, numbered feature list
           ═══════════════════════════════════════════════════════════ */}
-      <section id="capabilities" className="bg-white py-20 md:py-28">
+      <section id="capabilities" className="bg-[#0A0A0A] py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
               {t('features.title')} /0.4
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-[-0.02em] leading-[1.1] mb-4">
               {t('capabilities.title')}
             </h2>
             <div className="w-16 h-0.5 bg-[#8B9DAF] mb-12" />
@@ -1046,7 +1046,7 @@ export default function HarchOSPageClient() {
           <div className="space-y-0">
             {capabilitiesList.map((cap, i) => (
               <FadeIn key={cap.number} delay={i * 0.08}>
-                <div className="py-8 border-b border-[#E5E5E5] last:border-0 group">
+                <div className="py-8 border-b border-white/[0.06] last:border-0 group">
                   <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
                     <div className="flex items-center gap-4 shrink-0">
                       <span className="text-[14px] font-bold text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">/{cap.number}</span>
@@ -1055,7 +1055,7 @@ export default function HarchOSPageClient() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#1A1A2E] mb-2 group-hover:text-[#8B9DAF] transition-colors">{cap.title}</h3>
+                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#8B9DAF] transition-colors">{cap.title}</h3>
                       <p className="text-[14px] text-[#666666] leading-[1.7] max-w-2xl">{cap.desc}</p>
                     </div>
                   </div>
@@ -1075,7 +1075,7 @@ export default function HarchOSPageClient() {
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
               {t('architecture.title')} /0.5
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-[#1A1A2E] tracking-[-0.02em] leading-[1.1] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white tracking-[-0.02em] leading-[1.1] mb-4">
               {t('architecture.sense.title')}. {t('architecture.think.title')}. {t('architecture.act.title')}.
             </h2>
             <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
@@ -1094,8 +1094,8 @@ export default function HarchOSPageClient() {
                     onClick={() => setActiveArchTab(layer.id)}
                     className={`flex items-center gap-3 px-5 py-4 rounded-lg border transition-all text-left min-w-[180px] ${
                       activeArchTab === layer.id
-                        ? 'bg-white border-[#E5E5E5] text-[#1A1A2E] shadow-sm'
-                        : 'border-transparent text-[#999999] hover:text-[#1A1A2E] hover:bg-white/60'
+                        ? 'bg-white/[0.08] border-white/[0.15] text-white shadow-sm'
+                        : 'border-transparent text-[#999999] hover:text-white hover:bg-white/[0.06]'
                     }`}
                   >
                     <layer.icon size={18} style={{ color: layer.color }} />
@@ -1116,14 +1116,14 @@ export default function HarchOSPageClient() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="bg-white rounded-xl border border-[#E5E5E5] p-6 md:p-8"
+                  className="bg-[#141414] rounded-xl border border-white/[0.06] p-6 md:p-8"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${activeArch.color}15` }}>
                       <activeArch.icon size={20} style={{ color: activeArch.color }} />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-[#1A1A2E]">{activeArch.name}</h3>
+                      <h3 className="text-2xl font-bold text-white">{activeArch.name}</h3>
                       <p className="text-[11px] text-[#999999] font-[family-name:var(--font-space-mono)]">{activeArch.tag}</p>
                     </div>
                   </div>
@@ -1134,7 +1134,7 @@ export default function HarchOSPageClient() {
                     {activeArch.specs.map((spec) => (
                       <div key={spec.label} className="flex justify-between items-center py-2.5 border-b border-[#F0F0F0] last:border-0">
                         <span className="text-[13px] text-[#999999]">{spec.label}</span>
-                        <span className="text-[13px] font-bold text-[#1A1A2E] font-[family-name:var(--font-space-mono)]">{spec.value}</span>
+                        <span className="text-[13px] font-bold text-white font-[family-name:var(--font-space-mono)]">{spec.value}</span>
                       </div>
                     ))}
                   </div>
@@ -1148,13 +1148,13 @@ export default function HarchOSPageClient() {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 6: SPEC TABLE — Clean 3-column table on white bg
           ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-[#0A0A0A] py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
               {t('specs.title')} /0.6
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#1A1A2E] tracking-[-0.01em] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               {t('specs.title')}
             </h2>
             <div className="w-16 h-0.5 bg-[#8B9DAF] mb-12" />
@@ -1163,15 +1163,15 @@ export default function HarchOSPageClient() {
           <FadeIn delay={0.1}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {specs.map((category) => (
-                <div key={category.category} className="bg-[#FAFAFA] rounded-xl border border-[#E5E5E5] overflow-hidden">
-                  <div className="px-6 py-4 border-b border-[#E5E5E5] bg-white">
-                    <h3 className="text-[14px] font-bold text-[#1A1A2E]">{category.category}</h3>
+                <div key={category.category} className="bg-[#141414] rounded-xl border border-white/[0.06] overflow-hidden">
+                  <div className="px-6 py-4 border-b border-white/[0.06] bg-[#141414]">
+                    <h3 className="text-[14px] font-bold text-white">{category.category}</h3>
                   </div>
                   <div className="p-6 space-y-0">
                     {category.items.map((item) => (
                       <div key={item.spec} className="flex justify-between items-center py-3 border-b border-[#F0F0F0] last:border-0">
                         <span className="text-[13px] text-[#999999]">{item.spec}</span>
-                        <span className="text-[13px] font-bold text-[#1A1A2E] font-[family-name:var(--font-space-mono)]">{item.value}</span>
+                        <span className="text-[13px] font-bold text-white font-[family-name:var(--font-space-mono)]">{item.value}</span>
                       </div>
                     ))}
                   </div>
@@ -1191,7 +1191,7 @@ export default function HarchOSPageClient() {
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
               {tCommon('security')} /0.7
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#1A1A2E] tracking-[-0.01em] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               {t('features.security.title')} & {t('features.compliance.title')}
             </h2>
             <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
@@ -1203,14 +1203,14 @@ export default function HarchOSPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {securityFeatures.map((feat, i) => (
               <FadeIn key={feat.title} delay={i * 0.08}>
-                <div className="bg-white rounded-xl border border-[#E5E5E5] p-6 md:p-8 h-full">
+                <div className="bg-[#141414] rounded-xl border border-white/[0.06] p-6 md:p-8 h-full">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-[#F5F5F5] flex items-center justify-center">
                       <feat.icon size={18} className="text-[#8B9DAF]" />
                     </div>
-                    <h3 className="text-lg font-bold text-[#1A1A2E]">{feat.title}</h3>
+                    <h3 className="text-lg font-bold text-white">{feat.title}</h3>
                   </div>
-                  <div className="w-12 h-0.5 bg-[#E5E5E5] mb-4" />
+                  <div className="w-12 h-0.5 bg-white/10 mb-4" />
                   <p className="text-[14px] text-[#666666] leading-[1.7]">{feat.desc}</p>
                 </div>
               </FadeIn>
@@ -1221,7 +1221,7 @@ export default function HarchOSPageClient() {
           <FadeIn>
             <div className="mt-12 flex flex-wrap gap-3">
               {['GDPR', 'ISO 27001', 'SOC 2 Type II', 'Law 09-08', 'FIPS 140-2 L3', 'TLS 1.3'].map((cert) => (
-                <span key={cert} className="px-4 py-2 rounded-lg bg-white border border-[#E5E5E5] text-[11px] font-semibold text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
+                <span key={cert} className="px-4 py-2 rounded-lg bg-[#141414] border border-white/[0.06] text-[11px] font-semibold text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
                   {cert}
                 </span>
               ))}
@@ -1233,13 +1233,13 @@ export default function HarchOSPageClient() {
       {/* ═══════════════════════════════════════════════════════════
           SECTION 8: DEVELOPER PLATFORM — Code snippet preview (restyled light)
           ═══════════════════════════════════════════════════════════ */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-[#0A0A0A] py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <FadeIn>
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
               {t('features.api.title')} /0.8
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-[#1A1A2E] tracking-[-0.01em] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-[-0.01em] mb-4">
               {t('features.api.title')} & {t('features.mobile.title')}
             </h2>
             <div className="w-16 h-0.5 bg-[#8B9DAF] mb-6" />
@@ -1251,12 +1251,12 @@ export default function HarchOSPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {devPlatform.map((feat, i) => (
               <FadeIn key={feat.title} delay={i * 0.08}>
-                <div className="bg-[#FAFAFA] rounded-xl border border-[#E5E5E5] p-6 h-full">
+                <div className="bg-[#141414] rounded-xl border border-white/[0.06] p-6 h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center border border-[#E5E5E5]">
+                    <div className="w-10 h-10 rounded-lg bg-[#141414] flex items-center justify-center border border-white/[0.06]">
                       <feat.icon size={18} className="text-[#8B9DAF]" />
                     </div>
-                    <h3 className="text-lg font-bold text-[#1A1A2E]">{feat.title}</h3>
+                    <h3 className="text-lg font-bold text-white">{feat.title}</h3>
                   </div>
                   <p className="text-[14px] text-[#666666] leading-[1.7]">{feat.desc}</p>
                 </div>

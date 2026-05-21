@@ -9,7 +9,7 @@ import { FadeIn } from '@/components/ui/motion';
 /* ═══════════════════════════════════════════════════════════════
    PALANTIR "PLATFORMS" STYLE — Subsidiaries Listing
    Like Palantir's Platforms page (Foundry / Gotham / Apollo):
-   - White background
+   - Dark background
    - Large "Subsidiaries" title
    - List of subsidiaries: name + tagline + "Explore →"
    - Thin dividers between items
@@ -87,19 +87,19 @@ export default function SubsidiariesPageClient() {
   ];
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#0A0A0A] min-h-screen">
 
       {/* ═══════════════ HEADER / TITLE ═══════════════ */}
-      <section className="pt-24 md:pt-32 pb-8 md:pb-12 bg-white">
+      <section className="pt-24 md:pt-32 pb-8 md:pb-12 bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-black/30 mb-6">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/50 mb-6">
               {t('operatingVerticalsLabel')}
             </p>
-            <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold text-black tracking-[-0.03em] leading-[1.05]">
+            <h1 className="text-[clamp(2.5rem,6vw,5rem)] font-bold text-white tracking-[-0.03em] leading-[1.05]">
               {t('pageTitle')}
             </h1>
-            <p className="text-[clamp(1rem,2vw,1.25rem)] text-black/50 mt-6 max-w-2xl leading-relaxed">
+            <p className="text-[clamp(1rem,2vw,1.25rem)] text-white/50 mt-6 max-w-2xl leading-relaxed">
               {t('heroSubtitle')}
             </p>
           </FadeIn>
@@ -109,12 +109,12 @@ export default function SubsidiariesPageClient() {
       {/* ═══════════════ SUBSIDIARY LIST ═══════════════
           Like Palantir's Platforms page:
           Each subsidiary is a row with name + tagline + "Explore →"
-          Separated by thin black dividers
+          Separated by thin white dividers
       */}
-      <section className="bg-white">
+      <section className="bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           {/* Top border */}
-          <div className="border-t border-black/[0.08]" />
+          <div className="border-t border-white/5" />
 
           {subsidiaries.map((sub, i) => (
             <motion.div
@@ -126,19 +126,19 @@ export default function SubsidiariesPageClient() {
             >
               <Link
                 href={`/subsidiaries/${sub.slug}`}
-                className="group block border-b border-black/[0.06] hover:bg-black/[0.02] transition-colors duration-300"
+                className="group block border-b border-white/5 hover:bg-white/[0.02] transition-colors duration-300"
               >
                 <div className="py-10 md:py-14 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-8">
                   {/* Left: Number + Name */}
                   <div className="flex items-start md:items-center gap-4 md:gap-6">
-                    <span className="text-[11px] font-medium text-black/20 font-mono tracking-tight pt-1 md:pt-0 shrink-0">
+                    <span className="text-[11px] font-medium text-white/20 font-mono tracking-tight pt-1 md:pt-0 shrink-0">
                       {sub.num}
                     </span>
                     <div>
-                      <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-black/90 tracking-[-0.01em] group-hover:text-black transition-colors">
+                      <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-white/90 tracking-[-0.01em] group-hover:text-white transition-colors">
                         {sub.name}
                       </h2>
-                      <p className="text-[14px] md:text-[15px] text-black/40 mt-1 leading-relaxed max-w-md">
+                      <p className="text-[14px] md:text-[15px] text-white/40 mt-1 leading-relaxed max-w-md">
                         {sub.tagline}
                       </p>
                     </div>
@@ -146,12 +146,12 @@ export default function SubsidiariesPageClient() {
 
                   {/* Right: Explore link */}
                   <div className="flex items-center gap-2 md:gap-3 shrink-0 ml-10 md:ml-0">
-                    <span className="text-[14px] font-medium text-black/30 group-hover:text-black/70 transition-colors">
+                    <span className="text-[14px] font-medium text-white/30 group-hover:text-white/70 transition-colors">
                       {t('explorePlatform')}
                     </span>
                     <ArrowUpRight
                       size={16}
-                      className="text-black/20 group-hover:text-black/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                      className="text-white/20 group-hover:text-white/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
                     />
                   </div>
                 </div>
@@ -162,12 +162,12 @@ export default function SubsidiariesPageClient() {
       </section>
 
       {/* ═══════════════ STATEMENT SECTION ═══════════════
-          Like Palantir's centered statement on white background
+          Like Palantir's centered statement on dark background
       */}
-      <section className="py-24 md:py-36 bg-[#F5F5F5]">
+      <section className="py-24 md:py-36 bg-[#0D0D0D]">
         <div className="max-w-[900px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <p className="text-[clamp(1.75rem,4vw,3rem)] font-semibold text-black/90 leading-[1.2] tracking-[-0.02em]">
+            <p className="text-[clamp(1.75rem,4vw,3rem)] font-semibold text-white/90 leading-[1.2] tracking-[-0.02em]">
               {t('statement')}
             </p>
           </FadeIn>
@@ -177,10 +177,10 @@ export default function SubsidiariesPageClient() {
       {/* ═══════════════ FEATURE LIST ═══════════════
           Like Palantir's numbered features with /0.x indicators
       */}
-      <section className="py-24 md:py-32 bg-white border-t border-black/[0.06]">
+      <section className="py-24 md:py-32 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-black/30 mb-16">
+            <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/50 mb-16">
               {t('operatorPrinciplesLabel')}
             </p>
           </FadeIn>
@@ -193,16 +193,16 @@ export default function SubsidiariesPageClient() {
               { label: t('principles.worldClassStandards.title'), description: t('principles.worldClassStandards.description') },
             ].map((f, i) => (
               <FadeIn key={f.label} delay={i * 0.08}>
-                <div className="group flex items-start justify-between py-8 md:py-10 border-b border-black/[0.06] hover:border-black/[0.15] transition-colors">
+                <div className="group flex items-start justify-between py-8 md:py-10 border-b border-white/5 hover:border-white/10 transition-colors">
                   <div className="flex-1 pr-8">
-                    <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-black/90 tracking-[-0.01em] mb-2">
+                    <h3 className="text-[clamp(1.25rem,2.5vw,2rem)] font-bold text-white/90 tracking-[-0.01em] mb-2">
                       {f.label}
                     </h3>
-                    <p className="text-[15px] text-black/50 leading-relaxed max-w-xl">
+                    <p className="text-[15px] text-white/50 leading-relaxed max-w-xl">
                       {f.description}
                     </p>
                   </div>
-                  <span className="text-[12px] font-medium text-black/20 font-mono tracking-tight pt-2 shrink-0">
+                  <span className="text-[12px] font-medium text-white/20 font-mono tracking-tight pt-2 shrink-0">
                     /0.{i + 1}
                   </span>
                 </div>
@@ -213,23 +213,23 @@ export default function SubsidiariesPageClient() {
       </section>
 
       {/* ═══════════════ CTA SECTION ═══════════════ */}
-      <section className="py-24 md:py-32 bg-[#F5F5F5]">
+      <section className="py-24 md:py-32 bg-[#0D0D0D]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Link
                 href="/contact"
-                className="group flex items-center justify-between p-8 md:p-12 bg-white rounded-lg hover:bg-black/5 transition-all duration-300 border border-black/[0.06]"
+                className="group flex items-center justify-between p-8 md:p-12 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 border border-white/5"
               >
                 <div>
-                  <p className="text-[clamp(1.25rem,2vw,1.75rem)] font-bold text-black tracking-[-0.01em] mb-2">
+                  <p className="text-[clamp(1.25rem,2vw,1.75rem)] font-bold text-white tracking-[-0.01em] mb-2">
                     {t('cta.requestBriefing')}
                   </p>
-                  <p className="text-[14px] text-black/40">
+                  <p className="text-[14px] text-white/40">
                     {t('cta.requestBriefingDesc')}
                   </p>
                 </div>
-                <ArrowUpRight size={24} className="text-black/20 group-hover:text-black/60 transition-colors shrink-0 ml-4" />
+                <ArrowUpRight size={24} className="text-white/20 group-hover:text-white/60 transition-colors shrink-0 ml-4" />
               </Link>
 
               <Link
@@ -252,9 +252,9 @@ export default function SubsidiariesPageClient() {
       </section>
 
       {/* Section indicator */}
-      <div className="py-6 bg-white border-t border-black/[0.06]">
+      <div className="py-6 bg-[#0A0A0A] border-t border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <p className="text-[11px] font-medium text-black/20 font-mono">
+          <p className="text-[11px] font-medium text-white/20 font-mono">
             02 {t('operatingVerticalsLabel')}
           </p>
         </div>

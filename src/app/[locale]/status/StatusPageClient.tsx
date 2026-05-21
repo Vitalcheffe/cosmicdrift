@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -104,6 +105,16 @@ function UptimeBar({ uptime }: { uptime: number }) {
 
 export default function StatusPageClient() {
   const t = useTranslations('status');
+  const [lastChecked, setLastChecked] = useState('');
+
+  useEffect(() => {
+    const update = () => {
+      setLastChecked(new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }) + ' UTC');
+    };
+    update();
+    const interval = setInterval(update, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   const services: Service[] = [
     { nameKey: 'services.harchosCoreApi.name', status: 'operational', uptime: 99.99, descriptionKey: 'services.harchosCoreApi.description' },
@@ -366,7 +377,7 @@ export default function StatusPageClient() {
             <div className="flex items-center gap-2">
               <RefreshCw size={12} className="text-[#666666]" />
               <span className="text-[12px] text-[#666666]">
-                {t('lastChecked')} {new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })} UTC
+                {t('lastChecked')} {lastChecked}
               </span>
             </div>
             <div className="flex items-center gap-4">

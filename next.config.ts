@@ -56,7 +56,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://translate.google.com https://www.googletagmanager.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://www.harchcorp.com https://img.shields.io; connect-src 'self' https://www.harchcorp.com https://vitals.vercel-insights.com; frame-src https://js.stripe.com https://hooks.stripe.com; worker-src 'self' blob:;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://translate.google.com https://www.googletagmanager.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://www.harchcorp.com https://img.shields.io; connect-src 'self' https://www.harchcorp.com https://vitals.vercel-insights.com; frame-src https://js.stripe.com https://hooks.stripe.com; worker-src 'self' blob:;",
           },
         ],
       },

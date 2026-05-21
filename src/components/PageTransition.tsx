@@ -9,13 +9,13 @@ import { ReactNode, useEffect, useState, useCallback, useRef } from 'react';
    ═══════════════════════════════════════════════════════════════ */
 
 /** Total duration for the wipe-in phase (ms) */
-const WIPE_IN_DURATION = 0.6;
+const WIPE_IN_DURATION = 0.2;
 
 /** Total duration for the wipe-out phase (ms) */
-const WIPE_OUT_DURATION = 0.5;
+const WIPE_OUT_DURATION = 0.15;
 
 /** Pause between wipe-in completing and wipe-out starting (ms) */
-const CONTENT_SWAP_DELAY = 150;
+const CONTENT_SWAP_DELAY = 50;
 
 /** Subtle rotation angle in degrees applied during the wipe */
 const WIPE_ROTATION = 2.5;

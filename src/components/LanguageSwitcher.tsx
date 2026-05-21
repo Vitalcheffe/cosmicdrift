@@ -15,7 +15,7 @@ const locales = [
  * A refined pill button showing the active locale with a smooth dropdown.
  * Designed to feel like a native part of the interface.
  */
-export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' | 'sidebar' }) {
+export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' | 'sidebar' | 'navbar' }) {
   const locale = useLocale();
   const t = useTranslations('common');
   const router = useRouter();
@@ -76,6 +76,35 @@ export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' 
         <span className="font-[family-name:var(--font-space-mono)] tracking-[0.14em] uppercase">
           {locale === 'en' ? 'EN → FR' : 'FR → EN'}
         </span>
+      </button>
+    );
+  }
+
+  // Navbar variant — compact inline switcher for TopNavBar
+  if (variant === 'navbar') {
+    const nextLocale = locale === 'en' ? 'fr' : 'en';
+    return (
+      <button
+        onClick={() => switchLocale(nextLocale)}
+        className="flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-medium text-white/40 hover:text-white/80 hover:bg-white/[0.04] rounded transition-colors font-[family-name:var(--font-space-mono)] tracking-[0.08em] uppercase"
+        aria-label={t('switchLanguage')}
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="shrink-0 opacity-50"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+          <path d="M2 12h20" />
+        </svg>
+        <span>{locale.toUpperCase()}</span>
       </button>
     );
   }

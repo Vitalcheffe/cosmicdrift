@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import { FadeIn } from '@/components/ui/motion';
 
 function EncryptedConnectionIndicator() {
+  const t = useTranslations('contact');
   const [uptime, setUptime] = useState(0);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function EncryptedConnectionIndicator() {
   return (
     <div className="flex items-center gap-3 px-4 py-2.5 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] rounded-lg">
       <Lock size={12} className="text-[#8B9DAF]" />
-      <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">Encrypted</span>
+      <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{t('encrypted')}</span>
       <div className="w-px h-3 bg-[rgba(255,255,255,0.06)]" />
       <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">AES-256</span>
       <div className="w-px h-3 bg-[rgba(255,255,255,0.06)]" />
@@ -51,6 +52,9 @@ export default function ContactPageClient() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [transmitStep, setTransmitStep] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [referenceNumber, setReferenceNumber] = useState<string | null>(null);
   const router = useRouter();
 
   const inquiryTypes = [
@@ -84,18 +88,55 @@ export default function ContactPageClient() {
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedType) return;
 
+    setIsSubmitting(true);
+    setSubmitError(null);
     setTransmitStep(1);
-    setTimeout(() => setTransmitStep(2), 800);
-    setTimeout(() => setTransmitStep(3), 1600);
-    setTimeout(() => {
-      setSubmitted(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          consultationType: selectedType,
+          organization: formState.organization,
+          designation: formState.designation,
+          country: formState.country,
+          nda: formState.nda,
+        }),
+      });
+
+      setTransmitStep(2);
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        setTransmitStep(0);
+        setSubmitError(data.error || t('form.error'));
+        setIsSubmitting(false);
+        return;
+      }
+
+      setTransmitStep(3);
+      setReferenceNumber(data.reference);
+
+      setTimeout(() => {
+        setSubmitted(true);
+        setTransmitStep(0);
+        setIsSubmitting(false);
+        router.push('/quote/received');
+      }, 800);
+    } catch {
       setTransmitStep(0);
-      router.push('/quote/received');
-    }, 2600);
+      setSubmitError(t('form.error'));
+      setIsSubmitting(false);
+    }
   };
 
   const selectedInquiry = inquiryTypes.find(inquiry => inquiry.id === selectedType);
@@ -183,7 +224,7 @@ export default function ContactPageClient() {
                       <Eye size={24} className="text-[#666666]" strokeWidth={1.5} />
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">{t('consultationTypes.title')}</h3>
-                    <p className="text-[14px] text-[#666666]">Choose your inquiry type above to access the secure briefing form.</p>
+                    <p className="text-[14px] text-[#666666]">{t('form.selectType')}</p>
                   </div>
                 </FadeIn>
               ) : submitted ? (
@@ -192,13 +233,13 @@ export default function ContactPageClient() {
                     <div className="w-16 h-16 rounded-full bg-[rgba(74,123,95,0.08)] flex items-center justify-center mx-auto mb-4">
                       <CheckCircle2 size={28} className="text-[#4A7B5F]" />
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Briefing Request Transmitted</h3>
+                    <h3 className="text-xl font-bold text-white mb-2">{t('form.transmitted')}</h3>
                     <p className="text-[14px] text-[#999999] max-w-md mx-auto mb-6">
                       {t('form.success')}
                     </p>
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] rounded-lg">
                       <Lock size={12} className="text-[#8B9DAF]" />
-                      <span className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">REF-{Math.random().toString(36).substring(2, 8).toUpperCase()}</span>
+                      <span className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">{referenceNumber || 'REF-------'}</span>
                     </div>
                   </div>
                 </FadeIn>
@@ -207,7 +248,7 @@ export default function ContactPageClient() {
                   <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-3">
                       <Radio size={14} className={transmitStep > 0 ? 'text-[#8B9DAF] animate-pulse' : 'text-[#666666]'} />
-                      <p className="section-label">{selectedInquiry?.label} Briefing Request</p>
+                      <p className="section-label">{selectedInquiry?.label} {t('form.briefingRequest')}</p>
                     </div>
                     <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">[{selectedInquiry?.code}]</span>
                   </div>
@@ -215,7 +256,7 @@ export default function ContactPageClient() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Section: Personal Information */}
                     <div>
-                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Personal Information</p>
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('form.personalInfo')}</p>
                       <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
@@ -228,7 +269,7 @@ export default function ContactPageClient() {
                             value={formState.name}
                             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                             className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                            placeholder="Your name"
+                            placeholder={t('form.namePlaceholder')}
                           />
                         </div>
                         <div>
@@ -241,7 +282,7 @@ export default function ContactPageClient() {
                             value={formState.email}
                             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                             className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                            placeholder="secure@domain.com"
+                            placeholder={t('form.emailPlaceholder')}
                           />
                         </div>
                       </div>
@@ -249,7 +290,7 @@ export default function ContactPageClient() {
 
                     {/* Section: Organization */}
                     <div>
-                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Organization</p>
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('form.organizationLabel')}</p>
                       <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
@@ -262,19 +303,19 @@ export default function ContactPageClient() {
                             value={formState.organization}
                             onChange={(e) => setFormState({ ...formState, organization: e.target.value })}
                             className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                            placeholder="Organization name"
+                            placeholder={t('form.organizationPlaceholder')}
                           />
                         </div>
                         <div>
                           <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                            Designation
+                            {t('form.designation')}
                           </label>
                           <input
                             type="text"
                             value={formState.designation}
                             onChange={(e) => setFormState({ ...formState, designation: e.target.value })}
                             className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                            placeholder="Title / Role"
+                            placeholder={t('form.designationPlaceholder')}
                           />
                         </div>
                       </div>
@@ -282,19 +323,19 @@ export default function ContactPageClient() {
 
                     {/* Section: Details */}
                     <div>
-                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">Briefing Details</p>
+                      <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-4">{t('form.briefingDetails')}</p>
                       <div className="h-px bg-[rgba(255,255,255,0.06)] mb-6" />
                       <div className="space-y-6">
                         <div>
                           <label className="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#666666] mb-3">
-                            Country
+                            {t('form.country')}
                           </label>
                           <input
                             type="text"
                             value={formState.country}
                             onChange={(e) => setFormState({ ...formState, country: e.target.value })}
                             className="w-full px-0 py-3 bg-transparent border-0 border-b border-[rgba(255,255,255,0.06)] rounded-none text-[14px] text-white focus:outline-none focus:border-[rgba(139,157,175,0.3)] transition-colors placeholder:text-[#333333]"
-                            placeholder="Country of operation"
+                            placeholder={t('form.countryPlaceholder')}
                           />
                         </div>
                         <div>
@@ -322,7 +363,7 @@ export default function ContactPageClient() {
                         id="nda-check"
                       />
                       <label htmlFor="nda-check" className="text-[12px] text-[#666666] leading-relaxed">
-                        I understand that Harch Corp may share confidential information during the briefing process. I agree to treat all disclosed materials as confidential.
+                        {t('form.ndaAgreement')}
                       </label>
                     </div>
 
@@ -331,9 +372,9 @@ export default function ContactPageClient() {
                         <div className="flex items-center gap-3">
                           <Radio size={12} className="text-[#8B9DAF] animate-pulse" />
                           <span className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
-                            {transmitStep === 1 && 'Encrypting payload...'}
-                            {transmitStep === 2 && 'Routing through secure channel...'}
-                            {transmitStep === 3 && 'Transmitting to secure intake...'}
+                            {transmitStep === 1 && t('form.encrypting')}
+                            {transmitStep === 2 && t('form.routing')}
+                            {transmitStep === 3 && t('form.transmitting')}
                           </span>
                         </div>
                         <div className="mt-2 w-full h-1 rounded-full bg-[rgba(255,255,255,0.06)]">
@@ -345,16 +386,22 @@ export default function ContactPageClient() {
                       </div>
                     )}
 
+                    {submitError && (
+                      <div className="px-4 py-3 bg-[rgba(160,82,75,0.08)] border border-[rgba(160,82,75,0.15)] rounded-lg">
+                        <span className="text-[12px] text-[#A0524B]">{submitError}</span>
+                      </div>
+                    )}
                     <div className="flex items-center gap-4 pt-2">
                       <button
                         type="submit"
-                        className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all"
+                        disabled={isSubmitting}
+                        className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-[#CCCCCC] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {t('form.submit')} <ArrowRight size={14} />
+                        {isSubmitting ? t('form.submitting') : t('form.submit')} <ArrowRight size={14} />
                       </button>
                       <div className="flex items-center gap-2">
                         <Lock size={10} className="text-[#666666]" />
-                        <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">End-to-end encrypted</span>
+                        <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{t('form.e2eEncrypted')}</span>
                       </div>
                     </div>
                   </form>
@@ -368,7 +415,7 @@ export default function ContactPageClient() {
                 <div className="card p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <Shield size={14} className="text-[#8B9DAF]" />
-                    <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">Data Sovereignty</span>
+                    <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#8B9DAF]">{t('compliance.dataSovereignty')}</span>
                   </div>
                   <p className="text-[13px] text-[#999999] leading-relaxed">
                     {t('compliance.description')}
@@ -425,12 +472,12 @@ export default function ContactPageClient() {
               <Lock size={16} className="text-[#8B9DAF] shrink-0 mt-1" strokeWidth={1.5} />
               <div>
                 <p className="text-[14px] text-[#999999] leading-[1.7] mb-3">
-                  Your data is processed on sovereign infrastructure. We do not share with third parties. All briefing requests are encrypted end-to-end and stored within Moroccan jurisdiction under Law 09-08.
+                  {t('disclaimer.text')}
                 </p>
                 <div className="flex items-center gap-4">
-                  <Link href="/trust/security" className="text-[12px] text-[#8B9DAF] hover:text-white transition-colors flex items-center gap-1">Security Overview <ArrowRight size={10} /></Link>
-                  <Link href="/trust/compliance" className="text-[12px] text-[#8B9DAF] hover:text-white transition-colors flex items-center gap-1">Compliance <ArrowRight size={10} /></Link>
-                  <Link href="/privacy" className="text-[12px] text-[#8B9DAF] hover:text-white transition-colors flex items-center gap-1">Privacy Policy <ArrowRight size={10} /></Link>
+                  <Link href="/trust/security" className="text-[12px] text-[#8B9DAF] hover:text-white transition-colors flex items-center gap-1">{t('disclaimer.security')} <ArrowRight size={10} /></Link>
+                  <Link href="/trust/compliance" className="text-[12px] text-[#8B9DAF] hover:text-white transition-colors flex items-center gap-1">{t('disclaimer.compliance')} <ArrowRight size={10} /></Link>
+                  <Link href="/privacy" className="text-[12px] text-[#8B9DAF] hover:text-white transition-colors flex items-center gap-1">{t('disclaimer.privacy')} <ArrowRight size={10} /></Link>
                 </div>
               </div>
             </div>

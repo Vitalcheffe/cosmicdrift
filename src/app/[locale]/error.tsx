@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function Error({
   error,
@@ -10,6 +11,8 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const t = useTranslations('common');
+
   useEffect(() => {
     // Optionally log the error to an error reporting service
     console.error('Application error:', error);
@@ -60,12 +63,12 @@ export default function Error({
         className="error-animate error-animate-delay-1 text-3xl sm:text-4xl font-bold tracking-tight"
         style={{ color: '#A0524B' }}
       >
-        SYSTEM ERROR
+        {t('errorTitle')}
       </h1>
 
       {/* Error message */}
       <p className="error-animate error-animate-delay-2 mt-6 text-sm text-[#999999] text-center max-w-md">
-        A critical system fault has been detected. The operation could not be completed.
+        {t('errorMessage')}
       </p>
 
       {/* Digest / error detail */}
@@ -79,7 +82,7 @@ export default function Error({
 
       {error?.digest && (
         <p className="error-animate error-animate-delay-3 mt-2 text-xs font-mono text-[rgba(255,255,255,0.2)]">
-          Digest: {error.digest}
+          {t('errorDigest')} {error.digest}
         </p>
       )}
 
@@ -89,13 +92,13 @@ export default function Error({
           onClick={reset}
           className="inline-flex items-center justify-center h-12 px-8 bg-white text-black text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-[#e0e0e0] active:scale-[0.98] cursor-pointer"
         >
-          Retry
+          {t('errorRetry')}
         </button>
         <Link
           href="/"
           className="inline-flex items-center justify-center h-12 px-8 border border-[rgba(255,255,255,0.12)] text-white text-sm font-medium rounded-lg transition-all duration-200 hover:border-[rgba(255,255,255,0.25)] hover:bg-[rgba(255,255,255,0.04)] active:scale-[0.98]"
         >
-          Return Home
+          {t('backToHome')}
         </Link>
       </div>
     </div>

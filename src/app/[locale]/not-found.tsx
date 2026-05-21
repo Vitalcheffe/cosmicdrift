@@ -1,7 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import { HarchLogo } from '@/components/HarchLogo';
+import { useTranslations } from 'next-intl';
 
 export default function NotFound() {
+  const t = useTranslations('common');
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center px-4">
       {/* Fade-in animation styles */}
@@ -39,11 +44,11 @@ export default function NotFound() {
 
       {/* Message */}
       <p className="not-found-animate not-found-animate-delay-2 mt-8 text-lg sm:text-xl font-medium text-white text-center max-w-lg">
-        This page does not exist in our infrastructure.
+        {t('notFoundTitle')}
       </p>
 
       <p className="not-found-animate not-found-animate-delay-3 mt-3 text-sm text-[#999999] text-center max-w-md">
-        The resource you requested could not be located. Return to the operations center.
+        {t('notFoundDescription')}
       </p>
 
       {/* CTAs */}
@@ -52,13 +57,13 @@ export default function NotFound() {
           href="/"
           className="inline-flex items-center justify-center h-12 px-8 bg-white text-black text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-[#e0e0e0] active:scale-[0.98]"
         >
-          Return Home
+          {t('backToHome')}
         </Link>
         <Link
           href="/contact"
           className="inline-flex items-center justify-center h-12 px-8 border border-[rgba(255,255,255,0.12)] text-white text-sm font-medium rounded-lg transition-all duration-200 hover:border-[rgba(255,255,255,0.25)] hover:bg-[rgba(255,255,255,0.04)] active:scale-[0.98]"
         >
-          Request Briefing
+          {t('notFoundRequestBriefing')}
         </Link>
       </div>
     </div>

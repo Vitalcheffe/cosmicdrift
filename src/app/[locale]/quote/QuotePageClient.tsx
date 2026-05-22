@@ -795,20 +795,20 @@ export default function QuotePageClient() {
                       </div>
                       <div className="space-y-4">
                         <div className="flex items-start gap-4">
-                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">TYPE</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">{t('form.type')}</span>
                           <span className="text-[14px] text-white">{selectedProjectType}</span>
                         </div>
                         <div className="flex items-start gap-4">
-                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">BUDGET</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">{t('form.budget')}</span>
                           <span className="text-[14px] text-white">{selectedBudget && t(`step2.budgetRanges.${selectedBudget}`)}</span>
                         </div>
                         <div className="flex items-start gap-4">
-                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">TIMELINE</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">{t('form.timeline')}</span>
                           <span className="text-[14px] text-white">{selectedTimeline && t(`step2.timelines.${selectedTimeline}`)}</span>
                         </div>
                         {projectDesc && (
                           <div className="flex items-start gap-4">
-                            <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">DETAILS</span>
+                            <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)] w-20 shrink-0 pt-0.5">{t('form.details')}</span>
                             <span className="text-[13px] text-[#999999] leading-relaxed">{projectDesc}</span>
                           </div>
                         )}
@@ -823,27 +823,27 @@ export default function QuotePageClient() {
                       </div>
                       <div className="grid grid-cols-2 gap-y-3 gap-x-8">
                         <div>
-                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">NAME</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">{t('form.name')}</span>
                           <p className="text-[14px] text-white mt-1">{formState.name}</p>
                         </div>
                         <div>
-                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">EMAIL</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">{t('form.email')}</span>
                           <p className="text-[14px] text-white mt-1">{formState.email}</p>
                         </div>
                         <div>
-                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">ORG</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">{t('form.org')}</span>
                           <p className="text-[14px] text-white mt-1">{formState.organization}</p>
                         </div>
                         <div>
-                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">DESIGNATION</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">{t('form.designation')}</span>
                           <p className="text-[14px] text-white mt-1">{formState.designation || '—'}</p>
                         </div>
                         <div>
-                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">COUNTRY</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">{t('form.country')}</span>
                           <p className="text-[14px] text-white mt-1">{formState.country || '—'}</p>
                         </div>
                         <div>
-                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">PHONE</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] text-[#444444] font-[family-name:var(--font-space-mono)]">{t('form.phone')}</span>
                           <p className="text-[14px] text-white mt-1">{formState.phone || '—'}</p>
                         </div>
                       </div>

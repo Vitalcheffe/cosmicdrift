@@ -6,8 +6,8 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const locales = [
-  { code: 'en' as const, label: 'English', flag: 'EN' },
-  { code: 'fr' as const, label: 'Français', flag: 'FR' },
+  { code: 'en' as const, labelEn: 'English', labelFr: 'Anglais', flag: 'EN' },
+  { code: 'fr' as const, labelEn: 'French', labelFr: 'Français', flag: 'FR' },
 ];
 
 /**
@@ -213,8 +213,8 @@ export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' 
                         {loc.flag}
                       </span>
 
-                      {/* Language name */}
-                      <span className="flex-1 text-left">{loc.label}</span>
+                      {/* Language name — show in its own language */}
+                      <span className="flex-1 text-left">{loc.code === 'en' ? loc.labelEn : loc.labelFr}</span>
 
                       {/* Active indicator */}
                       {isActive && (
@@ -233,7 +233,7 @@ export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' 
               {/* Subtle separator and current indicator */}
               <div className="border-t border-[rgba(255,255,255,0.04)] px-3.5 py-2">
                 <p className="text-[9px] text-[rgba(255,255,255,0.2)] tracking-[0.08em] uppercase font-[family-name:var(--font-space-mono)]">
-                  {locale === 'en' ? 'Language' : 'Langue'}
+                  {t('language')}
                 </p>
               </div>
             </div>

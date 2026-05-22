@@ -1083,7 +1083,7 @@
         }
       ],
       "thesisDescription": "Notre thesis d'investissement est guidée par la souveraineté industrielle africaine.",
-      "thesisLabel": "Thesis",
+      "thesisLabel": "Thèse",
       "thesisTitle": "Thesis d'investissement"
     }
   },
@@ -1311,7 +1311,7 @@
           "title": "Workshop semestriel"
         }
       ],
-      "cadenceLabel": "Cadence",
+      "cadenceLabel": "Fréquence",
       "cadenceTitle": "Calendrier des réunions",
       "coCreationLabel": "Co-création",
       "description1": "Le Conseil Consultatif de Harch Corp est un groupe select de leaders qui guident notre vision.",
@@ -2109,7 +2109,7 @@
         "description": "Documentation complète des API REST et GraphQL pour l'écosystème HarchOS.",
         "label": "Limites de débit",
         "table": {
-          "burst": "Burst",
+          "burst": "Rafale",
           "compute": "Calcul",
           "data": "Données",
           "requests": "Demandes",
@@ -3045,7 +3045,7 @@
       "description": "SDK officiels pour Python, TypeScript et CLI.",
       "title": "SDK",
       "install": "Installer",
-      "packages": "Packages",
+      "packages": "Paquets",
       "chooseSdk": {
         "label": "Choisissez votre SDK",
         "title": "Choisissez votre SDK"
@@ -3129,8 +3129,8 @@
         },
         "title": "Comparaison des SDK"
       },
-      "copied": "Copied!",
-      "copy": "Copy",
+      "copied": "Copié !",
+      "copy": "Copier",
       "hero": {
         "label": "SDKs"
       },
@@ -3182,7 +3182,7 @@
         }
       ],
       "keyFeatures": "Sdks Key Features",
-      "package": "Package",
+      "package": "Paquet",
       "stable": "Stable",
       "versionLabel": "Version du SDK",
       "viewApiReference": "Sdks View Api Référence"
@@ -3434,7 +3434,7 @@
     "articleNotFound": "Article introuvable",
     "articleNotFoundDescription": "L'article technique que vous recherchez n'existe pas.",
     "backToBlog": "Retour au blog technique",
-    "categories": "Categories",
+    "categories": "Catégories",
     "continueReading": "Continuer la lecture",
     "deepDives": "Analyses approfondies",
     "description": "Analyses techniques approfondies sur l'infrastructure souveraine, le cloud GPU et l'IA.",
@@ -3467,7 +3467,7 @@
         "desc": "ACT SDK — Infrastructure exécution framework for sovereign opérations"
       },
       "harchosScheduler": {
-        "desc": "HarchOS Scheduler — Carbon-aware GPU scheduling engine"
+        "desc": "HarchOS Scheduler — Moteur d'ordonnancement GPU sensible au carbone"
       },
       "senseIngest": {
         "desc": "Sense Ingest — Pipeline de collecte et traitement de données à haut débit"
@@ -3490,7 +3490,7 @@
         "date": "Novembre 2025",
         "excerpt": "Une plongée dans l'architecture HarchOS — du paradigme SENSE-THINK-ACT à l'orchestration multi-hub.",
         "readTime": "Inside Harchos Read Time",
-        "title": "Inside HarchOS: Architecture Deep Dive"
+        "title": "Inside HarchOS : Plongée dans l'architecture"
       },
       "latencyOptimization": {
         "date": "Octobre 2025",
@@ -3873,7 +3873,7 @@
     "heroLabel": "FAQ",
     "heroTitle": "Questions frequentes",
     "categories": {
-      "all": "All",
+      "all": "Tout",
       "company": "Entreprise",
       "esg": "ESG",
       "general": "Général",
@@ -3927,7 +3927,7 @@
     "hero": {
       "description": "Answers to the most frequently asked questions about Harch Corp, our infrastructure, and opérations.",
       "label": "FAQ",
-      "title": "Frequently Asked Questions"
+      "title": "Questions fréquemment posées"
     },
     "items": {
       "q1": {
@@ -3965,7 +3965,7 @@
       "q5": {
         "answer": "We currently operate in Morocco with planned deployments in Gambia, Sénégal, Mauritania, and Algeria. Our goal is to expand opérations to 5+ countries by 2030.",
         "category": "Q5 Category",
-        "question": "Which countries do you operate in?"
+        "question": "Dans quels pays opérez-vous ?"
       },
       "q6": {
         "answer": "Harch Corp travaille avec des investisseurs institutionnels qualifiés. Veuillez visiter notre page Relations Investisseurs pour en savoir plus ou demander un briefing investisseur.",
@@ -3980,7 +3980,7 @@
       "q8": {
         "answer": "Nous accueillons les partenariats technologiques, financiers, industriels et gouvernementaux. Veuillez visiter notre page Partenaires pour en savoir plus ou soumettre une candidature de statut partenaire.",
         "category": "Q8 Category",
-        "question": "How do I become a partner?"
+        "question": "Comment devenir partenaire ?"
       },
       "q9": {
         "answer": "HarchOS is our unified operating system that manages the entire infrastructure portfolio. It uses a SENSE-THINK-ACT architecture for real-time monitoring, AI-powered analysis, and automated exécution across all subsidiaries.",
@@ -4584,12 +4584,12 @@
       "video": {
         "sidebar": {
           "overview": "Aperçu",
-          "pipeline": "Pipeline Builder",
+          "pipeline": "Constructeur de Pipeline",
           "carbon": "Planificateur Carbone",
-          "workflows": "Workflows",
+          "workflows": "Flux de travail",
           "apiDocs": "Docs API"
         },
-        "pipelineBuilder": "Pipeline Builder",
+        "pipelineBuilder": "Constructeur de Pipeline",
         "resources": "Ressources",
         "generation": "Génération SDK",
         "nodes": {
@@ -6051,7 +6051,7 @@
         "cementPlant": "Ciment Plant",
         "dataPlatform": "Data Plateforme",
         "energyGrid": "Énergie Grid",
-        "gpuCloud": "GPU Cloud",
+        "gpuCloud": "Cloud GPU",
         "satelliteComm": "Communications par satellite",
         "waterSystem": "Eau System"
       },
@@ -6138,10 +6138,10 @@
     "pricing": {
       "title": "Tarifs GPU",
       "description": "Tarification transparente et competitive pour le compute souverain.",
-      "onDemand": "On-Demand",
-      "perHour": "/hour",
-      "perMonth": "/month",
-      "reserved": "Reserved",
+      "onDemand": "À la demande",
+      "perHour": "/heure",
+      "perMonth": "/mois",
+      "reserved": "Réservé",
       "spot": "Spot"
     },
     "cta": {
@@ -6159,11 +6159,11 @@
       },
       "gpuClusters": {
         "description": "Accès aux derniers GPU NVIDIA avec mise à l'échelle élastique et facturation à la seconde.",
-        "title": "Cutting-Edge GPU Clusters"
+        "title": "Clusters GPU de pointe"
       },
       "lowLatency": {
         "description": "Hubs d'inférence locaux conçus pour les marchés africains, offrant une latence 5 à 10 fois inférieure à celle des fournisseurs cloud européens ou américains.",
-        "title": "African Low Latency"
+        "title": "Faible latence africaine"
       },
       "sovereignHosting": {
         "description": "Données hébergées exclusivement au Maroc avec conformité RGPD, ISO 27001 et résidence des données garantie.",
@@ -6172,15 +6172,15 @@
       "title": "Key Fonctionnalités"
     },
     "specs": {
-      "carbonIntensity": "Carbon Intensity",
+      "carbonIntensity": "Intensité carbone",
       "compliance": "Conformité",
-      "encryption": "Encryption",
+      "encryption": "Chiffrement",
       "hubs": "Hubs",
-      "latency": "Latency",
-      "renewableShare": "Renewable Share",
+      "latency": "Latence",
+      "renewableShare": "Part renouvelable",
       "title": "Spécifications",
       "totalGpus": "Total GPUs",
-      "uptime": "Uptime"
+      "uptime": "Disponibilité"
     },
     "subtitle": "Cloud GPU sensible au carbone pour l'Afrique",
     "useCases": {
@@ -6198,9 +6198,9 @@
       },
       "startup": {
         "description": "Infrastructure GPU évolutive pour les startups IA africaines en croissance rapide.",
-        "title": "AI Startups"
+        "title": "Startups IA"
       },
-      "title": "Use Cases"
+      "title": "Cas d'usage"
     },
     "liveMetricsTitle": "HARCH OS // MÉTRIQUES EN DIRECT"
   },
@@ -6234,12 +6234,12 @@
     },
     "capitalAllocation": {
       "title": "Allocation du capital",
-      "agriculture": "Agriculture — $145M",
+      "agriculture": "Agriculture — 145 M$",
       "cement": "Ciment — $280M",
       "description": "Allocation stratégique du capital à travers les filiales pour maximiser les synergies inter-filiales et les rendements ajustés au risque.",
       "energy": "Énergie — $890M",
-      "finance": "Finance — $95M",
-      "intelligence": "Intelligence — $320M",
+      "finance": "Finance — 95 M$",
+      "intelligence": "Intelligence — 320 M$",
       "mining": "Mines — $195M",
       "technology": "Technologie — $65M",
       "water": "Eau — $410M"
@@ -6252,49 +6252,49 @@
       "primary": "Planifier an Investor Briefing",
       "secondary": "Télécharger Fact Sheet",
       "subtitle": "Join institutional investors funding Africa's next-génération infrastructure.",
-      "title": "Become an Investor"
+      "title": "Devenir investisseur"
     },
     "description": "Harch Corp offre aux investisseurs institutionnels un accès unique au plus grand déficit d'infrastructure au monde, structuré à travers un conglomérat verticalement intégré avec des avantages concurrentiels défendables.",
     "documents": {
       "annualReport": "Annuel Report",
       "description": "Access financial reports, présentations, and regulatory filings.",
-      "esgReport": "ESG Report",
-      "factSheet": "Fact Sheet",
-      "financialStatements": "Financial Statements",
+      "esgReport": "Rapport ESG",
+      "factSheet": "Fiche synthétique",
+      "financialStatements": "États financiers",
       "investorPresentation": "Investor Présentation",
       "quarterlyUpdate": "Trimestriel Mettre à jour",
-      "title": "Investor Documents"
+      "title": "Documents investisseurs"
     },
     "governance": {
-      "auditCommittee": "Audit Committee",
-      "boardIndependence": "Board Independence",
-      "compensationCommittee": "Compensation Committee",
+      "auditCommittee": "Comité d'audit",
+      "boardIndependence": "Indépendance du conseil",
+      "compensationCommittee": "Comité de rémunération",
       "description": "Harch Corp is governed by an independent board with audit, compensation, and governance committees. We adhéré to the highest standards of corporate governance.",
-      "governanceCommittee": "Governance Committee",
-      "title": "Governance"
+      "governanceCommittee": "Comité de gouvernance",
+      "title": "Gouvernance"
     },
     "keyFigures": {
       "employmentTarget": {
         "description": "Emplois directs et indirects d'ici 2030",
-        "label": "Employment Target",
+        "label": "Objectif d'emploi",
         "value": "25,000+"
       },
       "investmentPipeline": {
         "description": "Capital commitment à travers 8 subsidiaries",
         "label": "Investissement Pipeline",
-        "value": "$2.4B"
+        "value": "2,4 Md$"
       },
       "renewableShare": {
         "description": "Part du réseau marocain provenant de sources renouvelables",
-        "label": "Renewable Share",
+        "label": "Part renouvelable",
         "value": "81.5%"
       },
       "targetMarkets": {
         "description": "Pays d'Afrique du Nord et de l'Ouest",
-        "label": "Target Markets",
+        "label": "Marchés cibles",
         "value": "5+"
       },
-      "title": "Key Figures"
+      "title": "Chiffres clés"
     },
     "subtitle": "Investing in Afrique's Infrastructure sovereignty",
     "thesis": {
@@ -7531,12 +7531,12 @@
     "startupProgram": "Programme startup",
     "developers": "Développeurs",
     "compliance": "Conformité",
-    "deployments": "Deployments",
+    "deployments": "Déploiements",
     "mission": "Mission",
-    "news": "News",
+    "news": "Actualités",
     "resources": "Ressources",
     "security": "Sécurité",
-    "thesis": "Thesis"
+    "thesis": "Thèse"
   },
   "newsroom": {
     "title": "Actualités",
@@ -7572,18 +7572,18 @@
     "backToDispatches": "Retour à Dispatches",
     "brandGuidelines": "Brand Directives",
     "brandGuidelinesDescription": "Description de directives de marque",
-    "dispatchNotFound": "Dispatch Not Found",
+    "dispatchNotFound": "Dispatch introuvable",
     "dispatchNotFoundDescription": "Description de répartition non trouvée",
-    "executiveBios": "Executive Bios",
+    "executiveBios": "Biographies des dirigeants",
     "executiveBiosDescription": "Description de biographies des dirigeants",
-    "factSheet": "Fact Sheet",
+    "factSheet": "Fiche synthétique",
     "factSheetDescription": "Description de fiche d'information",
-    "mediaContact": "Media Contact",
+    "mediaContact": "Contact média",
     "mediaContactDescription": "Description de contact média",
     "moreDispatches": "Plus de dispatches",
     "newsAndAnnouncements": "Actualités et annonces",
-    "press": "Press",
-    "readFullDispatch": "Read Full Dispatch"
+    "press": "Presse",
+    "readFullDispatch": "Lire le dispatch complet"
   },
   "partners": {
     "title": "Partenaires",
@@ -7694,7 +7694,7 @@
       "label": "Hero",
       "title": "Hero"
     },
-    "subtitle": "Partner Ecosystem"
+    "subtitle": "Écosystème de partenaires"
   },
   "platform": {
     "title": "Plateforme",
@@ -7702,7 +7702,7 @@
     "heroTitle": "HarchOS",
     "heroDescription": "L'OS d'infrastructure souveraine qui orchestre le cloud GPU, l'énergie, les mines et l'agriculture.",
     "features": {
-      "title": "Fonctionnalites",
+      "title": "Fonctionnalités",
       "items": [
         {
           "title": "Ordonnancement GPU",
@@ -7735,7 +7735,7 @@
       "description": "Architecture distribuee et résilient pour l'infrastructure souveraine a l'échelle continentale."
     },
     "integrations": {
-      "title": "Integrations",
+      "title": "Intégrations",
       "description": "Connectivité native avec l'écosystème d'infrastructure africaine et mondiale.",
       "agriculture": "Harch Agri — Surveillance des cultures et gestion IoT",
       "cement": "Harch Cement — Contrôle des processus industriels et logistique",
@@ -7754,11 +7754,11 @@
       "subtitle": "Request platform access and discover how HarchOS can transform your infrastructure opérations."
     },
     "api": {
-      "authentication": "Authentication",
+      "authentication": "Authentification",
       "description": "Comprehensive API for intégration with your existing systems.",
-      "documentation": "API Documentation",
-      "endpoints": "Endpoints",
-      "rateLimits": "Rate Limits",
+      "documentation": "Documentation API",
+      "endpoints": "Points de terminaison",
+      "rateLimits": "Limites de débit",
       "title": "HarchOS API",
       "webhooks": "Webhooks"
     },
@@ -7773,7 +7773,7 @@
       },
       "predictiveMaintenance": {
         "description": "IA et apprentissage automatique pour prédire les défaillances des équipements avant qu'elles ne se produisent, réduisant les temps d'arrêt de 40 %.",
-        "title": "Predictive Maintenance"
+        "title": "Maintenance prédictive"
       },
       "realTimeMonitoring": {
         "description": "Visibilité complète sur l'ensemble du portefeuille d'infrastructure avec surveillance en temps réel, alertes et analyses prédictives.",
@@ -7781,7 +7781,7 @@
       },
       "resourceOptimization": {
         "description": "Allocation intelligente des ressources à travers toutes les filiales, maximisant l'efficacité et minimisant le gaspillage.",
-        "title": "Resource Optimization"
+        "title": "Optimisation des ressources"
       },
       "securityOperations": {
         "description": "24/7/365 security opérations center with threat detection, incident response, and automated compliance.",
@@ -8374,7 +8374,7 @@
           "Dixième fonctionnalité"
         ],
         "name": "Professionnel",
-        "period": "/month",
+        "period": "/mois",
         "popular": true,
         "price": "$2,500",
         "priceDetail": "Professional Price Détail",
@@ -8419,7 +8419,7 @@
           "Dixième fonctionnalité"
         ],
         "name": "Débutant",
-        "period": "/month",
+        "period": "/mois",
         "popular": false,
         "price": "$0",
         "priceDetail": "Starter Price Détail",
@@ -8463,15 +8463,15 @@
     "contactUsText": "Nous contacter Text",
     "cookies": "Témoins de connexion",
     "cookiesText": "Cookies Text",
-    "dataCollection": "Data Collection",
+    "dataCollection": "Collecte de données",
     "dataCollectionText": "Data Collection Text",
     "dataSecurity": "Data Sécurité",
     "dataSecurityText": "Data Sécurité Text",
-    "dataSharing": "Data Sharing",
+    "dataSharing": "Partage de données",
     "dataSharingText": "Data Sharing Text",
-    "dataUse": "Data Use",
+    "dataUse": "Utilisation des données",
     "dataUseText": "Data Use Text",
-    "internationalTransfers": "International Transfers",
+    "internationalTransfers": "Transferts internationaux",
     "internationalTransfersText": "International Transfers Text",
     "lastUpdatedDate": "Dernière mise à jour Date",
     "yourRights": "Your Droits",
@@ -8527,13 +8527,23 @@
         "description": "Vérifiez et soumettez votre demande.",
         "submit": "Soumettre la demande de devis",
         "submitting": "Envoi en cours..."
-      }
+      },
+      "type": "Type",
+      "budget": "Budget",
+      "timeline": "Calendrier",
+      "details": "Détails",
+      "name": "Nom",
+      "email": "Email",
+      "org": "Organisation",
+      "designation": "Fonction",
+      "country": "Pays",
+      "phone": "Téléphone"
     },
     "success": "Votre demande de devis a été soumise avec succes. Notre équipe vous contactera dans les 24 heures.",
     "progress": {
       "completed": "Terminé",
       "current": "Actuel",
-      "of": "of",
+      "of": "de",
       "step": "Étape",
       "upcoming": "À venir"
     },
@@ -8923,11 +8933,11 @@
       },
       "step2": {
         "description": "Notre équipe analysera les exigences de votre projet et identifiera la meilleure approche.",
-        "title": "Analysis"
+        "title": "Analyse"
       },
       "step3": {
         "description": "Vous recevrez une proposition détaillée incluant la portée, le calendrier et les tarifs.",
-        "title": "Proposal"
+        "title": "Proposition"
       },
       "step4": {
         "description": "Un briefing approfondi avec notre équipe technique sera programmé.",
@@ -8957,7 +8967,7 @@
     "agri": "Agriculture",
     "aiEthics": "Éthique IA",
     "apiPlayground": "Playground API",
-    "apiReference": "Ref. API",
+    "apiReference": "Référence API",
     "architecture": "Architecture",
     "blog": "Blog",
     "business": "Business",
@@ -8966,7 +8976,7 @@
     "casablanca": "Casablanca",
     "caseStudies": "Études de cas",
     "cement": "Ciment",
-    "changelog": "Changelog",
+    "changelog": "Journal des modifications",
     "closeNav": "Fermer",
     "community": "Communauté",
     "company": "Entreprise",
@@ -9160,12 +9170,12 @@
       "cta": "Soumettre une candidature"
     },
     "benefitsDescription": "Programme d'accélération pour les startups africaines construisant l'infrastructure souveraine.",
-    "benefitsLabel": "Startupprogram",
-    "benefitsTitle": "Startup Program",
+    "benefitsLabel": "Programme Startup",
+    "benefitsTitle": "Programme Startup",
     "ctaButton1": "Cta Button1",
     "ctaButton2": "Cta Button2",
     "ctaDescription": "Programme d'accélération pour les startups africaines construisant l'infrastructure souveraine.",
-    "ctaTitle": "Startup Program",
+    "ctaTitle": "Programme Startup",
     "eligibilityDescription": "Description de éligibilité",
     "eligibilityLabel": "Éligibilité",
     "eligibilityTitle": "Éligibilité",
@@ -9193,8 +9203,8 @@
       }
     ],
     "processDescription": "Programme d'accélération pour les startups africaines construisant l'infrastructure souveraine.",
-    "processLabel": "Startupprogram",
-    "processTitle": "Startup Program",
+    "processLabel": "Programme Startup",
+    "processTitle": "Programme Startup",
     "requirements": [
       {
         "desc": "Première étape de notre processus de recrutement.",
@@ -9600,10 +9610,10 @@
           }
         },
         "segment": "Market Analysis Segment",
-        "title": "Agriculture Market Analysis"
+        "title": "Analyse du marché agricole"
       },
       "marketAnalysisLabel": "Analyse de marché agriculture",
-      "marketAnalysisSubtitle": "Agriculture Market Analysis Subtitle",
+      "marketAnalysisSubtitle": "Sous-titre de l'analyse du marché agricole",
       "marketAnalysisTitle": "Analyse de marché agriculture",
       "metrics": {
         "foodImports": "Metrics Food Imports",
@@ -13842,7 +13852,7 @@
         "description": "Limitations de responsabilité et garanties."
       },
       "termination": {
-        "title": "Resiliation",
+        "title": "Résiliation",
         "description": "Conditions de resiliation des Services."
       },
       "governing": {
@@ -13858,13 +13868,13 @@
         "description": "Comment nous contacter pour toute question."
       }
     },
-    "acceptance": "Acceptance",
+    "acceptance": "Acceptation",
     "acceptanceText": "Acceptance Text",
     "accuracy": "Accuracy",
     "accuracyText": "Accuracy Text",
     "contact": "Contact",
     "contactText": "Contact Text",
-    "disclaimer": "Disclaimer",
+    "disclaimer": "Avertissement",
     "disclaimerText": "Disclaimer Text",
     "governingLaw": "Droit applicable",
     "governingLawText": "Droit applicable Text",
@@ -13884,7 +13894,7 @@
     "heroTitle": "Notre These d'Investissement",
     "heroDescription": "Pourquoi l'infrastructure souveraine africaine est l'opportunité d'investissement de la génération.",
     "coreThesis": {
-      "title": "These centrale",
+      "title": "Thèse centrale",
       "description": "L'Afrique est le dernier continent a industrialiser. Avec 1,4 milliard d'habitants, une urbanisation rapide et des ressources abondantes, le besoin d'infrastructure souveraine n'a jamais été aussi pressant.",
       "points": [
         {
@@ -13928,18 +13938,18 @@
       "description": "Le déficit d'infrastructure de l'Afrique est estimé à 68-108 milliards de dollars par an. C'est un problème massif — et une opportunité massive. Harch Corp est positionnée pour capturer une part significative de ce marché grâce à son approche intégrée.",
       "sam": {
         "description": "Marché de l'infrastructure dans nos secteurs et géographies cibles",
-        "label": "Serviceable Addressable Market",
-        "value": "$120B+"
+        "label": "Marché adressable disponible",
+        "value": "120 Md$+"
       },
       "som": {
         "description": "Our initial Investissement pipeline across 8 subsidiaries",
-        "label": "Serviceable Obtainable Market",
-        "value": "$2.4B+"
+        "label": "Marché obtainable disponible",
+        "value": "2,4 Md$+"
       },
       "tam": {
         "description": "Déficit cumulé d'infrastructure africaine sur la prochaine décennie",
-        "label": "Total Addressable Market",
-        "value": "$2,000B+"
+        "label": "Marché total adressable",
+        "value": "2 000 Md$+"
       }
     },
     "competitiveAdvantage": {
@@ -13966,11 +13976,11 @@
       "moats": {
         "carbonAdvantage": {
           "description": "Morocco's grid at ~47 gCO2/kWh provides a cost and compliance advantage for carbon-sensitive opérations.",
-          "title": "Carbon Advantage"
+          "title": "Avantage carbone"
         },
         "geographicPosition": {
           "description": "Le Maroc est la passerelle entre l'Afrique et l'Europe, avec un accès maritime, des accords de libre-échange et une proximité avec les marchés européens.",
-          "title": "Geographic Position"
+          "title": "Position géographique"
         },
         "sovereignData": {
           "description": "Hébergement local des données avec conformité RGPD et ISO 27001. Les données africaines restent en Afrique.",
@@ -14002,11 +14012,11 @@
         },
         "food": {
           "description": "Bien qu'elle possède 60 % des terres arables non cultivées du monde, l'Afrique importe 35 milliards de dollars de nourriture chaque année.",
-          "title": "Food Insecurity"
+          "title": "Insécurité alimentaire"
         },
         "materials": {
           "description": "L'Afrique exporte ses minéraux bruts et réimporte des produits finis à 10-100 fois le prix, ne capturant qu'une fraction de la chaîne de valeur.",
-          "title": "Materials Leakage"
+          "title": "Fuite des matériaux"
         },
         "technology": {
           "description": "Plus de 80 % de l'infrastructure cloud de l'Afrique est hébergée hors du continent, créant des risques de souveraineté des données et de la latence pour les applications critiques.",
@@ -14029,7 +14039,7 @@
         },
         "finance": {
           "description": "Obligations vertes, finance islamique et crédits carbone. Structuration du capital pour les mégaprojets.",
-          "title": "Financial Architecture"
+          "title": "Architecture financière"
         },
         "food": {
           "description": "Précision agriculture and vertical farming. Feeding the continent through technology.",
@@ -14037,7 +14047,7 @@
         },
         "materials": {
           "description": "Du ciment aux mines, contrôle vertical de la matière brute à la livraison.",
-          "title": "Integrated Materials"
+          "title": "Matériaux intégrés"
         },
         "water": {
           "description": "Dessalement solaire et réseaux intelligents. Résoudre la crise de l'eau.",
@@ -15983,7 +15993,7 @@
         "windParks": "Parcs éoliens",
         "greenH2": "H2 Vert",
         "battery": "Batterie",
-        "export": "Export"
+        "export": "Exportation"
       },
       "headerTabs": {
         "generation": "Génération",
@@ -16493,7 +16503,833 @@
         "cta": "Explorer Build"
       }
     },
-    "modulesConfiguring": "Les modules de plateforme pour cette filiale sont en cours de configuration."
+    "modulesConfiguring": "Les modules de plateforme pour cette filiale sont en cours de configuration.",
+    "platforms": {
+      "intelligence": {
+        "headerLabel": "Modules de Plateforme",
+        "headerTitle": "Plateforme Harch Intelligence",
+        "headerDescription": "La couche opérationnelle pour le calcul IA souverain — de l'ordonnancement GPU au routage conscient du carbone sur cinq hubs marocains. Chaque module est conçu pour une infrastructure qui ne doit jamais quitter la juridiction africaine.",
+        "modules": {
+          "0": {
+            "label": "CALCUL",
+            "name": "Tissu de Calcul",
+            "description": "Couche d'orchestration centrale pour les clusters GPU sur les cinq hubs. Gère le placement des charges de travail, la priorisation des files d'attente et l'allocation de capacité en temps réel. L'ordonnancement conscient du carbone achemine chaque tâche vers le hub avec la plus faible intensité carbone du réseau à cet instant — une capacité qu'aucun concurrent n'offre à ce niveau de granularité.",
+            "capabilities": {
+              "0": {
+                "title": "Ordonnancement Conscient du Carbone",
+                "description": "Routage des charges de travail en temps réel basé sur l'intensité carbone du réseau par hub. Les tâches sont automatiquement placées au site le plus vert, atteignant une intensité carbone moyenne du portefeuille significativement inférieure aux références du secteur. Les décisions d'ordonnancement intègrent 47 paramètres incluant les prévisions météorologiques, le mix réseau et l'urgence des tâches."
+              },
+              "1": {
+                "title": "Orchestration Multi-Hub",
+                "description": "Plan de contrôle unifié sur cinq hubs géographiquement distribués — Ouarzazate, Dakhla, Benguerir, Tanger et Casablanca. Les tâches d'entraînement distribuées peuvent s'étendre sur plusieurs sites avec des performances constantes, tandis que les politiques de basculement garantissent une migration sans perte lors des fenêtres de maintenance."
+              },
+              "2": {
+                "title": "Gestion du Parc GPU",
+                "description": "Gestion du cycle de vie complet de l'inventaire hétérogène de GPU — accélérateurs H100, A100 et L40S. La surveillance automatisée de l'état de santé, les alertes de limitation thermique et la planification prédictive des remplacements minimisent les temps d'arrêt. Les outils de planification de capacité projettent la demande face à l'inventaire avec une granularité trimestrielle."
+              },
+              "3": {
+                "title": "Gestion des Files et Priorités",
+                "description": "Files de tâches équitables et basées sur la priorité avec application des SLA. Garanties de capacité réservée pour les clients entreprise, capacité en rafale pour les charges de travail spot, et politiques de préemption qui protègent les tâches de production tout en maximisant l'utilisation du cluster."
+              }
+            },
+            "cta": "Explorer le Tissu de Calcul"
+          },
+          "1": {
+            "label": "SOUVERAINETÉ",
+            "name": "Données Souveraines",
+            "description": "Garantit que toutes les données traitées au sein de Harch Intelligence restent sous juridiction africaine. La résidence des données est appliquée au niveau de l'infrastructure — et non simplement comme politique — avec chiffrement, contrôles d'accès et pistes d'audit satisfaisant la Loi marocaine 09-08, les cadres de données de l'UA et les normes de conformité internationales.",
+            "capabilities": {
+              "0": {
+                "title": "Application de Juridiction",
+                "description": "Garanties de résidence des données au niveau de l'infrastructure. Tout le stockage, le calcul et le trafic réseau reste par défaut dans les frontières marocaines. Aucune donnée ne traverse une juridiction étrangère sauf autorisation explicite du client. Les contrôles physiques et logiques sont audités indépendamment chaque trimestre."
+              },
+              "1": {
+                "title": "Chiffrement et Gestion des Clés",
+                "description": "Chiffrement de bout en bout avec clés gérées par le client (BYOK). Les données sont chiffrées au repos en AES-256, en transit en TLS 1.3, et en cours de calcul dans des enclaves de calcul confidentiel là où c'est supporté. Les services de gestion des clés opèrent exclusivement dans l'infrastructure africaine."
+              },
+              "2": {
+                "title": "Contrôle d'Accès et d'Identité",
+                "description": "Contrôle d'accès basé sur les rôles avec authentification multi-facteurs, enregistrement de session et gestion des accès privilégiés. Tous les événements d'accès sont consignés dans une piste d'audit immuable avec une rétention de 7 ans. Intégration avec le SSO d'entreprise via SAML 2.0 et OIDC."
+              },
+              "3": {
+                "title": "Automatisation de la Conformité",
+                "description": "Surveillance continue de la conformité pour le RGPD, ISO 27001, SOC 2 Type II et la Loi marocaine 09-08. La collecte automatisée de preuves, l'application de politiques sous forme de code et la détection de dérive en temps réel réduisent la préparation d'audit de plusieurs mois à quelques jours."
+              }
+            },
+            "cta": "Explorer les Données Souveraines"
+          },
+          "2": {
+            "label": "CONNECTIVITÉ",
+            "name": "Passerelle Réseau",
+            "description": "Gère l'infrastructure de câbles sous-marins qui relie le Maroc à l'Europe, aux Amériques et au Moyen-Orient. C'est le seul cloud GPU africain avec atterrissage direct de quatre systèmes de câbles sous-marins — offrant les chemins de latence les plus faibles entre le calcul africain et les sources de données mondiales.",
+            "capabilities": {
+              "0": {
+                "title": "Hub de Câbles Sous-Marins",
+                "description": "Intégration directe avec quatre systèmes de câbles sous-marins — ACE, MainOne, Maroc Telecom et capacité supplémentaire via câbles consortiaux. Deux stations d'atterrissage diversifiées assurent la redondance de chemin pour tout le trafic international. La capacité disponible totale dépasse 80 Tbps avec options d'expansion."
+              },
+              "1": {
+                "title": "Optimisation de la Latence",
+                "description": "Aller-retour inférieur à 8 ms vers les centres financiers européens, inférieur à 35 ms vers les Amériques et inférieur à 20 ms vers le Moyen-Orient. Routage anycast, ingénierie de trafic et longueurs d'onde dédiées pour les charges de travail sensibles à la latence comme le trading à haute fréquence et l'inférence en temps réel."
+              },
+              "2": {
+                "title": "Peering et Interconnexion",
+                "description": "Interconnexion neutre vis-à-vis des opérateurs avec rampes d'accès directes aux principaux fournisseurs de cloud, points d'échange Internet et réseaux de diffusion de contenu. Interconnexions privées disponibles pour les clients entreprise nécessitant une bande passante dédiée et non partagée."
+              },
+              "3": {
+                "title": "Observabilité Réseau",
+                "description": "Surveillance en temps réel de tous les chemins réseau avec détection automatisée de basculement. Carte thermique de latence, suivi des pertes de paquets et utilisation de la bande passante par système de câble. Alertes pour les événements de dégradation avec outils d'analyse des causes racines."
+              }
+            },
+            "cta": "Explorer la Passerelle Réseau"
+          },
+          "3": {
+            "label": "OBSERVABILITÉ",
+            "name": "Surveillance de Plateforme",
+            "description": "Observabilité complète sur les cinq hubs — de la température de puce GPU au PUE jusqu'à l'intensité carbone par tâche. S'intègre aux instances Grafana des clients et fournit des tableaux de bord managés pour les équipes needing visibilité sans surcharge d'infrastructure.",
+            "capabilities": {
+              "0": {
+                "title": "Métriques GPU et Infrastructure",
+                "description": "Télémétrie en temps réel pour l'utilisation GPU, la consommation VRAM, les événements de limitation thermique et la consommation électrique par accélérateur. Les métriques au niveau de l'infrastructure incluent le PUE, l'efficacité de refroidissement, la distribution électrique et le débit réseau par hub."
+              },
+              "1": {
+                "title": "Suivi de l'Intensité Carbone",
+                "description": "Comptabilité carbone par tâche mesurant l'intensité carbone réelle du réseau au hub où chaque charge de travail a été exécutée. Les rapports carbones cumulés par projet, par équipe ou par organisation permettent un reporting de durabilité précis sans estimation."
+              },
+              "2": {
+                "title": "Analyse des Coûts et de la Facturation",
+                "description": "Ventilations transparentes des coûts par type de GPU, niveau d'utilisation et durée de tâche. Calculatrices d'économies sur instances réservées, historique des prix spot et alertes budgétaires. Données de facturation exportables dans des formats standards pour l'intégration avec les systèmes d'approvisionnement."
+              },
+              "3": {
+                "title": "Alerte et Réponse aux Incidents",
+                "description": "Politiques d'alerte configurables avec notification multi-canal — e-mail, webhook, intégration PagerDuty. Chronologies d'incidents automatisées, agrégation de logs corrélés et chemins de remédiation suggérés réduisent le temps moyen de résolution."
+              }
+            },
+            "cta": "Explorer la Surveillance de Plateforme"
+          }
+        }
+      },
+      "cement": {
+        "headerLabel": "Modules de Plateforme",
+        "headerTitle": "Plateforme Harch Ciment",
+        "headerDescription": "L'épine dorsale numérique de la production de ciment verticalement intégrée — de la planification des bancs de carrière à la livraison du produit fini. Chaque module couvre une phase distincte de la chaîne de valeur, garantissant une traçabilité complète de la face de calcaire au chantier de construction.",
+        "modules": {
+          "0": {
+            "label": "EXTRACTION",
+            "name": "Carrière et Matières Premières",
+            "description": "Gère le cycle de vie complet de la carrière, de l'étude géologique à l'extraction des bancs et au contrôle qualité des matières premières. Avec plus de 50 ans de réserves de calcaire vérifiées, ce module garantit un approvisionnement constant en matière première tout en minimisant les déchets d'extraction et l'impact environnemental.",
+            "capabilities": {
+              "0": {
+                "title": "Cartographie et Planification des Réserves",
+                "description": "Modèles géologiques 3D des réserves de calcaire avec cartographie de la composition chimique par banc et par couche. Les outils de planification d'extraction optimisent la séquence des bancs pour une qualité constante des matières premières tout en minimisant la découverture. Mises à jour trimestrielles des réserves basées sur les résultats du programme de forage."
+              },
+              "1": {
+                "title": "Conception et Exécution du Tir",
+                "description": "Logiciel de conception de tir de précision calculant les patrons de charge, les séquences de minutage et les objectifs de fragmentation. L'analyse post-tir par levé drone compare la fragmentation réelle à la conception, permettant un raffinement continu. La surveillance des vibrations garantit la conformité aux normes environnementales locales."
+              },
+              "2": {
+                "title": "Contrôle Qualité des Matières Premières",
+                "description": "Échantillonnage automatisé et analyse XRF à l'alimentation du concasseur avec tableaux de bord de composition chimique en temps réel. Si la chimie du calcaire dévie des plages cibles, le système recommande les ratios de mélange à partir de faces de carrière alternatives pour maintenir une qualité constante de l'alimentation du four."
+              },
+              "3": {
+                "title": "Conformité Environnementale",
+                "description": "Stations de surveillance des poussières autour du périmètre de la carrière avec suivi en temps réel des PM10/PM2,5. Optimisation du calendrier des tirs pour minimiser l'impact sur les communautés. Plans de réhabilitation progressive déclenchés automatiquement à mesure que les bancs s'épuisent, utilisant la terre végétale et la découverture stockées."
+              }
+            },
+            "cta": "Explorer les Opérations de Carrière"
+          },
+          "1": {
+            "label": "PRODUCTION",
+            "name": "Opérations du Four",
+            "description": "Contrôle le cœur de la cimenterie — de la préparation de la farine crue à la production de clinker jusqu'au broyage final. Le préchauffeur à 5 étages avec calcinateur atteint une consommation d'énergie significativement inférieure aux moyennes régionales, tandis que le contrôle du four optimisé par IA réduit le gaspillage de combustible et améliore la qualité du clinker.",
+            "capabilities": {
+              "0": {
+                "title": "Contrôle du Procédé du Four",
+                "description": "Système de contrôle du four piloté par IA gérant la température de flamme, la vitesse de rotation, le débit d'alimentation et le flux d'air en temps réel. Les modèles prédictifs entraînés sur les données de production historiques anticipent les accumulations de revêtement et les formations d'anneaux, permettant des ajustements préventifs réduisant les arrêts imprévus."
+              },
+              "1": {
+                "title": "Récupération de la Chaleur Fatale",
+                "description": "Capte environ 30 % de la chaleur des gaz d'échappement du préchauffeur et du refroidisseur de clinker pour la production d'électricité. L'énergie récupérée est réinjectée dans les opérations de l'usine, réduisant la consommation d'électricité du réseau. La surveillance des performances suit l'efficacité de récupération thermique et identifie la dégradation des échangeurs de chaleur."
+              },
+              "2": {
+                "title": "Gestion des Combustibles Alternatifs",
+                "description": "Suivi et optimisation des taux de substitution par combustibles alternatifs — incluant les déchets agricoles, le combustible dérivé des pneus et les fractions de déchets ménagers. Le système équilibre le taux de substitution face aux exigences de qualité du clinker et aux limites d'émissions, maximisant les économies sans compromettre les normes de produit."
+              },
+              "3": {
+                "title": "Assurance Qualité",
+                "description": "Gestion de la qualité certifiée ISO 9001 avec échantillonnage automatisé à chaque étape de production — farine crue, clinker et ciment fini. Surveillance en temps réel de la chaux libre, suivi de la finesse Blaine et modèles de prédiction de la résistance à la compression garantissent une constance du produit dépassant les normes EN 197 et ASTM C150."
+              }
+            },
+            "cta": "Explorer les Opérations du Four"
+          },
+          "2": {
+            "label": "FORMULATION",
+            "name": "Formulations Vertes",
+            "description": "Développe et gère des produits cimentiers à faible émission de carbone réduisant le facteur clinker sans sacrifier la performance. Les formulations actuelles utilisent des matériaux pouzzolaniques d'origine locale, tandis que le pipeline R&D cible les formulations LC3 (argile calcinée) pour une réduction carbone supplémentaire d'ici 2029.",
+            "capabilities": {
+              "0": {
+                "title": "Optimisation du Facteur Clinker",
+                "description": "Réduction systématique du ratio clinker/ciment par l'utilisation de matériaux cimentiers complémentaires (SCM). Les formulations actuelles de ciment composé atteignent un facteur clinker inférieur à 85 %, avec une feuille de route claire vers moins de 70 % grâce à la technologie LC3. Chaque formulation est validée contre les exigences de résistance, de durabilité et de temps de prise."
+              },
+              "1": {
+                "title": "Pipeline de Développement LC3",
+                "description": "Programme de R&D actif pour le ciment LC3 (argile calcaire calcinée), pouvant réduire les émissions de carbone jusqu'à 40 % par rapport au ciment Portland ordinaire. La validation à l'échelle du laboratoire est achevée, avec une production pilote prévue pour 2028 et un lancement commercial ciblé pour 2029. L'approvisionnement en matières premières depuis les gisements d'argile locaux a été confirmé."
+              },
+              "2": {
+                "title": "Suivi Carbone par Produit",
+                "description": "Comptabilité carbone du cycle de vie pour chaque produit cimentier, de l'extraction en carrière à la production jusqu'à la porte d'usine. Les données d'intensité carbone spécifiques au produit permettent aux clients de reporter avec précision le carbone incorporé dans leurs projets de construction — une exigence des réglementations EU CBAM émergentes."
+              },
+              "3": {
+                "title": "Certification et Normes",
+                "description": "Toutes les formulations vertes subissent une certification contre les normes pertinentes — EN 197 pour le ciment, EN 206 pour le béton et la documentation de conformité aux crédits LEED/BREEAM. Le système maintient le statut de certification actuel, les dates d'expiration et les flux de renouvellement pour chaque combinaison produit-marché."
+              }
+            },
+            "cta": "Explorer les Formulations Vertes"
+          },
+          "3": {
+            "label": "LOGISTIQUE",
+            "name": "Distribution et Livraison",
+            "description": "Coordonne la chaîne d'approvisionnement physique de la porte de l'usine au site client — gérant la planification des barges fluviales, l'expédition des camions-citernes et l'exécution des commandes clients sur un rayon de distribution de 500 km couvrant la Gambie, le Sénégal, la Guinée-Bissau et la Guinée.",
+            "capabilities": {
+              "0": {
+                "title": "Gestion des Commandes",
+                "description": "Prise de commandes clients par téléphone, WhatsApp et portail web avec confirmation automatisée et planification de livraison. Allocation prioritaire pendant les périodes de forte demande, tranches de prix basées sur le volume et gestion des contrats pour les accords de prise à long terme."
+              },
+              "1": {
+                "title": "Expédition et Suivi de Flotte",
+                "description": "Gestion d'expédition en temps réel pour une flotte de citernes à ciment et de barges fluviales. Suivi GPS de tous les véhicules, mises à jour dynamiques des HEA basées sur le trafic et les conditions routières, et capture de preuve de livraison via l'application mobile des chauffeurs. L'analyse d'utilisation de la flotte identifie les itinéraires sous-performants."
+              },
+              "2": {
+                "title": "Coordination du Transport Fluvial",
+                "description": "Chargement et planification des barges sur le fleuve Gambie — la méthode de transport en vrac la moins coûteuse pour les marchés intérieurs. Planification des fenêtres de marée, optimisation de la capacité des barges et routage multi-arrêts pour les clients le long du corridor fluvial. L'accès direct aux barges offre des avantages de coûts que les concurrents routiers ne peuvent égaler."
+              },
+              "3": {
+                "title": "Inventaire et Prévision de la Demande",
+                "description": "Suivi des stocks d'entrepôts et de silos avec points de commande automatisés. Les modèles de prévision de la demande intègrent la saisonnalité de la construction, le pipeline de projets gouvernementaux et les tendances de vente historiques. Alertes pour les risques de rupture de stock et de surproduction garantissant des niveaux de stock optimaux."
+              }
+            },
+            "cta": "Explorer le Réseau de Distribution"
+          }
+        }
+      },
+      "energy": {
+        "headerLabel": "Modules de Plateforme",
+        "headerTitle": "Plateforme Harch Énergie",
+        "headerDescription": "Gestion de bout en bout de la production d'énergie renouvelable, de l'intégration au réseau et du stockage — de la surveillance individuelle des onduleurs à l'optimisation de dispatch au niveau du portefeuille. Conçu pour l'exceptionnel ensoleillement du Maroc et les ressources éoliennes de l'Atlantique.",
+        "modules": {
+          "0": {
+            "label": "SOLAIRE",
+            "name": "Génération Solaire",
+            "description": "Gère le cycle de vie complet des actifs photovoltaïques — de la sélection des sites et l'estimation du rendement à la surveillance des performances en temps réel et au suivi de la dégradation. Le Maroc reçoit plus de 2 800 kWh/m2/an d'irradiation solaire, et ce module garantit que chaque watt est capturé et comptabilisé.",
+            "capabilities": {
+              "0": {
+                "title": "Surveillance des Fermes PV",
+                "description": "Surveillance au niveau de l'onduleur sur toutes les installations solaires avec production d'énergie en temps réel, suivi du ratio DC/AC et détection de défauts au niveau des strings. Les calculs du ratio de performance par rapport au rendement attendu à partir des données d'irradiation satellite identifient les sections sous-performantes en quelques heures plutôt que quelques semaines."
+              },
+              "1": {
+                "title": "Prévision de l'Ensoleillement",
+                "description": "Prévisions d'irradiation solaire à J+1 et intrajournalière utilisant l'imagerie satellite, les réseaux de pyranomètres au sol et les modèles de prévision numérique du temps. La précision des prévisions est continuellement comparée à la génération réelle, avec un réentraînement du modèle déclenché lorsque la déviation dépasse les seuils."
+              },
+              "2": {
+                "title": "Santé des Actifs et Dégradation",
+                "description": "Suivi de la dégradation à long terme au niveau du module utilisant le tracé des courbes IV et l'imagerie thermique. La dégradation induite par le potentiel (PID), la formation de points chauds et les défaillances de diodes de bypass sont détectées précocement. La planification de maintenance optimise le compromis entre la génération perdue et les coûts de déploiement d'équipes."
+              },
+              "3": {
+                "title": "Encrassement et Optimisation du Nettoyage",
+                "description": "Modélisation de l'accumulation de poussière spécifique aux conditions arides marocaines avec optimisation du calendrier de nettoyage. Le système calcule la perte de revenus due à l'encrassement par rapport au coût des opérations de nettoyage, déclenchant les lavages de panneaux uniquement lorsque le retour économique justifie la dépense."
+              }
+            },
+            "cta": "Explorer la Génération Solaire"
+          },
+          "1": {
+            "label": "ÉOLIEN",
+            "name": "Génération Éolienne",
+            "description": "Contrôle les actifs éoliens onshore le long de la côte atlantique du Maroc — où les vitesses de vent moyennes dépassent 8 m/s en hauteur de moyeu. De la performance au niveau de l'éolienne au dispatch au niveau du parc, ce module maximise la capture d'énergie tout en gérant les charges mécaniques et les contraintes du réseau.",
+            "capabilities": {
+              "0": {
+                "title": "Surveillance de la Performance des Éoliennes",
+                "description": "Intégration SCADA avec analyse de la courbe de puissance en temps réel pour chaque éolienne. Les déviations par rapport à la courbe de puissance attendue déclenchent des diagnostics automatisés — les problèmes de pas de pale, le désalignement du lacet, la dégradation de la boîte de vitesses et la perte d'efficacité du générateur sont identifiés et priorisés pour la maintenance."
+              },
+              "1": {
+                "title": "Évaluation de la Ressource Éolienne",
+                "description": "Gestion des données de mâts météorologiques et LiDAR avec intégration de l'atlas éolien. Les estimations à long terme de la ressource éolienne sont affinées en utilisant les données opérationnelles, réduisant l'incertitude dans les projections de rendement énergétique pour les nouveaux projets. Les distributions de vitesse et de direction du vent alimentent les calculs de pertes de sillage."
+              },
+              "2": {
+                "title": "Gestion de l'Écrêtement",
+                "description": "Lorsque les ordres d'écrêtement de l'exploitant du réseau réduisent la production, ce module répartit l'écrêtement entre les éoliennes pour minimiser le stress mécanique et maximiser la valeur sur la durée de vie. Les journaux d'écrêtement sont conservés pour les demandes d'indemnisation et les rapports de conformité réglementaire."
+              },
+              "3": {
+                "title": "Prévision et Dispatch",
+                "description": "Prévisions de puissance éolienne à une granularité de 15 minutes pour les 48 prochaines heures, avec des plages probabilistes pour les intervalles de confiance. L'optimisation du dispatch aligne la génération prévue sur les engagements réseau et les positions de marché, réduisant les pénalités de déséquilibre."
+              }
+            },
+            "cta": "Explorer la Génération Éolienne"
+          },
+          "2": {
+            "label": "RÉSEAU",
+            "name": "Intégration au Réseau",
+            "description": "Gère l'interface entre les actifs de production renouvelable et le réseau national — de la conformité aux contrats d'achat d'électricité aux services de régulation de fréquence. À mesure que la part renouvelable du Maroc progresse vers l'objectif de 52 %, ce module garantit la stabilité et maximise les revenus des services réseau.",
+            "capabilities": {
+              "0": {
+                "title": "Conformité et Règlement des PPA",
+                "description": "Suivi automatisé des obligations des contrats d'achat d'électricité — génération planifiée, tolérances de livraison et calculs de règlement. Gestion des données de compteurs avec détection de fraude et réconciliation avec les enregistrements de l'exploitant du réseau. Rapports de règlement mensuels générés automatiquement."
+              },
+              "1": {
+                "title": "Soutien en Fréquence et Tension",
+                "description": "Contrôle d'onduleurs formant le réseau pour les services de régulation de fréquence et de soutien en tension. Fourniture d'inertie synthétique lors des perturbations du réseau, gestion de la puissance réactive pour la régulation de tension et activation de la réponse en fréquence rapide dans les 200 millisecondes suivant un événement de déviation de fréquence."
+              },
+              "2": {
+                "title": "Intégration de la Réponse à la Demande",
+                "description": "Coordination avec les programmes de réponse à la demande industrielle — décalage des charges flexibles vers les périodes de surplus renouvelable. Optimisation de la tarification selon l'usage pour les propres opérations industrielles de Harch Corp (ciment, eau, mines) afin de minimiser les coûts d'électricité tout en réduisant l'écrêtement de la production renouvelable."
+              },
+              "3": {
+                "title": "Conformité au Code Réseau",
+                "description": "Surveillance continue des exigences du code réseau — tenue en tension, tenue en fréquence, limites harmoniques et normes de qualité de l'énergie. Documentation de conformité générée automatiquement pour les soumissions réglementaires. Simulation de pré-mise en service validant la performance par rapport au code réseau avant la mise sous tension."
+              }
+            },
+            "cta": "Explorer l'Intégration au Réseau"
+          },
+          "3": {
+            "label": "STOCKAGE",
+            "name": "Stockage d'Énergie",
+            "description": "Gère les systèmes de stockage d'énergie par batteries et les actifs émergents de production d'hydrogène. Le stockage transforme la production renouvelable intermittente en puissance pilotable — permettant à Harch Énergie de vendre de la capacité ferme plutôt que de la génération variable, à une valeur significativement plus élevée.",
+            "capabilities": {
+              "0": {
+                "title": "Gestion des Systèmes de Batteries",
+                "description": "Surveillance en temps réel des cellules, modules et racks de batteries avec suivi de l'état de charge et de l'état de santé. La gestion thermique garantit que les cellules opèrent dans des plages de température optimales. Le comptage des cycles et les modèles de dégradation projettent la durée de vie utile restante et déclenchent les réclamations de garantie lorsque la dégradation réelle dépasse les spécifications du fabricant."
+              },
+              "1": {
+                "title": "Optimisation du Dispatch",
+                "description": "Optimisation algorithmique des calendriers de charge/décharge pour maximiser les revenus à travers l'arbitrage énergétique, les paiements de capacité et les services annexes. Le système évalue les prix du marché, les contraintes du réseau et l'état des batteries en temps réel pour déterminer la stratégie de dispatch la plus valorisée pour chaque intervalle de 15 minutes."
+              },
+              "2": {
+                "title": "Production d'Hydrogène Vert",
+                "description": "Intégration avec les systèmes d'électrolyseurs pour la production d'hydrogène vert pendant les périodes de surplus renouvelable. La planification de production optimise l'utilisation des électrolyseurs par rapport aux prix de l'électricité et aux prévisions de demande en hydrogène. Suivi du stockage et des prises d'hydrogène pour les clients industriels et de transport."
+              },
+              "3": {
+                "title": "Benchmarking des Performances",
+                "description": "Suivi de l'efficacité aller-retour des actifs de stockage avec comparaison par rapport aux lignes de base de mise en service. L'analyse de l'empilement des revenus montre la contribution de chaque flux de valeur (arbitrage, capacité, fréquence). Le benchmarking par rapport aux références de l'industrie identifie les sous-performances et les opportunités d'optimisation."
+              }
+            },
+            "cta": "Explorer le Stockage d'Énergie"
+          }
+        }
+      },
+      "technology": {
+        "headerLabel": "Modules de Plateforme",
+        "headerTitle": "Plateforme Harch Technologie",
+        "headerDescription": "Infrastructure de communications souveraines et opérations de cybersécurité — de la gestion des stations terriennes au renseignement sur les menaces. Conçu pour garantir que les gouvernements et entreprises africains disposent d'une connectivité et d'une sécurité indépendantes des fournisseurs étrangers.",
+        "modules": {
+          "0": {
+            "label": "SATELLITE",
+            "name": "Opérations Satellite",
+            "description": "Gère le réseau de stations terriennes et l'allocation de bande passante sur plusieurs constellations orbitales. Ce module fournit la couche de connectivité satellite reliant les opérations distantes de Harch Corp — sites miniers, fermes solaires, zones agricoles — à la plateforme centrale indépendamment de la disponibilité du réseau terrestre.",
+            "capabilities": {
+              "0": {
+                "title": "Gestion des Stations Terriennes",
+                "description": "Surveillance et contrôle des stations terriennes satellite au Maroc. Le suivi d'antenne, l'acquisition de signal et la transition entre les passages satellite sont automatisés. Les chaînes RF redondantes et les systèmes d'alimentation garantissent la disponibilité pour les communications d'infrastructure critique."
+              },
+              "1": {
+                "title": "Allocation de Bande Passante",
+                "description": "Gestion dynamique de la bande passante sur les constellations LEO, MEO et GEO. L'allocation basée sur la priorité garantit que les flux de données critiques pour la sécurité et opérationnels reçoivent une capacité garantie, tandis que les transferts de données en masse remplissent la bande passante restante. Tableaux de bord d'utilisation en temps réel par terminal et par faisceau."
+              },
+              "2": {
+                "title": "Analyse du Bilan de Liaison",
+                "description": "Calculs automatisés du bilan de liaison pour les nouvelles installations de terminaux et les extensions de service. Prend en compte l'affaiblissement atmosphérique, l'angle d'élévation du satellite, les schémas de modulation et codage et les marges d'interférence. Prédit les débits de données atteignables et les pourcentages de disponibilité avant le déploiement matériel."
+              },
+              "3": {
+                "title": "Surveillance des Niveaux de Service",
+                "description": "Suivi des niveaux de service de bout en bout du terminal à la passerelle — latence, gigue, perte de paquets et disponibilité. Rapports de conformité SLA générés automatiquement par contrat client. Les événements de dégradation déclenchent des flux d'investigation avec outils d'analyse des causes racines."
+              }
+            },
+            "cta": "Explorer les Opérations Satellite"
+          },
+          "1": {
+            "label": "CYBER",
+            "name": "Cyber-Défense",
+            "description": "Le centre d'opérations de sécurité pour toute l'infrastructure Harch Corp — et pour les clients nécessitant une cybersécurité de grade souverain. Ce module fournit la détection des menaces, la réponse aux incidents et la gestion des vulnérabilités avec une résidence complète des données dans la juridiction africaine.",
+            "capabilities": {
+              "0": {
+                "title": "Détection et Réponse aux Menaces",
+                "description": "Centre d'opérations de sécurité 24/7 avec intégration SIEM sur toute l'infrastructure Harch Corp. L'analytique comportementale détecte les motifs anormaux indicatifs de menaces persistantes avancées. Les playbooks de réponse automatisée contiennent les violations en quelques minutes, tandis que les analystes humains valident et enquêtent sur les incidents de haute complexité."
+              },
+              "1": {
+                "title": "Gestion des Vulnérabilités",
+                "description": "Scanning continu des vulnérabilités de toute l'infrastructure exposée à Internet et interne. La priorisation basée sur le risque évalue les vulnérabilités par exploitabilité, criticité des actifs et impact métier. Les flux de gestion des correctifs suivent la remédiation de la détection au déploiement avec application des SLA."
+              },
+              "2": {
+                "title": "Protection Anti-DDoS",
+                "description": "Atténuation DDoS multicouche avec nettoyage sur site pour les attaques volumétriques et atténuation cloud pour les événements à grande échelle. L'apprentissage du trafic de référence, la limitation de débit et les politiques de géoblocage sont configurables par client. Les rapports forensiques documentent les vecteurs d'attaque, la durée et l'efficacité de l'atténuation."
+              },
+              "3": {
+                "title": "Conformité et Audit",
+                "description": "Surveillance automatisée de la conformité pour ISO 27001, SOC 2 et les réglementations marocaines de cybersécurité. La collecte de preuves, l'application des politiques et l'analyse des écarts réduisent l'effort de préparation d'audit. Les calendriers de tests de pénétration et le suivi des résultats garantissent l'amélioration continue de la posture de sécurité."
+              }
+            },
+            "cta": "Explorer la Cyber-Défense"
+          },
+          "2": {
+            "label": "RÉSEAU",
+            "name": "Infrastructure Réseau",
+            "description": "Gère l'épine dorsale réseau terrestre qui interconnecte tous les sites Harch Corp — fibre optique, faisceaux hertziens et liaison satellite. C'est la couche physique qui rend possibles les communications souveraines à faible latence à travers le Maroc et le continent africain au sens large.",
+            "capabilities": {
+              "0": {
+                "title": "Gestion de l'Épine Dorsale Fibre",
+                "description": "Surveillance et gestion des routes en fibre optique connectant les centres de données, les stations terriennes et les sites industriels. Surveillance de la puissance optique, détection de coupure de fibre avec alerte en moins d'une seconde et reroutage automatisé du trafic via des chemins diversifiés. Les outils de planification de capacité projettent les besoins en bande passante face à la capacité fibre disponible."
+              },
+              "1": {
+                "title": "SD-WAN et Ingénierie de Trafic",
+                "description": "Orchestration SD-WAN sur tous les sites Harch Corp. Le routage sensible aux applications sélectionne le meilleur chemin — fibre, faisceau hertzien ou satellite — selon les exigences de latence, le coût et la disponibilité. Gestion centralisée des politiques avec remplacements par site pour les conditions locales."
+              },
+              "2": {
+                "title": "Planification Faisceaux Hertziens et Radio",
+                "description": "Conception de liaisons faisceaux hertziens point à point, coordination des fréquences et surveillance des performances pour les sites au-delà de la portée fibre. Profilage de chemin, dégagement de zone de Fresnel et modélisation de l'affaiblissement par la pluie garantissent des liaisons fiables à haute capacité dans le relief diversifié du Maroc."
+              },
+              "3": {
+                "title": "Centre d'Opérations Réseau",
+                "description": "NOC centralisé avec visibilité en temps réel sur tous les éléments réseau — routeurs, commutateurs, amplificateurs optiques et radios hertziennes. Le traitement corrélé des événements réduit le bruit d'alertes. Les runbooks automatisés exécutent les procédures de remédiation standards sans intervention humaine pour les modes de défaillance courants."
+              }
+            },
+            "cta": "Explorer l'Infrastructure Réseau"
+          },
+          "3": {
+            "label": "SOUVERAIN",
+            "name": "Communications Souveraines",
+            "description": "Communications chiffrées de grade gouvernemental pour les clients de la défense, du renseignement et des infrastructures critiques. Ce module fournit le niveau d'assurance le plus élevé — options de déploiement en cloisonnement aérien, gestion souveraine des clés et résidence garantie des données dans la juridiction africaine.",
+            "capabilities": {
+              "0": {
+                "title": "Communications Chiffrées",
+                "description": "Communications vocales, vidéo et de messagerie chiffrées de bout en bout utilisant l'infrastructure souveraine de gestion des clés. Tous les matériaux cryptographiques sont générés, stockés et gérés dans l'infrastructure marocaine. Supporte les exigences de communication classifiée avec des hiérarchies de clés compartimentées."
+              },
+              "1": {
+                "title": "Déploiement en Cloisonnement Aérien",
+                "description": "Option de déploiement entièrement déconnecté pour les environnements les plus sensibles. Les mises à jour logicielles sont livrées via des supports physiques sécurisés. Aucune connexion réseau externe requise pour le fonctionnement. Adapté aux installations avec des exigences strictes de sécurité des émissions (EMSEC)."
+              },
+              "2": {
+                "title": "Gestion Souveraine des Clés",
+                "description": "Infrastructure de gestion des clés de grade national avec modules de sécurité matériels (HSM) situés exclusivement au Maroc. La génération, distribution, rotation et révocation des clés suivent des protocoles souverains. Aucun accès étranger aux matériaux cryptographiques en aucune circonstance."
+              },
+              "3": {
+                "title": "Gestion Sécurisée des Terminaux",
+                "description": "Gestion des terminaux mobiles pour les appareils de communications sécurisés — smartphones, tablettes et ordinateurs portables utilisés par les clients gouvernementaux et de la défense. Effacement à distance, application des politiques, liste blanche d'applications et géorepérage garantissent que les appareils restent conformes même en dehors des installations sécurisées."
+              }
+            },
+            "cta": "Explorer les Communications Souveraines"
+          }
+        }
+      },
+      "mining": {
+        "headerLabel": "Modules de Plateforme",
+        "headerTitle": "Plateforme Harch Mines",
+        "headerDescription": "De l'exploration géologique à l'exportation minérale — la plateforme intégrée pour la gestion des opérations minières sur les riches gisements minéraux du Maroc. Chaque module couvre une phase distincte de la chaîne de valeur de la mine au marché.",
+        "modules": {
+          "0": {
+            "label": "EXPLORATION",
+            "name": "Renseignement sur les Ressources",
+            "description": "Gestion des données géologiques, estimation des réserves et planification de l'exploration. Le Maroc détient plus de 70 % des réserves mondiales de phosphate, et ce module garantit que ces ressources sont cartographiées, quantifiées et planifiées avec la précision requise pour des opérations minières de plusieurs décennies.",
+            "capabilities": {
+              "0": {
+                "title": "Cartographie Géologique",
+                "description": "Modèles géologiques 3D construits à partir de données de carottes de forage, levés sismiques et mesures géophysiques. Intégrés aux plateformes SIG pour l'analyse spatiale. Les modèles sont continuellement affinés à mesure que de nouvelles données d'exploration deviennent disponibles, réduisant l'incertitude des estimations de réserves à chaque campagne de forage."
+              },
+              "1": {
+                "title": "Estimation des Réserves",
+                "description": "Estimation des ressources et réserves conforme JORC et NI 43-101 avec modélisation probabiliste. Classification des ressources en catégories mesurées, indiquées et inférées basée sur la densité des données et les niveaux de confiance. L'analyse de sensibilité montre comment les estimations de réserves changent selon différents scénarios de prix des matières premières."
+              },
+              "2": {
+                "title": "Planification de l'Exploration",
+                "description": "Placement optimal des trous de forage utilisant les cartes d'incertitude géologique. Programmes d'exploration contraints par le budget maximisant le gain d'information par dollar dépensé. Les flux de travail automatisés d'autorisation garantissent que les campagnes de forage sont conformes aux réglementations environnementales et d'occupation des sols."
+              },
+              "3": {
+                "title": "Analyse Géochimique",
+                "description": "Gestion de l'information de laboratoire pour les résultats de carottes de forage et d'échantillonnage en vrac. Suivi des analyses XRF et ICP-MS avec protocoles de contrôle qualité. Les cartes d'anomalies géochimiques générées à partir de l'échantillonnage de surface et des levés pédologiques guident le ciblage de l'exploration."
+              }
+            },
+            "cta": "Explorer le Renseignement sur les Ressources"
+          },
+          "1": {
+            "label": "OPÉRATIONS",
+            "name": "Opérations d'Extraction",
+            "description": "Gestion quotidienne des opérations minières — de la planification des bancs et l'exécution des tirs au transport du minerai et au contrôle de la teneur. Ce module garantit que chaque tonne de matériel déplacée contribue aux objectifs économiques de l'opération.",
+            "capabilities": {
+              "0": {
+                "title": "Planification et Ordonnancement Minier",
+                "description": "Planification minière à court et moyen terme avec séquençage optimisé des bancs. Les outils de conception de fosse calculent les enveloppes de fosse optimales basées sur les prix des matières premières, les coûts de traitement et les contraintes géotechniques. Les plannings hebdomadaires et quotidiens s'intègrent à la disponibilité des équipements et aux fenêtres de maintenance."
+              },
+              "1": {
+                "title": "Gestion de la Flotte",
+                "description": "Dispatch en temps réel des excavatrices et des camions de transport utilisant le suivi GPS et la pesée embarquée. Les tableaux de bord de productivité montrent les tonnes déplacées par heure, la consommation de carburant par tonne et l'utilisation des équipements. La surveillance de l'état des pistes de transport identifie les besoins de maintenance avant qu'ils causent des dommages aux équipements."
+              },
+              "2": {
+                "title": "Contrôle de la Teneur",
+                "description": "Suivi de la teneur du minerai en temps réel au front d'extraction utilisant des analyseurs XRF portables et l'échantillonnage des trous de tir. La délimitation de la frontière minerai/stérile garantit que le matériel au-dessus de la teneur de coupure atteint l'usine de traitement tandis que les stériles sont orientés vers la décharge. La réconciliation des teneurs par rapport au modèle de blocs valide les estimations de réserves."
+              },
+              "3": {
+                "title": "Sécurité et Environnement",
+                "description": "Surveillance de la stabilité des pentes utilisant le radar et les prismes avec seuils d'alerte automatisés. Surveillance des poussières et des vibrations aux limites du site avec rapports de conformité. Gestion de l'eau pour l'exhaure de la fosse et le contrôle du ruissellement. Suivi des incidents et signalement des quasi-accidents avec flux d'analyse des causes racines."
+              }
+            },
+            "cta": "Explorer les Opérations d'Extraction"
+          },
+          "2": {
+            "label": "TRAITEMENT",
+            "name": "Traitement et Affinage",
+            "description": "Contrôle la chaîne de traitement minéral du minerai brut au concentré commercialisable ou produit affiné. Chaque circuit est optimisé pour la récupération, la qualité du produit et l'efficacité énergétique — avec surveillance en temps réel et contrôle de procédé assisté par IA.",
+            "capabilities": {
+              "0": {
+                "title": "Broyage et Concassage",
+                "description": "Gestion des circuits de concassage et de broyage avec analyse granulométrique en ligne. L'optimisation de la charge du broyeur et de la consommation électrique maintient la granulométrie cible tout en minimisant la consommation d'énergie. Le suivi de l'usure des blindages prévoit la planification des remplacements pour éviter les arrêts imprévus."
+              },
+              "1": {
+                "title": "Concentration et Séparation",
+                "description": "Gestion des circuits de flottation, séparation magnétique et concentration gravimétrique. Optimisation du dosage des réactifs utilisant des modèles IA ajustés aux caractéristiques du minerai en temps réel. Le suivi de la récupération par rapport au maximum théorique identifie les pertes et les opportunités d'optimisation du circuit."
+              },
+              "2": {
+                "title": "Contrôle Qualité du Produit",
+                "description": "Échantillonnage et analyse automatisés du concentré final avec suivi de la teneur en temps réel. La conformité aux spécifications produit garantit que chaque expédition répond aux exigences contractuelles des clients. Certificats de qualité générés automatiquement avec intégration des données de laboratoire."
+              },
+              "3": {
+                "title": "Gestion des Résidus",
+                "description": "Surveillance des installations de stockage des résidus avec analyse de stabilité des digues, suivi du bilan hydrique et conformité environnementale. Évaluation de l'option d'empilement à sec pour la récupération d'eau et la réduction des coûts de fermeture. Planification de la réhabilitation progressive des zones de résidus déclassées."
+              }
+            },
+            "cta": "Explorer le Traitement et l'Affinage"
+          },
+          "3": {
+            "label": "LOGISTIQUE",
+            "name": "Logistique et Export",
+            "description": "Coordonne le mouvement des produits minéraux de la porte de la mine au port client — planification ferroviaire, opérations du terminal portuaire et suivi des expéditions. Pour une opération enclavée, l'efficacité logistique fait la différence entre des prix rendus compétitifs et non compétitifs.",
+            "capabilities": {
+              "0": {
+                "title": "Transport Ferroviaire et Routier",
+                "description": "Planification et suivi du transport ferroviaire et routier de la mine au port. Suivi des envois avec HEA mis à jour en temps réel. La gestion des surestaries garantit que les wagons et les camions sont retournés dans les fenêtres de temps contractuelles. L'optimisation des itinéraires minimise le coût de transport par tonne."
+              },
+              "1": {
+                "title": "Opérations du Terminal Portuaire",
+                "description": "Gestion des stocks aux terminaux portuaires avec capacité de mélange pour répondre aux spécifications clients. Planification du chargement des navires coordonnée avec les arrivées de navires et les restrictions de tirant d'eau. Intégration avec l'autorité portuaire pour l'allocation de postes à quai et le dédouanement."
+              },
+              "2": {
+                "title": "Suivi des Expéditions",
+                "description": "Suivi des expéditions de bout en bout du chargement au port jusqu'au transit océanique et à la décharge chez le client. Suivi des navires par AIS, mises à jour des heures estimées d'arrivée et documentation de preuve de livraison. Lettres de crédit et documentation de financement commercial générées automatiquement à partir des données d'expédition."
+              },
+              "3": {
+                "title": "Analytique de la Chaîne d'Approvisionnement",
+                "description": "Analyse des coûts de la mine au client identifiant les goulots d'étranglement logistiques et les opportunités de réduction des coûts. Benchmarking par rapport aux pairs de l'industrie pour le coût de transport par tonne, les coûts de portage d'inventaire et les cycles du bon de commande à la livraison. Modélisation de scénarios pour les changements de configuration de la chaîne d'approvisionnement."
+              }
+            },
+            "cta": "Explorer la Logistique et l'Export"
+          }
+        }
+      },
+      "agriculture": {
+        "headerLabel": "Modules de Plateforme",
+        "headerTitle": "Plateforme Harch Agri",
+        "headerDescription": "De la sélection du terrain à la récolte — la plateforme d'agriculture de précision qui permet aux agriculteurs africains de prendre des décisions basées sur les données. Inclut l'analyse de terrain par carte, l'intégration de capteurs IoT et des outils d'accès direct au marché comme la génération de devis PDF et la connectivité WhatsApp.",
+        "modules": {
+          "0": {
+            "label": "TERRAIN",
+            "name": "Renseignement Terrain",
+            "description": "Sélection de terrain par carte et analyse de sol permettant aux agriculteurs et investisseurs d'évaluer les terres avant de s'engager. L'imagerie satellite, les bases de données de sols et les données topographiques sont combinées en évaluations de capacité des terres exploitables — la première étape de toute opération agricole réussie.",
+            "capabilities": {
+              "0": {
+                "title": "Carte Terrain Interactive",
+                "description": "Interface cartographique interactive pour parcourir et sélectionner des terrains agricoles. Imagerie satellite avec couches NDVI, courbes de niveau topographiques et limites de types de sol issues des levés pédologiques nationaux. Les utilisateurs peuvent tracer des limites de parcelles directement sur la carte et recevoir des évaluations instantanées de capacité incluant l'analyse de pente, de drainage et de profondeur du sol."
+              },
+              "1": {
+                "title": "Analyse de la Composition du Sol",
+                "description": "Intégration avec les bases de données pédologiques nationales pour fournir les propriétés chimiques et physiques du sol pour tout lieu — pH, matière organique, CEC, texture et salinité. Pour les zones à données limitées, l'analyse spectrale par imagerie satellite fournit des estimations interpolées avec intervalles de confiance. Les recommandations d'échantillonnage du sol guident la vérification sur le terrain."
+              },
+              "2": {
+                "title": "Climat et Disponibilité en Eau",
+                "description": "Données climatiques historiques (température, précipitations, évapotranspiration) et cartographie des ressources en eau pour chaque parcelle de terrain. Estimations de la profondeur des nappes phréatiques, proximité des eaux de surface et disponibilité de l'infrastructure d'irrigation. Scoring du risque climatique pour la sécheresse, les inondations et le stress thermique basé sur des relevés historiques de 30 ans."
+              },
+              "3": {
+                "title": "Occupation des Sols et Zonage",
+                "description": "Classification de l'occupation des sols actuelle et historique par imagerie satellite. Vérifications de conformité au zonage et aux réglementations de protection des terres agricoles. Cartographie des tenures foncières coutumières là où les registres formels sont incomplets, réduisant le risque d'investissement."
+              }
+            },
+            "cta": "Explorer le Renseignement Terrain"
+          },
+          "1": {
+            "label": "PRÉCISION",
+            "name": "Opérations de Précision",
+            "description": "Réseaux de capteurs IoT, services de drones et outils d'application à taux variable qui transforment les données de terrain en actions au niveau des parcelles. Ce module fait le pont entre l'analyse et l'exécution — garantissant que chaque intrant (eau, engrais, protection des cultures) est appliqué au bon taux, au bon endroit, au bon moment.",
+            "capabilities": {
+              "0": {
+                "title": "Réseau de Capteurs IoT",
+                "description": "Déploiement et gestion de réseaux de capteurs sans fil mesurant l'humidité du sol à plusieurs profondeurs, la température de la canopée, l'humidité et l'humectation des feuilles. Les nœuds solaires transmettent les données via LoRaWAN à la plateforme toutes les 15 minutes. La détection d'anomalies alerte les agriculteurs sur les conditions nécessitant une attention immédiate — risque de gel, stress hydrique ou humidité propice aux maladies."
+              },
+              "1": {
+                "title": "Drone en tant que Service",
+                "description": "Vols de drones à la demande pour les levés de santé des cultures utilisant l'imagerie multispectrale et thermique. Cartes NDVI, indices de chlorophylle et cartes de stress thermique livrées sous 24 heures après le vol. La planification de vol automatisée garantit une couverture et une résolution cohérentes. Les données drone s'intègrent aux cartes d'application à taux variable pour la gestion de précision des intrants."
+              },
+              "2": {
+                "title": "Application à Taux Variable",
+                "description": "Cartes de prescription pour l'application à taux variable d'engrais, d'irrigation et de protection des cultures. Les cartes sont générées à partir des données des capteurs de sol, de l'imagerie drone et de l'historique des rendements. Compatibles avec les principales marques d'équipements d'agriculture de précision. Les enregistrements d'application sont stockés pour la traçabilité et la conformité réglementaire."
+              },
+              "3": {
+                "title": "Intégration Météorologique",
+                "description": "Prévisions météorologiques hyperlocales à la granularité du champ — température, précipitations, vitesse du vent et rayonnement solaire. Les prévisions alimentent les modèles de risque de maladie, les recommandations de planification de pulvérisation et les avis de timing de récolte. Les stations météo sur les sites Harch Agri fournissent des données de référence améliorant la précision des prévisions pour les zones environnantes."
+              }
+            },
+            "cta": "Explorer les Opérations de Précision"
+          },
+          "2": {
+            "label": "MARCHÉ",
+            "name": "Rendement et Accès au Marché",
+            "description": "Connecte la production agricole aux débouchés commerciaux — avec des outils d'estimation des rendements, de grading de qualité et d'engagement direct avec les acheteurs. Inclut la génération de devis PDF et l'intégration WhatsApp permettant aux agriculteurs d'envoyer des devis professionnels aux acheteurs directement depuis la plateforme, éliminant les intermédiaires qui captent la marge.",
+            "capabilities": {
+              "0": {
+                "title": "Estimation et Suivi des Rendements",
+                "description": "Estimation des rendements en cours de saison utilisant l'imagerie satellite, les modèles de culture et l'échantillonnage de vérification sur le terrain. Les prévisions de rendement sont mises à jour hebdomadairement au fur et à mesure de la progression de la saison, permettant des décisions marketing proactives. La réconciliation des rendements post-récolte par rapport aux prévisions améliore la précision des modèles pour les saisons ultérieures."
+              },
+              "1": {
+                "title": "Génération de Devis PDF",
+                "description": "Génération en un clic de devis PDF professionnels pré-remplis avec les coordonnées de l'agriculteur, les spécifications du produit, les quantités et les prix. Les devis sont habillés avec les informations de la coopérative ou de l'entreprise de l'agriculteur et incluent les conditions de paiement et la logistique de livraison. Aucun logiciel externe ni compétence en design requis — la plateforme gère automatiquement la mise en forme, la numérotation et les calculs."
+              },
+              "2": {
+                "title": "Intégration WhatsApp Business",
+                "description": "Intégration directe avec l'API WhatsApp Business pour l'envoi de devis, confirmations de commande et notifications de livraison aux acheteurs. Les agriculteurs peuvent générer un devis PDF et l'envoyer via WhatsApp avec un message pré-rempli en un clic — sans e-mail requis, sans pièces jointes à gérer. Les modèles de messages assurent une communication professionnelle tout en préservant la relation personnelle qui anime le commerce agricole africain."
+              },
+              "3": {
+                "title": "Intelligence des Prix du Marché",
+                "description": "Flux de prix de matières premières en temps réel depuis les marchés locaux et internationaux. Les outils de comparaison de prix montrent l'écart entre les prix à la ferme, de gros et à l'exportation. Les tendances historiques des prix et les motifs saisonniers aident les agriculteurs à planifier leurs ventes pour un revenu maximal. Alertes de prix notifiant lorsque les prix cibles sont atteints."
+              }
+            },
+            "cta": "Explorer le Rendement et l'Accès au Marché"
+          },
+          "3": {
+            "label": "DURABILITÉ",
+            "name": "Carbone et Durabilité",
+            "description": "Mesure, vérifie et monétise les bénéfices environnementaux des pratiques agricoles durables. De la génération de crédits carbone au reporting ESG, ce module garantit que l'agriculture durable n'est pas seulement un choix éthique mais une démarche économiquement récompensée.",
+            "capabilities": {
+              "0": {
+                "title": "Génération de Crédits Carbone",
+                "description": "Quantification de la séquestration de carbone dans le sol par les pratiques régénératives — cultures de couverture, travail réduit du sol et agroforesterie. La vérification par télédétection utilisant l'imagerie satellite réduit le coût du MRV (surveillance, reporting, vérification) par rapport à l'échantillonnage traditionnel du sol. La documentation des crédits carbone satisfait les exigences Verra et Gold Standard."
+              },
+              "1": {
+                "title": "Occupation des Sols et Biodiversité",
+                "description": "Surveillance par satellite du changement d'occupation des sols et des indicateurs de biodiversité. Vérification de chaîne d'approvisionnement sans déforestation pour les cultures de rente. Évaluations de connectivité des habitats et cartographie des corridors de pollinisateurs supportant les crédits de biodiversité et le reporting ESG."
+              },
+              "2": {
+                "title": "Suivi de l'Empreinte Eau",
+                "description": "Calcul des empreintes eau verte, bleue et grise par culture et par parcelle. Comparaison par rapport à l'efficience d'utilisation de l'eau de référence pour chaque culture et zone climatique. Soutien à la certification de gérance de l'eau avec documentation des pratiques et résultats de gestion de l'eau."
+              },
+              "3": {
+                "title": "Reporting ESG",
+                "description": "Génération automatisée des métriques ESG pour les opérations agricoles — intensité carbone par tonne, efficience d'utilisation de l'eau, impact sur la biodiversité et métriques sociales (emploi, investissement communautaire). Rapports alignés sur les cadres GRI, SASB et TCFD pour le reporting investisseurs et réglementaire."
+              }
+            },
+            "cta": "Explorer le Carbone et la Durabilité"
+          }
+        }
+      },
+      "water": {
+        "headerLabel": "Modules de Plateforme",
+        "headerTitle": "Plateforme Harch Eau",
+        "headerDescription": "La couche opérationnelle pour le dessalement, le traitement de l'eau et la distribution — gérant l'eau comme la ressource d'infrastructure critique qu'elle est. Chaque module est conçu pour des conditions de rareté de l'eau où l'efficacité et la fiabilité sont non négociables.",
+        "modules": {
+          "0": {
+            "label": "DESSALEMENT",
+            "name": "Opérations de Dessalement",
+            "description": "Contrôle les usines d'osmose inverse d'eau de mer (SWRO) avec surveillance des membranes en temps réel, optimisation de la récupération d'énergie et assurance de la qualité de l'eau produite. C'est le module de production central — là où l'eau de mer devient eau potable au coût énergétique le plus bas possible.",
+            "capabilities": {
+              "0": {
+                "title": "Suivi de la Performance des Membranes",
+                "description": "Surveillance en temps réel du flux des membranes, du taux de rejet et de la pression transmembranaire pour chaque cuve de pression. Les calculs de performance normalisés prennent en compte les variations de température et de salinité, permettant la détection précoce de l'encrassement et de l'entartrage avant que la production ne soit affectée. Les calendriers de nettoyage sont générés sur la base de l'état réel des membranes plutôt que d'intervalles fixes."
+              },
+              "1": {
+                "title": "Optimisation de la Récupération d'Énergie",
+                "description": "Surveillance des dispositifs de récupération d'énergie (ERD) avec suivi de l'efficacité en temps réel. Le système identifie la dégradation des ERD et recommande la maintenance avant que la consommation d'énergie n'augmente. La consommation spécifique d'énergie est suivie par train et par volume de produit, comparée aux spécifications de conception et aux meilleures pratiques de l'industrie."
+              },
+              "2": {
+                "title": "Prise d'Eau et Prétraitement",
+                "description": "Gestion de la prise d'eau de mer incluant le tamisage, la flottation à air dissous et la filtration bicouche. Surveillance en temps réel de la turbidité, de l'ISD (indice de densité de silt) et de la chlorophylle à la prise d'eau protégeant les membranes des blooms algaux et des tempêtes. Déviation automatisée vers l'égout lorsque la qualité de l'alimentation dépasse les limites de tolérance des membranes."
+              },
+              "3": {
+                "title": "Qualité de l'Eau Produite",
+                "description": "Surveillance en continu en ligne de l'eau produite pour les TDS, le pH, la conductivité, le bore et le résidu de désinfectant. Conformité aux directives de l'OMS pour l'eau potable et aux normes locales. Le mélange et l'ajustement de la reminéralisation automatisés garantissent un goût constant et la protection contre la corrosion dans le réseau de distribution."
+              }
+            },
+            "cta": "Explorer les Opérations de Dessalement"
+          },
+          "1": {
+            "label": "TRAITEMENT",
+            "name": "Traitement et Qualité",
+            "description": "Gère les processus de traitement de l'eau et des eaux usées — du traitement conventionnel à l'oxydation avancée et à l'élimination biologique des nutriments. Ce module garantit que toute l'eau, qu'elle provienne du dessalement ou de sources de surface traitées, respecte les normes de qualité avant d'atteindre les consommateurs.",
+            "capabilities": {
+              "0": {
+                "title": "Contrôle du Procédé de Traitement",
+                "description": "Intégration SCADA pour le contrôle en temps réel des procédés de traitement — coagulation, floculation, sédimentation, filtration et désinfection. L'optimisation du dosage chimique utilisant le retour des analyseurs en ligne maintient l'efficacité du traitement tout en minimisant la consommation de produits chimiques. La gestion des alarmes priorise les perturbations de procédé par leur impact sur la qualité de l'eau."
+              },
+              "1": {
+                "title": "Surveillance de la Qualité de l'Eau",
+                "description": "Surveillance continue de la qualité de l'eau traitée en plusieurs points de la chaîne de traitement. Analyseurs en ligne pour la turbidité, le résidu de chlore, le pH et la conductivité avec échantillonnage automatisé pour vérification en laboratoire. Les tableaux de bord de conformité réglementaire affichent le statut en temps réel par rapport aux limites de permis."
+              },
+              "2": {
+                "title": "Traitement des Eaux Usées",
+                "description": "Gestion des procédés de traitement biologique incluant les boues activées, les MBR et les zones humides construites. Optimisation de l'élimination des nutriments (azote et phosphore) pour respecter les normes de rejet. Suivi de la gestion des boues incluant l'épaississement, la déshydratation et l'élimination ou la valorisation."
+              },
+              "3": {
+                "title": "Gestion de l'Information de Laboratoire",
+                "description": "Suivi des échantillons de la collecte à l'analyse jusqu'au rapport de résultats avec documentation de la chaîne de garde. Protocoles de contrôle qualité incluant les blancs, les duplicatas et les échantillons dopés. Rapports réglementaires générés automatiquement à partir des données de laboratoire avec analyse des tendances et signalisation des exceptions."
+              }
+            },
+            "cta": "Explorer le Traitement et la Qualité"
+          },
+          "2": {
+            "label": "DISTRIBUTION",
+            "name": "Réseaux de Distribution",
+            "description": "Gère l'infrastructure de canalisations qui livre l'eau de la production à la consommation — incluant la détection des fuites, la gestion de la pression et la surveillance de la demande. Dans les régions de rareté de l'eau, chaque litre perdu en fuite est un litre qui n'avait pas besoin d'être produit.",
+            "capabilities": {
+              "0": {
+                "title": "Surveillance des Canalisations",
+                "description": "Surveillance en temps réel du débit, de la pression et de la qualité aux points critiques du réseau de distribution. L'intégration du modèle hydraulique permet la simulation du comportement du réseau sous différents scénarios de demande. L'évaluation de l'état des canalisations utilisant la surveillance acoustique et l'analyse des transitoires de pression identifie les canalisations à risque de défaillance."
+              },
+              "1": {
+                "title": "Détection des Fuites et Eau Non Comptée",
+                "description": "Analyse des districts métrés (DMA) pour la quantification de l'eau non comptée. L'analyse des débits nocturnes identifie les niveaux de fuite de base. L'enregistrement du bruit de fuite acoustique et la détection de fuite par satellite localisent les fuites pour une réparation ciblée. Programmes de réduction de l'eau non comptée suivis avec mesures avant/après."
+              },
+              "2": {
+                "title": "Gestion de la Pression",
+                "description": "Gestion des réducteurs de pression et contrôle modulant de la pression pour minimiser les fuites tout en maintenant des niveaux de service adéquats. La modulation de pression basée sur le temps et sur le débit réduit le stress des canalisations pendant les périodes de faible demande. La réduction de la fréquence des ruptures démontrée par l'analyse avant/après."
+              },
+              "3": {
+                "title": "Surveillance et Prévision de la Demande",
+                "description": "Surveillance de la demande en temps réel par zone avec prévision à court terme et saisonnière. La prévision de la demande intègre la météo, les jours fériés et l'activité économique. L'optimisation de la planification de production garantit que les usines de dessalement et de traitement opèrent aux niveaux de sortie les plus économes en énergie tout en satisfaisant la demande."
+              }
+            },
+            "cta": "Explorer les Réseaux de Distribution"
+          },
+          "3": {
+            "label": "PLANIFICATION",
+            "name": "Planification des Ressources",
+            "description": "Gestion à long terme des ressources en eau à l'échelle du bassin versant — intégrant les projections climatiques, la croissance de la demande et la planification des investissements en infrastructure. Ce module garantit que les décisions d'infrastructure d'aujourd'hui prennent en compte la réalité de l'eau de demain.",
+            "capabilities": {
+              "0": {
+                "title": "Prévision de la Demande",
+                "description": "Projections de la demande en eau à long terme par secteur — domestique, industriel, agricole — utilisant la croissance démographique, le développement économique et les scénarios climatiques. Les scénarios de demande alimentent la planification des investissements en infrastructure avec des plages probabilistes prenant en compte l'incertitude."
+              },
+              "1": {
+                "title": "Gestion des Bassins Versants",
+                "description": "Intégration des modèles hydrologiques, des données de précipitations et des cartes d'occupation des sols pour la planification à l'échelle du bassin versant. Projections de disponibilité des eaux de surface sous scénarios de changement climatique. Évaluation de la recharge des nappes et limites d'extraction durables. Surveillance de la protection des bassins versants par imagerie satellite."
+              },
+              "2": {
+                "title": "Adaptation Climatique",
+                "description": "Analyse des scénarios climatiques pour la résilience de l'infrastructure hydrique — fréquence des sécheresses, précipitations extrêmes, élévation du niveau de la mer et impacts de la température sur la demande en eau. La planification des voies d'adaptation identifie les investissements sans regret performants dans plusieurs scénarios climatiques."
+              },
+              "3": {
+                "title": "Planification des Investissements en Infrastructure",
+                "description": "Planification des investissements en capital pour la nouvelle capacité de production, l'expansion du réseau et le renouvellement des actifs. L'analyse des coûts du cycle de vie compare le dessalement, la réutilisation de l'eau et les options de gestion de la demande. Scénarios d'investissement optimisés pour le coût, la résilience et l'impact environnemental."
+              }
+            },
+            "cta": "Explorer la Planification des Ressources"
+          }
+        }
+      },
+      "finance": {
+        "headerLabel": "Modules de Plateforme",
+        "headerTitle": "Plateforme Harch Finance",
+        "headerDescription": "L'infrastructure financière pour le développement d'infrastructure souveraine — de la structuration d'obligations vertes à la conformité en finance islamique. Chaque module remplit une fonction distincte dans le cycle de vie du capital, garantissant que les projets de Harch Corp sont financés efficacement, en conformité et avec transparence.",
+        "modules": {
+          "0": {
+            "label": "CAPITAL",
+            "name": "Formation du Capital",
+            "description": "Structure et gère l'éventail complet des instruments de financement — obligations vertes, financement de projet, sukuk et véhicules d'investissement à impact. Ce module garantit que chaque projet accède au mix de capital optimal au coût du capital le plus bas, tout en satisfaisant les exigences spécifiques de chaque source de financement.",
+            "capabilities": {
+              "0": {
+                "title": "Structuration d'Obligations Vertes",
+                "description": "Gestion complète des obligations vertes — du développement du cadre aligné sur les Principes des Obligations Vertes de l'ICMA, à la coordination de l'opinion tierce, jusqu'au suivi de l'allocation des produits et au reporting d'impact. Le module maintient le registre des obligations vertes et garantit que tous les produits sont alloués aux projets éligibles dans le délai prescrit."
+              },
+              "1": {
+                "title": "Financement de Projet",
+                "description": "Structuration de financement de projet sans recours et à recours limité pour les projets d'infrastructure. Gestion des modèles financiers avec analyse de sensibilité, sculpture de la dette et suivi des clauses. Flux de communication avec les prêteurs, gestion des conditions préalables et planification des tirages intégrés aux jalons de construction."
+              },
+              "2": {
+                "title": "Finance Islamique (Sukuk)",
+                "description": "Structures de financement conformes à la Sharia incluant les sukuk al-ijara, sukuk al-mudaraba et sukuk al-musharaka. Coordination avec le conseil Sharia, vérification de l'adossement à des actifs et calculs de distribution des profits. Documentation de conformité aux normes AAOIFI et aux exigences réglementaires locales."
+              },
+              "3": {
+                "title": "Véhicules d'Investissement à Impact",
+                "description": "Structures de financement mixte combinant le capital concessionnel des institutions de financement du développement avec l'investissement commercial. Cadres de mesure d'impact alignés sur les Principes d'Exploitation de l'IFC pour la Gestion de l'Impact. Suivi des rendements sociaux et environnementaux aux côtés des rendements financiers."
+              }
+            },
+            "cta": "Explorer la Formation du Capital"
+          },
+          "1": {
+            "label": "RISQUE",
+            "name": "Intelligence des Risques",
+            "description": "Gestion complète des risques à travers les dimensions de crédit, de marché, opérationnelle et climatique. En finance d'infrastructure, le risque n'est pas quelque chose à éliminer — c'est quelque chose à comprendre, quantifier et tarifer. Ce module garantit que chaque risque est visible et chaque décision est éclairée par le risque.",
+            "capabilities": {
+              "0": {
+                "title": "Évaluation du Risque de Crédit",
+                "description": "Scoring de crédit des contreparties pour les promoteurs de projets, des acheteurs et des garants. Modèles de probabilité de défaut et de perte en cas de défaut calibrés pour les marchés d'infrastructure africains. Surveillance des expositions avec limites de concentration et indicateurs d'alerte précoce pour la détérioration du crédit."
+              },
+              "1": {
+                "title": "Gestion du Risque de Marché",
+                "description": "Surveillance du risque de taux d'intérêt, de change et de prix des matières premières sur le portefeuille. Calculs de la valeur en risque avec tests de stress pour les scénarios extrêmes. Documentation de la comptabilité de couverture et gestion de l'exposition aux dérivés de contrepartie."
+              },
+              "2": {
+                "title": "Tests de Stress du Risque Climatique",
+                "description": "Évaluation du risque climatique physique et de transition pour les actifs d'infrastructure. Analyse de scénario alignée sur les recommandations TCFD — de la transition ordonnée au monde hothouse. Scoring de vulnérabilité au niveau des actifs pour les inondations, la sécheresse, le stress thermique et l'élévation du niveau de la mer."
+              },
+              "3": {
+                "title": "Risque Opérationnel et Conformité",
+                "description": "Suivi des événements de risque opérationnel avec base de données des pertes et analyse des causes racines. Indicateurs clés de risque surveillés par rapport aux seuils. Gestion de la conformité réglementaire pour les réglementations bancaires, des valeurs mobilières et d'assurance à travers de multiples juridictions africaines."
+              }
+            },
+            "cta": "Explorer l'Intelligence des Risques"
+          },
+          "2": {
+            "label": "COMMERCE",
+            "name": "Finance du Commerce",
+            "description": "Gère les instruments de finance du commerce qui permettent l'approvisionnement transfrontalier en infrastructure — lettres de crédit, garanties bancaires et finance de la chaîne d'approvisionnement. Pour les projets important de l'équipement depuis l'Europe et l'Asie, la finance du commerce est le pont entre la signature du contrat et la livraison physique.",
+            "capabilities": {
+              "0": {
+                "title": "Lettres de Crédit",
+                "description": "Émission et gestion de lettres de crédit documentaires pour l'approvisionnement en équipement et les contrats de construction. Intégration SWIFT pour l'émission, l'amendement et la vérification de présentation des LC. Conformité aux règles UCP 600 et ISP98. Suivi de l'expiration des LC, des délais de présentation et du statut des tirages."
+              },
+              "1": {
+                "title": "Garanties Bancaires",
+                "description": "Gestion des garanties de bonne exécution, des garanties de paiement anticipé et des garanties de rétention sur le portefeuille de projets. Flux d'émission, de suivi et de libération des garanties. Gestion des contre-garanties pour les projets multi-juridictionnels. Reporting de l'exposition aux garanties par bénéficiaire et par projet."
+              },
+              "2": {
+                "title": "Finance de la Chaîne d'Approvisionnement",
+                "description": "Programmes d'affacturage inversé pour les fournisseurs et sous-traitants clés. Le paiement anticipé à des taux réduits améliore la liquidité des fournisseurs tout en réduisant le risque de la chaîne d'approvisionnement. Intégration avec les systèmes d'approvisionnement et de comptabilité fournisseurs pour l'éligibilité automatisée et le traitement des paiements."
+              },
+              "3": {
+                "title": "Changes et Trésorerie",
+                "description": "Gestion du risque de change pour les flux de trésorerie de projet multi-devises. Identification de la couverture naturelle, gestion des contrats à terme et reporting de l'exposition en devises. Mise en commun de la trésorerie et prêts interentreprises au sein du groupe Harch Corp optimisés pour l'efficacité fiscale et la conformité réglementaire."
+              }
+            },
+            "cta": "Explorer la Finance du Commerce"
+          },
+          "3": {
+            "label": "IMPACT",
+            "name": "Impact et Reporting",
+            "description": "Suit et rapporte l'impact environnemental, social et de gouvernance de chaque projet financé — de l'allocation des produits d'obligations vertes à la vérification des crédits carbone. À l'ère du scrutin ESG, ce module garantit que les allégations de Harch Finance sont étayées par des données auditables.",
+            "capabilities": {
+              "0": {
+                "title": "Suivi de la Performance ESG",
+                "description": "Collecte et agrégation automatisées des métriques ESG à travers le portefeuille Harch Corp. Les métriques environnementales incluent le carbone évité, la capacité renouvelable financée et l'accès à l'eau fourni. Les métriques sociales suivent l'emploi créé, l'investissement communautaire et les achats locaux. Les métriques de gouvernance couvrent la diversité des conseils, les incidents de conformité et les rapports des lanceurs d'alerte."
+              },
+              "1": {
+                "title": "Reporting de l'Allocation des Produits",
+                "description": "Suivi de l'allocation des produits d'obligations vertes et de sukuk avec granularité au niveau du projet. Chaque dollar est tracé de la souscription des investisseurs à la dépense de projet éligible. Rapports d'allocation générés trimestriellement avec vérification indépendante. Métriques d'impact calculées par dollar alloué pour la communication investisseurs."
+              },
+              "2": {
+                "title": "Vérification des Crédits Carbone",
+                "description": "Vérification et certification des crédits carbone générés par les projets d'énergie renouvelable et forestière de Harch Corp. Documents de conception de projet, rapports de surveillance et déclarations de vérification gérés dans une plateforme unique. Suivi de l'émission des crédits avec intégration aux registres Verra, Gold Standard et MDP."
+              },
+              "3": {
+                "title": "Reporting Investisseurs",
+                "description": "Reporting investisseurs automatisé avec tableaux de bord personnalisables affichant la performance du portefeuille, les métriques d'impact et les indicateurs de risque. Lettres trimestrielles aux investisseurs générées à partir de modèles avec données en direct. Gestion de la salle de données pour la due diligence avec partage sécurisé de documents et journalisation des accès."
+              }
+            },
+            "cta": "Explorer l'Impact et le Reporting"
+          }
+        }
+      }
+    }
   },
   "status": {
     "heroLabel": "Statut",
@@ -16581,7 +17417,7 @@
         "description": "Couche d'exécution et d'automatisation des déploiements"
       },
       "developerPortal": {
-        "name": "Developer Portal",
+        "name": "Portail développeur",
         "description": "Portail développeur et documentation API"
       },
       "cliSdkServices": {
@@ -16589,11 +17425,11 @@
         "description": "Services CLI et SDK pour les intégrations développeurs"
       },
       "managementConsole": {
-        "name": "Management Console",
+        "name": "Console de gestion",
         "description": "Console de gestion et tableau de bord d'administration"
       },
       "authenticationService": {
-        "name": "Authentication Service",
+        "name": "Service d'authentification",
         "description": "Service d'authentification et de gestion des identités"
       }
     },
@@ -16615,6 +17451,6 @@
     "nativeTranslation": "Traduction native complète",
     "autoTranslation": "Traduction automatique via Google",
     "viewIn": "Voir en",
-    "dismiss": "English"
+    "dismiss": "Français"
   }
 }

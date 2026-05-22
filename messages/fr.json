@@ -11116,7 +11116,7 @@
               "harchWins": true
             }
           ],
-          "verdict": "AWS Cape Town is a US cloud region on South African soil. Harch Technology is an African sovereign platform on African soil — with GPU compute AWS lacks in Africa."
+          "verdict": "AWS Cape Town est une région cloud américaine sur le sol sud-africain. Harch Technologie est souverain africain — chaque ligne de code renforce l’indépendance numérique du continent."
         }
       ]
     },
@@ -11634,7 +11634,7 @@
               "harchWins": true
             },
             {
-              "label": "GPU-as-a-Service for Africa",
+              "label": "GPU-as-a-Service pour l’Afrique",
               "harchValue": "1,798 GPUs — African customers",
               "competitorValue": "0 GPUs available to Africa",
               "harchWins": true
@@ -11790,8 +11790,8 @@
             },
             {
               "label": "Latency to Africa",
-              "harchValue": "<5ms from Morocco",
-              "competitorValue": ">120ms from Quebec",
+              "harchValue": "<5 ms depuis le Maroc",
+              "competitorValue": ">120 ms depuis Québec",
               "harchWins": true,
               "harchNumeric": 5,
               "competitorNumeric": 120,
@@ -12869,7 +12869,7 @@
             },
             {
               "label": "Mineral Diversity",
-              "harchValue": "3 strategic minerals for energy transition",
+              "harchValue": "3 minéraux stratégiques pour la transition énergétique",
               "competitorValue": "1 mineral (phosphate) — food security only",
               "harchWins": true
             },

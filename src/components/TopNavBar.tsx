@@ -25,7 +25,7 @@ export function TopNavBar({ onToggleSidebar }: TopNavBarProps) {
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-sm border-b border-white/[0.06]"
-      aria-label="Primary navigation"
+      aria-label={t('ariaPrimaryNav')}
     >
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-14">
         {/* Left: Logo */}
@@ -58,7 +58,7 @@ export function TopNavBar({ onToggleSidebar }: TopNavBarProps) {
           <button
             onClick={onToggleSidebar}
             className="w-9 h-9 flex items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/[0.15] transition-colors"
-            aria-label="Toggle navigation menu"
+            aria-label={t('ariaToggleMenu')}
           >
             <Menu size={16} strokeWidth={1.5} className="text-white/60" />
           </button>

@@ -238,7 +238,7 @@ export function Sidebar() {
             exit={{ x: -280 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className="fixed top-0 left-0 h-full z-40 w-[280px] max-w-[85vw] bg-[#0A0A0A] border-r border-[rgba(255,255,255,0.06)] overflow-y-auto overscroll-contain"
-            aria-label="Navigation"
+            aria-label={t('ariaLabel')}
           >
             <div className="flex flex-col h-full px-4 py-6">
               {/* Logo */}

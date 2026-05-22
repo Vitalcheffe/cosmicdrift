@@ -26,7 +26,7 @@ export default function ThesisClient() {
         <div className="relative z-10 max-w-[900px] mx-auto px-6 md:px-12 pb-20 md:pb-28 w-full">
           <FadeIn>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm mb-6">
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70 font-[family-name:var(--font-space-mono)]">Harch Corp Manifesto</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/70 font-[family-name:var(--font-space-mono)]">{t('manifesto')}</span>
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-[-0.02em] mb-6">
               {t('introduction.title')}

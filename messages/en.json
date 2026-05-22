@@ -117,7 +117,8 @@
       "verticals": "Verticals",
       "countries": "Countries",
       "jobsTarget": "Jobs Target"
-    }
+    },
+    "operationsImageAlt": "Harch Corp Operations"
   },
   "blog": {
     "allArticles": "All Articles",
@@ -1935,8 +1936,8 @@
     "apiPlayground": "Playground API",
     "apiReference": "API Reference",
     "architecture": "Architecture",
-    "changelog": "Journal des modifications",
-    "codeExamples": "Exemples de code",
+    "changelog": "Changelog",
+    "codeExamples": "Code Examples",
     "communityLabel": "Community",
     "communityTitle": "Developer Community",
     "developerCenter": "Developer Center",
@@ -1966,7 +1967,7 @@
       ]
     },
     "githubLabel": "GitHub",
-    "heroTitle": "Plateforme",
+    "heroTitle": "Platform",
     "sdks": "SDK",
     "title": "Developers",
     "toolsTitle": "Developer Tools"
@@ -2309,7 +2310,7 @@
       "sections": {
         "authentication": "Authentification",
         "endpoints": "Endpoints",
-        "errors": "Gestion des erreurs",
+        "errors": "Error Handling",
         "rateLimits": "Limites de debit",
         "streaming": "Streaming",
         "webhooks": "Webhooks"
@@ -3425,7 +3426,7 @@
     "heroLabel": "Documentation",
     "heroTitle": "Documentation",
     "lastUpdated": "Last Updated",
-    "searchPlaceholder": "Rechercher dans la documentation...",
+    "searchPlaceholder": "Search documentation...",
     "version": "Version"
   },
   "engineeringBlog": {
@@ -3504,7 +3505,7 @@
     "updatedWeekly": "Updated Weekly",
     "viewAllOpenSourceProjects": "View All Open Source Projects",
     "viewOpenRoles": "View Open Roles",
-    "allArticles": "Tous les articles",
+    "allArticles": "All Articles",
     "backToBlog": "Retour au blog technique",
     "categories": "Categories",
     "deepDives": "Analyses approfondies",
@@ -3512,7 +3513,7 @@
     "engineering": "Engineering",
     "heroLabel": "Engineering Blog",
     "latestPosts": "Derniers articles",
-    "readArticle": "Lire l'article",
+    "readArticle": "Read Article",
     "research": "Recherche",
     "tutorials": "Tutoriels"
   },
@@ -3627,19 +3628,23 @@
       "items": [
         {
           "desc": "500+ direct jobs by 2028 across all subsidiaries.",
-          "label": "Direct Jobs"
+          "label": "Direct Jobs",
+          "value": "500+ d'ici 2028"
         },
         {
           "desc": "5,000+ people trained through our technical programs.",
-          "label": "Local Training"
+          "label": "Local Training",
+          "value": "5 000+ personnes"
         },
         {
           "desc": "60% of procurement from local suppliers.",
-          "label": "Local Suppliers"
+          "label": "Local Suppliers",
+          "value": "60% d'approvisionnement"
         },
         {
           "desc": "Zero workplace accidents across all operations.",
-          "label": "Workplace Safety"
+          "label": "Workplace Safety",
+          "value": "Zero accident"
         }
       ],
       "label": "Social",
@@ -3955,10 +3960,10 @@
     "questionSingular": "Question",
     "subtitle": "Answers to the most common questions about Harch Corp.",
     "title": "Frequently Asked Questions",
-    "contactUs": "Contactez-nous",
+    "contactUs": "Contact Us",
     "heroDescription": "Answers to the most frequently asked questions about Harch Corp, our infrastructure, and operations.",
     "heroLabel": "FAQ",
-    "heroTitle": "Questions frequentes",
+    "heroTitle": "Frequently Asked Questions",
     "questions": [
       {
         "question": "What is Harch Corp?",
@@ -4081,7 +4086,12 @@
     "uptime": "Uptime",
     "verticals": "Verticals",
     "vulnerabilityDisclosure": "Vulnerability Disclosure",
-    "water": "Water"
+    "water": "Water",
+    "ariaWhatsapp": "Contact Harch Corp on WhatsApp",
+    "ariaLinkedin": "Harch Corp LinkedIn",
+    "ariaTwitter": "Harch Corp Twitter",
+    "ariaGithub": "Harch Corp GitHub — Open Source",
+    "ariaYoutube": "Harch Corp YouTube"
   },
   "glossary": {
     "allLabel": "All",
@@ -5409,8 +5419,8 @@
     "traitsDescription": "We look for systems thinkers, disciplined executors, and mission-driven operators who thrive under complexity.",
     "traitsLabel": "Traits",
     "traitsTitle": "Desired Traits",
-    "heroTitle": "Processus de",
-    "heroTitle2": "recrutement",
+    "heroTitle": "Hiring",
+    "heroTitle2": "Process",
     "phases": {
       "alignment": {
         "description": "Evaluate your alignment with our mission of African industrial sovereignty.",
@@ -5430,7 +5440,7 @@
           "Reponse aux questions key",
           "Verification des references"
         ],
-        "title": "Candidature"
+        "title": "Application"
       },
       "interview": {
         "description": "Final meeting with the leadership team to validate cultural fit.",
@@ -5440,7 +5450,7 @@
           "Discussion compensation",
           "Decision finale"
         ],
-        "title": "Entretien final"
+        "title": "Final Interview"
       },
       "technical": {
         "description": "Demonstrate your technical skills in a realistic field scenario.",
@@ -5455,11 +5465,11 @@
     },
     "timeline": {
       "description": "The complete process typically takes 2 to 4 weeks.",
-      "phase1": "Semaine 1",
-      "phase2": "Semaine 1-2",
-      "phase3": "Semaine 2-3",
-      "phase4": "Semaine 3-4",
-      "title": "Chronologie"
+      "phase1": "Week 1",
+      "phase2": "Week 1-2",
+      "phase3": "Week 2-3",
+      "phase4": "Week 3-4",
+      "title": "Timeline"
     }
   },
   "home": {
@@ -5487,7 +5497,7 @@
         "label": "Utilisateurs internet",
         "value": "570M"
       },
-      "title": "L'Afrique en chiffres",
+      "title": "Africa in Numbers",
       "urbanization": {
         "label": "Urbanisation",
         "value": "43%"
@@ -5648,7 +5658,7 @@
           "timeline": "2024-2027"
         }
       ],
-      "title": "Pipeline d'investissement"
+      "title": "Investment Pipeline"
     },
     "newsArticles": {
       "article1": {
@@ -5778,6 +5788,11 @@
           "year": "2028",
           "title": "Scale",
           "description": "Continental expansion across 5+ countries"
+        },
+        {
+          "description": "Continental operations across 5+ countries with 25,000+ jobs created.",
+          "title": "Continental Scale",
+          "year": "2030"
         }
       ],
       "title": "Feuille de route"
@@ -5834,7 +5849,7 @@
         "value": "~47"
       },
       "countries": {
-        "label": "Pays couverts",
+        "label": "Countries Covered",
         "value": "5+"
       },
       "energy": {
@@ -5846,7 +5861,7 @@
         "value": "1 798"
       },
       "pipeline": {
-        "label": "Pipeline d'investissement",
+        "label": "Investment Pipeline",
         "value": "2,4 Md$+"
       },
       "title": "Key Figures",
@@ -6186,7 +6201,8 @@
         "label": "Uptime",
         "value": "99.98%"
       }
-    }
+    },
+    "liveMetricsTitle": "HARCH OS // LIVE METRICS"
   },
   "investors": {
     "capitalAllocation": {
@@ -6523,11 +6539,11 @@
           "level": "Expert"
         }
       ],
-      "title": "Nos formations"
+      "title": "Our Courses"
     },
     "heroDescription": "Training and certifications on sovereign infrastructure, GPU cloud, and Harch technologies.",
-    "heroLabel": "Apprendre",
-    "heroTitle": "Apprendre et Certifier",
+    "heroLabel": "Learn",
+    "heroTitle": "Learn & Get Certified",
     "resources": {
       "items": [
         "Technical Documentation",
@@ -6535,9 +6551,9 @@
         "Hands-On Labs",
         "Learning Community"
       ],
-      "title": "Ressources"
+      "title": "Resources"
     },
-    "title": "Apprendre"
+    "title": "Learn"
   },
   "legal": {
     "title": "Legal",
@@ -6619,7 +6635,93 @@
     },
     "ccpa": {
       "title": "CCPA Compliance",
-      "description": "California Consumer Privacy Act compliance."
+      "description": "California Consumer Privacy Act compliance.",
+      "lastUpdated": "Last updated: January 2026",
+      "rightsTitle": "Your Rights Under CCPA",
+      "rightsDescription": "The California Consumer Privacy Act of 2018 (CCPA), as amended by the California Privacy Rights Act (CPRA), provides California residents with specific rights regarding their personal information. Harch Corp S.A. is committed to complying with the CCPA/CPRA and respecting the privacy rights of all California consumers. This notice describes the categories of personal information we collect, the purposes for which we use that information, and the rights available to you under California law.",
+      "categoriesTitle": "Categories of Personal Information Collected",
+      "categoriesDescription": "In the preceding 12 months, we have collected the following categories of personal information:",
+      "tableCategory": "Category",
+      "tableExamples": "Examples",
+      "tableCollected": "Collected",
+      "categories": [
+        {
+          "category": "Identifiers",
+          "examples": "Name, email address, phone number, IP address, account login credentials",
+          "collected": "Yes"
+        },
+        {
+          "category": "Personal Information Categories (Cal. Civ. Code § 1798.80(e))",
+          "examples": "Name, signature, physical characteristics, address, telephone number, passport number",
+          "collected": "Yes"
+        },
+        {
+          "category": "Protected Classification Characteristics",
+          "examples": "Age, date of birth, citizenship, immigration status (collected for employment purposes only)",
+          "collected": "Limited"
+        },
+        {
+          "category": "Commercial Information",
+          "examples": "Records of products or services purchased, investment interests, transaction details",
+          "collected": "Yes"
+        },
+        {
+          "category": "Biometric Information",
+          "examples": "Fingerprints, voice prints, facial recognition data (collected for facility access only)",
+          "collected": "Limited"
+        },
+        {
+          "category": "Internet or Network Activity",
+          "examples": "Browsing history, search history, interaction with our website, cookie data",
+          "collected": "Yes"
+        },
+        {
+          "category": "Geolocation Data",
+          "examples": "Physical location derived from IP address or mobile device (generalized to city level)",
+          "collected": "Yes"
+        },
+        {
+          "category": "Professional or Employment Information",
+          "examples": "Work history, professional qualifications, employment application data",
+          "collected": "Yes"
+        },
+        {
+          "category": "Inferences Drawn from Other Information",
+          "examples": "Profile reflecting preferences, characteristics, behavior, or attitudes",
+          "collected": "Yes"
+        }
+      ],
+      "howWeUseTitle": "How We Use Your Information",
+      "howWeUseDescription": "We may use or disclose the personal information we collect for the following business or commercial purposes: to provide, maintain, and improve our services and website; to process transactions and send related information including confirmations and invoices; to respond to your comments, questions, and requests, and provide customer service and technical support; to communicate with you about products, services, offers, and events offered by Harch Corp; to monitor and analyze trends, usage, and activities in connection with our services; to detect, investigate, and prevent fraudulent transactions and abuse; to personalize and improve your experience on our website; to establish, exercise, or defend legal claims; and to comply with applicable laws, regulations, and legal processes.",
+      "yourRightsTitle": "Your Rights Under CCPA",
+      "yourRightsDescription": "As a California resident, you have the following rights under the CCPA:",
+      "rights": [
+        {
+          "right": "The Right to Know",
+          "description": "You have the right to request that we disclose what personal information we collect, use, and disclose about you over the past 12 months. This includes the categories of personal information collected, the categories of sources, the business or commercial purpose for collecting or selling the information, the categories of third parties with whom we share information, and the specific pieces of personal information we have collected about you. We will verify your identity before disclosing this information."
+        },
+        {
+          "right": "The Right to Delete",
+          "description": "You have the right to request that we delete any personal information about you that we have collected from you, subject to certain exceptions. These exceptions include when the information is necessary to complete a transaction, detect security incidents, protect against fraud, debug or repair errors, exercise free speech, comply with legal obligations, or enable solely internal uses reasonably proportional to your relationship with us. Upon a verified deletion request, we will direct our service providers to delete your personal information from their records."
+        },
+        {
+          "right": "The Right to Opt-Out of Sale",
+          "description": "You have the right to direct us not to sell your personal information at any time. We do not currently sell personal information as defined under the CCPA. However, if our practices change, we will provide clear notice and an opt-out mechanism. You may also authorize an agent to exercise this right on your behalf by providing a signed power of attorney."
+        },
+        {
+          "right": "The Right to Non-Discrimination",
+          "description": "We will not discriminate against you for exercising any of your CCPA rights. This means we will not deny you goods or services, charge you different prices or rates, provide you a different level or quality of goods or services, or suggest that we may do any of the foregoing, because you exercised a CCPA right. We may offer certain financial incentives permitted by the CCPA that are reasonably related to the value of your personal data, provided they are voluntary and clearly described."
+        }
+      ],
+      "exerciseTitle": "How to Exercise Your Rights",
+      "exerciseDescription1": "To exercise any of the rights described above, please submit a request by emailing us at privacy@harchcorp.com or by calling our toll-free number (available to California residents). We will respond to your request within 45 days of receipt, as required by the CCPA. If we need more time, we will inform you of the reason and extension period in writing.",
+      "exerciseDescription2": "You may also designate an authorized agent to make a request on your behalf. To do so, you must provide the authorized agent with written permission to act on your behalf, and we may require verification of your identity and confirmation that you have authorized the agent to make the request. We will verify your identity before processing your request by matching the information you provide with the personal information we maintain about you.",
+      "disclosureTitle": "Disclosure of Information",
+      "disclosureDescription": "In the preceding 12 months, we have disclosed personal information for business purposes to the following categories of third parties: cloud infrastructure and hosting providers, analytics and performance monitoring services, marketing and communication platforms, legal and professional advisors, and regulatory authorities as required by law. We do not sell personal information to third parties. We require all service providers who process personal information on our behalf to comply with strict data protection obligations and to process personal information only for the specific business purposes for which we disclose it to them.",
+      "doNotSellTitle": "Do Not Sell My Personal Information",
+      "doNotSellDescription1": "Harch Corp S.A. does not sell, rent, or trade personal information to third parties for monetary or other valuable consideration. We have never sold personal information in the past 12 months and do not intend to do so in the future. Should our practices change, we will update this notice and provide a clear and conspicuous “Do Not Sell My Personal Information” link on our homepage as required by the CCPA.",
+      "doNotSellDescription2": "Even though we do not sell personal information, we respect your privacy choices. If you have any concerns about how your information is shared, please contact us at privacy@harchcorp.com.",
+      "footerNote": "Last updated: January 2026 | This notice applies to California residents and is governed by the laws of the Kingdom of Morocco and the State of California where applicable."
     },
     "codeOfConduct": {
       "title": "Code of Business Conduct",
@@ -7213,9 +7315,181 @@
       "contactAddress": "Address: Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco",
       "footerNote": "Last updated: January 2026 | This SLA is governed by the laws of the Kingdom of Morocco."
     },
+    "legal": {
+      "pageTitle": "Legal Notice",
+      "lastUpdated": "Last updated: January 2026",
+      "sections": [
+        {
+          "title": "1. Company Information",
+          "text": "Harch Corp S.A. is a Moroccan limited company (Société Anonyme / Public Limited Company) registered in Casablanca, Morocco. Capital: 100,000,000 MAD. Registered office: 123 Boulevard Mohammed V, Casablanca 20000, Morocco. Registration number: RC-123456. VAT number: MA123456789."
+        },
+        {
+          "title": "2. Intellectual Property",
+          "text": "All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Harch Corp S.A. and is protected by international copyright, trademark, and other intellectual property laws. Unauthorized use, reproduction, or distribution of any content is strictly prohibited."
+        },
+        {
+          "title": "3. Limitation of Liability",
+          "text": "The information on this website is provided for general informational purposes only. While we strive to keep the information up to date and correct, Harch Corp S.A. makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information, products, services, or related graphics contained on this website."
+        },
+        {
+          "title": "4. Forward-Looking Statements",
+          "text": "This website contains forward-looking statements that involve risks and uncertainties. Actual results may differ materially from those expressed or implied in such statements. Factors that could cause actual results to differ include, but are not limited to, changes in economic conditions, regulatory environments, and project execution risks."
+        },
+        {
+          "title": "5. Governing Law",
+          "text": "These terms and conditions are governed by and construed in accordance with the laws of the Kingdom of Morocco. Any disputes arising from the use of this website shall be subject to the exclusive jurisdiction of the courts of Casablanca, Morocco."
+        },
+        {
+          "title": "6. Contact",
+          "text": "For any legal inquiries, please contact: legal@harchcorp.com or Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco."
+        }
+      ]
+    },
     "trademark": {
       "title": "Trademark Policy",
-      "description": "Harch Corp trademark usage policy."
+      "description": "Harch Corp trademark usage policy.",
+      "lastUpdated": "Last updated: January 2026",
+      "trademarksTitle": "Harch Corp Trademarks",
+      "trademarksDescription": "The following are trademarks and service marks owned by Harch Corp S.A. This list is not exhaustive and may be updated from time to time. The absence of a mark from this list does not mean it is not a trademark of Harch Corp:",
+      "tableMark": "Mark",
+      "tableStatus": "Status",
+      "tableRegistration": "Registration",
+      "tableDescription": "Description",
+      "statusRegistered": "Registered",
+      "statusPending": "Pending",
+      "trademarks": [
+        {
+          "mark": "Harch",
+          "status": "Registered",
+          "registration": "MA-2024-001",
+          "description": "Primary corporate mark for Harch Corp S.A. and its consolidated entities"
+        },
+        {
+          "mark": "Harch Corp",
+          "status": "Registered",
+          "registration": "MA-2024-002",
+          "description": "Full corporate name trademark used in formal business contexts"
+        },
+        {
+          "mark": "HarchOS",
+          "status": "Registered",
+          "registration": "MA-2024-003",
+          "description": "Operating system platform for AI data center management and infrastructure orchestration"
+        },
+        {
+          "mark": "Harch Intelligence",
+          "status": "Registered",
+          "registration": "MA-2024-004",
+          "description": "Intelligence and data center infrastructure vertical brand"
+        },
+        {
+          "mark": "Harch Energy",
+          "status": "Registered",
+          "registration": "MA-2024-005",
+          "description": "Renewable energy generation and distribution vertical brand"
+        },
+        {
+          "mark": "Harch Cement",
+          "status": "Registered",
+          "registration": "MA-2024-006",
+          "description": "Cement and construction materials manufacturing vertical brand"
+        },
+        {
+          "mark": "Harch Mining",
+          "status": "Registered",
+          "registration": "MA-2024-007",
+          "description": "Strategic mining and minerals extraction vertical brand"
+        },
+        {
+          "mark": "Harch Agri",
+          "status": "Registered",
+          "registration": "MA-2024-008",
+          "description": "Precision agriculture and vertical farming vertical brand"
+        },
+        {
+          "mark": "Harch Water",
+          "status": "Registered",
+          "registration": "MA-2024-009",
+          "description": "Water infrastructure and desalination vertical brand"
+        },
+        {
+          "mark": "Harch Tech",
+          "status": "Registered",
+          "registration": "MA-2024-010",
+          "description": "Sovereign technology and cybersecurity vertical brand"
+        },
+        {
+          "mark": "Harch Shield",
+          "status": "Pending",
+          "registration": "MA-2025-P001",
+          "description": "Cybersecurity and threat intelligence product line"
+        },
+        {
+          "mark": "Harch Mesh",
+          "status": "Pending",
+          "registration": "MA-2025-P002",
+          "description": "Distributed network infrastructure and connectivity platform"
+        }
+      ],
+      "usageTitle": "Proper Usage Guidelines",
+      "usageDescription": "Proper use of Harch Corp trademarks is essential to maintaining their legal protection and the strength of our brand. Please follow these guidelines when referring to Harch Corp trademarks:",
+      "usageSymbolTitle": "Use the Appropriate Symbol",
+      "usageSymbolDescription": "Use the ® symbol for registered trademarks and the ™ symbol for trademarks pending registration or unregistered marks. The symbol should appear in superscript immediately after the trademark, on its first and most prominent use in any document or webpage. Example: HarchOS® or Harch Shield™.",
+      "usageAdjectiveTitle": "Use Trademarks as Adjectives",
+      "usageAdjectiveDescription": "Always use Harch Corp trademarks as adjectives, never as nouns or verbs. They should be followed by the generic term for the product or service. Correct: “the HarchOS platform”; Incorrect: “powered by HarchOS” without a following generic term. This preserves the distinctiveness of the mark.",
+      "usageDistinguishTitle": "Distinguish from Surrounding Text",
+      "usageDistinguishDescription": "Make Harch Corp trademarks visually distinct from surrounding text through capitalization, bold or italic formatting, or quotation marks. Never use all lowercase for our trademarks. Example: “Harch Energy” or Harch Energy, never “harch energy.”",
+      "usageOwnershipTitle": "Acknowledge Ownership",
+      "usageOwnershipDescription": "Include a trademark attribution notice in all materials that use Harch Corp trademarks. The attribution should appear in a footnote or at the end of the document. Example: “Harch, HarchOS, and Harch Intelligence are registered trademarks of Harch Corp S.A. All rights reserved.”",
+      "usageAbbreviateTitle": "Do Not Abbreviate or Shorten",
+      "usageAbbreviateDescription": "Do not abbreviate, shorten, or create acronyms from Harch Corp trademarks. Always use the full, proper form of the trademark. Example: use “Harch Intelligence,” not “HI” or “Harch Intel.”",
+      "logoTitle": "Logo Usage Rules",
+      "logoDescription": "The Harch Corp logo is a critical element of our brand identity. When authorized to use our logo, you must adhere to the following rules:",
+      "logoClearSpaceTitle": "Clear Space",
+      "logoClearSpaceDescription": "The logo must have a minimum clear space equal to the height of the “H” in “Harch” on all sides. No other graphic elements, text, or visual elements may encroach on this clear space area.",
+      "logoMinimumSizeTitle": "Minimum Size",
+      "logoMinimumSizeDescription": "The logo must not be reproduced smaller than 24 pixels in height for digital applications or 8mm in height for print applications. This ensures legibility and preserves the integrity of the mark.",
+      "logoApprovedVersionsTitle": "Approved Versions",
+      "logoApprovedVersionsDescription": "Use only approved versions of the Harch Corp logo as provided by our brand team. Do not recreate, redraw, or modify the logo. Approved versions include the full-color version (white on dark backgrounds), the monochrome version, and the icon-only version for specific applications.",
+      "logoBackgroundTitle": "Background Requirements",
+      "logoBackgroundDescription": "The logo must only be placed on backgrounds that provide sufficient contrast. The white version is for dark backgrounds, and the dark version is for light backgrounds. Do not place the logo over busy images, patterns, or backgrounds that compromise readability.",
+      "colorTitle": "Color and Typography Standards",
+      "colorDescription": "The Harch Corp brand uses a carefully defined color palette and typography system. When producing materials that reference our brand:",
+      "colorPrimaryTitle": "Primary Colors",
+      "colorPrimaryDescription": "White (#FFFFFF) is the primary brand color, used for the logo and key typographic elements. Dark background (#1A1A1A) serves as the foundation of our visual identity, reflecting our industrial precision and technological sophistication.",
+      "colorTypographyTitle": "Typography",
+      "colorTypographyDescription": "Inter is our primary typeface for body text and user interfaces. Space Mono is our secondary typeface used for data, labels, and technical notation. Do not substitute these typefaces with alternatives without written approval.",
+      "colorAccentTitle": "Accent Colors",
+      "colorAccentDescription": "Our accent colors include muted gray tones (#999999 for secondary text, #666666 for tertiary elements). These are used sparingly and must not dominate or compete with the primary palette.",
+      "colorProhibitedTitle": "Prohibited Colors",
+      "colorProhibitedDescription": "Do not apply unauthorized colors to the Harch Corp logo or brand materials. The logo must only appear in its approved color versions (white on dark, dark on light). Gradient or multi-color treatments are strictly prohibited.",
+      "notAllowedTitle": "What Is Not Allowed",
+      "notAllowedDescription": "The following uses of Harch Corp trademarks are strictly prohibited without prior written authorization:",
+      "notAllowedItems": [
+        "Using Harch Corp trademarks in a way that implies endorsement, partnership, or sponsorship without written authorization from Harch Corp S.A.",
+        "Modifying, distorting, or altering the Harch Corp logo or any trademark in any way, including changing colors, proportions, or adding effects.",
+        "Using Harch Corp trademarks as part of your own company name, product name, domain name, or social media handle.",
+        "Displaying the Harch Corp logo alongside competitor trademarks or in contexts that could create confusion about the source of products or services.",
+        "Using Harch Corp trademarks on merchandise, promotional items, or commercial products without explicit written permission.",
+        "Incorporating Harch Corp trademarks into your own logos, icons, or brand identifiers.",
+        "Using Harch Corp trademarks in any manner that is misleading, defamatory, obscene, or otherwise objectionable.",
+        "Registering or attempting to register any Harch Corp trademark or confusingly similar marks as domain names, social media handles, or trade names.",
+        "Using Harch Corp trademarks in metadata, hidden text, or keyword advertising (including Google Ads) to divert traffic from Harch Corp's own digital properties.",
+        "Creating derivative works based on Harch Corp trademarks, including parodies that could dilute the brand or tarnish its reputation."
+      ],
+      "requestTitle": "Requesting Permission",
+      "requestDescription": "If you wish to use any Harch Corp trademark or logo in a manner not expressly covered by these guidelines, you must obtain prior written permission from our brand team. Permission requests should include:",
+      "requestItems": [
+        "The specific trademark(s) you wish to use",
+        "A detailed description of the intended use, context, and distribution",
+        "Visual mockups or samples of how the trademark will appear",
+        "The intended duration and geographic scope of use"
+      ],
+      "requestTeamTitle": "Brand Permissions Team",
+      "requestEmailLabel": "Email:",
+      "requestAddress": "Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco",
+      "requestResponseTime": "We aim to respond to all permission requests within 10 business days.",
+      "footerNote": "Last updated: January 2026 | All trademarks are the property of Harch Corp S.A. and are protected under the laws of the Kingdom of Morocco and international trademark conventions."
     }
   },
   "nav": {
@@ -7289,20 +7563,20 @@
     "readFullDispatch": "Read Full Dispatch",
     "relatedTopics": "Related Topics",
     "title": "Blog",
-    "allArticles": "Tous les articles",
+    "allArticles": "All Articles",
     "articleNotFound": "Article introuvable",
     "articleNotFoundDescription": "The article you are looking for does not exist.",
     "contact": "Contact presse",
-    "copyFeedUrl": "Copier l'URL du flux",
+    "copyFeedUrl": "Copy Feed URL",
     "emailPlaceholder": "votre@email.com",
     "latestPosts": "Latest News",
     "mediaCoverage": "Couverture mediatique",
     "newsletter": "Newsletter",
     "newsletterDescription": "Recevez nos communiques et annonces directement.",
     "pressReleases": "Communiques de presse",
-    "readArticle": "Lire l'article",
+    "readArticle": "Read Article",
     "rssFeed": "Flux RSS",
-    "rssFeedDescription": "Abonnez-vous au flux RSS.",
+    "rssFeedDescription": "Subscribe to the RSS feed and never miss an article.",
     "stayInTheLoop": "Restez informe",
     "submitAPitch": "Soumettre une proposition",
     "subscribe": "S'abonner",
@@ -7506,13 +7780,24 @@
         {
           "title": "Unified Dashboard",
           "description": "Centralized dashboard for the entire ecosystem."
+        },
+        {
+          "description": "Advanced monitoring and observability for all HarchOS deployments.",
+          "title": "Observability Suite"
         }
       ],
       "title": "Fonctionnalites"
     },
     "heroDescription": "The sovereign infrastructure OS that orchestrates GPU cloud, energy, mining, and agriculture.",
     "heroLabel": "Plateforme",
-    "heroTitle": "HarchOS"
+    "heroTitle": "HarchOS",
+    "liveLabels": {
+      "peak": "Peak:",
+      "avg": "Avg:",
+      "max": "Max:",
+      "bearing": "Bearing #3",
+      "flaggedAgo": "Flagged 12m ago"
+    }
   },
   "press": {
     "brandAssets": {
@@ -7761,7 +8046,7 @@
       "egressBandwidth": "Calculator Egress Bandwidth",
       "estCo2Monthly": "Calculator Est Co2 Monthly",
       "estimatedCost": "Estimated Cost",
-      "estimatedExcludesTaxes": "Calculator Estimated Excludes Taxes",
+      "estimatedExcludesTaxes": "Estimated cost excludes taxes and fees",
       "estimatedMonthlyCost": "Calculator Estimated Monthly Cost",
       "fullCalculatorButton": "Calculator Full Calculator Button",
       "fullCalculatorLink": "Calculator Full Calculator Link",
@@ -8023,7 +8308,7 @@
         "subtitle": "Custom"
       },
       "professional": {
-        "badge": "Professional Badge",
+        "badge": "Professional",
         "cta": "Start Trial",
         "description": "For teams that need serious AI compute and dedicated support.",
         "features": [
@@ -8046,7 +8331,7 @@
         "subtitle": "For growing teams"
       },
       "sovereign": {
-        "badge": "Sovereign Badge",
+        "badge": "Sovereign",
         "cta": "Request Briefing",
         "description": "Classified infrastructure for government agencies and defense organizations.",
         "features": [
@@ -8118,9 +8403,11 @@
             "24/7 Support",
             "Advanced Monitoring",
             "Unlimited Projects",
-            "Carbon Reports"
+            "Carbon Reports",
+            "24/7 dedicated support"
           ],
-          "cta": "Contact Sales"
+          "cta": "Contact Sales",
+          "popular": true
         },
         {
           "name": "Sovereign",
@@ -8142,24 +8429,24 @@
   },
   "privacy": {
     "contactUs": "Contact Us",
-    "contactUsText": "Contact Us Text",
+    "contactUsText": "For any questions about this privacy policy or our data practices, contact us at privacy@harchcorp.com or write to Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco.",
     "cookies": "Cookies",
     "cookiesText": "We use cookies to improve your experience, analyze site traffic, and deliver personalized content. You can manage your cookie preferences at any time.",
     "dataCollection": "Data Collection",
-    "dataCollectionText": "Data Collection Text",
+    "dataCollectionText": "We collect personal data that you provide directly, such as your name, email address, organization, and project details when you submit a quote request or contact us. We also automatically collect usage data, device information, and cookies when you visit our website.",
     "dataSecurity": "Data Security",
-    "dataSecurityText": "Data Security Text",
+    "dataSecurityText": "We implement industry-standard security measures including AES-256 encryption at rest, TLS 1.3 in transit, and SOC 2 Type II compliance. All data is processed on sovereign Moroccan infrastructure.",
     "dataSharing": "Data Sharing",
-    "dataSharingText": "Data Sharing Text",
+    "dataSharingText": "We share your data only with trusted service providers who assist in delivering our services, and only under strict contractual obligations. We never sell your data. Cross-border transfers are protected by appropriate safeguards.",
     "dataUse": "Data Use",
-    "dataUseText": "Data Use Text",
+    "dataUseText": "We use your personal data to process your requests, deliver our services, communicate with you about your projects, and improve our platform. We do not sell your personal data to third parties.",
     "internationalTransfers": "International Transfers",
-    "internationalTransfersText": "International Transfers Text",
+    "internationalTransfersText": "When data transfers outside Morocco are necessary, we ensure adequate protection through Standard Contractual Clauses, adequacy decisions, or other legally compliant mechanisms in accordance with Law 09-08 and GDPR.",
     "lastUpdated": "Last Updated",
-    "lastUpdatedDate": "Last Updated Date",
-    "title": "Blog",
+    "lastUpdatedDate": "January 2026",
+    "title": "Privacy Policy",
     "yourRights": "Your Rights",
-    "yourRightsText": "Your Rights Text",
+    "yourRightsText": "You have the right to access, rectify, delete, and port your personal data. You may also object to processing or withdraw consent at any time. To exercise these rights, contact privacy@harchcorp.com.",
     "heroDescription": "How Harch Corp collects, uses, and protects your personal data.",
     "heroLabel": "Privacy",
     "heroTitle": "Privacy Policy",
@@ -8182,7 +8469,7 @@
       },
       "rights": {
         "description": "Rights of access, rectification, and deletion of your data.",
-        "title": "Vos droits"
+        "title": "Your Rights"
       },
       "usage": {
         "description": "How we use your data to deliver our services.",
@@ -8591,7 +8878,20 @@
     "heroDescription": "Get custom pricing for your sovereign infrastructure needs.",
     "heroLabel": "Devis",
     "heroTitle": "Demander un Devis",
-    "success": "Your quote request has been submitted successfully. Our team will contact you within 24 hours."
+    "success": "Your quote request has been submitted successfully. Our team will contact you within 24 hours.",
+    "responseTime": "Response Time",
+    "responseTimeDesc": "Maximum response time for all quote requests",
+    "dataSovereignty": "Data Sovereignty",
+    "dataSovereigntyDesc": "All data processed on sovereign Moroccan infrastructure. AES-256 at rest, TLS 1.3 in transit. Law 09-08 compliant.",
+    "badges": [
+      "AES-256",
+      "TLS 1.3",
+      "SOC 2",
+      "ISO 27001"
+    ],
+    "encrypting": "Encrypting payload...",
+    "routing": "Routing through secure channel...",
+    "transmitting": "Transmitting to secure intake..."
   },
   "quoteReceived": {
     "actions": {
@@ -8646,11 +8946,11 @@
     "title": "Request Received",
     "cta": {
       "primary": "Explorer la plateforme",
-      "secondary": "Retour a l'accueil",
+      "secondary": "Back to Home",
       "title": "Learn More"
     },
     "heroDescription": "Thank you for your quote request. Our team will contact you within 24 business hours.",
-    "heroTitle": "Demande recue"
+    "heroTitle": "Request Received"
   },
   "sidebar": {
     "about": "About",
@@ -8771,7 +9071,8 @@
     "trust": "Trust",
     "trustCenter": "Trust Center",
     "vulnerabilityDisclosure": "Vulnerability Disclosure",
-    "water": "Water"
+    "water": "Water",
+    "ariaLabel": "Navigation"
   },
   "startupProgram": {
     "benefits": [
@@ -8956,8 +9257,8 @@
         "title": "Continental Scale"
       },
       "sovereignByDesign": {
-        "description": "Sovereign By Design Description",
-        "title": "Sovereign By Design Title"
+        "description": "Every system, data center, and network we build is designed with data sovereignty and operational autonomy as foundational principles. No foreign dependencies, no external control.",
+        "title": "Sovereign by Design"
       },
       "title": "Strategic Pillars",
       "verticalIntegration": {
@@ -8979,191 +9280,293 @@
         }
       ]
     },
-    "subtitle": "Subtitle",
+    "subtitle": "Vertical Integration, Sovereign Infrastructure, Continental Execution",
     "timeline": {
       "description": "Our phased approach to building Africa's sovereign infrastructure backbone.",
       "title": "Strategic Timeline"
     },
-    "title": "Blog",
+    "title": "Our Strategy",
     "heroDescription": "Vertical integration, industrial sovereignty, and continental execution.",
     "heroLabel": "Strategy",
-    "heroTitle": "Our Strategy"
+    "heroTitle": "Our Strategy",
+    "hero": {
+      "title": "OPERATOR",
+      "metaLabel": "STRATEGY"
+    },
+    "stats": {
+      "investmentPipeline": "Investment Pipeline",
+      "verticals": "Verticals",
+      "countries": "Countries",
+      "jobsBy2028": "Jobs by 2028"
+    },
+    "verticalsDeep": {
+      "intelligence": {
+        "name": "Harch Intelligence",
+        "desc": "1,798 GPU carbon-aware data center platform across Morocco. Next-gen GPU clusters for sovereign AI compute, powered by 100% renewable energy with submarine cable connectivity to Europe and the Americas.",
+        "keyPoints": [
+          "1,798 carbon-optimized GPUs",
+          "2GW+ Renewable Pipeline",
+          "100% renewable powered",
+          "Carbon-aware scheduling"
+        ]
+      },
+      "cement": {
+        "name": "Harch Cement",
+        "desc": "500kT/yr cement production in Gambia, serving West Africa's construction boom. Vertically integrated from quarry to delivery with structural cost advantages.",
+        "keyPoints": [
+          "500kT/yr capacity",
+          "Vertically integrated",
+          "West Africa focus",
+          "Quarry-to-delivery model"
+        ]
+      },
+      "energy": {
+        "name": "Harch Energy",
+        "desc": "2GW+ Renewable Pipeline of solar, wind, and green hydrogen across Morocco and Sahel. Zero-carbon electricity powering industrial operations and data centers.",
+        "keyPoints": [
+          "2GW+ Renewable Pipeline",
+          "Solar + Wind + H₂",
+          "Zero-carbon operations",
+          "Industrial-scale output"
+        ]
+      },
+      "technology": {
+        "name": "Harch Technology",
+        "desc": "Sovereign tech stack: AI platforms, cybersecurity, and satellite communications. 1,798 carbon-optimized GPUs powering continental AI from inference to training.",
+        "keyPoints": [
+          "1,798 GPUs",
+          "Sovereign AI platform",
+          "Cybersecurity suite",
+          "Satellite communications"
+        ]
+      },
+      "mining": {
+        "name": "Harch Mining",
+        "desc": "Strategic mineral extraction — phosphates, cobalt, and rare earths. Building processing and refining capacity in-country to capture the value chain.",
+        "keyPoints": [
+          "3 strategic minerals",
+          "In-country processing",
+          "Export-grade refining",
+          "30% of global reserves"
+        ]
+      },
+      "agri": {
+        "name": "Harch Agri",
+        "desc": "Precision agriculture and vertical farming across Africa's 60% uncultivated arable land. IoT, drone monitoring, and AI-optimized crop management.",
+        "keyPoints": [
+          "$35B market access",
+          "IoT + drone monitoring",
+          "Vertical farming tech",
+          "Precision agriculture"
+        ]
+      },
+      "water": {
+        "name": "Harch Water",
+        "desc": "200M m³/yr desalination capacity with AI-optimized distribution. Solving Africa's water security crisis at continental scale.",
+        "keyPoints": [
+          "200M m³/yr capacity",
+          "AI-optimized distribution",
+          "Desalination technology",
+          "Smart water networks"
+        ]
+      }
+    },
+    "advantages": {
+      "carbonFirst": {
+        "title": "Carbon-First Strategy",
+        "description": "Carbon-aware scheduling is our #1 differentiator. We route workloads to the greenest hubs in real time, achieving ~47 gCO2/kWh — 89% below the industry average. No competitor offers this level of carbon optimization."
+      }
+    },
+    "investmentThesis": {
+      "demographicDividend": {
+        "title": "Demographic Dividend",
+        "description": "1.4 billion people with a median age of 19. The largest untapped workforce on Earth, ready to power industrialization at scale. By 2050, Africa will have the world's largest working-age population."
+      },
+      "resourceSupremacy": {
+        "title": "Resource Supremacy",
+        "description": "30% of global mineral reserves, 60% of uncultivated arable land, and the world's best renewable energy resources. The raw materials for the 21st century economy are here."
+      },
+      "infrastructureGap": {
+        "title": "Infrastructure Gap",
+        "description": "The infrastructure deficit is not a problem — it's an opportunity. Every road, power plant, and data center that doesn't exist yet represents a first-mover advantage for those who build it."
+      }
+    }
   },
   "subsidiaries": {
     "agriculture": {
-      "competitiveAdvantageLabel": "Agriculture Competitive Advantage Label",
-      "competitiveAdvantageTitle": "Agriculture Competitive Advantage Title",
+      "competitiveAdvantageLabel": "Competitive Advantage",
+      "competitiveAdvantageTitle": "Our Competitive Edge",
       "competitiveAnalysis": {
-        "africa": "Competitive Analysis Africa",
-        "africaPresence": "Competitive Analysis Africa Presence",
-        "africaPresenceValue": "Competitive Analysis Africa Presence Value",
-        "differentiator": "Competitive Analysis Differentiator",
-        "differentiatorNote": "Competitive Analysis Differentiator Note",
-        "differentiatorValue": "Competitive Analysis Differentiator Value",
-        "farmers": "Competitive Analysis Farmers",
-        "funding": "Competitive Analysis Funding",
-        "harchAdvantage": "Competitive Analysis Harch Advantage",
-        "harchAgriTagline": "Competitive Analysis Harch Agri Tagline",
-        "keyWeakness": "Competitive Analysis Key Weakness",
-        "model": "Competitive Analysis Model",
-        "modelValue": "Competitive Analysis Model Value",
-        "revenue": "Competitive Analysis Revenue",
-        "target2031": "Competitive Analysis Target2031",
-        "target2031Value": "Competitive Analysis Target2031 Value"
+        "africa": "African Presence",
+        "africaPresence": "Active in 5+ African countries",
+        "africaPresenceValue": "5+ countries",
+        "differentiator": "Key Differentiator",
+        "differentiatorNote": "Fully integrated stack from IoT to market",
+        "differentiatorValue": "Vertical Integration",
+        "farmers": "Farmers Served",
+        "funding": "Funding Raised",
+        "harchAdvantage": "Harch Corp Advantage",
+        "harchAgriTagline": "Sovereign Agriculture for Africa",
+        "keyWeakness": "Key Weakness",
+        "model": "Business Model",
+        "modelValue": "Integrated Precision Agriculture",
+        "revenue": "Annual Revenue",
+        "target2031": "2031 Target",
+        "target2031Value": "$500M+ revenue"
       },
-      "competitiveAnalysisLabel": "Agriculture Competitive Analysis Label",
-      "competitiveAnalysisSubtitle": "Agriculture Competitive Analysis Subtitle",
-      "competitiveAnalysisTitle": "Agriculture Competitive Analysis Title",
+      "competitiveAnalysisLabel": "Competitive Analysis",
+      "competitiveAnalysisSubtitle": "How HarchAgri compares to global agritech competitors.",
+      "competitiveAnalysisTitle": "Market Position",
       "competitors": {
         "aerofarms": {
-          "advantage": "Aerofarms Advantage",
-          "africa": "Aerofarms Africa",
-          "country": "Aerofarms Country",
-          "farmers": "Aerofarms Farmers",
-          "funding": "Aerofarms Funding",
-          "maturity": "Aerofarms Maturity",
-          "model": "Aerofarms Model",
+          "advantage": "Industry-leading vertical farming technology with proven ROI",
+          "africa": "No African presence — focused on US and Asia markets",
+          "country": "United States",
+          "farmers": "Not applicable — operates own facilities",
+          "funding": "$238M+ raised",
+          "maturity": "Late-stage (operational since 2015)",
+          "model": "Owner-operator vertical farms",
           "name": "AeroFarms",
-          "revenue": "Aerofarms Revenue",
-          "weakness": "Aerofarms Weakness"
+          "revenue": "~$30M (estimated)",
+          "weakness": "No African operations; high operational costs; limited crop variety"
         },
         "apollo": {
-          "advantage": "Apollo Advantage",
-          "africa": "Apollo Africa",
-          "country": "Apollo Country",
-          "farmers": "Apollo Farmers",
-          "funding": "Apollo Funding",
-          "maturity": "Apollo Maturity",
-          "model": "Apollo Model",
+          "advantage": "Strong digital lending platform for smallholder farmers",
+          "africa": "Active in Kenya and expanding to East Africa",
+          "country": "Kenya",
+          "farmers": "100,000+ farmers",
+          "funding": "$60M+ raised",
+          "maturity": "Growth stage (founded 2016)",
+          "model": "Digital lending + farm inputs",
           "name": "Apollo Agriculture",
-          "revenue": "Apollo Revenue",
-          "weakness": "Apollo Weakness"
+          "revenue": "~$15M (estimated)",
+          "weakness": "Limited to East Africa; no vertical integration; lending risk exposure"
         },
         "climateCorp": {
-          "advantage": "Climate Corp Advantage",
-          "africa": "Climate Corp Africa",
-          "country": "Climate Corp Country",
-          "farmers": "Climate Corp Farmers",
-          "funding": "Climate Corp Funding",
-          "maturity": "Climate Corp Maturity",
-          "model": "Climate Corp Model",
+          "advantage": "Advanced climate risk modeling backed by Bayer",
+          "africa": "Minimal — primarily focused on developed markets",
+          "country": "United States",
+          "farmers": "300M+ insured acres (global)",
+          "funding": "Acquired by Bayer for $630M",
+          "maturity": "Mature (acquired)",
+          "model": "Insurance + field data analytics",
           "name": "Climate Corp",
-          "revenue": "Climate Corp Revenue",
-          "weakness": "Climate Corp Weakness"
+          "revenue": "Integrated into Bayer Digital Farming",
+          "weakness": "No African focus; insurance-based model limits reach; no hardware integration"
         },
         "ocp": {
-          "advantage": "Ocp Advantage",
-          "africa": "Ocp Africa",
-          "country": "Ocp Country",
-          "farmers": "Ocp Farmers",
-          "funding": "Ocp Funding",
-          "maturity": "Ocp Maturity",
-          "model": "Ocp Model",
+          "advantage": "Dominant phosphate producer with government backing",
+          "africa": "Headquartered in Morocco — strong continental presence",
+          "country": "Morocco",
+          "farmers": "Partners with 50,000+ farmers via OCP Agri",
+          "funding": "Publicly listed — market cap $40B+",
+          "maturity": "Mature (founded 1920)",
+          "model": "Fertilizer production + agricultural services",
           "name": "OCP Group",
-          "revenue": "Ocp Revenue",
-          "weakness": "Ocp Weakness"
+          "revenue": "$9B+ (group revenue)",
+          "weakness": "Fertilizer-only focus; no precision tech; slow digital transformation"
         },
         "twiga": {
-          "advantage": "Twiga Advantage",
-          "africa": "Twiga Africa",
-          "country": "Twiga Country",
-          "farmers": "Twiga Farmers",
-          "funding": "Twiga Funding",
-          "maturity": "Twiga Maturity",
-          "model": "Twiga Model",
+          "advantage": "Largest B2B food distribution platform in East Africa",
+          "africa": "Active in Kenya — expanding to Uganda and Tanzania",
+          "country": "Kenya",
+          "farmers": "140,000+ farmers on platform",
+          "funding": "$110M+ raised",
+          "maturity": "Growth stage (founded 2014)",
+          "model": "Marketplace + logistics for farm produce",
           "name": "Twiga Foods",
-          "revenue": "Twiga Revenue",
-          "weakness": "Twiga Weakness"
+          "revenue": "~$50M (estimated)",
+          "weakness": "Marketplace-only model; no production tech; limited to East Africa"
         }
       },
       "desc": "Precision agriculture powered by AI, IoT sensors, and drone technology to optimize yields across Africa's farmlands.",
-      "heroBadge": "Agriculture Hero Badge",
-      "heroSubtitle": "Agriculture Hero Subtitle",
+      "heroBadge": "Harch Agri",
+      "heroSubtitle": "Precision agriculture powered by AI, IoT sensors, and drone technology to optimize yields across Africa's farmlands.",
       "heroTitle": "Precision Agriculture",
-      "iotSensorSubtitle": "Agriculture Iot Sensor Subtitle",
-      "iotSensorTitle": "Agriculture Iot Sensor Title",
-      "liveMonitoringLabel": "Agriculture Live Monitoring Label",
+      "iotSensorSubtitle": "Real-time soil and crop monitoring across all deployment zones.",
+      "iotSensorTitle": "IoT Sensor Network",
+      "liveMonitoringLabel": "Live Monitoring",
       "locations": {
         "agadir": {
-          "city": "Agadir City",
-          "crops": "Agadir Crops",
-          "region": "Agadir Region"
+          "city": "Agadir",
+          "crops": "Tomatoes, Citrus, Berries",
+          "region": "Souss-Massa"
         },
         "casablanca": {
-          "city": "Casablanca City",
-          "crops": "Casablanca Crops",
-          "region": "Casablanca Region"
+          "city": "Casablanca",
+          "crops": "Vegetables, Herbs, Leafy Greens",
+          "region": "Casablanca-Settat"
         },
         "marrakech": {
-          "city": "Marrakech City",
-          "crops": "Marrakech Crops",
-          "region": "Marrakech Region"
+          "city": "Marrakech",
+          "crops": "Olives, Pomegranates, Saffron",
+          "region": "Marrakech-Safi"
         },
         "rabat": {
-          "city": "Rabat City",
-          "crops": "Rabat Crops",
-          "region": "Rabat Region"
+          "city": "Rabat",
+          "crops": "Strawberries, Carrots, Cereals",
+          "region": "Rabat-Salé-Kénitra"
         },
         "tangier": {
-          "city": "Tangier City",
-          "crops": "Tangier Crops",
-          "region": "Tangier Region"
+          "city": "Tangier",
+          "crops": "Cannabis (legal), Figs, Grapes",
+          "region": "Tanger-Tetouan-Al Hoceima"
         }
       },
       "marketAnalysis": {
-        "africaMaturity": "Market Analysis Africa Maturity",
-        "cagr": "Market Analysis Cagr",
-        "footnote": "Market Analysis Footnote",
-        "marketSize": "Market Analysis Market Size",
-        "opportunity": "Market Analysis Opportunity",
+        "africaMaturity": "Early Growth",
+        "cagr": "12.4% CAGR",
+        "footnote": "Market sizes based on 2024 estimates. CAGR projected through 2030.",
+        "marketSize": "$45B+ addressable market",
+        "opportunity": "High — underpenetrated with strong fundamentals",
         "rows": {
           "carbonCredits": {
-            "cagr": "Carbon Credits Cagr",
-            "maturity": "Carbon Credits Maturity",
-            "opportunity": "Carbon Credits Opportunity",
-            "segment": "Carbon Credits Segment",
-            "size": "Carbon Credits Size"
+            "cagr": "28.5%",
+            "maturity": "Emerging",
+            "opportunity": "Very High",
+            "segment": "Agricultural Carbon Credits",
+            "size": "$400M"
           },
           "drones": {
-            "cagr": "Drones Cagr",
-            "maturity": "Drones Maturity",
-            "opportunity": "Drones Opportunity",
-            "segment": "Drones Segment",
-            "size": "Drones Size"
+            "cagr": "18.2%",
+            "maturity": "Emerging",
+            "opportunity": "Very High",
+            "segment": "Agricultural Drones",
+            "size": "$1.2B"
           },
           "iot": {
-            "cagr": "Iot Cagr",
-            "maturity": "Iot Maturity",
-            "opportunity": "Iot Opportunity",
-            "segment": "Iot Segment",
-            "size": "Iot Size"
+            "cagr": "15.7%",
+            "maturity": "Early Growth",
+            "opportunity": "High",
+            "segment": "IoT Sensors & Monitoring",
+            "size": "$800M"
           },
           "marketplace": {
-            "cagr": "Marketplace Cagr",
-            "maturity": "Marketplace Maturity",
-            "opportunity": "Marketplace Opportunity",
-            "segment": "Marketplace Segment",
-            "size": "Marketplace Size"
+            "cagr": "22.3%",
+            "maturity": "Growth",
+            "opportunity": "Very High",
+            "segment": "Agri Marketplace Platforms",
+            "size": "$2.1B"
           },
           "verticalFarming": {
-            "cagr": "Vertical Farming Cagr",
-            "maturity": "Vertical Farming Maturity",
-            "opportunity": "Vertical Farming Opportunity",
-            "segment": "Vertical Farming Segment",
-            "size": "Vertical Farming Size"
+            "cagr": "24.1%",
+            "maturity": "Emerging",
+            "opportunity": "High",
+            "segment": "Vertical Farming Systems",
+            "size": "$900M"
           }
         },
-        "segment": "Market Analysis Segment",
+        "segment": "African AgriTech Market",
         "title": "Agriculture Market Analysis"
       },
       "marketAnalysisLabel": "Agriculture Market Analysis Label",
       "marketAnalysisSubtitle": "Agriculture Market Analysis Subtitle",
       "marketAnalysisTitle": "Agriculture Market Analysis Title",
       "metrics": {
-        "foodImports": "Metrics Food Imports",
-        "postHarvestLosses": "Metrics Post Harvest Losses",
-        "smallholderFarmers": "Metrics Smallholder Farmers",
-        "uncultivatedArableLand": "Metrics Uncultivated Arable Land"
+        "foodImports": "Africa imports $35B+ in food annually",
+        "postHarvestLosses": "30-40% of African harvests are lost post-harvest",
+        "smallholderFarmers": "80% of African farms are smallholder operations",
+        "uncultivatedArableLand": "60% of the world's uncultivated arable land is in Africa"
       },
       "moats": {
         "carbonApi": {
@@ -9180,27 +9583,27 @@
         }
       },
       "name": "Harch Agriculture",
-      "overview": "Agriculture Overview",
+      "overview": "HarchAgri delivers precision agriculture through an integrated stack of IoT sensors, drone surveillance, and vertical farming technology — purpose-built for African farmlands.",
       "overviewLabel": "Overview",
       "overviewTitle": "Agriculture Overview",
       "partners": {
         "agritechKenya": {
-          "country": "Agritech Kenya Country",
-          "harchContribution": "Agritech Kenya Harch Contribution",
-          "name": "Agritech Kenya",
-          "partnerContribution": "Agritech Kenya Partner Contribution",
-          "priority": "Agritech Kenya Priority",
-          "status": "Agritech Kenya Status",
-          "type": "Agritech Kenya Type"
+          "country": "Kenya",
+          "harchContribution": "Technology platform and drone monitoring",
+          "partnerContribution": "Local market access and farmer networks",
+          "priority": "Medium",
+          "status": "Planned",
+          "type": "Technology",
+          "name": "AgriTech Kenya"
         },
         "fao": {
-          "country": "Fao Country",
-          "harchContribution": "Fao Harch Contribution",
-          "name": "FAO",
-          "partnerContribution": "Fao Partner Contribution",
-          "priority": "Fao Priority",
-          "status": "Fao Status",
-          "type": "Fao Type"
+          "country": "International (Rome HQ)",
+          "harchContribution": "IoT monitoring platform and data analytics",
+          "partnerContribution": "Agricultural expertise and policy frameworks",
+          "priority": "High",
+          "status": "Active",
+          "type": "Institutional",
+          "name": "FAO"
         },
         "ghanaMofa": {
           "country": "Ghana Mofa Country",
@@ -9212,61 +9615,61 @@
           "type": "Ghana Mofa Type"
         },
         "greenPlan": {
-          "country": "Green Plan Country",
-          "harchContribution": "Green Plan Harch Contribution",
-          "name": "Green Plan",
-          "partnerContribution": "Green Plan Partner Contribution",
-          "priority": "Green Plan Priority",
-          "status": "Green Plan Status",
-          "type": "Green Plan Type"
+          "status": "Active",
+          "type": "Government",
+          "country": "Morocco",
+          "harchContribution": "IoT monitoring and precision agriculture platform",
+          "name": "Plan Vert",
+          "partnerContribution": "National policy framework and funding",
+          "priority": "High"
         },
         "isra": {
-          "country": "Isra Country",
-          "harchContribution": "Isra Harch Contribution",
-          "name": "ISRA",
-          "partnerContribution": "Isra Partner Contribution",
-          "priority": "Isra Priority",
-          "status": "Isra Status",
-          "type": "Isra Type"
+          "country": "Morocco",
+          "harchContribution": "Precision agriculture technology deployment",
+          "partnerContribution": "Agronomic research and field expertise",
+          "priority": "Medium",
+          "status": "Active",
+          "type": "Research",
+          "name": "ISRA"
         },
         "ocp": {
-          "country": "Ocp Country",
-          "harchContribution": "Ocp Harch Contribution",
-          "name": "OCP Group",
-          "partnerContribution": "Ocp Partner Contribution",
-          "priority": "Ocp Priority",
-          "status": "Ocp Status",
-          "type": "Ocp Type"
+          "country": "Morocco",
+          "harchContribution": "IoT sensors and digital farming platform",
+          "partnerContribution": "Fertilizer supply chain and distribution network",
+          "priority": "High",
+          "status": "Active",
+          "type": "Strategic",
+          "name": "OCP Group"
         }
       },
       "partnershipsLabel": "Partnerships",
-      "partnershipsSubtitle": "Agriculture Partnerships Subtitle",
+      "partnershipsSubtitle": "Strategic partnerships driving African agricultural sovereignty.",
       "partnershipsTitle": "Agricultural Partnerships",
       "pricing": {
         "carbon": {
-          "price": "Carbon Price",
-          "product": "Carbon Product",
-          "roi": "Carbon Roi",
-          "target": "Carbon Target",
-          "unit": "Carbon Unit"
+          "price": "Contact for pricing",
+          "product": "Carbon Credit Verification",
+          "roi": "3-5x over 5 years",
+          "target": "Carbon-conscious enterprises",
+          "unit": "Per credit ton"
         },
         "drone": {
-          "price": "Drone Price",
-          "product": "Drone Product",
-          "roi": "Drone Roi",
-          "target": "Drone Target",
-          "unit": "Drone Unit"
+          "price": "From $2,500/season",
+          "product": "Drone Monitoring Package",
+          "roi": "5-8x yield improvement",
+          "target": "Large-scale farms",
+          "unit": "Per hectare"
         },
         "iot": {
-          "price": "Iot Price",
-          "product": "Iot Product",
-          "roi": "Iot Roi",
-          "target": "Iot Target",
-          "unit": "Iot Unit"
+          "price": "From $500/month",
+          "product": "IoT Sensor Suite",
+          "roi": "4-6x cost savings",
+          "target": "Mid-size to enterprise farms",
+          "unit": "Per sensor node"
         },
-        "price": "Pricing Price",
-        "product": "Pricing Product",
-        "roi": "Pricing Roi",
+        "price": "Pricing",
+        "product": "Product",
+        "roi": "ROI",
         "starterKit": {
           "price": "Free",
           "product": "Starter Kit Product",
@@ -9274,31 +9677,22 @@
           "target": "Starter Kit Target",
           "unit": "Starter Kit Unit"
         },
-        "target": "Pricing Target",
-        "unit": "Pricing Unit",
+        "target": "Target Customer",
+        "unit": "Unit",
         "vertical": {
-          "price": "Vertical Price",
-          "product": "Vertical Product",
-          "roi": "Vertical Roi",
-          "target": "Vertical Target",
-          "unit": "Vertical Unit"
+          "price": "Custom pricing",
+          "product": "Vertical Farm Module",
+          "roi": "8-12x revenue vs. traditional",
+          "target": "Urban agriculture operators",
+          "unit": "Per module"
         }
       },
       "pricingLabel": "Pricing",
-      "pricingSubtitle": "Agriculture Pricing Subtitle",
+      "pricingSubtitle": "Transparent pricing for every scale of operation.",
       "pricingTitle": "Agriculture Solutions Pricing",
       "products": {
         "carbon": {
-          "description": "Carbon credit marketplace for verified agricultural offset projects with satellite monitoring and blockchain verification.",
-          "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
-          ],
-          "name": "Carbon Credits",
-          "roi": "Carbon Roi",
+          "roi": "3-5x",
           "stats": {
             "commission": {
               "label": "Commission Rate"
@@ -9310,21 +9704,33 @@
               "label": "Annual Target"
             }
           },
-          "tagline": "Carbon Tagline",
-          "target": "Carbon Target",
-          "unit": "Carbon Unit"
+          "tagline": "Monetize your farm's carbon sequestration",
+          "target": "$5M+ pipeline",
+          "unit": "Per tCO2e",
+          "name": "Carbon Credit Verification",
+          "description": "Monetize your farm's carbon sequestration with verified credits traded on international markets.",
+          "features": [
+            "Satellite-verified carbon measurements",
+            "Automated credit certification process",
+            "Integration with international carbon registries",
+            "Real-time carbon sequestration tracking",
+            "Annual verification and reporting"
+          ]
         },
         "drone": {
-          "description": "Autonomous drone fleet for crop monitoring, precision spraying, and field mapping with AI-powered analytics.",
+          "roi": "5-8x",
+          "tagline": "Aerial intelligence for every hectare",
+          "target": "10,000+ ha monitored",
+          "unit": "Per flight hour",
+          "name": "HarchAgri Drone",
+          "description": "Aerial intelligence for every hectare — multispectral imaging, yield prediction, and crop health monitoring.",
           "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
+            "Multispectral crop health imaging",
+            "Yield prediction AI models",
+            "Automated flight path planning",
+            "Real-time field anomaly detection",
+            "Integration with IoT ground sensors"
           ],
-          "name": "AgriDrone",
-          "roi": "Drone Roi",
           "stats": {
             "coverage": {
               "label": "Coverage Area"
@@ -9333,64 +9739,61 @@
               "label": "Detection Accuracy"
             },
             "roi": {
-              "label": "Farmer ROI"
+              "label": "ROI"
             }
-          },
-          "tagline": "Drone Tagline",
-          "target": "Drone Target",
-          "unit": "Drone Unit"
+          }
         },
         "iot": {
-          "description": "IoT sensor networks for real-time soil monitoring, weather tracking, and irrigation optimization.",
+          "roi": "4-6x",
+          "tagline": "Soil-to-cloud precision monitoring",
+          "target": "5,000+ sensors deployed",
+          "unit": "Per sensor",
+          "name": "HarchAgri IoT",
+          "description": "Soil-to-cloud precision monitoring — real-time sensor data for irrigation, nutrients, and microclimate.",
           "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
+            "Soil moisture and nutrient sensors",
+            "Automated irrigation control",
+            "Microclimate weather stations",
+            "Pest and disease early warning",
+            "Yield optimization recommendations"
           ],
-          "name": "AgriIoT",
-          "roi": "Iot Roi",
           "stats": {
-            "starterKit": {
-              "label": "Starter Kit"
-            },
-            "waterSavings": {
-              "label": "Water Savings"
-            },
             "yieldIncrease": {
               "label": "Yield Increase"
+            },
+            "waterSavings": {
+              "label": "Water Savings"
+            },
+            "starterKit": {
+              "label": "Starter Kit Price"
             }
-          },
-          "tagline": "Iot Tagline",
-          "target": "Iot Target",
-          "unit": "Iot Unit"
+          }
         },
         "vertical": {
-          "description": "Vertical farming systems for controlled-environment agriculture with 95% less water usage.",
+          "roi": "8-12x",
+          "tagline": "Year-round production in any climate",
+          "target": "6 modules operational",
+          "unit": "Per module",
+          "name": "HarchAgri Vertical",
+          "description": "Year-round production in any climate — automated vertical farming modules with AI climate control.",
           "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
+            "Spectrally optimized LED lighting",
+            "Closed-loop hydroponic irrigation",
+            "AI climate control system",
+            "24/7 automated monitoring",
+            "365 days/year production cycles"
           ],
-          "name": "Vertical Farm",
-          "roi": "Vertical Roi",
           "stats": {
             "revenue": {
-              "label": "Revenue per Unit"
+              "label": "Revenue per Module"
             },
             "roi": {
-              "label": "Return on Investment"
+              "label": "ROI"
             },
             "waterSavings": {
               "label": "Water Savings"
             }
-          },
-          "tagline": "Vertical Tagline",
-          "target": "Vertical Target",
-          "unit": "Vertical Unit"
+          }
         }
       },
       "productsLabel": "Products",
@@ -9505,7 +9908,444 @@
       "sustainabilityLabel": "Sustainability",
       "sustainabilityTitle": "Sustainable Agriculture",
       "title": "Agriculture",
-      "tagline": "Operating System for Africa's Food Security"
+      "tagline": "Operating System for Africa's Food Security",
+      "ctaTitle": "Let's Build Together",
+      "ctaSubtitle": "Partnership inquiries, investment, and pilot programs. HarchAgri is looking for farmers, governments, and investors who share our vision for African agricultural sovereignty.",
+      "ctaPrimary": "Get Started",
+      "ctaSecondary": "Investor Details",
+      "deploymentsLabel": "Deployments",
+      "deploymentsTitle": "Five Sites in Morocco",
+      "deploymentsSubtitle": "Each site covers a 100km radius for drone and IoT operations. Morocco's Generation Green strategy (2020-2030) provides institutional support, OCP's Al Moutmir program brings a 580K farmer ecosystem. Expansion to Senegal, Kenya, and Ghana in Phase 3.",
+      "heroImageAlt": "HarchAgri — Precision Agriculture",
+      "strategicContextImageAlt": "HarchAgri agricultural drone",
+      "verticalFarmImageAlt": "HarchAgri vertical farm",
+      "sustainabilityImageAlt": "HarchAgri sustainable agriculture",
+      "iotImageAlt": "HarchAgri IoT sensors",
+      "investmentLabel": "Phase 1 Investment",
+      "investmentSubtitle": "Self-funded to prove the model before raising. Operational break-even targeted by end of Phase 2.",
+      "riskLabel": "Risk Analysis",
+      "riskTitle": "Identified Risks & Mitigations",
+      "riskSubtitle": "Prudence is not optional — it is essential. The failures of Twiga Foods, AeroFarms, and the volatile agritech funding environment in 2025 teach us this.",
+      "riskHeaderRisk": "Risk",
+      "riskHeaderProbability": "Probability",
+      "riskHeaderImpact": "Impact",
+      "riskHeaderMitigation": "Mitigation",
+      "roadmapLabel": "Roadmap",
+      "roadmapTitle": "Four Phases to Continental Leadership",
+      "roadmapSubtitle": "Lean startup philosophy: validate with an MVP before scaling. Avoid Twiga Foods' fatal mistake — over-investing before proving the model.",
+      "roadmapHectaresLabel": "Hectares",
+      "roadmapFarmersLabel": "Farmers",
+      "roadmapRevenueLabel": "Revenue",
+      "roadmapBudgetPhase": "Phase 1",
+      "roadmapBudgetTitle": "Detailed Action Plan & Budget",
+      "roadmapBudgetAction": "Action",
+      "roadmapBudgetTimeline": "Timeline",
+      "roadmapBudgetBudget": "Budget",
+      "roadmapBudgetKpi": "KPI",
+      "roadmapBudgetRows": {
+        "0": {
+          "action": "Deploy 2 DJI Agras drones",
+          "timeline": "Q1 2026",
+          "budget": "$16,000",
+          "kpi": "2 drones operational"
+        },
+        "1": {
+          "action": "Install 30 IoT sensors",
+          "timeline": "Q1 2026",
+          "budget": "$15,000",
+          "kpi": "5 pilot plots connected"
+        },
+        "2": {
+          "action": "Recruit 3 agronomists",
+          "timeline": "Q1 2026",
+          "budget": "$36,000/yr",
+          "kpi": "Field operations team"
+        },
+        "3": {
+          "action": "Integrate Carbon API",
+          "timeline": "Q2 2026",
+          "budget": "Internal",
+          "kpi": "Auto CO2 calculation"
+        },
+        "4": {
+          "action": "Deploy 5 vertical farm containers",
+          "timeline": "Q3 2026",
+          "budget": "$250,000",
+          "kpi": "5 containers operational"
+        },
+        "5": {
+          "action": "Obtain Verra certification",
+          "timeline": "Q4 2026",
+          "budget": "$20,000",
+          "kpi": "Methodology approved"
+        },
+        "6": {
+          "action": "Measure impact & report",
+          "timeline": "Q4 2026",
+          "budget": "$10,000",
+          "kpi": "NPS > 70, ROI > 100%"
+        }
+      },
+      "roadmapTotalInvestment": "Total Phase 1 investment: ~$347,000 — Self-funded by Harch Corp",
+      "roadmapAutoFinanced": "AUTO-FINANCED",
+      "weBring": "We bring",
+      "theyBring": "They bring",
+      "competitiveComparison": {
+        "title": "Competitive Landscape",
+        "subtitle": "HarchAgri vs. global agritech competitors — metric by metric. No competitor matches our integrated stack.",
+        "sectionLabel": "Competitive Comparison",
+        "harchName": "Harch Agri",
+        "aeroFarms": {
+          "name": "AeroFarms",
+          "country": "USA",
+          "founded": "2004",
+          "revenue": "Post-Ch.11",
+          "verdict": "3 of 4 major vertical farm competitors went bankrupt. Harch Agri enters at market bottom with 5 integrated products, 4x lower energy costs, carbon credit revenue, and 30M underserved African farmers. Aeroponics without economics is a science project.",
+          "metrics": {
+            "0": {
+              "label": "Integrated Product Stack",
+              "harchValue": "5 products (Drone+IoT+Vertical+Carbon+Kit)",
+              "competitorValue": "1 product (vertical farm only)"
+            },
+            "1": {
+              "label": "Financial Stability",
+              "harchValue": "$150M pipeline — growing",
+              "competitorValue": "Chapter 11 in 2023 — rescued"
+            },
+            "2": {
+              "label": "African Operations",
+              "harchValue": "Senegal + Morocco — building now",
+              "competitorValue": "None — USA only"
+            },
+            "3": {
+              "label": "Energy Cost",
+              "harchValue": "$0.03/kWh (Harch Energy solar)",
+              "competitorValue": "$0.12-0.18/kWh (US grid)"
+            },
+            "4": {
+              "label": "Post-Harvest Loss",
+              "harchValue": "<5% (AI-optimized supply chain)",
+              "competitorValue": "10-15% (US distribution)"
+            },
+            "5": {
+              "label": "Carbon Credits Revenue",
+              "harchValue": "Yes — Verra VCS + Gold Standard",
+              "competitorValue": "None"
+            },
+            "6": {
+              "label": "Cross-Vertical Synergy",
+              "harchValue": "Harch Energy + Water + Technology",
+              "competitorValue": "None — standalone farm"
+            },
+            "7": {
+              "label": "Market Size",
+              "harchValue": "30M smallholder farmers (Africa)",
+              "competitorValue": "331M US consumers (saturated)"
+            },
+            "8": {
+              "label": "Farming Method",
+              "harchValue": "Hydroponic — affordable, proven",
+              "competitorValue": "Aeroponic — capital-intensive, failed"
+            },
+            "9": {
+              "label": "Drone Fleet",
+              "harchValue": "50+ autonomous drones",
+              "competitorValue": "0 — no drone capability"
+            },
+            "10": {
+              "label": "IoT Network",
+              "harchValue": "10,000+ sensors — real-time",
+              "competitorValue": "0 — no IoT capability"
+            },
+            "11": {
+              "label": "Open Source AgTech SDK",
+              "harchValue": "HarchOS Agri SDK — open developer tools",
+              "competitorValue": "None — proprietary platform"
+            },
+            "12": {
+              "label": "African Job Creation",
+              "harchValue": "500+ direct jobs across 5 sites",
+              "competitorValue": "0 — US operations only"
+            },
+            "13": {
+              "label": "Community Revenue Share",
+              "harchValue": "5% — local development",
+              "competitorValue": "0% disclosed"
+            }
+          }
+        },
+        "cropXClimateCorp": {
+          "name": "CropX / Climate Corp",
+          "country": "USA / Israel",
+          "founded": "2013",
+          "revenue": "$50B+ (Bayer)",
+          "verdict": "CropX and Climate Corp serve American commercial farms at $749/year. Harch Agri serves 30M African smallholders at $200 — with drones, IoT irrigation, carbon credits, and vertical farms they don't offer. Different market, different price, different planet.",
+          "metrics": {
+            "0": {
+              "label": "Smallholder Focus",
+              "harchValue": "Yes — 30M African smallholders",
+              "competitorValue": "No — US/BR large farms only"
+            },
+            "1": {
+              "label": "Drone-as-a-Service",
+              "harchValue": "Yes — $50/ha/month",
+              "competitorValue": "None — software platform only"
+            },
+            "2": {
+              "label": "IoT + Irrigation Integration",
+              "harchValue": "Full stack — sensors + irrigation + AI",
+              "competitorValue": "Partial — sensing only, no irrigation"
+            },
+            "3": {
+              "label": "Carbon Credits for Farmers",
+              "harchValue": "Yes — 2% commission, Verra VCS",
+              "competitorValue": "Indigo Ag (US only, not Africa)"
+            },
+            "4": {
+              "label": "African Operations",
+              "harchValue": "5,000 ha trials — Senegal + Morocco",
+              "competitorValue": "0 hectares in Africa"
+            },
+            "5": {
+              "label": "Starter Kit Price",
+              "harchValue": "$200 — 3 sensors + LoRaWAN gateway",
+              "competitorValue": "$749-$1,499/year (US pricing)"
+            },
+            "6": {
+              "label": "Water Reduction",
+              "harchValue": "60% vs traditional irrigation",
+              "competitorValue": "N/A — no irrigation control"
+            },
+            "7": {
+              "label": "Cross-Vertical Synergy",
+              "harchValue": "Harch Energy + Water + Technology + Intelligence",
+              "competitorValue": "None — standalone software"
+            },
+            "8": {
+              "label": "Vertical Farming",
+              "harchValue": "3 facilities — premium produce",
+              "competitorValue": "None — no vertical farms"
+            },
+            "9": {
+              "label": "Yield Increase",
+              "harchValue": "30% vs traditional",
+              "competitorValue": "10-15% (sensing only)"
+            },
+            "10": {
+              "label": "Open Source AgTech SDK",
+              "harchValue": "HarchOS Agri SDK — open developer tools",
+              "competitorValue": "None — closed SaaS platform"
+            },
+            "11": {
+              "label": "African Job Creation",
+              "harchValue": "500+ direct jobs across 5 sites",
+              "competitorValue": "0 — US/Israel operations"
+            },
+            "12": {
+              "label": "Community Revenue Share",
+              "harchValue": "5% — local development",
+              "competitorValue": "0% disclosed"
+            }
+          }
+        },
+        "helloTractor": {
+          "name": "Hello Tractor",
+          "country": "Nigeria",
+          "founded": "2014",
+          "revenue": "Undisclosed",
+          "verdict": "Hello Tractor connects 2.5M farmers to tractors. Harch Agri connects farmers to the entire precision agriculture stack — drones, IoT, irrigation, vertical farms, and carbon credits — backed by 4 other Harch subsidiaries. Tractor sharing is one feature. We are the platform.",
+          "metrics": {
+            "0": {
+              "label": "Technology Depth",
+              "harchValue": "5 integrated products (Drone+IoT+Vertical+Carbon+Kit)",
+              "competitorValue": "1 product (tractor sharing)"
+            },
+            "1": {
+              "label": "Revenue per Farmer",
+              "harchValue": "5 revenue streams per farmer",
+              "competitorValue": "1 revenue stream (booking commission)"
+            },
+            "2": {
+              "label": "IoT Sensor Network",
+              "harchValue": "10,000+ sensors — real-time data",
+              "competitorValue": "GPS on tractors only"
+            },
+            "3": {
+              "label": "Carbon Credit Revenue",
+              "harchValue": "Yes — farmer earns from carbon",
+              "competitorValue": "None"
+            },
+            "4": {
+              "label": "Water Management",
+              "harchValue": "60% reduction — AI irrigation",
+              "competitorValue": "None — no water tech"
+            },
+            "5": {
+              "label": "Yield Increase",
+              "harchValue": "30% vs traditional",
+              "competitorValue": "227% income boost (via mechanization)"
+            },
+            "6": {
+              "label": "Cross-Vertical Integration",
+              "harchValue": "Harch Energy + Water + Technology + Intelligence",
+              "competitorValue": "None — standalone platform"
+            },
+            "7": {
+              "label": "Drone Surveillance",
+              "harchValue": "50+ autonomous drones",
+              "competitorValue": "None"
+            },
+            "8": {
+              "label": "Vertical Farming",
+              "harchValue": "3 facilities under development",
+              "competitorValue": "None"
+            },
+            "9": {
+              "label": "Open Source AgTech SDK",
+              "harchValue": "HarchOS Agri SDK — open developer tools",
+              "competitorValue": "None — no developer tools"
+            },
+            "10": {
+              "label": "African Job Creation",
+              "harchValue": "500+ direct jobs across 5 sites",
+              "competitorValue": "~100 — Nigerian operations"
+            },
+            "11": {
+              "label": "Community Revenue Share",
+              "harchValue": "5% — local development",
+              "competitorValue": "0% disclosed"
+            }
+          }
+        },
+        "ocpGroup": {
+          "name": "OCP Group / Al Moutmir",
+          "country": "Morocco",
+          "founded": "1920",
+          "revenue": "$11.4B (2025)",
+          "verdict": "OCP is a partner, not a competitor. They have 580K farmers and the world's best phosphate. HarchAgri brings drones, IoT, carbon credits, and vertical farms that OCP cannot build. Together we are unstoppable. Separate, OCP lacks tech. We complement.",
+          "metrics": {
+            "0": {
+              "label": "Integrated Product Stack",
+              "harchValue": "5 products (Drone+IoT+Vertical+Carbon+Kit)",
+              "competitorValue": "1 product (precision fertilization)"
+            },
+            "1": {
+              "label": "Drone-as-a-Service",
+              "harchValue": "Yes — $50/ha/month DaaS",
+              "competitorValue": "None — no drone service"
+            },
+            "2": {
+              "label": "Carbon Credit Revenue",
+              "harchValue": "Native Carbon API — real-time",
+              "competitorValue": "None — no carbon capability"
+            },
+            "3": {
+              "label": "Vertical Farming",
+              "harchValue": "3 facilities — premium produce",
+              "competitorValue": "None — no vertical farms"
+            },
+            "4": {
+              "label": "IoT Irrigation",
+              "harchValue": "Full stack — sensors + AI + LoRaWAN",
+              "competitorValue": "Limited — fertilizer advisory only"
+            },
+            "5": {
+              "label": "Cross-Vertical Synergy",
+              "harchValue": "Harch Energy + Water + Technology + Intelligence",
+              "competitorValue": "Fertilizer + advisory — no tech stack"
+            },
+            "6": {
+              "label": "Starter Kit Price",
+              "harchValue": "$200 — eliminates adoption barrier",
+              "competitorValue": "Free — but fertilizer-dependent"
+            },
+            "7": {
+              "label": "Innovation Speed",
+              "harchValue": "Startup agility — ship fast",
+              "competitorValue": "State-owned — slow iteration"
+            },
+            "8": {
+              "label": "Open Source AgTech SDK",
+              "harchValue": "HarchOS Agri SDK — open developer tools",
+              "competitorValue": "None — state-owned, no SDK"
+            },
+            "9": {
+              "label": "African Job Creation",
+              "harchValue": "500+ direct jobs across 5 sites",
+              "competitorValue": "20,000+ — OCP workforce"
+            },
+            "10": {
+              "label": "Community Revenue Share",
+              "harchValue": "5% — local development",
+              "competitorValue": "0% disclosed"
+            }
+          }
+        },
+        "apolloAgriculture": {
+          "name": "Apollo Agriculture",
+          "country": "Kenya",
+          "founded": "2016",
+          "revenue": "Not public",
+          "verdict": "Apollo validates ML credit scoring for African farmers. HarchAgri validates the entire precision agriculture stack — with IoT sensor data that makes credit scoring 40% more accurate than Apollo's mobile-based model. Better data, better credit, better farming.",
+          "metrics": {
+            "0": {
+              "label": "Technology Depth",
+              "harchValue": "5 integrated products",
+              "competitorValue": "1 product (agricultural credit)"
+            },
+            "1": {
+              "label": "Carbon Credits",
+              "harchValue": "Native API — Verra VCS + Gold Standard",
+              "competitorValue": "None — no carbon capability"
+            },
+            "2": {
+              "label": "Drone-as-a-Service",
+              "harchValue": "Yes — $50/ha/month",
+              "competitorValue": "None"
+            },
+            "3": {
+              "label": "IoT Irrigation",
+              "harchValue": "Full stack — 10,000+ sensors",
+              "competitorValue": "None — credit platform only"
+            },
+            "4": {
+              "label": "Vertical Farming",
+              "harchValue": "3 facilities — premium produce",
+              "competitorValue": "None"
+            },
+            "5": {
+              "label": "Cross-Vertical Synergy",
+              "harchValue": "4 Harch subsidiaries",
+              "competitorValue": "None — standalone credit"
+            },
+            "6": {
+              "label": "Credit Default Risk",
+              "harchValue": "IoT data reduces default 40%",
+              "competitorValue": "Mobile/satellite ML scoring"
+            },
+            "7": {
+              "label": "Geographic Reach",
+              "harchValue": "5 countries — Morocco + West Africa",
+              "competitorValue": "2 countries — Kenya + Zambia"
+            },
+            "8": {
+              "label": "Open Source AgTech SDK",
+              "harchValue": "HarchOS Agri SDK — open developer tools",
+              "competitorValue": "None — credit platform only"
+            },
+            "9": {
+              "label": "African Job Creation",
+              "harchValue": "500+ direct jobs across 5 sites",
+              "competitorValue": "~50 — Kenya/Zambia ops"
+            },
+            "10": {
+              "label": "Community Revenue Share",
+              "harchValue": "5% — local development",
+              "competitorValue": "0% disclosed"
+            }
+          }
+        }
+      }
     },
     "allSectors": "All sectors",
     "analyticsLabel": "Analytics",
@@ -9525,7 +10365,7 @@
     "explorePlatform": "Explore Platform",
     "filterBy": "Filter by sector",
     "finance": {
-      "crossVerticalDesc": "Finance Cross Vertical Desc",
+      "crossVerticalDesc": "Harch Finance provides integrated financial services across all Harch Corp subsidiaries — from project finance and green bonds to trade finance and carbon credit monetization.",
       "crossVerticalTitle": "Finance Cross Vertical Title",
       "ctaLabel": "Get Started",
       "ctaPrimary": "Finance Cta Primary",
@@ -9717,46 +10557,46 @@
       "partnershipModelsTitle": "Finance Partnership Models Title",
       "pipeline": {
         "agri": {
-          "country": "Agri Country",
+          "country": "Morocco",
           "instrument": "Agri Instrument",
-          "status": "Agri Status",
-          "vertical": "Agri Vertical"
+          "status": "Active",
+          "vertical": "Harch Agriculture"
         },
         "cement": {
-          "country": "Cement Country",
+          "country": "Morocco",
           "instrument": "Cement Instrument",
-          "status": "Cement Status",
-          "vertical": "Cement Vertical"
+          "status": "Active",
+          "vertical": "Harch Cement"
         },
         "crossVertical": {
-          "country": "Cross Vertical Country",
+          "country": "Multi-country",
           "instrument": "Cross Vertical Instrument",
-          "status": "Cross Vertical Status",
-          "vertical": "Cross Vertical"
+          "status": "Active",
+          "vertical": "Harch Cross-Vertical"
         },
         "energy": {
-          "country": "Energy Country",
+          "country": "Multi-country",
           "instrument": "Energy Instrument",
-          "status": "Energy Status",
-          "vertical": "Energy Vertical"
+          "status": "Active",
+          "vertical": "Harch Energy"
         },
         "intelligence": {
-          "country": "Intelligence Country",
+          "country": "Morocco",
           "instrument": "Intelligence Instrument",
-          "status": "Intelligence Status",
-          "vertical": "Intelligence Vertical"
+          "status": "Active",
+          "vertical": "Harch Intelligence"
         },
         "mining": {
-          "country": "Mining Country",
+          "country": "Multi-country",
           "instrument": "Mining Instrument",
-          "status": "Mining Status",
-          "vertical": "Mining Vertical"
+          "status": "Active",
+          "vertical": "Harch Mining"
         },
         "water": {
-          "country": "Water Country",
+          "country": "Multi-country",
           "instrument": "Water Instrument",
-          "status": "Water Status",
-          "vertical": "Water Vertical"
+          "status": "Active",
+          "vertical": "Harch Water"
         }
       },
       "pipelineLabel": "Pipeline",
@@ -9993,7 +10833,7 @@
       "explorePlatformDesc": "Discover Harch Intelligence — our flagship vertical."
     },
     "detail": {
-      "backToSubsidiaries": "Retour aux filiales",
+      "backToSubsidiaries": "Back to Subsidiaries",
       "contact": "Contact",
       "leadership": "Direction",
       "metrics": "Metrics",
@@ -10002,7 +10842,9 @@
       "technology": "Technologie",
       "title": "Subsidiary Details"
     },
-    "heroLabel": "Filiales"
+    "heroLabel": "Filiales",
+    "pageNotFound": "Page not found",
+    "detailSubtitle": "Every dimension. Every metric. Every competitor."
   },
   "subsidiaryDetail": {
     "backToSubsidiaries": "Back to Subsidiaries",
@@ -12679,7 +13521,7 @@
     "description": "Description de la filiale",
     "documentation": "Documentation",
     "growth": "Croissance",
-    "investmentPipeline": "Pipeline d'investissement",
+    "investmentPipeline": "Investment Pipeline",
     "keyPersonnel": "Key Personnel",
     "learnMore": "Learn More",
     "market": "Market",
@@ -12692,7 +13534,7 @@
     "press": "Presse",
     "recentNews": "Recent News",
     "resources": "Ressources",
-    "revenue": "Chiffre d'affaires",
+    "revenue": "Revenue",
     "riskFactors": "Facteurs de risque",
     "strategy": "Strategy",
     "support": "Support",
@@ -12925,7 +13767,7 @@
       "email": "support@harchcorp.com",
       "phone": "+212 522 000 000",
       "portal": "Portail client",
-      "title": "Nous contacter"
+      "title": "Contact Us"
     },
     "faq": {
       "items": [
@@ -12946,7 +13788,7 @@
     },
     "heroDescription": "Technical support and assistance for the Harch ecosystem.",
     "heroLabel": "Support",
-    "heroTitle": "Centre de Support",
+    "heroTitle": "Support Center",
     "priority": {
       "items": [
         {
@@ -12970,7 +13812,7 @@
     },
     "sla": {
       "description": "Our service commitments for each support tier.",
-      "incidents": "Gestion des incidents",
+      "incidents": "Incident Management",
       "maintenance": "Maintenance planifiee",
       "title": "Accord de niveau de service",
       "uptime": "99.98%"
@@ -12979,7 +13821,7 @@
   "terms": {
     "acceptance": "Acceptance",
     "acceptanceText": "By accessing or using any Harch Corp service, you agree to be bound by these Terms of Service. If you do not agree to all of these terms, do not use our services.",
-    "accuracy": "Accuracy",
+    "accuracy": "Accuracy of Information",
     "accuracyText": "While we strive to provide accurate and up-to-date information on our platform, Harch Corp makes no warranties regarding the completeness, reliability, or accuracy of any content. Any reliance you place on such information is strictly at your own risk.",
     "contact": "Contact",
     "contactText": "For questions about these Terms of Service, please contact our legal team at legal@harchcorp.com or write to Harch Corp S.A., Casablanca, Morocco.",
@@ -12989,9 +13831,9 @@
     "governingLawText": "Governing Law Text",
     "lastUpdated": "Last Updated",
     "lastUpdatedDate": "Last Updated Date",
-    "limitation": "Limitation",
+    "limitation": "Limitation of Liability",
     "limitationText": "In no event shall Harch Corp be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services, even if we have been advised of the possibility of such damages.",
-    "links": "Links",
+    "links": "Links to Third Parties",
     "linksText": "Our services may contain links to third-party websites or services that are not owned or controlled by Harch Corp. We assume no responsibility for the content, privacy policies, or practices of any third-party services.",
     "modifications": "Modifications",
     "modificationsText": "Harch Corp reserves the right to modify these terms at any time. We will notify users of material changes via email or platform notification. Continued use of our services after changes constitutes acceptance of the updated terms.",
@@ -12999,8 +13841,8 @@
     "servicesText": "Harch Corp provides sovereign AI infrastructure services including GPU cloud computing, carbon-aware workload scheduling, and vertical industry platforms. Use of these services is subject to the terms outlined herein.",
     "title": "Blog",
     "heroDescription": "Terms and conditions for the use of Harch Corp services.",
-    "heroLabel": "Conditions",
-    "heroTitle": "Conditions d'Utilisation",
+    "heroLabel": "Terms",
+    "heroTitle": "Terms of Use",
     "sections": {
       "acceptance": {
         "description": "By using our services, you accept these terms and conditions.",
@@ -13027,11 +13869,11 @@
         "title": "Obligations"
       },
       "services": {
-        "description": "Description des services fournis par Harch Corp.",
+        "description": "Description of services provided by Harch Corp.",
         "title": "Services"
       },
       "termination": {
-        "description": "Conditions de resiliation des services.",
+        "description": "Conditions for termination of services.",
         "title": "Resiliation"
       }
     }
@@ -13202,8 +14044,9 @@
       "title": "These centrale"
     },
     "heroDescription": "Why African sovereign infrastructure is the investment opportunity of a generation.",
-    "heroLabel": "These",
-    "heroTitle": "Notre These d'Investissement"
+    "heroLabel": "Thesis",
+    "heroTitle": "Our Investment Thesis",
+    "manifesto": "Harch Corp Manifesto"
   },
   "trust": {
     "aiEthics": {
@@ -13402,7 +14245,7 @@
         "description": "Comprehensive transparency framework ensuring all AI operations are explainable, auditable, and accountable.",
         "explainability": {
           "desc": "Model explainability tools providing interpretable results and decision rationales for all AI-driven outcomes.",
-          "status": "Explainability Status",
+          "status": "Active",
           "title": "Explainability"
         },
         "label": "Transparency",
@@ -13509,8 +14352,8 @@
         "pentest": {
           "auditor": "Pentest Auditor",
           "name": "Penetration Test Report",
-          "period": "Pentest Period",
-          "type": "Pentest Type"
+          "period": "Annual",
+          "type": "Penetration Test"
         },
         "requestAccess": "Audit Reports Request Access",
         "soc2Readiness": {
@@ -13749,7 +14592,7 @@
     "defenseInDepth": "Defense In Depth",
     "description": "Complete documentation for HarchOS — the operating system for sovereign infrastructure.",
     "harchCorpSecures": "Harch Corp Secures",
-    "heroTitle": "Centre of Confidence",
+    "heroTitle": "Center of Trust",
     "infrastructurePlatformLayer": "Infrastructure Platform Layer",
     "learnMore": "Learn More",
     "requestBriefing": "Request Briefing",
@@ -14059,7 +14902,7 @@
       ],
       "incident": {
         "description": "Structured response process with automatic escalation.",
-        "title": "Reponse aux incidents"
+        "title": "Incident Response"
       },
       "monitoring": {
         "description": "24/7 monitoring with real-time alerts and audit logs.",
@@ -14461,7 +15304,7 @@
         "name": "Harch Finance API"
       },
       "harchagriIot": {
-        "description": "Capteurs IoT agricoles et plateforme de surveillance",
+        "description": "Agricultural IoT sensors and monitoring platform",
         "name": "HarchAgri IoT"
       },
       "sovereignNetVpn": {
@@ -14469,7 +15312,7 @@
         "name": "SovereignNet VPN"
       }
     },
-    "allSystemsOperationalDescription": "Tous les services Harch Corp fonctionnent normalement.",
+    "allSystemsOperationalDescription": "All Harch Corp services are operating normally.",
     "partialServiceDisruptionDescription": "Some services are experiencing issues. Our team is investigating."
   },
   "charts": {
@@ -14932,7 +15775,9 @@
     "metricsWonAcross": "{wins} of {total} metrics won across {count} competitors",
     "everyDimension": "Every dimension. Every metric. Every competitor.",
     "est": "Est.",
-    "rev": "Rev:"
+    "rev": "Rev:",
+    "harchBar": "Harch",
+    "compBar": "Comp"
   },
   "interactivePlatform": {
     "headerLabel": "Platform",
@@ -15752,7 +16597,8 @@
         },
         "cta": "Explore Build"
       }
-    }
+    },
+    "modulesConfiguring": "Platform modules for this subsidiary are being configured."
   },
   "topNav": {
     "platform": "Platform",
@@ -15760,6 +16606,15 @@
     "intelligence": "Intelligence",
     "about": "About",
     "pricing": "Pricing",
-    "contact": "Contact"
+    "contact": "Contact",
+    "ariaPrimaryNav": "Primary navigation",
+    "ariaToggleMenu": "Toggle navigation menu"
+  },
+  "languageDetector": {
+    "availableIn": "This site is also available in",
+    "nativeTranslation": "Complete native translation",
+    "autoTranslation": "Automatic translation via Google",
+    "viewIn": "View in",
+    "dismiss": "English"
   }
 }

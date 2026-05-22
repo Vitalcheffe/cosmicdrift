@@ -1327,6 +1327,7 @@ function PDFQuoteCTA() {
 // MAIN EXPORT
 // ═══════════════════════════════════════════════════════════════
 export function InteractivePlatform({ slug, accent }: InteractivePlatformProps) {
+  const t = useTranslations('interactivePlatform');
   const config = SUBSIDIARY_CONFIGS[slug];
 
   // Fallback: if no specific config exists, use a generic one
@@ -1334,7 +1335,7 @@ export function InteractivePlatform({ slug, accent }: InteractivePlatformProps) 
     return (
       <div className="w-full bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
-          <p className="text-white/40 text-[14px]">Platform modules for this subsidiary are being configured.</p>
+          <p className="text-white/40 text-[14px]">{t('modulesConfiguring')}</p>
         </div>
       </div>
     );

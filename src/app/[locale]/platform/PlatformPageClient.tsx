@@ -565,8 +565,8 @@ function InfrastructureCharts() {
             </ResponsiveContainer>
           </div>
           <div className="flex items-center justify-between mt-3 pt-3 border-t border-[rgba(255,255,255,0.04)]">
-            <span className="text-[11px] text-[#666666]">Peak: <span className="text-white font-[family-name:var(--font-space-mono)]">218.4 MW</span></span>
-            <span className="text-[11px] text-[#666666]">Avg: <span className="text-white font-[family-name:var(--font-space-mono)]">94.7 MW</span></span>
+            <span className="text-[11px] text-[#666666]">{t('liveLabels.peak')} <span className="text-white font-[family-name:var(--font-space-mono)]">218.4 MW</span></span>
+            <span className="text-[11px] text-[#666666]">{t('liveLabels.avg')} <span className="text-white font-[family-name:var(--font-space-mono)]">94.7 MW</span></span>
           </div>
         </div>
       </FadeIn>
@@ -611,8 +611,8 @@ function InfrastructureCharts() {
             </ResponsiveContainer>
           </div>
           <div className="flex items-center justify-between mt-3 pt-3 border-t border-[rgba(255,255,255,0.04)]">
-            <span className="text-[11px] text-[#666666]">Avg: <span className="text-white font-[family-name:var(--font-space-mono)]">81.6%</span></span>
-            <span className="text-[11px] text-[#666666]">Max: <span className="text-white font-[family-name:var(--font-space-mono)]">94% Dakhla-1</span></span>
+            <span className="text-[11px] text-[#666666]">{t('liveLabels.avg')} <span className="text-white font-[family-name:var(--font-space-mono)]">81.6%</span></span>
+            <span className="text-[11px] text-[#666666]">{t('liveLabels.max')} <span className="text-white font-[family-name:var(--font-space-mono)]">94% Dakhla-1</span></span>
           </div>
         </div>
       </FadeIn>
@@ -659,7 +659,7 @@ function InfrastructureCharts() {
             </ResponsiveContainer>
           </div>
           <div className="flex items-center justify-between mt-3 pt-3 border-t border-[rgba(255,255,255,0.04)]">
-            <span className="text-[11px] text-[#666666]">Avg: <span className="text-white font-[family-name:var(--font-space-mono)]">14.2 ms</span></span>
+            <span className="text-[11px] text-[#666666]">{t('liveLabels.avg')} <span className="text-white font-[family-name:var(--font-space-mono)]">14.2 ms</span></span>
             <span className="text-[11px] text-[#666666]">P99: <span className="text-white font-[family-name:var(--font-space-mono)]">24.7 ms</span></span>
           </div>
         </div>
@@ -732,8 +732,8 @@ function CementAIPanel() {
                 <AlertTriangle size={12} className="text-[#A0524B]" />
                 <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[rgba(255,255,255,0.25)] font-[family-name:var(--font-space-mono)]">{t('capabilities.predictiveMaintenance.title')}</span>
               </div>
-              <p className="text-[14px] font-bold text-[#A0524B] stat-mono leading-tight">Bearing #3</p>
-              <p className="text-[9px] text-[#666666] font-[family-name:var(--font-space-mono)] mt-1">Flagged 12m ago</p>
+              <p className="text-[14px] font-bold text-[#A0524B] stat-mono leading-tight">{t('liveLabels.bearing')}</p>
+              <p className="text-[9px] text-[#666666] font-[family-name:var(--font-space-mono)] mt-1">{t('liveLabels.flaggedAgo')}</p>
             </div>
           </div>
         </div>

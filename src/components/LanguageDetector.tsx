@@ -1,16 +1,16 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { Globe, X, ArrowRight, Languages, Sparkles } from 'lucide-react';
 import { routing } from '@/i18n/routing';
 
 const SUPPORTED_LOCALES: Record<string, { name: string; code: string; flag: string }> = {
-  fr: { name: 'Francais', code: 'fr', flag: '🇲🇦' },
-  ar: { name: 'Arabe', code: 'ar', flag: '🇪🇬' },
-  es: { name: 'Espanol', code: 'es', flag: '🇪🇸' },
-  pt: { name: 'Portugais', code: 'pt', flag: '🇵🇹' },
+  fr: { name: 'Français', code: 'fr', flag: '🇲🇦' },
+  ar: { name: 'العربية', code: 'ar', flag: '🇪🇬' },
+  es: { name: 'Español', code: 'es', flag: '🇪🇸' },
+  pt: { name: 'Português', code: 'pt', flag: '🇵🇹' },
 };
 
 const COUNTRY_LANGUAGE: Record<string, string> = {
@@ -52,6 +52,7 @@ export function LanguageDetector() {
   const [detectedLang, setDetectedLang] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
   const locale = useLocale();
+  const t = useTranslations('languageDetector');
   const pathname = usePathname();
   const router = useRouter();
 
@@ -161,7 +162,7 @@ export function LanguageDetector() {
               <div className="flex-1 min-w-0 pr-6">
                 {/* Main message */}
                 <p className="text-[14px] text-white/90 font-medium leading-snug tracking-tight">
-                  Ce site est aussi disponible en{' '}
+                  {t('availableIn')}{' '}
                   <span className="text-[#6AAF8B] font-semibold">
                     {langInfo?.name || detectedLang.toUpperCase()}
                   </span>
@@ -173,14 +174,14 @@ export function LanguageDetector() {
                     <>
                       <Sparkles className="h-3 w-3 text-[#4A7B5F]/70" />
                       <span className="text-[11px] text-white/35 leading-relaxed">
-                        Traduction native complete
+                        {t('nativeTranslation')}
                       </span>
                     </>
                   ) : (
                     <>
                       <Globe className="h-3 w-3 text-white/25" />
                       <span className="text-[11px] text-white/35 leading-relaxed">
-                        Traduction automatique via Google
+                        {t('autoTranslation')}
                       </span>
                     </>
                   )}
@@ -193,14 +194,14 @@ export function LanguageDetector() {
                     className="group relative flex items-center gap-2 px-4 py-2.5 bg-[#4A7B5F] hover:bg-[#5A9B7F] text-white text-[12px] font-semibold rounded-xl transition-all duration-300 hover:shadow-[0_0_24px_rgba(74,123,95,0.35)] active:scale-[0.97]"
                   >
                     <Globe className="h-3.5 w-3.5" />
-                    <span>Voir en {langInfo?.name || detectedLang.toUpperCase()}</span>
+                    <span>{t('viewIn')} {langInfo?.name || detectedLang.toUpperCase()}</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
                   </button>
                   <button
                     onClick={handleDismiss}
                     className="px-3.5 py-2.5 text-white/25 hover:text-white/50 text-[12px] font-medium rounded-xl hover:bg-white/[0.04] transition-all duration-200 border border-transparent hover:border-white/[0.06]"
                   >
-                    English
+                    {t('dismiss')}
                   </button>
                 </div>
               </div>

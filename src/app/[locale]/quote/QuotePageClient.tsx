@@ -856,10 +856,10 @@ export default function QuotePageClient() {
                       <div className="card p-6">
                         <div className="flex items-center gap-2 mb-3">
                           <Clock size={12} className="text-[#8B9DAF]" />
-                          <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">Response Time</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{t('responseTime')}</span>
                         </div>
                         <p className="text-[24px] font-extrabold text-white font-[family-name:var(--font-space-mono)]">24h</p>
-                        <p className="text-[12px] text-[#666666] mt-1">Maximum response time for all quote requests</p>
+                        <p className="text-[12px] text-[#666666] mt-1">{t('responseTimeDesc')}</p>
                       </div>
                     </FadeIn>
 
@@ -867,13 +867,13 @@ export default function QuotePageClient() {
                       <div className="card p-6">
                         <div className="flex items-center gap-2 mb-3">
                           <Shield size={12} className="text-[#8B9DAF]" />
-                          <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">Data Sovereignty</span>
+                          <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{t('dataSovereignty')}</span>
                         </div>
                         <p className="text-[12px] text-[#999999] leading-relaxed">
-                          All data processed on sovereign Moroccan infrastructure. AES-256 at rest, TLS 1.3 in transit. Law 09-08 compliant.
+                          {t('dataSovereigntyDesc')}
                         </p>
                         <div className="flex flex-wrap gap-1.5 mt-3">
-                          {['AES-256', 'TLS 1.3', 'SOC 2', 'ISO 27001'].map((b) => (
+                          {t.raw('badges').map((b: string) => (
                             <span key={b} className="px-2 py-1 bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] rounded text-[9px] font-semibold text-[#999999] tracking-wide">
                               {b}
                             </span>
@@ -890,9 +890,9 @@ export default function QuotePageClient() {
                     <div className="flex items-center gap-3">
                       <Radio size={12} className="text-[#8B9DAF] animate-pulse" />
                       <span className="text-[11px] text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
-                        {transmitStep === 1 && 'Encrypting payload...'}
-                        {transmitStep === 2 && 'Routing through secure channel...'}
-                        {transmitStep === 3 && 'Transmitting to secure intake...'}
+                        {transmitStep === 1 && t('encrypting')}
+                        {transmitStep === 2 && t('routing')}
+                        {transmitStep === 3 && t('transmitting')}
                       </span>
                     </div>
                     <div className="mt-2 w-full h-1 rounded-full bg-[rgba(255,255,255,0.06)]">

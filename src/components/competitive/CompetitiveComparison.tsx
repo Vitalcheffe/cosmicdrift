@@ -81,7 +81,7 @@ function DominanceRing({ wins, total, accentColor, t }: { wins: number; total: n
 }
 
 /* ─── Visual Comparison Bar ─── */
-function ComparisonBar({ harchNumeric, competitorNumeric, barMax, lowerIsBetter, accentColor }: { harchNumeric: number; competitorNumeric: number; barMax: number; lowerIsBetter?: boolean; accentColor: string }) {
+function ComparisonBar({ harchNumeric, competitorNumeric, barMax, lowerIsBetter, accentColor, t }: { harchNumeric: number; competitorNumeric: number; barMax: number; lowerIsBetter?: boolean; accentColor: string; t: any }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-40px' });
   const harchPct = Math.min((harchNumeric / barMax) * 100, 100);
@@ -91,7 +91,7 @@ function ComparisonBar({ harchNumeric, competitorNumeric, barMax, lowerIsBetter,
   return (
     <div ref={ref} className="mt-1.5 space-y-1">
       <div className="flex items-center gap-2">
-        <span className="text-[9px] text-[#666666] w-10 text-right flex-shrink-0">Harch</span>
+        <span className="text-[9px] text-[#666666] w-10 text-right flex-shrink-0">{t('harchBar')}</span>
         <div className="flex-1 h-1.5 bg-[rgba(255,255,255,0.04)] rounded-full overflow-hidden">
           <div
             className="h-full rounded-full transition-all duration-[1.5s] ease-out"
@@ -103,7 +103,7 @@ function ComparisonBar({ harchNumeric, competitorNumeric, barMax, lowerIsBetter,
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <span className="text-[9px] text-[#666666] w-10 text-right flex-shrink-0">Comp</span>
+        <span className="text-[9px] text-[#666666] w-10 text-right flex-shrink-0">{t('compBar')}</span>
         <div className="flex-1 h-1.5 bg-[rgba(255,255,255,0.04)] rounded-full overflow-hidden">
           <div
             className="h-full rounded-full transition-all duration-[1.5s] ease-out"
@@ -328,6 +328,7 @@ export default function CompetitiveComparison({
                                 barMax={metric.barMax!}
                                 lowerIsBetter={metric.lowerIsBetter}
                                 accentColor={accentColor}
+                                t={t}
                               />
                             </div>
                           ))}

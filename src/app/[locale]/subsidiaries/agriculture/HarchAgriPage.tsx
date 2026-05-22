@@ -331,6 +331,75 @@ const data = {
   ],
 };
 
+/* ═══════════════════════════════════════════════════
+   COMPETITIVE COMPARISON — i18n-driven data builder
+   ═══════════════════════════════════════════════════ */
+const cc = 'agriculture.competitiveComparison';
+const buildCompMetrics = (compKey: string, count: number) =>
+  Array.from({ length: count }, (_, i) => ({
+    label: t(`${cc}.${compKey}.metrics.${i}.label`),
+    harchValue: t(`${cc}.${compKey}.metrics.${i}.harchValue`),
+    competitorValue: t(`${cc}.${compKey}.metrics.${i}.competitorValue`),
+    harchWins: true as const,
+  }));
+
+const competitiveData = {
+  title: t(`${cc}.title`),
+  subtitle: t(`${cc}.subtitle`),
+  sectionLabel: t(`${cc}.sectionLabel`),
+  harchName: t(`${cc}.harchName`),
+  competitors: [
+    {
+      name: t(`${cc}.aeroFarms.name`),
+      country: t(`${cc}.aeroFarms.country`),
+      founded: t(`${cc}.aeroFarms.founded`),
+      revenue: t(`${cc}.aeroFarms.revenue`),
+      metrics: buildCompMetrics('aeroFarms', 14),
+      verdict: t(`${cc}.aeroFarms.verdict`),
+    },
+    {
+      name: t(`${cc}.cropXClimateCorp.name`),
+      country: t(`${cc}.cropXClimateCorp.country`),
+      founded: t(`${cc}.cropXClimateCorp.founded`),
+      revenue: t(`${cc}.cropXClimateCorp.revenue`),
+      metrics: buildCompMetrics('cropXClimateCorp', 13),
+      verdict: t(`${cc}.cropXClimateCorp.verdict`),
+    },
+    {
+      name: t(`${cc}.helloTractor.name`),
+      country: t(`${cc}.helloTractor.country`),
+      founded: t(`${cc}.helloTractor.founded`),
+      revenue: t(`${cc}.helloTractor.revenue`),
+      metrics: buildCompMetrics('helloTractor', 12),
+      verdict: t(`${cc}.helloTractor.verdict`),
+    },
+    {
+      name: t(`${cc}.ocpGroup.name`),
+      country: t(`${cc}.ocpGroup.country`),
+      founded: t(`${cc}.ocpGroup.founded`),
+      revenue: t(`${cc}.ocpGroup.revenue`),
+      metrics: buildCompMetrics('ocpGroup', 11),
+      verdict: t(`${cc}.ocpGroup.verdict`),
+    },
+    {
+      name: t(`${cc}.apolloAgriculture.name`),
+      country: t(`${cc}.apolloAgriculture.country`),
+      founded: t(`${cc}.apolloAgriculture.founded`),
+      revenue: t(`${cc}.apolloAgriculture.revenue`),
+      metrics: buildCompMetrics('apolloAgriculture', 11),
+      verdict: t(`${cc}.apolloAgriculture.verdict`),
+    },
+  ],
+};
+
+/* Phase 1 Budget Detail Rows */
+const budgetRows = Array.from({ length: 7 }, (_, i) => ({
+  action: t(`agriculture.roadmapBudgetRows.${i}.action`),
+  timeline: t(`agriculture.roadmapBudgetRows.${i}.timeline`),
+  budget: t(`agriculture.roadmapBudgetRows.${i}.budget`),
+  kpi: t(`agriculture.roadmapBudgetRows.${i}.kpi`),
+}));
+
   return (
     <div className="bg-[#1A1A1A] text-white overflow-x-hidden">
       {/* ═══════════════════════════════════════════
@@ -339,7 +408,7 @@ const data = {
       <section className="relative min-h-[85vh] flex items-end overflow-hidden">
         <Image
           src={data.heroImage}
-          alt="HarchAgri — Precision Agriculture"
+          alt={t('agriculture.heroImageAlt')}
           fill
           className="object-cover"
           priority
@@ -417,7 +486,7 @@ const data = {
             <div className="relative min-h-[45vh] lg:min-h-0 overflow-hidden">
               <Image
                 src="/images/sections/agri-drone.jpg"
-                alt="HarchAgri agricultural drone"
+                alt={t('agriculture.strategicContextImageAlt')}
                 fill
                 className="object-cover industrial-image"
               />
@@ -657,7 +726,7 @@ const data = {
       <ParallaxSection speed={0.2} className="photo-section">
         <Image
           src="/images/sections/agri-vertical-farm.jpg"
-          alt="HarchAgri vertical farm"
+          alt={t('agriculture.verticalFarmImageAlt')}
           fill
           className="object-cover"
           style={{ filter: 'brightness(0.35) contrast(1.1) saturate(0.5)' }}
@@ -760,119 +829,12 @@ const data = {
           COMPETITIVE COMPARISON — Metric-level
           ═══════════════════════════════════════════ */}
       <CompetitiveComparison
-        title="Competitive Landscape"
-        subtitle="HarchAgri vs. global agritech competitors — metric by metric. No competitor matches our integrated stack."
+        title={competitiveData.title}
+        subtitle={competitiveData.subtitle}
         accentColor="#4A7B5F"
-        sectionLabel="Competitive Comparison"
-        harchName="Harch Agri"
-        competitors={[
-          {
-            name: 'AeroFarms',
-            country: 'USA',
-            founded: '2004',
-            revenue: 'Post-Ch.11',
-            metrics: [
-              { label: 'Integrated Product Stack', harchValue: '5 products (Drone+IoT+Vertical+Carbon+Kit)', competitorValue: '1 product (vertical farm only)', harchWins: true },
-              { label: 'Financial Stability', harchValue: '$150M pipeline — growing', competitorValue: 'Chapter 11 in 2023 — rescued', harchWins: true },
-              { label: 'African Operations', harchValue: 'Senegal + Morocco — building now', competitorValue: 'None — USA only', harchWins: true },
-              { label: 'Energy Cost', harchValue: '$0.03/kWh (Harch Energy solar)', competitorValue: '$0.12-0.18/kWh (US grid)', harchWins: true },
-              { label: 'Post-Harvest Loss', harchValue: '<5% (AI-optimized supply chain)', competitorValue: '10-15% (US distribution)', harchWins: true },
-              { label: 'Carbon Credits Revenue', harchValue: 'Yes — Verra VCS + Gold Standard', competitorValue: 'None', harchWins: true },
-              { label: 'Cross-Vertical Synergy', harchValue: 'Harch Energy + Water + Technology', competitorValue: 'None — standalone farm', harchWins: true },
-              { label: 'Market Size', harchValue: '30M smallholder farmers (Africa)', competitorValue: '331M US consumers (saturated)', harchWins: true },
-              { label: 'Farming Method', harchValue: 'Hydroponic — affordable, proven', competitorValue: 'Aeroponic — capital-intensive, failed', harchWins: true },
-              { label: 'Drone Fleet', harchValue: '50+ autonomous drones', competitorValue: '0 — no drone capability', harchWins: true },
-              { label: 'IoT Network', harchValue: '10,000+ sensors — real-time', competitorValue: '0 — no IoT capability', harchWins: true },
-              { label: 'Open Source AgTech SDK', harchValue: 'HarchOS Agri SDK — open developer tools', competitorValue: 'None — proprietary platform', harchWins: true },
-              { label: 'African Job Creation', harchValue: '500+ direct jobs across 5 sites', competitorValue: '0 — US operations only', harchWins: true },
-              { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
-            ],
-            verdict: '3 of 4 major vertical farm competitors went bankrupt. Harch Agri enters at market bottom with 5 integrated products, 4x lower energy costs, carbon credit revenue, and 30M underserved African farmers. Aeroponics without economics is a science project.',
-          },
-          {
-            name: 'CropX / Climate Corp',
-            country: 'USA / Israel',
-            founded: '2013',
-            revenue: '$50B+ (Bayer)',
-            metrics: [
-              { label: 'Smallholder Focus', harchValue: 'Yes — 30M African smallholders', competitorValue: 'No — US/BR large farms only', harchWins: true },
-              { label: 'Drone-as-a-Service', harchValue: 'Yes — $50/ha/month', competitorValue: 'None — software platform only', harchWins: true },
-              { label: 'IoT + Irrigation Integration', harchValue: 'Full stack — sensors + irrigation + AI', competitorValue: 'Partial — sensing only, no irrigation', harchWins: true },
-              { label: 'Carbon Credits for Farmers', harchValue: 'Yes — 2% commission, Verra VCS', competitorValue: 'Indigo Ag (US only, not Africa)', harchWins: true },
-              { label: 'African Operations', harchValue: '5,000 ha trials — Senegal + Morocco', competitorValue: '0 hectares in Africa', harchWins: true },
-              { label: 'Starter Kit Price', harchValue: '$200 — 3 sensors + LoRaWAN gateway', competitorValue: '$749-$1,499/year (US pricing)', harchWins: true },
-              { label: 'Water Reduction', harchValue: '60% vs traditional irrigation', competitorValue: 'N/A — no irrigation control', harchWins: true },
-              { label: 'Cross-Vertical Synergy', harchValue: 'Harch Energy + Water + Technology + Intelligence', competitorValue: 'None — standalone software', harchWins: true },
-              { label: 'Vertical Farming', harchValue: '3 facilities — premium produce', competitorValue: 'None — no vertical farms', harchWins: true },
-              { label: 'Yield Increase', harchValue: '30% vs traditional', competitorValue: '10-15% (sensing only)', harchWins: true },
-              { label: 'Open Source AgTech SDK', harchValue: 'HarchOS Agri SDK — open developer tools', competitorValue: 'None — closed SaaS platform', harchWins: true },
-              { label: 'African Job Creation', harchValue: '500+ direct jobs across 5 sites', competitorValue: '0 — US/Israel operations', harchWins: true },
-              { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
-            ],
-            verdict: 'CropX and Climate Corp serve American commercial farms at $749/year. Harch Agri serves 30M African smallholders at $200 — with drones, IoT irrigation, carbon credits, and vertical farms they don\'t offer. Different market, different price, different planet.',
-          },
-          {
-            name: 'Hello Tractor',
-            country: 'Nigeria',
-            founded: '2014',
-            revenue: 'Undisclosed',
-            metrics: [
-              { label: 'Technology Depth', harchValue: '5 integrated products (Drone+IoT+Vertical+Carbon+Kit)', competitorValue: '1 product (tractor sharing)', harchWins: true },
-              { label: 'Revenue per Farmer', harchValue: '5 revenue streams per farmer', competitorValue: '1 revenue stream (booking commission)', harchWins: true },
-              { label: 'IoT Sensor Network', harchValue: '10,000+ sensors — real-time data', competitorValue: 'GPS on tractors only', harchWins: true },
-              { label: 'Carbon Credit Revenue', harchValue: 'Yes — farmer earns from carbon', competitorValue: 'None', harchWins: true },
-              { label: 'Water Management', harchValue: '60% reduction — AI irrigation', competitorValue: 'None — no water tech', harchWins: true },
-              { label: 'Yield Increase', harchValue: '30% vs traditional', competitorValue: '227% income boost (via mechanization)', harchWins: true },
-              { label: 'Cross-Vertical Integration', harchValue: 'Harch Energy + Water + Technology + Intelligence', competitorValue: 'None — standalone platform', harchWins: true },
-              { label: 'Drone Surveillance', harchValue: '50+ autonomous drones', competitorValue: 'None', harchWins: true },
-              { label: 'Vertical Farming', harchValue: '3 facilities under development', competitorValue: 'None', harchWins: true },
-              { label: 'Open Source AgTech SDK', harchValue: 'HarchOS Agri SDK — open developer tools', competitorValue: 'None — no developer tools', harchWins: true },
-              { label: 'African Job Creation', harchValue: '500+ direct jobs across 5 sites', competitorValue: '~100 — Nigerian operations', harchWins: true },
-              { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
-            ],
-            verdict: 'Hello Tractor connects 2.5M farmers to tractors. Harch Agri connects farmers to the entire precision agriculture stack — drones, IoT, irrigation, vertical farms, and carbon credits — backed by 4 other Harch subsidiaries. Tractor sharing is one feature. We are the platform.',
-          },
-          {
-            name: 'OCP Group / Al Moutmir',
-            country: 'Morocco',
-            founded: '1920',
-            revenue: '$11.4B (2025)',
-            metrics: [
-              { label: 'Integrated Product Stack', harchValue: '5 products (Drone+IoT+Vertical+Carbon+Kit)', competitorValue: '1 product (precision fertilization)', harchWins: true },
-              { label: 'Drone-as-a-Service', harchValue: 'Yes — $50/ha/month DaaS', competitorValue: 'None — no drone service', harchWins: true },
-              { label: 'Carbon Credit Revenue', harchValue: 'Native Carbon API — real-time', competitorValue: 'None — no carbon capability', harchWins: true },
-              { label: 'Vertical Farming', harchValue: '3 facilities — premium produce', competitorValue: 'None — no vertical farms', harchWins: true },
-              { label: 'IoT Irrigation', harchValue: 'Full stack — sensors + AI + LoRaWAN', competitorValue: 'Limited — fertilizer advisory only', harchWins: true },
-              { label: 'Cross-Vertical Synergy', harchValue: 'Harch Energy + Water + Technology + Intelligence', competitorValue: 'Fertilizer + advisory — no tech stack', harchWins: true },
-              { label: 'Starter Kit Price', harchValue: '$200 — eliminates adoption barrier', competitorValue: 'Free — but fertilizer-dependent', harchWins: true },
-              { label: 'Innovation Speed', harchValue: 'Startup agility — ship fast', competitorValue: 'State-owned — slow iteration', harchWins: true },
-              { label: 'Open Source AgTech SDK', harchValue: 'HarchOS Agri SDK — open developer tools', competitorValue: 'None — state-owned, no SDK', harchWins: true },
-              { label: 'African Job Creation', harchValue: '500+ direct jobs across 5 sites', competitorValue: '20,000+ — OCP workforce', harchWins: true },
-              { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
-            ],
-            verdict: 'OCP is a partner, not a competitor. They have 580K farmers and the world\'s best phosphate. HarchAgri brings drones, IoT, carbon credits, and vertical farms that OCP cannot build. Together we are unstoppable. Separate, OCP lacks tech. We complement.',
-          },
-          {
-            name: 'Apollo Agriculture',
-            country: 'Kenya',
-            founded: '2016',
-            revenue: 'Not public',
-            metrics: [
-              { label: 'Technology Depth', harchValue: '5 integrated products', competitorValue: '1 product (agricultural credit)', harchWins: true },
-              { label: 'Carbon Credits', harchValue: 'Native API — Verra VCS + Gold Standard', competitorValue: 'None — no carbon capability', harchWins: true },
-              { label: 'Drone-as-a-Service', harchValue: 'Yes — $50/ha/month', competitorValue: 'None', harchWins: true },
-              { label: 'IoT Irrigation', harchValue: 'Full stack — 10,000+ sensors', competitorValue: 'None — credit platform only', harchWins: true },
-              { label: 'Vertical Farming', harchValue: '3 facilities — premium produce', competitorValue: 'None', harchWins: true },
-              { label: 'Cross-Vertical Synergy', harchValue: '4 Harch subsidiaries', competitorValue: 'None — standalone credit', harchWins: true },
-              { label: 'Credit Default Risk', harchValue: 'IoT data reduces default 40%', competitorValue: 'Mobile/satellite ML scoring', harchWins: true },
-              { label: 'Geographic Reach', harchValue: '5 countries — Morocco + West Africa', competitorValue: '2 countries — Kenya + Zambia', harchWins: true },
-              { label: 'Open Source AgTech SDK', harchValue: 'HarchOS Agri SDK — open developer tools', competitorValue: 'None — credit platform only', harchWins: true },
-              { label: 'African Job Creation', harchValue: '500+ direct jobs across 5 sites', competitorValue: '~50 — Kenya/Zambia ops', harchWins: true },
-              { label: 'Community Revenue Share', harchValue: '5% — local development', competitorValue: '0% disclosed', harchWins: true },
-            ],
-            verdict: 'Apollo validates ML credit scoring for African farmers. HarchAgri validates the entire precision agriculture stack — with IoT sensor data that makes credit scoring 40% more accurate than Apollo\'s mobile-based model. Better data, better credit, better farming.',
-          },
-        ]}
+        sectionLabel={competitiveData.sectionLabel}
+        harchName={competitiveData.harchName}
+        competitors={competitiveData.competitors}
       />
 
       <SectionDivider />
@@ -928,7 +890,7 @@ const data = {
             <div className="relative min-h-[45vh] lg:min-h-0 overflow-hidden order-1 lg:order-2">
               <Image
                 src="/images/sections/agri-green-crops-aerial.jpg"
-                alt="HarchAgri sustainable agriculture"
+                alt={t('agriculture.sustainabilityImageAlt')}
                 fill
                 className="object-cover industrial-image"
               />
@@ -971,11 +933,11 @@ const data = {
                     </span>
                   </div>
                   <div className="mb-3">
-                    <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">We bring</p>
+                    <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">{t('agriculture.weBring')}</p>
                     <p className="text-[11px] text-white">{partner.harchContribution}</p>
                   </div>
                   <div className="mb-3">
-                    <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">They bring</p>
+                    <p className="text-[9px] text-[#666666] uppercase tracking-wider mb-0.5">{t('agriculture.theyBring')}</p>
                     <p className="text-[11px] text-[#999999]">{partner.partnerContribution}</p>
                   </div>
                   <div className="pt-3 border-t border-[rgba(255,255,255,0.04)]">
@@ -996,10 +958,10 @@ const data = {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#4A7B5F]">Roadmap</p>
-            <TextReveal text="Four Phases to Continental Leadership" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#4A7B5F]">{t('agriculture.roadmapLabel')}</p>
+            <TextReveal text={t('agriculture.roadmapTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">Lean startup philosophy: validate with an MVP before scaling. Avoid Twiga Foods&apos; fatal mistake — over-investing before proving the model.</p>
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-16">{t('agriculture.roadmapSubtitle')}</p>
           </FadeIn>
 
           <div className="relative">
@@ -1028,17 +990,17 @@ const data = {
                             <p className="text-lg font-bold text-white stat-mono">
                               <CountUp to={phase.hectares} />
                             </p>
-                            <p className="text-[9px] text-[#666666] uppercase tracking-wider">Hectares</p>
+                            <p className="text-[9px] text-[#666666] uppercase tracking-wider">{t('agriculture.roadmapHectaresLabel')}</p>
                           </div>
                           <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
                             <p className="text-lg font-bold text-white stat-mono">
                               <CountUp to={phase.farmers} />
                             </p>
-                            <p className="text-[9px] text-[#666666] uppercase tracking-wider">Farmers</p>
+                            <p className="text-[9px] text-[#666666] uppercase tracking-wider">{t('agriculture.roadmapFarmersLabel')}</p>
                           </div>
                           <div className="text-center p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)]">
                             <p className="text-sm font-bold text-white stat-mono">{phase.revenue}</p>
-                            <p className="text-[9px] text-[#666666] uppercase tracking-wider">Revenue</p>
+                            <p className="text-[9px] text-[#666666] uppercase tracking-wider">{t('agriculture.roadmapRevenueLabel')}</p>
                           </div>
                         </div>
                         <div className="md:col-span-6">
@@ -1064,31 +1026,23 @@ const data = {
             <div className="mt-12 card overflow-hidden">
               <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.06)]">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">Phase 1</span>
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)]">{t('agriculture.roadmapBudgetPhase')}</span>
                   <span className="text-[10px] text-[#666666]">—</span>
-                  <span className="text-[13px] font-bold text-white">Detailed Action Plan & Budget</span>
+                  <span className="text-[13px] font-bold text-white">{t('agriculture.roadmapBudgetTitle')}</span>
                 </div>
               </div>
               <div className="overflow-x-auto">
                 <table className="data-table">
                   <thead>
                     <tr>
-                      <th>Action</th>
-                      <th>Timeline</th>
-                      <th>Budget</th>
-                      <th>KPI</th>
+                      <th>{t('agriculture.roadmapBudgetAction')}</th>
+                      <th>{t('agriculture.roadmapBudgetTimeline')}</th>
+                      <th>{t('agriculture.roadmapBudgetBudget')}</th>
+                      <th>{t('agriculture.roadmapBudgetKpi')}</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {[
-                      { action: 'Deploy 2 DJI Agras drones', timeline: 'Q1 2026', budget: '$16,000', kpi: '2 drones operational' },
-                      { action: 'Install 30 IoT sensors', timeline: 'Q1 2026', budget: '$15,000', kpi: '5 pilot plots connected' },
-                      { action: 'Recruit 3 agronomists', timeline: 'Q1 2026', budget: '$36,000/yr', kpi: 'Field operations team' },
-                      { action: 'Integrate Carbon API', timeline: 'Q2 2026', budget: 'Internal', kpi: 'Auto CO2 calculation' },
-                      { action: 'Deploy 5 vertical farm containers', timeline: 'Q3 2026', budget: '$250,000', kpi: '5 containers operational' },
-                      { action: 'Obtain Verra certification', timeline: 'Q4 2026', budget: '$20,000', kpi: 'Methodology approved' },
-                      { action: 'Measure impact & report', timeline: 'Q4 2026', budget: '$10,000', kpi: 'NPS > 70, ROI > 100%' },
-                    ].map((row) => (
+                    {budgetRows.map((row) => (
                       <tr key={row.action}>
                         <td>{row.action}</td>
                         <td className="font-[family-name:var(--font-space-mono)]">{row.timeline}</td>
@@ -1100,8 +1054,8 @@ const data = {
                 </table>
               </div>
               <div className="px-6 py-4 border-t border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.01)] flex items-center justify-between">
-                <span className="text-[11px] text-[#666666]">Total Phase 1 investment: ~$347,000 — Self-funded by Harch Corp</span>
-                <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">AUTO-FINANCED</span>
+                <span className="text-[11px] text-[#666666]">{t('agriculture.roadmapTotalInvestment')}</span>
+                <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{t('agriculture.roadmapAutoFinanced')}</span>
               </div>
             </div>
           </FadeIn>
@@ -1116,10 +1070,10 @@ const data = {
       <section className="py-28 md:py-36 bg-[#121212]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#4A7B5F]">Risk Analysis</p>
-            <TextReveal text="Identified Risks & Mitigations" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#4A7B5F]">{t('agriculture.riskLabel')}</p>
+            <TextReveal text={t('agriculture.riskTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
-            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">Prudence is not optional — it is essential. The failures of Twiga Foods, AeroFarms, and the volatile agritech funding environment in 2025 teach us this.</p>
+            <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">{t('agriculture.riskSubtitle')}</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="card overflow-hidden">
@@ -1127,10 +1081,10 @@ const data = {
                 <table className="data-table">
                   <thead>
                     <tr>
-                      <th>Risk</th>
-                      <th>Probability</th>
-                      <th>Impact</th>
-                      <th>Mitigation</th>
+                      <th>{t('agriculture.riskHeaderRisk')}</th>
+                      <th>{t('agriculture.riskHeaderProbability')}</th>
+                      <th>{t('agriculture.riskHeaderImpact')}</th>
+                      <th>{t('agriculture.riskHeaderMitigation')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1171,11 +1125,11 @@ const data = {
       <section className="py-28 md:py-36 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="section-label mb-4 text-[#4A7B5F]">Deployments</p>
-            <TextReveal text="Five Sites in Morocco" className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
+            <p className="section-label mb-4 text-[#4A7B5F]">{t('agriculture.deploymentsLabel')}</p>
+            <TextReveal text={t('agriculture.deploymentsTitle')} className="text-[clamp(1.75rem,4vw,3.25rem)] font-bold text-white tracking-[-0.02em] leading-[1.05] mb-4" />
             <div className="accent-line mb-6" />
             <p className="max-w-2xl text-[15px] text-[#999999] leading-[1.7] mb-12">
-              Each site covers a 100km radius for drone and IoT operations. Morocco&apos;s Generation Green strategy (2020-2030) provides institutional support, OCP&apos;s Al Moutmir program brings a 580K farmer ecosystem. Expansion to Senegal, Kenya, and Ghana in Phase 3.
+              {t('agriculture.deploymentsSubtitle')}
             </p>
           </FadeIn>
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-5 gap-4" staggerDelay={0.06}>
@@ -1201,7 +1155,7 @@ const data = {
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <Image
           src="/images/sections/agri-iot-sensor.jpg"
-          alt="HarchAgri IoT sensors"
+          alt={t('agriculture.iotImageAlt')}
           fill
           className="object-cover"
           style={{ filter: 'brightness(0.25) contrast(1.1) saturate(0.5)' }}
@@ -1210,11 +1164,11 @@ const data = {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-20 w-full">
           <FadeIn>
-            <p className="section-label mb-4 text-[#4A7B5F]">Phase 1 Investment</p>
+            <p className="section-label mb-4 text-[#4A7B5F]">{t('agriculture.investmentLabel')}</p>
             <h2 className="text-[clamp(2.5rem,6vw,6rem)] font-extrabold text-white leading-[0.95] tracking-[-0.03em] mb-4">
               {data.investment}
             </h2>
-            <p className="text-[15px] text-[#999999] max-w-lg leading-[1.7]">Self-funded to prove the model before raising. Operational break-even targeted by end of Phase 2.</p>
+            <p className="text-[15px] text-[#999999] max-w-lg leading-[1.7]">{t('agriculture.investmentSubtitle')}</p>
           </FadeIn>
         </div>
       </section>
@@ -1225,19 +1179,19 @@ const data = {
       <section className="py-28 md:py-36 bg-[#0A0A0A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center">
           <FadeIn>
-            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-[-0.01em] mb-6">Let&apos;s Build Together</h2>
-            <p className="max-w-xl mx-auto text-[15px] text-[#666666] leading-[1.7] mb-12">Partnership inquiries, investment, and pilot programs. HarchAgri is looking for farmers, governments, and investors who share our vision for African agricultural sovereignty.</p>
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-bold text-white tracking-[-0.01em] mb-6">{t('agriculture.ctaTitle')}</h2>
+            <p className="max-w-xl mx-auto text-[15px] text-[#666666] leading-[1.7] mb-12">{t('agriculture.ctaSubtitle')}</p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticButton>
                 <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all min-h-[44px]">
-                  Get Started <ArrowRight size={14} />
+                  {t('agriculture.ctaPrimary')} <ArrowRight size={14} />
                 </Link>
               </MagneticButton>
               <MagneticButton>
                 <Link href="/investors" className="inline-flex items-center gap-2.5 border border-[rgba(255,255,255,0.12)] text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all min-h-[44px]">
-                  Investor Details
+                  {t('agriculture.ctaSecondary')}
                 </Link>
               </MagneticButton>
             </div>

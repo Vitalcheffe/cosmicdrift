@@ -70,7 +70,7 @@ export default function IntelligencePageClient() {
       {/* Live Dashboard */}
       <section className="py-16 md:py-24 bg-[#1A1A1A]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <LiveDashboard metrics={intelligenceMetrics} title="HARCH OS // LIVE METRICS" />
+          <LiveDashboard metrics={intelligenceMetrics} title={t('liveMetricsTitle')} />
         </div>
       </section>
 

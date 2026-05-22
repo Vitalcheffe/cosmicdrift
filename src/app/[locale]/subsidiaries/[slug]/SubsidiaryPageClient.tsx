@@ -156,6 +156,7 @@ const iconMap: Record<string, IconType[]> = {
    ═══════════════════════════════════════════════════════════════ */
 export default function SubsidiaryPageClient({ slug }: { slug: string }) {
   const t = useTranslations('subsidiaryDetail');
+  const ts = useTranslations('subsidiaries');
 
   // Get raw translated data for this subsidiary
   const rawData = t.raw(slug) as Record<string, unknown> | undefined;
@@ -163,7 +164,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
   const icons = iconMap[slug];
 
   if (!rawData || !images || !icons) {
-    return <div className="pt-40 pb-20 text-center"><h1 className="text-2xl font-bold">Page not found</h1></div>;
+    return <div className="pt-40 pb-20 text-center"><h1 className="text-2xl font-bold">{ts('pageNotFound')}</h1></div>;
   }
 
   // Merge translated text data with icons and images
@@ -485,7 +486,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
       {data.competitors && data.competitors.length > 0 && (
         <CompetitiveComparison
           title={`${data.competitorHarchName ?? data.name} vs Competition`}
-          subtitle="Every dimension. Every metric. Every competitor."
+          subtitle={ts('detailSubtitle')}
           accentColor={data.competitorAccentColor ?? accent}
           sectionLabel={t('competitiveLandscape')}
           competitors={data.competitors}

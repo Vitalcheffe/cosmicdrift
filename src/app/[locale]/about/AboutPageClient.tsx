@@ -83,7 +83,7 @@ export default function AboutPageClient() {
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-[#1E1E1E]">
-                <Image src="/images/hero-bg.jpg" alt="Harch Corp Operations" fill className="object-cover industrial-image" />
+                <Image src="/images/hero-bg.jpg" alt={t('operationsImageAlt')} fill className="object-cover industrial-image" />
               </div>
             </FadeIn>
           </div>

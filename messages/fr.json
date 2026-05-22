@@ -282,7 +282,7 @@
     "positions": {
       "aiMlWeaponsLead": {
         "department": "Intelligence",
-        "level": "Lead",
+        "level": "Responsable",
         "location": "Dakhla, Maroc",
         "title": "Responsable IA/ML Armement",
         "type": "Temps plein"
@@ -302,7 +302,7 @@
         "type": "Temps plein"
       },
       "corpFinanceAnalyst": {
-        "department": "Corporate",
+        "department": "Entreprise",
         "level": "Intermédiaire",
         "location": "Casablanca, Maroc",
         "title": "Analyste Finance Corporate",
@@ -310,13 +310,13 @@
       },
       "cybersecArchitect": {
         "department": "Technologie",
-        "level": "Lead",
+        "level": "Responsable",
         "location": "Casablanca, Maroc",
         "title": "Architecte Cybersécurité",
         "type": "Temps plein"
       },
       "esgComplianceMgr": {
-        "department": "Corporate",
+        "department": "Entreprise",
         "level": "Sénior",
         "location": "Casablanca, Maroc",
         "title": "Responsable Conformité ESG",
@@ -796,7 +796,7 @@
         }
       ],
       "ergsDescription": "Nos groupes de ressources pour les employés favorisent l'inclusion et la connexion à travers les frontières.",
-      "ergsLabel": "ERG",
+      "ergsLabel": "GDR",
       "ergsTitle": "Groupes de Ressources",
       "heroDescription": "La souveraineté africaine ne peut être construite que par une équipe qui représente toute l'Afrique.",
       "heroTitle1": "Diversité comme",
@@ -1481,8 +1481,8 @@
     "caseStudiesDescription": "Description de études de cas",
     "caseStudiesLabel": "Études de cas",
     "caseStudiesTitle": "Études de cas",
-    "ctaButton1": "Cta Button1",
-    "ctaButton2": "Cta Button2",
+    "ctaButton1": "Demander un briefing",
+    "ctaButton2": "Voir toutes les études de cas",
     "ctaDescription": "Description de appel à l'action",
     "ctaTitle": "Prêt à commencer",
     "featured": {
@@ -2382,7 +2382,7 @@
         "3": {
           "category": "Sécurité",
           "desc": "Verify every Demander regardless of Réseau location.",
-          "name": "Zero Trust"
+          "name": "Confiance Zéro"
         },
         "4": {
           "category": "Observabilité",
@@ -3586,9 +3586,9 @@
     "title": "ESG",
     "cta": {
       "description": "Rejoignez-nous pour construire une infrastructure durable pour l'avenir de l'Afrique.",
-      "getInvolved": "Cta Get Involved",
+      "getInvolved": "S’impliquer",
       "title": "Agir",
-      "viewInvestment": "Cta View Investment"
+      "viewInvestment": "Voir l’investissement"
     },
     "environmental": {
       "items": [
@@ -4340,11 +4340,11 @@
     "noResults": "Aucun résultat trouve",
     "allLabel": "Tous",
     "cta": {
-      "apiReference": "Cta Api Référence",
+      "apiReference": "Référence API",
       "description": "Rejoignez-nous dans la construction de l'infrastructure souveraine de l'Afrique.",
-      "exploreDocs": "Cta Explore Docs",
-      "label": "Cta",
-      "title": "Cta"
+      "exploreDocs": "Explorer la documentation",
+      "label": "Commencer",
+      "title": "Commencer"
     },
     "hero": {
       "description": "Harch Corp construit l'infrastructure souveraine de l'Afrique — du cloud GPU à l'énergie renouvelable, du ciment au dessalement.",
@@ -5348,8 +5348,8 @@
     "accommodationsDescription": "Nous accueillons les candidats de tous horizons et fournissons des aménagements raisonnables à chaque étape.",
     "accommodationsTitle": "Aménagements",
     "ctaDescription": "Notre processus de recrutement est conçu pour être rapide, transparent et respectueux de votre temps.",
-    "ctaPrimary": "Voir les offres",
-    "ctaSecondary": "Notre processus",
+    "ctaPrimary": "Postuler",
+    "ctaSecondary": "Voir les postes ouverts",
     "ctaTitle": "Processus de recrutement",
     "description": "Notre processus de recrutement est conçu pour être rapide, transparent et respectueux de votre temps. Pas d'entretiens interminables, pas de devoirs non rémunérés, pas de ghosting.",
     "heroAverage": "Moyenne",
@@ -6113,7 +6113,7 @@
         "description": "Modèles d'IA heberges et entraînés localement avec souveraineté totale des données."
       },
       "edgeComputing": {
-        "title": "Edge Computing",
+        "title": "Informatique Décentralisée",
         "description": "Inference en bord de réseau pour les applications a faible latence sur le continent."
       }
     },
@@ -6412,10 +6412,10 @@
       "title": "Entreprise"
     },
     "cta": {
-      "ctaPrimary": "Cta Cta Primaire",
-      "ctaSecondary": "Cta Cta Secondaire",
+      "ctaPrimary": "Commencer à apprendre",
+      "ctaSecondary": "Parcourir les cours",
       "description": "Rejoignez-nous dans la construction de l'infrastructure souveraine de l'Afrique.",
-      "title": "Cta"
+      "title": "Commencer"
     },
     "freeResources": {
       "description": "Description de ressources gratuites",
@@ -6440,8 +6440,8 @@
       "title": "Ressources gratuites"
     },
     "hero": {
-      "ctaPrimary": "Hero Cta Primaire",
-      "ctaSecondary": "Hero Cta Secondaire",
+      "ctaPrimary": "Explorer les formations",
+      "ctaSecondary": "Voir les certifications",
       "description": "Harch Corp construit l'infrastructure souveraine de l'Afrique — du cloud GPU à l'énergie renouvelable, du ciment au dessalement.",
       "label": "Hero",
       "title": "Hero"
@@ -7957,16 +7957,16 @@
     "mediaContact": {
       "description": "For press inquiries, interviews, and media opportunités.",
       "email": "presse@harchcorp.com",
-      "emailLabel": "Email du contact média",
-      "generalContact": "Media Contact Général Contact",
-      "interviewDescription": "Description de interview du contact média",
-      "interviewRequests": "Demandes d'interview pour contact média",
+      "emailLabel": "Email",
+      "generalContact": "Demandes générales",
+      "interviewDescription": "Planifiez un entretien avec notre équipe de direction.",
+      "interviewRequests": "Demandes d'entretien",
       "label": "Contact média",
       "name": "Équipe Relations Publiques",
       "phone": "+212 5XX-XXXXXX",
-      "phoneLabel": "Téléphone du contact média",
-      "pressDescription": "Description de presse du contact média",
-      "pressInquiries": "Contact Média - Demandes de presse",
+      "phoneLabel": "Téléphone",
+      "pressDescription": "Pour les demandes de presse et les demandes de couverture médiatique.",
+      "pressInquiries": "Demandes de presse",
       "responseTime": "We respond vers press inquiries within 4 business hours.",
       "title": "Contact Média"
     },
@@ -8079,48 +8079,48 @@
       "description": "Estimez le coût de votre infrastructure souveraine.",
       "cta": "Utiliser le calculateur",
       "annualDiscount": "Remise annuelle",
-      "annualPricing": "Calculator Annuel Pricing",
-      "backToPricing": "Calculator Retour à Pricing",
+      "annualPricing": "Tarification annuelle",
+      "backToPricing": "Retour aux tarifs",
       "calculate": "Calculer",
       "capacityLabel": "Capacité du calculateur",
-      "carbonAwareDescription": "Description de calculateur sensible au carbone",
-      "carbonEstimate": "Estimation carbone",
-      "carbonIntensity": "Calculateur d'intensité carbone",
+      "carbonAwareDescription": "La planification sensible au carbone réduit automatiquement l'empreinte carbone de vos charges de travail.",
+      "carbonEstimate": "Empreinte carbone estimée",
+      "carbonIntensity": "Intensité carbone",
       "carbonSavings": "Économies de carbone par rapport à la moyenne du réseau",
       "cdnDescription": "Description de calculateur cdn",
-      "cloudComparison": "Calculateur de comparaison cloud",
-      "comparisonDisclaimer": "Avertissement de comparaison du calculateur",
+      "cloudComparison": "Comparaison des fournisseurs cloud",
+      "comparisonDisclaimer": "Estimations basées sur des charges de travail standard. Les coûts réels peuvent varier.",
       "computeTitle": "Calculateur — Calcul",
-      "contactSales": "Calculateur - Contacter les ventes",
-      "descriptionPrefix": "Préfixe de description",
-      "descriptionSuffix": "Suffixe de description du calculateur",
-      "downloadEstimatePdf": "Calculator Télécharger Estimate Pdf",
-      "egressBandwidth": "Bande passante de sortie du calculateur",
-      "estCo2Monthly": "Est. CO2 mensuel",
+      "contactSales": "Contacter les ventes",
+      "descriptionPrefix": "Estimez vos",
+      "descriptionSuffix": "coûts d'infrastructure",
+      "downloadEstimatePdf": "Télécharger l'estimation (PDF)",
+      "egressBandwidth": "Bande passante sortante",
+      "estCo2Monthly": "Est. CO₂/mois",
       "estimatedCost": "Coût estimé",
       "estimatedExcludesTaxes": "Calculateur - Exclut les taxes estimées",
-      "estimatedMonthlyCost": "Calculator Estimated Mensuel Cost",
-      "fullCalculatorButton": "Calculator Full Calculator Bouton",
-      "fullCalculatorLink": "Calculator Full Calculator Lien",
-      "gco2kwh": "Calculator Gco2Kwh",
+      "estimatedMonthlyCost": "Coût mensuel estimé",
+      "fullCalculatorButton": "Ouvrir le calculateur complet",
+      "fullCalculatorLink": "Calculateur complet",
+      "gco2kwh": "gCO₂/kWh Intensité carbone",
       "gpuCount": "Nombre de GPUs",
-      "gpuHoursLabel": "Heures GPU du calculateur",
+      "gpuHoursLabel": "Heures GPU",
       "gpuType": "Type de GPU",
-      "gpus": "Calculator Gpus",
+      "gpus": "Heures GPU",
       "heroLabel": "Calculateur — En-tête",
-      "heroSubtitle": "Sous-titre principal du calculateur",
+      "heroSubtitle": "Estimez les coûts de votre infrastructure souveraine",
       "heroTitle": "Calculateur — En-tête",
       "hoursPerMonth": "Hours par mois",
-      "hoursRangeMax": "Plage maximale d'heures du calculateur",
-      "hoursRangeMin": "Plage minimale d'heures du calculateur",
-      "lowerPercent": "Pourcentage inférieur du calculateur",
-      "monthUnit": "Unité mensuelle du calculateur",
-      "monthlyEstimate": "Calculator Mensuel Estimate",
-      "monthlyNoCommitment": "Calculator Mensuel No Commitment",
+      "hoursRangeMax": "730 heures",
+      "hoursRangeMin": "0 heures",
+      "lowerPercent": "jusqu'à",
+      "monthUnit": "/mois",
+      "monthlyEstimate": "Estimation mensuelle",
+      "monthlyNoCommitment": "Mensuel (sans engagement)",
       "networkTitle": "Calculateur — Réseau",
-      "perMonthEstimated": "Calculator par mois Estimated",
-      "pricePerGbMo": "Prix par Go/mois du calculateur",
-      "pricePerHour": "Calculator Price par heure",
+      "perMonthEstimated": "par mois (estimé)",
+      "pricePerGbMo": "Prix par Go/mois",
+      "pricePerHour": "Prix par heure",
       "regionTitle": "Région du calculateur",
       "regions": {
         "algeria": "Régions Algeria",
@@ -8135,17 +8135,17 @@
         "southAfrica": "Régions South Africa",
         "tunisia": "Régions Tunisia"
       },
-      "saveVsCloud": "Calculator Enregistrer Vs Cloud",
+      "saveVsCloud": "Économies vs. Cloud majeur",
       "sectionLabel": "Section calculateur",
-      "startFreeTrial": "Calculateur - Démarrer l'essai gratuit",
+      "startFreeTrial": "Commencer l'essai gratuit",
       "storageLabel": "Calculateur — Stockage",
       "storageTitle": "Calculateur — Stockage",
-      "storageType": "Type de stockage du calculateur",
-      "titleLine1": "Estimez votre",
-      "titleLine2": "coût d'infrastructure",
-      "totalPerMonth": "Calculator Total par mois",
-      "vsIndustryAvg": "Calculator Vs Industrie Avg",
-      "yearUnit": "Unité annuelle du calculateur",
+      "storageType": "Type de stockage",
+      "titleLine1": "Coût d'infrastructure",
+      "titleLine2": "Calculateur",
+      "totalPerMonth": "Total par mois",
+      "vsIndustryAvg": "vs. moyenne du secteur",
+      "yearUnit": "/an",
       "saveWithAnnual": "Économisez avec la facturation annuelle : {amount}",
       "estimateNote": "Estimation basée sur le niveau H100 Professionnel. Le prix réel varie selon le type de GPU et la région."
     },
@@ -8188,12 +8188,12 @@
       "description": "Contactez notre équipe commerciale pour une tarification adaptée.",
       "primary": "Demander un devis",
       "secondary": "Parler à un expert",
-      "contactSales": "Cta Contacter les ventes",
-      "label": "Cta",
-      "startFree": "Cta Commencer gratuitement",
+      "contactSales": "Contacter les ventes",
+      "label": "Commencer",
+      "startFree": "Commencer gratuitement",
       "subtitle": "Contactez notre équipe commerciale pour une proposition sur mesure.",
-      "titleLine1": "Prêt à",
-      "titleLine2": "commencer ?"
+      "titleLine1": "Besoin d'une",
+      "titleLine2": "solution sur mesure ?"
     },
     "carbonSavings": {
       "description": "Description de économies carbone",
@@ -8228,7 +8228,7 @@
     },
     "description": "Tarification simple et prévisible pour l'infrastructure souveraine. Pas de frais cachés, pas de surprises, pas de verrouillage fournisseur.",
     "gpuPricing": {
-      "carbonUnit": "Tarification GPU par unité de carbone",
+      "carbonUnit": "gCO₂/kWh",
       "description": "Tarification à la demande transparente pour tous les types de GPU.",
       "gpu": "GPU",
       "onDemandPrice": "Prix à la demande",
@@ -8276,24 +8276,24 @@
           "tier": "Classifié"
         }
       ],
-      "priceUnit": "Prix unitaire GPU",
+      "priceUnit": "par heure",
       "reservedPrice": "Prix réservé (1 an)",
       "sectionLabel": "Tarification GPU",
       "spotPrice": "Prix Spot",
-      "tableFooter": "Pied de table des prix GPU",
+      "tableFooter": "Tous les prix sont en USD. Contactez les ventes pour les remises sur volume.",
       "tableHeaders": {
         "carbon": "En-têtes de table Carbone",
         "gpu": "En-têtes de table GPU",
         "hub": "En-têtes de table Hub",
-        "price": "Table Headers Price",
+        "price": "Prix",
         "renewable": "En-têtes de table Renouvelable",
         "tier": "En-têtes de niveau"
       },
-      "tierEnterprise": "Gpu Pricing Tier Entreprise",
-      "tierPerformance": "Niveau de performance des tarifs GPU",
+      "tierEnterprise": "Niveau Entreprise",
+      "tierPerformance": "Niveau Performance",
       "title": "Tarification détaillée du GPU",
-      "titleLine1": "Tarification",
-      "titleLine2": "par GPU",
+      "titleLine1": "Calcul GPU",
+      "titleLine2": "Tarification",
       "vram": "VRAM"
     },
     "hero": {
@@ -8351,7 +8351,7 @@
           "Gestionnaire de compte dédié"
         ],
         "name": "Entreprise",
-        "period": "",
+        "period": "/mois",
         "popular": false,
         "price": "Personnalisé",
         "priceDetail": "Enterprise Price Détail",
@@ -8397,7 +8397,7 @@
           "Dixième fonctionnalité"
         ],
         "name": "Souverain",
-        "period": "",
+        "period": "/mois",
         "popular": false,
         "price": "Classifié",
         "priceDetail": "Sovereign Price Détail",
@@ -9172,8 +9172,8 @@
     "benefitsDescription": "Programme d'accélération pour les startups africaines construisant l'infrastructure souveraine.",
     "benefitsLabel": "Programme Startup",
     "benefitsTitle": "Programme Startup",
-    "ctaButton1": "Cta Button1",
-    "ctaButton2": "Cta Button2",
+    "ctaButton1": "Demander un briefing",
+    "ctaButton2": "Voir tous les cas",
     "ctaDescription": "Programme d'accélération pour les startups africaines construisant l'infrastructure souveraine.",
     "ctaTitle": "Programme Startup",
     "eligibilityDescription": "Description de éligibilité",
@@ -10411,9 +10411,9 @@
       "crossVerticalDesc": "Finance Cross Vertical Desc",
       "crossVerticalTitle": "Synergies inter-filiales finance",
       "ctaLabel": "Appel à l'action finance",
-      "ctaPrimary": "Appel à l'action Principal Finance",
-      "ctaSecondary": "Appel à l'action Secondaire Finance",
-      "ctaSubtitle": "Sous-titre Appel à l'action Finance",
+      "ctaPrimary": "Explorer le financement",
+      "ctaSecondary": "Voir la thèse d'investissement",
+      "ctaSubtitle": "Capital souverain pour l'infrastructure de l'Afrique",
       "ctaTitle": "Appel à l'action finance",
       "heroBadge": "Badge Principal Finance",
       "heroSubtitle": "Sous-titre Principal Finance",
@@ -13640,10 +13640,10 @@
       "portal": "Portail client"
     },
     "cta": {
-      "browseDocumentation": "Cta Browse Documentation",
-      "contactSupport": "Cta Contact Support",
+      "browseDocumentation": "Parcourir la documentation",
+      "contactSupport": "Contacter le support",
       "description": "Rejoignez-nous dans la construction de l'infrastructure souveraine de l'Afrique.",
-      "title": "Cta"
+      "title": "Commencer"
     },
     "customerSuccess": {
       "description1": "Customer Success Description1",
@@ -14183,9 +14183,9 @@
         "title": "Bulletins de sécurité"
       },
       "cta": {
-        "contactTeam": "Cta Contact Équipe",
+        "contactTeam": "Contacter l'équipe de sécurité",
         "description": "Rejoignez-nous dans la construction de l'infrastructure souveraine de l'Afrique.",
-        "title": "Cta"
+        "title": "Commencer"
       },
       "data": {
         "description": "Description de données",
@@ -14534,11 +14534,11 @@
         },
         "title": "Certifications"
       },
-      "continuous": "Conformité Continuous",
+      "continuous": "Surveillance continue",
       "cta": {
-        "backToTrust": "Cta Retour à Trust",
+        "backToTrust": "Retour au Centre de Confiance",
         "description": "Rejoignez-nous dans la construction de l'infrastructure souveraine de l'Afrique.",
-        "title": "Cta"
+        "title": "Commencer"
       },
       "dpa": {
         "description": "Description de dpa",
@@ -14668,8 +14668,8 @@
         "title": "Responsabilité",
         "description": "Mécanismes de responsabilité et de recours pour les décisions automatisées."
       },
-      "acrossProtectedAttributes": "Éthique de l'IA et attributs protégés",
-      "biasIncidents": "Incidents de biais en éthique de l'IA",
+      "acrossProtectedAttributes": "Sur les attributs protégés",
+      "biasIncidents": "Incidents de biais",
       "biasTesting": {
         "adversarial": {
           "desc": "Description de attaques adversariales",
@@ -14698,56 +14698,56 @@
           "title": "Tiers"
         }
       },
-      "criticalBias2025": "Biais critique en éthique de l'IA 2025",
+      "criticalBias2025": "Incidents de biais critiques (2025)",
       "cta": {
-        "backToTrust": "Cta Retour à Trust",
-        "contactEthics": "Contact éthique CTA",
+        "backToTrust": "Retour au Centre de Confiance",
+        "contactEthics": "Contacter l'équipe d'éthique",
         "description": "Rejoignez-nous dans la construction de l'infrastructure souveraine de l'Afrique.",
-        "title": "Cta"
+        "title": "Commencer"
       },
       "dashboard": {
-        "calibrationError": "Tableau de bord Calibration Erreur",
-        "categoryFairness": "Tableau de bord Category Fairness",
-        "categoryOversight": "Tableau de bord Category Oversight",
-        "categoryPrivacy": "Tableau de bord Category Confidentialité",
-        "categorySafety": "Tableau de bord Category Safety",
-        "categoryTransparency": "Tableau de bord Category Transparency",
-        "criticalBiasIncidents": "Tableau de bord Critical Bias Incidents",
-        "dataSheetsPublished": "Tableau de bord Data Sheets Publié",
-        "demographicParity": "Tableau de bord Demographic Parity",
+        "calibrationError": "Erreur de calibration",
+        "categoryFairness": "Équité",
+        "categoryOversight": "Supervision",
+        "categoryPrivacy": "Confidentialité",
+        "categorySafety": "Sécurité",
+        "categoryTransparency": "Transparence",
+        "criticalBiasIncidents": "Incidents de biais critiques",
+        "dataSheetsPublished": "Fiches de données publiées",
+        "demographicParity": "Parité démographique",
         "description": "Description de tableau de bord",
-        "detailedMetrics": "Tableau de bord Detailed Metrics",
-        "differentialPrivacy": "Tableau de bord Differential Confidentialité",
-        "dpaComplianceScore": "Tableau de bord Dpa Conformité Score",
-        "equalizedOdds": "Tableau de bord Equalized Odds",
-        "ethicsReviewsCompleted": "Tableau de bord Ethics Reviews Completed",
-        "explainabilityReports": "Tableau de bord Explainability Reports",
-        "harmReports": "Tableau de bord Harm Reports",
-        "hitlCoverage": "Tableau de bord Hitl Coverage",
+        "detailedMetrics": "Métriques détaillées",
+        "differentialPrivacy": "Confidentialité différentielle",
+        "dpaComplianceScore": "Score de conformité DPA",
+        "equalizedOdds": "Chances égalisées",
+        "ethicsReviewsCompleted": "Révisions éthiques complétées",
+        "explainabilityReports": "Rapports d'explicabilité",
+        "harmReports": "Rapports de préjudice",
+        "hitlCoverage": "Couverture HITL",
         "label": "Tableau de bord",
-        "lastUpdated": "Tableau de bord Dernière mise à jour",
-        "modelCardsPublished": "Tableau de bord Model Cards Publié",
-        "statusPass": "Tableau de bord Status Pass",
-        "tableCategory": "Tableau de bord Table Category",
-        "tableMetric": "Tableau de bord",
-        "tableStatus": "Tableau de bord Table Status",
-        "tableThreshold": "Tableau de bord Table Threshold",
-        "tableValue": "Tableau de bord Table Value",
+        "lastUpdated": "Dernière mise à jour",
+        "modelCardsPublished": "Fiches de modèle publiées",
+        "statusPass": "Conforme",
+        "tableCategory": "Catégorie",
+        "tableMetric": "Métrique",
+        "tableStatus": "Statut",
+        "tableThreshold": "Seuil",
+        "tableValue": "Valeur",
         "title": "Tableau de bord",
-        "zeroIncidents": "Tableau de bord Zero Incidents"
+        "zeroIncidents": "Zéro incident"
       },
-      "explainabilityReports": "Rapports d'explicabilité en éthique de l'IA",
-      "exploreFramework": "Ai Ethics Explorer Framework",
+      "explainabilityReports": "Rapports d'explicabilité",
+      "exploreFramework": "Explorer le cadre éthique",
       "fairness": {
         "description": "Description de équité",
         "frequencyLabel": "Fréquence d'audit d'équité",
         "label": "Équité",
         "title": "Équité"
       },
-      "fairnessScore": "Score d'équité en éthique de l'IA",
-      "heroDescription": "Notre engagement envers l'IA éthique, transparente et responsable.",
-      "heroTitle": "Éthique de l'IA",
-      "modelTransparency": "Transparence du modèle en éthique de l'IA",
+      "fairnessScore": "Score d'équité",
+      "heroDescription": "Notre engagement envers le développement responsable de l'IA, l'équité et la transparence dans tous les systèmes de Harch Corp.",
+      "heroTitle": "Éthique de l'IA et IA Responsable",
+      "modelTransparency": "Transparence du modèle",
       "oversight": {
         "description": "Description de surveillance",
         "exampleApplications": "Exemples d'applications de supervision",
@@ -14773,7 +14773,7 @@
         "oversightLabel": "Surveillance — Supervision",
         "title": "Surveillance"
       },
-      "responsibleAI": "IA responsable en éthique de l'IA",
+      "responsibleAI": "IA responsable",
       "reviewBoard": {
         "authority": {
           "description": "Description de autorité",
@@ -14921,7 +14921,7 @@
       "commitment": "Engagement de vulnérabilité",
       "cta": {
         "description": "Rejoignez-nous dans la construction de l'infrastructure souveraine de l'Afrique.",
-        "title": "Cta"
+        "title": "Commencer"
       },
       "fullPolicy": "Vulnerability Full Politique",
       "helpUsTitle": "Aidez-nous — Vulnérabilités",
@@ -15777,7 +15777,7 @@
       },
       "hubStatuses": {
         "online": "en ligne",
-        "staging": "staging"
+        "staging": "déploiement"
       }
     },
     "supplyChain": {
@@ -16345,7 +16345,7 @@
       "funnelStages": {
         "sourcing": "Prospection",
         "dueDiligence": "Due diligence",
-        "termSheet": "Term Sheet",
+        "termSheet": "Conditions définitives",
         "committed": "Engagé",
         "closed": "Clôturé"
       },
@@ -16426,7 +16426,7 @@
       },
       "aip": {
         "label": "INTELLIGENCE ARTIFICIELLE",
-        "name": "AIP",
+        "name": "PIA",
         "description": "La couche plateforme IA qui permet aux opérateurs, ingénieurs et dirigeants d'interagir avec les données d'infrastructure en langage naturel, de construire des workflows pilotés par l'IA et de déployer l'automatisation intelligente. AIP va au-delà du chat : il construit des applications IA, une logique orientée action et des automatisations de production qui fonctionnent sur des données opérationnelles.",
         "capabilitiesLabel": "CAPACITÉS",
         "capabilityCount": "4",

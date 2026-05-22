@@ -222,7 +222,7 @@ export default async function LocaleLayout({
           longitude: -7.5898,
         },
         telephone: "+212-522-000-000",
-        email: "contact@harchcorp.com",
+        email: "amine@harchcorp.com",
         areaServed: [
           { "@type": "Country", name: "Morocco" },
           { "@type": "Country", name: "Gambia" },
@@ -320,21 +320,21 @@ export default async function LocaleLayout({
           {
             "@type": "ContactPoint",
             contactType: "investor relations",
-            email: "ir@harchcorp.com",
+            email: "amine@harchcorp.com",
             telephone: "+212-522-000-001",
             availableLanguage: ["English", "French", "Arabic"],
           },
           {
             "@type": "ContactPoint",
             contactType: "media relations",
-            email: "press@harchcorp.com",
+            email: "amine@harchcorp.com",
             telephone: "+212-522-000-002",
             availableLanguage: ["English", "French", "Arabic"],
           },
           {
             "@type": "ContactPoint",
             contactType: "customer service",
-            email: "contact@harchcorp.com",
+            email: "amine@harchcorp.com",
             telephone: "+212-522-000-000",
             availableLanguage: ["English", "French", "Arabic"],
           },

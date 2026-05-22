@@ -550,8 +550,8 @@ export default function TrustPageClient() {
               <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
                 {t('requestBriefing')} <ArrowRight size={14} />
               </Link>
-              <a href="mailto:security@harchcorp.com" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
-                <Mail size={14} /> security@harchcorp.com
+              <a href="mailto:amine@harchcorp.com" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
+                <Mail size={14} /> amine@harchcorp.com
               </a>
             </div>
           </FadeIn>

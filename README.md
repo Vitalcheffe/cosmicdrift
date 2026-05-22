@@ -62,7 +62,7 @@ This web platform is part of the broader HarchOS open-source ecosystem:
 ## Contact
 
 - Website: [harchcorp.com](https://www.harchcorp.com)
-- Email: contact@harchcorp.com
+- Email: amine@harchcorp.com
 
 ---
 

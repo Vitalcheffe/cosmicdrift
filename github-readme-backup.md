@@ -66,7 +66,7 @@ We welcome contributions! Check out our [examples repo](https://github.com/Harch
 - **Request a Quote**: [harchcorp.com/quote](https://www.harchcorp.com/quote)
 - **LinkedIn**: [HarchCorp](https://www.linkedin.com/company/harchcorp)
 - **Twitter/X**: [@harchcorp](https://twitter.com/harchcorp)
-- **Email**: contact@harchcorp.com
+- **Email**: amine@harchcorp.com
 - **HQ**: Casablanca, Morocco
 
 ---

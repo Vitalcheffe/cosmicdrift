@@ -256,11 +256,11 @@ export default function FaqPageClient() {
                   {t('contact.cta')} <ArrowRight size={14} />
                 </Link>
                 <a
-                  href="mailto:ir@harchcorp.com"
+                  href="mailto:amine@harchcorp.com"
                   className="px-8 py-3 rounded-lg bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.25)] text-[#8B9DAF] text-[12px] font-bold tracking-[0.06em] uppercase hover:bg-[rgba(139,157,175,0.15)] hover:border-[rgba(139,157,175,0.4)] transition-colors inline-flex items-center gap-2"
                 >
                   <Mail size={14} />
-                  ir@harchcorp.com
+                  amine@harchcorp.com
                 </a>
               </div>
             </div>

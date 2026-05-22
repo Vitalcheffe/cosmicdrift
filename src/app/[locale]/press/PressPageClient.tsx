@@ -234,7 +234,7 @@ export default function PressPageClient() {
                     <Mail size={14} className="text-[#8B9DAF]" />
                     <div>
                       <p className="text-[12px] text-[#666666]">{t('mediaContact.emailLabel')}</p>
-                      <a href="mailto:press@harchcorp.com" className="text-[14px] text-white hover:text-[#8B9DAF] transition-colors">press@harchcorp.com</a>
+                      <a href="mailto:amine@harchcorp.com" className="text-[14px] text-white hover:text-[#8B9DAF] transition-colors">amine@harchcorp.com</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -257,7 +257,7 @@ export default function PressPageClient() {
                     <Mail size={14} className="text-[#8B9DAF]" />
                     <div>
                       <p className="text-[12px] text-[#666666]">{t('mediaContact.emailLabel')}</p>
-                      <a href="mailto:ir@harchcorp.com" className="text-[14px] text-white hover:text-[#8B9DAF] transition-colors">ir@harchcorp.com</a>
+                      <a href="mailto:amine@harchcorp.com" className="text-[14px] text-white hover:text-[#8B9DAF] transition-colors">amine@harchcorp.com</a>
                     </div>
                   </div>
                 </div>

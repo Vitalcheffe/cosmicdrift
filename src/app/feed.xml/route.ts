@@ -21,7 +21,7 @@ export async function GET() {
       <pubDate>${new Date(article.date).toUTCString()}</pubDate>
       <category>${article.category}</category>
       ${(article.seoKeywords || []).map((k: string) => `<category>${k}</category>`).join('\n      ')}
-      <author>press@harchcorp.com (Harch Corp S.A.)</author>
+      <author>amine@harchcorp.com (Harch Corp S.A.)</author>
     </item>`;
     })
     .join('');
@@ -38,7 +38,7 @@ export async function GET() {
       <pubDate>${new Date(article.date).toUTCString()}</pubDate>
       <category>${article.tag}</category>
       ${(article.seoKeywords || []).map((k: string) => `<category>${k}</category>`).join('\n      ')}
-      <author>press@harchcorp.com (Harch Corp S.A.)</author>
+      <author>amine@harchcorp.com (Harch Corp S.A.)</author>
     </item>`;
     })
     .join('');
@@ -57,7 +57,7 @@ export async function GET() {
       <category>Engineering</category>
       <category>${article.difficulty}</category>
       ${(article.seoKeywords || []).map((k: string) => `<category>${k}</category>`).join('\n      ')}
-      <author>press@harchcorp.com (Harch Corp S.A.)</author>
+      <author>amine@harchcorp.com (Harch Corp S.A.)</author>
     </item>`;
     })
     .join('');
@@ -74,8 +74,8 @@ export async function GET() {
     <description>Harch Corp S.A. is a Moroccan industrial conglomerate building Africa's industrial sovereignty. Carbon-Aware GPU Cloud, Renewable Energy, Cement, Technology, Mining, Agriculture, Water, Finance.</description>
     <language>en</language>
     <copyright>Copyright ${new Date().getFullYear()} Harch Corp S.A.</copyright>
-    <managingEditor>press@harchcorp.com (Harch Corp S.A.)</managingEditor>
-    <webMaster>webmaster@harchcorp.com (Harch Corp S.A.)</webMaster>
+    <managingEditor>amine@harchcorp.com (Harch Corp S.A.)</managingEditor>
+    <webMaster>amine@harchcorp.com (Harch Corp S.A.)</webMaster>
     <lastBuildDate>${now}</lastBuildDate>
     <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Harch Corp Next.js RSS Generator</generator>

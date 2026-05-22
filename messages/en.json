@@ -1983,7 +1983,13 @@
     "heroTitle": "Platform",
     "sdks": "SDK",
     "title": "Developers",
-    "toolsTitle": "Developer Tools"
+    "toolsTitle": "Developer Tools",
+    "altTexts": {
+      "pypi": "PyPI",
+      "pythonVersions": "Python versions",
+      "downloads": "Downloads",
+      "npm": "npm"
+    }
   },
   "docs": {
     "api": {
@@ -15559,6 +15565,12 @@
             "verification": "Verification"
           }
         }
+      },
+      "units": {
+        "perUnit": "/unit",
+        "perHectareYear": "/hectare/year",
+        "perModule": "/module",
+        "carbonRevenue": "of carbon revenue"
       }
     },
     "partnerships": {
@@ -15614,6 +15626,14 @@
         "maize": "Maize",
         "tomatoes": "Tomatoes",
         "onions": "Onions"
+      },
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun"
       }
     },
     "africaMap": {
@@ -15820,7 +15840,9 @@
     "est": "Est.",
     "rev": "Rev:",
     "harchBar": "Harch",
-    "compBar": "Comp"
+    "compBar": "Comp",
+    "win": "W",
+    "loss": "L"
   },
   "interactivePlatform": {
     "headerLabel": "Platform",
@@ -17467,7 +17489,12 @@
           }
         }
       }
-    }
+    },
+    "capabilities": "Capabilities",
+    "whatsappMessage": "Hello, I would like to receive a quote for your agricultural services. Thank you.",
+    "whatsappButton": "Send a quote via WhatsApp",
+    "generatingPdf": "Generating...",
+    "generatePdf": "Generate PDF Quote"
   },
   "topNav": {
     "platform": "Platform",

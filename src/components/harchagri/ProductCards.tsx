@@ -27,7 +27,7 @@ function useProducts(): Product[] {
       name: t('products.drone.name'),
       tagline: t('products.drone.tagline'),
       price: '$15,000',
-      unit: '/unit',
+      unit: t('units.perUnit'),
       description: t('products.drone.description'),
       features: [
         t('products.drone.features.0'),
@@ -48,7 +48,7 @@ function useProducts(): Product[] {
       name: t('products.iot.name'),
       tagline: t('products.iot.tagline'),
       price: '$500',
-      unit: '/hectare/year',
+      unit: t('units.perHectareYear'),
       description: t('products.iot.description'),
       features: [
         t('products.iot.features.0'),
@@ -69,7 +69,7 @@ function useProducts(): Product[] {
       name: t('products.vertical.name'),
       tagline: t('products.vertical.tagline'),
       price: '$50,000',
-      unit: '/module',
+      unit: t('units.perModule'),
       description: t('products.vertical.description'),
       features: [
         t('products.vertical.features.0'),
@@ -90,7 +90,7 @@ function useProducts(): Product[] {
       name: t('products.carbon.name'),
       tagline: t('products.carbon.tagline'),
       price: '2%',
-      unit: 'of carbon revenue',
+      unit: t('units.carbonRevenue'),
       description: t('products.carbon.description'),
       features: [
         t('products.carbon.features.0'),

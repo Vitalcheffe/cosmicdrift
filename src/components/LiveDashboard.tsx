@@ -137,7 +137,7 @@ export default function LiveDashboard({ metrics, title }: LiveDashboardProps) {
     const update = () => {
       const now = new Date();
       setLastUpdated(
-        now.toLocaleTimeString('en-US', {
+        now.toLocaleTimeString(undefined, {
           hour: '2-digit',
           minute: '2-digit',
           second: '2-digit',

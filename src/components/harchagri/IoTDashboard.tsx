@@ -14,7 +14,7 @@ const generateTimeData = () => {
   const now = Date.now()
   for (let i = 30; i >= 0; i--) {
     data.push({
-      time: new Date(now - i * 2000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+      time: new Date(now - i * 2000).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
       temperature: 22 + Math.sin(i * 0.3) * 4 + Math.random() * 2,
       humidity: 65 + Math.cos(i * 0.2) * 10 + Math.random() * 5,
       soil: 40 + Math.sin(i * 0.15) * 8 + Math.random() * 3,
@@ -42,12 +42,12 @@ export default function IoTDashboard() {
   ]
 
   const carbonData = [
-    { month: 'Jan', sequestered: 120, traded: 45 },
-    { month: 'Feb', sequestered: 145, traded: 52 },
-    { month: 'Mar', sequestered: 168, traded: 61 },
-    { month: 'Apr', sequestered: 190, traded: 78 },
-    { month: 'May', sequestered: 210, traded: 85 },
-    { month: 'Jun', sequestered: 235, traded: 95 },
+    { month: t('months.jan'), sequestered: 120, traded: 45 },
+    { month: t('months.feb'), sequestered: 145, traded: 52 },
+    { month: t('months.mar'), sequestered: 168, traded: 61 },
+    { month: t('months.apr'), sequestered: 190, traded: 78 },
+    { month: t('months.may'), sequestered: 210, traded: 85 },
+    { month: t('months.jun'), sequestered: 235, traded: 95 },
   ]
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function IoTDashboard() {
         const newData = [...prev.slice(1)]
         const lastEntry = prev[prev.length - 1]
         newData.push({
-          time: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+          time: new Date().toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
           temperature: Math.max(15, Math.min(35, lastEntry.temperature + (Math.random() - 0.5) * 2)),
           humidity: Math.max(30, Math.min(95, lastEntry.humidity + (Math.random() - 0.5) * 3)),
           soil: Math.max(20, Math.min(70, lastEntry.soil + (Math.random() - 0.5) * 2)),

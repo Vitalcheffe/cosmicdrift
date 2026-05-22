@@ -287,11 +287,11 @@ export default function CompetitiveComparison({
                                       color: accentColor,
                                     }}
                                   >
-                                    W
+                                    {t('win')}
                                   </span>
                                 ) : (
                                   <span className="inline-flex items-center justify-center w-5 h-5 rounded text-[9px] font-bold bg-[rgba(255,255,255,0.04)] text-[#666666]">
-                                    L
+                                    {t('loss')}
                                   </span>
                                 )}
                               </td>

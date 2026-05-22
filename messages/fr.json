@@ -1983,7 +1983,13 @@
     "toolsDescription": "Les outils essentiels pour construire sur HarchOS.",
     "toolsTitle1": "Outils",
     "toolsTitle2": "de développement",
-    "typescriptSdkTitle": "SDK TypeScript"
+    "typescriptSdkTitle": "SDK TypeScript",
+    "altTexts": {
+      "pypi": "PyPI",
+      "pythonVersions": "Versions Python",
+      "downloads": "Téléchargements",
+      "npm": "npm"
+    }
   },
   "docs": {
     "api": {
@@ -15422,6 +15428,12 @@
             "verification": "Vérification"
           }
         }
+      },
+      "units": {
+        "perUnit": "/unité",
+        "perHectareYear": "/hectare/an",
+        "perModule": "/module",
+        "carbonRevenue": "des revenus carbone"
       }
     },
     "partnerships": {
@@ -15477,6 +15489,14 @@
         "maize": "Maïs",
         "tomatoes": "Tomates",
         "onions": "Oignons"
+      },
+      "months": {
+        "jan": "Janv",
+        "feb": "Fév",
+        "mar": "Mars",
+        "apr": "Avr",
+        "may": "Mai",
+        "jun": "Juin"
       }
     },
     "africaMap": {
@@ -15683,7 +15703,9 @@
     "est": "Fondé en",
     "rev": "CA :",
     "harchBar": "Harch",
-    "compBar": "Concurrent"
+    "compBar": "Concurrent",
+    "win": "V",
+    "loss": "D"
   },
   "interactivePlatform": {
     "headerLabel": "Plateforme",
@@ -17330,7 +17352,12 @@
           }
         }
       }
-    }
+    },
+    "capabilities": "Capacités",
+    "whatsappMessage": "Bonjour, je souhaite recevoir un devis pour vos services agricoles. Merci.",
+    "whatsappButton": "Envoyer un devis via WhatsApp",
+    "generatingPdf": "Génération en cours...",
+    "generatePdf": "Générer un devis PDF"
   },
   "status": {
     "heroLabel": "Statut",

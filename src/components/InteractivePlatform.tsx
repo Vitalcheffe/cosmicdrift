@@ -167,6 +167,7 @@ function ModuleSection({
   index: number;
   accent: string;
 }) {
+  const t = useTranslations('interactivePlatform');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   const IconComponent = moduleConfig.icon;
@@ -212,7 +213,7 @@ function ModuleSection({
         {/* Right column: Capabilities */}
         <div className="md:col-span-7">
           <span className="text-[11px] font-mono text-white/20 tracking-[0.15em] uppercase block mb-5">
-            Capabilities
+            {t('capabilities')}
           </span>
           <div className="space-y-5">
             {moduleConfig.capabilities.map((cap, i) => (
@@ -234,12 +235,11 @@ function ModuleSection({
 // WhatsApp Integration Button — for agriculture module
 // ═══════════════════════════════════════════════════════════════
 function WhatsAppCTA() {
+  const t = useTranslations('interactivePlatform');
   const handleClick = useCallback(() => {
-    const message = encodeURIComponent(
-      'Bonjour, je souhaite recevoir un devis pour vos services agricoles. Merci.'
-    );
+    const message = encodeURIComponent(t('whatsappMessage'));
     window.open(`https://wa.me/?text=${message}`, '_blank');
-  }, []);
+  }, [t]);
 
   return (
     <button
@@ -252,7 +252,7 @@ function WhatsAppCTA() {
       }}
     >
       <MessageCircle size={15} />
-      Envoyer un devis via WhatsApp
+      {t('whatsappButton')}
     </button>
   );
 }
@@ -261,6 +261,7 @@ function WhatsAppCTA() {
 // PDF Quote Generation Button — for agriculture module
 // ═══════════════════════════════════════════════════════════════
 function PDFQuoteCTA() {
+  const t = useTranslations('interactivePlatform');
   const [generating, setGenerating] = useState(false);
 
   const handleClick = useCallback(() => {
@@ -283,7 +284,7 @@ function PDFQuoteCTA() {
       disabled={generating}
     >
       <FileText size={15} />
-      {generating ? 'Génération en cours...' : 'Générer un devis PDF'}
+      {generating ? t('generatingPdf') : t('generatePdf')}
     </button>
   );
 }

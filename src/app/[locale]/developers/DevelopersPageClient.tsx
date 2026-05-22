@@ -197,9 +197,9 @@ export default function DevelopersPageClient() {
                   <div>
                     <h3 className="text-lg font-bold text-white">{t('pythonSdkTitle')}</h3>
                     <div className="flex items-center gap-2 mt-1">
-                      <img src="https://img.shields.io/pypi/v/harchos.svg" alt="PyPI" className="h-5" />
-                      <img src="https://img.shields.io/pypi/pyversions/harchos.svg" alt="Python versions" className="h-5" />
-                      <img src="https://img.shields.io/pypi/dm/harchos.svg" alt="Downloads" className="h-5" />
+                      <img src="https://img.shields.io/pypi/v/harchos.svg" alt={t('altTexts.pypi')} className="h-5" />
+                      <img src="https://img.shields.io/pypi/pyversions/harchos.svg" alt={t('altTexts.pythonVersions')} className="h-5" />
+                      <img src="https://img.shields.io/pypi/dm/harchos.svg" alt={t('altTexts.downloads')} className="h-5" />
                     </div>
                   </div>
                 </div>
@@ -226,8 +226,8 @@ export default function DevelopersPageClient() {
                   <div>
                     <h3 className="text-lg font-bold text-white">{t('typescriptSdkTitle')}</h3>
                     <div className="flex items-center gap-2 mt-1">
-                      <img src="https://img.shields.io/npm/v/@harchos/sdk.svg" alt="npm" className="h-5" />
-                      <img src="https://img.shields.io/npm/dt/@harchos/sdk.svg" alt="Downloads" className="h-5" />
+                      <img src="https://img.shields.io/npm/v/@harchos/sdk.svg" alt={t('altTexts.npm')} className="h-5" />
+                      <img src="https://img.shields.io/npm/dt/@harchos/sdk.svg" alt={t('altTexts.downloads')} className="h-5" />
                     </div>
                   </div>
                 </div>

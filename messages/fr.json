@@ -1409,10 +1409,10 @@
       ],
       "readFull": "Lire la charte complète",
       "titleLabel": "Conseil Consultatif",
-      "membersDescription": "Description de membres du conseil consultatif",
+      "membersDescription": "Des leaders de classe mondiale dans les domaines de la finance, de la technologie et de la stratégie qui guident notre vision continentale.",
       "membersLabel": "Membres du conseil consultatif",
       "membersTitle": "Membres du conseil consultatif",
-      "processDescription": "Description de processus du conseil consultatif",
+      "processDescription": "Un processus de sélection rigoureux garantit que chaque membre partage notre mission de souveraineté africaine.",
       "processLabel": "Processus du conseil consultatif",
       "processTitle": "Processus du conseil consultatif",
       "title": "Conseil Consultatif"
@@ -1491,12 +1491,12 @@
         "vertical": "Finance"
       }
     ],
-    "caseStudiesDescription": "Description de études de cas",
+    "caseStudiesDescription": "Des déploiements concrets avec des résultats mesurables à travers l'Afrique.",
     "caseStudiesLabel": "Études de cas",
     "caseStudiesTitle": "Études de cas",
     "ctaButton1": "Demander un briefing",
     "ctaButton2": "Voir toutes les études de cas",
-    "ctaDescription": "Description de appel à l'action",
+    "ctaDescription": "Découvrez comment Harch Corp peut transformer votre infrastructure.",
     "ctaTitle": "Prêt à commencer",
     "featured": {
       "keyResults": [
@@ -1556,7 +1556,7 @@
         "title": "VP Partenariats stratégiques"
       }
     ],
-    "testimonialsDescription": "Description de témoignages",
+    "testimonialsDescription": "Ce que nos partenaires et clients disent de leur collaboration avec Harch Corp.",
     "testimonialsLabel": "Témoignages",
     "testimonialsTitle": "Témoignages"
   },
@@ -1609,7 +1609,7 @@
     "heroTitle": "Plateforme",
     "openSource": {
       "description": "Tous nos outils et SDK sont open source. Contribuez, forkez et construisez la souveraineté numérique.",
-      "label": "Ouvrir Source",
+      "label": "Open Source",
       "repositories": [
         {
           "description": "Framework d'orchestration GPU conscient du carbone",
@@ -1633,8 +1633,8 @@
         }
       ],
       "stars": "étoiles",
-      "title": "Nos projets Ouvrir source",
-      "backToDevelopers": "Ouvrir Source Retour à Developers",
+      "title": "Nos projets Open Source",
+      "backToDevelopers": "Retour aux Développeurs",
       "contributing": [
         {
           "description": "Forkez le dépôt, créez une branche de fonctionnalité et soumettez une pull request.",
@@ -1645,7 +1645,7 @@
           "title": "Rapports de bogues"
         },
         {
-          "description": "Improve guides, tutorials, and API référence documentation.",
+          "description": "Améliorez les guides, tutoriels et documentation de référence de l'API.",
           "title": "Documentation"
         },
         {
@@ -1653,13 +1653,13 @@
           "title": "Révision de code"
         }
       ],
-      "contributingDescription": "Description de contribution open source",
+      "contributingDescription": "Plusieurs façons de contribuer à l'écosystème open source de HarchOS.",
       "contributingLabel": "Contribution open source",
       "contributingTitle1": "Contribution open source — Partie 1",
       "contributingTitle2": "Contribution open source — Partie 2",
-      "ctaButton1": "Open Source Cta Button1",
-      "ctaButton2": "Open Source Cta Button2",
-      "ctaDescription": "Description de appel à l'action open source",
+      "ctaButton1": "Explorer les projets",
+      "ctaButton2": "Contribuer",
+      "ctaDescription": "Rejoignez notre communauté open source et aidez à construire l'infrastructure souveraine.",
       "ctaLabel": "Appel à l'action open source",
       "ctaTitle1": "Appel à l'action open source — Partie 1",
       "ctaTitle2": "Appel à l'action open source — Partie 2",
@@ -1677,9 +1677,9 @@
           "title": "Exigences CI/CD"
         }
       ],
-      "heroDescription": "Description de open source — en-tête",
+      "heroDescription": "Construisez l'avenir de l'infrastructure souveraine avec des outils open source.",
       "heroLabel": "Open Source — En-tête",
-      "heroSubtitle": "Open Source Hero Subtitle",
+      "heroSubtitle": "Construisez en toute transparence",
       "heroTitle1": "Open Source — En-tête — Partie 1",
       "heroTitle2": "Open Source — En-tête — Partie 2",
       "projects": [
@@ -1702,7 +1702,7 @@
           "description": "Tableaux de bord de surveillance et d'observabilité"
         }
       ],
-      "projectsDescription": "Description de projets open source",
+      "projectsDescription": "Nos projets open source alimentant l'infrastructure souveraine.",
       "projectsLabel": "Projets open source",
       "projectsTitle1": "Projets open source — Partie 1",
       "projectsTitle2": "Projets open source — Partie 2",
@@ -1722,10 +1722,10 @@
           "title": "Communauté"
         }
       ],
-      "valuesDescription": "Description de valeurs open source",
+      "valuesDescription": "Les principes qui guident notre travail open source.",
       "valuesLabel": "Valeurs open source",
       "valuesTitle": "Valeurs open source",
-      "viewAll": "Open Source View All"
+      "viewAll": "Voir tous les projets"
     },
     "quickStart": [
       {
@@ -1745,17 +1745,17 @@
     "title": "Développeurs",
     "toolsLabel": "Outils",
     "toolsTitle": "Outils développeurs",
-    "codeExampleDescription": "Description de exemple de code",
+    "codeExampleDescription": "Des exemples de code réels pour vous aider à démarrer avec le SDK HarchOS.",
     "codeExampleLabel": "Exemple de code",
     "codeExampleTitle1": "Exemple de code — Partie 1",
     "codeExampleTitle2": "Exemple de code — Partie 2",
     "codeFeatures": [
-      "Code Features 0",
-      "Code Features 1",
-      "Code Features 2",
-      "Code Features 3",
-      "Code Features 4",
-      "Code Features 5"
+      "Fonctionnalité de code avancée",
+      "Débogage intégré",
+      "Rechargement à chaud",
+      "Vérification de type statique",
+      "Auto-complétion intelligente",
+      "Tests automatisés"
     ],
     "community": {
       "0": {
@@ -1771,9 +1771,9 @@
       "2": {
         "description": "Réseautage professionnel et partage de connaissances pour plus de 5 000 membres.",
         "members": "5 000+",
-        "title": "LinkedEn Group"
+        "title": "Groupe LinkedIn"
       },
-      "description": "Description de communauté",
+      "description": "Rejoignez des milliers de développeurs construisant sur l'infrastructure souveraine.",
       "label": "Communauté",
       "membersLabel": "Membres de la communauté",
       "title": "Communauté"
@@ -1800,13 +1800,13 @@
         "value": "12K+"
       }
     ],
-    "dxMetricsDescription": "Description de métriques dx",
+    "dxMetricsDescription": "Les métriques d'expérience développeur qui comptent.",
     "dxMetricsLabel": "Métriques DX",
     "dxMetricsTitle1": "Métriques DX — Partie 1",
     "dxMetricsTitle2": "Métriques DX — Partie 2",
-    "heroButton1": "Hero Button1",
-    "heroButton2": "Hero Button2",
-    "heroSubtitle": "Hero Subtitle",
+    "heroButton1": "Commencer",
+    "heroButton2": "Voir la documentation",
+    "heroSubtitle": "Construisez le futur",
     "heroTitle1": "Infrastructure souveraine",
     "heroTitle2": "pour l'Afrique",
     "openSourceProjects": [
@@ -1817,7 +1817,7 @@
         "description": "SDK Python HarchOS — couverture API complète avec indications de type"
       },
       {
-        "description": "HarchOS TypeScript SDK — web-first intégration"
+        "description": "SDK TypeScript HarchOS — intégration web-first"
       },
       {
         "description": "Tableau de bord de surveillance de l'infrastructure — métriques en temps réel"
@@ -1838,45 +1838,45 @@
           "label": "Modèles"
         },
         {
-          "description": "Infrastructure monitoring, alerting, and opérations.",
+          "description": "Surveillance de l'infrastructure, alertes et opérations.",
           "label": "Opérations"
         }
       ],
       "apiGroupsLabel": "Groupes API du bac à sable",
-      "apiVersion": "Playground Api Version",
-      "auth": "Playground Auth",
-      "authDescription": "Description de authentification du bac à sable",
+      "apiVersion": "Version de l'API",
+      "auth": "Authentification",
+      "authDescription": "Toutes les requêtes API nécessitent une authentification via un jeton Bearer ou une clé API.",
       "authTitle": "Authentification du bac à sable",
-      "authWarning": "Playground Auth Warning",
-      "backToDevelopers": "Playground Back To Developers",
-      "body": "Playground Body",
+      "authWarning": "Avertissement d'authentification",
+      "backToDevelopers": "Retour aux Développeurs",
+      "body": "Corps de la requête",
       "burstLabel": "Rafale du bac à sable",
       "codeGenTitle": "Génération de code du bac à sable",
-      "copied": "Playground Copied",
-      "copy": "Playground Copy",
-      "description": "Description de bac à sable",
+      "copied": "Copié !",
+      "copy": "Copier",
+      "description": "Testez les points de terminaison API directement dans votre navigateur avec des réponses en direct.",
       "endpoints": {
         "compute": [
-          "Compute 0",
-          "Compute 1",
-          "Compute 2",
-          "Compute 3",
-          "Compute 4",
-          "Compute 5"
+          "Calcul GPU",
+          "Allocation GPU",
+          "Ordonnancement GPU",
+          "Surveillance GPU",
+          "Profiling GPU",
+          "Mise à l'échelle GPU"
         ],
         "data": [
-          "Data 0",
-          "Data 1",
-          "Data 2",
-          "Data 3",
-          "Data 4"
+          "Ingestion de données",
+          "Stockage de données",
+          "Requêtes de données",
+          "Streaming de données",
+          "Export de données"
         ],
         "models": [
-          "Models 0",
-          "Models 1",
-          "Models 2",
-          "Models 3",
-          "Models 4"
+          "Entraînement de modèles",
+          "Inférence de modèles",
+          "Versionnage de modèles",
+          "Déploiement de modèles",
+          "Évaluation de modèles"
         ],
         "operations": [
           "Opérations 0",
@@ -1887,13 +1887,13 @@
         ]
       },
       "endpointsLabel": "Points de terminaison du bac à sable",
-      "headers": "Playground Headers",
-      "heroDescription": "Description de bac à sable — en-tête",
+      "headers": "En-têtes",
+      "heroDescription": "Explorez et testez les points de terminaison de l'API HarchOS avec un retour instantané.",
       "heroLabel": "Bac à sable — En-tête",
       "heroTitle": "Bac à sable — En-tête",
       "label": "Bac à sable",
-      "noAuthRequired": "Playground No Auth Required",
-      "openFull": "Playground Open Full",
+      "noAuthRequired": "Aucune authentification requise",
+      "openFull": "Ouvrir en plein écran",
       "rateLimitLabel": "Limite de débit du bac à sable",
       "rateLimits": [
         {
@@ -1912,24 +1912,24 @@
           "tier": "Entreprise"
         }
       ],
-      "rateLimitsDescription": "Description de limites de débit du bac à sable",
+      "rateLimitsDescription": "Les limites de débit varient selon le niveau. Passez à un niveau supérieur pour des limites plus élevées.",
       "rateLimitsTitle": "Limites de débit du bac à sable",
-      "requestBody": "Playground Request Body",
-      "requestHeaders": "Playground Request Headers",
-      "send": "Playground Send",
+      "requestBody": "Corps de la requête",
+      "requestHeaders": "En-têtes de la requête",
+      "send": "Envoyer",
       "title": "Bac à sable",
       "urlPlaceholder": "URL du bac à sable..."
     },
     "pythonSdkTitle": "SDK Python",
-    "quickStartDescription": "Description de démarrage rapide",
+    "quickStartDescription": "Démarrez avec HarchOS en quelques minutes.",
     "quickStartLabel": "Démarrage rapide",
     "quickStartTitle1": "Démarrage rapide — Partie 1",
     "quickStartTitle2": "Démarrage rapide — Partie 2",
     "stepLabel": "Étape",
     "terminal": {
-      "carbonOutput": "Terminal Carbon Output",
-      "hubsOutput": "Terminal Hubs Output",
-      "installSuccess": "Terminal Install Success"
+      "carbonOutput": "Sortie carbone",
+      "hubsOutput": "Sortie des hubs",
+      "installSuccess": "Installation réussie !"
     },
     "terminalLabel": "Terminal",
     "tools": [
@@ -1980,7 +1980,7 @@
         "title": "Modèles de déploiement"
       }
     ],
-    "toolsDescription": "Description de outils",
+    "toolsDescription": "Les outils essentiels pour construire sur HarchOS.",
     "toolsTitle1": "Outils",
     "toolsTitle2": "de développement",
     "typescriptSdkTitle": "SDK TypeScript"
@@ -2411,7 +2411,7 @@
         "label": "Modèles de conception",
         "title": "Patrons de conception"
       },
-      "designPrinciples": "Architecture Design Principles",
+      "designPrinciples": "Principes de conception d'architecture",
       "framework": {
         "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
         "label": "Framework",
@@ -2656,41 +2656,51 @@
             "L’authentification par clé API sera supprimée en v3.0 — migrer vers OAuth",
             "Les endpoints /v1/* seront supprimés le 2026-06-01"
           ],
-          "features": [
-            "Ordonnancement GPU conscient du carbone avec prise en charge multi-régions",
-            "Nouveau SDK Rust v2.0 avec support async",
-            "Surveillance GPU en temps réel avec métriques P99"
+          "improvements": [
+            "L'ordonnancement sensible au carbone prend désormais en charge 47 paramètres",
+            "Ajout du tableau de bord d'intensité carbone en temps réel",
+            "Amélioration du temps de basculement inter-hubs à moins de 200 ms",
+            "Surveillance GPU améliorée avec suivi carbone par tâche",
+            "Pipeline de données optimisé pour une ingestion 2x plus rapide"
           ],
-          "version": "v2.1.0"
+          "newFeatures": [
+            "Ordonnancement GPU sensible au carbone avec optimisation en temps réel",
+            "Migration de charges de travail multi-hubs sans temps d'arrêt",
+            "Réponse aux incidents par IA et auto-remédiation",
+            "Coffre de données souveraines avec chiffrement AES-256",
+            "Tableau de bord de surveillance de l'intensité carbone en temps réel",
+            "Auto-scaling des charges de travail GPU selon la demande",
+            "Streaming WebSocket pour métriques et alertes en direct",
+            "Rapports de conformité pour le RGPD et ISO 27001"
+          ],
+          "statusLabel": "Dernière",
+          "description": "Suivez les mises à jour, améliorations et correctifs des versions de HarchOS."
         },
         {
-          "breakingChanges": [
-            "Suppression de l’ancien format de réponse de l’API d’allocation GPU"
-          ],
           "bugFixes": [
             "Correction de la pagination de la liste des clusters GPU",
             "Correction du calcul de l’empreinte carbone pour les régions hybrides"
           ],
           "date": "2026-01-20",
           "deprecations": [],
-          "features": [
-            "Référentiel d’API interactif Playground",
-            "Intégration de tableau de bord Grafana",
-            "Points de terminaison de surveillance de la santé du cluster"
+          "improvements": [],
+          "newFeatures": [
+            "Dashboard de conformité unifié avec suivi RGPD et ISO 27001",
+            "Support du pipeline CI/CD avec déploiement automatisé",
+            "API de surveillance améliorée avec métriques en temps réel"
           ],
-          "version": "v2.0.0"
+          "statusLabel": "Stable",
+          "description": "Suivez les mises à jour, améliorations et correctifs des versions de HarchOS."
         },
         {
           "date": "2025-12-10",
-          "features": [
-            "Ordonnancement conscient du carbone (bêta)",
-            "SDK Python v1.0",
-            "SDK TypeScript v1.0"
+          "newFeatures": [
+            "Chiffrement de bout en bout pour les câbles sous-marins",
+            "Surveillance des menaces alimentée par l'IA",
+            "Module de conformité réglementaire automatisé"
           ],
-          "fixes": [
-            "Divers correctifs de stabilité"
-          ],
-          "version": "v1.0.0"
+          "statusLabel": "Stable",
+          "description": "Suivez les mises à jour, améliorations et correctifs des versions de HarchOS."
         }
       ],
       "backToDocs": "Changelog Back To Docs",
@@ -3207,7 +3217,7 @@
       "title": "Version actuelle",
       "versionLabel": "Version actuelle"
     },
-    "description": "Description",
+    "description": "Documentation complète pour HarchOS — le système d'exploitation pour l'infrastructure souveraine.",
     "docCategories": [
       {
         "items": [
@@ -3425,13 +3435,13 @@
     "copyFeedUrl": "Copier l'URL du flux",
     "engineeringArchive": "Ingénierie Archive",
     "engineeringRssFeed": "Ingénierie RSS Feed",
-    "engineeringRssFeedDescription": "Description de flux rss ingénierie",
+    "engineeringRssFeedDescription": "Abonnez-vous au flux RSS d'ingénierie pour les derniers articles techniques.",
     "featuredTechnicalDeepDive": "Analyse technique en vedette",
     "joinEngineeringDescription": "Rejoignez l'équipe qui construit l'infrastructure souveraine de l'Afrique. Nous recrutons des ingénieurs.",
     "joinEngineeringTeam": "Rejoignez l'équipe d'ingénierie",
     "level": "Niveau",
     "moreTechnicalPosts": "Plus Technical Posts",
-    "openSource": "Ouvrir Source",
+    "openSource": "Open Source",
     "openSourceDescription": "Tous nos outils d'ingénierie et SDK sont open source.",
     "openSourceRepos": {
       "actSdk": {
@@ -3485,7 +3495,7 @@
     "readTechnicalDeepDive": "Lire l'analyse technique",
     "relatedTopics": "Sujets connexes",
     "updatedWeekly": "Mis à jour Hebdomadaire",
-    "viewAllOpenSourceProjects": "Voir tout Ouvrir Source Projects",
+    "viewAllOpenSourceProjects": "Voir tous les projets Open Source",
     "viewOpenRoles": "View Ouvrir Roles"
   },
   "esg": {
@@ -3805,7 +3815,7 @@
         "topic": "Sujet"
       },
       "label": "Intervenant",
-      "submittedDescription": "Description de intervenant soumis",
+      "submittedDescription": "Votre proposition d'intervenant a été soumise. Nous l'examinerons et vous répondrons dans les 2 semaines.",
       "submittedTitle": "Intervenant soumis",
       "title": "Devenir intervenant"
     },
@@ -3971,7 +3981,7 @@
     "aiEthics": "Éthique IA",
     "allRightsReserved": "Tous droits reserves",
     "allSystemsOperational": "Tous les systèmes opérationnels",
-    "apiPlayground": "Playground API",
+    "apiPlayground": "Bac à sable API",
     "apiReference": "Référence API",
     "architecture": "Architecture",
     "blog": "Blog",
@@ -4025,7 +4035,7 @@
       "item3Date": "Novembre 2025"
     },
     "newsletter": "Newsletter",
-    "openSource": "Ouvrir Source",
+    "openSource": "Open Source",
     "partners": "Partenaires",
     "phone": "Téléphone",
     "platform": "Plateforme",
@@ -4103,20 +4113,20 @@
         "term": "Cloud Computing Term"
       },
       "compute": {
-        "definition": "Compute Définition",
-        "term": "Compute Term"
+        "definition": "Puissance de traitement fournie par les CPU ou GPU pour l'exécution des charges de travail. HarchOS offre du calcul GPU avec des accélérateurs H100, A100 et L40S.",
+        "term": "Calcul"
       },
       "containerization": {
         "definition": "Containerization Définition",
         "term": "Containerization Term"
       },
       "dataCenter": {
-        "definition": "Data Center Définition",
-        "term": "Data Center Term"
+        "definition": "Installation abritant des systèmes informatiques et composants associés. HarchOS exploite 5 centres de données souverains au Maroc.",
+        "term": "Centre de données"
       },
       "dataSovereignty": {
-        "definition": "Data Sovereignty Définition",
-        "term": "Data Sovereignty Term"
+        "definition": "Le principe selon lequel les données sont soumises aux lois du pays où elles sont stockées. HarchOS garantit une souveraineté des données africaine à 100 % sous juridiction marocaine.",
+        "term": "Souveraineté des données"
       },
       "desalination": {
         "definition": "Desalination Définition",
@@ -4319,10 +4329,10 @@
     },
     "hero": {
       "description": "Harch Corp construit l'infrastructure souveraine de l'Afrique — du cloud GPU à l'énergie renouvelable, du ciment au dessalement.",
-      "label": "Hero",
-      "title": "Hero"
+      "label": "Glossaire",
+      "title": "Glossaire"
     },
-    "noResultsDescription": "Description de aucun résultat",
+    "noResultsDescription": "Essayez un autre terme de recherche ou parcourez tous les termes.",
     "noResultsTitle": "Aucun résultat"
   },
   "harchos": {
@@ -5287,24 +5297,24 @@
       },
       "description": "Comment se démarquer dans notre processus.",
       "honestAboutGaps": {
-        "description": "Description de honnête sur les lacunes",
+        "description": "Faites preuve de transparence sur vos lacunes — nous valorisons l'honnêteté et la volonté d'apprendre.",
         "title": "Honnête sur les lacunes"
       },
       "showThinking": {
-        "description": "Description de montrer la réflexion",
+        "description": "Fonctionnalité de transparence qui révèle les processus de décision de l'IA à des fins de responsabilité et d'audit.",
         "title": "Montrer la réflexion"
       },
       "specificImpact": {
-        "description": "Description de impact spécifique",
+        "description": "Métriques d'impact quantifiées pour chaque projet d'infrastructure avec des résultats sociaux, économiques et environnementaux.",
         "title": "Impact spécifique"
       },
       "understandThesis": {
-        "description": "Description de comprendre la thèse",
+        "description": "Notre thèse d'investissement centrée sur la souveraineté industrielle africaine et le développement d'infrastructures durables.",
         "title": "Comprendre la thèse"
       }
     },
     "accessibilityLabel": "Accessibilité",
-    "accommodationCardDescription": "Description de fiche d'aménagement",
+    "accommodationCardDescription": "Options d'hébergement d'entreprise pour les opérateurs déployés dans tous les sites Harch.",
     "accommodationConfidentialityLabel": "Confidentialité de l'aménagement",
     "accommodationConfidentialityValue": "Toutes les demandes d'aménagement sont traitées de manière confidentielle",
     "accommodationEmailLabel": "Email de l'aménagement",
@@ -5330,9 +5340,9 @@
     "heroAverage": "Moyenne",
     "heroHumanReview": "Examen humain",
     "heroResponse": "Réponse",
-    "heroTitleLine1": "Hero Title Line1",
-    "heroTitleLine2": "Hero Title Line2",
-    "philosophyDescription": "Description de philosophie",
+    "heroTitleLine1": "Construisez l'avenir de",
+    "heroTitleLine2": "l'infrastructure africaine",
+    "philosophyDescription": "Nous recrutons pour l'alignement avec la mission, l'excellence opérationnelle et l'engagement à long terme envers la souveraineté industrielle africaine.",
     "philosophyLabel": "Philosophie",
     "philosophyTitle": "Philosophie",
     "processDescription": "Notre processus de recrutement est conçu pour être rapide, transparent et respectueux de votre temps.",
@@ -5342,25 +5352,25 @@
     "stepLabel": "Processus de recrutement",
     "steps": {
       "application": {
-        "description": "Description de candidature",
+        "description": "Soumettez votre candidature avec vos références et votre expérience opérationnelle.",
         "detail": "Application Détail",
         "timeline": "Calendrier de candidature",
         "title": "Candidature"
       },
       "initialScreen": {
-        "description": "Description de présélection",
+        "description": "Processus de présélection initial pour les rapports de vulnérabilité, incluant le triage et l'évaluation de la gravité.",
         "detail": "Initial Screen Détail",
         "timeline": "Calendrier du premier dépistage",
         "title": "Présélection"
       },
       "leadershipInterview": {
-        "description": "Description de entretien de direction",
+        "description": "Entretiens avec la direction générale couvrant la stratégie, la vision et l'avenir de l'infrastructure africaine.",
         "detail": "Leadership Interview Détail",
         "timeline": "Direction Interview Timeline",
         "title": "Entretien de direction"
       },
       "offer": {
-        "description": "Description de offre",
+        "description": "Recevez votre offre formelle, incluant la rémunération, les avantages et le calendrier d'intégration.",
         "detail": "Offer Détail",
         "timeline": "Calendrier de l'offre",
         "title": "Offre"
@@ -5390,13 +5400,13 @@
         "title": "Offre"
       },
       "teamInterview": {
-        "description": "Description de entretien d'équipe",
+        "description": "Entretiens avec l'équipe technique évaluant la capacité de résolution de problèmes et l'alignement culturel avec les valeurs de Harch.",
         "detail": "Team Interview Détail",
         "timeline": "Calendrier des entretiens d'équipe",
         "title": "Entretien d'équipe"
       },
       "technicalAssessment": {
-        "description": "Description de évaluation technique",
+        "description": "Évaluation technique pratique dans un environnement opérationnel réaliste testant les compétences pratiques.",
         "detail": "Technical Assessment Détail",
         "timeline": "Calendrier de l'évaluation technique",
         "title": "Évaluation technique"
@@ -5404,7 +5414,7 @@
       "title": "6 étapes. 2 semaines. Zéro blabla."
     },
     "subtitle": "Transparence totale, zéro bureaucratie.",
-    "tipsDescription": "Description de conseils",
+    "tipsDescription": "Préparez-vous minutieusement à chaque étape, démontrez votre alignement avec notre mission et mettez en valeur votre profondeur technique.",
     "tipsLabel": "Conseils",
     "tipsTitle": "Conseils",
     "traits": {
@@ -5417,7 +5427,7 @@
         "title": "Biais pour l'action"
       },
       "collaborativeSpirit": {
-        "description": "Description de esprit collaboratif",
+        "description": "Nous croyons en la puissance de la collaboration entre les équipes, les filiales et les frontières pour atteindre un impact continental.",
         "title": "Esprit collaboratif"
       },
       "description": "We evaluate candidates sur four dimensions, not resume keywords.",
@@ -5430,7 +5440,7 @@
         "title": "Résilience"
       },
       "sovereigntyMindset": {
-        "description": "Description de état d'esprit souverain",
+        "description": "Une approche axée sur la souveraineté garantissant que chaque décision d'infrastructure privilégie l'autonomie et l'indépendance africaines.",
         "title": "État d'esprit souverain"
       },
       "systemsThinking": {
@@ -5438,12 +5448,12 @@
         "title": "Pensée systémique"
       },
       "technicalExcellence": {
-        "description": "Description de excellence technique",
+        "description": "Notre engagement envers l'excellence technique à travers des normes d'ingénierie rigoureuses et l'amélioration continue.",
         "title": "Excellence technique"
       },
       "title": "Ce que nous recherchons"
     },
-    "traitsDescription": "Description de caractéristiques",
+    "traitsDescription": "Nous recherchons des penseurs systémiques, des exécutants disciplinés et des opérateurs motivés par la mission qui s'épanouissent dans la complexité.",
     "traitsLabel": "Caractéristiques",
     "traitsTitle": "Caractéristiques"
   },
@@ -5658,7 +5668,7 @@
         "year": "2024"
       },
       "2025": {
-        "description": "Detailed technical design complétion, feasibility studies, and partnership agreements.",
+        "description": "Achèvement de la conception technique détaillée, études de faisabilité et accords de partenariat.",
         "title": "Design & Ingénierie",
         "year": "2025"
       },
@@ -5988,7 +5998,7 @@
       "investment": "Investissement Pipeline",
       "investmentPipeline": "Pipeline d'investissement de 2,4 milliards de dollars",
       "news": "Actualités",
-      "operations": "Opérations Across Africa",
+      "operations": "Opérations à travers l'Afrique",
       "principles": "Principes d'exploitation",
       "roadmap": "Feuille de route",
       "scaleAndImpact": "Passer à l'échelle & Impact",
@@ -6024,7 +6034,7 @@
       "partialOutage": "Panne partielle",
       "services": {
         "cementPlant": "Ciment Plant",
-        "dataPlatform": "Data Plateforme",
+        "dataPlatform": "Plateforme de données",
         "energyGrid": "Énergie Grid",
         "gpuCloud": "Cloud GPU",
         "satelliteComm": "Communications par satellite",
@@ -6365,7 +6375,7 @@
       ]
     },
     "corporate": {
-      "description": "Description de entreprise",
+      "description": "Programmes de formation sur mesure pour les équipes d'entreprise déployant une infrastructure souveraine à grande échelle à travers l'Afrique.",
       "items": [
         {
           "description": "Première étape de notre processus de recrutement.",
@@ -6393,7 +6403,7 @@
       "title": "Commencer"
     },
     "freeResources": {
-      "description": "Description de ressources gratuites",
+      "description": "Ressources gratuites incluant la documentation, les tutoriels et le soutien communautaire pour les développeurs HarchOS.",
       "items": [
         {
           "count": "200+",
@@ -6418,11 +6428,11 @@
       "ctaPrimary": "Explorer les formations",
       "ctaSecondary": "Voir les certifications",
       "description": "Harch Corp construit l'infrastructure souveraine de l'Afrique — du cloud GPU à l'énergie renouvelable, du ciment au dessalement.",
-      "label": "Hero",
-      "title": "Hero"
+      "label": "Apprentissage",
+      "title": "Apprentissage"
     },
     "paths": {
-      "description": "Description de parcours",
+      "description": "Parcours d'apprentissage structurés, des fondamentaux à la spécialisation avancée en infrastructure IA souveraine.",
       "hoursLabel": "Heures",
       "items": [
         {
@@ -7546,15 +7556,15 @@
     "allDispatches": "Tout Dispatches",
     "backToDispatches": "Retour à Dispatches",
     "brandGuidelines": "Brand Directives",
-    "brandGuidelinesDescription": "Description de directives de marque",
+    "brandGuidelinesDescription": "Directives officielles de marque pour l'identité visuelle, la messagerie et les normes de communication de Harch Corp.",
     "dispatchNotFound": "Dispatch introuvable",
-    "dispatchNotFoundDescription": "Description de répartition non trouvée",
+    "dispatchNotFoundDescription": "Le communiqué recherché est introuvable. Veuillez vérifier l'URL ou parcourir nos archives.",
     "executiveBios": "Biographies des dirigeants",
-    "executiveBiosDescription": "Description de biographies des dirigeants",
+    "executiveBiosDescription": "Biographies détaillées de l'équipe de direction de Harch Corp avec leur expérience et leurs réalisations.",
     "factSheet": "Fiche synthétique",
-    "factSheetDescription": "Description de fiche d'information",
+    "factSheetDescription": "Faits et chiffres clés sur les opérations, l'infrastructure et la position sur le marché de Harch Corp.",
     "mediaContact": "Contact média",
-    "mediaContactDescription": "Description de contact média",
+    "mediaContactDescription": "Coordonnées presse et médias pour les communications et demandes d'entretien de Harch Corp.",
     "moreDispatches": "Plus de dispatches",
     "newsAndAnnouncements": "Actualités et annonces",
     "press": "Presse",
@@ -7666,8 +7676,8 @@
     "description": "Harch Corp collabore avec des leaders mondiaux de la technologie, la finance, l'industrie et le gouvernement pour fournir une infrastructure souveraine de classe mondiale.",
     "hero": {
       "description": "Harch Corp construit l'infrastructure souveraine de l'Afrique — du cloud GPU à l'énergie renouvelable, du ciment au dessalement.",
-      "label": "Hero",
-      "title": "Hero"
+      "label": "Partenaires",
+      "title": "Partenaires"
     },
     "subtitle": "Écosystème de partenaires"
   },
@@ -7926,8 +7936,8 @@
     },
     "hero": {
       "description": "Harch Corp construit l'infrastructure souveraine de l'Afrique — du cloud GPU à l'énergie renouvelable, du ciment au dessalement.",
-      "label": "Hero",
-      "title": "Hero"
+      "label": "Presse",
+      "title": "Presse"
     },
     "mediaContact": {
       "description": "For press inquiries, interviews, and media opportunités.",
@@ -8062,7 +8072,7 @@
       "carbonEstimate": "Empreinte carbone estimée",
       "carbonIntensity": "Intensité carbone",
       "carbonSavings": "Économies de carbone par rapport à la moyenne du réseau",
-      "cdnDescription": "Description de calculateur cdn",
+      "cdnDescription": "Estimez les coûts CDN pour la livraison de contenu souveraine sur les marchés africains et européens.",
       "cloudComparison": "Comparaison des fournisseurs cloud",
       "comparisonDisclaimer": "Estimations basées sur des charges de travail standard. Les coûts réels peuvent varier.",
       "computeTitle": "Calculateur — Calcul",
@@ -8171,14 +8181,14 @@
       "titleLine2": "solution sur mesure ?"
     },
     "carbonSavings": {
-      "description": "Description de économies carbone",
+      "description": "Suivez et optimisez les économies de carbone sur toutes les charges de travail GPU avec des rapports en temps réel.",
       "stat1Label": "Statistique 1 d'économies carbone",
       "stat2Label": "Statistique 2 d'économies carbone",
       "stat3Label": "Statistique 3 d'économies carbone",
       "title": "Économies carbone"
     },
     "costOptimization": {
-      "description": "Description de optimisation des coûts",
+      "description": "Optimisation intelligente des coûts avec l'ordonnancement sensible au carbone et l'allocation de ressources entre les hubs.",
       "label": "Optimisation des coûts",
       "tips": [
         {
@@ -8273,10 +8283,10 @@
     },
     "hero": {
       "description": "Harch Corp construit l'infrastructure souveraine de l'Afrique — du cloud GPU à l'énergie renouvelable, du ciment au dessalement.",
-      "label": "Hero",
-      "subtitle": "Hero Subtitle",
-      "titleLine1": "Hero Title Line1",
-      "titleLine2": "Hero Title Line2"
+      "label": "Tarification",
+      "subtitle": "Infrastructure souveraine à prix compétitif",
+      "titleLine1": "Construisez l'avenir de",
+      "titleLine2": "l'infrastructure africaine"
     },
     "starterTier": {
       "items": [
@@ -8439,13 +8449,13 @@
     "cookies": "Témoins de connexion",
     "cookiesText": "Cookies Text",
     "dataCollection": "Collecte de données",
-    "dataCollectionText": "Data Collection Text",
-    "dataSecurity": "Data Sécurité",
-    "dataSecurityText": "Data Sécurité Text",
+    "dataCollectionText": "Nous collectons les données personnelles que vous fournissez directement, telles que votre nom, adresse e-mail, organisation et détails du projet lors de votre demande de devis ou de nous contacter. Nous collectons également automatiquement des données d'utilisation, des informations sur l'appareil et des cookies lors de votre visite sur notre site web.",
+    "dataSecurity": "Sécurité des données",
+    "dataSecurityText": "Nous mettons en œuvre des mesures de sécurité conformes aux normes de l'industrie, incluant le chiffrement AES-256 au repos, TLS 1.3 en transit et la conformité SOC 2 Type II. Toutes les données sont traitées sur l'infrastructure souveraine marocaine.",
     "dataSharing": "Partage de données",
-    "dataSharingText": "Data Sharing Text",
+    "dataSharingText": "Nous partageons vos données uniquement avec des prestataires de confiance qui nous assistent dans la prestation de nos services, et ce uniquement sous des obligations contractuelles strictes. Nous ne vendons jamais vos données. Les transferts transfrontaliers sont protégés par des garanties appropriées.",
     "dataUse": "Utilisation des données",
-    "dataUseText": "Data Use Text",
+    "dataUseText": "Nous utilisons vos données personnelles pour traiter vos demandes, fournir nos services, communiquer avec vous au sujet de vos projets et améliorer notre plateforme. Nous ne vendons pas vos données personnelles à des tiers.",
     "internationalTransfers": "Transferts internationaux",
     "internationalTransfersText": "International Transfers Text",
     "lastUpdatedDate": "Dernière mise à jour Date",
@@ -8650,7 +8660,7 @@
         "unitedStates": "États-Unis"
       },
       "country": "Pays de déploiement",
-      "description": "Description de projet",
+      "description": "Spécifications du projet",
       "descriptionPlaceholder": "Décrivez votre projet, ses objectifs et ses exigences spécifiques...",
       "projectType": "Type de projet",
       "projectTypes": {
@@ -8860,7 +8870,7 @@
     },
     "step4": {
       "contactInfo": "Informations de contact",
-      "description": "Review your request détails before submitting.",
+      "description": "Examinez les détails de votre demande avant de soumettre.",
       "disclaimer": "En soumettant cette demande, vous acceptez que vos données soient traitées conformément à notre politique de confidentialité. Toutes les communications sont chiffrées de bout en bout.",
       "edit": "Modifier",
       "projectDetails": "Project Détails",
@@ -8949,7 +8959,7 @@
     "about": "À propos",
     "agri": "Agriculture",
     "aiEthics": "Éthique IA",
-    "apiPlayground": "Playground API",
+    "apiPlayground": "Bac à sable API",
     "apiReference": "Référence API",
     "architecture": "Architecture",
     "blog": "Blog",
@@ -9036,7 +9046,7 @@
     "mission": "Mission",
     "newsroom": "Actualités",
     "openNav": "Menu",
-    "openSource": "Ouvrir Source",
+    "openSource": "Open Source",
     "partners": "Partenaires",
     "platformDemo": "Demo plateforme",
     "platforms": "Plateformes",
@@ -9159,11 +9169,11 @@
     "ctaButton2": "Voir tous les cas",
     "ctaDescription": "Programme d'accélération pour les startups africaines construisant l'infrastructure souveraine.",
     "ctaTitle": "Programme Startup",
-    "eligibilityDescription": "Description de éligibilité",
+    "eligibilityDescription": "Critères d'éligibilité pour les startups souhaitant rejoindre le programme d'écosystème de startups Harch.",
     "eligibilityLabel": "Éligibilité",
     "eligibilityTitle": "Éligibilité",
-    "heroButton1": "Hero Button1",
-    "heroButton2": "Hero Button2",
+    "heroButton1": "Postuler",
+    "heroButton2": "En savoir plus",
     "heroTitle1": "Infrastructure souveraine",
     "heroTitle2": "pour l'Afrique",
     "label": "Startup",
@@ -9234,7 +9244,7 @@
         "stage": "Scale"
       }
     ],
-    "successStoriesDescription": "Description de témoignages de succès",
+    "successStoriesDescription": "Des témoignages de succès réels d'organisations ayant déployé une infrastructure souveraine avec Harch Corp.",
     "successStoriesLabel": "Témoignages de succès",
     "successStoriesTitle": "Témoignages de succès"
   },
@@ -9606,15 +9616,15 @@
       },
       "moats": {
         "carbonApi": {
-          "desc": "Description de api carbone",
+          "desc": "API d'intensité carbone en temps réel pour intégrer l'ordonnancement sensible au carbone dans vos applications.",
           "title": "API Carbone"
         },
         "esgPositioning": {
-          "desc": "Description de positionnement esg",
+          "desc": "Notre positionnement ESG en tant que premier conglomérat d'infrastructure durable d'Afrique avec un impact mesurable.",
           "title": "Positionnement ESG"
         },
         "gpuInfrastructure": {
-          "desc": "Description de infrastructure gpu",
+          "desc": "Infrastructure GPU souveraine alimentée par l'énergie renouvelable avec ordonnancement sensible au carbone des charges de travail.",
           "title": "Infrastructure GPU"
         }
       },
@@ -9727,7 +9737,7 @@
       "pricingTitle": "Tarification agriculture",
       "products": {
         "carbon": {
-          "description": "Description de carbone",
+          "description": "Monétisez la séquestration de carbone de votre ferme avec des crédits vérifiés négociés sur les marchés internationaux.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -9753,7 +9763,7 @@
           "unit": "Carbon Unit"
         },
         "drone": {
-          "description": "Description de drone",
+          "description": "Intelligence aérienne pour chaque hectare — imagerie multispectrale, prédiction des rendements et surveillance de la santé des cultures.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -9779,7 +9789,7 @@
           "unit": "Drone Unit"
         },
         "iot": {
-          "description": "Description de iot",
+          "description": "Surveillance de précision du sol au cloud — données de capteurs en temps réel pour l'irrigation, les nutriments et le microclimat.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -9805,7 +9815,7 @@
           "unit": "Iot Unit"
         },
         "vertical": {
-          "description": "Description de verticale",
+          "description": "Production toute l'année dans tous les climats — modules d'agriculture verticale automatisés avec contrôle climatique par IA.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -10404,7 +10414,7 @@
       "impact": "Impact Finance",
       "instruments": {
         "carbonCredit": {
-          "description": "Description de crédit carbone",
+          "description": "Programmes de crédits carbone qui récompensent les opérations d'infrastructure durable avec des compensations vérifiées.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -10427,7 +10437,7 @@
           "tagline": "Slogan Crédits Carbone"
         },
         "greenBonds": {
-          "description": "Description de obligations vertes",
+          "description": "Émissions d'obligations vertes finançant les projets d'énergie renouvelable et d'infrastructure durable à travers l'Afrique.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -10450,7 +10460,7 @@
           "tagline": "Slogan Obligations Vertes"
         },
         "impactInvestment": {
-          "description": "Description de investissement à impact",
+          "description": "Opportunités d'investissement à impact offrant à la fois des rendements financiers et des bénéfices sociaux mesurables.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -10473,7 +10483,7 @@
           "tagline": "Impact Investissement Tagline"
         },
         "islamicFinance": {
-          "description": "Description de finance islamique",
+          "description": "Solutions de financement conformes à la Charia, incluant les Sukuk et le financement islamique de projets pour l'infrastructure.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -10496,7 +10506,7 @@
           "tagline": "Slogan Finance Islamique"
         },
         "projectFinance": {
-          "description": "Description de financement de projet",
+          "description": "Structures de financement de projets pour le développement d'infrastructures à grande échelle avec recours limité.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -10519,7 +10529,7 @@
           "tagline": "Slogan Finance de Projet"
         },
         "tradeFinance": {
-          "description": "Description de financement du commerce",
+          "description": "Solutions de financement du commerce facilitant les transactions transfrontalières et le financement de la chaîne d'approvisionnement pour l'infrastructure.",
           "features": [
             "Première fonctionnalité",
             "Deuxième fonctionnalité",
@@ -10560,19 +10570,19 @@
       "overviewTitle": "Aperçu finance",
       "partnershipModels": {
         "coinvestment": {
-          "desc": "Description de co-investissement",
+          "desc": "Cadres de co-investissement pour les institutions de financement du développement et les fonds souverains aux côtés de Harch Capital.",
           "title": "Co-investissement"
         },
         "dfiPartnerships": {
-          "desc": "Description de partenariats ifd",
+          "desc": "Partenariats stratégiques avec des institutions de financement du développement pour financer des projets d'infrastructure souveraine.",
           "title": "Partenariats IFD"
         },
         "ecaBacked": {
-          "desc": "Description de garanti par une ace",
+          "desc": "Financement garanti par des agences de crédit à l'exportation pour des projets d'infrastructure à grande échelle avec garanties souveraines.",
           "title": "Garanti par une ACE"
         },
         "swfPartnerships": {
-          "desc": "Description de partenariats fsi",
+          "desc": "Partenariats stratégiques avec des fonds souverains pour l'investissement à long terme dans l'infrastructure.",
           "title": "Partenariats FSI"
         }
       },
@@ -10638,22 +10648,22 @@
       "probability": "Probabilité Financière",
       "riskManagement": {
         "crossVertical": {
-          "desc": "Description de inter-filiales",
+          "desc": "Intégration inter-filiales exploitant les synergies entre les 8 filiales de Harch.",
           "riskLevel": "Niveau de Risque Transversal",
           "title": "Inter-filiales"
         },
         "currencyHedging": {
-          "desc": "Description de couverture de change",
+          "desc": "Stratégies de couverture de change pour protéger les investissements d'infrastructure contre la volatilité des taux de change.",
           "riskLevel": "Niveau de Risque de Couverture Monétaire",
           "title": "Couverture de change"
         },
         "offtakeAgreements": {
-          "desc": "Description de accords d'achat",
+          "desc": "Accords d'achat à long terme offrant une certitude de revenus pour les investissements d'infrastructure.",
           "riskLevel": "Niveau de Risque d'Accords d'Achat",
           "title": "Accords d'achat"
         },
         "politicalRisk": {
-          "desc": "Description de risque politique",
+          "desc": "Évaluation et atténuation des risques politiques pour les investissements d'infrastructure sur les marchés africains.",
           "riskLevel": "Niveau de risque politique",
           "title": "Risque politique"
         }
@@ -10758,19 +10768,19 @@
       "roadmapTitle": "Feuille de route finance",
       "strategicAdvantages": {
         "doubleTaxationTreaties": {
-          "desc": "Description de conventions de double imposition",
+          "desc": "Conventions de double imposition offrant des avantages fiscaux pour les opérations transfrontalières à travers l'Afrique.",
           "title": "Conventions de double imposition"
         },
         "migaCoverage": {
-          "desc": "Description de couverture miga",
+          "desc": "Couverture d'assurance contre les risques politiques du MIGA pour les investissements d'infrastructure sur les marchés africains émergents.",
           "title": "Couverture MIGA"
         },
         "ohiCompliance": {
-          "desc": "Description de conformité ohi",
+          "desc": "Conformité aux normes de santé et sécurité au travail sur tous les sites et installations opérationnels de Harch.",
           "title": "Conformité OHI"
         },
         "regulatoryFramework": {
-          "desc": "Description de cadre réglementaire",
+          "desc": "Conformité globale au cadre réglementaire dans toutes les juridictions africaines où Harch opère.",
           "title": "Cadre réglementaire"
         }
       },
@@ -10901,6 +10911,14 @@
         {
           "title": "Plateforme IoT industrielle",
           "desc": "Plateforme IoT gérée pour la surveillance industrielle, l’automatisation et l’optimisation. Intégration avec les opérations Harch dans l’agriculture, les mines, l’énergie et l’eau."
+        },
+        {
+          "title": "Sovereign Cloud",
+          "desc": "Africa-hosted cloud infrastructure with full data sovereignty and guaranteed data residency. No data leaves the continent."
+        },
+        {
+          "title": "Industrial Data Analytics",
+          "desc": "Real-time monitoring and predictive analytics platform combining IoT data streams from all Harch verticals. AI-powered anomaly detection reduces downtime by 40%."
         }
       ],
       "specTable": [
@@ -10975,6 +10993,11 @@
           "year": "T1 2027",
           "title": "Couverture satellite complète",
           "desc": "Réseau de stations au sol satellite couvrant 5 pays avec connectivité internet et données universelles."
+        },
+        {
+          "year": "2028 Q2",
+          "title": "Sovereign Cloud GA",
+          "desc": "Full sovereign cloud platform in general availability with 3 African regions."
         }
       ],
       "stats": [
@@ -11031,6 +11054,10 @@
         {
           "title": "Licences de plateforme IA",
           "desc": "Plateforme IA souveraine sous licence pour les entreprises et les gouvernements cherchant à construire des capacités IA souveraines."
+        },
+        {
+          "title": "Research Partnerships",
+          "desc": "Collaborative R&D programs with African universities and research institutions."
         }
       ],
       "competitorHarchName": "Harch Technologie",
@@ -11220,6 +11247,14 @@
         {
           "title": "Stockage DataVault souverain",
           "desc": "Stockage de données chiffré avec résidence garantie des données au Maroc. Conformité RGPD, ISO 27001 et SOC 2 Type II avec réplication sur 3 hubs."
+        },
+        {
+          "title": "Sovereign Security",
+          "desc": "End-to-end security from physical access to data encryption. The facility operates under a sovereign security framework with armed perimeter security, biometric access controls, and 24/7 surveillance. Harch Technology's cybersecurity suite provides sovereign-grade protection including DDoS mitigation, intrusion detection, and encrypted data pathways for sensitive compute workloads."
+        },
+        {
+          "title": "AI Platform Services",
+          "desc": "Full-stack AI platform from data ingestion to model deployment. Managed services for training, fine-tuning, and inference with enterprise SLAs guaranteeing 99.99% availability. The platform supports PyTorch, TensorFlow, and JAX natively, with pre-built MLOps pipelines for automated model lifecycle management."
         }
       ],
       "specTable": [
@@ -11354,6 +11389,21 @@
           "year": "T2 2028",
           "title": "Centre de données Dakhla opérationnel",
           "desc": "Centre de données de 500 MW pleinement opérationnel — la plus grande installation de calcul IA souveraine d’Afrique."
+        },
+        {
+          "year": "2027 Q3",
+          "title": "Phase 1 Live",
+          "desc": "First 100MW module operational. GPU clusters expanding beyond 1,798. Enterprise customers begin onboarding."
+        },
+        {
+          "year": "2028 Q1",
+          "title": "Phase 2 Online",
+          "desc": "200MW total capacity. Full enterprise customer base onboarded. AI platform services launched commercially."
+        },
+        {
+          "year": "2028 Q4",
+          "title": "Full Capacity Operational",
+          "desc": "500MW Pipeline total. 1,798+ GPUs scaling. Continental AI backbone fully operational. Dakhla established as Africa's premier AI compute hub."
         }
       ],
       "stats": [
@@ -11396,6 +11446,10 @@
         {
           "title": "Couverture de câble sous-marin",
           "desc": "Accès direct à 5 câbles sous-marins fournissant une connectivité latence ultra-faible vers l’Europe (<30 ms), les Amériques et le reste de l’Afrique."
+        },
+        {
+          "title": "Lowest Energy Cost on Earth",
+          "desc": "Dakhla offers electricity at $0.018/kWh — 72% cheaper than the EU average and 80% cheaper than Singapore. This structural advantage saves $118-178M per year per 10,000 GPUs compared to Virginia, Frankfurt, or Singapore deployments."
         }
       ],
       "partnershipModel": [
@@ -11410,6 +11464,10 @@
         {
           "title": "Partenariats de recherche IA",
           "desc": "Accès GPU subventionné pour les institutions de recherche africaines et les programmes universitaires, avec partage de la propriété intellectuelle et co-développement."
+        },
+        {
+          "title": "Strategic Partnerships",
+          "desc": "Joint venture structures for sovereign wealth funds, development finance institutions, and strategic technology partners. Equity participation with preferred access to capacity and governance rights."
         }
       ],
       "competitorHarchName": "HarchOS",
@@ -11837,6 +11895,14 @@
         {
           "title": "Ciment vert (LC3)",
           "desc": "Formulation de ciment calcaire calciné d’argile en développement avec moins de 70 % de clinker d’ici 2029, réduisant les émissions de CO2 de 40 % par rapport au ciment Portland ordinaire."
+        },
+        {
+          "title": "Quality Assurance Systems",
+          "desc": "ISO 9001 certified production with AI-powered quality monitoring and automated sampling at every production stage. Consistent product quality that exceeds both EN 197 and ASTM C150 standards."
+        },
+        {
+          "title": "Market Position & Strategy",
+          "desc": "First-mover advantage in Gambia with significant barriers to entry for competitors. 60% domestic market share target within 3 years of commissioning."
         }
       ],
       "specTable": [
@@ -11946,6 +12012,21 @@
           "year": "T4 2026",
           "title": "Première production",
           "desc": "Première production de clinker avec montée en puissance progressive vers 500 kT/an d’ici le T2 2027."
+        },
+        {
+          "year": "2027 Q2",
+          "title": "Kiln Installation Complete",
+          "desc": "Rotary kiln and preheater tower installed. Electrical and control systems commissioned."
+        },
+        {
+          "year": "2027 Q4",
+          "title": "Commissioning & Testing",
+          "desc": "Kiln commissioning and test production runs. Quality certification process initiated."
+        },
+        {
+          "year": "2028 Q1",
+          "title": "Commercial Production",
+          "desc": "Full commercial production at 500kT/yr capacity. First deliveries to Gambian and Senegalese markets."
         }
       ],
       "stats": [
@@ -12002,6 +12083,10 @@
         {
           "title": "Infrastructure clé en main",
           "desc": "Forfaits de construction d’infrastructure combinés livrant des routes, des ponts et des projets publics avec ciment, main-d’œuvre et financement Harch."
+        },
+        {
+          "title": "Industrial Synergies",
+          "desc": "Cross-vertical integration with Harch Energy for renewable power supply and Harch Mining for supplementary raw materials. Captive energy costs 40% below grid tariffs."
         }
       ],
       "competitorHarchName": "Harch Ciment",
@@ -12244,6 +12329,14 @@
         {
           "title": "Hydrogène vert",
           "desc": "Production d’hydrogène vert pour les applications industrielles et le transport. L’électricité renouvelable à 0,03 $/kWh permet des coûts de production d’hydrogène parmi les plus bas au monde à 2,50 $/kg."
+        },
+        {
+          "title": "PPA Structuring",
+          "desc": "Long-term power purchase agreements with 20+ year contracts with inflation protection, providing revenue visibility that supports project financing at favorable terms."
+        },
+        {
+          "title": "Carbon Credit Generation",
+          "desc": "Verified carbon credits from all renewable installations registered under the Gold Standard and Verra VCS frameworks. Additional revenue stream that improves project economics by 8-12%."
         }
       ],
       "specTable": [
@@ -12318,6 +12411,21 @@
           "year": "T2 2027",
           "title": "Première énergie commercialisée",
           "desc": "Premier parc solaire de 500 MW commercialisé, alimentant des clients industriels et le réseau national marocain."
+        },
+        {
+          "year": "2027 Q4",
+          "title": "Wind Farm Construction",
+          "desc": "300MW wind farm construction begins in the Sahel corridor."
+        },
+        {
+          "year": "2028 Q4",
+          "title": "1GW Operational Milestone",
+          "desc": "1GW total renewable capacity operational. Green hydrogen pilot launched."
+        },
+        {
+          "year": "2030 Q1",
+          "title": "Full Pipeline Operational",
+          "desc": "2GW+ Pipeline fully operational across solar, wind, and green hydrogen."
         }
       ],
       "stats": [
@@ -12374,6 +12482,10 @@
         {
           "title": "Projets d’électrification communautaire",
           "desc": "Mini-réseaux et solutions d’énergie hors réseau pour les communautés rurales, avec subventions gouvernementales et financement de développement."
+        },
+        {
+          "title": "Community Energy Programs",
+          "desc": "Mini-grid and rural electrification partnerships with governments and development agencies. 5% of generation capacity allocated for community energy access."
         }
       ],
       "competitorHarchName": "Harch Énergie",
@@ -12521,6 +12633,14 @@
         {
           "title": "Exploration IA HarchOS",
           "desc": "Exploration minérale optimisée par l’IA combinant données satellites, levés géophysiques et modèles géologiques prédictifs. Réduit le temps d’exploration de 60 % et améliore les taux de découverte de 3x."
+        },
+        {
+          "title": "Renewable-Powered Processing",
+          "desc": "All mining and processing powered by Harch Energy's renewable infrastructure. Zero-carbon minerals for the energy transition — 80% lower lifecycle emissions than Chinese-processed alternatives."
+        },
+        {
+          "title": "Export Infrastructure",
+          "desc": "Port and rail infrastructure for efficient mineral export to European and Asian markets. Direct shipping routes reduce logistics costs by 30%."
         }
       ],
       "specTable": [
@@ -12595,6 +12715,16 @@
           "year": "T2 2028",
           "title": "Première production de cobalt",
           "desc": "Première production de cobalt avec installation de traitement sur le territoire opérationnelle."
+        },
+        {
+          "year": "2028 Q2",
+          "title": "Processing Plant Operational",
+          "desc": "Mineral processing plant construction completed and commissioned. First cobalt sulfate and hydroxide production."
+        },
+        {
+          "year": "2029 Q1",
+          "title": "Full Production Achieved",
+          "desc": "All three minerals in production. Export operations via Nouakchott port fully operational."
         }
       ],
       "stats": [
@@ -12651,6 +12781,10 @@
         {
           "title": "Minéraux critiques verts",
           "desc": "Certification de minéraux critiques verts pour les marchés premium avec traçabilité de la chaîne d’approvisionnement et vérification de l’énergie renouvelable."
+        },
+        {
+          "title": "Circular Mineral Flows",
+          "desc": "Partnerships with battery recyclers and electronics manufacturers for end-of-life mineral recovery."
         }
       ],
       "competitorHarchName": "Harch Mines",
@@ -12812,6 +12946,10 @@
         {
           "title": "Chaîne d’approvisionnement IA HarchAgri",
           "desc": "IA prédictive pour la gestion de la chaîne d’approvisionnement, de la prévision des récoltes à l’optimisation logistique. Réduction du gaspillage alimentaire de 30 % et amélioration des délais de livraison de 50 %."
+        },
+        {
+          "title": "Market Intelligence Platform",
+          "desc": "AI-powered commodity pricing and demand forecasting enabling farmers to time sales for maximum revenue and plan crops for optimal market conditions."
         }
       ],
       "specTable": [
@@ -12886,6 +13024,16 @@
           "year": "T1 2027",
           "title": "Transformation alimentaire opérationnelle",
           "desc": "Installation de transformation de 100 kT/an opérationnelle pour la chaîne de valeur ajoutée."
+        },
+        {
+          "year": "2028 Q1",
+          "title": "Vertical Farm Commissioning",
+          "desc": "First vertical farming facility commissioned and producing. European export contracts signed."
+        },
+        {
+          "year": "2029 Q2",
+          "title": "Full Agricultural Operations",
+          "desc": "All Agri systems operational at scale. Export revenue flowing. Second phase expansion initiated."
         }
       ],
       "stats": [
@@ -12942,6 +13090,10 @@
         {
           "title": "Coentreprises d’exportation",
           "desc": "Partenariats pour les opérations axées sur l’exportation avec partage des revenus de 50/50, combinant la technologie Harch Agri avec l’accès au marché local et les terres."
+        },
+        {
+          "title": "Development Finance Partnerships",
+          "desc": "Collaborative programs with IFAD, AfDB, and bilateral development agencies for smallholder farmer technology transfer."
         }
       ],
       "competitorHarchName": "Harch Agri",
@@ -13111,6 +13263,14 @@
         {
           "title": "Comptage intelligent",
           "desc": "Infrastructure de comptage intelligent pour la surveillance en temps réel de la consommation, la facturation automatisée et l’optimisation de la demande. Intégration IoT avec la plateforme HarchOS."
+        },
+        {
+          "title": "Energy Recovery Systems",
+          "desc": "Advanced energy recovery devices reducing energy consumption by 40% versus conventional systems. Powered by Harch Energy at $0.03/kWh — producing water at $0.45/m3."
+        },
+        {
+          "title": "Community Water Access",
+          "desc": "10% of all desalination capacity allocated for community use at zero cost — providing clean water for 50M+ people across our operating regions."
         }
       ],
       "specTable": [
@@ -13185,6 +13345,16 @@
           "year": "T1 2030",
           "title": "Capacité de 200M m³/an atteinte",
           "desc": "Objectif de capacité de dessalement de 200M m³/an atteint à travers 4 installations."
+        },
+        {
+          "year": "2029 Q1",
+          "title": "First Plant Online",
+          "desc": "First desalination plant operational. 50M m3/yr capacity serving industrial and community needs."
+        },
+        {
+          "year": "2030 Q4",
+          "title": "Full 200M m3/yr Capacity",
+          "desc": "200M m3/yr total capacity operational. 50M+ people receiving community water access."
         }
       ],
       "stats": [
@@ -13241,6 +13411,10 @@
         {
           "title": "Coentreprises communautaires",
           "desc": "Partenariats avec les communautés locales et les ONG pour les projets d’eau potable avec modèle de tarification glissante."
+        },
+        {
+          "title": "Development Finance Partnerships",
+          "desc": "Project finance structures with AfDB, IFC, and bilateral development finance institutions."
         }
       ],
       "competitorHarchName": "Harch Eau",
@@ -13495,8 +13669,8 @@
     "description": "Trouvez des réponses, résolvez les problèmes et obtenez l'aide dont vous avez besoin pour votre infrastructure souveraine.",
     "hero": {
       "description": "Harch Corp construit l'infrastructure souveraine de l'Afrique — du cloud GPU à l'énergie renouvelable, du ciment au dessalement.",
-      "label": "Hero",
-      "title": "Hero"
+      "label": "Support",
+      "title": "Support"
     },
     "knowledgeBase": {
       "articles": "Connaissances Base Articles",
@@ -13567,9 +13741,9 @@
       "attachmentHint": "Ticket System Attachment Hint",
       "attachmentLabel": "Pièce jointe du ticket",
       "createTicket": "Créer a Ticket",
-      "description": "Description",
-      "descriptionLabel": "Description du ticket",
-      "descriptionPlaceholder": "Description du ticket...",
+      "description": "Documentation complète pour HarchOS — le système d'exploitation pour l'infrastructure souveraine.",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Décrivez votre problème en détail...",
       "label": "Système de tickets",
       "priorities": {
         "critical": "Critique",
@@ -13611,7 +13785,7 @@
         "priceNote": "Community Price Note",
         "title": "Communauté"
       },
-      "description": "Description de niveaux",
+      "description": "Choisissez le niveau de support correspondant à vos besoins d'infrastructure.",
       "enterprise": {
         "cta": "Enterprise Cta",
         "description": "Support premium 24/7 pour l'infrastructure critique avec des ingénieurs dédiés.",
@@ -13939,7 +14113,7 @@
       },
       "application": {
         "codeReview": {
-          "desc": "Description de revue de code",
+          "desc": "Pratiques de revue de code sécurisée avec analyse automatisée des vulnérabilités et vérifications de conformité.",
           "metric1Label": "Métrique 1 de revue de code",
           "metric1Value": "Valeur de la métrique 1 de révision de code",
           "metric2Label": "Métrique 2 de revue de code",
@@ -13948,10 +14122,10 @@
           "metric3Value": "Valeur de la métrique 3 de révision de code",
           "title": "Revue de code"
         },
-        "description": "Description de candidature",
+        "description": "Soumettez votre candidature avec vos références et votre expérience opérationnelle.",
         "label": "Candidature",
         "pentest": {
-          "desc": "Description de test d'intrusion",
+          "desc": "Tests d'intrusion réguliers par des firmes tierces certifiées avec suivi des corrections et divulgation des vulnérabilités.",
           "metric1Label": "Métrique 1 de test d'intrusion",
           "metric1Value": "Valeur de la métrique 1 de test de pénétration",
           "metric2Label": "Métrique 2 de test d'intrusion",
@@ -13962,7 +14136,7 @@
         },
         "title": "Candidature",
         "vulnManagement": {
-          "desc": "Description de gestion des vulnérabilités",
+          "desc": "Gestion complète des vulnérabilités avec analyse continue, évaluation et suivi des corrections.",
           "metric1Label": "Métrique 1 de gestion des vulnérabilités",
           "metric1Value": "Valeur de la métrique 1 de gestion des vulnérabilités",
           "metric2Label": "Métrique 2 de gestion des vulnérabilités",
@@ -13993,7 +14167,7 @@
           "date": "Date du bulletin 8",
           "title": "Bulletin 8"
         },
-        "description": "Description de bulletins",
+        "description": "Derniers avis de sécurité, divulgations de vulnérabilités et notifications de correctifs pour tous les services Harch Corp.",
         "label": "Bulletins",
         "severityHigh": "Bulletins Sévérité Élevée",
         "severityLow": "Bulletins Sévérité Faible",
@@ -14011,7 +14185,7 @@
         "title": "Commencer"
       },
       "data": {
-        "description": "Description de données",
+        "description": "Normes de chiffrement pour les données au repos et en transit, avec gestion et rotation des clés.",
         "encryptionAtRest": {
           "algorithm": {
             "label": "Algorithme",
@@ -14069,33 +14243,33 @@
         "label": "Données",
         "title": "Données"
       },
-      "heroDescription": "Description de sécurité — en-tête",
+      "heroDescription": "Infrastructure de sécurité complète protégeant les données souveraines avec une architecture zéro confiance et une surveillance 24h/24.",
       "heroTitle": "Sécurité — En-tête",
       "identity": {
         "auditCompliance": {
-          "desc": "Description de conformité d'audit",
+          "desc": "Conformité d'audit complète avec collecte automatisée de preuves et surveillance continue dans toutes les filiales.",
           "title": "Conformité d'audit"
         },
         "conditionalAccess": {
-          "desc": "Description de accès conditionnel",
+          "desc": "Politiques d'accès contextuel qui s'adaptent en fonction de la localisation, de l'appareil et du niveau de risque de l'utilisateur.",
           "title": "Accès conditionnel"
         },
-        "description": "Description de identité",
+        "description": "Gestion des identités et des accès avec authentification multifacteur, RBAC et contrôles d'accès privilégié.",
         "label": "Identité",
         "mfa": {
-          "desc": "Description de amf",
+          "desc": "Authentification multifacteur appliquée sur tous les comptes utilisateurs avec support TOTP, WebAuthn et clés matérielles.",
           "title": "AMF"
         },
         "pam": {
-          "desc": "Description de pam",
+          "desc": "Gestion des accès privilégiés avec enregistrement de session, accès juste-à-temps et rotation automatisée des identifiants.",
           "title": "PAM"
         },
         "rbac": {
-          "desc": "Description de rbac",
+          "desc": "Contrôle d'accès basé sur les rôles avec permissions granulaires, séparation des tâches et revues régulières des accès.",
           "title": "RBAC"
         },
         "sso": {
-          "desc": "Description de sso",
+          "desc": "Intégration d'authentification unique avec fournisseurs SAML 2.0 et OIDC pour une authentification unifiée sur tous les services.",
           "title": "SSO"
         },
         "title": "Identité"
@@ -14106,17 +14280,17 @@
           "action2": "Containment Action2",
           "action3": "Containment Action3",
           "action4": "Containment Action4",
-          "description": "Description de confinement",
+          "description": "Mesures de confinement immédiates pour limiter le rayon d'action et empêcher le mouvement latéral.",
           "phase": "Phase de confinement",
           "sla": "SLA de confinement"
         },
-        "description": "Description de réponse aux incidents",
+        "description": "Réponse aux incidents rapide avec détection par IA, remédiation automatisée et surveillance SOC 24h/24, 7j/7.",
         "detection": {
           "action1": "Detection Action1",
           "action2": "Detection Action2",
           "action3": "Detection Action3",
           "action4": "Detection Action4",
-          "description": "Description de détection",
+          "description": "Capacités de détection multicouches combinant surveillance automatisée et flux de renseignement sur les menaces.",
           "phase": "Phase de détection",
           "sla": "SLA de détection"
         },
@@ -14125,7 +14299,7 @@
           "action2": "Eradication Action2",
           "action3": "Eradication Action3",
           "action4": "Eradication Action4",
-          "description": "Description de éradication",
+          "description": "Élimination complète des acteurs de menace et remédiation des vulnérabilités à l'origine.",
           "phase": "Phase d'éradication",
           "sla": "SLA d'éradication"
         },
@@ -14135,7 +14309,7 @@
           "action2": "Action post-incident 2",
           "action3": "Action post-incident 3",
           "action4": "Action post-incident 4",
-          "description": "Description de post-incident",
+          "description": "Processus de revue post-incident avec analyse des causes profondes et mise en œuvre de mesures préventives.",
           "phase": "Phase Post-Incidence",
           "sla": "SLA Post-Incidence"
         },
@@ -14144,7 +14318,7 @@
           "action2": "Recovery Action2",
           "action3": "Recovery Action3",
           "action4": "Recovery Action4",
-          "description": "Description de récupération",
+          "description": "Restauration systématique des services avec surveillance renforcée et protocoles de validation.",
           "phase": "Phase de Récupération",
           "sla": "SLA de Récupération"
         },
@@ -14154,36 +14328,36 @@
           "action2": "Triage Action2",
           "action3": "Triage Action3",
           "action4": "Triage Action4",
-          "description": "Description de triage",
+          "description": "Évaluation initiale et classification des incidents de sécurité avec mobilisation rapide de l'équipe.",
           "phase": "Phase de Tri",
           "sla": "SLA de Tri"
         }
       },
       "infrastructure": {
-        "description": "Description de infrastructure",
+        "description": "Contrôles de sécurité physiques et réseau protégeant les centres de données, les stations d'atterrissage de câbles sous-marins et les installations opérationnelles.",
         "label": "Infrastructure",
         "network": {
           "ddos": {
-            "desc": "Description de ddos",
+            "desc": "Atténuation DDoS multicouche avec une capacité dépassant 10 Tbps, protégeant tous les points de terminaison clients.",
             "label": "DDoS"
           },
           "microSegmentation": {
-            "desc": "Description de micro-segmentation",
+            "desc": "Micro-segmentation réseau pour une sécurité zéro confiance entre tous les composants d'infrastructure.",
             "label": "Micro-segmentation"
           },
           "submarine": {
-            "desc": "Description de câble sous-marin",
+            "desc": "Sécurité dédiée des câbles sous-marins avec canaux optiques chiffrés et protection physique des stations d'atterrissage.",
             "label": "Câble sous-marin"
           },
           "title": "Réseau",
           "waf": {
-            "desc": "Description de waf",
+            "desc": "Pare-feu d'application web avec des ensembles de règles alimentés par l'IA protégeant contre le Top 10 OWASP et les menaces zero-day.",
             "label": "WAF"
           }
         },
         "physical": {
           "accessControl": {
-            "desc": "Description de contrôle d'accès",
+            "desc": "Contrôle d'accès basé sur les rôles avec permissions granulaires sur tous les services et hubs HarchOS.",
             "label": "Contrôle d'accès"
           },
           "environmental": {
@@ -14191,11 +14365,11 @@
             "label": "Environnemental"
           },
           "personnel": {
-            "desc": "Description de personnel",
+            "desc": "Personnel de sécurité vérifié avec contrôle d'accès biométrique et surveillance 24h/24 dans toutes les installations.",
             "label": "Personnel"
           },
           "surveillance": {
-            "desc": "Description de surveillance",
+            "desc": "Couverture CCTV complète avec détection d'anomalies par IA, détection d'intrusion périmétrique et imagerie thermique.",
             "label": "Surveillance"
           },
           "title": "Physique"
@@ -14236,7 +14410,7 @@
         "title": "Politiques",
         "description": "Politiques de sécurité et conformité documentees et accessibles."
       },
-      "activeCertifications": "Conformité Active Certifications",
+      "activeCertifications": "Certifications actives",
       "auditReports": {
         "bcTest": {
           "auditor": "Auditeur test de continuité",
@@ -14256,7 +14430,7 @@
           "period": "Période d'enregistrement CNPD",
           "type": "Type d'enregistrement CNPD"
         },
-        "description": "Description de rapports d'audit",
+        "description": "Rapports d'audit détaillés avec conclusions, recommandations et suivi des corrections pour toutes les opérations d'infrastructure.",
         "gdprDpia": {
           "auditor": "Auditeur DPIA RGPD",
           "name": "Gdpr Dpia Name",
@@ -14293,65 +14467,65 @@
       "auditorLabel": "Auditeur de conformité",
       "certifications": {
         "ccpa": {
-          "description": "Description de ccpa",
+          "description": "Conformité complète au California Consumer Privacy Act, garantissant les droits des consommateurs sur leurs données et la transparence.",
           "fullName": "Ccpa Full Name",
           "scope": "Portée Ccpa"
         },
         "csaStar": {
-          "description": "Description de csa star",
+          "description": "Certification CSA STAR démontrant notre engagement envers les meilleures pratiques de sécurité cloud.",
           "fullName": "Nom complet Csa Star",
           "scope": "Portée Csa Star"
         },
-        "description": "Description de certifications",
+        "description": "Certifications internationalement reconnues validant notre engagement envers la sécurité, la vie privée et l'excellence opérationnelle.",
         "fedramp": {
-          "description": "Description de fedramp",
+          "description": "Autorisation du Federal Risk and Authorization Management Program pour les services cloud gouvernementaux.",
           "fullName": "Fedramp Full Name",
           "scope": "Portée Fedramp"
         },
         "gdpr": {
-          "description": "Description de rgpd",
+          "description": "Conformité complète au Règlement Général sur la Protection des Données pour les normes européennes de protection des données.",
           "fullName": "Gdpr Full Name",
           "scope": "Portée RGPD"
         },
         "hitrust": {
-          "description": "Description de hitrust",
+          "description": "Certification HITRUST CSF démontrant la sécurité des données de santé et la préparation à la conformité.",
           "fullName": "Hitrust Full Name",
           "scope": "Portée Hitrust"
         },
         "iso22301": {
-          "description": "Description de iso 22301",
+          "description": "Certification ISO 22301 pour les systèmes de management de la continuité d'activité garantissant la résilience opérationnelle.",
           "fullName": "Nom complet Iso22301",
           "scope": "Portée Iso22301"
         },
         "iso27001": {
-          "description": "Description de iso 27001",
+          "description": "Certification ISO 27001 pour les systèmes de management de la sécurité de l'information dans toutes les opérations.",
           "fullName": "Nom complet Iso27001",
           "scope": "Portée Iso27001"
         },
         "iso27017": {
-          "description": "Description de iso 27017",
+          "description": "Certification ISO 27017 pour les contrôles de sécurité de l'information spécifiques au cloud et les meilleures pratiques.",
           "fullName": "Nom complet Iso27017",
           "scope": "Périmètre Iso27017"
         },
         "iso27018": {
-          "description": "Description de iso 27018",
+          "description": "Certification ISO 27018 pour la protection des informations personnellement identifiables dans les clouds publics.",
           "fullName": "Nom complet Iso27018",
           "scope": "Périmètre Iso27018"
         },
         "label": "Certifications",
         "moroccanDpa": {
           "auditor": "Auditeur DPA marocain",
-          "description": "Description de dpa marocaine",
+          "description": "Conformité aux réglementations de l'autorité marocaine de protection des données (CNDP) pour la résidence souveraine des données.",
           "fullName": "Nom complet DPA marocain",
           "scope": "Périmètre DPA marocain"
         },
         "pciDss": {
-          "description": "Description de pci dss",
+          "description": "Conformité PCI DSS pour le traitement sécurisé des paiements dans toute l'infrastructure financière.",
           "fullName": "Nom complet PCI DSS",
           "scope": "Périmètre PCI DSS"
         },
         "soc2": {
-          "description": "Description de soc 2",
+          "description": "Attestation SOC 2 Type II démontrant des contrôles robustes pour la sécurité, la disponibilité et la confidentialité.",
           "fullName": "Nom complet SOC2",
           "scope": "Périmètre SOC2"
         },
@@ -14364,7 +14538,7 @@
         "title": "Commencer"
       },
       "dpa": {
-        "description": "Description de dpa",
+        "description": "Accords de traitement des données garantissant la gestion conforme des données personnelles à travers tous les niveaux de service.",
         "downloadPdf": "Dpa Télécharger Pdf",
         "feature1": "Fonctionnalité DPA 1",
         "feature2": "Fonctionnalité DPA 2",
@@ -14400,28 +14574,28 @@
       "lastAuditLabel": "Dernier audit de conformité",
       "ongoing": "Conformité Ongoing",
       "pending": "Conformité Pending",
-      "regionEU": "Compliance Région Eu",
-      "regionGlobal": "Compliance Région Global",
+      "regionEU": "Conformité Région UE",
+      "regionGlobal": "Conformité Région Mondiale",
       "regionLabel": "Région de conformité",
-      "regionMorocco": "Compliance Région Morocco",
-      "regionUS": "Compliance Région Us",
-      "regionalPrograms": "Compliance Régional Programs",
+      "regionMorocco": "Conformité Région Maroc",
+      "regionUS": "Conformité Région États-Unis",
+      "regionalPrograms": "Programmes de conformité régionaux",
       "regions": {
         "africa": {
           "cert1": "Afrique Cert1",
           "cert2": "Afrique Cert2",
           "cert3": "Afrique Cert3",
           "cert4": "Afrique Cert4",
-          "description": "Description de afrique",
+          "description": "Conformité aux cadres de protection des données de l'Union Africaine et aux réglementations nationales de souveraineté des données dans les marchés d'exploitation.",
           "name": "Africa Name"
         },
-        "description": "Description des régions",
+        "description": "Cadres de conformité régionaux garantissant la résidence des données et l'adhésion réglementaire dans toutes les juridictions d'exploitation.",
         "eu": {
           "cert1": "Certification UE 1",
           "cert2": "Certification UE 2",
           "cert3": "Certification UE 3",
           "cert4": "Certification UE 4",
-          "description": "Description de ue",
+          "description": "Conformité complète au RGPD avec les normes européennes de protection des données, les garanties de transfert transfrontalier et les droits des personnes concernées.",
           "name": "Eu Name"
         },
         "global": {
@@ -14429,7 +14603,7 @@
           "cert2": "Certification Globale 2",
           "cert3": "Certification Globale 3",
           "cert4": "Certification Globale 4",
-          "description": "Description de mondial",
+          "description": "Normes de conformité internationales incluant les certifications ISO, SOC 2 et les cadres réglementaires spécifiques à l'industrie.",
           "name": "Global Name"
         },
         "morocco": {
@@ -14437,7 +14611,7 @@
           "cert2": "Maroc Cert2",
           "cert3": "Maroc Cert3",
           "cert4": "Maroc Cert4",
-          "description": "Description de maroc",
+          "description": "Conformité à la loi marocaine sur la protection des données (CNDP), aux réglementations de l'ANRT et aux exigences de résidence souveraine des données.",
           "name": "Morocco Name"
         },
         "title": "Régions"
@@ -14449,35 +14623,35 @@
       "title": "Éthique IA",
       "description": "Principes éthiques pour le développement et le déploiement de l'IA souveraine.",
       "principles": {
-        "description": "Description de principes",
+        "description": "Principes fondamentaux régissant le développement et le déploiement éthique de l'IA dans toutes les opérations et filiales de Harch Corp.",
         "fairness": {
           "commitment": "Engagement en faveur de l'équité",
-          "desc": "Description de équité",
+          "desc": "Tous les modèles IA sont évalués pour l'équité démographique et des résultats équitables avant et après le déploiement.",
           "title": "Équité"
         },
         "humanOversight": {
           "commitment": "Engagement en faveur de la supervision humaine",
-          "desc": "Description de supervision humaine",
+          "desc": "Supervision humaine dans la boucle pour les décisions IA critiques garantissant responsabilité et transparence.",
           "title": "Supervision humaine"
         },
         "label": "Principes",
         "privacy": {
-          "commitment": "Confidentialité Commitment",
-          "desc": "Description de confidentialité",
+          "commitment": "Engagement en faveur de la confidentialité",
+          "desc": "L'architecture de la protection de la vie privée dès la conception garantit la protection des données personnelles tout au long du cycle de vie de l'IA.",
           "title": "Confidentialité"
         },
         "socialBenefit": {
           "commitment": "Engagement en faveur du bénéfice social",
-          "desc": "Description de bénéfice social",
+          "desc": "Des bénéfices sociaux mesurables incluant la création d'emplois, le développement communautaire et la formation professionnelle.",
           "title": "Bénéfice social"
         },
         "title": "Principes",
         "transparency": {
           "commitment": "Engagement en faveur de la transparence",
-          "desc": "Description de transparence",
+          "desc": "Tous les processus de décision de l'IA sont documentés, auditables et explicables pour les parties prenantes et les régulateurs.",
           "title": "Transparence"
         },
-        "principleOf": "Principle {current} de {total}"
+        "principleOf": "Principe {current} sur {total}"
       },
       "governance": {
         "title": "Gouvernance",
@@ -14495,28 +14669,28 @@
       "biasIncidents": "Incidents de biais",
       "biasTesting": {
         "adversarial": {
-          "desc": "Description de attaques adversariales",
+          "desc": "Cadre de test adversarial pour détecter les vulnérabilités des modèles et assurer la robustesse face aux cas limites et aux manipulations.",
           "frequency": "Fréquence adversariale",
           "title": "Attaques adversariales"
         },
         "communityFeedback": {
-          "desc": "Description de retours de la communauté",
-          "frequency": "Communauté Feedback Frequency",
+          "desc": "Mécanismes de retour d'information communautaires qui façonnent le développement des produits et les améliorations de la plateforme.",
+          "frequency": "Fréquence des retours de la communauté",
           "title": "Retours de la communauté"
         },
         "continuousMonitoring": {
-          "desc": "Description de surveillance continue",
-          "frequency": "Continuous Surveillance Frequency",
+          "desc": "Surveillance 24h/24, 7j/7 de toute l'infrastructure avec détection d'anomalies par IA et alertes automatisées.",
+          "frequency": "Fréquence de surveillance continue",
           "title": "Surveillance continue"
         },
         "preDeployment": {
-          "desc": "Description de pré-déploiement",
-          "frequency": "Pre Déploiement Frequency",
+          "desc": "Évaluation de sécurité pré-déploiement et validation de conformité avant la mise en service de l'infrastructure.",
+          "frequency": "Fréquence de pré-déploiement",
           "title": "Pré-déploiement"
         },
         "statusActive": "Statut du test de biais actif",
         "thirdParty": {
-          "desc": "Description de tiers",
+          "desc": "Gestion des risques tiers avec évaluations des fournisseurs, audits de la chaîne d'approvisionnement et surveillance de la conformité.",
           "frequency": "Fréquence des tiers",
           "title": "Tiers"
         }
@@ -14538,7 +14712,7 @@
         "criticalBiasIncidents": "Incidents de biais critiques",
         "dataSheetsPublished": "Fiches de données publiées",
         "demographicParity": "Parité démographique",
-        "description": "Description de tableau de bord",
+        "description": "Tableau de bord de surveillance en temps réel pour l'équité des modèles IA, les métriques de biais et la conformité éthique de tous les systèmes déployés.",
         "detailedMetrics": "Métriques détaillées",
         "differentialPrivacy": "Confidentialité différentielle",
         "dpaComplianceScore": "Score de conformité DPA",
@@ -14562,7 +14736,7 @@
       "explainabilityReports": "Rapports d'explicabilité",
       "exploreFramework": "Explorer le cadre éthique",
       "fairness": {
-        "description": "Description de équité",
+        "description": "Cadre d'évaluation de l'équité garantissant des résultats équitables entre les groupes démographiques dans toutes les décisions pilotées par l'IA.",
         "frequencyLabel": "Fréquence d'audit d'équité",
         "label": "Équité",
         "title": "Équité"
@@ -14572,23 +14746,23 @@
       "heroTitle": "Éthique de l'IA et IA Responsable",
       "modelTransparency": "Transparence du modèle",
       "oversight": {
-        "description": "Description de surveillance",
+        "description": "Cadre de surveillance à plusieurs niveaux avec comités de révision indépendants, vérifications de conformité automatisées et validation humaine dans la boucle.",
         "exampleApplications": "Exemples d'applications de supervision",
         "label": "Surveillance",
         "level1": {
-          "desc": "Description de niveau 1",
+          "desc": "Surveillance automatisée avec détection de biais en temps réel, notation d'équité et alertes d'anomalie pour tous les modèles en production.",
           "examples": "Exemples Niveau 1",
           "label": "Niveau 1",
           "title": "Niveau 1 — Basique"
         },
         "level2": {
-          "desc": "Description de niveau 2",
+          "desc": "Révision humaine des décisions signalées, audits d'équité hebdomadaires et évaluation par le comité d'éthique interfonctionnel.",
           "examples": "Exemples Niveau 2",
           "label": "Niveau 2",
           "title": "Niveau 2 — Intermédiaire"
         },
         "level3": {
-          "desc": "Description de niveau 3",
+          "desc": "Révision éthique au niveau du conseil pour les décisions à fort impact, évaluation par un auditeur externe et rapports réglementaires.",
           "examples": "Exemples Niveau 3",
           "label": "Niveau 3",
           "title": "Niveau 3 — Avancé"
@@ -14599,66 +14773,66 @@
       "responsibleAI": "IA responsable",
       "reviewBoard": {
         "authority": {
-          "description": "Description de autorité",
+          "description": "Le comité de révision indépendant a l'autorité de suspendre les déploiements IA, d'imposer des modifications et de rendre compte directement au conseil d'administration.",
           "halted": "Autorité suspendue",
           "modified": "Autorité modifiée",
           "reviews": "Examens de l'autorité",
           "title": "Autorité"
         },
         "chiefEthicsOfficer": {
-          "desc": "Description de directeur de l'éthique",
+          "desc": "Direction de l'éthique responsable de la supervision des politiques d'éthique IA et de la gouvernance responsable.",
           "role": "Rôle de Directeur de l'Éthique",
           "title": "Directeur de l'éthique"
         },
         "communityRep": {
-          "desc": "Description de représentant communautaire",
-          "role": "Communauté Rep Role",
+          "desc": "Représentants communautaires dédiés qui défendent les besoins des utilisateurs et facilitent l'engagement.",
+          "role": "Rôle de représentant communautaire",
           "title": "Représentant communautaire"
         },
-        "description": "Description de comité de révision",
+        "description": "Comité de révision indépendant assurant la supervision des décisions en matière d'éthique IA, de sécurité et de conformité.",
         "externalAdvisor": {
-          "desc": "Description de conseiller externe",
+          "desc": "Conseillers externes indépendants fournissant des orientations stratégiques et une supervision pour les opérations de Harch.",
           "role": "Rôle de Conseiller Externe",
           "title": "Conseiller externe"
         },
         "headOfResearch": {
-          "desc": "Description de directeur de la recherche",
+          "desc": "Direction de la recherche overseeing l'innovation technique et l'avancement scientifique au sein de Harch Corp.",
           "role": "Head Of Recherche Role",
           "title": "Directeur de la recherche"
         },
         "label": "Comité de révision",
         "legalLead": {
-          "desc": "Description de responsable juridique",
+          "desc": "Direction juridique supervisant la conformité réglementaire, les contrats et la gouvernance souveraine des données.",
           "role": "Rôle de Responsable Juridique",
           "title": "Responsable juridique"
         },
         "privacyOfficer": {
-          "desc": "Description de délégué à la protection des données",
-          "role": "Confidentialité Officer Role",
+          "desc": "Délégué à la protection des données supervisant la conformité en matière de protection des données et la gestion des droits des utilisateurs.",
+          "role": "Rôle de délégué à la protection des données",
           "title": "Délégué à la protection des données"
         },
         "title": "Comité de révision"
       },
       "transparency": {
         "auditTrails": {
-          "desc": "Description de pistes d'audit",
+          "desc": "Pistes d'audit complètes pour chaque action, décision et changement sur la plateforme HarchOS avec journalisation immuable.",
           "status": "Statut des pistes d'audit",
           "title": "Pistes d'audit"
         },
         "dataSheets": {
-          "desc": "Description de fiches de données",
+          "desc": "Fiches techniques avec spécifications, métriques de performance et détails de conformité pour tous les produits Harch.",
           "status": "Statut des fiches techniques",
           "title": "Fiches de données"
         },
-        "description": "Description de transparence",
+        "description": "Cadre de transparence complet garantissant que toutes les opérations IA sont explicables, auditables et responsables.",
         "explainability": {
-          "desc": "Description de explicabilité",
+          "desc": "Outils d'explicabilité des modèles fournissant des résultats interprétables et des rationales de décision pour tous les résultats pilotés par l'IA.",
           "status": "Statut de l'explicabilité",
           "title": "Explicabilité"
         },
         "label": "Transparence",
         "modelCards": {
-          "desc": "Description de fiches de modèles",
+          "desc": "Documentation de transparence pour tous les modèles IA incluant les données d'entraînement, les métriques de performance et les évaluations de biais.",
           "status": "Statut des fiches de modèle",
           "title": "Fiches de modèles"
         },
@@ -14718,7 +14892,7 @@
           "reward": "Récompense critique",
           "severity": "Gravité critique"
         },
-        "description": "Description de prime de vulnérabilité",
+        "description": "Programme de divulgation responsable récompensant les chercheurs en sécurité pour la découverte et le signalement de vulnérabilités dans les systèmes Harch Corp.",
         "examplesLabel": "Exemples de primes",
         "hallOfFame": "Bounty Hall De Fame",
         "high": {
@@ -14748,12 +14922,12 @@
       },
       "fullPolicy": "Vulnerability Full Politique",
       "helpUsTitle": "Aidez-nous — Vulnérabilités",
-      "heroDescription": "Description de vulnérabilité — en-tête",
+      "heroDescription": "Programme de divulgation et de gestion des vulnérabilités avec traitement responsable et communication transparente.",
       "heroTitle": "Vulnérabilité — En-tête",
       "hof": {
-        "awaitingDescription": "Description de hall of fame — en attente",
+        "awaitingDescription": "Soumissions au Panthéon en attente d'examen et de vérification par notre équipe de sécurité.",
         "awaitingTitle": "Hall of Fame — En attente",
-        "description": "Description de hall of fame",
+        "description": "Panthéon reconnaissant les chercheurs en sécurité qui ont contribué à renforcer l'infrastructure de Harch Corp.",
         "label": "HOF",
         "submitReport": "Hof Soumettre Report",
         "title": "Hall of Fame"
@@ -14761,7 +14935,7 @@
       "reportVulnerability": "Rapport de vulnérabilité",
       "reporting": {
         "step1": {
-          "description": "Description de étape 1",
+          "description": "Identifiez la vulnérabilité et rassemblez les détails techniques pertinents incluant les étapes de reproduction.",
           "detail1": "Étape1 Détail1",
           "detail2": "Étape1 Détail2",
           "detail3": "Étape1 Détail3",
@@ -14769,7 +14943,7 @@
           "title": "Étape 1"
         },
         "step2": {
-          "description": "Description de étape 2",
+          "description": "Soumettez un rapport détaillé via notre portail de divulgation responsable avec évaluation de l'impact.",
           "detail1": "Étape2 Détail1",
           "detail2": "Étape2 Détail2",
           "detail3": "Étape2 Détail3",
@@ -14777,7 +14951,7 @@
           "title": "Étape 2"
         },
         "step3": {
-          "description": "Description de étape 3",
+          "description": "Notre équipe de sécurité accuse réception et commence le triage dans les 24 heures.",
           "detail1": "Étape3 Détail1",
           "detail2": "Étape3 Détail2",
           "detail3": "Étape3 Détail3",
@@ -14785,7 +14959,7 @@
           "title": "Étape 3"
         },
         "step4": {
-          "description": "Description de étape 4",
+          "description": "Nous validons la découverte, développons un correctif et vous tenons informé de l'avancement de la remédiation.",
           "detail1": "Étape4 Détail1",
           "detail2": "Étape4 Détail2",
           "detail3": "Étape4 Détail3",
@@ -14793,7 +14967,7 @@
           "title": "Étape 4"
         },
         "step5": {
-          "description": "Description de étape 5",
+          "description": "Une fois corrigé, nous publions un avis et attribuons la prime en fonction de la gravité et de l'impact.",
           "detail1": "Étape5 Détail1",
           "detail2": "Étape5 Détail2",
           "detail3": "Étape5 Détail3",
@@ -14802,43 +14976,43 @@
         }
       },
       "rules": {
-        "description": "Description de règles",
+        "description": "Règles d'engagement pour la divulgation responsable des vulnérabilités dans les systèmes Harch Corp.",
         "goodFaith": {
-          "desc": "Description de bonne foi",
+          "desc": "Notre engagement envers la recherche en sécurité de bonne foi et la divulgation responsable des vulnérabilités.",
           "title": "Bonne foi"
         },
         "label": "Règles",
         "noExtortion": {
-          "desc": "Description de pas d'extorsion",
+          "desc": "Notre politique stricte de non-extorsion garantissant des pratiques commerciales éthiques dans toutes les opérations.",
           "title": "Pas d'extorsion"
         },
         "noPublicDisclosure": {
-          "desc": "Description de pas de divulgation publique",
+          "desc": "Interdiction de divulgation publique avant que le correctif ne soit déployé et l'avis publié.",
           "title": "Pas de divulgation publique"
         },
         "oneReport": {
-          "desc": "Description de rapport unique",
+          "desc": "Cadre de rapport unifié combinant les métriques financières, ESG et opérationnelles en un seul rapport complet.",
           "title": "Rapport unique"
         },
         "preserveEvidence": {
-          "desc": "Description de préserver les preuves",
+          "desc": "Protocoles de préservation des preuves garantissant l'intégrité forensique pour les enquêtes de sécurité.",
           "title": "Préserver les preuves"
         },
         "responsibleTesting": {
-          "desc": "Description de tests responsables",
+          "desc": "Pratiques de test IA responsables avec détection des biais, évaluation de l'équité et validation de la sécurité.",
           "title": "Tests responsables"
         },
         "title": "Règles"
       },
-      "step1Desc": "Description Étape1 Vulnérabilité",
+      "step1Desc": "Identifiez la vulnérabilité et rassemblez les détails techniques pertinents.",
       "step1Title": "Vulnérabilité — Étape 1",
-      "step2Desc": "Description Étape2 Vulnérabilité",
+      "step2Desc": "Soumettez un rapport détaillé via notre portail de divulgation responsable.",
       "step2Title": "Vulnérabilité — Étape 2",
-      "step3Desc": "Description Étape3 Vulnérabilité",
+      "step3Desc": "Notre équipe accuse réception et commence le triage dans les 24 heures.",
       "step3Title": "Vulnérabilité — Étape 3",
-      "step4Desc": "Description Étape4 Vulnérabilité",
+      "step4Desc": "Nous validons la découverte et développons un correctif en vous tenant informé.",
       "step4Title": "Vulnérabilité — Étape 4",
-      "step5Desc": "Description Étape5 Vulnérabilité",
+      "step5Desc": "Une fois corrigé, nous publions un avis et attribuons la prime.",
       "step5Title": "Vulnérabilité — Étape 5"
     },
     "applicationConfigLayer": "Couche de configuration applicative",
@@ -14886,96 +15060,96 @@
       }
     },
     "certifiedAuditedVerified": "Certifié Audité Vérifié",
-    "complianceDescription": "Description de conformité",
+    "complianceDescription": "Conformité réglementaire complète avec des certifications internationales et des exigences régionales de souveraineté des données.",
     "ctaDescription": "La sécurité et la confiance sont au cœur de tout ce que nous construisons.",
     "ctaTitle": "Confiance",
     "customerSecures": "Le client sécurise",
-    "dataPrivacy": "Data Confidentialité",
-    "dataPrivacyDescription": "Description de confidentialité des données",
+    "dataPrivacy": "Confidentialité des données",
+    "dataPrivacyDescription": "Protection complète de la vie privée des données avec conformité au RGPD et garanties de résidence souveraine des données.",
     "dataPrivacyItems": {
       "africanFramework": {
-        "desc": "Description de cadre africain",
+        "desc": "Nos opérations sont guidées par les cadres réglementaires africains et les normes continentales pour l'infrastructure souveraine.",
         "title": "Cadre africain"
       },
       "consent": {
-        "desc": "Description de consentement",
+        "desc": "Gestion granulaire du consentement avec des mécanismes d'adhésion clairs, des options de retrait de consentement et des divulgations détaillées du traitement.",
         "title": "Consentement"
       },
       "crossBorder": {
-        "desc": "Description de transfrontalier",
+        "desc": "Opérations d'infrastructure transfrontalières avec conformité réglementaire garantie et souveraineté des données.",
         "title": "Transfrontalier"
       },
       "dpa": {
-        "desc": "Description de dpa",
+        "desc": "Accords de traitement des données complets avec tous les sous-traitants, garantissant des garanties contractuelles de protection des données.",
         "title": "Délégation de protection des données"
       },
       "residency": {
-        "desc": "Description de résidence des données",
+        "desc": "Toutes les données stockées et traitées sur le territoire marocain sans transferts transfrontaliers sans autorisation explicite.",
         "title": "Résidence des données"
       },
       "subjectRights": {
-        "desc": "Description de droits des personnes",
+        "desc": "Gestion des droits des personnes concernées incluant les demandes d'accès, de rectification, d'effacement et de portabilité.",
         "title": "Droits des personnes"
       }
     },
     "dataPrivacyTitle": "Confidentialité des données",
     "defenseInDepth": "Defense En Depth",
-    "description": "Description",
+    "description": "Documentation complète pour HarchOS — le système d'exploitation pour l'infrastructure souveraine.",
     "harchCorpSecures": "Harch Corp sécurise",
     "infrastructurePlatformLayer": "Couche d'infrastructure plateforme",
     "learnMore": "Apprendre More",
     "requestBriefing": "Demander Briefing",
     "securityLayers": {
       "application": {
-        "desc": "Description de candidature",
+        "desc": "Soumettez votre candidature avec vos références et votre expérience opérationnelle.",
         "name": "Application Name"
       },
       "data": {
-        "desc": "Description de données",
-        "name": "Data Name"
+        "desc": "Chiffrement AES-256 au repos, TLS 1.3 en transit et gestion des clés soutenue par HSM avec rotation automatisée.",
+        "name": "Couche de données"
       },
       "identity": {
-        "desc": "Description de identité",
+        "desc": "Authentification multifacteur, RBAC, SSO et gestion des accès privilégiés sur tous les systèmes.",
         "name": "Identity Name"
       },
       "monitoring": {
-        "desc": "Description de surveillance",
+        "desc": "SOC 24h/24 avec SIEM, renseignement sur les menaces et réponse automatisée aux incidents sur toute l'infrastructure.",
         "name": "Monitoring Name"
       },
       "network": {
-        "desc": "Description de réseau",
+        "desc": "Atténuation DDoS, WAF, chiffrement des câbles sous-marins et segmentation réseau avec architecture zéro confiance.",
         "name": "Network Name"
       },
       "physical": {
-        "desc": "Description de physique",
+        "desc": "Accès biométrique, surveillance 24h/24 et sécurité périmétrique dans toutes les installations de centres de données au Maroc.",
         "name": "Physical Name"
       },
       "platform": {
-        "desc": "Description de plateforme",
+        "desc": "Pipelines CI/CD sécurisés, durcissement des conteneurs et protection à l'exécution pour les services de la plateforme HarchOS.",
         "name": "Platform Name"
       }
     },
-    "securityLayersDescription": "Description de couches de sécurité",
+    "securityLayersDescription": "Architecture de sécurité multicouche avec défense en profondeur sur tous les composants d'infrastructure.",
     "securityLayersTitle": "Couches de sécurité",
     "securityOverview": {
       "accessControl": {
-        "desc": "Description de contrôle d'accès",
+        "desc": "Contrôle d'accès basé sur les rôles avec permissions granulaires sur tous les services et hubs HarchOS.",
         "title": "Contrôle d'accès"
       },
       "dataProtection": {
-        "desc": "Description de protection des données",
+        "desc": "Protection des données de bout en bout avec chiffrement AES-256 et contrôles d'accès zéro confiance.",
         "title": "Protection des données"
       },
       "incidentResponse": {
-        "desc": "Description de réponse aux incidents",
+        "desc": "Réponse aux incidents rapide avec détection par IA, remédiation automatisée et surveillance SOC 24h/24, 7j/7.",
         "title": "Réponse aux incidents"
       },
       "infrastructure": {
-        "desc": "Description de infrastructure",
+        "desc": "Contrôles de sécurité physiques et réseau protégeant les centres de données et les installations opérationnelles au Maroc.",
         "title": "Infrastructure"
       }
     },
-    "securityOverviewDescription": "Description de aperçu sécurité",
+    "securityOverviewDescription": "Aperçu complet de la sécurité couvrant la détection des menaces, la réponse aux incidents et la surveillance de la conformité.",
     "sharedResponsibility": {
       "customer": {
         "accessManagement": "Gestion des accès",
@@ -14984,8 +15158,8 @@
         "auditLogReview": "Examen des journaux d'audit",
         "customerKeys": "Clés gérées par le client",
         "dataClassification": "Classification des données",
-        "thirdPartySecurity": "Third-Party Sécurité",
-        "title": "Description de responsabilité partagée",
+        "thirdPartySecurity": "Sécurité tiers",
+        "title": "Modèle de responsabilité partagée définissant les obligations de sécurité entre Harch et nos clients.",
         "workloadHardening": "Renforcement de la charge de travail"
       },
       "harch": {
@@ -15002,13 +15176,13 @@
       },
       "title": "Responsabilité partagée"
     },
-    "sharedResponsibilityDescription": "Description de responsabilité partagée",
+    "sharedResponsibilityDescription": "Modèle de responsabilité partagée définissant les obligations de sécurité entre Harch et nos clients.",
     "sharedResponsibilityTitle": "Responsabilité partagée",
     "statusAchieved": "Statut atteint",
     "statusInProgress": "En cours",
     "statusPlanned": "Planifié",
     "transparency": {
-      "downloadReport": "Transparency Télécharger Report",
+      "downloadReport": "Télécharger le rapport de transparence",
       "governmentRequests": "Transparency Gouvernement Requests",
       "governmentRequestsValue": "Transparency Gouvernement Requests Value",
       "latest": "Transparence récente",
@@ -15033,13 +15207,13 @@
         "date": "Date du rapport T4",
         "release": "Publication du rapport T4"
       },
-      "securityIncidents": "Transparency Sécurité Incidents",
-      "securityIncidentsValue": "Transparency Sécurité Incidents Value",
+      "securityIncidents": "Incidents de sécurité",
+      "securityIncidentsValue": "Valeur des incidents de sécurité",
       "title": "Transparence",
       "uptimeSla": "Transparence SLA de disponibilité",
       "uptimeSlaValue": "Valeur du SLA de disponibilité"
     },
-    "transparencyReportDescription": "Description de rapport de transparence",
+    "transparencyReportDescription": "Rapport de transparence annuel divulguant les demandes gouvernementales, l'accès aux données et les actions de conformité.",
     "transparencyReportTitle": "Rapport de transparence",
     "viewAllCompliance": "Voir tout Conformité"
   },
@@ -16021,7 +16195,7 @@
       },
       "metricCards": {
         "desalOutput": "Production dessalement",
-        "qualityScore": "Score qualité",
+        "qualityScore": "Score de qualité",
         "lossRate": "Taux de perte",
         "coverage": "Couverture"
       },
@@ -16427,7 +16601,7 @@
                 "description": "Ventilations transparentes des coûts par type de GPU, niveau d'utilisation et durée de tâche. Calculatrices d'économies sur instances réservées, historique des prix spot et alertes budgétaires. Données de facturation exportables dans des formats standards pour l'intégration avec les systèmes d'approvisionnement."
               },
               "3": {
-                "title": "Alerte et Réponse aux Incidents",
+                "title": "Alerte et réponse aux incidents",
                 "description": "Politiques d'alerte configurables avec notification multi-canal — e-mail, webhook, intégration PagerDuty. Chronologies d'incidents automatisées, agrégation de logs corrélés et chemins de remédiation suggérés réduisent le temps moyen de résolution."
               }
             },
@@ -17212,7 +17386,7 @@
         "description": "Pipeline d'intelligence artificielle et d'analyse prédictive"
       },
       "dataVaultStorage": {
-        "name": "DataVault Storage",
+        "name": "Stockage DataVault",
         "description": "Stockage souverain des données avec chiffrement de bout en bout"
       },
       "sovereignNetVpn": {

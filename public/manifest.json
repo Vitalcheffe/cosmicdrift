@@ -1,6 +1,6 @@
 {
-  "name": "Harch Corp — Africa's Sovereign Infrastructure OS",
-  "short_name": "HarchCorp",
+  "name": "Harch Corp",
+  "short_name": "Harch Corp",
   "description": "Moroccan industrial conglomerate building Africa's industrial sovereignty across 8 verticals: AI data centers, renewable energy, cement, technology, mining, agriculture, water, and finance.",
   "start_url": "/",
   "display": "standalone",
@@ -10,7 +10,12 @@
   "scope": "/",
   "lang": "en",
   "dir": "ltr",
-  "categories": ["business", "finance", "technology", "industrial"],
+  "categories": [
+    "business",
+    "finance",
+    "technology",
+    "industrial"
+  ],
   "icons": [
     {
       "src": "/favicon.ico",

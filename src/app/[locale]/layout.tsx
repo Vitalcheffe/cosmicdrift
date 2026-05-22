@@ -360,7 +360,6 @@ export default async function LocaleLayout({
           "HarchCorp",
           "Harch Corp S.A.",
           "Harch Corporation",
-          "harchcorp.com",
         ],
         publisher: { "@id": "https://www.harchcorp.com/#organization" },
         inLanguage: ["en", "fr"],

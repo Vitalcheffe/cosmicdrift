@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, ChevronDown, PanelLeftClose } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { HarchLogo } from '@/components/HarchLogo';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -199,20 +199,7 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Toggle button — slides from top-left to sidebar edge when open */}
-      <button
-        onClick={toggleSidebar}
-        style={{ left: isOpen ? 280 : 16 }}
-        className="fixed top-5 z-50 w-9 h-9 flex items-center justify-center bg-[#111111]/90 backdrop-blur-md border border-[rgba(255,255,255,0.08)] rounded-lg shadow-lg touch-manipulation transition-all duration-300 ease-out hover:bg-[#111111] hover:border-[rgba(255,255,255,0.15)]"
-        aria-label={isOpen ? t('closeNav') : t('openNav')}
-        aria-expanded={isOpen}
-      >
-        {isOpen ? (
-          <PanelLeftClose size={16} strokeWidth={1.5} className="text-[rgba(255,255,255,0.5)]" />
-        ) : (
-          <Menu size={16} strokeWidth={1.5} className="text-white" />
-        )}
-      </button>
+
 
       {/* Overlay — when sidebar is open */}
       <AnimatePresence>

@@ -29,64 +29,66 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { FadeIn } from '@/components/ui/motion';
 
-const verticals = [
+function getVerticals(t: ReturnType<typeof useTranslations<'quote'>>) {
+  return [
   {
     id: 'intelligence',
     icon: Server,
     version: '/0.1',
-    stat: '1,798 GPUs',
+    stat: t('step1.verticals.intelligence.stat'),
     capabilityKeys: ['step1.verticals.intelligence.capabilities.gpuClusters', 'step1.verticals.intelligence.capabilities.aiTraining', 'step1.verticals.intelligence.capabilities.inferenceScale', 'step1.verticals.intelligence.capabilities.sovereignCloud'],
   },
   {
     id: 'cement',
     icon: Factory,
     version: '/0.2',
-    stat: '500kT/yr',
+    stat: t('step1.verticals.cement.stat'),
     capabilityKeys: ['step1.verticals.cement.capabilities.clinkerProduction', 'step1.verticals.cement.capabilities.aiKilns', 'step1.verticals.cement.capabilities.regionalDistribution', 'step1.verticals.cement.capabilities.greenCement'],
   },
   {
     id: 'energy',
     icon: Zap,
     version: '/0.3',
-    stat: '2GW+',
+    stat: t('step1.verticals.energy.stat'),
     capabilityKeys: ['step1.verticals.energy.capabilities.solarFarms', 'step1.verticals.energy.capabilities.windTurbines', 'step1.verticals.energy.capabilities.hybridPlants', 'step1.verticals.energy.capabilities.gridIntegration'],
   },
   {
     id: 'technology',
     icon: Cpu,
     version: '/0.4',
-    stat: '1,798 GPUs',
+    stat: t('step1.verticals.technology.stat'),
     capabilityKeys: ['step1.verticals.technology.capabilities.groundStations', 'step1.verticals.technology.capabilities.satelliteComms', 'step1.verticals.technology.capabilities.edgeComputing', 'step1.verticals.technology.capabilities.iotPlatforms'],
   },
   {
     id: 'mining',
     icon: Mountain,
     version: '/0.5',
-    stat: '3 Minerals',
+    stat: t('step1.verticals.mining.stat'),
     capabilityKeys: ['step1.verticals.mining.capabilities.phosphateMining', 'step1.verticals.mining.capabilities.cobaltExtraction', 'step1.verticals.mining.capabilities.lithiumProcessing', 'step1.verticals.mining.capabilities.aiExploration'],
   },
   {
     id: 'agriculture',
     icon: Wheat,
     version: '/0.6',
-    stat: '$35B Market',
+    stat: t('step1.verticals.agriculture.stat'),
     capabilityKeys: ['step1.verticals.agriculture.capabilities.verticalFarms', 'step1.verticals.agriculture.capabilities.precisionAgri', 'step1.verticals.agriculture.capabilities.supplyChainAi', 'step1.verticals.agriculture.capabilities.foodProcessing'],
   },
   {
     id: 'water',
     icon: Droplets,
     version: '/0.7',
-    stat: '200M m\u00B3/yr',
+    stat: t('step1.verticals.water.stat'),
     capabilityKeys: ['step1.verticals.water.capabilities.desalination', 'step1.verticals.water.capabilities.waterTreatment', 'step1.verticals.water.capabilities.distributionNetworks', 'step1.verticals.water.capabilities.smartMetering'],
   },
   {
     id: 'finance',
     icon: Landmark,
     version: '/0.8',
-    stat: '$2.4B+',
+    stat: t('step1.verticals.finance.stat'),
     capabilityKeys: ['step1.verticals.finance.capabilities.projectFinance', 'step1.verticals.finance.capabilities.capitalAdvisory', 'step1.verticals.finance.capabilities.riskModeling', 'step1.verticals.finance.capabilities.islamicFinance'],
   },
-];
+  ];
+}
 
 const projectTypes: Record<string, { labelKey: string; exampleKeys: string[] }[]> = {
   intelligence: [
@@ -141,6 +143,7 @@ export default function QuotePageClient() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const t = useTranslations('quote');
+  const verticals = getVerticals(t);
   const tc = useTranslations('common');
 
   const [currentStep, setCurrentStep] = useState<Step>(1);

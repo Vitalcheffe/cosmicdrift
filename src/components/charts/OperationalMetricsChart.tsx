@@ -49,7 +49,7 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
 
   const units: Record<string, string> = {
     gpuUtil: '%',
-    renewableOutput: ' GWh',
+    renewableOutput: t('units.gwh'),
     carbonIntensity: ' gCO₂/kWh',
   };
 

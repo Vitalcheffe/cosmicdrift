@@ -766,7 +766,7 @@ export default function HarchOSPageClient() {
                             <div className="flex items-center justify-between mb-4">
                               <div className="flex items-center gap-2">
                                 <span className="text-[12px] font-semibold text-white">{t('workflow.video.pipelineBuilder')}</span>
-                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#8B5CF6]/10 text-[#8B5CF6] font-bold font-[family-name:var(--font-space-mono)]">LIVE</span>
+                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#8B5CF6]/10 text-[#8B5CF6] font-bold font-[family-name:var(--font-space-mono)]">{t('status.live')}</span>
                               </div>
                               <div className="flex items-center gap-3">
                                 <span className="text-[10px] text-[#555555] font-[family-name:var(--font-space-mono)]">{t('workflow.video.resources')}</span>
@@ -959,7 +959,7 @@ export default function HarchOSPageClient() {
                           <div className="flex-1 p-4">
                             <div className="flex items-center justify-between mb-4">
                               <span className="text-[12px] font-semibold text-white">{t('evaluate.video.monitoringDashboard')}</span>
-                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold font-[family-name:var(--font-space-mono)]">HEALTHY</span>
+                              <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold font-[family-name:var(--font-space-mono)]">{t('status.healthy')}</span>
                             </div>
                             {/* Metrics grid */}
                             <div className="grid grid-cols-3 gap-2 mb-3">

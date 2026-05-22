@@ -31,7 +31,7 @@ function EncryptedConnectionIndicator() {
       <Lock size={12} className="text-[#8B9DAF]" />
       <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{t('encrypted')}</span>
       <div className="w-px h-3 bg-[rgba(255,255,255,0.06)]" />
-      <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">AES-256</span>
+      <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{t('encryptionStandard')}</span>
       <div className="w-px h-3 bg-[rgba(255,255,255,0.06)]" />
       <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{formatTime(uptime)}</span>
     </div>
@@ -451,7 +451,7 @@ export default function ContactPageClient() {
                 <div className="card p-6">
                   <p className="section-label mb-4">{t('compliance.title')}</p>
                   <div className="flex flex-wrap gap-2">
-                    {['SOC 2 Type II', 'ISO 27001', 'GDPR', 'Moroccan DPA', 'AES-256', 'TLS 1.3'].map((badge) => (
+                    {[t('compliance.soc2TypeII'), t('compliance.iso27001'), t('compliance.gdpr'), t('compliance.moroccanDpa'), t('compliance.aes256'), t('compliance.tls13')].map((badge) => (
                       <span key={badge} className="px-3 py-1.5 bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] rounded text-[10px] font-semibold text-[#999999] tracking-wide">
                         {badge}
                       </span>

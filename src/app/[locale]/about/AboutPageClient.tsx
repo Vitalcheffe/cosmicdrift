@@ -49,7 +49,7 @@ export default function AboutPageClient() {
     <div className="bg-[#1A1A1A]">
       {/* Immersive Hero */}
       <ImmersiveHero
-        title="HARCH CORP"
+        title={t('heroTitle')}
         subtitle={t('subtitle')}
         version="/0.0"
         metaLabel={t('metaLabel')}

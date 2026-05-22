@@ -118,7 +118,8 @@
       "countries": "Countries",
       "jobsTarget": "Jobs Target"
     },
-    "operationsImageAlt": "Harch Corp Operations"
+    "operationsImageAlt": "Harch Corp Operations",
+    "heroTitle": "HARCH CORP"
   },
   "blog": {
     "allArticles": "All Articles",
@@ -604,7 +605,13 @@
     "errorRetry": "Retry",
     "notFoundTitle": "This page does not exist in our infrastructure.",
     "notFoundDescription": "The resource you requested could not be located. Return to the operations center.",
-    "notFoundRequestBriefing": "Request Briefing"
+    "notFoundRequestBriefing": "Request Briefing",
+    "more": "More",
+    "morePages": "More pages",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "toggleSidebar": "Toggle Sidebar",
+    "commandPalette": "Command Palette"
   },
   "community": {
     "champions": {
@@ -1097,7 +1104,12 @@
       "iso": "ISO 27001",
       "soc2": "SOC 2 Type II",
       "title": "Compliance & Security",
-      "dataSovereignty": "Data Sovereignty"
+      "dataSovereignty": "Data Sovereignty",
+      "soc2TypeII": "SOC 2 Type II",
+      "iso27001": "ISO 27001",
+      "moroccanDpa": "Moroccan DPA",
+      "aes256": "AES-256",
+      "tls13": "TLS 1.3"
     },
     "consultationTypes": {
       "government": {
@@ -1182,7 +1194,8 @@
       "security": "Security Overview",
       "compliance": "Compliance",
       "privacy": "Privacy Policy"
-    }
+    },
+    "encryptionStandard": "AES-256"
   },
   "cookieConsent": {
     "accept": "Accept all",
@@ -5239,6 +5252,10 @@
           "i12": "Security Whitepaper"
         }
       }
+    },
+    "status": {
+      "live": "LIVE",
+      "healthy": "HEALTHY"
     }
   },
   "hiringProcess": {
@@ -8497,7 +8514,8 @@
             "precisionAgri": "Precision Agri",
             "supplyChainAi": "Supply Chain AI",
             "foodProcessing": "Food Processing"
-          }
+          },
+          "stat": "$35B Market"
         },
         "cement": {
           "description": "Industrial cement production and construction materials",
@@ -8507,7 +8525,8 @@
             "aiKilns": "AI-Optimized Kilns",
             "regionalDistribution": "Regional Distribution",
             "greenCement": "Green Cement"
-          }
+          },
+          "stat": "500kT/yr"
         },
         "energy": {
           "description": "Renewable energy, green hydrogen, and energy storage",
@@ -8517,7 +8536,8 @@
             "windTurbines": "Wind Turbines",
             "hybridPlants": "Hybrid Plants",
             "gridIntegration": "Grid Integration"
-          }
+          },
+          "stat": "2GW+"
         },
         "finance": {
           "description": "Green bonds, project finance, and Islamic finance",
@@ -8527,7 +8547,8 @@
             "capitalAdvisory": "Capital Advisory",
             "riskModeling": "Risk Modeling",
             "islamicFinance": "Islamic Finance"
-          }
+          },
+          "stat": "$2.4B+"
         },
         "intelligence": {
           "description": "Carbon-aware GPU cloud and sovereign AI compute",
@@ -8537,7 +8558,8 @@
             "aiTraining": "AI Training",
             "inferenceScale": "Inference at Scale",
             "sovereignCloud": "Sovereign Cloud"
-          }
+          },
+          "stat": "1,798 GPUs"
         },
         "mining": {
           "description": "Strategic mineral extraction and processing",
@@ -8547,7 +8569,8 @@
             "cobaltExtraction": "Cobalt Extraction",
             "lithiumProcessing": "Lithium Processing",
             "aiExploration": "AI Exploration"
-          }
+          },
+          "stat": "3 Minerals"
         },
         "technology": {
           "description": "Cybersecurity, satellite communications, and sovereign tech stack",
@@ -8557,7 +8580,8 @@
             "satelliteComms": "Satellite Comms",
             "edgeComputing": "Edge Computing",
             "iotPlatforms": "IoT Platforms"
-          }
+          },
+          "stat": "1,798 GPUs"
         },
         "water": {
           "description": "Desalination and smart water networks",
@@ -8567,7 +8591,8 @@
             "waterTreatment": "Water Treatment",
             "distributionNetworks": "Distribution Networks",
             "smartMetering": "Smart Metering"
-          }
+          },
+          "stat": "200M m³/yr"
         }
       }
     },
@@ -10735,7 +10760,8 @@
             "Actions 5"
           ],
           "phase": "Phase 4",
-          "title": "Trade Finance Network"
+          "title": "Trade Finance Network",
+          "pipelineTarget": "$2.4B+"
         }
       },
       "roadmapLabel": "Roadmap",
@@ -10764,7 +10790,10 @@
       "strategicAdvantagesSubtitle": "Finance Strategic Advantages Subtitle",
       "strategicAdvantagesTitle": "Finance Strategic Advantages Title",
       "title": "Finance",
-      "tagline": "Operating System for Africa's Capital Formation"
+      "tagline": "Operating System for Africa's Capital Formation",
+      "imageAlt1": "Harch Finance — Financing Africa's Industrial Transformation",
+      "imageAlt2": "Harch Finance investment philosophy",
+      "imageAlt3": "Harch Finance corporate partnerships"
     },
     "heroMetaLabel": "Details",
     "heroSubtitle": "8 Verticals. A Sovereign Ecosystem.",
@@ -15398,6 +15427,10 @@
       "title": "Carbon Intensity Trend",
       "subtitle": "gCO₂/kWh over time vs global average",
       "globalAvg": "Global Avg 450"
+    },
+    "units": {
+      "gwh": " GWh",
+      "gco2kwh": " gCO₂/kWh"
     }
   },
   "harchagri": {
@@ -17452,5 +17485,18 @@
     "autoTranslation": "Automatic translation via Google",
     "viewIn": "View in",
     "dismiss": "English"
+  },
+  "rss": {
+    "blogFeed": "Harch Corp Blog RSS Feed",
+    "newsroomFeed": "Harch Corp Newsroom Feed"
+  },
+  "api": {
+    "errors": {
+      "nameRequired": "Name is required.",
+      "emailRequired": "A valid email address is required.",
+      "messageRequired": "Message is required.",
+      "consultationTypeRequired": "Consultation type is required.",
+      "invalidBody": "Invalid request body."
+    }
   }
 }

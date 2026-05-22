@@ -148,6 +148,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const messages = await getMessages();
   const tCommon = await getTranslations({ locale, namespace: 'common' });
+  const tRss = await getTranslations({ locale, namespace: 'rss' });
 
   // ═══ JSON-LD: Organization Schema ═══
   const schemaOrg = {
@@ -506,13 +507,13 @@ export default async function LocaleLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="Harch Corp Blog RSS Feed"
+          title={tRss("blogFeed")}
           href="https://www.harchcorp.com/feed.xml"
         />
         <link
           rel="alternate"
           type="application/atom+xml"
-          title="Harch Corp Newsroom Feed"
+          title={tRss("newsroomFeed")}
           href="https://www.harchcorp.com/feed.xml"
         />
         <meta name="theme-color" content="#0A0A0A" />

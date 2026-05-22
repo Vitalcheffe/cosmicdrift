@@ -287,7 +287,7 @@ const data = {
     },
     {
       phase: t('finance.roadmap.phase4.phase'), period: '2029-2031', title: t('finance.roadmap.phase4.title'),
-      pipelineTarget: '$2.4B+',
+      pipelineTarget: t('finance.roadmap.phase4.pipelineTarget'),
       actions: [
         t('finance.roadmap.phase4.actions.0'),
         t('finance.roadmap.phase4.actions.1'),
@@ -317,7 +317,7 @@ const data = {
       <section className="relative min-h-[85vh] flex items-end overflow-hidden">
         <Image
           src={data.heroImage}
-          alt="Harch Finance — Financing Africa's Industrial Transformation"
+          alt={t('finance.imageAlt1')}
           fill
           className="object-cover"
           priority
@@ -397,7 +397,7 @@ const data = {
             <div className="relative min-h-[45vh] lg:min-h-0 overflow-hidden">
               <Image
                 src="/images/sections/finance-trading.jpg"
-                alt="Harch Finance investment philosophy"
+                alt={t('finance.imageAlt2')}
                 fill
                 className="object-cover industrial-image"
               />
@@ -485,7 +485,7 @@ const data = {
       <ParallaxSection speed={0.2} className="photo-section">
         <Image
           src="/images/sections/finance-corporate.jpg"
-          alt="Harch Finance corporate partnerships"
+          alt={t('finance.imageAlt3')}
           fill
           className="object-cover"
           style={{ filter: 'brightness(0.35) contrast(1.1) saturate(0.5)' }}

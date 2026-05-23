@@ -11,7 +11,7 @@ import {
   Sun, Droplets, MapPin, ArrowUpRight, Play, AlertTriangle,
   TrendingUp, CircleDot, Workflow, Settings2, BarChart2, Timer,
   CpuIcon, Users, ChevronRight, ExternalLink, Sparkles,
-  Search, Menu, X
+  Search, X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CompetitiveComparison from '@/components/competitive/CompetitiveComparison';
@@ -42,7 +42,7 @@ export default function HarchOSPageClient() {
   const [evaluateMediaTab, setEvaluateMediaTab] = useState<'video' | 'details'>('details');
   const [workflowStep, setWorkflowStep] = useState(1);
   const [evaluateStep, setEvaluateStep] = useState(2);
-  const [navOpen, setNavOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(false); // kept for potential future use
 
   /* ─── Mock Data (using t() for translatable content) ─── */
   const SOVEREIGN_AI_ALERTS = [
@@ -256,9 +256,9 @@ export default function HarchOSPageClient() {
   return (
     <div className="bg-[#0A0A0A]">
 
-      {/* Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 z-[45] bg-[#1E1E2E]/95 backdrop-blur-sm border-b border-white/[0.04]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-14">
+      {/* Page Header — inline, not fixed (global TopNavBar handles fixed nav) */}
+      <header className="bg-[#1E1E2E]/95 border-b border-white/[0.04] mt-14">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-12">
           <div className="flex items-center gap-2">
             <Cpu size={16} className="text-[#8B9DAF]" />
             <span className="text-[13px] font-bold text-white tracking-[-0.01em]">HarchOS</span>
@@ -269,7 +269,6 @@ export default function HarchOSPageClient() {
               <ArrowUpRight size={12} />
             </button>
             <button className="text-[#8B9DAF] hover:text-white transition-colors"><Search size={16} /></button>
-            <button onClick={() => setNavOpen(true)} className="text-[#8B9DAF] hover:text-white transition-colors"><Menu size={16} /></button>
           </div>
         </div>
       </header>
@@ -286,7 +285,7 @@ export default function HarchOSPageClient() {
           backgroundSize: '60px 60px',
         }} />
 
-        <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto w-full pt-28 pb-8">
+        <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-[1400px] mx-auto w-full pt-8 pb-8">
           {/* Top section: Headline + Tabs */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-12">
             {/* Left: Headline */}
@@ -1469,198 +1468,6 @@ export default function HarchOSPageClient() {
           </FadeIn>
         </div>
       </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          FULL-SCREEN NAVIGATION OVERLAY — Palantir 3-Column Style
-          Left: NAVIGATION (platform links with chevrons)
-          Center: LATEST NEWS (news cards)
-          Right: OFFERINGS (description + links)
-          Dark bg #1E1E1E, exactly like IMG_0177/0178
-          ═══════════════════════════════════════════════════════════ */}
-      <AnimatePresence>
-        {navOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[60] bg-[#1E1E1E] overflow-y-auto"
-          >
-            {/* Top bar — Palantir style: logo left, Get Started + search/X right */}
-            <div className="border-b border-white/[0.08]">
-              <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-14">
-                <span className="text-[15px] font-bold text-white tracking-[-0.01em]">Harch Corp</span>
-                <div className="flex items-center gap-4">
-                  <button className="px-4 py-1.5 rounded border border-white text-white text-[11px] font-semibold hover:bg-white/[0.08] transition-colors">
-                    {t('navOverlay.getStarted')}
-                  </button>
-                  <Search size={16} className="text-white/60" />
-                  <button onClick={() => setNavOpen(false)} className="text-white/60 hover:text-white transition-colors">
-                    <X size={20} />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* 3-Column Grid — EXACTLY like Palantir IMG_0177 */}
-            <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-10">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:divide-x md:divide-white/[0.08]">
-
-                {/* ═══ LEFT COLUMN: NAVIGATION ═══ */}
-                <div className="pr-0 md:pr-8 pb-8 md:pb-0">
-                  <p className="text-[11px] font-bold tracking-[0.2em] text-[#666666] mb-6 font-[family-name:var(--font-space-mono)]">
-                    {t('navOverlay.navigation')}
-                  </p>
-
-                  {/* Main platform link — "Generate Alpha" equivalent */}
-                  <div className="flex items-center justify-between py-3 border-b border-white/[0.06] group cursor-pointer hover:bg-white/[0.02] transition-colors px-1 -mx-1">
-                    <span className="text-[18px] font-semibold text-white">{t('navOverlay.nav.generateAlpha')}</span>
-                    <ChevronRight size={16} className="text-[#555555] group-hover:text-white group-hover:translate-x-1 transition-all" />
-                  </div>
-
-                  {/* Platform items with chevrons */}
-                  {['aip', 'foundry', 'gotham', 'ontology', 'apollo'].map((item) => (
-                    <div key={item} className="flex items-center justify-between py-3 border-b border-white/[0.06] group cursor-pointer hover:bg-white/[0.02] transition-colors px-1 -mx-1">
-                      <span className="text-[18px] font-semibold text-white">{t(`navOverlay.nav.${item}`)}</span>
-                      <ChevronRight size={16} className="text-[#555555] group-hover:text-white group-hover:translate-x-1 transition-all" />
-                    </div>
-                  ))}
-
-                  {/* Secondary nav items — no chevrons */}
-                  <div className="mt-2">
-                    {['offerings', 'impactStudies'].map((item) => (
-                      <div key={item} className="py-3 border-b border-white/[0.06] group cursor-pointer hover:bg-white/[0.02] transition-colors px-1 -mx-1">
-                        <span className="text-[18px] font-semibold text-white">{t(`navOverlay.nav.${item}`)}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* ═══ CENTER COLUMN: LATEST NEWS ═══ */}
-                <div className="px-0 md:px-8 py-8 md:py-0 border-t md:border-t-0 border-white/[0.06]">
-                  <div className="flex items-center justify-between mb-6">
-                    <p className="text-[11px] font-bold tracking-[0.2em] text-[#666666] font-[family-name:var(--font-space-mono)]">
-                      {t('navOverlay.latestNews')}
-                    </p>
-                    <Link href="/newsroom" className="flex items-center gap-1.5 text-[11px] font-semibold text-white/60 hover:text-white transition-colors">
-                      {t('navOverlay.newsroom')} <ArrowRight size={12} />
-                    </Link>
-                  </div>
-
-                  {/* News Card 1 */}
-                  <div className="mb-6 group cursor-pointer">
-                    <p className="text-[10px] font-bold tracking-[0.1em] text-[#666666] mb-3 font-[family-name:var(--font-space-mono)]">
-                      {t('navOverlay.news.card1Source')}
-                    </p>
-                    <div className="w-full h-[180px] rounded-lg bg-[#2A2A3E] mb-4 overflow-hidden flex items-center justify-center">
-                      <div className="text-center px-4">
-                        <Cpu size={32} className="text-[#8B5CF6] mx-auto mb-2" />
-                        <p className="text-[12px] text-[#999999]">{t('navOverlay.news.card1ImageAlt')}</p>
-                      </div>
-                    </div>
-                    <h3 className="text-[16px] font-bold text-white mb-2 group-hover:text-[#8B9DAF] transition-colors leading-[1.3]">
-                      {t('navOverlay.news.card1Title')}
-                    </h3>
-                    <p className="text-[13px] text-[#999999] leading-[1.6]">
-                      {t('navOverlay.news.card1Desc')}
-                    </p>
-                  </div>
-
-                  {/* News Card 2 */}
-                  <div className="group cursor-pointer">
-                    <p className="text-[10px] font-bold tracking-[0.1em] text-[#666666] mb-3 font-[family-name:var(--font-space-mono)]">
-                      {t('navOverlay.news.card2Source')}
-                    </p>
-                    <div className="w-full h-[180px] rounded-lg bg-[#2A2A3E] mb-4 overflow-hidden flex items-center justify-center">
-                      <div className="text-center px-4">
-                        <Server size={32} className="text-[#8B9DAF] mx-auto mb-2" />
-                        <p className="text-[12px] text-[#999999]">{t('navOverlay.news.card2ImageAlt')}</p>
-                      </div>
-                    </div>
-                    <h3 className="text-[16px] font-bold text-white mb-2 group-hover:text-[#8B9DAF] transition-colors leading-[1.3]">
-                      {t('navOverlay.news.card2Title')}
-                    </h3>
-                    <p className="text-[13px] text-[#999999] leading-[1.6]">
-                      {t('navOverlay.news.card2Desc')}
-                    </p>
-                  </div>
-                </div>
-
-                {/* ═══ RIGHT COLUMN: OFFERINGS ═══ */}
-                <div className="pl-0 md:pl-8 pt-8 md:pt-0 border-t md:border-t-0 border-white/[0.06]">
-                  <div className="flex items-center justify-between mb-6">
-                    <p className="text-[11px] font-bold tracking-[0.2em] text-[#666666] font-[family-name:var(--font-space-mono)]">
-                      {t('navOverlay.offerings')}
-                    </p>
-                    <Link href="/subsidiaries" className="flex items-center gap-1.5 text-[11px] font-semibold text-white/60 hover:text-white transition-colors">
-                      {t('navOverlay.viewAllOfferings')} <ArrowRight size={12} />
-                    </Link>
-                  </div>
-                  <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">
-                    {t('navOverlay.offeringsDesc')}
-                  </p>
-                  <Link href="/intelligence/harchos" className="inline-flex items-center gap-2 text-[14px] font-semibold text-white hover:text-[#8B9DAF] transition-colors">
-                    {t('navOverlay.learnMoreAIP')} <ChevronRight size={16} />
-                  </Link>
-                </div>
-
-              </div>
-            </div>
-
-            {/* ═══ BOTTOM: IMPACT STUDY — Palantir IMG_0178 style ═══ */}
-            <div className="border-t border-white/[0.08]">
-              <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-10">
-                <div className="flex items-center justify-between mb-6">
-                  <p className="text-[11px] font-bold tracking-[0.15em] text-[#666666] font-[family-name:var(--font-space-mono)]">
-                    {t('navOverlay.impactStudy')}
-                  </p>
-                  <Link href="/case-studies" className="flex items-center gap-1.5 text-[11px] font-semibold text-white/60 hover:text-white transition-colors">
-                    {t('navOverlay.viewAllImpactStudies')} <ArrowRight size={12} />
-                  </Link>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Left: Impact heading + description */}
-                  <div>
-                    <h3 className="text-[24px] md:text-[32px] font-bold text-white mb-4 leading-[1.15]">
-                      {t('navOverlay.impactTitle')}
-                    </h3>
-                    <p className="text-[14px] text-[#999999] leading-[1.7] mb-6">
-                      {t('navOverlay.impactDesc')}
-                    </p>
-                    <Link href="/case-studies/ouarzazate" className="inline-flex items-center gap-2 text-[13px] font-semibold text-white hover:text-[#8B9DAF] transition-colors">
-                      {t('navOverlay.readMore')} <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                  {/* Right: Impact image */}
-                  <div className="rounded-lg overflow-hidden bg-[#2A2A3E] min-h-[220px] flex items-center justify-center">
-                    <div className="text-center px-4">
-                      <Sun size={40} className="text-emerald-400/60 mx-auto mb-2" />
-                      <p className="text-[12px] text-[#666666]">{t('navOverlay.impactImageAlt')}</p>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-[12px] text-[#666666] mt-4 italic">
-                  {t('navOverlay.impactCaption')}
-                </p>
-              </div>
-            </div>
-
-            {/* ═══ BOTTOM FOOTER LINKS — Palantir IMG_0178 right sidebar style ═══ */}
-            <div className="border-t border-white/[0.08]">
-              <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-8">
-                <div className="flex flex-wrap gap-x-8 gap-y-3">
-                  {['about', 'blog', 'investorRelations', 'lettersCeo', 'privacy', 'infoSecurity', 'cloudPartners', 'learning', 'customerSuccess', 'store', 'contact'].map((item) => (
-                    <span key={item} className="text-[13px] text-[#888888] hover:text-white transition-colors cursor-pointer">
-                      {t(`navOverlay.bottomLinks.${item}`)}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-          </motion.div>
-        )}
-      </AnimatePresence>
 
     </div>
   );

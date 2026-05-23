@@ -1591,3 +1591,28 @@ Stage Summary:
 - Hardcoded French strings break English locale on 4+ pages
 - 50+ real photos in repo but many pages still use stock images
 - Audit saved to /home/z/my-project/download/DAKHLA_AUDIT_A_TO_Z.md
+---
+Task ID: 5
+Agent: Main Agent
+Task: Unify contact email to amine@harchcorp.com, keep only Amine Harch El Korane as founder, remove team images, fix menu button overlap
+
+Work Log:
+- Found 14 different @harchcorp.com email addresses across ~40+ occurrences in source + translations
+- Replaced ALL emails (contact, ir, press, security, careers, accommodations, privacy, legal, dpo, ethics, support, accessibility, brand, webmaster) with amine@harchcorp.com
+- Updated 26 files: layout.tsx, press, faq, trust, vulnerability, ai-ethics, careers, hiring-process, cookies, ccpa, gdpr, legal hub, legal page, dpa, sla, accessibility, trademark, code-of-conduct, feed.xml, README, translation files
+- Removed 5 other executives from leadership (Sarah Benmoussa COO, Dr. Karim Oujdi CTO, Aicha Tazi CFO, Moussa Diop Energy, Omar Fassi Fihri Mining)
+- Removed 4 advisors from advisory board
+- Updated advisory members to keep only Amine Harch El Korane
+- Updated webinar speakers from other names to Amine Harch El Korane
+- Removed all /images/team/ photo references from AboutPage and LeadershipPage components
+- Fixed TopNavBar: moved menu button from right to left (before logo), removed duplicate menu button on right
+- Checked SEO metadata - already properly configured with siteName "Harch Corp", OG tags, JSON-LD, sitemap, robots.txt
+- Build verified successfully
+- Pushed 2 commits: 8e2e1d1 (email+founder changes), 95a9dbf (TopNavBar fix)
+
+Stage Summary:
+- amine@harchcorp.com is now the ONLY email across the entire site
+- Amine Harch El Korane is the ONLY founder/executive/owner
+- No team/people images used anywhere
+- Menu button moved to left side of nav, no duplicate on right
+- Google search display: SEO metadata already properly configured, indexing will resolve over time

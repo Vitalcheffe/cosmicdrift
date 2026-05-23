@@ -804,7 +804,7 @@
           "title": "Recrutement continental"
         },
         {
-          "description": "Formation obligatoire sur les biais inconscients et l'inclusion pour tous les managers et recruteurs.",
+          "description": "Formation obligatoire sur les biais inconscients et l'inclusion pour tous les managers et recruteurs",
           "metric": "100%",
           "metricLabel": "Taux de complétion",
           "title": "Formation anti-biais"
@@ -1722,11 +1722,11 @@
       },
       {
         "description": "Configurez votre clé API et vos paramètres de point de terminaison.",
-        "title": "Configure"
+        "title": "Configurer"
       },
       {
         "description": "Déployez votre première charge de travail sur le cloud GPU souverain.",
-        "title": "Deploy"
+        "title": "Déployer"
       }
     ],
     "sdks": "SDK",
@@ -1808,7 +1808,7 @@
         "description": "HarchOS TypeScript SDK — web-first intégration"
       },
       {
-        "description": "Infrastructure monitoring dashboard — real-time metrics"
+        "description": "Tableau de bord de surveillance d'infrastructure — métriques en temps réel"
       }
     ],
     "playground": {
@@ -1845,33 +1845,33 @@
       "description": "Description de bac à sable",
       "endpoints": {
         "compute": [
-          "Compute 0",
-          "Compute 1",
-          "Compute 2",
-          "Compute 3",
-          "Compute 4",
-          "Compute 5"
+          "POST /compute/allocate — Allouer des ressources GPU",
+          "GET /compute/status — Vérifier le statut du calcul",
+          "DELETE /compute/{id} — Libérer des ressources GPU",
+          "POST /compute/migrate — Migrer la charge de travail vers un autre hub",
+          "GET /compute/metrics — Obtenir les métriques de calcul",
+          "POST /compute/optimize — Optimiser l'utilisation des ressources"
         ],
         "data": [
-          "Data 0",
-          "Data 1",
-          "Data 2",
-          "Data 3",
-          "Data 4"
+          "POST /data/ingest — Ingérer des données dans le stockage souverain",
+          "GET /data/query — Interroger les données stockées",
+          "PUT /data/update — Mettre à jour les enregistrements",
+          "DELETE /data/{id} — Supprimer les enregistrements",
+          "GET /data/export — Exporter les données de manière sécurisée"
         ],
         "models": [
-          "Models 0",
-          "Models 1",
-          "Models 2",
-          "Models 3",
-          "Models 4"
+          "GET /models/list — Lister les modèles disponibles",
+          "POST /models/train — Démarrer l'entraînement du modèle",
+          "GET /models/{id}/status — Vérifier le statut de l'entraînement",
+          "POST /models/inference — Exécuter l'inférence du modèle",
+          "DELETE /models/{id} — Supprimer un modèle"
         ],
         "operations": [
-          "Opérations 0",
-          "Opérations 1",
-          "Opérations 2",
-          "Opérations 3",
-          "Opérations 4"
+          "GET /operations/audit — Obtenir les journaux d'audit",
+          "POST /operations/deploy — Déployer l'infrastructure",
+          "GET /operations/incidents — Lister les incidents",
+          "POST /operations/rotate — Rotation des identifiants",
+          "GET /operations/deployments — Lister les déploiements"
         ]
       },
       "endpointsLabel": "Points de terminaison du bac à sable",
@@ -1924,48 +1924,48 @@
       {
         "description": "Explorateur d'API interactif avec aperçu des réponses en direct.",
         "tags": [
-          "Tags 0",
-          "Tags 1",
-          "Tags 2"
+          "API",
+          "SDK",
+          "Souverain"
         ],
         "title": "API Playground"
       },
       {
         "description": "Tableau de bord de surveillance en temps réel pour les charges de travail GPU.",
         "tags": [
-          "Tags 0",
-          "Tags 1",
-          "Tags 2",
-          "Tags 3"
+          "API",
+          "SDK",
+          "Souverain",
+          "Surveillance"
         ],
         "title": "GPU Monitor"
       },
       {
         "description": "Outil CLI pour la gestion et le déploiement d'infrastructure.",
         "tags": [
-          "Tags 0",
-          "Tags 1",
-          "Tags 2"
+          "API",
+          "SDK",
+          "Souverain"
         ],
         "title": "HarchOS CLI"
       },
       {
         "description": "Calculateur d'empreinte carbone pour les charges de travail de calcul.",
         "tags": [
-          "Tags 0",
-          "Tags 1",
-          "Tags 2"
+          "API",
+          "SDK",
+          "Souverain"
         ],
         "title": "Carbon Calculator"
       },
       {
         "description": "Modèles Infrastructure as Code pour les déploiements souverains.",
         "tags": [
-          "Tags 0",
-          "Tags 1",
-          "Tags 2"
+          "API",
+          "SDK",
+          "Souverain"
         ],
-        "title": "Deployment Templates"
+        "title": "Modèles de déploiement"
       }
     ],
     "toolsDescription": "Description de outils",
@@ -2036,7 +2036,7 @@
           "name": "403 Forbidden"
         },
         {
-          "desc": "The requested resource does not exist.",
+          "desc": "La ressource demandée n'existe pas.",
           "name": "404 Not Found"
         },
         {
@@ -2052,7 +2052,7 @@
           "name": "502 Bad Gateway"
         },
         {
-          "desc": "The server is temporarily unavailable. Please retry later.",
+          "desc": "Le serveur est temporairement indisponible. Veuillez réessayer plus tard.",
           "name": "503 Service Unavailable"
         }
       ],
@@ -2076,7 +2076,7 @@
           "desc": "ModelService — Entraînement et inférence de modèles IA"
         },
         {
-          "desc": "MonitorService — Real-time infrastructure monitoring"
+          "desc": "MonitorService — Surveillance d'infrastructure en temps réel"
         },
         {
           "desc": "AuthService — Authentification et autorisation"
@@ -2365,10 +2365,10 @@
       },
       "components": "Composants",
       "dataFlow": {
-        "act": "ACT — Execute opérations and deploy resources",
-        "sense": "SENSE — Collectez les données des capteurs d'infrastructure",
-        "think": "THINK — Analyze and make décisions using AI",
-        "title": "Architecture Data Flow"
+        "act": "ACT — Exécuter les opérations et déployer les ressources",
+        "sense": "SENSE — Collecter les données des capteurs d'infrastructure",
+        "think": "THINK — Analyser et prendre des décisions avec l'IA",
+        "title": "Flux de données"
       },
       "designPatterns": {
         "0": {
@@ -2405,7 +2405,7 @@
         "label": "Modèles de Conception",
         "title": "Modèles de Conception"
       },
-      "designPrinciples": "Architecture Design Principles",
+      "designPrinciples": "Principes de conception d'architecture",
       "framework": {
         "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
         "label": "Cadre",
@@ -2418,21 +2418,21 @@
       "layers": {
         "act": {
           "capabilities": [
-            "Capabilities 0",
-            "Capabilities 1",
-            "Capabilities 2",
-            "Capabilities 3",
-            "Capabilities 4",
-            "Capabilities 5"
+            "Basculement automatique de charge",
+            "Réponse aux incidents en temps réel",
+            "Délestage conscient du carbone",
+            "Contrôle de processus industriel",
+            "Déploiement sans interruption",
+            "Orchestration multi-hub"
           ],
           "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
           "specs": [
             {
-              "label": "Deployment speed",
+              "label": "Vitesse de déploiement",
               "value": "<30s"
             },
             {
-              "label": "Auto-scale response",
+              "label": "Réponse auto-scale",
               "value": "<60s"
             },
             {
@@ -2448,12 +2448,12 @@
         },
         "sense": {
           "capabilities": [
-            "Capabilities 0",
-            "Capabilities 1",
-            "Capabilities 2",
-            "Capabilities 3",
-            "Capabilities 4",
-            "Capabilities 5"
+            "Basculement automatique de charge",
+            "Réponse aux incidents en temps réel",
+            "Délestage conscient du carbone",
+            "Contrôle de processus industriel",
+            "Déploiement sans interruption",
+            "Orchestration multi-hub"
           ],
           "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
           "specs": [
@@ -2466,7 +2466,7 @@
               "value": "10TB/day"
             },
             {
-              "label": "Monitoring coverage",
+              "label": "Couverture de surveillance",
               "value": "100%"
             },
             {
@@ -2478,12 +2478,12 @@
         },
         "think": {
           "capabilities": [
-            "Capabilities 0",
-            "Capabilities 1",
-            "Capabilities 2",
-            "Capabilities 3",
-            "Capabilities 4",
-            "Capabilities 5"
+            "Basculement automatique de charge",
+            "Réponse aux incidents en temps réel",
+            "Délestage conscient du carbone",
+            "Contrôle de processus industriel",
+            "Déploiement sans interruption",
+            "Orchestration multi-hub"
           ],
           "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
           "specs": [
@@ -2517,67 +2517,67 @@
           "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
           "name": "Sovereignty",
           "principles": [
-            "Principles 0",
-            "Principles 1",
-            "Principles 2",
-            "Principles 3",
-            "Principles 4"
+            "Les données ne doivent jamais quitter la juridiction africaine",
+            "Tous les systèmes doivent être auditables et transparents",
+            "Aucun point de défaillance unique dans l'architecture",
+            "Conscient du carbone par défaut dans toutes les décisions d'ordonnancement",
+            "Sécurité zéro confiance entre tous les composants"
           ]
         },
         {
           "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
           "name": "Résilience",
           "principles": [
-            "Principles 0",
-            "Principles 1",
-            "Principles 2",
-            "Principles 3",
-            "Principles 4"
+            "Les données ne doivent jamais quitter la juridiction africaine",
+            "Tous les systèmes doivent être auditables et transparents",
+            "Aucun point de défaillance unique dans l'architecture",
+            "Conscient du carbone par défaut dans toutes les décisions d'ordonnancement",
+            "Sécurité zéro confiance entre tous les composants"
           ]
         },
         {
           "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
           "name": "Sustainability",
           "principles": [
-            "Principles 0",
-            "Principles 1",
-            "Principles 2",
-            "Principles 3",
-            "Principles 4"
+            "Les données ne doivent jamais quitter la juridiction africaine",
+            "Tous les systèmes doivent être auditables et transparents",
+            "Aucun point de défaillance unique dans l'architecture",
+            "Conscient du carbone par défaut dans toutes les décisions d'ordonnancement",
+            "Sécurité zéro confiance entre tous les composants"
           ]
         },
         {
           "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
           "name": "Security",
           "principles": [
-            "Principles 0",
-            "Principles 1",
-            "Principles 2",
-            "Principles 3",
-            "Principles 4"
+            "Les données ne doivent jamais quitter la juridiction africaine",
+            "Tous les systèmes doivent être auditables et transparents",
+            "Aucun point de défaillance unique dans l'architecture",
+            "Conscient du carbone par défaut dans toutes les décisions d'ordonnancement",
+            "Sécurité zéro confiance entre tous les composants"
           ]
         },
         {
           "description": "Architecture d'infrastructure souveraine construite sur le paradigme SENSE-THINK-ACT.",
           "name": "Scalability",
           "principles": [
-            "Principles 0",
-            "Principles 1",
-            "Principles 2",
-            "Principles 3",
-            "Principles 4"
+            "Les données ne doivent jamais quitter la juridiction africaine",
+            "Tous les systèmes doivent être auditables et transparents",
+            "Aucun point de défaillance unique dans l'architecture",
+            "Conscient du carbone par défaut dans toutes les décisions d'ordonnancement",
+            "Sécurité zéro confiance entre tous les composants"
           ]
         }
       ],
       "referenceArchs": {
         "0": {
           "components": [
-            "Components 0",
-            "Components 1",
-            "Components 2",
-            "Components 3",
-            "Components 4",
-            "Components 5"
+            "Ordonnanceur GPU",
+            "Moniteur Carbone",
+            "Pipeline de Données",
+            "Orchestrateur IA",
+            "Module de Sécurité",
+            "Passerelle API"
           ],
           "desc": "Calcul GPU haute performance avec ordonnancement sensible au carbone.",
           "title": "Cloud GPU Souverain",
@@ -2585,12 +2585,12 @@
         },
         "1": {
           "components": [
-            "Components 0",
-            "Components 1",
-            "Components 2",
-            "Components 3",
-            "Components 4",
-            "Components 5"
+            "Ordonnanceur GPU",
+            "Moniteur Carbone",
+            "Pipeline de Données",
+            "Orchestrateur IA",
+            "Module de Sécurité",
+            "Passerelle API"
           ],
           "desc": "Collecte, analyse et réponse automatisée de données IoT de bout en bout.",
           "title": "Infrastructure Intelligente",
@@ -2598,12 +2598,12 @@
         },
         "2": {
           "components": [
-            "Components 0",
-            "Components 1",
-            "Components 2",
-            "Components 3",
-            "Components 4",
-            "Components 5"
+            "Ordonnanceur GPU",
+            "Moniteur Carbone",
+            "Pipeline de Données",
+            "Orchestrateur IA",
+            "Module de Sécurité",
+            "Passerelle API"
           ],
           "desc": "Gestion de l'énergie renouvelable avec optimisation prédictive.",
           "title": "Réseau d'Énergie Verte",
@@ -2611,12 +2611,12 @@
         },
         "3": {
           "components": [
-            "Components 0",
-            "Components 1",
-            "Components 2",
-            "Components 3",
-            "Components 4",
-            "Components 5"
+            "Ordonnanceur GPU",
+            "Moniteur Carbone",
+            "Pipeline de Données",
+            "Orchestrateur IA",
+            "Module de Sécurité",
+            "Passerelle API"
           ],
           "desc": "Gestion souveraine des données avec pleine conformité réglementaire.",
           "title": "Coffre-fort de Données Souverain",
@@ -2636,97 +2636,97 @@
       "versions": [
         {
           "breakingChanges": [
-            "Breaking Changes 0",
-            "Breaking Changes 1",
-            "Breaking Changes 2"
+            "API d'ordonnancement GPU v2 — migration requise",
+            "Point d'accès /compute/allocate obsolète supprimé",
+            "Version minimale du SDK mise à jour vers v2.0"
           ],
           "bugFixes": [
-            "Bug Fixes 0",
-            "Bug Fixes 1",
-            "Bug Fixes 2"
+            "Correction du délai d'ordonnancement conscient du carbone sur le Hub Casablanca",
+            "Résolution du problème de reconnexion WebSocket lors du basculement de hub",
+            "Correction du rapport d'intensité carbone incorrect pour le Hub Dakhla"
           ],
           "date": "2026-02-15",
           "deprecations": [
-            "Deprecations 0",
-            "Deprecations 1",
-            "Deprecations 2"
+            "Les points d'accès API v1 seront supprimés dans v3.0",
+            "Méthode d'authentification héritée obsolète — migrer vers OAuth 2.0",
+            "Ancien format de configuration SDK obsolète"
           ],
           "description": "Suivez les mises à jour, améliorations et correctifs des versions HarchOS.",
           "improvements": [
-            "Improvements 0",
-            "Improvements 1",
-            "Improvements 2",
-            "Improvements 3",
-            "Improvements 4"
+            "L'ordonnancement conscient du carbone supporte désormais 47 paramètres",
+            "Ajout d'un tableau de bord d'intensité carbone en temps réel",
+            "Amélioration du temps de basculement inter-hub à <200ms",
+            "Surveillance GPU améliorée avec suivi carbone par tâche",
+            "Pipeline de données optimisé pour une ingestion 2x plus rapide"
           ],
           "newFeatures": [
-            "New Features 0",
-            "New Features 1",
-            "New Features 2",
-            "New Features 3",
-            "New Features 4",
-            "New Features 5",
-            "New Features 6",
-            "New Features 7"
+            "Ordonnancement GPU conscient du carbone avec optimisation en temps réel",
+            "Migration de charge de travail multi-hub sans temps d'arrêt",
+            "Réponse aux incidents alimentée par l'IA et auto-remédiation",
+            "Coffre-fort de données souveraines avec chiffrement AES-256",
+            "Tableau de bord de surveillance d'intensité carbone en temps réel",
+            "Auto-scaling des charges de travail GPU basé sur la demande",
+            "Streaming WebSocket pour métriques et alertes en direct",
+            "Rapports de conformité pour RGPD et ISO 27001"
           ],
-          "statusLabel": "Statut 0"
+          "statusLabel": "Dernière version"
         },
         {
           "bugFixes": [
-            "Bug Fixes 0",
-            "Bug Fixes 1",
-            "Bug Fixes 2",
-            "Bug Fixes 3",
-            "Bug Fixes 4",
-            "Bug Fixes 5"
+            "Correction du délai d'ordonnancement conscient du carbone sur le Hub Casablanca",
+            "Résolution du problème de reconnexion WebSocket lors du basculement de hub",
+            "Correction du rapport d'intensité carbone incorrect pour le Hub Dakhla",
+            "Correction de la limitation de débit API pour le niveau Professionnel",
+            "Résolution du délai d'ingestion de données pour les grands jeux de données",
+            "Correction de la condition de concurrence d'allocation GPU sous charge élevée"
           ],
           "date": "2026-01-10",
           "deprecations": [
-            "Deprecations 0"
+            "Les points d'accès API v1 seront supprimés dans v3.0"
           ],
           "description": "Suivez les mises à jour, améliorations et correctifs des versions HarchOS.",
           "improvements": [
-            "Improvements 0",
-            "Improvements 1",
-            "Improvements 2",
-            "Improvements 3",
-            "Improvements 4",
-            "Improvements 5"
+            "L'ordonnancement conscient du carbone supporte désormais 47 paramètres",
+            "Ajout d'un tableau de bord d'intensité carbone en temps réel",
+            "Amélioration du temps de basculement inter-hub à <200ms",
+            "Surveillance GPU améliorée avec suivi carbone par tâche",
+            "Pipeline de données optimisé pour une ingestion 2x plus rapide",
+            "Ajout du support pour l'allocation GPU H100"
           ],
           "newFeatures": [
-            "New Features 0",
-            "New Features 1",
-            "New Features 2",
-            "New Features 3"
+            "Ordonnancement GPU conscient du carbone avec optimisation en temps réel",
+            "Migration de charge de travail multi-hub sans temps d'arrêt",
+            "Réponse aux incidents alimentée par l'IA et auto-remédiation",
+            "Coffre-fort de données souveraines avec chiffrement AES-256"
           ],
-          "statusLabel": "Statut 1"
+          "statusLabel": "Stable"
         },
         {
           "date": "2025-12-01",
           "description": "Suivez les mises à jour, améliorations et correctifs des versions HarchOS.",
           "newFeatures": [
-            "New Features 0",
-            "New Features 1",
-            "New Features 2",
-            "New Features 3",
-            "New Features 4",
-            "New Features 5",
-            "New Features 6",
-            "New Features 7",
-            "New Features 8",
-            "New Features 9",
-            "New Features 10",
-            "New Features 11",
-            "New Features 12",
-            "New Features 13",
-            "New Features 14",
-            "New Features 15",
-            "New Features 16",
-            "New Features 17",
-            "New Features 18",
-            "New Features 19"
+            "Ordonnancement GPU conscient du carbone avec optimisation en temps réel",
+            "Migration de charge de travail multi-hub sans temps d'arrêt",
+            "Réponse aux incidents alimentée par l'IA et auto-remédiation",
+            "Coffre-fort de données souveraines avec chiffrement AES-256",
+            "Tableau de bord de surveillance d'intensité carbone en temps réel",
+            "Auto-scaling des charges de travail GPU basé sur la demande",
+            "Streaming WebSocket pour métriques et alertes en direct",
+            "Rapports de conformité pour RGPD et ISO 27001",
+            "CLI HarchOS avec gestion complète des ressources",
+            "SDK Python avec support asynchrone et indications de type",
+            "SDK TypeScript pour l'intégration d'applications web",
+            "Modèles Infrastructure as Code pour Terraform",
+            "Sauvegarde automatisée et reprise après sinistre",
+            "Politiques d'ordonnancement conscient du carbone personnalisées",
+            "Isolation des ressources multi-locataires",
+            "Support de l'informatique en périphérie pour les charges IoT",
+            "Module d'intégration d'énergie hydrogène vert",
+            "Optimisation du routage des câbles sous-marins",
+            "Moteur d'optimisation des coûts en temps réel",
+            "Registre de modèles IA souverains"
           ],
-          "statusLabel": "Statut 2"
+          "statusLabel": "Héritage"
         }
       ],
       "backToDocs": "Changelog Back To Docs",
@@ -2759,40 +2759,40 @@
           "guides": [
             {
               "desc": "Installez les SDK, configurez les identifiants et lancez votre premier appel API.",
-              "difficulty": "Beginner",
+              "difficulty": "Débutant",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "15 min",
               "title": "Configuration de votre environnement de développement"
             },
             {
               "desc": "Apprenez à allouer et exécuter des calculs GPU sur l'infrastructure souveraine.",
-              "difficulty": "Beginner",
+              "difficulty": "Débutant",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "30 min",
               "title": "Déploiement de votre première charge de travail GPU"
             },
             {
               "desc": "Créez des dépôts de données avec chiffrement et contrôles d'accès.",
-              "difficulty": "Beginner",
+              "difficulty": "Débutant",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "20 min",
-              "title": "Managing sovereign data storage"
+              "title": "Gestion du stockage de données souveraines"
             },
             {
               "desc": "Configurez les tableaux de bord, les alertes et surveillez l'état de l'infrastructure.",
-              "difficulty": "Beginner",
+              "difficulty": "Débutant",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "25 min",
               "title": "Configuration de la surveillance et des alertes"
@@ -2805,41 +2805,41 @@
           "guides": [
             {
               "desc": "Optimisez l'utilisation de votre API REST avec la pagination, le cache et la gestion des erreurs.",
-              "difficulty": "Intermediate",
+              "difficulty": "Intermédiaire",
               "tags": [
-                "Tags 0",
-                "Tags 1",
-                "Tags 2"
+                "API",
+                "SDK",
+                "Souverain"
               ],
               "time": "45 min",
               "title": "REST API best practices"
             },
             {
               "desc": "Implémentez le streaming bidirectionnel pour les flux de données en direct.",
-              "difficulty": "Intermediate",
+              "difficulty": "Intermédiaire",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "60 min",
               "title": "Streaming gRPC pour les données en temps réel"
             },
             {
               "desc": "Abonnez-vous aux événements en temps réel et créez des applications réactives.",
-              "difficulty": "Intermediate",
+              "difficulty": "Intermédiaire",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "40 min",
               "title": "WebSocket event subscriptions"
             },
             {
               "desc": "Implémentez une authentification sécurisée avec OAuth 2.0 et des clés API.",
-              "difficulty": "Intermediate",
+              "difficulty": "Intermédiaire",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "35 min",
               "title": "Flux d'authentification et d'autorisation"
@@ -2852,41 +2852,41 @@
           "guides": [
             {
               "desc": "Deploy across multiple HarchOS hubs for résilience and low latency.",
-              "difficulty": "Advanced",
+              "difficulty": "Avancé",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "90 min",
-              "title": "Multi-hub deployment strategy"
+              "title": "Stratégie de déploiement multi-hub"
             },
             {
               "desc": "Créez des politiques d'ordonnancement personnalisées optimisant l'intensité carbone.",
-              "difficulty": "Advanced",
+              "difficulty": "Avancé",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "60 min",
               "title": "Custom carbon-aware scheduling"
             },
             {
               "desc": "Gérez l'infrastructure à grande échelle avec Terraform et Pulumi.",
-              "difficulty": "Advanced",
+              "difficulty": "Avancé",
               "tags": [
-                "Tags 0",
-                "Tags 1",
-                "Tags 2"
+                "API",
+                "SDK",
+                "Souverain"
               ],
               "time": "75 min",
-              "title": "Infrastructure as Code at scale"
+              "title": "Infrastructure as Code à grande échelle"
             },
             {
               "desc": "Implémentez une sécurité zero-trust complète pour votre infrastructure.",
-              "difficulty": "Advanced",
+              "difficulty": "Avancé",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "90 min",
               "title": "Zero-trust security implémentation"
@@ -2899,43 +2899,43 @@
           "guides": [
             {
               "desc": "Configurez une surveillance complète avec des métriques et tableaux de bord personnalisés.",
-              "difficulty": "Advanced",
+              "difficulty": "Avancé",
               "tags": [
-                "Tags 0",
-                "Tags 1"
+                "API",
+                "SDK"
               ],
               "time": "45 min",
-              "title": "Production monitoring setup"
+              "title": "Configuration de la surveillance en production"
             },
             {
               "desc": "Implémentez une mise à l'échelle intelligente basée sur la demande et l'intensité carbone.",
-              "difficulty": "Advanced",
+              "difficulty": "Avancé",
               "tags": [
-                "Tags 0",
-                "Tags 1",
-                "Tags 2"
+                "API",
+                "SDK",
+                "Souverain"
               ],
               "time": "60 min",
               "title": "Auto-scaling GPU workloads"
             },
             {
               "desc": "Procédures de réponse prédéfinies pour les incidents d'infrastructure courants.",
-              "difficulty": "Advanced",
+              "difficulty": "Avancé",
               "tags": [
-                "Tags 0",
-                "Tags 1",
-                "Tags 2"
+                "API",
+                "SDK",
+                "Souverain"
               ],
               "time": "30 min",
               "title": "Incident response playbooks"
             },
             {
-              "desc": "Optimize infrastructure costs while maintaining performance SLAs.",
-              "difficulty": "Advanced",
+              "desc": "Optimisez les coûts d'infrastructure tout en maintenant les SLA de performance.",
+              "difficulty": "Avancé",
               "tags": [
-                "Tags 0",
-                "Tags 1",
-                "Tags 2"
+                "API",
+                "SDK",
+                "Souverain"
               ],
               "time": "45 min",
               "title": "Cost optimization strategies"
@@ -2991,19 +2991,19 @@
         },
         {
           "description": "Définissez le type de GPU, la mémoire et le stockage pour votre charge de travail.",
-          "title": "Configure resources"
+          "title": "Configurer les ressources"
         },
         {
           "description": "Poussez votre code et laissez HarchOS gérer l'ordonnancement et la mise à l'échelle.",
-          "title": "Deploy application"
+          "title": "Déployer l'application"
         },
         {
           "description": "Suivez les métriques, l'intensité carbone et les coûts en temps réel.",
-          "title": "Monitor performance"
+          "title": "Surveiller les performances"
         },
         {
           "description": "Mise à l'échelle automatique selon la demande avec optimisation sensible au carbone.",
-          "title": "Scale as needed"
+          "title": "Mettre à l'échelle selon les besoins"
         }
       ],
       "fiveMin": {
@@ -3065,10 +3065,10 @@
       },
       "cliCommands": [
         {
-          "desc": "harchos auth login — Authentifiez-vous avec votre compte HarchOS"
+          "desc": "harchos auth login — Authenticate with your HarchOS account"
         },
         {
-          "desc": "harchos compute allocate — Allouez des ressources GPU pour les charges de travail"
+          "desc": "harchos compute allocate — Allocate GPU resources for workloads"
         },
         {
           "desc": "harchos compute status — Vérifiez l'état des ressources de calcul"
@@ -3080,7 +3080,7 @@
           "desc": "harchos deploy apply — Apply infrastructure configuration"
         },
         {
-          "desc": "harchos monitor dashboard — Ouvrez le tableau de bord de surveillance"
+          "desc": "harchos monitor dashboard — Open the monitoring dashboard"
         },
         {
           "desc": "harchos carbon report — Generate carbon intensity report"
@@ -3260,11 +3260,11 @@
             "name": "System overview"
           },
           {
-            "desc": "Cloud deployment",
-            "name": "Cloud deployment"
+            "desc": "Déploiement cloud",
+            "name": "Déploiement cloud"
           }
         ],
-        "title": "Getting Started"
+        "title": "Démarrage"
       },
       {
         "items": [
@@ -3281,11 +3281,11 @@
             "name": "System overview"
           },
           {
-            "desc": "Cloud deployment",
-            "name": "Cloud deployment"
+            "desc": "Déploiement cloud",
+            "name": "Déploiement cloud"
           }
         ],
-        "title": "API Référence"
+        "title": "Référence API"
       },
       {
         "items": [
@@ -3302,8 +3302,8 @@
             "name": "System overview"
           },
           {
-            "desc": "Cloud deployment",
-            "name": "Cloud deployment"
+            "desc": "Déploiement cloud",
+            "name": "Déploiement cloud"
           }
         ],
         "title": "Architecture"
@@ -3323,11 +3323,11 @@
             "name": "System overview"
           },
           {
-            "desc": "Cloud deployment",
-            "name": "Cloud deployment"
+            "desc": "Déploiement cloud",
+            "name": "Déploiement cloud"
           }
         ],
-        "title": "Deployment"
+        "title": "Déploiement"
       },
       {
         "items": [
@@ -3344,8 +3344,8 @@
             "name": "System overview"
           },
           {
-            "desc": "Cloud deployment",
-            "name": "Cloud deployment"
+            "desc": "Déploiement cloud",
+            "name": "Déploiement cloud"
           }
         ],
         "title": "SDKs & Tools"
@@ -3365,8 +3365,8 @@
             "name": "System overview"
           },
           {
-            "desc": "Cloud deployment",
-            "name": "Cloud deployment"
+            "desc": "Déploiement cloud",
+            "name": "Déploiement cloud"
           }
         ],
         "title": "Opérations"
@@ -3419,19 +3419,19 @@
     "quickStartCards": [
       {
         "description": "Installez le SDK HarchOS Python ou TypeScript en une seule commande.",
-        "title": "Install SDK"
+        "title": "Installer le SDK"
       },
       {
         "description": "Configurez votre clé API et l'authentification pour un accès souverain.",
-        "title": "Configure Auth"
+        "title": "Configurer l'authentification"
       },
       {
         "description": "Lancez votre première charge de travail GPU sur une infrastructure souveraine sensible au carbone.",
-        "title": "Deploy Workload"
+        "title": "Déployer la charge de travail"
       },
       {
         "description": "Configurez des tableaux de bord de surveillance et des politiques de mise à l'échelle automatique.",
-        "title": "Monitor & Scale"
+        "title": "Surveiller et mettre à l'échelle"
       }
     ],
     "search": "Recherche"
@@ -3484,7 +3484,7 @@
       "designingSenseLayer": {
         "date": "Janvier 2026",
         "excerpt": "Comment nous avons conçu la couche SENSE pour la surveillance d'infrastructure en temps réel sur 5 hubs marocains avec une latence sub-seconde.",
-        "readTime": "Designing Sense Layer Read Time",
+        "readTime": "Temps de lecture",
         "title": "Conception de la couche SENSE"
       },
       "gpuScheduling": {
@@ -3857,7 +3857,7 @@
         {
           "date": "March 2026",
           "desc": "Bonnes pratiques pour le déploiement de modèles IA souverains sur l'infrastructure Harch.",
-          "name": "Sovereign AI Deployment",
+          "name": "Déploiement IA souverain",
           "speaker": "Sarah Benmoussa, COO",
           "time": "3:00 PM UTC"
         },
@@ -4204,7 +4204,7 @@
       },
       "hyperscale": {
         "definition": "Hyperscale Définition",
-        "term": "Hyperscale Term"
+        "term": "Hyperscale"
       },
       "iaas": {
         "definition": "Iaas Définition",
@@ -4349,7 +4349,7 @@
     "cta": {
       "apiReference": "Cta Api Référence",
       "description": "Rejoignez-nous dans la construction de l'infrastructure souveraine de l'Afrique.",
-      "exploreDocs": "Cta Explore Docs",
+      "exploreDocs": "Explorer la documentation",
       "label": "Cta",
       "title": "Cta"
     },
@@ -5563,7 +5563,7 @@
           "items": [
             "Zero-carbon industrial electricity at competitive rates",
             "Production d'hydrogène vert pour l'exportation et l'usage local",
-            "Grid stabilization through grid-scale battery storage"
+            "Stabilisation du réseau par stockage par batteries à l'échelle du réseau"
           ],
           "title": "Résultats Clés"
         },
@@ -5608,7 +5608,7 @@
           "items": [
             "AI-driven précision agriculture with IoT monitoring",
             "Capacité d'agriculture verticale pour la sécurité alimentaire urbaine",
-            "Tech-optimized farm-to-table supply chain"
+            "Chaîne d'approvisionnement de la ferme à la table optimisée par la technologie"
           ],
           "title": "Résultats Clés"
         },
@@ -5621,7 +5621,7 @@
         "stat": "200M m3/an",
         "outcomes": {
           "items": [
-            "Solar-powered desalination at competitive cost",
+            "Dessalement solaire à coût compétitif",
             "Distribution d'eau optimisée par l'IA avec détection de fuites",
             "Sécurité hydrique pour les zones urbaines et rurales"
           ],
@@ -6468,59 +6468,59 @@
       "hoursLabel": "Heures",
       "items": [
         {
-          "description": "Première étape de notre processus de recrutement.",
+          "description": "Guides de démarrage et tutoriels quickstart",
           "hours": "20 hours",
-          "level": "Beginner to Intermediate",
+          "level": "Débutant à Intermédiaire",
           "price": "$499",
-          "title": "0",
+          "title": "Fondamentaux de l'infrastructure souveraine",
           "topics": [
-            "Topics 0",
-            "Topics 1",
-            "Topics 2",
-            "Topics 3",
-            "Topics 4"
+            "Fondamentaux de l'infrastructure souveraine",
+            "Bases du cloud GPU",
+            "Souveraineté des données",
+            "Ordonnancement conscient du carbone",
+            "Architecture HarchOS"
           ]
         },
         {
-          "description": "Deuxième étape de notre processus de recrutement.",
+          "description": "Documentation API et guides d'intégration SDK",
           "hours": "40 hours",
-          "level": "Intermediate to Advanced",
+          "level": "Intermédiaire à Avancé",
           "price": "$999",
-          "title": "1",
+          "title": "Intégration API et SDK",
           "topics": [
-            "Topics 0",
-            "Topics 1",
-            "Topics 2",
-            "Topics 3",
-            "Topics 4"
+            "Intégration API et SDK",
+            "Pipelines de données souverains",
+            "Ordonnancement GPU avancé",
+            "Surveillance et observabilité",
+            "Conformité et sécurité"
           ]
         },
         {
-          "description": "Troisième étape de notre processus de recrutement.",
+          "description": "Modèles de déploiement et meilleures pratiques d'infrastructure",
           "hours": "60 hours",
-          "level": "Advanced to Expert",
+          "level": "Avancé à Expert",
           "price": "$1,499",
-          "title": "2",
+          "title": "Modèles de déploiement avancés",
           "topics": [
-            "Topics 0",
-            "Topics 1",
-            "Topics 2",
-            "Topics 3",
-            "Topics 4"
+            "Modèles de déploiement",
+            "Infrastructure as Code",
+            "Orchestration multi-hub",
+            "Optimisation carbone avancée",
+            "Résilience et reprise après sinistre"
           ]
         },
         {
-          "description": "Quatrième étape de notre processus de recrutement.",
+          "description": "Configuration de sécurité et guides de conformité",
           "hours": "80 hours",
-          "level": "Expert to Master",
+          "level": "Expert à Maître",
           "price": "$1,999",
-          "title": "3",
+          "title": "Maîtrise de la sécurité et conformité",
           "topics": [
-            "Topics 0",
-            "Topics 1",
-            "Topics 2",
-            "Topics 3",
-            "Topics 4"
+            "Sécurité Zero Trust",
+            "Conformité RGPD et ISO 27001",
+            "Chiffrement de bout en bout",
+            "Gouvernance des données souveraines",
+            "Audit et certification"
           ]
         }
       ],
@@ -6590,35 +6590,35 @@
       "features": [
         {
           "feature": "Keyboard Navigation",
-          "description": "Our website is fully navigable using keyboard controls. All interactive elements, including menus, forms, links, and buttons, can be accessed and operated using standard keyboard shortcuts and the Tab key."
+          "description": "Notre site web est entièrement navigable au clavier. Tous les éléments interactifs, y compris les menus, les formulaires et les boutons, sont accessibles via Tab, Entrée et Échap."
         },
         {
           "feature": "Screen Reader Compatibility",
           "description": "We have designed our website to be compatible with leading screen readers, including JAWS, NVDA, and VoiceOver. We use semantic HTML, ARIA landmarks, and descriptive labels to ensure screen reader users can effectively navigate and understand our content."
         },
         {
-          "feature": "Contrast and Readability",
-          "description": "We maintain color contrast ratios that meet WCAG 2.1 Level AA requirements (minimum 4.5:1 for normal text and 3:1 for large text). Our typography is designed for optimal readability, with appropriate line heights, letter spacing, and font sizes."
+          "feature": "Contraste et lisibilité",
+          "description": "Nous maintenons des ratios de contraste de couleur qui répondent aux exigences WCAG 2.1 Niveau AA (minimum 4,5:1 pour le texte normal et 3:1 pour le texte grand format)."
         },
         {
-          "feature": "Responsive Design",
-          "description": "Our website is fully responsive and adapts to different screen sizes and devices. Content remains accessible and usable whether viewed on desktop, tablet, or mobile devices, with no loss of information or functionality."
+          "feature": "Design responsive",
+          "description": "Notre site web est entièrement responsive et s'adapte aux différentes tailles d'écran et appareils. Le contenu reste accessible et lisible sur mobile, tablette et ordinateur."
         },
         {
-          "feature": "Alt Text for Images",
-          "description": "All meaningful images on our website include descriptive alternative text that conveys the purpose and content of the image. Decorative images are hidden from assistive technologies using appropriate ARIA attributes."
+          "feature": "Texte alternatif pour les images",
+          "description": "Toutes les images significatives sur notre site web incluent un texte alternatif descriptif qui transmet le but et le contenu de l'image aux utilisateurs de lecteurs d'écran."
         },
         {
           "feature": "Form Accessibility",
-          "description": "All form fields have associated labels, clear instructions, and meaningful error messages. Required fields are clearly indicated, and form validation provides specific, actionable feedback to help users correct errors."
+          "description": "Tous les champs de formulaire ont des étiquettes associées, des instructions claires et des messages d'erreur significatifs. Les champs obligatoires sont clairement indiqués."
         },
         {
           "feature": "Focus Indicators",
-          "description": "Visible focus indicators are provided for all interactive elements to help keyboard users track their position on the page. Focus order follows a logical sequence that matches the visual layout of the content."
+          "description": "Des indicateurs de focus visibles sont fournis pour tous les éléments interactifs afin d'aider les utilisateurs au clavier à suivre leur position sur la page."
         },
         {
           "feature": "Skip Navigation Links",
-          "description": "We provide skip navigation links that allow keyboard users to bypass repetitive navigation elements and jump directly to the main content area of each page."
+          "description": "Nous fournissons des liens de navigation d'évitement qui permettent aux utilisateurs au clavier de contourner les éléments de navigation répétitifs et d'accéder directement au contenu principal."
         }
       ],
       "limitationsTitle": "Limitations connues",
@@ -6626,19 +6626,19 @@
       "limitations": [
         {
           "limitation": "Third-Party Content",
-          "description": "Some third-party content embedded on our website, such as interactive maps and video players, may not fully conform to WCAG 2.1 Level AA standards. We are working with our third-party providers to improve the accessibility of this content."
+          "description": "Certains contenus tiers intégrés sur notre site web, tels que les cartes interactives et les lecteurs vidéo, peuvent ne pas être entièrement accessibles aux technologies d'assistance."
         },
         {
           "limitation": "Document Formats",
-          "description": "Some older PDF documents and downloadable resources may not be fully accessible to screen readers. We are in the process of converting these documents to accessible formats and ensuring all new documents are published in accessible formats."
+          "description": "Certains anciens documents PDF et ressources téléchargeables peuvent ne pas être entièrement accessibles aux lecteurs d'écran. Nous travaillons à les rendre accessibles."
         },
         {
           "limitation": "Live Content",
-          "description": "Real-time data visualizations and live operational dashboards may present challenges for some assistive technologies. We are developing alternative text-based representations for these dynamic content areas."
+          "description": "Les visualisations de données en temps réel et les tableaux de bord opérationnels en direct peuvent présenter des défis pour certaines technologies d'assistance."
         },
         {
           "limitation": "Legacy Content",
-          "description": "Archived content published before our accessibility initiative may not meet current standards. We are prioritizing the remediation of high-traffic and critical content while maintaining an ongoing remediation schedule for the remaining archive."
+          "description": "Le contenu archivé publié avant notre initiative d'accessibilité peut ne pas répondre aux normes actuelles. Nous travaillons à mettre à jour ce contenu."
         }
       ],
       "feedbackTitle": "Commentaires et contact",
@@ -6674,7 +6674,7 @@
         },
         {
           "category": "Protected Classification Characteristics",
-          "examples": "Age, date of birth, citizenship, immigration status (collected for employment purposes only)",
+          "examples": "Âge, date de naissance, citoyenneté, statut d'immigration (collectés uniquement à des fins d'emploi)",
           "collected": "Limited"
         },
         {
@@ -6684,17 +6684,17 @@
         },
         {
           "category": "Biometric Information",
-          "examples": "Fingerprints, voice prints, facial recognition data (collected for facility access only)",
+          "examples": "Empreintes digitales, empreintes vocales, données de reconnaissance faciale (collectées uniquement pour l'accès aux installations)",
           "collected": "Limited"
         },
         {
           "category": "Internet or Network Activity",
-          "examples": "Browsing history, search history, interaction with our website, cookie data",
+          "examples": "Historique de navigation, historique de recherche, interaction avec notre site web, données de cookies",
           "collected": "Yes"
         },
         {
           "category": "Geolocation Data",
-          "examples": "Physical location derived from IP address or mobile device (generalized to city level)",
+          "examples": "Localisation physique dérivée de l'adresse IP ou de l'appareil mobile (généralisée au niveau de la ville)",
           "collected": "Yes"
         },
         {
@@ -6703,7 +6703,7 @@
           "collected": "Yes"
         },
         {
-          "category": "Inferences Drawn from Other Information",
+          "category": "Inférences tirées d'autres informations",
           "examples": "Profile reflecting preferences, characteristics, behavior, or attitudes",
           "collected": "Yes"
         }
@@ -6715,19 +6715,19 @@
       "rights": [
         {
           "right": "The Right to Know",
-          "description": "You have the right to request that we disclose what personal information we collect, use, and disclose about you over the past 12 months. This includes the categories of personal information collected, the categories of sources, the business or commercial purpose for collecting or selling the information, the categories of third parties with whom we share information, and the specific pieces of personal information we have collected about you. We will verify your identity before disclosing this information."
+          "description": "Vous avez le droit de demander que nous divulguions quelles informations personnelles nous collectons, utilisons et divulguons à votre sujet."
         },
         {
           "right": "The Right to Delete",
-          "description": "You have the right to request that we delete any personal information about you that we have collected from you, subject to certain exceptions. These exceptions include when the information is necessary to complete a transaction, detect security incidents, protect against fraud, debug or repair errors, exercise free speech, comply with legal obligations, or enable solely internal uses reasonably proportional to your relationship with us. Upon a verified deletion request, we will direct our service providers to delete your personal information from their records."
+          "description": "Vous avez le droit de demander que nous supprimions toute information personnelle vous concernant que nous avons collectée."
         },
         {
           "right": "The Right to Opt-Out of Sale",
-          "description": "You have the right to direct us not to sell your personal information at any time. We do not currently sell personal information as defined under the CCPA. However, if our practices change, we will provide clear notice and an opt-out mechanism. You may also authorize an agent to exercise this right on your behalf by providing a signed power of attorney."
+          "description": "Vous avez le droit de nous demander de ne pas vendre vos informations personnelles à tout moment. Nous ne vendons actuellement pas de informations personnelles."
         },
         {
           "right": "The Right to Non-Discrimination",
-          "description": "We will not discriminate against you for exercising any of your CCPA rights. This means we will not deny you goods or services, charge you different prices or rates, provide you a different level or quality of goods or services, or suggest that we may do any of the foregoing, because you exercised a CCPA right. We may offer certain financial incentives permitted by the CCPA that are reasonably related to the value of your personal data, provided they are voluntary and clearly described."
+          "description": "Nous ne vous discriminerons pas pour avoir exercé l'un de vos droits CCPA. Cela signifie que nous ne vous refuserons pas de services ni ne facturerons des prix différents."
         }
       ],
       "exerciseTitle": "How to Exercise Vos droits",
@@ -6770,7 +6770,7 @@
       "keyPoliciesIntro": "Les politiques suivantes sont des composantes essentielles de notre Code de Conduit d'Affaires :",
       "keyPolicies": [
         {
-          "policy": "Anti-Corruption and Anti-Bribery",
+          "policy": "Anti-corruption et anti-corruption",
           "description": "Harch Corp maintains a zero-tolerance policy toward corruption and bribery in all forms, whether involving public officials or private sector counterparts. We comply with the Kingdom of Morocco's anti-corruption laws, the UK Bribery Act, the US Foreign Corrupt Practices Act, and all applicable anti-corruption legislation in jurisdictions where we operate. No employee, officer, or agent may offer, promise, give, or accept any bribe, kickback, or improper inducement. All business hospitality and gifts must be reasonable, proportionate, and properly documented. We maintain rigorous due diligence processes for third-party intermediaries, agents, and business partners."
         },
         {
@@ -6782,7 +6782,7 @@
           "description": "Trading in securities while in possession of material non-public information about Harch Corp or any company with which we do business is strictly prohibited. Material non-public information includes any information that a reasonable investor would consider important in making an investment decision and that has not been publicly disclosed. This prohibition extends to tipping others who might trade on such information. All employees with access to material non-public information must observe designated trading windows and pre-clearance requirements as specified in our Insider Trading Policy."
         },
         {
-          "policy": "Data Protection and Privacy",
+          "policy": "Protection des données et vie privée",
           "description": "We are committed to protecting the personal data of our employees, clients, partners, and other stakeholders. All employees must comply with our data protection policies and applicable privacy laws, including the GDPR, the Kingdom of Morocco's Law No. 09-08, and other relevant legislation. Personal data must be collected only for legitimate purposes, processed lawfully and fairly, kept accurate and up to date, retained only as long as necessary, and protected against unauthorized access, disclosure, or loss. Any data breach must be reported immediately to the Data Protection Officer."
         },
         {
@@ -6818,25 +6818,25 @@
       "cookieTypes": [
         {
           "category": "Strictly Necessary Cookies",
-          "description": "These cookies are essential for the website to function properly. They enable core functionality such as security, network management, and accessibility. You cannot opt out of these cookies as the website cannot function without them.",
+          "description": "Ces cookies sont essentiels au bon fonctionnement du site web. Ils permettent les fonctionnalités de base telles que la navigation sur les pages et l'accès aux zones sécurisées.",
           "examples": "Session authentication tokens, CSRF protection cookies, load balancing cookies, cookie consent preferences",
           "duration": "Session / Up to 1 year"
         },
         {
           "category": "Performance Cookies",
-          "description": "These cookies collect information about how visitors use our website, such as which pages are visited most often and whether users receive error messages. All data collected by these cookies is aggregated and anonymized.",
+          "description": "Ces cookies collectent des informations sur la façon dont les visiteurs utilisent notre site web, telles que les pages les plus visitées et le moment où les visiteurs quittent le site. Toutes les informations collectées par ces cookies sont agrégées et donc anonymes.",
           "examples": "Google Analytics (_ga, _gid), page load timing metrics, error tracking identifiers",
           "duration": "Up to 2 years"
         },
         {
           "category": "Functionality Cookies",
-          "description": "These cookies allow the website to remember choices you make, such as your preferred language, region, or display settings. They provide enhanced, personalized features and can also be used to remember changes you have made to text size, fonts, and other customizable elements of the website.",
+          "description": "Ces cookies permettent au site web de mémoriser les choix que vous faites, tels que votre langue préférée, votre région ou vos paramètres d'affichage. Ils fournissent des fonctionnalités améliorées et personnalisées.",
           "examples": "Language preference, region settings, display preferences, accessibility settings",
           "duration": "Up to 1 year"
         },
         {
           "category": "Targeting / Advertising Cookies",
-          "description": "These cookies are used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and to help measure the effectiveness of advertising campaigns. They are usually placed by advertising networks with our permission.",
+          "description": "Ces cookies sont utilisés pour vous diffuser des publicités plus pertinentes pour vous et vos centres d'intérêt. Ils sont également utilisés pour limiter le nombre de fois où vous voyez une publicité et pour mesurer l'efficacité des campagnes publicitaires.",
           "examples": "LinkedIn Insight Tag, retargeting pixels, conversion tracking cookies",
           "duration": "Up to 2 years"
         }
@@ -6939,11 +6939,11 @@
       "keyProvisions": [
         {
           "title": "Processing Scope",
-          "description": "The DPA clearly defines the subject matter, duration, nature, and purpose of the processing, the types of personal data processed, and the categories of data subjects. All processing activities are documented in an annex that is reviewed and updated quarterly to reflect any changes in our data processing operations."
+          "description": "L'ADD définit clairement l'objet, la durée, la nature et la finalité du traitement, les types de données personnelles et les catégories de personnes concernées."
         },
         {
           "title": "Subprocessor Management",
-          "description": "We maintain an up-to-date list of authorized sub-processors and notify clients of any changes to sub-processors at least 30 days in advance. Clients have the right to object to the appointment of a new sub-processor. All sub-processors are bound by contractual obligations providing at least the same level of data protection as contained in the DPA. We conduct due diligence assessments on all sub-processors before engagement and review their compliance annually."
+          "description": "Nous maintenons une liste à jour des sous-traitants autorisés et notifions les clients de tout changement de sous-traitant au moins 30 jours à l'avance."
         },
         {
           "title": "Data Security",
@@ -6955,11 +6955,11 @@
         },
         {
           "title": "Breach Notification",
-          "description": "We notify clients without undue delay and no later than 72 hours after becoming aware of a personal data breach. Notifications include the nature of the breach, the categories and approximate number of data subjects and records concerned, the likely consequences of the breach, and the measures taken or proposed to address the breach and mitigate its effects. We also provide reasonable assistance to clients in meeting their obligation to notify supervisory authorities and affected data subjects under applicable law."
+          "description": "Nous notifions les clients sans délai excessif et au plus tard 72 heures après avoir pris connaissance d'une violation de données personnelles. Les notifications incluent la nature de la violation, les catégories de données concernées et les mesures correctives."
         },
         {
           "title": "Data Return and Deletion",
-          "description": "Upon termination of the DPA or at the client's request, we return or securely delete all personal data processed under the DPA within 90 days, unless retention is required by applicable law. We provide written certification of deletion upon request. For data that must be retained for legal compliance, we continue to protect such data in accordance with the DPA and applicable law and process it only for the purpose of compliance."
+          "description": "À la résiliation de l'ADD ou à la demande du client, nous retournons ou supprimons de manière sécurisée toutes les données personnelles traitées dans le cadre de l'accord."
         }
       ],
       "downloadTitle": "Download DPA Modèle",
@@ -6984,11 +6984,11 @@
       "legalBases": [
         {
           "basis": "Consent",
-          "description": "Where you have given clear, affirmative consent to the processing of your personal data for one or more specific purposes. You may withdraw your consent at any time without affecting the lawfulness of processing based on consent before its withdrawal."
+          "description": "Lorsque vous avez donné un consentement clair et affirmatif au traitement de vos données personnelles pour une ou plusieurs finalités spécifiques."
         },
         {
           "basis": "Contractual Necessity",
-          "description": "Where processing is necessary for the performance of a contract to which you are a party, or in order to take steps at your request prior to entering into a contract. This includes processing needed to deliver our services under signed agreements."
+          "description": "Lorsque le traitement est nécessaire à l'exécution d'un contrat auquel vous êtes partie, ou afin de prendre des mesures précontractuelles à votre demande."
         },
         {
           "basis": "Legal Obligation",
@@ -6996,11 +6996,11 @@
         },
         {
           "basis": "Vital Interests",
-          "description": "Where processing is necessary to protect the vital interests of a natural person, including life-threatening situations or emergencies where the data subject is incapable of giving consent."
+          "description": "Lorsque le traitement est nécessaire à la protection des intérêts vitaux d'une personne physique, y compris les situations menaçant la vie."
         },
         {
           "basis": "Public Interest",
-          "description": "Where processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller, applicable in our capacity as a critical infrastructure operator."
+          "description": "Lorsque le traitement est nécessaire à l'exécution d'une mission d'intérêt public ou dans l'exercice de l'autorité publique investie du responsable du traitement."
         },
         {
           "basis": "Legitimate Interests",
@@ -7013,42 +7013,42 @@
         {
           "right": "Right of Access",
           "article": "Article 15",
-          "description": "You have the right to obtain confirmation as to whether or not personal data concerning you is being processed, and where that is the case, access to the personal data and information about the purposes, categories, recipients, retention period, and your right to lodge a complaint."
+          "description": "Vous avez le droit d'obtenir confirmation que vos données personnelles sont ou ne sont pas traitées, et le cas échéant, l'accès à ces données et aux informations relatives au traitement."
         },
         {
           "right": "Right to Rectification",
           "article": "Article 16",
-          "description": "You have the right to obtain the rectification of inaccurate personal data concerning you without undue delay. Taking into account the purposes of processing, you also have the right to have incomplete personal data completed, including by means of providing a supplementary statement."
+          "description": "Vous avez le droit d'obtenir la rectification des données personnelles inexactes vous concernant sans délai excessif. Complétez les données incomplètes par une déclaration complémentaire."
         },
         {
           "right": "Right to Erasure",
           "article": "Article 17",
-          "description": "You have the right to obtain the erasure of personal data concerning you without undue delay where the data is no longer necessary, you withdraw consent, you object to processing, or the data has been unlawfully processed. This is subject to certain exceptions, including legal obligations and the establishment, exercise, or defense of legal claims."
+          "description": "Vous avez le droit d'obtenir l'effacement des données personnelles vous concernant sans délai excessif lorsque les données ne sont plus nécessaires au regard des finalités pour lesquelles elles ont été collectées."
         },
         {
           "right": "Right to Restriction of Processing",
           "article": "Article 18",
-          "description": "You have the right to obtain restriction of processing where you contest the accuracy of the data, processing is unlawful but you oppose erasure, we no longer need the data but you require it for legal claims, or you have objected to processing pending verification of our legitimate grounds."
+          "description": "Vous avez le droit d'obtenir la restriction du traitement lorsque vous contestez l'exactitude des données, le traitement est illicite, ou vous vous opposez au traitement."
         },
         {
           "right": "Right to Data Portability",
           "article": "Article 20",
-          "description": "You have the right to receive personal data concerning you which you have provided to us in a structured, commonly used, and machine-readable format, and have the right to transmit that data to another controller without hindrance. This right applies where processing is based on consent or contract and is carried out by automated means."
+          "description": "Vous avez le droit de recevoir les données personnelles vous concernant que vous nous avez fournies, dans un format structuré, couramment utilisé et lisible par machine."
         },
         {
           "right": "Right to Object",
           "article": "Article 21",
-          "description": "You have the right to object at any time to processing of personal data concerning you which is based on legitimate interests or public interest, including profiling. We shall cease processing unless we demonstrate compelling legitimate grounds or the data is needed for legal claims. You also have the right to object to processing for direct marketing at any time."
+          "description": "Vous avez le droit de vous opposer à tout moment au traitement de vos données personnelles basé sur l'intérêt légitime, y compris le profilage."
         },
         {
           "right": "Rights Regarding Automated Decision-Making",
           "article": "Article 22",
-          "description": "You have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects or similarly significantly affects you. Where such decisions are made, you have the right to obtain human intervention, express your point of view, and contest the decision."
+          "description": "Vous avez le droit de ne pas faire l'objet d'une décision fondée exclusivement sur un traitement automatisé, y compris le profilage, produisant des effets juridiques vous concernant."
         },
         {
           "right": "Right to Withdraw Consent",
           "article": "Article 7(3)",
-          "description": "Where processing is based on consent, you have the right to withdraw that consent at any time without affecting the lawfulness of processing based on consent before its withdrawal. Withdrawal of consent does not affect the legality of processing performed prior to the withdrawal. We make it easy to withdraw consent through our privacy settings or by contacting our DPO."
+          "description": "Lorsque le traitement est basé sur le consentement, vous avez le droit de retirer ce consentement à tout moment sans affecter la licéité du traitement effectué avant le retrait."
         }
       ],
       "dpaTitle": "Convention de traitement des données",
@@ -7086,7 +7086,7 @@
         },
         {
           "title": "Privacy Policy",
-          "description": "How we collect, use, share, and protect your personal information in accordance with applicable data protection laws.",
+          "description": "Comment nous collectons, utilisons, partageons et protégeons vos informations personnelles conformément aux lois applicables en matière de protection des données.",
           "href": "/privacy",
           "icon": "Shield",
           "updated": "January 2026"
@@ -7100,7 +7100,7 @@
         },
         {
           "title": "Cookie Policy",
-          "description": "How we use cookies and similar technologies, including cookie categories, duration, and how to manage your preferences.",
+          "description": "Comment nous utilisons les cookies et technologies similaires, y compris les catégories de cookies, leur durée, et comment gérer vos préférences.",
           "href": "/legal/cookies",
           "icon": "Cookie",
           "updated": "January 2026"
@@ -7114,7 +7114,7 @@
         },
         {
           "title": "CCPA Compliance",
-          "description": "Your rights under the California Consumer Privacy Act, categories of information collected, and how to exercise your rights.",
+          "description": "Vos droits en vertu du California Consumer Privacy Act, les catégories d'informations collectées, et comment exercer vos droits.",
           "href": "/legal/ccpa",
           "icon": "AlertCircle",
           "updated": "January 2026"
@@ -7188,28 +7188,28 @@
       "riskAssessmentItems": [
         {
           "label": "Sector-specific risks:",
-          "description": "Mining, construction, and agriculture are identified as higher-risk sectors due to the prevalence of migrant labor, informal employment practices, and hazardous working conditions."
+          "description": "Les secteurs minier, de la construction et de l'agriculture sont identifiés comme secteurs à risque élevé en raison de la prévalence du travail migrant, des pratiques de recrutement informelles et des chaînes d'approvisionnement complexes."
         },
         {
           "label": "Geographic risks:",
-          "description": "Operations and supply chains in regions with weaker labor protections, high levels of migration, or conflict-affected areas receive heightened scrutiny."
+          "description": "Les opérations et chaînes d'approvisionnement dans les régions à protections sociales faibles, niveaux élevés de migration, ou zones touchées par des conflits présentent des risques accrus."
         },
         {
           "label": "Labor provider risks:",
-          "description": "The use of third-party labor providers, recruitment agencies, and subcontractors introduces additional risks that are managed through enhanced due diligence and contractual safeguards."
+          "description": "L'utilisation de fournisseurs de travail tiers, d'agences de recrutement et de sous-traitants introduit des risques supplémentaires difficiles à gérer."
         },
         {
           "label": "Raw material risks:",
-          "description": "The sourcing of critical minerals and raw materials, particularly from artisanal and small-scale mining operations, carries inherent risks that require specialized monitoring and traceability measures."
+          "description": "L'approvisionnement en minéraux critiques et matières premières, en particulier des opérations minières artisanales et à petite échelle, comporte des risques importants de travail forcé et de travail des enfants."
         }
       ],
       "keyActionsTitle": "Actions Clés Prises",
       "keyActionsIntro": "Pendant l'exercice fiscal 2025, nous avons pris les actions suivantes pour lutter contre l'esclavage moderne dans nos opérations et notre chaîne d'approvisionnement :",
       "keyActions": [
-        "Conducted 47 on-site supplier audits across all seven verticals, with 12 audits specifically focused on high-risk suppliers in the construction and mining sectors. Identified 3 non-conformities related to working hours documentation and took immediate corrective action.",
-        "Implemented a digital supply chain traceability platform for our mining and agriculture verticals, enabling end-to-end visibility of labor practices from raw material extraction to final delivery.",
-        "Terminated relationships with 2 suppliers who failed to demonstrate adequate controls against modern slavery after a remediation period. These terminations were conducted in accordance with our responsible exit protocol to minimize adverse impacts on workers.",
-        "Established a dedicated Human Rights and Supply Chain Integrity team within the Compliance Office, staffed with specialists in labor rights, supply chain management, and social auditing.",
+        "Réalisé 47 audits fournisseurs sur site dans les sept verticales, dont 12 audits spécifiquement axés sur les fournisseurs à haut risque.",
+        "Mis en place une plateforme numérique de traçabilité de la chaîne d'approvisionnement pour nos verticales minières et agricoles, permettant une visibilité de bout en bout.",
+        "Résilié les relations avec 2 fournisseurs qui n'ont pas démontré de contrôles adéquats contre l'esclavage moderne après une période de remédiation.",
+        "Établi une équipe dédiée Droits de l'Homme et Intégrité de la Chaîne d'Approvisionnement au sein du Bureau de Conformité, dotée de spécialistes.",
         "Adopted the Employer Pays Principle across all our operations, ensuring that no worker bears the cost of recruitment to obtain employment with Harch Corp or its suppliers."
       ],
       "trainingTitle": "Formation et Sensibilisation",
@@ -7249,11 +7249,11 @@
       "nextStepsTitle": "Next Étapes",
       "nextStepsIntro": "Pour l'exercice fiscal 2026, nous prévoyons de :",
       "nextSteps": [
-        "Expand our digital supply chain traceability platform to cover 100% of our tier-1 and tier-2 suppliers across all verticals.",
-        "Implement worker voice technology in our mining and agriculture operations to enable direct and anonymous feedback from workers.",
-        "Commission an independent third-party assessment of our modern slavery due diligence framework and implement its recommendations.",
-        "Enhance collaboration with industry peers, civil society organizations, and government agencies to share best practices and drive systemic change.",
-        "Conduct a comprehensive review of our recruitment agency framework across all operations, with particular focus on cross-border labor migration pathways."
+        "Étendre notre plateforme numérique de traçabilité pour couvrir 100% de nos fournisseurs de niveau 1 et 2 dans toutes les verticales.",
+        "Mettre en place la technologie worker voice dans nos opérations minières et agricoles pour permettre un retour direct et anonyme des travailleurs.",
+        "Commander une évaluation indépendante par un tiers de notre cadre de diligence raisonnable en matière d'esclavage moderne et mettre en œuvre ses recommandations.",
+        "Renforcer la collaboration avec les pairs de l'industrie, les organisations de la société civile et les agences gouvernementales pour partager les meilleures pratiques.",
+        "Mener un examen approfondi de notre cadre d'agences de recrutement dans toutes les opérations, avec un accent particulier sur le recrutement transfrontalier."
       ],
       "approvalTitle": "Approbation et Signature",
       "approvalDescription": "Cette Déclaration sur l'Esclavage Moderne a été approuvée par le Conseil d'Administration de Harch Corp S.A. et est publiée conformément à la UK Modern Slavery Act 2015, Section 54, l'Australian Modern Slavery Act 2018 (Cth), et notre engagement volontaire en faveur de la transparence dans le cadre juridique du Royaume du Maroc.",
@@ -7310,7 +7310,7 @@
       "exclusions": [
         "Scheduled maintenance windows as communicated in advance",
         "Issues caused by factors outside our reasonable control (force majeure events, natural disasters, government actions)",
-        "Downtime resulting from client misconfiguration, unauthorized modifications, or misuse of the services",
+        "Temps d'arrêt résultant d'une mauvaise configuration du client, de modifications non autorisées ou d'une utilisation abusive des services",
         "Failures of client-provided equipment, software, or network connectivity",
         "Issues arising from third-party services or integrations not managed by Harch Corp",
         "Temporary interruptions during emergency security patching or critical vulnerability remediation",
@@ -7361,7 +7361,7 @@
           "mark": "HarchOS",
           "status": "Registered",
           "registration": "MA-2024-003",
-          "description": "Operating system platform for AI data center management and infrastructure orchestration"
+          "description": "Plateforme de système d'exploitation pour la gestion de centres de données IA et l'orchestration d'infrastructure"
         },
         {
           "mark": "Harch Intelligence",
@@ -7467,10 +7467,10 @@
       "requestTitle": "Demande d'autorisation",
       "requestDescription": "Si vous souhaitez utiliser une marque ou un logo de Harch Corp d'une manière non expressément couverte par ces directives, vous devez obtenir une autorisation écrite préalable de notre équipe de marque. Les demandes d'autorisation doivent inclure :",
       "requestItems": [
-        "The specific trademark(s) you wish to use",
-        "A detailed description of the intended use, context, and distribution",
-        "Visual mockups or samples of how the trademark will appear",
-        "The intended duration and geographic scope of use"
+        "La ou les marque(s) spécifique(s) que vous souhaitez utiliser",
+        "Une description détaillée de l'utilisation prévue, du contexte et de la distribution",
+        "Maquettes visuelles ou échantillons de l'apparence de la marque",
+        "La durée et la portée géographique prévues de l'utilisation"
       ],
       "requestTeamTitle": "Brand Permissions Équipe",
       "requestEmailLabel": "Email :",
@@ -7496,11 +7496,11 @@
         },
         {
           "title": "4. Forward-Looking Statements",
-          "text": "This website contains forward-looking statements that involve risks and uncertainties. Actual results may differ materially from those expressed or implied in such statements. Factors that could cause actual results to differ include, but are not limited to, changes in economic conditions, regulatory environments, and project execution risks."
+          "text": "Ce site web contient des déclarations prospectives qui impliquent des risques et des incertitudes. Les résultats réels peuvent différer considérablement de ceux exprimés ou sous-entendus dans ces déclarations."
         },
         {
           "title": "5. Governing Law",
-          "text": "These terms and conditions are governed by and construed in accordance with the laws of the Kingdom of Morocco. Any disputes arising from the use of this website shall be subject to the exclusive jurisdiction of the courts of Casablanca, Morocco."
+          "text": "Ces termes et conditions sont régis et interprétés conformément aux lois du Royaume du Maroc. Tout litige sera soumis à la compétence exclusive des tribunaux marocains."
         },
         {
           "title": "6. Contact",
@@ -7650,11 +7650,11 @@
       "cta": "Nous contacter",
       "benefits": {
         "items": [
-          "Early access to HarchOS platform",
-          "Co-development and joint intégration",
-          "Mutual referral pipeline",
+          "Accès anticipé à la plateforme HarchOS",
+          "Co-développement et intégration conjointe",
+          "Pipeline de référencement mutuel",
           "Co-marketing et événements conjoints",
-          "Dedicated technical support"
+          "Support technique dédié"
         ],
         "title": "Avantages partenaires"
       }
@@ -7663,44 +7663,44 @@
       "financial": {
         "description": "Institutions de financement du développement, banques d'investissement et fonds de private equity.",
         "partners": [
-          "Partners 0",
-          "Partners 1",
-          "Partners 2",
-          "Partners 3",
-          "Partners 4"
+          "Banque Africaine de Développement",
+          "Banque Européenne d'Investissement",
+          "Africa Infrastructure Partners",
+          "Corporation Financière Internationale",
+          "Contactez-nous pour les partenariats"
         ],
         "title": "Partenaires financiers"
       },
       "government": {
         "description": "Agences gouvernementales et institutions multilatérales soutenant le développement d'infrastructure.",
         "partners": [
-          "Partners 0",
-          "Partners 1",
-          "Partners 2",
-          "Partners 3",
-          "Partners 4"
+          "Royaume du Maroc",
+          "République de Gambie",
+          "République du Sénégal",
+          "Banque Islamique de Développement",
+          "Contactez-nous pour les partenariats"
         ],
         "title": "Partenaires gouvernementaux"
       },
       "industrial": {
         "description": "Entreprises de construction, d'ingénierie et de fourniture pour le déploiement d'infrastructure.",
         "partners": [
-          "Partners 0",
-          "Partners 1",
-          "Partners 2",
-          "Partners 3",
-          "Partners 4"
+          "Groupe OCP",
+          "MASEN",
+          "Partenaire de construction stratégique",
+          "Partenaire d'ingénierie stratégique",
+          "Contactez-nous pour les partenariats"
         ],
         "title": "Partenaires industriels"
       },
       "technology": {
         "description": "Leaders en matériel, logiciel et IA alimentant notre pile technologique.",
         "partners": [
-          "Partners 0",
-          "Partners 1",
-          "Partners 2",
-          "Partners 3",
-          "Partners 4"
+          "Partenaire GPU stratégique",
+          "Partenaire Cloud stratégique",
+          "Partenaire de sécurité stratégique",
+          "Partenaire IA stratégique",
+          "Contactez-nous pour les partenariats"
         ],
         "title": "Partenaires technologiques"
       }
@@ -7708,8 +7708,8 @@
     "description": "Harch Corp collabore avec des leaders mondiaux de la technologie, la finance, l'industrie et le gouvernement pour fournir une infrastructure souveraine de classe mondiale.",
     "hero": {
       "description": "Harch Corp construit l'infrastructure souveraine de l'Afrique — du cloud GPU à l'énergie renouvelable, du ciment au dessalement.",
-      "label": "Hero",
-      "title": "Hero"
+      "label": "Partenaires",
+      "title": "Nos Partenaires"
     },
     "subtitle": "Écosystème de partenaires"
   },
@@ -9919,54 +9919,54 @@
       "roadmap": {
         "phase1": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5",
-            "Actions 6"
+            "Déployer des capteurs IoT du sol sur 10 000 hectares",
+            "Installer des stations météorologiques dans 50 exploitations",
+            "Mettre en place le pipeline d'intégration d'imagerie satellite",
+            "Former 200 agronomes à l'agriculture de précision",
+            "Établir des protocoles de collecte de données",
+            "Intégrer avec la plateforme de surveillance HarchOS",
+            "Lancer le programme pilote avec 20 exploitations"
           ],
           "funding": "Phase1 Financement",
           "phase": "Phase1",
-          "title": "Phase 1"
+          "title": "Déploiement IoT"
         },
         "phase2": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5"
+            "Déployer une flotte de drones pour la surveillance aérienne des cultures",
+            "Implémenter la détection de maladies par IA",
+            "Lancer le système d'irrigation de précision",
+            "Établir le pipeline de traitement de données aériennes",
+            "Former 500 agronomes supplémentaires",
+            "Étendre la couverture à 50 000 hectares"
           ],
           "funding": "Phase2 Financement",
           "phase": "Phase2",
-          "title": "Phase 2"
+          "title": "Lancement de flotte de drones"
         },
         "phase3": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4"
+            "Lancer la plateforme de vérification de crédits carbone",
+            "Intégrer avec les registres Verra et Gold Standard",
+            "Déployer des outils de mesure carbone automatisés",
+            "Établir une marketplace de crédits carbone pour les agriculteurs",
+            "Traiter les premiers 100 000 crédits carbone vérifiés"
           ],
           "funding": "Phase3 Financement",
           "phase": "Phase3",
-          "title": "Phase 3"
+          "title": "Plateforme de crédits carbone"
         },
         "phase4": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4"
+            "Étendre les opérations à 5 pays africains supplémentaires",
+            "Établir des centres de traitement régionaux",
+            "Lancer la plateforme de données agricoles panafricaine",
+            "Partnership avec l'Union Africaine pour le déploiement continental",
+            "Atteindre 500 000 hectares sous gestion"
           ],
           "funding": "Phase4 Financement",
           "phase": "Phase4",
-          "title": "Phase 4"
+          "title": "Expansion continentale"
         }
       },
       "roiLabel": "ROI agriculture",
@@ -10749,51 +10749,51 @@
       "roadmap": {
         "phase1": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5"
+            "Obtenir la certification Green Bond Principles",
+            "Engager un fournisseur d'opinion indépendante de seconde partie",
+            "Structurer la première émission d'obligations vertes de 200M$",
+            "Sécuriser des investisseurs institutionnels DFI",
+            "Coter à la Bourse de Casablanca",
+            "Publier le premier rapport d'impact"
           ],
           "phase": "Phase1",
-          "title": "Phase 1"
+          "title": "Émission d'obligations vertes"
         },
         "phase2": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5"
+            "Établir un cadre de vérification des crédits carbone",
+            "Partenariat avec les registres Verra et Gold Standard",
+            "Lancer la première bourse africaine de crédits carbone",
+            "Intégrer avec les compensations renouvelables de Harch Energy",
+            "Implémenter le retrait automatisé et les rapports",
+            "Atteindre 5M+ crédits vérifiés annuellement"
           ],
           "phase": "Phase2",
-          "title": "Phase 2"
+          "title": "Bourse de crédits carbone"
         },
         "phase3": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5"
+            "Obtenir l'approbation du Conseil de Surveillance Charia",
+            "Structurer la première émission Sukuk pour l'infrastructure",
+            "Lancer un facility de financement de projets islamiques",
+            "Partenariat avec la Banque Islamique de Développement",
+            "Établir des cadres de partage profits-et-pertes",
+            "Atteindre un portefeuille de finance islamique de 500M$"
           ],
           "phase": "Phase3",
-          "title": "Phase 3"
+          "title": "Plateforme de finance islamique"
         },
         "phase4": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5"
+            "Établir un réseau correspondant de finance commerciale",
+            "Lancer la plateforme de facilitation de lettres de crédit",
+            "Intégrer les solutions de financement soutenues par ECA",
+            "Déployer l'infrastructure de règlement en temps réel",
+            "Connecter les 7 verticales Harch à la finance commerciale",
+            "Atteindre l'objectif de pipeline total de 2,4M$+"
           ],
           "phase": "Phase4",
-          "title": "Phase 4",
+          "title": "Réseau de finance commerciale",
           "pipelineTarget": "$2,4B+"
         }
       },
@@ -14184,34 +14184,34 @@
       "bulletins": {
         "bulletin4": {
           "date": "Date du bulletin 4",
-          "title": "Bulletin 4"
+          "title": "Bulletin de sécurité HB-2026-004"
         },
         "bulletin5": {
-          "date": "Bulletin5 Date",
-          "title": "Bulletin 5"
+          "date": "Date du bulletin 5",
+          "title": "Bulletin de sécurité HB-2026-005"
         },
         "bulletin6": {
-          "date": "Bulletin6 Date",
-          "title": "Bulletin 6"
+          "date": "Date du bulletin 6",
+          "title": "Bulletin de sécurité HB-2026-006"
         },
         "bulletin7": {
-          "date": "Bulletin7 Date",
-          "title": "Bulletin 7"
+          "date": "Date du bulletin 7",
+          "title": "Bulletin de sécurité HB-2026-007"
         },
         "bulletin8": {
-          "date": "Bulletin8 Date",
-          "title": "Bulletin 8"
+          "date": "Date du bulletin 8",
+          "title": "Bulletin de sécurité HB-2026-008"
         },
-        "description": "Description de bulletins",
+        "description": "Derniers avis de sécurité, divulgations de vulnérabilités et notifications de correctifs pour tous les services Harch Corp.",
         "label": "Bulletins",
-        "severityHigh": "Bulletins Severity Élevé",
-        "severityLow": "Bulletins Severity Faible",
-        "severityMedium": "Bulletins Severity Moyen",
-        "statusResolved": "Bulletins Status Resolved",
-        "tableDate": "Bulletins Table Date",
-        "tableSeverity": "Bulletins Table Severity",
-        "tableStatus": "Bulletins Table Statut",
-        "tableTitle": "Tableau des bulletins",
+        "severityHigh": "Élevée",
+        "severityLow": "Faible",
+        "severityMedium": "Moyenne",
+        "statusResolved": "Résolu",
+        "tableDate": "Date",
+        "tableSeverity": "Sévérité",
+        "tableStatus": "Statut",
+        "tableTitle": "Bulletins de sécurité",
         "title": "Bulletins de sécurité"
       },
       "cta": {
@@ -17063,7 +17063,7 @@
             "capabilities": {
               "0": {
                 "title": "Planification et Programmation Minière",
-                "description": "Short-term and medium-term mine planning with optimized bench sequencing. Pit design tools calculate optimal pit shells based on commodity prices, processing costs, and geotechnical constraints. Weekly and daily schedules integrate with equipment availability and maintenance windows."
+                "description": "Planification minière à court et moyen terme avec séquençage optimisé des gradins. Les outils de conception de fosse calculent les coques de fosse optimales pour maximiser la valeur nette."
               },
               "1": {
                 "title": "Fleet Management",
@@ -17071,11 +17071,11 @@
               },
               "2": {
                 "title": "Grade Contrôle",
-                "description": "Real-time ore grade tracking at the extraction face using portable XRF analyzers and blast hole sampling. Ore/waste boundary delineation ensures that material above cut-off grade reaches the processing plant while waste is routed to the dump. Grade reconciliation against the block model validates reserve estimates."
+                "description": "Suivi en temps réel de la teneur du minerai au front d'extraction à l'aide d'analyseurs XRF portables et d'échantillonnage des trous de tir. Les limites minerai/stérile sont mises à jour dynamiquement."
               },
               "3": {
                 "title": "Safety & Environnemental",
-                "description": "Slope stability monitoring using radar and prisms with automated alert thresholds. Dust and vibration monitoring at site boundaries with compliance reporting. Water management for pit dewatering and runoff control. Incident tracking and near-miss reporting with root cause analysis workflows."
+                "description": "Surveillance de la stabilité des pentes par radar et prismes avec seuils d'alerte automatisés. Surveillance de la poussière et des vibrations sur site."
               }
             },
             "cta": "Explore Extraction Opérations"
@@ -17083,23 +17083,23 @@
           "2": {
             "label": "PROCESSING",
             "name": "Processing & Refining",
-            "description": "Controls the mineral processing chain from run-of-mine ore to marketable concentrate or refined product. Each circuit is optimized for recovery, product quality, and energy efficiency — with real-time monitoring and AI-assisted process control.",
+            "description": "Contrôle la chaîne de traitement minéral du minerai brut au concentré commercialisable ou produit raffiné. Chaque circuit est optimisé pour la récupération métallurgique et l'efficacité énergétique.",
             "capabilities": {
               "0": {
                 "title": "Comminution & Grinding",
-                "description": "Management of crushing and grinding circuits with online particle size analysis. Mill load and power draw optimization maintains target grind size while minimizing energy consumption. Liner wear tracking predicts replacement scheduling to avoid unplanned shutdowns."
+                "description": "Gestion des circuits de concassage et de broyage avec analyse granulométrique en ligne. Optimisation de la charge du broyeur et de la puissance absorbée pour maximiser le débit."
               },
               "1": {
                 "title": "Concentration & Separation",
-                "description": "Flotation, magnetic separation, and gravity concentration circuit management. Reagent dosing optimization using AI models that adjust to ore characteristics in real time. Recovery tracking against theoretical maximum identifies losses and opportunities for circuit optimization."
+                "description": "Gestion des circuits de flottation, séparation magnétique et concentration gravimétrique. Optimisation du dosage des réactifs à l'aide de modèles IA."
               },
               "2": {
                 "title": "Product Quality Contrôle",
-                "description": "Automated sampling and analysis of final concentrate with real-time grade tracking. Product specification compliance ensures that every shipment meets customer contractual requirements. Quality certificates generated automatically with laboratory data integration."
+                "description": "Échantillonnage et analyse automatisés du concentré final avec suivi de teneur en temps réel. Conformité aux spécifications produit garantie."
               },
               "3": {
                 "title": "Tailings Management",
-                "description": "Tailings storage facility monitoring with dam stability analysis, water balance tracking, and environmental compliance. Dry stacking option evaluation for water recovery and closure cost reduction. Progressive rehabilitation planning for decommissioned tailings areas."
+                "description": "Surveillance des installations de stockage des résidus avec analyse de stabilité des digues, suivi du bilan hydrique et conformité environnementale."
               }
             },
             "cta": "Explore Processing & Refining"
@@ -17107,23 +17107,23 @@
           "3": {
             "label": "LOGISTICS",
             "name": "Logistics & Export",
-            "description": "Coordinates the movement of mineral products from mine gate to customer port — rail scheduling, port terminal operations, and shipment tracking. For a land-linked operation, logistics efficiency is the difference between competitive and uncompetitive delivered pricing.",
+            "description": "Coordonne le mouvement des produits minéraux de la porte de la mine au port client — planification ferroviaire, opérations terminales portuaires et affrètement maritime.",
             "capabilities": {
               "0": {
                 "title": "Rail & Road Transport",
-                "description": "Scheduling and tracking of rail and road transport from mine to port. Consignment tracking with ETAs updated in real time. Demurrage management ensures rail cars and trucks are turned around within contracted time windows. Route optimization minimizes transport cost per tonne."
+                "description": "Planification et suivi du transport ferroviaire et routier de la mine au port. Suivi des expéditions avec ETA mis à jour en temps réel."
               },
               "1": {
                 "title": "Port Terminal Opérations",
-                "description": "Stockpile management at port terminals with blending capability to meet customer specifications. Ship loading scheduling coordinated with vessel arrivals and draft restrictions. Port authority integration for berth allocation and customs clearance."
+                "description": "Gestion des stockpiles aux terminaux portuaires avec capacité de blending pour répondre aux spécifications clients. Planification du chargement des navires."
               },
               "2": {
                 "title": "Shipment Suivi",
-                "description": "End-to-end shipment tracking from port loading through ocean transit to customer discharge. AIS vessel tracking, estimated time of arrival updates, and proof-of-delivery documentation. Letters of credit and trade finance documentation generated automatically from shipment data."
+                "description": "Suivi de bout en bout des expéditions du chargement portuaire au transit océanique jusqu'au déchargement client. Suivi AIS des navires, estimation des ETA."
               },
               "3": {
                 "title": "Supply Chain Analytique",
-                "description": "Mine-to-customer cost analysis identifying logistics bottlenecks and cost reduction opportunities. Benchmarking against industry peers for transport cost per tonne, inventory carrying costs, and order-to-delivery cycle times. Scenario modeling for supply chain configuration changes."
+                "description": "Analyse des coûts mine-client identifiant les goulets d'étranglement logistiques et les opportunités de réduction des coûts. Benchmarking par rapport aux normes de l'industrie."
               }
             },
             "cta": "Explore Logistics & Export"
@@ -17133,28 +17133,28 @@
       "agriculture": {
         "headerLabel": "Platform Modules",
         "headerTitle": "Harch Agri Plateforme",
-        "headerDescription": "From terrain selection to harvest — the precision agriculture platform that enables African farmers to make data-driven decisions. Includes map-based terrain analysis, IoT sensor integration, and direct market access tools like PDF quote generation and WhatsApp connectivity.",
+        "headerDescription": "De la sélection du terrain à la récolte — la plateforme d'agriculture de précision qui permet aux agriculteurs africains de prendre des décisions basées sur les données.",
         "modules": {
           "0": {
             "label": "TERRAIN",
             "name": "Terrain Intelligence",
-            "description": "Map-based terrain selection and soil analysis that enables farmers and investors to evaluate land before committing resources. Satellite imagery, soil databases, and topographic data are combined into actionable land capability assessments — the first step in any successful agricultural operation.",
+            "description": "Sélection de terrain basée sur la carte et analyse du sol permettant aux agriculteurs et investisseurs d'évaluer les terres avant de s'engager.",
             "capabilities": {
               "0": {
                 "title": "Interactive Terrain Map",
-                "description": "Interactive map interface for browsing and selecting agricultural terrain. Satellite imagery with NDVI overlays, topographic contours, and soil type boundaries drawn from national soil surveys. Users can draw field boundaries directly on the map and receive instant land capability assessments including slope, drainage, and soil depth analysis."
+                "description": "Interface cartographique interactive pour parcourir et sélectionner les terrains agricoles. Imagerie satellite avec couches NDVI, topographie et limites de parcelles."
               },
               "1": {
                 "title": "Soil Composition Analyse",
-                "description": "Integration with national soil databases to provide chemical and physical soil properties for any location — pH, organic matter, CEC, texture, and salinity. For areas with limited data, spectral analysis from satellite imagery provides interpolated estimates with confidence intervals. Soil sampling recommendations guide ground-truth verification."
+                "description": "Intégration avec les bases de données nationales des sols pour fournir les propriétés chimiques et physiques du sol pour tout emplacement — pH, matière organique, capacité d'échange cationique."
               },
               "2": {
                 "title": "Climate & Water Availability",
-                "description": "Historical climate data (temperature, rainfall, evapotranspiration) and water resource mapping for each terrain parcel. Groundwater depth estimates, proximity to surface water, and irrigation infrastructure availability. Climate risk scoring for drought, flood, and heat stress based on 30-year historical records."
+                "description": "Données climatiques historiques (température, précipitations, évapotranspiration) et cartographie des ressources en eau pour chaque parcelle de terrain."
               },
               "3": {
                 "title": "Land Use & Zoning",
-                "description": "Current and historical land use classification from satellite imagery. Zoning and regulatory compliance checks against agricultural land protection regulations. Customary land tenure mapping where formal registries are incomplete, reducing investment risk."
+                "description": "Classification actuelle et historique de l'utilisation des sols à partir de l'imagerie satellite. Vérification de conformité avec le zonage et la réglementation."
               }
             },
             "cta": "Explore Terrain Intelligence"
@@ -17162,19 +17162,19 @@
           "1": {
             "label": "PRECISION",
             "name": "Precision Opérations",
-            "description": "IoT sensor networks, drone services, and variable-rate application tools that turn terrain data into field-level actions. This module bridges the gap between analysis and execution — ensuring that every input (water, fertilizer, crop protection) is applied at the right rate, in the right place, at the right time.",
+            "description": "Réseaux de capteurs IoT, services de drones et outils d'application à dose variable qui transforment les données terrain en actions au niveau du champ.",
             "capabilities": {
               "0": {
                 "title": "IoT Sensor Réseau",
-                "description": "Deployment and management of wireless sensor networks measuring soil moisture at multiple depths, canopy temperature, humidity, and leaf wetness. Solar-powered nodes transmit data via LoRaWAN to the platform every 15 minutes. Anomaly detection alerts farmers to conditions that require immediate attention — frost risk, drought stress, or disease-favorable humidity."
+                "description": "Déploiement et gestion de réseaux de capteurs sans fil mesurant l'humidité du sol à plusieurs profondeurs, la température de la canopée, l'humidité et la croissance des cultures."
               },
               "1": {
                 "title": "Drone-as-a-Service",
-                "description": "On-demand drone flights for crop health surveys using multispectral and thermal imaging. NDVI maps, chlorophyll indices, and thermal stress maps delivered within 24 hours of flight. Automated flight planning ensures consistent coverage and resolution. Drone data integrates with variable-rate application maps for precision input management."
+                "description": "Vols de drones à la demande pour les enquêtes de santé des cultures utilisant l'imagerie multispectrale et thermique. Cartes NDVI, indices de chlorophylle et détection de stress."
               },
               "2": {
                 "title": "Variable Rate Application",
-                "description": "Prescription maps for variable-rate fertilizer, irrigation, and crop protection application. Maps are generated from soil sensor data, drone imagery, and yield history. Compatible with major precision agriculture equipment brands. Application records are stored for traceability and regulatory compliance."
+                "description": "Cartes de prescription pour l'application à dose variable d'engrais, d'irrigation et de protection des cultures. Les cartes sont générées à partir de données de sol, d'imagerie et de modèles de culture."
               },
               "3": {
                 "title": "Weather Intégration",
@@ -17186,15 +17186,15 @@
           "2": {
             "label": "MARCHÉ",
             "name": "Yield & Market Access",
-            "description": "Connects agricultural production to market outlets — with tools for yield estimation, quality grading, and direct buyer engagement. Includes PDF quote generation and WhatsApp integration that lets farmers send professional quotations to buyers directly from the platform, removing intermediaries who capture margin.",
+            "description": "Connecte la production agricole aux débouchés commerciaux — avec des outils d'estimation des rendements, de classement qualité et de mise en relation directe avec les acheteurs.",
             "capabilities": {
               "0": {
                 "title": "Yield Estimation & Suivi",
-                "description": "In-season yield estimation using satellite imagery, crop models, and ground-truth sampling. Yield forecasts are updated weekly as the season progresses, enabling proactive marketing decisions. Post-harvest yield reconciliation against forecasts improves model accuracy for subsequent seasons."
+                "description": "Estimation des rendements en saison utilisant l'imagerie satellite, les modèles de culture et l'échantillonnage de vérité terrain. Les prévisions de rendement sont mises à jour automatiquement."
               },
               "1": {
                 "title": "PDF Quote Generation",
-                "description": "One-click generation of professional PDF quotations (devis) pre-filled with farmer details, product specifications, quantities, and pricing. Quotations are branded with the farmer's cooperative or company information and include payment terms and delivery logistics. No external software or design skills required — the platform handles formatting, numbering, and calculations automatically."
+                "description": "Génération en un clic de devis PDF professionnels pré-remplis avec les détails de l'agriculteur, les spécifications produit, la quantité et les conditions de livraison."
               },
               "2": {
                 "title": "WhatsApp Business Intégration",
@@ -17202,7 +17202,7 @@
               },
               "3": {
                 "title": "Market Price Intelligence",
-                "description": "Real-time commodity price feeds from local and international markets. Price comparison tools show the spread between farm-gate, wholesale, and export prices. Historical price trends and seasonal patterns help farmers time their sales for maximum revenue. Price alerts notify when target prices are reached."
+                "description": "Flux de prix de matières premières en temps réel depuis les marchés locaux et internationaux. Outils de comparaison de prix montrant l'écart entre les prix à la ferme et les prix du marché."
               }
             },
             "cta": "Explore Yield & Market Access"
@@ -17210,7 +17210,7 @@
           "3": {
             "label": "DURABILITÉ",
             "name": "Carbon & Durabilité",
-            "description": "Measures, verifies, and monetizes the environmental benefits of sustainable agricultural practices. From carbon credit generation to ESG reporting, this module ensures that sustainable farming is not just an ethical choice but an economically rewarded one.",
+            "description": "Mesure, vérifie et monétise les bénéfices environnementaux des pratiques agricoles durables. De la génération de crédits carbone aux indicateurs de biodiversité.",
             "capabilities": {
               "0": {
                 "title": "Carbon Credit Generation",
@@ -17218,15 +17218,15 @@
               },
               "1": {
                 "title": "Land Use & Biodiversity",
-                "description": "Satellite-based monitoring of land use change and biodiversity indicators. Deforestation-free supply chain verification for commodity crops. Habitat connectivity assessments and pollinator corridor mapping support biodiversity credits and ESG reporting."
+                "description": "Surveillance par satellite du changement d'affectation des terres et des indicateurs de biodiversité. Vérification de chaîne d'approvisionnement sans déforestation."
               },
               "2": {
                 "title": "Water Footprint Suivi",
-                "description": "Calculation of green, blue, and grey water footprints per crop and per field. Comparison against benchmark water use efficiency for each crop and climate zone. Water stewardship certification support with documentation of water management practices and outcomes."
+                "description": "Calcul des empreintes eau verte, bleue et grise par culture et par champ. Comparaison avec les benchmarks d'efficacité d'utilisation de l'eau."
               },
               "3": {
                 "title": "ESG Reporting",
-                "description": "Automated generation of ESG metrics for agricultural operations — carbon intensity per tonne, water use efficiency, biodiversity impact, and social metrics (employment, community investment). Reports aligned with GRI, SASB, and TCFD frameworks for investor and regulatory reporting."
+                "description": "Génération automatisée de métriques ESG pour les opérations agricoles — intensité carbone par tonne, efficacité d'utilisation de l'eau, indicateurs de biodiversité."
               }
             },
             "cta": "Explore Carbon & Durabilité"
@@ -17236,28 +17236,28 @@
       "water": {
         "headerLabel": "Platform Modules",
         "headerTitle": "Harch Water Plateforme",
-        "headerDescription": "The operational layer for desalination, water treatment, and distribution — managing water as the critical infrastructure resource it is. Every module is designed for water-scarce conditions where efficiency and reliability are non-negotiable.",
+        "headerDescription": "La couche opérationnelle pour le dessalement, le traitement et la distribution de l'eau — gérant l'eau comme l'infrastructure critique.",
         "modules": {
           "0": {
             "label": "DESSALEMENT",
             "name": "Desalination Opérations",
-            "description": "Controls seawater reverse osmosis (SWRO) plants with real-time membrane monitoring, energy recovery optimization, and product water quality assurance. This is the core production module — where seawater becomes drinking water at the lowest possible energy cost.",
+            "description": "Contrôle les usines de dessalement par osmose inverse d'eau de mer (SWRO) avec surveillance des membranes en temps réel, optimisation de la récupération d'énergie et qualité de l'eau produite.",
             "capabilities": {
               "0": {
                 "title": "Membrane Performance Suivi",
-                "description": "Real-time monitoring of membrane flux, rejection rate, and trans-membrane pressure for each pressure vessel. Normalized performance calculations account for temperature and salinity variations, enabling early detection of fouling and scaling before production is affected. Cleaning schedules are generated based on actual membrane condition rather than fixed intervals."
+                "description": "Surveillance en temps réel du flux membranaire, du taux de rejet et de la pression transmembranaire pour chaque cuve sous pression. Données normalisées avec alertes de dégradation."
               },
               "1": {
                 "title": "Energy Recovery Optimisation",
-                "description": "Monitoring of energy recovery devices (ERDs) with real-time efficiency tracking. The system identifies ERD degradation and recommends maintenance before energy consumption increases. Specific energy consumption is tracked per train and per product volume, benchmarked against design specifications and industry best practices."
+                "description": "Surveillance des dispositifs de récupération d'énergie (ERD) avec suivi de l'efficacité en temps réel. Le système identifie la dégradation des ERD et recommande la maintenance préventive."
               },
               "2": {
                 "title": "Intake & Pretreatment",
-                "description": "Seawater intake management including screening, dissolved air flotation, and dual-media filtration. Real-time turbidity, SDI (silt density index), and chlorophyll monitoring at the intake protect membranes from algal blooms and storm events. Automated diversion to waste when feed quality exceeds membrane tolerance limits."
+                "description": "Gestion de la prise d'eau de mer incluant le tamisage, la flottation à air dissous et la filtration bicouche. Surveillance en temps réel de la turbidité, du SDI et de la température."
               },
               "3": {
                 "title": "Product Water Qualité",
-                "description": "Continuous online monitoring of product water for TDS, pH, conductivity, boron, and disinfectant residual. Compliance with WHO drinking water guidelines and local standards. Automated blending and remineralization adjustment ensures consistent taste and corrosion control in the distribution network."
+                "description": "Surveillance en continu de l'eau produite pour TDS, pH, conductivité, bore et résidu de désinfectant. Conformité avec les normes OMS et les réglementations locales."
               }
             },
             "cta": "Explore Desalination Opérations"
@@ -17265,15 +17265,15 @@
           "1": {
             "label": "TREATMENT",
             "name": "Treatment & Qualité",
-            "description": "Manages water and wastewater treatment processes — from conventional treatment to advanced oxidation and biological nutrient removal. This module ensures that all water, whether produced from desalination or treated from surface sources, meets quality standards before reaching consumers.",
+            "description": "Gère les processus de traitement de l'eau et des eaux usées — du traitement conventionnel à l'oxydation avancée et à l'élimination biologique des nutriments.",
             "capabilities": {
               "0": {
                 "title": "Treatment Process Contrôle",
-                "description": "SCADA integration for real-time control of treatment processes — coagulation, flocculation, sedimentation, filtration, and disinfection. Chemical dosing optimization using online analyzer feedback maintains treatment efficiency while minimizing chemical consumption. Alarm management prioritizes process upsets by water quality impact."
+                "description": "Intégration SCADA pour le contrôle en temps réel des processus de traitement — coagulation, floculation, sédimentation, filtration et désinfection."
               },
               "1": {
                 "title": "Water Quality Surveillance",
-                "description": "Continuous monitoring of treated water quality at multiple points in the treatment chain. Online analyzers for turbidity, chlorine residual, pH, and conductivity with automated grab sampling for laboratory verification. Regulatory compliance dashboards show real-time status against permit limits."
+                "description": "Surveillance continue de la qualité de l'eau traitée à plusieurs points de la chaîne de traitement. Analyseurs en ligne pour turbidité, chlore, pH, COT et coliformes."
               },
               "2": {
                 "title": "Wastewater Treatment",
@@ -17281,7 +17281,7 @@
               },
               "3": {
                 "title": "Laboratory Information Management",
-                "description": "Sample tracking from collection through analysis to result reporting with chain-of-custody documentation. Quality control protocols including blanks, duplicates, and spiked samples. Regulatory reporting generated automatically from laboratory data with trend analysis and exception flagging."
+                "description": "Suivi des échantillons de la collecte à l'analyse jusqu'au rapport de résultats avec documentation de la chaîne de custody. Contrôle qualité et assurance conformément aux normes ISO."
               }
             },
             "cta": "Explore Treatment & Qualité"
@@ -17289,15 +17289,15 @@
           "2": {
             "label": "DISTRIBUTION",
             "name": "Distribution Networks",
-            "description": "Manages the pipeline infrastructure that delivers water from production to consumption — including leak detection, pressure management, and demand monitoring. In water-scarce regions, every liter lost to leakage is a liter that did not need to be produced.",
+            "description": "Gère l'infrastructure de pipeline qui achemine l'eau de la production à la consommation — y compris la détection des fuites, la gestion de la pression et le contrôle qualité.",
             "capabilities": {
               "0": {
                 "title": "Pipeline Surveillance",
-                "description": "Real-time monitoring of flow, pressure, and quality at critical points in the distribution network. Hydraulic model integration enables simulation of network behavior under different demand scenarios. Pipe condition assessment using acoustic monitoring and pressure transient analysis identifies pipes at risk of failure."
+                "description": "Surveillance en temps réel du débit, de la pression et de la qualité aux points critiques du réseau de distribution. Intégration du modèle hydraulique pour la détection des fuites."
               },
               "1": {
                 "title": "Leak Detection & NRW",
-                "description": "District metered area (DMA) analysis for non-revenue water quantification. Night flow analysis identifies background leakage levels. Acoustic leak noise logging and satellite-based leak detection pinpoint leak locations for targeted repair. NRW reduction programs tracked with before/after measurement."
+                "description": "Analyse des districts mesurés (DMA) pour la quantification de l'eau non facturée. L'analyse du débit nocturne identifie les fuites de fond et les pertes."
               },
               "2": {
                 "title": "Pressure Management",
@@ -17305,7 +17305,7 @@
               },
               "3": {
                 "title": "Demand Monitoring & Forecasting",
-                "description": "Real-time demand monitoring by zone with short-term and seasonal forecasting. Demand forecasting incorporates weather, holiday patterns, and economic activity. Production scheduling optimization ensures desalination and treatment plants operate at the most energy-efficient output levels while meeting demand."
+                "description": "Surveillance de la demande en temps réel par zone avec prévision à court terme et saisonnière. La prévision intègre les données météorologiques, historiques et les événements spéciaux."
               }
             },
             "cta": "Explore Distribution Networks"
@@ -17313,23 +17313,23 @@
           "3": {
             "label": "PLANNING",
             "name": "Resource Planning",
-            "description": "Long-term water resource management at the basin scale — integrating climate projections, demand growth, and infrastructure investment planning. This module ensures that today's infrastructure decisions account for tomorrow's water reality.",
+            "description": "Gestion à long terme des ressources en eau à l'échelle du bassin — intégrant les projections climatiques, la croissance de la demande et la planification des infrastructures.",
             "capabilities": {
               "0": {
                 "title": "Demand Forecasting",
-                "description": "Long-term water demand projections by sector — domestic, industrial, agricultural — using population growth, economic development, and climate scenarios. Demand scenarios feed into infrastructure investment planning with probabilistic ranges that account for uncertainty."
+                "description": "Projections de demande en eau à long terme par secteur — domestique, industriel, agricole — utilisant la croissance démographique, le développement économique et les tendances de consommation."
               },
               "1": {
                 "title": "Watershed Management",
-                "description": "Integration of hydrological models, rainfall data, and land use maps for watershed-scale planning. Surface water availability projections under climate change scenarios. Groundwater recharge assessment and sustainable extraction limits. Watershed protection monitoring using satellite imagery."
+                "description": "Intégration des modèles hydrologiques, des données de précipitations et des cartes d'utilisation des sols pour la planification à l'échelle du bassin versant."
               },
               "2": {
                 "title": "Climate Adaptation",
-                "description": "Climate scenario analysis for water infrastructure resilience — drought frequency, extreme rainfall, sea level rise, and temperature impacts on water demand. Adaptation pathway planning identifies no-regret investments that perform well across multiple climate scenarios."
+                "description": "Analyse de scénarios climatiques pour la résilience des infrastructures hydriques — fréquence des sécheresses, précipitations extrêmes, élévation du niveau de la mer et tempêtes."
               },
               "3": {
                 "title": "Infrastructure Investment Planning",
-                "description": "Capital investment planning for new production capacity, network expansion, and asset renewal. Life-cycle cost analysis compares desalination, water reuse, and demand management options. Investment scenarios optimized for cost, resilience, and environmental impact."
+                "description": "Planification des investissements en capital pour les nouvelles capacités de production, l'expansion du réseau et le renouvellement des actifs. Analyse des coûts sur le cycle de vie."
               }
             },
             "cta": "Explore Resource Planning"
@@ -17344,23 +17344,23 @@
           "0": {
             "label": "CAPITAL",
             "name": "Capital Formation",
-            "description": "Structures and manages the full spectrum of financing instruments — green bonds, project finance, sukuk, and impact investment vehicles. This module ensures that each project accesses the optimal capital mix at the lowest cost of capital, while meeting the specific requirements of each funding source.",
+            "description": "Structure et gère l'éventail complet d'instruments de financement — obligations vertes, financement de projets, sukuk et investissement à impact.",
             "capabilities": {
               "0": {
                 "title": "Green Bond Structuring",
-                "description": "End-to-end green bond management — from framework development aligned with ICMA Green Bond Principles, through second-party opinion coordination, to proceeds allocation tracking and impact reporting. The module maintains the green bond register and ensures that all proceeds are allocated to eligible projects within the mandated timeframe."
+                "description": "Gestion verte obligataire de bout en bout — du développement du cadre aligné sur les Green Bond Principles de l'ICMA, à l'opinion de seconde partie et au reporting d'allocation."
               },
               "1": {
                 "title": "Project Finance",
-                "description": "Non-recourse and limited-recourse project finance structuring for infrastructure projects. Financial model management with sensitivity analysis, debt sculpting, and covenant tracking. Lender communication workflows, condition precedent management, and drawdown scheduling integrated with construction milestones."
+                "description": "Structuration de financement de projets sans recours et à recours limité pour les projets d'infrastructure. Gestion des modèles financiers avec analyse de sensibilité."
               },
               "2": {
                 "title": "Islamic Finance (Sukuk)",
-                "description": "Sharia-compliant financing structures including sukuk al-ijara, sukuk al-mudaraba, and sukuk al-musharaka. Sharia board coordination, asset-backing verification, and profit distribution calculations. Compliance documentation for AAOIFI standards and local regulatory requirements."
+                "description": "Structures de financement conformes à la Sharia incluant sukuk al-ijara, sukuk al-mudaraba et sukuk al-musharaka. Supervision du comité Sharia."
               },
               "3": {
                 "title": "Impact Investment Vehicles",
-                "description": "Blended finance structures combining concessional capital from development finance institutions with commercial investment. Impact measurement frameworks aligned with IFC Operating Principles for Impact Management. Social and environmental return tracking alongside financial returns."
+                "description": "Structures de financement mixte combinant capital concessionnel d'institutions de financement du développement avec des investissements commerciaux pour dérisquer les projets."
               }
             },
             "cta": "Explore Capital Formation"
@@ -17368,23 +17368,23 @@
           "1": {
             "label": "RISQUE",
             "name": "Risk Intelligence",
-            "description": "Comprehensive risk management across credit, market, operational, and climate risk dimensions. In infrastructure finance, risk is not something to be eliminated — it is something to be understood, quantified, and priced. This module ensures that every risk is visible and every decision is risk-informed.",
+            "description": "Gestion globale des risques couvrant les dimensions crédit, marché, opérationnel et climatique. En finance d'infrastructure, la gestion proactive des risques est essentielle.",
             "capabilities": {
               "0": {
                 "title": "Credit Risk Assessment",
-                "description": "Counterparty credit scoring for project sponsors, offtakers, and guarantors. Probability of default and loss given default models calibrated for African infrastructure markets. Exposure monitoring with concentration limits and early warning indicators for credit deterioration."
+                "description": "Notation crédit des contreparties pour les sponsors de projets, des offtakers et des garants. Probabilité de défaut et perte en cas de défaut modélisées."
               },
               "1": {
                 "title": "Market Risk Management",
-                "description": "Interest rate, foreign exchange, and commodity price risk monitoring across the portfolio. Value-at-risk calculations with stress testing for extreme scenarios. Hedge accounting documentation and derivative counterparty exposure management."
+                "description": "Surveillance des risques de taux d'intérêt, de change et de prix des matières premières à travers le portefeuille. Calculs de Value-at-Risk avec analyse de stress."
               },
               "2": {
                 "title": "Climate Risk Stress Testing",
-                "description": "Physical and transition climate risk assessment for infrastructure assets. Scenario analysis aligned with TCFD recommendations — from orderly transition to hot house world. Asset-level vulnerability scoring for floods, drought, heat stress, and sea level rise."
+                "description": "Évaluation des risques climatiques physiques et de transition pour les actifs d'infrastructure. Analyse de scénarios alignée sur les recommandations TCFD."
               },
               "3": {
                 "title": "Operational Risk & Conformité",
-                "description": "Operational risk event tracking with loss database and root cause analysis. Key risk indicators monitored against thresholds. Regulatory compliance management for banking, securities, and insurance regulations across multiple African jurisdictions."
+                "description": "Suivi des événements de risque opérationnel avec base de données de pertes et analyse des causes racines. Indicateurs clés de risque surveillés par rapport aux seuils."
               }
             },
             "cta": "Explore Risk Intelligence"
@@ -17392,19 +17392,19 @@
           "2": {
             "label": "TRADE",
             "name": "Trade Finance",
-            "description": "Manages the trade finance instruments that enable cross-border infrastructure procurement — letters of credit, bank guarantees, and supply chain finance. For projects importing equipment from Europe and Asia, trade finance is the bridge between contract signature and physical delivery.",
+            "description": "Gère les instruments de finance commerciale qui permettent l'approvisionnement transfrontalier d'infrastructure — lettres de crédit, garanties bancaires et affacturage.",
             "capabilities": {
               "0": {
                 "title": "Letters of Credit",
-                "description": "Issuance and management of documentary letters of credit for equipment procurement and construction contracts. SWIFT integration for LC issuance, amendment, and presentation checking. Compliance with UCP 600 and ISP98 rules. Tracking of LC expiry, presentation deadlines, and drawing status."
+                "description": "Émission et gestion de lettres de crédit documentaires pour l'approvisionnement en équipements et les contrats de construction. Intégration SWIFT."
               },
               "1": {
                 "title": "Bank Guarantees",
-                "description": "Management of performance bonds, advance payment guarantees, and retention guarantees across the project portfolio. Guarantee issuance, tracking, and release workflows. Counter-guarantee management for multi-jurisdictional projects. Guarantee exposure reporting by beneficiary and by project."
+                "description": "Gestion des cautionnements de performance, garanties d'avance et garanties de rétention à travers le portefeuille de projets. Suivi de l'expiration des garanties."
               },
               "2": {
                 "title": "Supply Chain Finance",
-                "description": "Reverse factoring programs for key suppliers and subcontractors. Early payment at discounted rates improves supplier liquidity while reducing supply chain risk. Integration with procurement and accounts payable systems for automated eligibility and payment processing."
+                "description": "Programmes d'affacturage inversé pour les fournisseurs et sous-traitants clés. Paiement anticipé à taux réduits améliorant la liquidité des fournisseurs."
               },
               "3": {
                 "title": "FX & Treasury",
@@ -17424,7 +17424,7 @@
               },
               "1": {
                 "title": "Proceeds Allocation Reporting",
-                "description": "Green bond and sukuk proceeds allocation tracking with project-level granularity. Each dollar is traced from investor subscription to eligible project expenditure. Allocation reports generated quarterly with independent verification. Impact metrics calculated per allocated dollar for investor communication."
+                "description": "Suivi de l'allocation des produits d'obligations vertes et sukuk avec granularité au niveau du projet. Chaque dollar est tracé depuis l'investisseur."
               },
               "2": {
                 "title": "Carbon Credit Verification",
@@ -17432,7 +17432,7 @@
               },
               "3": {
                 "title": "Investor Reporting",
-                "description": "Automated investor reporting with customizable dashboards showing portfolio performance, impact metrics, and risk indicators. Quarterly investor letters generated from template with live data. Data room management for due diligence with secure document sharing and access logging."
+                "description": "Reporting automatisé pour les investisseurs avec tableaux de bord personnalisables montrant la performance du portefeuille, les métriques d'impact et les indicateurs de risque."
               }
             },
             "cta": "Explore Impact & Reporting"
@@ -17441,7 +17441,7 @@
       }
     },
     "capabilities": "Capacités",
-    "whatsappMessage": "Hello, I would like to receive a quote for your agricultural services. Thank you.",
+    "whatsappMessage": "Bonjour, je souhaiterais recevoir un devis pour vos services agricoles. Merci.",
     "whatsappButton": "Envoyer un devis via WhatsApp",
     "generatingPdf": "Génération...",
     "generatePdf": "Générer un devis PDF"

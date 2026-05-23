@@ -22,7 +22,7 @@ const frPathMap: Record<string, string> = {
   '/quote': '/devis',
   '/partners': '/partenaires',
   '/investors': '/investisseurs',
-  '/newsroom': '/salle-de-presse',
+  '/newsroom': '/actualites',
   '/intelligence': '/intelligence',
   '/intelligence/harchos': '/intelligence/harchos',
   '/faq': '/faq',
@@ -33,7 +33,7 @@ const frPathMap: Record<string, string> = {
   '/trust/ai-ethics': '/confiance/ethique-ia',
   '/trust/vulnerability-disclosure': '/confiance/divulgation-vulnerabilites',
   '/legal': '/juridique',
-  '/legal/hub': '/juridique/hub',
+  '/legal/hub': '/juridique/centre',
   '/legal/cookies': '/juridique/cookies',
   '/legal/gdpr': '/juridique/rgpd',
   '/legal/ccpa': '/juridique/ccpa',
@@ -74,14 +74,17 @@ const frPathMap: Record<string, string> = {
 };
 
 // Subsidiary slug French mappings
+// Note: The actual Next.js routes use English slugs even for French locale
+// e.g., /fr/subsidiaries/cement (NOT /fr/filiales/ciment)
+// because there are no per-slug i18n routing entries
 const frVerticalMap: Record<string, string> = {
   intelligence: 'intelligence',
-  cement: 'ciment',
-  energy: 'energie',
-  technology: 'technologie',
-  mining: 'mines',
+  cement: 'cement',
+  energy: 'energy',
+  technology: 'technology',
+  mining: 'mining',
   agriculture: 'agriculture',
-  water: 'eau',
+  water: 'water',
   finance: 'finance',
 };
 
@@ -278,7 +281,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           en: enUrl,
-          fr: `${baseUrl}/fr/salle-de-presse/${article.slug}`,
+          fr: `${baseUrl}/fr/actualites/${article.slug}`,
           'x-default': enUrl,
         },
       },
@@ -305,10 +308,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Vertical/subsidiary pages with alternates
+  // Note: French URLs use /fr/subsidiaries/{slug} (English slugs) because
+  // the Next.js route structure uses [locale]/subsidiaries/[slug] with English slugs
   const verticalPages = verticals.map((v) => {
     const enUrl = `${baseUrl}/subsidiaries/${v}`;
-    const frSlug = frVerticalMap[v] || v;
-    const frUrl = `${baseUrl}/fr/filiales/${frSlug}`;
+    const frUrl = `${baseUrl}/fr/subsidiaries/${v}`;
     return {
       url: enUrl,
       lastModified: now,
@@ -328,8 +332,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Also add French vertical pages
   const frVerticalPages = verticals.map((v) => {
     const enUrl = `${baseUrl}/subsidiaries/${v}`;
-    const frSlug = frVerticalMap[v] || v;
-    const frUrl = `${baseUrl}/fr/filiales/${frSlug}`;
+    const frUrl = `${baseUrl}/fr/subsidiaries/${v}`;
     return {
       url: frUrl,
       lastModified: now,
@@ -357,13 +360,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           en: `${baseUrl}/subsidiaries/agriculture`,
-          fr: `${baseUrl}/fr/filiales/agriculture`,
+          fr: `${baseUrl}/fr/subsidiaries/agriculture`,
           'x-default': `${baseUrl}/subsidiaries/agriculture`,
         },
       },
     },
     {
-      url: `${baseUrl}/fr/filiales/agriculture`,
+      url: `${baseUrl}/fr/subsidiaries/agriculture`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
@@ -371,7 +374,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           en: `${baseUrl}/subsidiaries/agriculture`,
-          fr: `${baseUrl}/fr/filiales/agriculture`,
+          fr: `${baseUrl}/fr/subsidiaries/agriculture`,
           'x-default': `${baseUrl}/subsidiaries/agriculture`,
         },
       },

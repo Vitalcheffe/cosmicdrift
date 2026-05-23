@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import QuoteReceivedClient from './QuoteReceivedClient';
 
 export const metadata: Metadata = {
-  title: 'Quote Request Received | Harch Corp',
+  title: 'Quote Request Received',
   description:
     'Your quote request has been received. Our team will contact you within 24 hours through a secure channel. Harch Corp — Africa\'s Sovereign Infrastructure OS.',
   robots: {

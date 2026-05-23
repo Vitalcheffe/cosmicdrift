@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.harchcorp.com/faq',
   },
   openGraph: {
-    title: 'FAQ | Harch Corp',
+    title: 'FAQ',
     description: 'Common questions about Harch Corp — our verticals, investment pipeline, technology, and how to partner with us.',
     url: 'https://www.harchcorp.com/faq',
   },

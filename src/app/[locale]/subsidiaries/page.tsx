@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.harchcorp.com/subsidiaries',
   },
   openGraph: {
-    title: 'Harch Corp Subsidiaries — 8 Industrial Verticals',
+    title: 'Subsidiaries — 8 Industrial Verticals',
     description:
       'From AI compute to renewable energy, cement to agriculture — every vertical is vertically integrated and built for scale across Africa.',
     url: 'https://www.harchcorp.com/subsidiaries',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Harch Corp Subsidiaries — 8 Industrial Verticals',
+    title: 'Subsidiaries — 8 Industrial Verticals',
     description: 'AI compute, renewable energy, cement, technology, mining, agriculture, water, and finance. Vertically integrated for sovereign scale.',
     images: ['/images/og-harch-corp.png'],
   },

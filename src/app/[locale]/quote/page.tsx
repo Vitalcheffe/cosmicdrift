@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import QuotePageClient from './QuotePageClient';
 
 export const metadata: Metadata = {
-  title: 'Request a Quote | Harch Corp',
+  title: 'Request a Quote',
   description:
     'Request a quote from Harch Corp across 8 verticals — Intelligence, Cement, Energy, Technology, Mining, Agriculture, Water, Finance. Africa\'s Sovereign Infrastructure OS.',
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.harchcorp.com/quote',
   },
   openGraph: {
-    title: 'Request a Quote | Harch Corp',
+    title: 'Request a Quote',
     description:
       'Get a customized proposal from Harch Corp. Select your vertical and tell us about your project. 8 verticals, 5 countries, $2.4B+ pipeline.',
     url: 'https://www.harchcorp.com/quote',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Request a Quote | Harch Corp',
+    title: 'Request a Quote',
     description: 'Get a customized proposal across 8 verticals. Intelligence, Energy, Cement, Mining, Agriculture, Water, Finance, Technology.',
     images: ['/images/og-harch-corp.png'],
   },

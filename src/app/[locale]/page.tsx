@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import HomePageClient from './HomePageClient';
 
 export const metadata: Metadata = {
-  title: "Harch Corp — AI Data Center Morocco | Africa's Sovereign Infrastructure",
+  title: "AI Data Center Morocco — Africa's Sovereign Infrastructure",
   description:
     "Harch Corp S.A. builds Africa's industrial sovereignty from Morocco — AI data centers with 1,798 GPUs, 500MW data center pipeline, 2GW+ renewable energy, cement, technology, mining, agriculture, water, and finance. $2.4B+ investment pipeline across 5 countries.",
   keywords: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Harch Corp — AI Data Center Morocco | Africa's Sovereign Infrastructure",
+    title: "AI Data Center Morocco — Africa's Sovereign Infrastructure",
     description:
       "Morocco's sovereign infrastructure conglomerate. AI data centers (1,798 GPUs), 500MW pipeline, 2GW+ renewable energy. $2.4B+ investment across 8 verticals.",
     url: 'https://www.harchcorp.com',
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Harch Corp — AI Data Center Morocco",
+    title: "AI Data Center Morocco",
     description:
       "Morocco's sovereign infrastructure conglomerate. 1,798 GPUs, 500MW pipeline, 2GW+ renewable energy. $2.4B+ across 8 verticals.",
     images: ['/images/og-harch-corp.png'],

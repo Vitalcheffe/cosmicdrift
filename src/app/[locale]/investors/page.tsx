@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import InvestorsPageClient from './InvestorsPageClient';
 
 export const metadata: Metadata = {
-  title: 'Investor Relations | Harch Corp',
+  title: 'Investor Relations',
   description:
     'Harch Corp is a privately held sovereign infrastructure company with a $2.4B+ investment pipeline across 8 verticals and 5 countries. Institutional investors may request a confidential briefing.',
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.harchcorp.com/investors',
   },
   openGraph: {
-    title: 'Investor Relations | Harch Corp',
+    title: 'Investor Relations',
     description:
       'Privately held sovereign infrastructure company. $2.4B+ investment pipeline across 8 verticals and 5 countries. Institutional briefing requests welcome.',
     url: 'https://www.harchcorp.com/investors',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Investor Relations | Harch Corp',
+    title: 'Investor Relations',
     description: 'Privately held sovereign infrastructure company. $2.4B+ pipeline, 8 verticals, 5 countries. Institutional briefing requests welcome.',
     images: ['/images/og-harch-corp.png'],
   },

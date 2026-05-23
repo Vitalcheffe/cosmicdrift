@@ -2,13 +2,13 @@ import { Metadata } from 'next';
 import PartnersPageClient from './PartnersPageClient';
 
 export const metadata: Metadata = {
-  title: 'Partners | Harch Corp',
+  title: 'Partners',
   description: 'Harch Corp partner ecosystem: technology providers, financial institutions, and government agencies building Africa\'s industrial future.',
   alternates: {
     canonical: 'https://www.harchcorp.com/partners',
   },
   openGraph: {
-    title: 'Partners | Harch Corp',
+    title: 'Partners',
     description: 'Harch Corp partner ecosystem: technology providers, financial institutions, and government agencies building Africa\'s industrial future.',
     url: 'https://www.harchcorp.com/partners',
     siteName: 'Harch Corp',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Partners | Harch Corp',
+    title: 'Partners',
     description: 'Harch Corp partner ecosystem: technology providers, financial institutions, and government agencies building Africa\'s industrial future.',
     images: ['/images/og-harch-corp.png'],
   },

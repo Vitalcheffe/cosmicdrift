@@ -2,13 +2,13 @@ import { Metadata } from 'next';
 import NewsroomPageClient from './NewsroomPageClient';
 
 export const metadata: Metadata = {
-  title: 'Newsroom | Harch Corp',
+  title: 'Newsroom',
   description: "Latest news, press releases, and announcements from Harch Corp — Africa's multi-sector industrial conglomerate building sovereign infrastructure across 7 verticals.",
   alternates: {
     canonical: 'https://www.harchcorp.com/newsroom',
   },
   openGraph: {
-    title: 'Newsroom | Harch Corp',
+    title: 'Newsroom',
     description: "Latest news, press releases, and announcements from Harch Corp — Africa's multi-sector industrial conglomerate building sovereign infrastructure across 7 verticals.",
     url: 'https://www.harchcorp.com/newsroom',
     siteName: 'Harch Corp',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Newsroom | Harch Corp',
+    title: 'Newsroom',
     description: "Latest news, press releases, and announcements from Harch Corp — Africa's multi-sector industrial conglomerate building sovereign infrastructure across 7 verticals.",
     images: ['/images/og-harch-corp.png'],
   },

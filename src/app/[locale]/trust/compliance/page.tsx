@@ -2,11 +2,11 @@ import { Metadata } from 'next';
 import CompliancePageClient from './CompliancePageClient';
 
 export const metadata: Metadata = {
-  title: 'Compliance — Trust Center | Harch Corp',
+  title: 'Compliance — Trust Center',
   description: "Harch Corp compliance certifications and audit reports: SOC 2 Type II, ISO 27001, GDPR, Moroccan DPA, and more. Download DPAs and compliance documentation.",
   alternates: { canonical: 'https://www.harchcorp.com/trust/compliance' },
   openGraph: {
-    title: 'Compliance — Trust Center | Harch Corp',
+    title: 'Compliance — Trust Center',
     description: "Harch Corp compliance certifications and audit reports: SOC 2 Type II, ISO 27001, GDPR, Moroccan DPA, and more. Download DPAs and compliance documentation.",
     url: 'https://www.harchcorp.com/trust/compliance',
     siteName: 'Harch Corp',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Compliance — Trust Center | Harch Corp',
+    title: 'Compliance — Trust Center',
     description: "Harch Corp compliance certifications and audit reports: SOC 2 Type II, ISO 27001, GDPR, Moroccan DPA, and more. Download DPAs and compliance documentation.",
     images: ['/images/og-harch-corp.png'],
   },

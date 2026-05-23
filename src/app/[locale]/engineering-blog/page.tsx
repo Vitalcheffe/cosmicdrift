@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 import EngineeringBlogPageClient from './EngineeringBlogPageClient';
 
 export const metadata: Metadata = {
-  title: 'Engineering Blog  | Harch Corp',
+  title: 'Engineering Blog | Harch Corp',
   description: 'Technical deep-dives, architecture breakdowns, and engineering war stories from the teams building HarchOS, SENSE, and Africa\'s sovereign compute platform.',
   openGraph: {
-    title: 'Engineering Blog  | Harch Corp',
+    title: 'Engineering Blog | Harch Corp',
     description: 'Technical deep-dives and architecture breakdowns from Harch Corp engineering.',
     url: 'https://www.harchcorp.com/engineering-blog',
   },

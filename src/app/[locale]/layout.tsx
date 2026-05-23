@@ -77,12 +77,13 @@ export async function generateMetadata({
       index: true,
       follow: true,
     },
-    verification: {
-      google: "GOOGLE_VERIFICATION_CODE_PLACEHOLDER",
-    },
-    other: {
-      "google-site-verification": "GOOGLE_VERIFICATION_CODE_PLACEHOLDER",
-    },
+    // Replace with actual Google Search Console verification code
+    // verification: {
+    //   google: "YOUR_VERIFICATION_CODE_HERE",
+    // },
+    // other: {
+    //   "google-site-verification": "YOUR_VERIFICATION_CODE_HERE",
+    // },
     keywords: isFr
       ? ["Harch Corp", "souveraineté industrielle Afrique", "centre de données Afrique", "IA souveraine", "centre de données IA Maroc", "cloud GPU conscient du carbone", "planification consciente du carbone", "énergie renouvelable Maroc", "infrastructure industrielle", "conglomérat Maroc", "énergie renouvelable Afrique", "fabrication ciment Gambie", "mines stratégiques Maroc", "agriculture de précision Sahel", "dessalement eau Afrique", "technologie souveraine", "cloud GPU vert", "calcul faible intensité carbone", "centre de données Dakhla", "Dakhla 500 MW", "centre de données vert Afrique"]
       : ["Harch Corp", "Africa industrial sovereignty", "Data Center Africa", "Sovereign AI", "AI data center Morocco", "carbon-aware GPU cloud", "carbon-aware scheduling", "Renewable Energy Morocco", "Industrial Infrastructure", "Morocco conglomerate", "renewable energy Africa", "cement manufacturing Gambia", "strategic mining Morocco", "precision agriculture Sahel", "water desalination Africa", "sovereign technology", "green GPU cloud", "low carbon intensity compute", "Dakhla data center", "Dakhla 500MW", "500 MW data center Morocco", "green data center Africa"],

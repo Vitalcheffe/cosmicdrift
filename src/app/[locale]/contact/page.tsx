@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
-  title: 'Request a Briefing  | Harch Corp',
+  title: 'Request a Briefing | Harch Corp',
   description:
     'Request a secure briefing with Harch Corp. Government, industrial, investor, and talent inquiry channels. All communications encrypted end-to-end on sovereign infrastructure.',
   keywords: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.harchcorp.com/contact',
   },
   openGraph: {
-    title: 'Request a Briefing  | Harch Corp',
+    title: 'Request a Briefing | Harch Corp',
     description:
       'Request a secure briefing with Harch Corp. Government, industrial, investor, and talent channels. End-to-end encrypted on sovereign infrastructure.',
     url: 'https://www.harchcorp.com/contact',
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
         url: '/images/og-harch-corp.png',
         width: 1200,
         height: 630,
-        alt: 'Request a Briefing  | Harch Corp',
+        alt: 'Request a Briefing | Harch Corp',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Request a Briefing  | Harch Corp',
+    title: 'Request a Briefing | Harch Corp',
     description: 'Secure briefing requests for government, industrial, investor, and talent inquiries. End-to-end encrypted.',
     images: ['/images/og-harch-corp.png'],
   },

@@ -2,13 +2,15 @@ import type { Metadata } from 'next';
 import IntelligencePageClient from './IntelligencePageClient';
 
 export const metadata: Metadata = {
-  title: 'Harch Intelligence — Sovereign AI Infrastructure',
+  title: 'AI Data Center Morocco — Harch Intelligence | Sovereign GPU Cloud',
   description:
-    "Harch Intelligence builds Africa's sovereign AI compute infrastructure: 1,798 carbon-optimized GPUs across 5 Moroccan hubs at ~47 gCO2/kWh. Carbon-aware scheduling, 500MW pipeline, submarine cable connectivity.",
+    "Harch Intelligence operates Africa's first sovereign AI data center in Morocco: 1,798 carbon-optimized GPUs across 5 Moroccan hubs at ~47 gCO2/kWh. 500MW AI data center pipeline, carbon-aware scheduling, submarine cable connectivity. Morocco's leading GPU cloud platform.",
   keywords: [
-    'Harch Intelligence',
-    'sovereign AI Africa',
+    'AI data center Morocco',
     'GPU cloud Morocco',
+    'sovereign AI Africa',
+    'Harch Intelligence',
+    'data center Morocco',
     'carbon-aware GPU scheduling',
     'AI data center Africa',
     'green GPU cloud',
@@ -16,30 +18,43 @@ export const metadata: Metadata = {
     'HarchOS',
     'AI infrastructure Morocco',
     'data center Casablanca',
+    'Dakhla data center',
+    '500MW data center Morocco',
+    'GPU cloud Africa',
+    'sovereign AI data center',
+    'Morocco AI factory',
+    'carbon-aware GPU cloud Morocco',
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/intelligence',
+    languages: {
+      en: 'https://www.harchcorp.com/intelligence',
+      fr: 'https://www.harchcorp.com/fr/intelligence',
+      'x-default': 'https://www.harchcorp.com/intelligence',
+    },
   },
   openGraph: {
-    title: 'Harch Intelligence — Sovereign AI Infrastructure',
+    title: 'AI Data Center Morocco — Harch Intelligence | Sovereign GPU Cloud',
     description:
-      "1,798 carbon-optimized GPUs across 5 Moroccan hubs at ~47 gCO2/kWh — 89% below industry average. Sovereign AI compute for Africa.",
+      "Africa's first sovereign AI data center in Morocco. 1,798 carbon-optimized GPUs across 5 hubs at ~47 gCO2/kWh — 89% below industry average. 500MW pipeline.",
     url: 'https://www.harchcorp.com/intelligence',
     siteName: 'Harch Corp',
     type: 'website',
+    locale: 'en_US',
+    alternateLocale: ['fr_MA'],
     images: [
       {
         url: '/images/og-harch-corp.png',
         width: 1200,
         height: 630,
-        alt: 'Harch Intelligence — Sovereign AI Infrastructure',
+        alt: 'Harch Intelligence — AI Data Center Morocco',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Harch Intelligence — Sovereign AI Infrastructure',
-    description: '1,798 carbon-optimized GPUs at ~47 gCO2/kWh. 89% below industry average. Sovereign AI compute for Africa.',
+    title: 'AI Data Center Morocco — Harch Intelligence',
+    description: "Africa's first sovereign AI data center. 1,798 GPUs at ~47 gCO2/kWh. 500MW pipeline. Carbon-aware GPU cloud from Morocco.",
     images: ['/images/og-harch-corp.png'],
   },
 };

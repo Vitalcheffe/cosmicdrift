@@ -81,30 +81,32 @@ export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' 
   }
 
   // Navbar variant — compact inline switcher for TopNavBar
+  // Visually distinct from menu button: text-only, no border, globe+locale pill
   if (variant === 'navbar') {
     const nextLocale = locale === 'en' ? 'fr' : 'en';
     return (
       <button
         onClick={() => switchLocale(nextLocale)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-medium text-white/40 hover:text-white/80 hover:bg-white/[0.04] rounded transition-colors font-[family-name:var(--font-space-mono)] tracking-[0.08em] uppercase"
+        className="flex items-center gap-1 px-2 py-1 text-[10px] sm:text-[11px] font-medium text-white/30 hover:text-white/70 hover:bg-white/[0.03] rounded-md transition-colors font-[family-name:var(--font-space-mono)] tracking-[0.08em] uppercase border border-white/[0.04] hover:border-white/[0.08]"
         aria-label={t('switchLanguage')}
+        title={locale === 'en' ? 'Switch to French' : 'Passer en anglais'}
       >
         <svg
-          width="12"
-          height="12"
+          width="11"
+          height="11"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="shrink-0 opacity-50"
+          className="shrink-0 opacity-40"
         >
           <circle cx="12" cy="12" r="10" />
           <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
           <path d="M2 12h20" />
         </svg>
-        <span>{locale.toUpperCase()}</span>
+        <span className="hidden xs:inline">{locale.toUpperCase()}</span>
       </button>
     );
   }

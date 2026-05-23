@@ -28,7 +28,7 @@ export function TopNavBar({ onToggleSidebar }: TopNavBarProps) {
     >
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-14">
         {/* Left: Menu button + Logo */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 sm:flex-initial">
           <button
             onClick={onToggleSidebar}
             className="w-9 h-9 flex items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/[0.15] transition-colors shrink-0"
@@ -53,7 +53,7 @@ export function TopNavBar({ onToggleSidebar }: TopNavBarProps) {
         </div>
 
         {/* Right: Language switcher + Contact */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <LanguageSwitcher variant="navbar" />
           <Link
             href="/contact"

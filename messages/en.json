@@ -36,24 +36,12 @@
       "headline": "From Vision to Reality"
     },
     "leadership": {
-      "description": "A team of experienced leaders from infrastructure, technology, and finance, united by a shared vision of African sovereignty.",
+      "description": "Founded and led by Amine Harch El Korane, Harch Corp is driven by a singular vision of African industrial sovereignty.",
       "title": "Leadership",
-      "headline": "The Team",
+      "headline": "Founder",
       "ceo": {
         "title": "Founder & CEO",
         "description": "Serial entrepreneur with 15+ years in African industrial development. Founded Harch Corp to build the infrastructure the continent deserves — from 1,798 carbon-optimized GPU hubs to 2GW+ Renewable Pipeline across 7 verticals and 5 countries. Pioneering carbon-aware scheduling as the company's #1 differentiator, achieving ~47 gCO2/kWh average carbon intensity. Leading a $2.4B+ investment pipeline to convert Africa's potential into industrial power."
-      },
-      "coo": {
-        "title": "Chief Operating Officer",
-        "description": "Operational architect who has scaled industrial operations across three continents. Former VP of Operations at OCP Group, where she managed a $2B portfolio spanning mining, chemicals, and logistics. Brings 18 years of execution discipline to Harch Corp's 7-vertical operation."
-      },
-      "cto": {
-        "title": "Chief Technology Officer",
-        "description": "Systems architect and distributed computing expert. Previously led infrastructure engineering at Google Cloud, where he managed hyperscale data center deployments across EMEA. Holds 12 patents in GPU orchestration and sovereign computing architectures."
-      },
-      "cfo": {
-        "title": "Chief Financial Officer",
-        "description": "Investment strategist with deep expertise in African capital markets and development finance. Former Managing Director at the African Development Bank, where she structured $4B+ in infrastructure financing. CPA and Harvard Business School graduate."
       }
     },
     "mission": {
@@ -128,7 +116,7 @@
     "backToBlog": "Back To Blog",
     "continueReading": "Continue Reading",
     "copyFeedUrl": "Copy Feed Url",
-    "emailPlaceholder": "your@email.com",
+    "emailPlaceholder": "amine@harchcorp.com",
     "featured": "Featured",
     "heroDescription": "Technical analysis, industry perspectives, and updates on building Africa's sovereign infrastructure.",
     "heroTitle": "Blog Harch",
@@ -875,74 +863,20 @@
       "transparencyTitle": "Total Transparency"
     },
     "leadership": {
-      "advisors": [
-        {
-          "affiliation": "African Development Bank",
-          "bio": "Infrastructure financing expert with 25 years of experience in African sovereign projects.",
-          "name": "Dr. Fatima El Amrani",
-          "title": "Finance Advisor"
-        },
-        {
-          "affiliation": "MIT Africa",
-          "bio": "Researcher in sovereign AI and carbon-aware cloud computing for emerging markets.",
-          "name": "Prof. Youssef Benali",
-          "title": "Technology Advisor"
-        },
-        {
-          "affiliation": "UN Industrial Development",
-          "bio": "Specialist in sustainable industrial development and regional integration in Africa.",
-          "name": "Aminata Diallo",
-          "title": "Strategy Advisor"
-        },
-        {
-          "affiliation": "AfCFTA Secretariat",
-          "bio": "Expert in continental trade and African economic integration policies.",
-          "name": "Kwame Asante",
-          "title": "Trade Advisor"
-        }
-      ],
-      "advisoryDescription": "Global leaders in finance, technology, and strategy guiding our continental vision.",
-      "advisoryLabel": "Advisory Board",
-      "advisoryTitle": "Advisory Board",
       "ctaButton1": "View the Team",
       "ctaButton2": "Contact Us",
       "ctaDescription": "Discover the leaders building Africa's sovereign infrastructure.",
       "ctaTitle": "Join the Leadership",
       "execTeamLabel": "Leadership",
-      "execTeamTitle": "Executive Team",
+      "execTeamTitle": "Founder & CEO",
       "executives": [
         {
           "bio": "Founder and CEO of Harch Corp. Visionary of African industrial sovereignty with experience in AI, energy, and infrastructure.",
           "name": "Amine Harch El Korane",
           "title": "Founder & CEO"
-        },
-        {
-          "bio": "Operational architect who has scaled industrial operations across three continents. Former VP of Operations at OCP Group, where she managed a $2B portfolio spanning mining, chemicals, and logistics. Brings 18 years of execution discipline to Harch Corp's 7-vertical operation.",
-          "name": "Fatima Zahra El Mansouri",
-          "title": "Chief Operating Officer"
-        },
-        {
-          "bio": "Systems architect and distributed computing expert. Previously led infrastructure engineering at Google Cloud, where he managed hyperscale data center deployments across EMEA. Holds 12 patents in GPU orchestration and sovereign computing architectures.",
-          "name": "Karim Benjelloun",
-          "title": "Chief Technology Officer"
-        },
-        {
-          "bio": "Investment strategist with deep expertise in African capital markets and development finance. Former Managing Director at the African Development Bank, where she structured $4B+ in infrastructure financing. CPA and Harvard Business School graduate.",
-          "name": "Aisha Diop",
-          "title": "Chief Financial Officer"
-        },
-        {
-          "bio": "Renewable energy strategist. Managed solar and wind projects of 2GW+ across the continent.",
-          "name": "Moussa Diop",
-          "title": "Director of Energy"
-        },
-        {
-          "bio": "Engineer in strategic mining and mineral resources. Expert in phosphates and rare earths.",
-          "name": "Omar Fassi Fihri",
-          "title": "Director of Mining"
         }
       ],
-      "heroDescription": "The leaders building Africa's industrial sovereignty, one subsidiary at a time.",
+      "heroDescription": "The founder building Africa's industrial sovereignty, one subsidiary at a time.",
       "heroTitle1": "Our",
       "heroTitle2": "Leadership",
       "label": "Leadership",
@@ -1152,7 +1086,7 @@
       "briefingRequest": "Briefing Request",
       "personalInfo": "Personal Information",
       "namePlaceholder": "Your name",
-      "emailPlaceholder": "secure@domain.com",
+      "emailPlaceholder": "amine@harchcorp.com",
       "organizationLabel": "Organization",
       "organizationPlaceholder": "Organization name",
       "designation": "Designation",
@@ -5268,10 +5202,10 @@
     "accessibilityLabel": "Accessibility",
     "accommodationCardDescription": "Corporate accommodation options for deployed operators across all Harch locations.",
     "accommodationConfidentialityLabel": "Confidentiality",
-    "accommodationConfidentialityValue": "Accommodation Confidentiality Value",
+    "accommodationConfidentialityValue": "All accommodation requests are handled with strict confidentiality and never shared with hiring managers",
     "accommodationEmailLabel": "Email",
     "accommodationResponseLabel": "Response Time",
-    "accommodationResponseValue": "Accommodation Response Value",
+    "accommodationResponseValue": "Acknowledgment within 24 hours, full response within 5 business days",
     "accommodations": {
       "contact": "Hiring process accommodations",
       "description": "We welcome candidates from all backgrounds and provide reasonable accommodations at every stage of the process. If you need an accommodation, please let us know — it will not affect your candidacy.",
@@ -5493,7 +5427,13 @@
       "phase3": "Week 2-3",
       "phase4": "Week 3-4",
       "title": "Timeline"
-    }
+    },
+    "askHardQuestionsTitle": "Ask Hard Questions",
+    "askHardQuestionsDescription": "We value intellectual courage — candidates who challenge assumptions and think critically about complex problems.",
+    "honestAboutGapsTitle": "Honest About Gaps",
+    "honestAboutGapsDescription": "We are transparent about what we don't yet know and look for candidates who share our commitment to continuous learning.",
+    "biasForActionTitle": "Bias for Action",
+    "biasForActionDescription": "We prefer imperfect execution over perfect planning — our candidates demonstrate a track record of shipping and iterating."
   },
   "home": {
     "africaStats": {
@@ -6737,13 +6677,13 @@
         }
       ],
       "exerciseTitle": "How to Exercise Your Rights",
-      "exerciseDescription1": "To exercise any of the rights described above, please submit a request by emailing us at privacy@harchcorp.com or by calling our toll-free number (available to California residents). We will respond to your request within 45 days of receipt, as required by the CCPA. If we need more time, we will inform you of the reason and extension period in writing.",
+      "exerciseDescription1": "To exercise any of the rights described above, please submit a request by emailing us at amine@harchcorp.com or by calling our toll-free number (available to California residents). We will respond to your request within 45 days of receipt, as required by the CCPA. If we need more time, we will inform you of the reason and extension period in writing.",
       "exerciseDescription2": "You may also designate an authorized agent to make a request on your behalf. To do so, you must provide the authorized agent with written permission to act on your behalf, and we may require verification of your identity and confirmation that you have authorized the agent to make the request. We will verify your identity before processing your request by matching the information you provide with the personal information we maintain about you.",
       "disclosureTitle": "Disclosure of Information",
       "disclosureDescription": "In the preceding 12 months, we have disclosed personal information for business purposes to the following categories of third parties: cloud infrastructure and hosting providers, analytics and performance monitoring services, marketing and communication platforms, legal and professional advisors, and regulatory authorities as required by law. We do not sell personal information to third parties. We require all service providers who process personal information on our behalf to comply with strict data protection obligations and to process personal information only for the specific business purposes for which we disclose it to them.",
       "doNotSellTitle": "Do Not Sell My Personal Information",
       "doNotSellDescription1": "Harch Corp S.A. does not sell, rent, or trade personal information to third parties for monetary or other valuable consideration. We have never sold personal information in the past 12 months and do not intend to do so in the future. Should our practices change, we will update this notice and provide a clear and conspicuous “Do Not Sell My Personal Information” link on our homepage as required by the CCPA.",
-      "doNotSellDescription2": "Even though we do not sell personal information, we respect your privacy choices. If you have any concerns about how your information is shared, please contact us at privacy@harchcorp.com.",
+      "doNotSellDescription2": "Even though we do not sell personal information, we respect your privacy choices. If you have any concerns about how your information is shared, please contact us at amine@harchcorp.com.",
       "footerNote": "Last updated: January 2026 | This notice applies to California residents and is governed by the laws of the Kingdom of Morocco and the State of California where applicable."
     },
     "codeOfConduct": {
@@ -6931,7 +6871,7 @@
       "updatesTitle": "6. Updates to This Policy",
       "updatesDescription": "We may update this Cookie Policy from time to time to reflect changes in the cookies we use or for other operational, legal, or regulatory reasons. Any changes will be posted on this page with an updated revision date. We encourage you to review this Cookie Policy periodically to stay informed about how we use cookies. If we make material changes to this policy, we will notify you through a prominent notice on our website or by other means as required by applicable law.",
       "contactTitle": "7. Contact",
-      "contactDescription": "If you have any questions about our use of cookies or this Cookie Policy, please contact us at: privacy@harchcorp.com or write to us at Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco.",
+      "contactDescription": "If you have any questions about our use of cookies or this Cookie Policy, please contact us at: amine@harchcorp.com or write to us at Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco.",
       "footerNote": "Last updated: January 2026 | This policy is governed by the laws of the Kingdom of Morocco."
     },
     "dpa": {
@@ -7058,7 +6998,7 @@
         }
       ],
       "dpaTitle": "Data Processing Agreement",
-      "dpaDescription": "In accordance with Article 28 of the GDPR, Harch Corp S.A. maintains Data Processing Agreements (DPAs) with all processors and sub-processors who process personal data on our behalf. Our DPA template incorporates all mandatory provisions required by the GDPR, including the subject matter and duration of processing, the nature and purpose of processing, the type of personal data and categories of data subjects, and the obligations and rights of the controller. We make our DPA available to all business partners and clients upon request. To request a copy of our DPA template, please contact our legal team at legal@harchcorp.com.",
+      "dpaDescription": "In accordance with Article 28 of the GDPR, Harch Corp S.A. maintains Data Processing Agreements (DPAs) with all processors and sub-processors who process personal data on our behalf. Our DPA template incorporates all mandatory provisions required by the GDPR, including the subject matter and duration of processing, the nature and purpose of processing, the type of personal data and categories of data subjects, and the obligations and rights of the controller. We make our DPA available to all business partners and clients upon request. To request a copy of our DPA template, please contact our legal team at amine@harchcorp.com.",
       "internationalTransfersTitle": "International Data Transfers",
       "internationalTransfersIntro": "As a Moroccan company with global operations and partnerships, we may transfer personal data outside the EEA. We ensure that all international transfers comply with Chapter V of the GDPR through the following mechanisms:",
       "sccTitle": "Standard Contractual Clauses (SCCs)",
@@ -7081,7 +7021,7 @@
       "description": "Central hub for all legal documents and compliance resources.",
       "updatedLabel": "Updated:",
       "footerGoverningLaw": "All documents are governed by the laws of the Kingdom of Morocco unless otherwise specified.",
-      "footerContact": "For legal inquiries: legal@harchcorp.com | Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco",
+      "footerContact": "For legal inquiries: amine@harchcorp.com | Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco",
       "legalPages": [
         {
           "title": "Legal Notice",
@@ -7325,7 +7265,7 @@
       "claimsProcessTitle": "SLA Claims Process",
       "claimsProcessIntro": "To submit an SLA claim, clients must follow the process outlined below:",
       "claimsStep1Title": "Submit a Claim",
-      "claimsStep1Description": "Submit a claim to support@harchcorp.com within 30 calendar days of the end of the month in which the downtime occurred. Claims must include the affected service, dates and times of downtime, and any supporting evidence or logs.",
+      "claimsStep1Description": "Submit a claim to amine@harchcorp.com within 30 calendar days of the end of the month in which the downtime occurred. Claims must include the affected service, dates and times of downtime, and any supporting evidence or logs.",
       "claimsStep2Title": "Review and Verification",
       "claimsStep2Description": "Our team will review the claim against our monitoring data and system logs within 15 business days. We may request additional information from the client during this review period.",
       "claimsStep3Title": "Credit Application",
@@ -7364,7 +7304,7 @@
         },
         {
           "title": "6. Contact",
-          "text": "For any legal inquiries, please contact: legal@harchcorp.com or Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco."
+          "text": "For any legal inquiries, please contact: amine@harchcorp.com or Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco."
         }
       ]
     },
@@ -7569,7 +7509,7 @@
     "brandGuidelinesDescription": "Official brand guidelines for Harch Corp visual identity, messaging, and communication standards.",
     "continueReading": "Continue Reading",
     "dispatchNotFound": "Dispatch Not Found",
-    "dispatchNotFoundDescription": "Dispatch Not Found Description",
+    "dispatchNotFoundDescription": "The article you are looking for could not be found or has been removed.",
     "executiveBios": "Executive Bios",
     "executiveBiosDescription": "Detailed biographies of Harch Corp's executive leadership team with their experience and achievements.",
     "factSheet": "Fact Sheet",
@@ -7591,7 +7531,7 @@
     "articleNotFoundDescription": "The article you are looking for does not exist.",
     "contact": "Press Contact",
     "copyFeedUrl": "Copy Feed URL",
-    "emailPlaceholder": "your@email.com",
+    "emailPlaceholder": "amine@harchcorp.com",
     "latestPosts": "Latest News",
     "mediaCoverage": "Media Coverage",
     "newsletter": "Newsletter",
@@ -7947,7 +7887,7 @@
     },
     "mediaContact": {
       "description": "For press inquiries, interviews, and media opportunities.",
-      "email": "press@harchcorp.com",
+      "email": "amine@harchcorp.com",
       "emailLabel": "Email",
       "generalContact": "General Inquiries",
       "interviewDescription": "Schedule an interview with our leadership team.",
@@ -8016,7 +7956,7 @@
     "title": "Press",
     "contact": {
       "description": "For interview requests and media coverage inquiries.",
-      "email": "press@harchcorp.com",
+      "email": "amine@harchcorp.com",
       "phone": "+212 522 000 002",
       "title": "Press Contact"
     },
@@ -8044,7 +7984,9 @@
         }
       ],
       "title": "Press Releases"
-    }
+    },
+    "brandAssetsSubtitle": "Official logos, brand guidelines, and visual assets for media use",
+    "factSheetSubtitle": "Key facts, figures, and company information at a glance"
   },
   "pricing": {
     "calculator": {
@@ -8452,7 +8394,7 @@
   },
   "privacy": {
     "contactUs": "Contact Us",
-    "contactUsText": "For any questions about this privacy policy or our data practices, contact us at privacy@harchcorp.com or write to Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco.",
+    "contactUsText": "For any questions about this privacy policy or our data practices, contact us at amine@harchcorp.com or write to Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco.",
     "cookies": "Cookies",
     "cookiesText": "We use cookies to improve your experience, analyze site traffic, and deliver personalized content. You can manage your cookie preferences at any time.",
     "dataCollection": "Data Collection",
@@ -8469,7 +8411,7 @@
     "lastUpdatedDate": "January 2026",
     "title": "Privacy Policy",
     "yourRights": "Your Rights",
-    "yourRightsText": "You have the right to access, rectify, delete, and port your personal data. You may also object to processing or withdraw consent at any time. To exercise these rights, contact privacy@harchcorp.com.",
+    "yourRightsText": "You have the right to access, rectify, delete, and port your personal data. You may also object to processing or withdraw consent at any time. To exercise these rights, contact amine@harchcorp.com.",
     "heroDescription": "How Harch Corp collects, uses, and protects your personal data.",
     "heroLabel": "Privacy",
     "heroTitle": "Privacy Policy",
@@ -8839,7 +8781,7 @@
         "website": "Website"
       },
       "title": "Contact Information",
-      "emailPlaceholder": "you@organization.com",
+      "emailPlaceholder": "amine@harchcorp.com",
       "phonePlaceholder": "+212 / +221 / +220 ...",
       "whatsappText": "Prefer WhatsApp? Reach us directly",
       "whatsappLink": "+212 522 000 000 on WhatsApp →"
@@ -9193,7 +9135,7 @@
     "heroDescription": "Infrastructure credits and support for African startups.",
     "heroTitle1": "Developer",
     "heroTitle2": "Platform",
-    "label": "Label",
+    "label": "Startup Program",
     "process": [
       {
         "description": "Getting started guides and quickstart tutorials",
@@ -9600,9 +9542,9 @@
         "segment": "African AgriTech Market",
         "title": "Agriculture Market Analysis"
       },
-      "marketAnalysisLabel": "Agriculture Market Analysis Label",
-      "marketAnalysisSubtitle": "Agriculture Market Analysis Subtitle",
-      "marketAnalysisTitle": "Agriculture Market Analysis Title",
+      "marketAnalysisLabel": "Market Analysis",
+      "marketAnalysisSubtitle": "Comprehensive analysis of African agricultural markets and investment opportunities",
+      "marketAnalysisTitle": "Market Analysis",
       "metrics": {
         "foodImports": "Africa imports $35B+ in food annually",
         "postHarvestLosses": "30-40% of African harvests are lost post-harvest",
@@ -9626,7 +9568,7 @@
       "name": "Harch Agriculture",
       "overview": "HarchAgri delivers precision agriculture through an integrated stack of IoT sensors, drone surveillance, and vertical farming technology — purpose-built for African farmlands.",
       "overviewLabel": "Overview",
-      "overviewTitle": "Agriculture Overview",
+      "overviewTitle": "Overview",
       "partners": {
         "agritechKenya": {
           "country": "Kenya",
@@ -9838,44 +9780,44 @@
         }
       },
       "productsLabel": "Products",
-      "productsSubtitle": "Agriculture Products Subtitle",
+      "productsSubtitle": "Sustainable agricultural products and technologies for Africa's food sovereignty",
       "productsTitle": "Agriculture Products",
       "risks": {
         "carbonRegulation": {
-          "impact": "Carbon Regulation Impact",
-          "mitigation": "Carbon Regulation Mitigation",
-          "probability": "Carbon Regulation Probability",
-          "risk": "Carbon Regulation Risk"
+          "impact": "Medium — could increase operational costs by 10-20%",
+          "mitigation": "Proactive engagement with regulatory bodies, investment in carbon monitoring systems, and early adoption of compliance frameworks",
+          "probability": "Medium",
+          "risk": "Evolving carbon regulation could impact agricultural compliance costs and operational requirements"
         },
         "farmerAdoption": {
-          "impact": "Farmer Adoption Impact",
-          "mitigation": "Farmer Adoption Mitigation",
-          "probability": "Farmer Adoption Probability",
-          "risk": "Farmer Adoption Risk"
+          "impact": "High — could delay revenue targets by 12-18 months",
+          "mitigation": "On-farm demonstration programs, subsidized starter kits, and local language training materials",
+          "probability": "Medium-High",
+          "risk": "Slow farmer adoption of technology-driven agricultural practices and precision farming tools"
         },
         "fundingDownturn": {
-          "impact": "Funding Downturn Impact",
-          "mitigation": "Funding Downturn Mitigation",
-          "probability": "Funding Downturn Probability",
-          "risk": "Funding Downturn Risk"
+          "impact": "Medium — could reduce available capital by 20-30%",
+          "mitigation": "Diversified funding sources including DFI, green bonds, and impact investment vehicles",
+          "probability": "Medium",
+          "risk": "Global funding downturn impacting agri-tech investment and development finance availability"
         },
         "ocpDroneEntry": {
-          "impact": "Ocp Drone Entry Impact",
-          "mitigation": "Ocp Drone Entry Mitigation",
-          "probability": "Ocp Drone Entry Probability",
-          "risk": "Ocp Drone Entry Risk"
+          "impact": "Medium — could increase competition for land access and talent",
+          "mitigation": "First-mover advantage in drone-based precision agriculture, exclusive land agreements, and technology differentiation",
+          "probability": "Medium",
+          "risk": "OCP or other major players entering the agricultural drone and precision farming market"
         },
         "overExpansion": {
-          "impact": "Over Expansion Impact",
-          "mitigation": "Over Expansion Mitigation",
-          "probability": "Over Expansion Probability",
-          "risk": "Over Expansion Risk"
+          "impact": "Medium — could dilute operational quality and increase waste",
+          "mitigation": "Phased expansion with 6-month operational readiness gates and performance-linked scaling criteria",
+          "probability": "Low-Medium",
+          "risk": "Over-expansion risk if scale-out exceeds operational capacity and management bandwidth"
         },
         "verticalFarmFailure": {
-          "impact": "Vertical Farm Failure Impact",
-          "mitigation": "Vertical Farm Failure Mitigation",
-          "probability": "Vertical Farm Failure Probability",
-          "risk": "Vertical Farm Failure Risk"
+          "impact": "High — could result in significant capital write-off",
+          "mitigation": "Partnership with established vertical farm operators, phased pilot scaling, and Harch Energy solar integration for cost reduction",
+          "probability": "Low-Medium",
+          "risk": "Vertical farm pilot failure due to energy costs, crop selection, or technology integration issues"
         }
       },
       "roadmap": {
@@ -9935,16 +9877,16 @@
       "starterKit": {
         "contents": "Starter Kit Contents",
         "eliminatesBarrier": "Starter Kit Eliminates Barrier",
-        "forLabel": "Starter Kit For Label",
+        "forLabel": "Designed For",
         "roi": "Starter Kit Roi",
-        "roiLabel": "Starter Kit Roi Label",
+        "roiLabel": "Expected ROI",
         "target": "Starter Kit Target",
         "title": "Starter Kit"
       },
-      "stat": "Agriculture Stat",
+      "stat": "50,000 ha",
       "strategicContext": "Agriculture Strategic Context",
-      "strategicContextLabel": "Agriculture Strategic Context Label",
-      "strategicContextTitle": "Agriculture Strategic Context Title",
+      "strategicContextLabel": "Strategic Context",
+      "strategicContextTitle": "Strategic Context",
       "sustainability": "Agriculture Sustainability",
       "sustainabilityLabel": "Sustainability",
       "sustainabilityTitle": "Sustainable Agriculture",
@@ -10393,42 +10335,42 @@
     "cement": {
       "desc": "Green cement production with carbon capture technology and AI-optimized kiln operations for sustainable construction.",
       "name": "Harch Cement",
-      "stat": "Cement Stat",
+      "stat": "500kT/year",
       "tagline": "Operating System for West Africa's Construction Independence"
     },
     "description": "Each Harch subsidiary is designed to operate autonomously while benefiting from the integrated ecosystem. Together, they form Africa's most comprehensive sovereign infrastructure system.",
     "energy": {
       "desc": "Renewable energy generation combining solar, wind, and green hydrogen to power sovereign data centers and industrial operations.",
       "name": "Harch Energy",
-      "stat": "Energy Stat",
+      "stat": "500MW+",
       "tagline": "Operating System for Africa's Renewable Energy Grid"
     },
     "explorePlatform": "Explore Platform",
     "filterBy": "Filter by sector",
     "finance": {
       "crossVerticalDesc": "Harch Finance provides integrated financial services across all Harch Corp subsidiaries — from project finance and green bonds to trade finance and carbon credit monetization.",
-      "crossVerticalTitle": "Finance Cross Vertical Title",
+      "crossVerticalTitle": "Cross-Vertical Financial Integration",
       "ctaLabel": "Get Started",
       "ctaPrimary": "Explore Financing",
       "ctaSecondary": "View Investment Thesis",
       "ctaSubtitle": "Sovereign capital for Africa's infrastructure",
       "ctaTitle": "Explore Financing Options",
       "desc": "Sustainable finance instruments including green bonds, carbon credits, and Islamic finance for African infrastructure investment.",
-      "heroBadge": "Finance Hero Badge",
-      "heroSubtitle": "Finance Hero Subtitle",
+      "heroBadge": "Harch Finance",
+      "heroSubtitle": "Sovereign capital formation for Africa's infrastructure transformation",
       "heroTitle": "Infrastructure Finance",
-      "impact": "Finance Impact",
+      "impact": "Impact",
       "instruments": {
         "carbonCredit": {
           "description": "Carbon credit programs that reward sustainable infrastructure operations with verified offsets.",
           "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
+            "Verified carbon offset generation",
+            "Verra & Gold Standard certification",
+            "Real-time emissions tracking",
+            "Automated retirement & reporting",
+            "Cross-border credit transfers"
           ],
-          "name": "Carbon Credit",
+          "name": "Carbon Credits",
           "stats": {
             "creditValue": {
               "label": "Credit Value"
@@ -10440,16 +10382,16 @@
               "label": "Verification Standard"
             }
           },
-          "tagline": "Carbon Credit Tagline"
+          "tagline": "Verified offsets powering sustainable growth"
         },
         "greenBonds": {
           "description": "Green bond issuances that fund renewable energy and sustainable infrastructure projects across Africa.",
           "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
+            "Green Bond Principles compliant",
+            "Renewable energy project funding",
+            "Independent second-party opinions",
+            "Annual impact reporting",
+            "Tax-exempt investor eligibility"
           ],
           "name": "Green Bonds",
           "stats": {
@@ -10463,16 +10405,16 @@
               "label": "Bond Tenor"
             }
           },
-          "tagline": "Green Bonds Tagline"
+          "tagline": "Capital for a sustainable African future"
         },
         "impactInvestment": {
           "description": "Impact investment opportunities that deliver both financial returns and measurable social benefits.",
           "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
+            "IRIS+ metrics framework",
+            "Measurable SDG alignment",
+            "Social return on investment",
+            "Jobs creation covenants",
+            "Community development mandates"
           ],
           "name": "Impact Investment",
           "stats": {
@@ -10486,16 +10428,16 @@
               "label": "SDGs Mapped"
             }
           },
-          "tagline": "Impact Investment Tagline"
+          "tagline": "Returns that matter — financial and social"
         },
         "islamicFinance": {
           "description": "Sharia-compliant financing solutions including Sukuk and Islamic project finance for infrastructure.",
           "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
+            "Sharia Supervisory Board oversight",
+            "Sukuk structuring & issuance",
+            "Profit-and-loss sharing models",
+            "Asset-backed financing",
+            "Ethical investment screening"
           ],
           "name": "Islamic Finance",
           "stats": {
@@ -10509,16 +10451,16 @@
               "label": "Financing Tenor"
             }
           },
-          "tagline": "Islamic Finance Tagline"
+          "tagline": "Sharia-compliant capital for infrastructure"
         },
         "projectFinance": {
           "description": "Project finance structures for large-scale infrastructure development with limited recourse.",
           "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
+            "Limited recourse financing",
+            "SPV structuring & governance",
+            "Offtake agreement security",
+            "Multilateral development bank co-lending",
+            "Political risk insurance"
           ],
           "name": "Project Finance",
           "stats": {
@@ -10532,16 +10474,16 @@
               "label": "LTV Ratio"
             }
           },
-          "tagline": "Project Finance Tagline"
+          "tagline": "Limited-recourse structures for mega-projects"
         },
         "tradeFinance": {
           "description": "Trade finance solutions facilitating cross-border transactions and supply chain financing for infrastructure.",
           "features": [
-            "Full API coverage",
-            "Type-safe requests",
-            "Async/await support",
-            "Built-in retry logic",
-            "Carbon-aware APIs"
+            "Letter of credit facilitation",
+            "Supply chain financing",
+            "Export credit agency support",
+            "Currency hedging solutions",
+            "Real-time settlement & tracking"
           ],
           "name": "Trade Finance",
           "stats": {
@@ -10555,26 +10497,26 @@
               "label": "Settlement Time"
             }
           },
-          "tagline": "Trade Finance Tagline"
+          "tagline": "Cross-border capital flow solutions"
         }
       },
       "instrumentsLabel": "Instruments",
-      "instrumentsSubtitle": "Finance Instruments Subtitle",
+      "instrumentsSubtitle": "Diversified financial instruments tailored for African infrastructure development",
       "instrumentsTitle": "Financial Instruments",
-      "investmentPhilosophy": "Finance Investment Philosophy",
-      "investmentPhilosophyLabel": "Finance Investment Philosophy Label",
-      "investmentPhilosophyTitle": "Finance Investment Philosophy Title",
+      "investmentPhilosophy": "Our investment philosophy centers on sovereign capital formation for African infrastructure, combining risk-adjusted returns with measurable developmental impact across every vertical we operate in. We prioritize long-term value creation through strategic partnerships, regulatory compliance, and a commitment to sustainable development that benefits both investors and communities.",
+      "investmentPhilosophyLabel": "Investment Philosophy",
+      "investmentPhilosophyTitle": "Investment Philosophy",
       "metrics": {
-        "countriesActive": "Metrics Countries Active",
-        "investmentPipeline": "Metrics Investment Pipeline",
-        "jobsTarget": "Metrics Jobs Target",
-        "verticalsCovered": "Metrics Verticals Covered"
+        "countriesActive": "Countries Active",
+        "investmentPipeline": "Investment Pipeline",
+        "jobsTarget": "Jobs Target",
+        "verticalsCovered": "Verticals Covered"
       },
-      "mitigation": "Finance Mitigation",
+      "mitigation": "Mitigation",
       "name": "Harch Finance",
-      "overview": "Finance Overview",
+      "overview": "Harch Finance mobilizes sovereign capital for Africa's infrastructure transformation, deploying green bonds, carbon credits, Islamic finance, and trade finance instruments across 7 verticals and 5 countries.",
       "overviewLabel": "Overview",
-      "overviewTitle": "Finance Overview",
+      "overviewTitle": "Overview",
       "partnershipModels": {
         "coinvestment": {
           "desc": "Co-investment frameworks for development finance institutions and sovereign wealth funds alongside Harch Capital.",
@@ -10593,177 +10535,177 @@
           "title": "SWF Partnerships"
         }
       },
-      "partnershipModelsLabel": "Finance Partnership Models Label",
-      "partnershipModelsSubtitle": "Finance Partnership Models Subtitle",
-      "partnershipModelsTitle": "Finance Partnership Models Title",
+      "partnershipModelsLabel": "Partnership Models",
+      "partnershipModelsSubtitle": "Strategic partnerships with global financial institutions for sovereign infrastructure investment",
+      "partnershipModelsTitle": "Partnership Models",
       "pipeline": {
         "agri": {
           "country": "Morocco",
-          "instrument": "Agri Instrument",
+          "instrument": "Impact Investment Fund",
           "status": "Active",
           "vertical": "Harch Agriculture"
         },
         "cement": {
           "country": "Morocco",
-          "instrument": "Cement Instrument",
+          "instrument": "Project Finance Bond",
           "status": "Active",
           "vertical": "Harch Cement"
         },
         "crossVertical": {
           "country": "Multi-country",
-          "instrument": "Cross Vertical Instrument",
+          "instrument": "Blended Finance Vehicle",
           "status": "Active",
           "vertical": "Harch Cross-Vertical"
         },
         "energy": {
           "country": "Multi-country",
-          "instrument": "Energy Instrument",
+          "instrument": "Green Bond Issuance",
           "status": "Active",
           "vertical": "Harch Energy"
         },
         "intelligence": {
           "country": "Morocco",
-          "instrument": "Intelligence Instrument",
+          "instrument": "AI-Driven Analytics",
           "status": "Active",
           "vertical": "Harch Intelligence"
         },
         "mining": {
           "country": "Multi-country",
-          "instrument": "Mining Instrument",
+          "instrument": "ECA-Backed Facility",
           "status": "Active",
           "vertical": "Harch Mining"
         },
         "water": {
           "country": "Multi-country",
-          "instrument": "Water Instrument",
+          "instrument": "Sustainable Infrastructure Bond",
           "status": "Active",
           "vertical": "Harch Water"
         }
       },
       "pipelineLabel": "Pipeline",
-      "pipelineSubtitle": "Finance Pipeline Subtitle",
+      "pipelineSubtitle": "Active investment pipeline across all Harch Corp verticals with diversified financial instruments",
       "pipelineTable": {
-        "amount": "Pipeline Table Amount",
-        "country": "Pipeline Table Country",
-        "footnote": "Pipeline Table Footnote",
-        "instrument": "Pipeline Table Instrument",
-        "status": "Pipeline Table Status",
-        "vertical": "Pipeline Table Vertical"
+        "amount": "Amount",
+        "country": "Country",
+        "footnote": "All amounts are indicative and subject to final investment committee approval.",
+        "instrument": "Instrument",
+        "status": "Status",
+        "vertical": "Vertical"
       },
-      "pipelineTargetLabel": "Finance Pipeline Target Label",
+      "pipelineTargetLabel": "Pipeline Target",
       "pipelineTitle": "Investment Pipeline",
-      "probability": "Finance Probability",
+      "probability": "Probability",
       "riskManagement": {
         "crossVertical": {
           "desc": "Cross-vertical integration that leverages synergies across all 8 Harch subsidiaries.",
-          "riskLevel": "Cross Vertical Risk Level",
+          "riskLevel": "Medium",
           "title": "Cross-Vertical Integration"
         },
         "currencyHedging": {
           "desc": "Currency hedging strategies to protect infrastructure investments from exchange rate volatility.",
-          "riskLevel": "Currency Hedging Risk Level",
+          "riskLevel": "Medium-Low",
           "title": "Currency Hedging"
         },
         "offtakeAgreements": {
           "desc": "Long-term offtake agreements that provide revenue certainty for infrastructure investments.",
-          "riskLevel": "Offtake Agreements Risk Level",
+          "riskLevel": "Low",
           "title": "Offtake Agreements"
         },
         "politicalRisk": {
           "desc": "Political risk assessment and mitigation strategies for infrastructure investments in African markets.",
-          "riskLevel": "Political Risk Risk Level",
+          "riskLevel": "Medium-High",
           "title": "Political Risk"
         }
       },
-      "riskManagementLabel": "Finance Risk Management Label",
-      "riskManagementSubtitle": "Finance Risk Management Subtitle",
-      "riskManagementTitle": "Finance Risk Management Title",
-      "riskRegisterLabel": "Finance Risk Register Label",
-      "riskRegisterSubtitle": "Finance Risk Register Subtitle",
-      "riskRegisterTitle": "Finance Risk Register Title",
+      "riskManagementLabel": "Risk Management",
+      "riskManagementSubtitle": "Comprehensive risk assessment and mitigation framework for infrastructure investments",
+      "riskManagementTitle": "Risk Management",
+      "riskRegisterLabel": "Risk Register",
+      "riskRegisterSubtitle": "Detailed risk register with probability assessment and mitigation strategies",
+      "riskRegisterTitle": "Risk Register",
       "risks": {
         "carbonVolatility": {
-          "impact": "Carbon Volatility Impact",
-          "mitigation": "Carbon Volatility Mitigation",
-          "probability": "Carbon Volatility Probability",
-          "risk": "Carbon Volatility Risk"
+          "impact": "High — could reduce carbon credit revenue by 15-30%",
+          "mitigation": "Diversified credit portfolio across Verra, Gold Standard, and voluntary markets; hedging through forward contracts",
+          "probability": "Medium",
+          "risk": "Carbon price volatility impacting green bond valuations and credit monetization timelines"
         },
         "currencyDepreciation": {
-          "impact": "Currency Depreciation Impact",
-          "mitigation": "Currency Depreciation Mitigation",
-          "probability": "Currency Depreciation Probability",
-          "risk": "Currency Depreciation Risk"
+          "impact": "High — could increase financing costs by 10-25%",
+          "mitigation": "Natural hedge through export revenue, forward contracts, and DFI local currency facilities",
+          "probability": "Medium-High",
+          "risk": "MAD depreciation increasing debt servicing costs on USD/EUR-denominated obligations"
         },
         "marketLiquidity": {
-          "impact": "Market Liquidity Impact",
-          "mitigation": "Market Liquidity Mitigation",
-          "probability": "Market Liquidity Probability",
-          "risk": "Market Liquidity Risk"
+          "impact": "Medium — could extend holding periods and reduce IRR",
+          "mitigation": "DFI anchor investment commitments, buyback provisions, and structured exit mechanisms",
+          "probability": "Medium",
+          "risk": "Limited secondary market liquidity for African infrastructure debt instruments"
         },
         "politicalRisk": {
-          "impact": "Political Risk Impact",
-          "mitigation": "Political Risk Mitigation",
-          "probability": "Political Risk Probability",
-          "risk": "Political Risk"
+          "impact": "High — could delay or cancel pipeline projects",
+          "mitigation": "MIGA coverage, bilateral investment treaties, and ECA political risk insurance",
+          "probability": "Low-Medium",
+          "risk": "Regulatory changes or political instability affecting cross-border investment flows"
         },
         "regulatoryChanges": {
-          "impact": "Regulatory Changes Impact",
-          "mitigation": "Regulatory Changes Mitigation",
-          "probability": "Regulatory Changes Probability",
-          "risk": "Regulatory Changes Risk"
+          "impact": "Medium — could require restructuring of existing instruments",
+          "mitigation": "Proactive regulatory engagement, multi-jurisdictional legal counsel, and adaptable instrument frameworks",
+          "probability": "Medium",
+          "risk": "Evolving financial regulations across African jurisdictions impacting instrument structuring"
         },
         "talentAcquisition": {
-          "impact": "Talent Acquisition Impact",
-          "mitigation": "Talent Acquisition Mitigation",
-          "probability": "Talent Acquisition Probability",
-          "risk": "Talent Acquisition Risk"
+          "impact": "Medium — could slow deal execution and pipeline development",
+          "mitigation": "Partnership with African business schools, competitive compensation, and diaspora recruitment programs",
+          "probability": "Medium-High",
+          "risk": "Shortage of specialized African infrastructure finance professionals"
         }
       },
       "roadmap": {
         "phase1": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5"
+            "Obtain Green Bond Principles certification",
+            "Engage independent second-party opinion provider",
+            "Structure first $200M green bond issuance",
+            "Secure DFI anchor investors",
+            "List on Casablanca Stock Exchange",
+            "Publish inaugural impact report"
           ],
           "phase": "Phase 1",
           "title": "Green Bond Issuance"
         },
         "phase2": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5"
+            "Establish carbon credit verification framework",
+            "Partner with Verra and Gold Standard registries",
+            "Launch first African carbon credit exchange",
+            "Integrate with Harch Energy renewable offsets",
+            "Implement automated retirement & reporting",
+            "Scale to 5M+ verified credits annually"
           ],
           "phase": "Phase 2",
           "title": "Carbon Credit Exchange"
         },
         "phase3": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5"
+            "Obtain Sharia Supervisory Board approval",
+            "Structure first Sukuk issuance for infrastructure",
+            "Launch Islamic project finance facility",
+            "Partner with Islamic Development Bank",
+            "Establish profit-and-loss sharing frameworks",
+            "Scale to $500M Islamic finance portfolio"
           ],
           "phase": "Phase 3",
           "title": "Islamic Finance Platform"
         },
         "phase4": {
           "actions": [
-            "Actions 0",
-            "Actions 1",
-            "Actions 2",
-            "Actions 3",
-            "Actions 4",
-            "Actions 5"
+            "Establish trade finance correspondent network",
+            "Launch letter of credit facilitation platform",
+            "Integrate ECA-backed financing solutions",
+            "Deploy real-time settlement infrastructure",
+            "Connect all 7 Harch verticals to trade finance",
+            "Achieve $2.4B+ total pipeline target"
           ],
           "phase": "Phase 4",
           "title": "Trade Finance Network",
@@ -10771,13 +10713,13 @@
         }
       },
       "roadmapLabel": "Roadmap",
-      "roadmapSubtitle": "Finance Roadmap Subtitle",
+      "roadmapSubtitle": "Phased execution roadmap for Harch Finance from green bond issuance to a full trade finance network",
       "roadmapTitle": "Financial Roadmap",
-      "stat": "Finance Stat",
+      "stat": "$2.4B+",
       "strategicAdvantages": {
         "doubleTaxationTreaties": {
-          "desc": "Double Taxation Treaties Description",
-          "title": "Double Taxation Treaties Title"
+          "desc": "Morocco's extensive double taxation treaty network provides significant tax optimization for cross-border infrastructure investments and financing structures.",
+          "title": "Double Taxation Treaties"
         },
         "migaCoverage": {
           "desc": "MIGA political risk insurance coverage for infrastructure investments in emerging African markets.",
@@ -10792,9 +10734,9 @@
           "title": "Regulatory Framework"
         }
       },
-      "strategicAdvantagesLabel": "Finance Strategic Advantages Label",
-      "strategicAdvantagesSubtitle": "Finance Strategic Advantages Subtitle",
-      "strategicAdvantagesTitle": "Finance Strategic Advantages Title",
+      "strategicAdvantagesLabel": "Strategic Advantages",
+      "strategicAdvantagesSubtitle": "Competitive advantages that de-risk and accelerate infrastructure investment across Africa",
+      "strategicAdvantagesTitle": "Strategic Advantages",
       "title": "Finance",
       "tagline": "Operating System for Africa's Capital Formation",
       "imageAlt1": "Harch Finance — Financing Africa's Industrial Transformation",
@@ -10807,13 +10749,13 @@
     "intelligence": {
       "desc": "Sovereign AI infrastructure with carbon-aware GPU cloud, edge computing, and locally trained models ensuring complete data sovereignty.",
       "name": "Harch Intelligence",
-      "stat": "Intelligence Stat",
+      "stat": "1,798 GPUs",
       "tagline": "Operating System for Africa's Sovereign AI Compute"
     },
     "mining": {
       "desc": "Strategic mineral extraction with AI-driven geological surveying, autonomous operations, and sustainable processing of phosphate, cobalt, and rare earths.",
       "name": "Harch Mining",
-      "stat": "Mining Stat",
+      "stat": "3 Deposits",
       "tagline": "Operating System for Africa's Mineral Sovereignty"
     },
     "operatingVerticalsLabel": "Verticals",
@@ -10839,7 +10781,7 @@
     "technology": {
       "desc": "Core technology platform building HarchOS, the sovereign infrastructure operating system that orchestrates all verticals.",
       "name": "Harch Technology",
-      "stat": "Technology Stat",
+      "stat": "1,798 GPUs",
       "tagline": "Operating System for Sovereign Digital Infrastructure"
     },
     "title": "Our Subsidiaries",
@@ -10847,7 +10789,7 @@
     "water": {
       "desc": "Water infrastructure management with desalination, smart irrigation, and distribution optimization for water-scarce regions.",
       "name": "Harch Water",
-      "stat": "Water Stat",
+      "stat": "200M m³/year",
       "tagline": "Operating System for Africa's Water Independence"
     },
     "pageTitle": "Subsidiaries",
@@ -13563,7 +13505,7 @@
     "competitive": "Competitive Advantage",
     "contact": "Contact",
     "culture": "Culture",
-    "description": "Subsidiary Description",
+    "description": "Subsidiary details and information",
     "documentation": "Documentation",
     "growth": "Growth",
     "investmentPipeline": "Investment Pipeline",
@@ -13809,7 +13751,7 @@
       "title": "Our Channels"
     },
     "contact": {
-      "email": "support@harchcorp.com",
+      "email": "amine@harchcorp.com",
       "phone": "+212 522 000 000",
       "portal": "Client Portal",
       "title": "Contact Us"
@@ -13818,7 +13760,7 @@
       "items": [
         {
           "question": "How do I contact support?",
-          "answer": "By email at support@harchcorp.com, via the client portal, or by phone at +212 522 000 000."
+          "answer": "By email at amine@harchcorp.com, via the client portal, or by phone at +212 522 000 000."
         },
         {
           "question": "What are the support hours?",
@@ -13869,7 +13811,7 @@
     "accuracy": "Accuracy of Information",
     "accuracyText": "While we strive to provide accurate and up-to-date information on our platform, Harch Corp makes no warranties regarding the completeness, reliability, or accuracy of any content. Any reliance you place on such information is strictly at your own risk.",
     "contact": "Contact",
-    "contactText": "For questions about these Terms of Service, please contact our legal team at legal@harchcorp.com or write to Harch Corp S.A., Casablanca, Morocco.",
+    "contactText": "For questions about these Terms of Service, please contact our legal team at amine@harchcorp.com or write to Harch Corp S.A., Casablanca, Morocco.",
     "disclaimer": "Disclaimer",
     "disclaimerText": "Our services are provided on an 'as is' and 'as available' basis. Harch Corp disclaims all warranties, express or implied, including but not limited to implied warranties of merchantability and fitness for a particular purpose.",
     "governingLaw": "Governing Law",
@@ -14242,9 +14184,9 @@
           "title": "Board Authority"
         },
         "chiefEthicsOfficer": {
-          "desc": "Chief Ethics Officer Description",
-          "role": "Chief Ethics Officer Role",
-          "title": "Chief Ethics Officer Title"
+          "desc": "The Chief Ethics Officer oversees AI ethics policy, ensures compliance with ethical guidelines, and reports directly to the board of directors.",
+          "role": "Ethics policy oversight and board reporting",
+          "title": "Chief Ethics Officer"
         },
         "communityRep": {
           "desc": "Dedicated community representatives who advocate for user needs and facilitate engagement.",
@@ -14258,9 +14200,9 @@
           "title": "External Advisors"
         },
         "headOfResearch": {
-          "desc": "Head Of Research Description",
-          "role": "Head Of Research Role",
-          "title": "Head Of Research Title"
+          "desc": "The Head of Research leads AI model development with a focus on fairness, explainability, and responsible innovation.",
+          "role": "AI research leadership and fairness oversight",
+          "title": "Head of Research"
         },
         "label": "Review Board",
         "legalLead": {
@@ -14273,13 +14215,17 @@
           "role": "Privacy Officer Role",
           "title": "Privacy Officer"
         },
-        "title": "Review Board"
+        "title": "Review Board",
+        "noPublicDisclosure": {
+          "title": "No Public Disclosure",
+          "desc": "Sensitive security findings are handled through responsible disclosure channels with appropriate embargoes and coordinated release schedules."
+        }
       },
       "title": "AI Ethics",
       "transparency": {
         "auditTrails": {
           "desc": "Complete audit trails for every action, decision, and change across the HarchOS platform with immutable logging.",
-          "status": "Audit Trails Status",
+          "status": "Immutable",
           "title": "Audit Trails"
         },
         "dataSheets": {
@@ -14318,34 +14264,34 @@
     "architecture": "Architecture",
     "certifications": {
       "ccpa": {
-        "scope": "Ccpa Scope"
+        "scope": "California consumer data processing"
       },
       "csaStar": {
-        "scope": "Csa Star Scope"
+        "scope": "Cloud services and SaaS platforms"
       },
       "fedramp": {
-        "scope": "Fedramp Scope"
+        "scope": "US government cloud service offerings"
       },
       "gdpr": {
-        "scope": "Gdpr Scope"
+        "scope": "EU data subjects and cross-border transfers"
       },
       "hitrust": {
-        "scope": "Hitrust Scope"
+        "scope": "Healthcare data and systems"
       },
       "iso22301": {
-        "scope": "Iso22301 Scope"
+        "scope": "All Harch Corp operations and subsidiaries"
       },
       "iso27001": {
-        "scope": "Iso27001 Scope"
+        "scope": "Information assets across all Harch Corp systems"
       },
       "iso27017": {
-        "scope": "Iso27017 Scope"
+        "scope": "Cloud infrastructure and services"
       },
       "iso27018": {
-        "scope": "Iso27018 Scope"
+        "scope": "Public cloud services processing PII"
       },
       "moroccanDpa": {
-        "scope": "Moroccan Dpa Scope"
+        "scope": "Personal data processing in Morocco"
       },
       "pcidss": {
         "scope": "Pcidss Scope"
@@ -14355,7 +14301,7 @@
       "regionMorocco": "Morocco Region",
       "regionUS": "US Region",
       "soc2": {
-        "scope": "Soc2 Scope"
+        "scope": "Security, availability, and confidentiality controls"
       }
     },
     "certifiedAuditedVerified": "Certified Audited Verified",
@@ -14363,55 +14309,58 @@
       "activeCertifications": "Active Certifications",
       "auditReports": {
         "bcTest": {
-          "auditor": "Bc Test Auditor",
+          "auditor": "Deloitte",
           "name": "BC Test",
-          "period": "Bc Test Period",
-          "type": "Bc Test Type"
+          "period": "FY 2025",
+          "type": "Business Continuity"
         },
         "cloudSecurity": {
-          "auditor": "Cloud Security Auditor",
+          "auditor": "KPMG",
           "name": "Cloud Security",
-          "period": "Cloud Security Period",
-          "type": "Cloud Security Type"
+          "period": "FY 2025",
+          "type": "Cloud Security Assessment"
         },
         "cndpRegistration": {
-          "auditor": "Cndp Registration Auditor",
+          "auditor": "CNDP",
           "name": "CNDP Registration",
-          "period": "Cndp Registration Period",
-          "type": "Cndp Registration Type"
+          "period": "FY 2025",
+          "type": "Data Protection Registration"
         },
         "description": "Detailed audit reports with findings, recommendations, and remediation tracking for all infrastructure operations.",
         "gdprDpia": {
-          "auditor": "Gdpr Dpia Auditor",
+          "auditor": "Ernst & Young",
           "name": "GDPR DPIA",
-          "period": "Gdpr Dpia Period",
-          "type": "Gdpr Dpia Type"
+          "period": "FY 2025",
+          "type": "DPIA Assessment"
         },
         "iso27001Gap": {
-          "auditor": "Iso27001 Gap Auditor",
-          "name": "Iso27001 Gap Name",
-          "period": "Iso27001 Gap Period",
-          "type": "Iso27001 Gap Type"
+          "auditor": "BSI Group",
+          "name": "ISO 27001 Gap Analysis",
+          "period": "FY 2025",
+          "type": "Gap Analysis"
         },
         "label": "Audit Reports",
         "pentest": {
-          "auditor": "Pentest Auditor",
+          "auditor": "TrustedSec",
           "name": "Penetration Test Report",
           "period": "Annual",
-          "type": "Penetration Test"
+          "type": "Penetration Test",
+          "metric1Label": "Critical Vulnerabilities",
+          "metric2Label": "Medium Vulnerabilities",
+          "metric3Label": "Remediation Rate"
         },
-        "requestAccess": "Audit Reports Request Access",
+        "requestAccess": "Request Access",
         "soc2Readiness": {
-          "auditor": "Soc2 Readiness Auditor",
-          "name": "Soc2 Readiness Name",
-          "period": "Soc2 Readiness Period",
-          "type": "Soc2 Readiness Type"
+          "auditor": "PwC",
+          "name": "SOC 2 Readiness Assessment",
+          "period": "FY 2025",
+          "type": "Readiness Assessment"
         },
-        "tableAccess": "Audit Reports Table Access",
-        "tableAuditor": "Audit Reports Table Auditor",
-        "tableDocument": "Audit Reports Table Document",
-        "tablePeriod": "Audit Reports Table Period",
-        "tableType": "Audit Reports Table Type",
+        "tableAccess": "Access",
+        "tableAuditor": "Auditor",
+        "tableDocument": "Document",
+        "tablePeriod": "Period",
+        "tableType": "Type",
         "title": "Audit Reports"
       },
       "auditorLabel": "Auditor",
@@ -14479,7 +14428,33 @@
           "fullName": "Soc2 Full Name",
           "scope": "Soc2 Scope"
         },
-        "title": "Certifications"
+        "title": "Certifications",
+        "certifications": {
+          "iso22301": {
+            "fullName": "ISO 22301:2019 — Business Continuity Management Systems"
+          },
+          "iso27001": {
+            "fullName": "ISO/IEC 27001:2022 — Information Security Management Systems"
+          },
+          "iso27017": {
+            "fullName": "ISO/IEC 27017:2015 — Cloud Security Controls"
+          },
+          "iso27018": {
+            "fullName": "ISO/IEC 27018:2019 — PII Protection in Public Clouds"
+          },
+          "csaStar": {
+            "fullName": "CSA Security, Trust & Assurance Registry (STAR)"
+          },
+          "moroccanDpa": {
+            "fullName": "CNDP — Commission Nationale de contrôle de la protection des Données à caractère Personnel"
+          },
+          "pciDss": {
+            "fullName": "PCI DSS v4.0 — Payment Card Industry Data Security Standard"
+          },
+          "soc2": {
+            "fullName": "SOC 2 Type II — Service Organization Control Report"
+          }
+        }
       },
       "continuous": "Continuous Monitoring",
       "cta": {
@@ -14489,34 +14464,34 @@
       },
       "dpa": {
         "description": "Data Processing Agreements ensuring compliant handling of personal data across all service tiers.",
-        "downloadPdf": "Dpa Download Pdf",
-        "feature1": "Dpa Feature1",
-        "feature2": "Dpa Feature2",
-        "feature3": "Dpa Feature3",
-        "feature4": "Dpa Feature4",
-        "feature5": "Dpa Feature5",
-        "feature6": "Dpa Feature6",
+        "downloadPdf": "Download DPA PDF",
+        "feature1": "Data minimization principles",
+        "feature2": "Purpose limitation enforcement",
+        "feature3": "Storage limitation policies",
+        "feature4": "Data subject rights support",
+        "feature5": "Processing records maintained",
+        "feature6": "International transfer safeguards",
         "label": "DPA",
-        "quickReference": "Dpa Quick Reference",
+        "quickReference": "Quick Reference",
         "ref": {
-          "auditRight": "Ref Audit Right",
-          "auditRightValue": "Ref Audit Right Value",
-          "breachNotification": "Ref Breach Notification",
-          "breachNotificationValue": "Ref Breach Notification Value",
-          "crossBorder": "Ref Cross Border",
-          "crossBorderValue": "Ref Cross Border Value",
-          "dataController": "Ref Data Controller",
-          "dataControllerValue": "Ref Data Controller Value",
-          "dataDeletion": "Ref Data Deletion",
-          "dataDeletionValue": "Ref Data Deletion Value",
-          "dataProcessor": "Ref Data Processor",
-          "dataProcessorValue": "Ref Data Processor Value",
-          "governingLaw": "Ref Governing Law",
-          "governingLawValue": "Ref Governing Law Value",
-          "subProcessors": "Ref Sub Processors",
-          "subProcessorsValue": "Ref Sub Processors Value"
+          "auditRight": "Audit Right",
+          "auditRightValue": "Annual on-site audit with 30-day advance notice",
+          "breachNotification": "Breach Notification",
+          "breachNotificationValue": "72-hour notification to supervisory authority per GDPR Article 33",
+          "crossBorder": "Cross-Border Transfer",
+          "crossBorderValue": "Standard contractual clauses and adequacy decisions",
+          "dataController": "Data Controller",
+          "dataControllerValue": "Harch Corp as data controller with defined processing purposes",
+          "dataDeletion": "Data Deletion",
+          "dataDeletionValue": "Data deleted within 30 days of contract termination",
+          "dataProcessor": "Data Processor",
+          "dataProcessorValue": "Authorized processors with GDPR-compliant sub-processing agreements",
+          "governingLaw": "Governing Law",
+          "governingLawValue": "Moroccan law with international arbitration fallback",
+          "subProcessors": "Sub-Processors",
+          "subProcessorsValue": "Publicly listed sub-processors with 30-day change notice"
         },
-        "summary": "Dpa Summary",
+        "summary": "Standard Data Processing Agreement ensuring compliant handling of personal data across all service tiers.",
         "title": "Data Processing Agreement"
       },
       "heroDescription": "Comprehensive compliance management for sovereign infrastructure with automated monitoring and reporting.",
@@ -14532,35 +14507,35 @@
       "regionalPrograms": "Regional Programs",
       "regions": {
         "africa": {
-          "cert1": "Africa Cert1",
-          "cert2": "Africa Cert2",
-          "cert3": "Africa Cert3",
-          "cert4": "Africa Cert4",
+          "cert1": "CNDP Compliance",
+          "cert2": "AU Data Protection Framework",
+          "cert3": "Moroccan ANRT Regulations",
+          "cert4": "African Continental Free Trade Compliance",
           "description": "Compliance with African Union data protection frameworks and national data sovereignty regulations across operating markets.",
           "name": "Africa"
         },
         "description": "Regional compliance frameworks ensuring data residency and regulatory adherence across all operating jurisdictions.",
         "eu": {
-          "cert1": "Eu Cert1",
-          "cert2": "Eu Cert2",
-          "cert3": "Eu Cert3",
-          "cert4": "Eu Cert4",
+          "cert1": "GDPR Compliance",
+          "cert2": "EU-US Data Privacy Framework",
+          "cert3": "eIDAS Regulation",
+          "cert4": "NIS2 Directive Compliance",
           "description": "Full GDPR compliance with EU data protection standards, cross-border transfer safeguards, and data subject rights.",
           "name": "European Union"
         },
         "global": {
-          "cert1": "Global Cert1",
-          "cert2": "Global Cert2",
-          "cert3": "Global Cert3",
-          "cert4": "Global Cert4",
+          "cert1": "ISO 27001 Certification",
+          "cert2": "SOC 2 Type II Attestation",
+          "cert3": "ISO 27017 Cloud Security",
+          "cert4": "PCI DSS v4.0 Compliance",
           "description": "International compliance standards including ISO certifications, SOC 2, and industry-specific regulatory frameworks.",
           "name": "Global"
         },
         "morocco": {
-          "cert1": "Morocco Cert1",
-          "cert2": "Morocco Cert2",
-          "cert3": "Morocco Cert3",
-          "cert4": "Morocco Cert4",
+          "cert1": "CNDP Registration",
+          "cert2": "ANRT Telecom Compliance",
+          "cert3": "Moroccan Data Residency",
+          "cert4": "Sovereign Cloud Certification",
           "description": "Compliance with Moroccan data protection law (CNDP), ANRT regulations, and sovereign data residency requirements.",
           "name": "Morocco"
         },
@@ -14599,6 +14574,28 @@
       "reports": {
         "description": "Compliance reports available on request for clients.",
         "title": "Reports"
+      },
+      "encryption": {
+        "encryptionAtRest": {
+          "title": "Encryption at Rest",
+          "volumeEncryption": "AES-256 volume encryption for all storage",
+          "backupEncryption": "Encrypted backups with separate key management",
+          "keyManagement": "Hardware Security Module (HSM) managed keys",
+          "keyRotation": "Automatic 90-day key rotation policy"
+        },
+        "encryptionInTransit": {
+          "title": "Encryption in Transit",
+          "forwardSecrecy": "Perfect Forward Secrecy (PFS) enforced",
+          "serviceMesh": "Mutual TLS across all microservices",
+          "certificateAuthority": "Internal PKI with automated certificate lifecycle",
+          "certRotation": "Automated 30-day certificate rotation",
+          "submarineLinks": "Encrypted submarine cable backhaul"
+        }
+      },
+      "transparency": {
+        "governmentRequestsValue": "All government data requests are publicly disclosed in our transparency report",
+        "securityIncidentsValue": "Security incidents reported within 72 hours with full disclosure after remediation",
+        "uptimeSlaValue": "99.9% uptime SLA with real-time status monitoring and incident history"
       }
     },
     "complianceDescription": "Comprehensive regulatory compliance with international certifications and regional data sovereignty requirements.",
@@ -14657,12 +14654,12 @@
         "label": "Application Security",
         "pentest": {
           "desc": "Regular penetration testing by certified third-party firms with remediation tracking and vulnerability disclosure.",
-          "metric1Label": "Pentest Metric1 Label",
-          "metric1Value": "Pentest Metric1 Value",
-          "metric2Label": "Pentest Metric2 Label",
-          "metric2Value": "Pentest Metric2 Value",
-          "metric3Label": "Pentest Metric3 Label",
-          "metric3Value": "Pentest Metric3 Value",
+          "metric1Label": "Critical Vulnerabilities",
+          "metric1Value": "0",
+          "metric2Label": "Medium Vulnerabilities",
+          "metric2Value": "2",
+          "metric3Label": "Remediation Rate",
+          "metric3Value": "100%",
           "title": "Penetration Testing"
         },
         "title": "Application",
@@ -15113,7 +15110,7 @@
       },
       "description": "Comprehensive vulnerability management including bug bounty, reporting, and disclosure policies.",
       "fullPolicy": "Vulnerability Full Policy",
-      "helpUsTitle": "Vulnerability Help Us Title",
+      "helpUsTitle": "Help Us Secure Harch Infrastructure",
       "heroDescription": "Vulnerability disclosure and management program with responsible handling and transparent communication.",
       "heroTitle": "Vulnerability Disclosure",
       "hof": {
@@ -15232,16 +15229,16 @@
         },
         "title": "Program Scope"
       },
-      "step1Desc": "Vulnerability Step1 Desc",
-      "step1Title": "Vulnerability Step1 Title",
-      "step2Desc": "Vulnerability Step2 Desc",
-      "step2Title": "Vulnerability Step2 Title",
-      "step3Desc": "Vulnerability Step3 Desc",
-      "step3Title": "Vulnerability Step3 Title",
-      "step4Desc": "Vulnerability Step4 Desc",
-      "step4Title": "Vulnerability Step4 Title",
-      "step5Desc": "Vulnerability Step5 Desc",
-      "step5Title": "Vulnerability Step5 Title",
+      "step1Desc": "Security researchers identify potential vulnerabilities through systematic testing and responsible disclosure practices.",
+      "step1Title": "Identify & Report",
+      "step2Desc": "Our security team triages and validates each reported vulnerability within 24 hours of submission.",
+      "step2Title": "Triage & Validate",
+      "step3Desc": "Engineering teams develop and deploy patches with priority-based SLAs depending on severity assessment.",
+      "step3Title": "Remediate & Patch",
+      "step4Desc": "Independent verification confirms the vulnerability has been fully remediated before marking as resolved.",
+      "step4Title": "Verify & Close",
+      "step5Desc": "Qualifying researchers receive bounty rewards and public recognition through our responsible disclosure hall of fame.",
+      "step5Title": "Reward & Recognize",
       "title": "Vulnerability Management",
       "hallOfFame": {
         "description": "Researchers who have contributed to Harch Corp's security.",
@@ -15250,7 +15247,10 @@
       "rewards": {
         "description": "Bug bounty and recognition program for security researchers.",
         "title": "Recompenses"
-      }
+      },
+      "inScopeSubtitle": "Systems and assets within the scope of our vulnerability disclosure program",
+      "outOfScopeTitle": "Out of Scope",
+      "outOfScopeSubtitle": "Systems and attack vectors explicitly excluded from our vulnerability disclosure program"
     },
     "heroDescription": "Security, compliance, and ethics at the heart of every infrastructure decision.",
     "heroLabel": "Confiance"
@@ -15288,7 +15288,7 @@
     "stayInformedTitle": "Stay Informed",
     "stayInformedDescription": "Subscribe to receive real-time updates about service incidents, scheduled maintenance, and resolution notices. Choose your preferred notification channel.",
     "emailNotifications": "Email Notifications",
-    "emailPlaceholder": "your@email.com",
+    "emailPlaceholder": "amine@harchcorp.com",
     "subscribe": "Subscribe",
     "slackIntegration": "Slack Integration",
     "addToSlack": "Add to Slack",

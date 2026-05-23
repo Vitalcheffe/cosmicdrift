@@ -121,7 +121,7 @@ export default function CodeOfConductPageClient() {
               </p>
               <div className="border border-[rgba(255,255,255,0.06)] rounded-lg p-5 bg-[#1E1E1E]">
                 <p className="text-[14px] text-white font-medium mb-2">{t('codeOfConduct.ethicsHotline')}</p>
-                <p className="text-[14px] text-[#999999]">{t('codeOfConduct.reportingEmailLabel')} <a href="mailto:ethics@harchcorp.com" className="text-white hover:underline">ethics@harchcorp.com</a></p>
+                <p className="text-[14px] text-[#999999]">{t('codeOfConduct.reportingEmailLabel')} <a href="mailto:amine@harchcorp.com" className="text-white hover:underline">amine@harchcorp.com</a></p>
                 <p className="text-[14px] text-[#999999]">{t('codeOfConduct.reportingPhone')}</p>
                 <p className="text-[14px] text-[#999999]">{t('codeOfConduct.reportingOnline')}</p>
                 <p className="text-[14px] text-[#999999] mt-2">{t('codeOfConduct.reportingAlternative')}</p>

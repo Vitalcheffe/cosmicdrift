@@ -32,10 +32,7 @@ export default function AboutPageClient() {
   ];
 
   const leadership = [
-    { name: 'Amine Harch El Korane', title: t('leadership.ceo.title'), desc: t('leadership.ceo.description'), image: '/images/team/ceo.jpg' },
-    { name: 'Fatima Zahra El Mansouri', title: t('leadership.coo.title'), desc: t('leadership.coo.description'), image: '/images/team/coo.jpg' },
-    { name: 'Karim Benjelloun', title: t('leadership.cto.title'), desc: t('leadership.cto.description'), image: '/images/team/cto.jpg' },
-    { name: 'Aisha Diop', title: t('leadership.cfo.title'), desc: t('leadership.cfo.description'), image: '/images/team/cfo.jpg' },
+    { name: 'Amine Harch El Korane', title: t('leadership.ceo.title'), desc: t('leadership.ceo.description') },
   ];
 
   const history = [
@@ -124,19 +121,14 @@ export default function AboutPageClient() {
               {t('leadership.headline')}
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="max-w-2xl">
             {leadership.map((person, i) => (
               <FadeIn key={person.name} delay={i * 0.08}>
-                <div className="card overflow-hidden h-full">
-                  <div className="relative w-full aspect-[4/3] bg-[#1E1E1E] overflow-hidden">
-                    <Image src={person.image} alt={person.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-1">{person.name}</h3>
-                    <p className="text-[12px] font-semibold text-[#8B9DAF] uppercase tracking-[0.1em] mb-4">{person.title}</p>
-                    <div className="accent-line mb-4" />
-                    <p className="text-[14px] text-[#999999] leading-[1.7]">{person.desc}</p>
-                  </div>
+                <div className="card p-8 h-full">
+                  <h3 className="text-xl font-bold text-white mb-1">{person.name}</h3>
+                  <p className="text-[12px] font-semibold text-[#8B9DAF] uppercase tracking-[0.1em] mb-4">{person.title}</p>
+                  <div className="accent-line mb-4" />
+                  <p className="text-[14px] text-[#999999] leading-[1.7]">{person.desc}</p>
                 </div>
               </FadeIn>
             ))}

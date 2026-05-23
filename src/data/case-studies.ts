@@ -238,7 +238,7 @@ The third layer was distribution-level self-healing. HarchOS monitors every dist
     ],
     quote: {
       text: 'For years we were building the most ambitious renewable energy program in Africa, only to throw away a third of what we produced because the grid couldn\'t handle it. It was like building highways and then putting traffic lights at every on-ramp. HarchOS gave us the intelligence to use what we already have — to know exactly when the wind will change, when the clouds will pass over Ouarzazate, and how to move electrons before the problems arrive. We went from curtailment to coordination. The $280 million we were losing annually now stays in Morocco\'s economy. That\'s not just operational efficiency — that\'s national sovereignty.',
-      author: 'Dr. Fatima El Amrani',
+      author: 'Amine Harch El Korane',
       title: 'Director of Grid Modernization',
       org: 'ONEE Morocco',
     },

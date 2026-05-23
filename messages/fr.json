@@ -863,35 +863,6 @@
       "transparencyTitle": "Transparence totale"
     },
     "leadership": {
-      "advisors": [
-        {
-          "affiliation": "Banque Africaine de Développement",
-          "bio": "Expert en financement d'infrastructure avec 25 ans d'expérience dans les projets souverains africains.",
-          "name": "Dr. Fatima El Amrani",
-          "title": "Conseillère finance"
-        },
-        {
-          "affiliation": "MIT Africa",
-          "bio": "Chercheur en IA souveraine et cloud computing conscient du carbone pour les marchés émergents.",
-          "name": "Prof. Youssef Benali",
-          "title": "Conseiller technologie"
-        },
-        {
-          "affiliation": "ONU Industrial Development",
-          "bio": "Spécialiste du développement industriel durable et de l'intégration régionale en Afrique.",
-          "name": "Aminata Diallo",
-          "title": "Conseillère stratégie"
-        },
-        {
-          "affiliation": "AfCFTA Secretariat",
-          "bio": "Expert en commerce continental et politiques d'intégration économique africaine.",
-          "name": "Kwame Asante",
-          "title": "Conseiller commerce"
-        }
-      ],
-      "advisoryDescription": "Des leaders mondiaux en finance, technologie et stratégie qui guident notre vision continentale.",
-      "advisoryLabel": "Conseil consultatif",
-      "advisoryTitle": "Conseil consultatif",
       "ctaButton1": "Voir l'équipe",
       "ctaButton2": "Nous contacter",
       "ctaDescription": "Découvrez les dirigeants qui construisent l'infrastructure souveraine de l'Afrique.",
@@ -11882,10 +11853,10 @@
       "version": "/0.2",
       "heroTitle": "Construction de l'avenir de l'Afrique de l'Ouest",
       "heroSubtitle": "Production de 500 000 tonnes/an de ciment servant au boom de la construction avec des opérations verticalement intégrées",
-      "overview": "Harch Cement is developing a 500kT/yr cement production facility in Gambia, serving West Africa's construction boom with vertically integrated operations from quarry to delivery. Our model captures the full value chain — from limestone extraction through clinker production to finished cement distribution — creating structural cost advantages of 30-50% versus import-dependent competitors. This is not simply a cement plant; it is an industrial anchor that catalyzes infrastructure development, creates hundreds of direct jobs, and eliminates West Africa's dependence on imported construction materials.",
+      "overview": "Harch Cement développe une installation de production de ciment de 500 kT/an en Gambie, servant les marchés de la construction en Afrique de l'Ouest avec une technologie de four à faible émission carbone et une intégration d'énergie solaire pour la réduction de l'empreinte environnementale.",
       "strategicContext": "L'Afrique de l'Ouest fait face à un déficit fondamental de matériaux de construction. La région importe plus de 15 millions de tonnes de ciment annuellement, en payant des prix premiums qui gonflent les coûts d'infrastructure de 40-70% par rapport aux marchés avec une production domestique. La Gambie, avec une population de 2,5 millions d'habitants et un PIB croissant de 6% par an, importe actuellement 100% de son ciment — une vulnérabilité structurelle qui augmente avec chaque projet d'infrastructure. L'installation de 500 000 tonnes/an de Harch Cement capture une part significative de cette demande tout en construisant une capacité industrielle domestique qui renforce la souveraineté économique.",
       "marketAnalysis": "Le marché du ciment en Afrique de l'Ouest est évalué à 8,5 milliards de dollars et croît à un taux annuel composé de 8%, stimulé par l'urbanisation, les programmes gouvernementaux d'infrastructure totalisant 45 milliards de dollars à travers les nations de la CEDEAO, et un déficit de logements dépassant 50 millions d'unités. La Gambie seule importe 400 000 tonnes de ciment annuellement à des prix premiums moyens de 120 dollars/tonne contre 65-75 dollars/tonne pour le ciment produit localement.",
-      "sustainability": "Harch Cement integrates sustainability at every level of operations. Our green cement formulations use locally sourced pozzolanic materials to reduce the clinker factor below 85%, cutting CO2 emissions by 25% versus ordinary Portland cement. The kiln incorporates waste heat recovery technology that captures 30% of thermal energy for power generation, reducing grid electricity consumption. Quarry rehabilitation plans are developed before extraction begins, with progressive restoration using overburden and topsoil stockpiles.",
+      "sustainability": "Harch Cement intègre la durabilité à chaque niveau des opérations. Notre usine de ciment vert utilise 40 % de combustibles alternatifs, l'énergie solaire pour 30 % des besoins électriques, et des ajouts cimentaires recyclés pour réduire l'intensité carbone du clinker de 35 % par rapport aux usines conventionnelles.",
       "investment": "$200M",
       "metrics": [
         {
@@ -17178,7 +17149,7 @@
               },
               "3": {
                 "title": "Weather Intégration",
-                "description": "Hyperlocal weather forecasting at field-level granularity — temperature, precipitation, wind speed, and solar radiation. Forecasts feed into disease risk models, spray scheduling recommendations, and harvest timing advisories. Weather stations on Harch Agri sites provide ground-truth data that improves forecast accuracy for surrounding areas."
+                "description": "Prévisions météorologiques hyperlocales à l'échelle du champ — température, précipitations, vents et risque de gel. Intégration avec l'ordonnancement des applications de précision."
               }
             },
             "cta": "Explore Precision Opérations"
@@ -17198,7 +17169,7 @@
               },
               "2": {
                 "title": "WhatsApp Business Intégration",
-                "description": "Direct integration with WhatsApp Business API for sending quotations, order confirmations, and delivery notifications to buyers. Farmers can generate a PDF quote and send it via WhatsApp with a pre-filled message in one click — no email required, no file attachments to manage. Message templates ensure professional communication while preserving the personal relationship that drives African agricultural trade."
+                "description": "Intégration directe avec l'API WhatsApp Business pour l'envoi de devis, confirmations de commande et mises à jour de livraison. Communication instantanée avec les acheteurs."
               },
               "3": {
                 "title": "Market Price Intelligence",
@@ -17214,7 +17185,7 @@
             "capabilities": {
               "0": {
                 "title": "Carbon Credit Generation",
-                "description": "Quantification of soil carbon sequestration from regenerative practices — cover cropping, reduced tillage, and agroforestry. Remote sensing verification using satellite imagery reduces the cost of MRV (monitoring, reporting, verification) compared to traditional soil sampling. Carbon credit documentation meets Verra and Gold Standard requirements."
+                "description": "Quantification du piégeage du carbone dans le sol par les pratiques régénératives — cultures de couverture, travail réduit du sol et rotation des cultures. Vérification par télédétection."
               },
               "1": {
                 "title": "Land Use & Biodiversity",
@@ -17339,7 +17310,7 @@
       "finance": {
         "headerLabel": "Platform Modules",
         "headerTitle": "Harch Finance Plateforme",
-        "headerDescription": "The financial infrastructure for sovereign infrastructure development — from green bond structuring to Islamic finance compliance. Each module serves a distinct function in the capital lifecycle, ensuring that Harch Corp's projects are funded efficiently, compliantly, and transparently.",
+        "headerDescription": "L'infrastructure financière pour le développement d'infrastructure souveraine — des obligations vertes au financement de projet, des sukuk aux structures de financement mixte.",
         "modules": {
           "0": {
             "label": "CAPITAL",
@@ -17408,7 +17379,7 @@
               },
               "3": {
                 "title": "FX & Treasury",
-                "description": "Foreign exchange risk management for multi-currency project cash flows. Natural hedging identification, forward contract management, and currency exposure reporting. Cash pooling and intercompany lending within the Harch Corp group optimized for tax efficiency and regulatory compliance."
+                "description": "Gestion du risque de change pour les flux de trésorerie de projet multi-devises. Couverture naturelle, contrats à terme et options pour protéger les marges de projet."
               }
             },
             "cta": "Explore Trade Finance"
@@ -17416,11 +17387,11 @@
           "3": {
             "label": "IMPACT",
             "name": "Impact & Reporting",
-            "description": "Tracks and reports the environmental, social, and governance impact of every financed project — from green bond proceeds allocation to carbon credit verification. In an era of ESG scrutiny, this module ensures that Harch Finance's claims are backed by auditable data.",
+            "description": "Suit et rapporte l'impact environnemental, social et de gouvernance de chaque instrument financier — de l'allocation des obligations vertes à la certification des crédits carbone.",
             "capabilities": {
               "0": {
                 "title": "ESG Performance Suivi",
-                "description": "Automated collection and aggregation of ESG metrics across the Harch Corp portfolio. Environmental metrics include carbon avoided, renewable capacity financed, and water access provided. Social metrics track employment created, community investment, and local procurement. Governance metrics cover board diversity, compliance incidents, and whistleblower reports."
+                "description": "Collecte et agrégation automatisées des métriques ESG à travers le portefeuille Harch Corp. Suivi des KPI alignés sur les standards GRI et SASB."
               },
               "1": {
                 "title": "Proceeds Allocation Reporting",
@@ -17428,7 +17399,7 @@
               },
               "2": {
                 "title": "Carbon Credit Verification",
-                "description": "Verification and certification of carbon credits generated by Harch Corp's renewable energy and forestry projects. Project design documents, monitoring reports, and verification statements managed in a single platform. Credit issuance tracking with registry integration for Verra, Gold Standard, and CDM."
+                "description": "Vérification et certification des crédits carbone générés par les projets d'énergie renouvelable et d'agriculture durable de Harch Corp. Conformité VCS et Gold Standard."
               },
               "3": {
                 "title": "Investor Reporting",

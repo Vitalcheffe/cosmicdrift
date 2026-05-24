@@ -45,11 +45,11 @@ export function TopNavBar({ onToggleSidebar }: TopNavBarProps) {
           ))}
         </div>
 
-        {/* Right: Menu button (mobile only) + Language switcher + Contact */}
+        {/* Right: Menu button + Language switcher + Contact */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <button
             onClick={onToggleSidebar}
-            className="w-9 h-9 flex items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/[0.15] transition-colors shrink-0 lg:hidden"
+            className="w-9 h-9 flex items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/[0.15] transition-colors shrink-0"
             aria-label={t('ariaToggleMenu')}
           >
             <Menu size={16} strokeWidth={1.5} className="text-white/60" />

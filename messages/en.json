@@ -9353,10 +9353,10 @@
     "company": "Company",
     "compliance": "Compliance",
     "ctas": {
-      "briefing": "Schedule a Briefing",
+      "briefing": "Book a Briefing",
       "demo": "Request a Demo",
       "investor": "Investor Relations",
-      "quote": "Request a Quote"
+      "quote": "Get a Quote"
     },
     "customers": "Customers",
     "dei": "Dei",
@@ -9379,7 +9379,7 @@
     "intelligence": "Intelligence",
     "investorRelations": "Investor Relations",
     "investors": "Investors",
-    "joinTeam": "Join Team",
+    "joinTeam": "Join the Team",
     "labels": {
       "about": "About",
       "blog": "Blog",
@@ -11321,27 +11321,31 @@
       "capabilities": [
         {
           "title": "Carbon-Aware Data Centers",
-          "desc": "5 GPU hubs across Morocco with carbon-aware scheduling as our #1 differentiator. Our 500MW Pipeline in Dakhla is designed for the most demanding compute workloads, with modular architecture allowing capacity to scale from 100MW to 500MW in phases. Each hub features redundant power paths, diverse fiber entrances, and N+1 cooling redundancy throughout. Every rack is pre-wired for liquid cooling, enabling deployment of next-generation GPUs without retrofitting."
+          "desc": "Five GPU hubs across Morocco engineered around carbon-aware scheduling as our primary differentiator. Our 500 MW Pipeline in Dakhla is purpose-built for the most demanding compute workloads — from foundation model training to real-time inference at scale — with modular architecture that scales from 100 MW to 500 MW in three phases. Every hub features dual redundant power paths, diverse fiber entrances from separate providers, and N+1 cooling redundancy across all thermal zones. Each rack is factory-pre-wired for direct liquid cooling, enabling next-generation GPU deployment — Blackwell, Rubin, and beyond — with zero retrofit cost or downtime. Our proprietary HarchOS scheduler continuously monitors grid carbon intensity across all five sites in real time, automatically routing workloads to the greenest available capacity without requiring any application-level changes from developers."
         },
         {
           "title": "GPU Clusters",
-          "desc": "1,798 GPUs across 5 hubs optimized for training and inference with carbon-aware scheduling. Harch Ouarzazate (800 GPUs, 97.2% renewable, 18 gCO2/kWh), Harch Dakhla (400 GPUs, 94.8% renewable, 32 gCO2/kWh), Harch Benguerir (350 GPUs, 88.5% renewable, 55 gCO2/kWh), Harch Tanger (200 GPUs, 82.1% renewable, 95 gCO2/kWh), Harch Casablanca (48 GPUs, 45% renewable, 210 gCO2/kWh). Our largest hub supports distributed training across 800-GPU partitions at Ouarzazate, enabling training of large-scale models with industry-leading carbon efficiency."
+          "desc": "1,798 GPUs distributed across five hubs, each optimized for distinct workload profiles with carbon-aware scheduling at the orchestration layer. Harch Ouarzazate leads with 800 GPUs at 97.2% renewable energy and a carbon intensity of just 18 gCO2/kWh — enabling distributed training across full 800-GPU partitions for large-scale foundation models with industry-leading carbon efficiency. Harch Dakhla contributes 400 GPUs at 94.8% renewable (32 gCO2/kWh), purpose-built for sustained training runs. Harch Benguerir adds 350 GPUs at 88.5% renewable (55 gCO2/kWh), optimized for fine-tuning and batch inference. Harch Tanger provides 200 GPUs at 82.1% renewable (95 gCO2/kWh), positioned for low-latency inference serving European clients. Harch Casablanca operates 48 GPUs at 45% renewable (210 gCO2/kWh), serving as our urban inference edge for Morocco's domestic market. All clusters are interconnected via 400 Gbps fabric, enabling cross-hub distributed training with linear scaling efficiency above 92%."
         },
         {
           "title": "Renewable Energy Integration",
-          "desc": "81.5% average renewable energy across all hubs, powered by Harch Energy's solar and wind infrastructure. Carbon-aware scheduling routes workloads to the greenest hub in real time, achieving ~47 gCO2/kWh average — 89% below the industry average of ~450 gCO2/kWh. Zero-carbon electricity at Ouarzazate and Dakhla delivers cost advantages of 40-60% cheaper than AWS/GCP/Azure. On-site battery storage provides backup for uninterrupted operations during grid transitions."
+          "desc": "81.5% average renewable energy across all hubs, powered by Harch Energy's dedicated solar and wind infrastructure — not purchased offsets or renewable energy credits, but direct physical connection to generation assets we own and operate. Carbon-aware scheduling routes workloads to the greenest hub in real time, achieving a blended average of ~47 gCO2/kWh — 89% below the industry average of ~450 gCO2/kWh. Zero-carbon electricity at Ouarzazate and Dakhla delivers cost advantages of 40-60% cheaper than AWS, GCP, and Azure equivalent regions, with energy costs as low as $0.018/kWh at Dakhla — 72% below the European average. On-site battery storage totaling 200 MWh provides backup for uninterrupted operations during grid transitions, while grid-scale power purchase agreements lock in pricing predictability for 15-year terms, insulating clients from volatile energy markets."
         },
         {
           "title": "Submarine Connectivity",
-          "desc": "Direct connection to 4 submarine cable systems — including the Africa Coast to Europe (ACE), MainOne, and Maroc Telecom cables — providing ultra-low latency to Europe (8ms), the Americas (35ms), and the Middle East (20ms). Dual diverse landing stations ensure path redundancy for all international traffic."
+          "desc": "Direct connection to four submarine cable systems — including the Africa Coast to Europe (ACE), MainOne, and Maroc Telecom cables — providing ultra-low latency to Europe (8 ms to London and Paris), the Americas (35 ms to Virginia), and the Middle East (20 ms to Dubai). Dual diverse landing stations at separate physical locations ensure full path redundancy for all international traffic, eliminating single points of failure at the cable layer. Our Dakhla campus sits directly adjacent to the cable landing station, minimizing terrestrial backhaul to under 2 km. Combined with 14 total cable systems crossing Moroccan waters and capacity exceeding 80 Tbps, this infrastructure positions Harch Intelligence as the lowest-latency bridge between African compute and European, American, and Middle Eastern markets — a connectivity advantage that cannot be replicated by inland European data centers."
         },
         {
           "title": "Sovereign Security",
-          "desc": "End-to-end security from physical access to data encryption. The facility operates under a sovereign security framework with armed perimeter security, biometric access controls, and 24/7 surveillance. Harch Technology's cybersecurity suite provides sovereign-grade protection including DDoS mitigation, intrusion detection, and encrypted data pathways for sensitive compute workloads."
+          "desc": "End-to-end security from physical perimeter to data encryption, designed for clients who require sovereign-grade data protection. Facilities operate under a sovereign security framework with armed perimeter security, biometric access controls at every layer, and 24/7 surveillance with AI-powered anomaly detection. Harch Technology's cybersecurity suite provides sovereign-grade protection including real-time DDoS mitigation capable of absorbing multi-terabit attacks, deep packet inspection with intrusion detection and prevention, and encrypted data pathways using hardware security modules (HSMs) for sensitive compute workloads. Data residency is guaranteed within Moroccan borders under the Kingdom's data sovereignty regulations, with no data traversing foreign jurisdictions during processing. All access is logged immutably, and compliance artifacts are generated automatically for SOC 2, ISO 27001, and GDPR audit requirements."
         },
         {
           "title": "AI Platform Services",
-          "desc": "Full-stack AI platform from data ingestion to model deployment. Managed services for training, fine-tuning, and inference with enterprise SLAs guaranteeing 99.99% availability. The platform supports PyTorch, TensorFlow, and JAX natively, with pre-built MLOps pipelines for automated model lifecycle management."
+          "desc": "Full-stack AI platform spanning the entire lifecycle from data ingestion and preprocessing through model training, fine-tuning, evaluation, and production deployment. Managed services for training, fine-tuning, and inference with enterprise SLAs guaranteeing 99.99% availability and sub-second model serving latency at the edge. The platform natively supports PyTorch, TensorFlow, and JAX with one-click cluster provisioning, and includes pre-built MLOps pipelines for automated model lifecycle management — from experiment tracking and hyperparameter optimization to canary deployments and automated rollback. Our model registry provides version control, lineage tracking, and governance controls for production models, while the inference engine supports dynamic batching, speculative decoding, and automatic model parallelism to maximize GPU utilization and minimize cost per token."
+        },
+        {
+          "title": "Sustainable Compute Economics",
+          "desc": "Our compute pricing fundamentally undercuts hyperscaler economics by leveraging Morocco's structural energy advantages. Renewable electricity at $0.018/kWh in Dakhla — 72% below the European average — combined with free cooling for ~8,500 hours per year (average temperature 22°C) and zero property tax incentives, translates to GPU training costs 40-60% below equivalent AWS P5, GCP A3, or Azure ND H100 instances. Carbon-aware scheduling amplifies these savings further by shifting non-urgent workloads to the greenest, cheapest hubs during peak renewable generation hours. Enterprise clients benefit from transparent, predictable pricing with no egress fees for data transferred within the Harch network, and committed-use discounts that reward long-term capacity reservations with up to 35% additional savings over on-demand rates."
         }
       ],
       "specTable": [

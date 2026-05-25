@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-import { ArrowUpRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets, Satellite, Lock, Eye, Factory, Mountain, Wheat, Waves } from 'lucide-react';
+import { ArrowUpRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets, Satellite, Lock, Eye, Factory, Mountain, Wheat, Waves, DollarSign } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import dynamic from 'next/dynamic';
@@ -142,7 +142,7 @@ const imageMap: Record<string, { heroImage: string; sectionImage1: string; secti
    ICON MAP — per subsidiary (Lucide icons cannot be serialized to JSON)
    ═══════════════════════════════════════════════════════════════ */
 const iconMap: Record<string, IconType[]> = {
-  intelligence: [Server, Cpu, Zap, Globe, Shield, BarChart3],
+  intelligence: [Server, Cpu, Zap, Globe, Shield, BarChart3, DollarSign],
   cement: [Factory, Cpu, Zap, Globe, Shield, BarChart3],
   energy: [Zap, Wind, Droplets, Shield, Globe, BarChart3],
   technology: [Cpu, Shield, Satellite, Server, Lock, Eye],
@@ -314,19 +314,37 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16">{t('whatWeBuild')}</h2>
           </FadeIn>
 
-          <div className="divide-y divide-neutral-200">
+          <div className="space-y-0">
             {data.capabilities.map((cap, i) => {
               const num = `/0.${i + 1}`;
+              const Icon = cap.icon;
               return (
                 <FadeIn key={cap.title} delay={0.05 * i}>
-                  <div className="py-10 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 md:gap-8 items-start">
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3">{cap.title}</h3>
-                      <p className="text-[14px] text-neutral-600 leading-[1.8] max-w-[720px]">{cap.desc}</p>
+                  <div className="py-10 first:pt-0 last:pb-0 border-b border-neutral-100 last:border-0 group">
+                    <div className="flex items-start gap-5 md:gap-8">
+                      {/* Icon + Number */}
+                      <div className="flex-shrink-0 pt-1">
+                        <div
+                          className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-neutral-200 group-hover:border-neutral-300 transition-colors"
+                          style={{ color: accent }}
+                        >
+                          <Icon size={20} strokeWidth={1.5} />
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-3 mb-3">
+                          <h3 className="text-lg md:text-xl font-bold tracking-tight">{cap.title}</h3>
+                          <span className="text-[10px] font-semibold tracking-[0.15em] text-neutral-300 font-[family-name:var(--font-space-mono)]">
+                            {num}
+                          </span>
+                        </div>
+                        <p className="text-[14px] text-neutral-500 leading-[1.8] max-w-[780px] group-hover:text-neutral-600 transition-colors">
+                          {cap.desc}
+                        </p>
+                      </div>
                     </div>
-                    <span className="text-[11px] font-semibold tracking-[0.15em] text-neutral-400 whitespace-nowrap mt-1">
-                      {num}
-                    </span>
                   </div>
                 </FadeIn>
               );

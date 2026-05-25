@@ -296,18 +296,23 @@ export function Sidebar() {
                 <Link
                   href="/contact"
                   onClick={closeSidebar}
-                  className="block w-full text-center border border-[rgba(139,157,175,0.2)] bg-[rgba(139,157,175,0.04)] text-[#8B9DAF] text-[9px] tracking-[0.1em] uppercase px-4 py-2 rounded-md font-semibold hover:border-[rgba(139,157,175,0.3)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)]"
+                  className="block w-full text-center border border-[rgba(139,157,175,0.2)] bg-[rgba(139,157,175,0.04)] text-[#8B9DAF] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:border-[rgba(139,157,175,0.3)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)]"
                 >
                   {t('ctas.briefing')}
                 </Link>
                 <Link
                   href="/careers"
                   onClick={closeSidebar}
-                  className="block w-full text-center border border-[rgba(255,255,255,0.1)] bg-transparent text-[rgba(255,255,255,0.5)] text-[9px] tracking-[0.1em] uppercase px-4 py-2 rounded-md font-semibold hover:border-[rgba(255,255,255,0.2)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)]"
+                  className="block w-full text-center border border-[rgba(255,255,255,0.1)] bg-transparent text-[rgba(255,255,255,0.5)] text-[10px] tracking-[0.1em] uppercase px-4 py-2.5 rounded-md font-semibold hover:border-[rgba(255,255,255,0.2)] hover:text-white transition-colors font-[family-name:var(--font-space-mono)]"
                 >
                   {t('joinTeam')}
                 </Link>
-                <LanguageSwitcher variant="sidebar" />
+
+                {/* Language Switcher — shows current locale prominently */}
+                <div className="pt-2">
+                  <LanguageSwitcher variant="sidebar" />
+                </div>
+
                 <div className="flex items-center justify-center gap-2 pt-1">
                   <span className="inline-block w-0.5 h-0.5 rounded-full bg-[#4A7B5F]" />
                   <p className="text-[9px] text-[rgba(255,255,255,0.2)] font-[family-name:var(--font-space-mono)]">

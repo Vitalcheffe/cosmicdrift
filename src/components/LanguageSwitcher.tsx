@@ -49,13 +49,14 @@ export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' 
     };
   }, [open]);
 
-  // Sidebar variant — compact toggle
+  // Sidebar variant — shows current locale with switch option
   if (variant === 'sidebar') {
     const nextLocale = locale === 'en' ? 'fr' : 'en';
+    const nextLabel = nextLocale === 'en' ? 'EN' : 'FR';
     return (
       <button
         onClick={() => switchLocale(nextLocale)}
-        className="flex items-center gap-2.5 w-full px-4 py-2.5 text-[11px] font-medium text-[rgba(255,255,255,0.35)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] rounded-md transition-all duration-200 group"
+        className="flex items-center gap-3 w-full px-4 py-2.5 text-[11px] font-medium text-[rgba(255,255,255,0.45)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] rounded-md transition-all duration-200 group"
         aria-label={t('switchLanguage')}
       >
         <svg
@@ -73,8 +74,16 @@ export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' 
           <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
           <path d="M2 12h20" />
         </svg>
-        <span className="font-[family-name:var(--font-space-mono)] tracking-[0.14em] uppercase">
-          {locale === 'en' ? 'EN → FR' : 'FR → EN'}
+        <span className="flex items-center gap-2">
+          {/* Current locale — prominent */}
+          <span className="font-[family-name:var(--font-space-mono)] tracking-[0.14em] uppercase text-white/70 font-semibold">
+            {locale.toUpperCase()}
+          </span>
+          <span className="text-white/20">→</span>
+          {/* Target locale */}
+          <span className="font-[family-name:var(--font-space-mono)] tracking-[0.14em] uppercase text-white/35 group-hover:text-white/60 transition-colors">
+            {nextLabel}
+          </span>
         </span>
       </button>
     );
@@ -87,26 +96,26 @@ export function LanguageSwitcher({ variant = 'default' }: { variant?: 'default' 
     return (
       <button
         onClick={() => switchLocale(nextLocale)}
-        className="flex items-center gap-1 px-2 py-1 text-[10px] sm:text-[11px] font-medium text-white/30 hover:text-white/70 hover:bg-white/[0.03] rounded-md transition-colors font-[family-name:var(--font-space-mono)] tracking-[0.08em] uppercase border border-white/[0.04] hover:border-white/[0.08]"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-medium text-white/60 hover:text-white hover:bg-white/[0.06] rounded-md transition-colors font-[family-name:var(--font-space-mono)] tracking-[0.1em] uppercase border border-white/[0.08] hover:border-white/[0.15]"
         aria-label={t('switchLanguage')}
         title={locale === 'en' ? 'Switch to French' : 'Passer en anglais'}
       >
         <svg
-          width="11"
-          height="11"
+          width="12"
+          height="12"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="shrink-0 opacity-40"
+          className="shrink-0 opacity-60"
         >
           <circle cx="12" cy="12" r="10" />
           <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
           <path d="M2 12h20" />
         </svg>
-        <span>{locale.toUpperCase()}</span>
+        <span className="font-semibold">{locale.toUpperCase()}</span>
       </button>
     );
   }

@@ -9353,8 +9353,8 @@
     "company": "Entreprise",
     "compliance": "Conformité",
     "ctas": {
-      "quote": "Devis",
-      "briefing": "Briefing",
+      "quote": "Demander un Devis",
+      "briefing": "Planifier un Briefing",
       "demo": "Demander une démo",
       "investor": "Relations investisseurs"
     },
@@ -9379,7 +9379,7 @@
     "intelligence": "Intelligence",
     "investorRelations": "Investisseurs",
     "investors": "Investisseurs",
-    "joinTeam": "Rejoindre",
+    "joinTeam": "Rejoindre l'Équipe",
     "labels": {
       "about": "À propos",
       "blog": "Blog",

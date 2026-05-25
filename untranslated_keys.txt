@@ -1,0 +1,482 @@
+Total untranslated keys (same as EN, >15 chars): 160
+
+customers.advisoryBoard.titleLabel
+  EN: Conseil Consultatif
+
+developers.changelog
+  EN: Journal des modifications
+
+developers.codeExamples
+  EN: Exemples de code
+
+docs.api.sections.authentication
+  EN: Authentification
+
+docs.api.sections.errors
+  EN: Gestion des erreurs
+
+engineeringBlog.allArticles
+  EN: Tous les articles
+
+engineeringBlog.backToBlog
+  EN: Retour au blog technique
+
+engineeringBlog.deepDives
+  EN: Analyses approfondies
+
+engineeringBlog.latestPosts
+  EN: Derniers articles
+
+engineeringBlog.featuredTechnicalDeepDive
+  EN: Featured Technical Deep Dive
+
+engineeringBlog.openSourceRepos.harchosScheduler.desc
+  EN: HarchOS Scheduler — Carbon-aware GPU scheduling engine
+
+engineeringBlog.posts.insideHarchos.title
+  EN: Inside HarchOS: Architecture Deep Dive
+
+engineeringBlog.readTechnicalDeepDive
+  EN: Read Technical Deep Dive
+
+esg.report.title
+  EN: Rapport ESG 2025
+
+events.flagship.title
+  EN: Harch Summit 2026
+
+faq.heroTitle
+  EN: Questions frequentes
+
+faq.hero.title
+  EN: Frequently Asked Questions
+
+faq.items.q5.question
+  EN: Which countries do you operate in?
+
+faq.items.q8.question
+  EN: How do I become a partner?
+
+glossary.heroTitle
+  EN: Glossaire technique
+
+harchos.demo.carbon.bestHubName
+  EN: Harch Ouarzazate
+
+harchos.workflow.video.sidebar.pipeline
+  EN: Pipeline Builder
+
+harchos.workflow.video.pipelineBuilder
+  EN: Pipeline Builder
+
+harchos.workflow.video.nodes.transformType
+  EN: RL + Transformer + GNN
+
+harchos.workflow.nodes.n1Sub
+  EN: IoT / API / Satellite
+
+harchos.competitive.googleCloud.name
+  EN: Google Cloud (Hamina)
+
+harchos.competitive.qscale.m8Competitor
+  EN: ~30 gCO2/kWh (hydro)
+
+harchos.competitive.oracleCloud.name
+  EN: Oracle Cloud Infrastructure
+
+home.stats.pipeline.label
+  EN: Pipeline d'investissement
+
+home.roadmap.title
+  EN: Feuille de route
+
+home.africaStats.title
+  EN: L'Afrique en chiffres
+
+home.investmentTable.title
+  EN: Pipeline d'investissement
+
+home.investmentTable.rows.intelligence.vertical
+  EN: Harch Intelligence
+
+home.testimonials.testimonial1.author
+  EN: Dr. Amina Benali
+
+home.testimonials.testimonial2.author
+  EN: Jean-Pierre Kouassi
+
+home.testimonials.testimonial3.author
+  EN: Fatima El Amrani
+
+home.ceoQuote.author
+  EN: Amine Harch El Korane
+
+intelligence.heroTitle
+  EN: Harch Intelligence
+
+intelligence.keyFeatures.gpuClusters.title
+  EN: Cutting-Edge GPU Clusters
+
+intelligence.keyFeatures.lowLatency.title
+  EN: African Low Latency
+
+intelligence.specs.carbonIntensity
+  EN: Carbon Intensity
+
+investors.heroTitle
+  EN: Relations Investisseurs
+
+investors.capitalAllocation.agriculture
+  EN: Agriculture — $145M
+
+investors.capitalAllocation.intelligence
+  EN: Intelligence — $320M
+
+investors.cta.title
+  EN: Become an Investor
+
+investors.documents.financialStatements
+  EN: Financial Statements
+
+investors.documents.title
+  EN: Investor Documents
+
+investors.governance.boardIndependence
+  EN: Board Independence
+
+investors.governance.compensationCommittee
+  EN: Compensation Committee
+
+investors.governance.governanceCommittee
+  EN: Governance Committee
+
+investors.keyFigures.employmentTarget.label
+  EN: Employment Target
+
+learn.heroTitle
+  EN: Apprendre et Certifier
+
+legal.modernSlavery.ceoName
+  EN: Amine Harch El Korane
+
+legal.modernSlavery.approvalName
+  EN: Amine Harch El Korane
+
+nav.startupProgram
+  EN: Programme startup
+
+newsroom.allArticles
+  EN: Tous les articles
+
+newsroom.pressReleases
+  EN: Communiques de presse
+
+newsroom.mediaCoverage
+  EN: Couverture mediatique
+
+newsroom.articleNotFound
+  EN: Article introuvable
+
+newsroom.newsletterDescription
+  EN: Recevez nos communiques et annonces directement.
+
+newsroom.writeForUs
+  EN: Soumettre un article
+
+newsroom.submitAPitch
+  EN: Soumettre une proposition
+
+newsroom.copyFeedUrl
+  EN: Copier l'URL du flux
+
+newsroom.rssFeedDescription
+  EN: Abonnez-vous au flux RSS.
+
+newsroom.dispatchNotFound
+  EN: Dispatch Not Found
+
+newsroom.readFullDispatch
+  EN: Read Full Dispatch
+
+partners.technology.title
+  EN: Partenaires technologiques
+
+partners.subtitle
+  EN: Partner Ecosystem
+
+platform.api.documentation
+  EN: API Documentation
+
+platform.capabilities.predictiveMaintenance.title
+  EN: Predictive Maintenance
+
+platform.capabilities.resourceOptimization.title
+  EN: Resource Optimization
+
+press.contact.phone
+  EN: +212 522 000 002
+
+pricing.calculator.cta
+  EN: Utiliser le calculateur
+
+privacy.dataCollectionText
+  EN: Data Collection Text
+
+privacy.dataSharingText
+  EN: Data Sharing Text
+
+privacy.internationalTransfers
+  EN: International Transfers
+
+privacy.internationalTransfersText
+  EN: International Transfers Text
+
+quote.heroTitle
+  EN: Demander un Devis
+
+quote.form.step1.fields.projectTypes.cement
+  EN: Infrastructure ciment
+
+quote.form.step1.fields.projectTypes.water
+  EN: Infrastructure hydrique
+
+quote.form.step4.submit
+  EN: Soumettre la demande de devis
+
+quote.form.step4.submitting
+  EN: Envoi en cours...
+
+quote.step1.verticals.intelligence.name
+  EN: Harch Intelligence
+
+quote.step3.phonePlaceholder
+  EN: +212 / +221 / +220 ...
+
+quoteReceived.cta.primary
+  EN: Explorer la plateforme
+
+quoteReceived.cta.secondary
+  EN: Retour a l'accueil
+
+sidebar.ctas.investor
+  EN: Investor Relations
+
+startupProgram.title
+  EN: Programme startup
+
+startupProgram.heroTitle
+  EN: Programme Startup
+
+startupProgram.alumni.description
+  EN: Startups qui ont beneficie du programme.
+
+startupProgram.apply.cta
+  EN: Soumettre une candidature
+
+subsidiaries.agriculture.heroBadge
+  EN: Agriculture Hero Badge
+
+subsidiaries.agriculture.heroSubtitle
+  EN: Agriculture Hero Subtitle
+
+subsidiaries.agriculture.iotSensorSubtitle
+  EN: Agriculture Iot Sensor Subtitle
+
+subsidiaries.agriculture.locations.casablanca.crops
+  EN: Casablanca Crops
+
+subsidiaries.agriculture.marketAnalysis.rows.marketplace.cagr
+  EN: Marketplace Cagr
+
+subsidiaries.agriculture.marketAnalysis.rows.marketplace.maturity
+  EN: Marketplace Maturity
+
+subsidiaries.agriculture.marketAnalysis.rows.marketplace.opportunity
+  EN: Marketplace Opportunity
+
+subsidiaries.agriculture.marketAnalysis.rows.marketplace.segment
+  EN: Marketplace Segment
+
+subsidiaries.agriculture.marketAnalysis.rows.marketplace.size
+  EN: Marketplace Size
+
+subsidiaries.agriculture.marketAnalysis.rows.verticalFarming.cagr
+  EN: Vertical Farming Cagr
+
+subsidiaries.agriculture.marketAnalysis.rows.verticalFarming.maturity
+  EN: Vertical Farming Maturity
+
+subsidiaries.agriculture.marketAnalysis.rows.verticalFarming.opportunity
+  EN: Vertical Farming Opportunity
+
+subsidiaries.agriculture.marketAnalysis.rows.verticalFarming.segment
+  EN: Vertical Farming Segment
+
+subsidiaries.agriculture.marketAnalysis.rows.verticalFarming.size
+  EN: Vertical Farming Size
+
+subsidiaries.agriculture.marketAnalysis.segment
+  EN: Market Analysis Segment
+
+subsidiaries.agriculture.marketAnalysis.title
+  EN: Agriculture Market Analysis
+
+subsidiaries.agriculture.marketAnalysisSubtitle
+  EN: Agriculture Market Analysis Subtitle
+
+subsidiaries.agriculture.metrics.foodImports
+  EN: Metrics Food Imports
+
+subsidiaries.agriculture.metrics.postHarvestLosses
+  EN: Metrics Post Harvest Losses
+
+subsidiaries.agriculture.metrics.smallholderFarmers
+  EN: Metrics Smallholder Farmers
+
+subsidiaries.agriculture.metrics.uncultivatedArableLand
+  EN: Metrics Uncultivated Arable Land
+
+subsidiaries.agriculture.overview
+  EN: Agriculture Overview
+
+subsidiaries.agriculture.partners.agritechKenya.country
+  EN: Agritech Kenya Country
+
+subsidiaries.agriculture.partners.agritechKenya.harchContribution
+  EN: Agritech Kenya Harch Contribution
+
+subsidiaries.agriculture.partners.greenPlan.status
+  EN: Green Plan Status
+
+subsidiaries.agriculture.partners.isra.harchContribution
+  EN: Isra Harch Contribution
+
+subsidiaries.agriculture.partners.isra.partnerContribution
+  EN: Isra Partner Contribution
+
+subsidiaries.agriculture.partners.ocp.harchContribution
+  EN: Ocp Harch Contribution
+
+subsidiaries.agriculture.partners.ocp.partnerContribution
+  EN: Ocp Partner Contribution
+
+subsidiaries.agriculture.partnershipsSubtitle
+  EN: Agriculture Partnerships Subtitle
+
+subsidiaries.agriculture.pricing.vertical.product
+  EN: Vertical Product
+
+subsidiaries.agriculture.pricingSubtitle
+  EN: Agriculture Pricing Subtitle
+
+subsidiaries.agriculture.products.vertical.tagline
+  EN: Vertical Tagline
+
+subsidiaries.finance.crossVerticalDesc
+  EN: Finance Cross Vertical Desc
+
+subsidiaries.detail.backToSubsidiaries
+  EN: Retour aux filiales
+
+subsidiaryDetail.description
+  EN: Description de la filiale
+
+subsidiaryDetail.investmentPipeline
+  EN: Pipeline d'investissement
+
+subsidiaryDetail.revenue
+  EN: Chiffre d'affaires
+
+subsidiaryDetail.riskFactors
+  EN: Facteurs de risque
+
+subsidiaryDetail.intelligence.name
+  EN: Harch Intelligence
+
+support.heroTitle
+  EN: Centre de Support
+
+support.sla.title
+  EN: Accord de niveau de service
+
+support.sla.incidents
+  EN: Gestion des incidents
+
+support.contact.phone
+  EN: +212 522 000 000
+
+terms.heroTitle
+  EN: Conditions d'Utilisation
+
+terms.sections.governing.title
+  EN: Droit applicable
+
+terms.sections.governing.description
+  EN: Juridiction et droit applicable.
+
+thesis.heroTitle
+  EN: Notre These d'Investissement
+
+thesis.marketOpportunity.sam.label
+  EN: Serviceable Addressable Market
+
+thesis.marketOpportunity.som.label
+  EN: Serviceable Obtainable Market
+
+thesis.marketOpportunity.tam.label
+  EN: Total Addressable Market
+
+thesis.competitiveAdvantage.moats.carbonAdvantage.title
+  EN: Carbon Advantage
+
+thesis.competitiveAdvantage.moats.geographicPosition.title
+  EN: Geographic Position
+
+thesis.theProblem.dependencies.materials.title
+  EN: Materials Leakage
+
+thesis.theSolution.pillars.finance.title
+  EN: Financial Architecture
+
+thesis.theSolution.pillars.materials.title
+  EN: Integrated Materials
+
+harchagri.competitorComparison.competitors.twiga.model
+  EN: Commission 8-12%
+
+harchagri.productCards.products.vertical.name
+  EN: HarchAgri Vertical
+
+status.maintenanceServices
+  EN: HarchOS Core API & THINK AI Engine
+
+status.services.harchosCoreApi.name
+  EN: HarchOS Core API
+
+status.services.dataVaultStorage.name
+  EN: DataVault Storage
+
+status.services.sovereignNetVpn.name
+  EN: SovereignNet VPN
+
+status.services.harchagriIot.description
+  EN: Capteurs IoT agricoles et plateforme de surveillance
+
+status.services.harchFinanceApi.name
+  EN: Harch Finance API
+
+status.services.actExecutionLayer.name
+  EN: ACT Execution Layer
+
+status.services.developerPortal.name
+  EN: Developer Portal
+
+status.services.cliSdkServices.name
+  EN: CLI & SDK Services
+
+status.services.managementConsole.name
+  EN: Management Console
+
+status.services.authenticationService.name
+  EN: Authentication Service
+

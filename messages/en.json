@@ -737,7 +737,10 @@
     "previousSlide": "Previous slide",
     "nextSlide": "Next slide",
     "toggleSidebar": "Toggle Sidebar",
-    "commandPalette": "Command Palette"
+    "commandPalette": "Command Palette",
+    "downloadPdf": "Download PDF",
+    "generatingPdf": "Generating PDF...",
+    "pages": "pages"
   },
   "community": {
     "champions": {
@@ -9453,7 +9456,8 @@
     "trustCenter": "Trust Center",
     "vulnerabilityDisclosure": "Vulnerability Disclosure",
     "water": "Water",
-    "ariaLabel": "Navigation"
+    "ariaLabel": "Navigation",
+    "downloadCenter": "Download Center"
   },
   "startupProgram": {
     "benefits": [
@@ -17972,6 +17976,31 @@
       "messageRequired": "Message is required.",
       "consultationTypeRequired": "Consultation type is required.",
       "invalidBody": "Invalid request body."
+    }
+  },
+  "resources": {
+    "title": "Documentation & Resources",
+    "subtitle": "Download our datasheets, whitepapers, and reports. All documents are available in English and French.",
+    "featured": "Featured",
+    "downloadPdf": "Download PDF",
+    "generating": "Generating...",
+    "categories": {
+      "infrastructure": "Infrastructure",
+      "compute": "GPU Compute",
+      "sustainability": "Sustainability",
+      "security": "Security & Compliance",
+      "network": "Network & Connectivity"
+    },
+    "types": {
+      "datasheet": "Data Sheet",
+      "whitepaper": "Whitepaper",
+      "report": "Report",
+      "overview": "Overview"
+    },
+    "cta": {
+      "title": "Need personalized information?",
+      "description": "Our team can provide detailed quotes, virtual tours, or project-specific data.",
+      "button": "Contact us"
     }
   }
 }

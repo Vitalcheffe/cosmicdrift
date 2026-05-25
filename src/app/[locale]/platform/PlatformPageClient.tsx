@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
+import { PDFQuickDownload } from '@/components/PDFQuickDownload';
 import {
   AreaChart,
   Area,
@@ -822,6 +823,7 @@ function CementAIPanel() {
 export default function PlatformPageClient() {
   const t = useTranslations('platform');
   const tc = useTranslations('common');
+  const locale = useLocale();
   const liveTime = useLiveTimestamp();
 
   return (
@@ -1038,6 +1040,7 @@ export default function PlatformPageClient() {
               >
                 {t('cta.secondary')}
               </Link>
+              <PDFQuickDownload pdfType="infrastructure-whitepaper" locale={locale as 'en' | 'fr'} label={locale === 'fr' ? 'Livre Blanc PDF' : 'Whitepaper PDF'} variant="outline" />
             </div>
           </FadeIn>
 

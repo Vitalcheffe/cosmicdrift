@@ -17,7 +17,7 @@ import {
   Award,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 import { FadeIn } from '@/components/ui/motion';
 
@@ -37,6 +37,7 @@ interface Certification {
 
 export default function CompliancePageClient() {
   const t = useTranslations('trust');
+  const locale = useLocale();
 
   const certifications: Certification[] = [
     {
@@ -420,7 +421,27 @@ export default function CompliancePageClient() {
                 ))}
               </div>
               <div className="flex flex-wrap gap-3">
-                <button className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
+                <button
+                  onClick={async () => {
+                    try {
+                      const url = `/api/pdf/security-overview?locale=${locale}`;
+                      const response = await fetch(url);
+                      if (!response.ok) throw new Error('Failed to generate PDF');
+                      const blob = await response.blob();
+                      const downloadUrl = window.URL.createObjectURL(blob);
+                      const link = document.createElement('a');
+                      link.href = downloadUrl;
+                      link.download = `harchcorp-security-overview-${locale}.pdf`;
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                      window.URL.revokeObjectURL(downloadUrl);
+                    } catch (error) {
+                      console.error('PDF download error:', error);
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all"
+                >
                   <Download size={14} /> {t('compliance.dpa.downloadPdf')}
                 </button>
                 <button className="inline-flex items-center gap-2 border border-white/12 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">

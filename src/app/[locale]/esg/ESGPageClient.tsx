@@ -6,10 +6,12 @@ import { ArrowRight, Leaf, Users, Shield, Droplets, Zap, Sun, Heart, Recycle, Tr
 import { FadeIn, AnimatedCounter } from '@/components/ui/motion';
 import { ESGRadarChart } from '@/components/charts/ESGRadarChart';
 import { CarbonIntensityChart } from '@/components/charts/CarbonIntensityChart';
-import { useTranslations } from 'next-intl';
+import { PDFQuickDownload } from '@/components/PDFQuickDownload';
+import { useTranslations, useLocale } from 'next-intl';
 
 export default function ESGPageClient() {
   const t = useTranslations('esg');
+  const locale = useLocale();
 
   const envCommitments = [
     { icon: Sun, title: t('environmental.items.0.title'), desc: t('environmental.items.0.desc') },
@@ -232,6 +234,7 @@ export default function ESGPageClient() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">{t('cta.getInvolved')} <ArrowRight size={14} /></Link>
               <Link href="/investors" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">{t('cta.viewInvestment')}</Link>
+              <PDFQuickDownload pdfType="sustainability-report" locale={locale as 'en' | 'fr'} label={locale === 'fr' ? 'Rapport Durabilité PDF' : 'Sustainability Report PDF'} variant="outline" />
             </div>
           </FadeIn>
         </div>

@@ -76,6 +76,7 @@ export function Sidebar() {
   const resourceItems: NavItem[] = [
     { name: t('blog'), href: '/blog' },
     { name: t('engineeringBlog'), href: '/engineering-blog' },
+    { name: t('downloadCenter'), href: '/resources' },
     { name: t('community'), href: '/community' },
     { name: t('events'), href: '/events' },
     { name: t('learnCertify'), href: '/learn' },

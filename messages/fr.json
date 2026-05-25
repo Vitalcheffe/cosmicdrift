@@ -737,7 +737,10 @@
     "previousSlide": "Diapositive précédente",
     "nextSlide": "Diapositive suivante",
     "toggleSidebar": "Basculer la barre latérale",
-    "commandPalette": "Palette de commandes"
+    "commandPalette": "Palette de commandes",
+    "downloadPdf": "Télécharger PDF",
+    "generatingPdf": "Génération du PDF...",
+    "pages": "pages"
   },
   "community": {
     "champions": {
@@ -9453,7 +9456,8 @@
     "trustCenter": "Confiance",
     "vulnerabilityDisclosure": "Vulnerabilites",
     "water": "Eau",
-    "ariaLabel": "Navigation"
+    "ariaLabel": "Navigation",
+    "downloadCenter": "Centre de Téléchargement"
   },
   "startupProgram": {
     "title": "Programme startup",
@@ -17973,6 +17977,31 @@
       "messageRequired": "Le message est requis.",
       "consultationTypeRequired": "Le type de consultation est requis.",
       "invalidBody": "Corps de requête invalide."
+    }
+  },
+  "resources": {
+    "title": "Documentation & Ressources",
+    "subtitle": "Téléchargez nos fiches techniques, livres blancs et rapports. Tous les documents sont disponibles en anglais et en français.",
+    "featured": "En vedette",
+    "downloadPdf": "Télécharger PDF",
+    "generating": "Génération...",
+    "categories": {
+      "infrastructure": "Infrastructure",
+      "compute": "GPU Compute",
+      "sustainability": "Durabilité",
+      "security": "Sécurité & Conformité",
+      "network": "Réseau & Connectivité"
+    },
+    "types": {
+      "datasheet": "Fiche Technique",
+      "whitepaper": "Livre Blanc",
+      "report": "Rapport",
+      "overview": "Aperçu"
+    },
+    "cta": {
+      "title": "Besoin d'informations personnalisées ?",
+      "description": "Notre équipe peut vous fournir des devis détaillés, des visites virtuelles ou des données spécifiques à votre projet.",
+      "button": "Contactez-nous"
     }
   }
 }

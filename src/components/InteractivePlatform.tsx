@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
 import {
   ArrowRight,
@@ -262,15 +262,30 @@ function WhatsAppCTA() {
 // ═══════════════════════════════════════════════════════════════
 function PDFQuoteCTA() {
   const t = useTranslations('interactivePlatform');
+  const locale = useLocale();
   const [generating, setGenerating] = useState(false);
 
-  const handleClick = useCallback(() => {
+  const handleClick = useCallback(async () => {
     setGenerating(true);
-    // In production, this would call an API endpoint to generate the PDF
-    setTimeout(() => {
+    try {
+      const url = `/api/pdf/data-center-spec?locale=${locale}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Failed to generate PDF');
+      const blob = await response.blob();
+      const downloadUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = `harchcorp-data-center-spec-${locale}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(downloadUrl);
+    } catch (error) {
+      console.error('PDF download error:', error);
+    } finally {
       setGenerating(false);
-    }, 1500);
-  }, []);
+    }
+  }, [locale]);
 
   return (
     <button

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { FadeIn } from '@/components/ui/motion';
 import {
   ArrowLeft, ArrowRight, Cpu, Database, Network, Globe,
@@ -14,6 +14,7 @@ import { motion } from 'framer-motion';
 /* ─── MAIN COMPONENT ─── */
 export default function CalculatorPageClient() {
   const t = useTranslations('pricing');
+  const locale = useLocale();
   const tCommon = useTranslations('common');
 
   const [gpuType, setGpuType] = useState('H100');
@@ -473,7 +474,27 @@ export default function CalculatorPageClient() {
                     <Link href="/contact" className="w-full inline-flex items-center justify-center gap-2.5 border border-white/12 text-white px-6 py-4 rounded-lg text-[13px] font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
                       {t('calculator.contactSales')}
                     </Link>
-                    <button className="w-full inline-flex items-center justify-center gap-2 text-[12px] text-[#666666] hover:text-[#999999] transition-colors py-2">
+                    <button
+                      onClick={async () => {
+                        try {
+                          const url = `/api/pdf/gpu-compute-datasheet?locale=${locale}`;
+                          const response = await fetch(url);
+                          if (!response.ok) throw new Error('Failed to generate PDF');
+                          const blob = await response.blob();
+                          const downloadUrl = window.URL.createObjectURL(blob);
+                          const link = document.createElement('a');
+                          link.href = downloadUrl;
+                          link.download = `harchcorp-gpu-compute-datasheet-${locale}.pdf`;
+                          document.body.appendChild(link);
+                          link.click();
+                          document.body.removeChild(link);
+                          window.URL.revokeObjectURL(downloadUrl);
+                        } catch (error) {
+                          console.error('PDF download error:', error);
+                        }
+                      }}
+                      className="w-full inline-flex items-center justify-center gap-2 text-[12px] text-[#666666] hover:text-[#999999] transition-colors py-2"
+                    >
                       <Download size={12} /> {t('calculator.downloadEstimatePdf')}
                     </button>
                   </div>

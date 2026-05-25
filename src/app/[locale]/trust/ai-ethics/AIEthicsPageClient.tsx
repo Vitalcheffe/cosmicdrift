@@ -381,15 +381,15 @@ export default function AIEthicsPageClient() {
                 </div>
                 <div className="flex items-center gap-4 flex-shrink-0">
                   <div className="text-center">
-                    <p className="text-[20px] font-bold text-white stat-mono">23</p>
+                    <p className="text-[20px] font-bold text-white stat-mono">{t('aiEthics.reviewBoard.authority.reviewsValue')}</p>
                     <p className="text-[10px] text-[#666666] tracking-wide">{t('aiEthics.reviewBoard.authority.reviews')}</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-[20px] font-bold text-white stat-mono">2</p>
+                    <p className="text-[20px] font-bold text-white stat-mono">{t('aiEthics.reviewBoard.authority.haltedValue')}</p>
                     <p className="text-[10px] text-[#666666] tracking-wide">{t('aiEthics.reviewBoard.authority.halted')}</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-[20px] font-bold text-white stat-mono">5</p>
+                    <p className="text-[20px] font-bold text-white stat-mono">{t('aiEthics.reviewBoard.authority.modifiedValue')}</p>
                     <p className="text-[10px] text-[#666666] tracking-wide">{t('aiEthics.reviewBoard.authority.modified')}</p>
                   </div>
                 </div>
@@ -487,8 +487,8 @@ export default function AIEthicsPageClient() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="mailto:amine@harchcorp.com" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
-                <Mail size={14} /> {t('aiEthics.cta.contactEthics')}
+              <a href={`mailto:${t('contactEmail')}`} className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold border border-white/15 hover:bg-white/90 transition-all">
+                <Mail size={14} /> {t('contactEmail')}
               </a>
               <Link href="/trust" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
                 {t('aiEthics.cta.backToTrust')} <ArrowRight size={14} />

@@ -30,6 +30,21 @@ export default function BlogPageClient() {
 
   const categories: Category[] = ['All', 'Engineering', 'AI & ML', 'Infrastructure', 'Energy', 'Agriculture', 'Industry', 'Mining', 'Technology', 'Finance', 'Company'];
 
+  const catKeyMap: Record<string, string> = {
+    'All': 'all',
+    'Engineering': 'engineering',
+    'AI & ML': 'aiMl',
+    'Infrastructure': 'infrastructure',
+    'Energy': 'energy',
+    'Agriculture': 'agriculture',
+    'Industry': 'industry',
+    'Mining': 'mining',
+    'Technology': 'technology',
+    'Finance': 'finance',
+    'Company': 'company',
+    'Water': 'water',
+  };
+
   const categoryIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
     Engineering: Code2,
     'AI & ML': Brain,
@@ -102,7 +117,7 @@ export default function BlogPageClient() {
                     : 'bg-[rgba(255,255,255,0.04)] text-[#999999] hover:bg-[rgba(255,255,255,0.08)] hover:text-white border border-[rgba(255,255,255,0.06)]'
                 }`}
               >
-                {cat}
+                {t(`categories.${catKeyMap[cat]}`)}
               </button>
             ))}
           </div>
@@ -139,7 +154,7 @@ export default function BlogPageClient() {
                       <div className="flex items-center gap-3 mb-6">
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
                           {(() => { const Icon = categoryIcons[featuredPost.category]; return Icon ? <Icon size={10} /> : null; })()}
-                          {featuredPost.category}
+                          {t(`categories.${catKeyMap[featuredPost.category]}`)}
                         </span>
                         <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
                           <Calendar size={10} />{featuredPost.date}
@@ -173,7 +188,7 @@ export default function BlogPageClient() {
           <FadeIn>
             <p className="section-label mb-4">{t('allArticles')}</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">
-              {activeCategory === 'All' ? t('latestPosts') : `${activeCategory}`}
+              {activeCategory === 'All' ? t('latestPosts') : t(`categories.${catKeyMap[activeCategory]}`)}
             </h2>
           </FadeIn>
 
@@ -199,7 +214,7 @@ export default function BlogPageClient() {
                       <div className="flex items-center gap-3 mb-4">
                         <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
                           {Icon ? <Icon size={10} /> : null}
-                          {post.category}
+                          {t(`categories.${catKeyMap[post.category]}`)}
                         </span>
                         <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{post.readTime}</span>
                       </div>

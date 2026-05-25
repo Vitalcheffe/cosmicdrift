@@ -54,11 +54,11 @@ export default function HarchOSPageClient() {
   ];
 
   const CARBON_HUBS = [
-    { name: 'Harch Ouarzazate', carbon: 18, renewable: 97.2, gpus: 800, type: t('hubTypes.solar'), status: 'optimal', latency: '<5ms to EU' },
-    { name: 'Harch Dakhla', carbon: 32, renewable: 84.1, gpus: 400, type: t('hubTypes.wind'), status: 'optimal', latency: '<8ms to EU' },
-    { name: 'Harch Benguerir', carbon: 55, renewable: 62.3, gpus: 350, type: t('hubTypes.solarWind'), status: 'degraded', latency: '<12ms to EU' },
-    { name: 'Harch Tanger', carbon: 41, renewable: 78.9, gpus: 200, type: t('hubTypes.hybrid'), status: 'optimal', latency: '<3ms to EU' },
-    { name: 'Harch Casablanca', carbon: 210, renewable: 12.4, gpus: 48, type: t('hubTypes.grid'), status: 'standby', latency: '<2ms local' },
+    { key: 'ouarzazate', name: t('hubs.ouarzazate.name'), carbon: 18, renewable: 97.2, gpus: 800, type: t('hubTypes.solar'), status: 'optimal', latency: t('hubs.ouarzazate.latency') },
+    { key: 'dakhla', name: t('hubs.dakhla.name'), carbon: 32, renewable: 84.1, gpus: 400, type: t('hubTypes.wind'), status: 'optimal', latency: t('hubs.dakhla.latency') },
+    { key: 'benguerir', name: t('hubs.benguerir.name'), carbon: 55, renewable: 62.3, gpus: 350, type: t('hubTypes.solarWind'), status: 'degraded', latency: t('hubs.benguerir.latency') },
+    { key: 'tanger', name: t('hubs.tanger.name'), carbon: 41, renewable: 78.9, gpus: 200, type: t('hubTypes.hybrid'), status: 'optimal', latency: t('hubs.tanger.latency') },
+    { key: 'casablanca', name: t('hubs.casablanca.name'), carbon: 210, renewable: 12.4, gpus: 48, type: t('hubTypes.grid'), status: 'standby', latency: t('hubs.casablanca.latency') },
   ];
 
   const AUTOMATION_WORKFLOWS = [
@@ -83,10 +83,10 @@ export default function HarchOSPageClient() {
       icon: Eye, color: '#8B9DAF',
       description: t('architecture.sense.description'),
       specs: [
-        { label: t('features.dashboard.title'), value: '5K+ pts/sec' },
-        { label: t('features.carbonAware.title'), value: 'IoT, Satellite, API' },
-        { label: t('features.security.title'), value: '4h ahead' },
-        { label: t('features.compliance.title'), value: '1-second granularity' },
+        { label: t('features.dashboard.title'), value: t('architectureSpecs.sense.s0') },
+        { label: t('features.carbonAware.title'), value: t('architectureSpecs.sense.s1') },
+        { label: t('features.security.title'), value: t('architectureSpecs.sense.s2') },
+        { label: t('features.compliance.title'), value: t('architectureSpecs.sense.s3') },
       ],
     },
     {
@@ -94,10 +94,10 @@ export default function HarchOSPageClient() {
       icon: Brain, color: '#8B5CF6',
       description: t('architecture.think.description'),
       specs: [
-        { label: t('features.dashboard.title'), value: '4 hours' },
-        { label: t('features.carbonAware.title'), value: 'RL, Transformer, GNN' },
-        { label: t('features.security.title'), value: 'Multi-objective' },
-        { label: t('features.compliance.title'), value: '<50ms' },
+        { label: t('features.dashboard.title'), value: t('architectureSpecs.think.s0') },
+        { label: t('features.carbonAware.title'), value: t('architectureSpecs.think.s1') },
+        { label: t('features.security.title'), value: t('architectureSpecs.think.s2') },
+        { label: t('features.compliance.title'), value: t('architectureSpecs.think.s3') },
       ],
     },
     {
@@ -105,10 +105,10 @@ export default function HarchOSPageClient() {
       icon: Zap, color: '#10B981',
       description: t('architecture.act.description'),
       specs: [
-        { label: t('features.dashboard.title'), value: 'Live, <200ms' },
-        { label: t('features.carbonAware.title'), value: 'Zero-downtime' },
-        { label: t('features.security.title'), value: 'Real-time context' },
-        { label: t('features.compliance.title'), value: '99.999%' },
+        { label: t('features.dashboard.title'), value: t('architectureSpecs.act.s0') },
+        { label: t('features.carbonAware.title'), value: t('architectureSpecs.act.s1') },
+        { label: t('features.security.title'), value: t('architectureSpecs.act.s2') },
+        { label: t('features.compliance.title'), value: t('architectureSpecs.act.s3') },
       ],
     },
   ];
@@ -122,25 +122,25 @@ export default function HarchOSPageClient() {
 
   const specs = [
     { category: t('specs.title'), items: [
-      { spec: t('specs.totalGpus'), value: '1,798' },
-      { spec: t('specs.gpuTypes'), value: 'H100, A100, L40S' },
-      { spec: t('specs.interconnect'), value: 'NVLink + InfiniBand' },
-      { spec: t('specs.maxPerHub'), value: '800 GPUs' },
-      { spec: t('specs.scalingEfficiency'), value: '>92% linear' },
+      { spec: t('specs.totalGpus'), value: t('specValues.totalGpus') },
+      { spec: t('specs.gpuTypes'), value: t('specValues.gpuTypes') },
+      { spec: t('specs.interconnect'), value: t('specValues.interconnect') },
+      { spec: t('specs.maxPerHub'), value: t('specValues.maxPerHub') },
+      { spec: t('specs.scalingEfficiency'), value: t('specValues.scalingEfficiency') },
     ]},
     { category: t('specs.compliance'), items: [
-      { spec: t('specs.renewableEnergy'), value: '81.5%' },
-      { spec: t('specs.avgCarbonIntensity'), value: '~47 gCO2/kWh' },
-      { spec: t('specs.bestHubCarbon'), value: '18 gCO2/kWh' },
-      { spec: t('specs.pueRange'), value: '1.04 — 1.12' },
-      { spec: t('specs.bestPue'), value: '1.04' },
+      { spec: t('specs.renewableEnergy'), value: t('specValues.renewableEnergy') },
+      { spec: t('specs.avgCarbonIntensity'), value: t('specValues.avgCarbonIntensity') },
+      { spec: t('specs.bestHubCarbon'), value: t('specValues.bestHubCarbon') },
+      { spec: t('specs.pueRange'), value: t('specValues.pueRange') },
+      { spec: t('specs.bestPue'), value: t('specValues.bestPue') },
     ]},
     { category: t('specs.network'), items: [
-      { spec: t('specs.backbone'), value: '400Gbps' },
-      { spec: t('specs.dedicatedLinks'), value: '100Gbps each' },
-      { spec: t('specs.submarineSystems'), value: '4 systems' },
-      { spec: t('specs.latencyToEurope'), value: '<5-12ms' },
-      { spec: t('specs.latencyToAmericas'), value: '<35ms' },
+      { spec: t('specs.backbone'), value: t('specValues.backbone') },
+      { spec: t('specs.dedicatedLinks'), value: t('specValues.dedicatedLinks') },
+      { spec: t('specs.submarineSystems'), value: t('specValues.submarineSystems') },
+      { spec: t('specs.latencyToEurope'), value: t('specValues.latencyToEurope') },
+      { spec: t('specs.latencyToAmericas'), value: t('specValues.latencyToAmericas') },
     ]},
   ];
 
@@ -261,7 +261,7 @@ export default function HarchOSPageClient() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-12">
           <div className="flex items-center gap-2">
             <Cpu size={16} className="text-[#8B9DAF]" />
-            <span className="text-[13px] font-bold text-white tracking-[-0.01em]">HarchOS</span>
+            <span className="text-[13px] font-bold text-white tracking-[-0.01em]">{t('brandName')}</span>
           </div>
           <div className="flex items-center gap-4">
             <button className="hidden md:inline-flex items-center gap-2 px-4 py-1.5 rounded border border-white/[0.2] text-white text-[11px] font-semibold hover:bg-white/[0.08] transition-colors">
@@ -475,7 +475,7 @@ export default function HarchOSPageClient() {
                             {CARBON_HUBS.map((hub) => (
                               <div key={hub.name} className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 relative">
                                 {/* Annotation C on first hub */}
-                                {hub.name === 'Harch Ouarzazate' && (
+                                {hub.key === 'ouarzazate' && (
                                   <span className="absolute -top-2 -left-2 w-5 h-5 rounded-full bg-[#6366F1] flex items-center justify-center text-[10px] font-bold text-white z-10">C</span>
                                 )}
                                 <div className="flex items-center justify-between mb-2">
@@ -745,7 +745,7 @@ export default function HarchOSPageClient() {
                         <div className="flex h-full min-h-[340px]">
                           {/* Sidebar */}
                           <div className="w-[180px] border-r border-white/[0.06] p-3 shrink-0 hidden md:block">
-                            <p className="text-[10px] font-bold tracking-[0.15em] text-[#555555] uppercase mb-3 font-[family-name:var(--font-space-mono)]">HarchOS</p>
+                            <p className="text-[10px] font-bold tracking-[0.15em] text-[#555555] uppercase mb-3 font-[family-name:var(--font-space-mono)]">{t('brandName')}</p>
                             {[
                               { label: t('workflow.video.sidebar.overview'), active: false },
                               { label: t('workflow.video.sidebar.pipeline'), active: true },
@@ -939,7 +939,7 @@ export default function HarchOSPageClient() {
                         <div className="flex h-full min-h-[340px]">
                           {/* Sidebar */}
                           <div className="w-[180px] border-r border-white/[0.06] p-3 shrink-0 hidden md:block">
-                            <p className="text-[10px] font-bold tracking-[0.15em] text-[#555555] uppercase mb-3 font-[family-name:var(--font-space-mono)]">HarchOS</p>
+                            <p className="text-[10px] font-bold tracking-[0.15em] text-[#555555] uppercase mb-3 font-[family-name:var(--font-space-mono)]">{t('brandName')}</p>
                             {[
                               { label: t('evaluate.video.sidebar.overview'), active: false },
                               { label: t('evaluate.video.sidebar.monitoring'), active: true },
@@ -963,9 +963,9 @@ export default function HarchOSPageClient() {
                             {/* Metrics grid */}
                             <div className="grid grid-cols-3 gap-2 mb-3">
                               {[
-                                { label: t('evaluate.video.metrics.uptime'), value: '99.999%', color: 'text-emerald-400' },
-                                { label: t('evaluate.video.metrics.latency'), value: '<5ms', color: 'text-white' },
-                                { label: t('evaluate.video.metrics.sovereignScore'), value: '98/100', color: 'text-[#8B5CF6]' },
+                                { label: t('evaluate.video.metrics.uptime'), value: t('evaluate.video.metricValues.uptime'), color: 'text-emerald-400' },
+                                { label: t('evaluate.video.metrics.latency'), value: t('evaluate.video.metricValues.latency'), color: 'text-white' },
+                                { label: t('evaluate.video.metrics.sovereignScore'), value: t('evaluate.video.metricValues.sovereignScore'), color: 'text-[#8B5CF6]' },
                               ].map((metric, i) => (
                                 <div key={i} className="rounded-lg bg-white/[0.03] border border-white/[0.04] p-2.5">
                                   <p className="text-[9px] text-[#555555] mb-1">{metric.label}</p>
@@ -977,9 +977,9 @@ export default function HarchOSPageClient() {
                             <p className="text-[9px] text-[#555555] uppercase tracking-wider font-bold mb-2">{t('evaluate.video.recentAlerts')}</p>
                             <div className="space-y-1.5">
                               {[
-                                { msg: t('evaluate.video.alerts.a1'), time: '2m ago', severity: 'ok' },
-                                { msg: t('evaluate.video.alerts.a2'), time: '8m ago', severity: 'ok' },
-                                { msg: t('evaluate.video.alerts.a3'), time: '15m ago', severity: 'warn' },
+                                { msg: t('evaluate.video.alerts.a1'), time: t('evaluate.video.alerts.a1Time'), severity: 'ok' },
+                                { msg: t('evaluate.video.alerts.a2'), time: t('evaluate.video.alerts.a2Time'), severity: 'ok' },
+                                { msg: t('evaluate.video.alerts.a3'), time: t('evaluate.video.alerts.a3Time'), severity: 'warn' },
                               ].map((alert, i) => (
                                 <div key={i} className="flex items-center gap-2 px-2.5 py-2 rounded bg-white/[0.02] border border-white/[0.03]">
                                   <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${
@@ -1219,7 +1219,7 @@ export default function HarchOSPageClient() {
           {/* Compliance Badges */}
           <FadeIn>
             <div className="mt-12 flex flex-wrap gap-3">
-              {['GDPR', 'ISO 27001', 'SOC 2 Type II', 'Law 09-08', 'FIPS 140-2 L3', 'TLS 1.3'].map((cert) => (
+              {[t('complianceBadges.gdpr'), t('complianceBadges.iso27001'), t('complianceBadges.soc2TypeII'), t('complianceBadges.law0908'), t('complianceBadges.fips1402L3'), t('complianceBadges.tls13')].map((cert) => (
                 <span key={cert} className="px-4 py-2 rounded-lg bg-[#141414] border border-white/[0.06] text-[11px] font-semibold text-[#8B9DAF] font-[family-name:var(--font-space-mono)]">
                   {cert}
                 </span>
@@ -1368,7 +1368,7 @@ export default function HarchOSPageClient() {
             {/* Left sidebar: Logo, copyright, regions, social */}
             <FadeIn>
               <div>
-                <p className="text-xl font-bold text-white mb-6 tracking-[-0.01em]">Harch Corp</p>
+                <p className="text-xl font-bold text-white mb-6 tracking-[-0.01em]">{t('footerBrandName')}</p>
                 <p className="text-[12px] text-[#666666] leading-[1.7] mb-4">
                   {t('pageFooter.copyright')}
                 </p>
@@ -1462,7 +1462,7 @@ export default function HarchOSPageClient() {
           <FadeIn delay={0.2}>
             <div className="mt-16 pt-8 border-t border-[#1A1A1A] flex justify-center">
               <Link href="/subsidiaries/intelligence" className="inline-flex items-center gap-2 text-[13px] text-[#666666] hover:text-[#999999] transition-colors">
-                <ArrowLeft size={14} /> {tCommon('back')} Intelligence
+                <ArrowLeft size={14} /> {tCommon('back')} {t('backToIntelligence')}
               </Link>
             </div>
           </FadeIn>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/motion';
@@ -60,7 +60,7 @@ function StatusLabel({ status, t }: { status: ServiceStatus; t: (key: string) =>
   return <span className={`text-[13px] font-medium ${textColors[status]}`}>{labels[status]}</span>;
 }
 
-function UptimeBar({ uptime }: { uptime: number }) {
+function UptimeBar({ uptime, t }: { uptime: number; t: (key: string, params?: Record<string, string | number>) => string }) {
   // Generate 90 days of status blocks
   // We simulate based on the overall uptime percentage
   const days = 90;
@@ -96,7 +96,7 @@ function UptimeBar({ uptime }: { uptime: number }) {
               : 'bg-[#FF4444]/60'
           }`}
           style={{ height: '100%' }}
-          title={`Day ${block.day + 1}: ${block.status}`}
+          title={t('dayTooltip', { day: block.day + 1, status: block.status === 'operational' ? t('operational') : block.status === 'degraded' ? t('degraded') : t('outage') })}
         />
       ))}
     </div>
@@ -105,11 +105,12 @@ function UptimeBar({ uptime }: { uptime: number }) {
 
 export default function StatusPageClient() {
   const t = useTranslations('status');
+  const locale = useLocale();
   const [lastChecked, setLastChecked] = useState('');
 
   useEffect(() => {
     const update = () => {
-      setLastChecked(new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }) + ' UTC');
+      setLastChecked(new Date().toLocaleString(locale, { dateStyle: 'medium', timeStyle: 'short' }) + ' ' + t('utc'));
     };
     update();
     const interval = setInterval(update, 60000);
@@ -204,7 +205,7 @@ export default function StatusPageClient() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <UptimeBar uptime={service.uptime} />
+                      <UptimeBar uptime={service.uptime} t={t} />
                     </div>
                     <div className="flex items-center gap-4 flex-shrink-0">
                       <StatusLabel status={service.status} t={t} />

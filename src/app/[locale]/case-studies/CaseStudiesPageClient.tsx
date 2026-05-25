@@ -128,32 +128,32 @@ export default function CaseStudiesPageClient() {
                                 }}
                               >
                                 <Icon size={10} />
-                                {cs.type}
+                                {t(`types.${cs.type.toLowerCase()}`)}
                               </span>
                               <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
                                 <MapPin size={10} />
-                                {cs.location}
+                                {t(`items.${cs.slug}.location`)}
                               </span>
                               <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]">
                                 <Clock size={10} />
-                                {cs.duration}
+                                {t(`items.${cs.slug}.duration`)}
                               </span>
                             </div>
 
                             {/* Title & Subtitle */}
                             <h3 className="text-xl md:text-2xl lg:text-[28px] font-bold text-white tracking-tight leading-[1.15] mb-3 group-hover:text-[#CCCCCC] transition-colors">
-                              {cs.title}
+                              {t(`items.${cs.slug}.title`)}
                             </h3>
                             <p className="text-[14px] text-[#999999] leading-[1.7] mb-6 max-w-2xl">
-                              {cs.subtitle}
+                              {t(`items.${cs.slug}.subtitle`)}
                             </p>
 
                             {/* Key Metrics */}
                             <div className="flex flex-wrap gap-4 mb-6">
-                              {cs.results.slice(0, 3).map((r) => (
+                              {cs.results.slice(0, 3).map((r, ri) => (
                                 <div key={r.label} className="text-center">
                                   <p className="stat-mono text-lg md:text-xl font-bold text-white">{r.value}</p>
-                                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.08em] mt-0.5">{r.label}</p>
+                                  <p className="text-[10px] text-[#666666] uppercase tracking-[0.08em] mt-0.5">{t(`items.${cs.slug}.results.${ri}.label`)}</p>
                                 </div>
                               ))}
                             </div>
@@ -161,7 +161,7 @@ export default function CaseStudiesPageClient() {
 
                           {/* CTA Row */}
                           <div className="flex items-center justify-between pt-4 border-t border-[rgba(255,255,255,0.04)]">
-                            <span className="text-[12px] text-[#666666] font-[family-name:var(--font-space-mono)]">{cs.client}</span>
+                            <span className="text-[12px] text-[#666666] font-[family-name:var(--font-space-mono)]">{t(`items.${cs.slug}.client`)}</span>
                             <span className="inline-flex items-center gap-2 text-sm font-semibold group-hover:text-white transition-colors" style={{ color: colors.text }}>
                               {t('studies.readCaseStudy')}
                               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

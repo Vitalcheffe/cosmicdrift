@@ -135,7 +135,21 @@
     "subscribedMessage": "You are subscribed to our newsletter. Welcome to the mission.",
     "title": "Blog",
     "writeForUs": "Write For Us",
-    "writeForUsDescription": "Share your expertise in sovereign infrastructure with our community."
+    "writeForUsDescription": "Share your expertise in sovereign infrastructure with our community.",
+    "categories": {
+      "all": "All",
+      "engineering": "Engineering",
+      "aiMl": "AI & ML",
+      "infrastructure": "Infrastructure",
+      "energy": "Energy",
+      "agriculture": "Agriculture",
+      "industry": "Industry",
+      "mining": "Mining",
+      "technology": "Technology",
+      "finance": "Finance",
+      "company": "Company",
+      "water": "Water"
+    }
   },
   "careers": {
     "aboutHarchCorp": "About Harch Corp",
@@ -429,7 +443,131 @@
       "title": "Case Studies"
     },
     "theProblem": "The Problem",
-    "timeline": "Timeline"
+    "timeline": "Timeline",
+    "types": {
+      "industrial": "Industrial",
+      "government": "Government",
+      "energy": "Energy",
+      "infrastructure": "Infrastructure"
+    },
+    "items": {
+      "tanger-cement-predictive-maintenance": {
+        "title": "Predictive Maintenance at Tanger Cement",
+        "subtitle": "How Harch Cement reduced energy consumption by 20% and increased uptime by 15% using AI-driven predictive maintenance",
+        "client": "Tanger Cement S.A.",
+        "location": "Tanger, Morocco",
+        "duration": "18 months (Jan 2025 - Jun 2026)",
+        "results": [
+          {
+            "label": "Energy Consumption",
+            "change": "Reduced"
+          },
+          {
+            "label": "Uptime",
+            "change": "Improved"
+          },
+          {
+            "label": "Annual Savings",
+            "change": "Delivered"
+          },
+          {
+            "label": "Prediction Accuracy",
+            "change": "Achieved"
+          },
+          {
+            "label": "IoT Sensors",
+            "change": "Deployed"
+          }
+        ]
+      },
+      "regional-economic-community-sovereign-infrastructure": {
+        "title": "Sovereign Data Infrastructure for Regional Economic Community",
+        "subtitle": "100% data localization and secure communications for 5 West African nations",
+        "client": "Regional Economic Community",
+        "location": "Dakar, Senegal (Primary Hub)",
+        "duration": "24 months (Mar 2024 - Feb 2026)",
+        "results": [
+          {
+            "label": "Data Localization",
+            "change": "Achieved"
+          },
+          {
+            "label": "Nations Connected",
+            "change": "Unified"
+          },
+          {
+            "label": "Inter-Capital Latency",
+            "change": "Optimized"
+          },
+          {
+            "label": "Security Breaches",
+            "change": "Maintained"
+          },
+          {
+            "label": "Daily Processing",
+            "change": "Operational"
+          }
+        ]
+      },
+      "onee-morocco-smart-grid-optimization": {
+        "title": "Smart Grid Optimization for ONEE Morocco",
+        "subtitle": "How Harch Energy reduced grid curtailment by 40% and integrated 1.8GW of renewable capacity using AI-driven grid orchestration",
+        "client": "Office National de l'Electricite et de l'Eau Potable (ONEE)",
+        "location": "Casablanca, Morocco",
+        "duration": "20 months (Sep 2024 - Apr 2026)",
+        "results": [
+          {
+            "label": "Renewable Curtailment",
+            "change": "Reduced"
+          },
+          {
+            "label": "Renewable Integration",
+            "change": "Orchestrated"
+          },
+          {
+            "label": "Annual Savings",
+            "change": "Recovered"
+          },
+          {
+            "label": "Fault Restoration",
+            "change": "Achieved"
+          },
+          {
+            "label": "Grid Sensors",
+            "change": "Deployed"
+          }
+        ]
+      },
+      "tanger-med-intelligent-port-operations": {
+        "title": "Intelligent Port Operations at Tanger Med",
+        "subtitle": "How Harch Intelligence increased container throughput by 32% and reduced vessel waiting time by 60% using AI-driven port orchestration",
+        "client": "Tanger Med Port Authority",
+        "location": "Tanger Med, Morocco",
+        "duration": "16 months (Jun 2024 - Sep 2025)",
+        "results": [
+          {
+            "label": "Container Throughput",
+            "change": "Increased"
+          },
+          {
+            "label": "Vessel Wait Time",
+            "change": "Reduced"
+          },
+          {
+            "label": "Housekeeping Moves",
+            "change": "Eliminated"
+          },
+          {
+            "label": "Customs Inspection Rate",
+            "change": "Optimized"
+          },
+          {
+            "label": "Yard Capacity Freed",
+            "change": "Recovered"
+          }
+        ]
+      }
+    }
   },
   "common": {
     "accessibility": "Accessibility",
@@ -3307,7 +3445,11 @@
         },
         "label": "Comparison",
         "table": {
-          "feature": "Language"
+          "feature": "Language",
+          "python": "Python",
+          "typescript": "TypeScript",
+          "go": "Go",
+          "rust": "Rust"
         },
         "title": "SDK Comparison"
       },
@@ -3371,7 +3513,12 @@
       "versionLabel": "Version",
       "viewApiReference": "View API Reference",
       "install": "Install",
-      "packages": "Packages"
+      "packages": "Packages",
+      "osLabels": {
+        "macos": "macOS",
+        "linux": "Linux",
+        "windows": "Windows"
+      }
     },
     "search": "Search",
     "title": "Blog",
@@ -3460,7 +3607,14 @@
     "viewOpenRoles": "View Open Roles",
     "allArticles": "All Articles",
     "backToBlog": "Back to Engineering Blog",
-    "categories": "Categories",
+    "categories": {
+      "all": "All",
+      "backend": "Backend",
+      "infrastructure": "Infrastructure",
+      "aiMl": "AI/ML",
+      "devOps": "DevOps",
+      "security": "Security"
+    },
     "deepDives": "Deep Dives",
     "description": "In-depth technical analyses on sovereign infrastructure, GPU cloud, and AI.",
     "engineering": "Engineering",
@@ -3468,7 +3622,12 @@
     "latestPosts": "Latest Posts",
     "readArticle": "Read Article",
     "research": "Research",
-    "tutorials": "Tutorials"
+    "tutorials": "Tutorials",
+    "difficulties": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    }
   },
   "esg": {
     "cta": {
@@ -4614,10 +4773,18 @@
           "sovereignScore": "Sovereign Score"
         },
         "recentAlerts": "Recent Alerts",
+        "metricValues": {
+          "uptime": "99.999%",
+          "latency": "<5ms",
+          "sovereignScore": "98/100"
+        },
         "alerts": {
           "a1": "Hub Ouarzazate — All systems nominal",
+          "a1Time": "2m ago",
           "a2": "Hub Dakhla — Wind generation stable",
-          "a3": "Hub Benguerir — Degraded mode, failover active"
+          "a2Time": "8m ago",
+          "a3": "Hub Benguerir — Degraded mode, failover active",
+          "a3Time": "15m ago"
         }
       },
       "steps": {
@@ -5193,6 +5360,76 @@
         }
       }
     },
+    "hubs": {
+      "ouarzazate": {
+        "name": "Harch Ouarzazate",
+        "latency": "<5ms to EU"
+      },
+      "dakhla": {
+        "name": "Harch Dakhla",
+        "latency": "<8ms to EU"
+      },
+      "benguerir": {
+        "name": "Harch Benguerir",
+        "latency": "<12ms to EU"
+      },
+      "tanger": {
+        "name": "Harch Tanger",
+        "latency": "<3ms to EU"
+      },
+      "casablanca": {
+        "name": "Harch Casablanca",
+        "latency": "<2ms local"
+      }
+    },
+    "architectureSpecs": {
+      "sense": {
+        "s0": "5K+ pts/sec",
+        "s1": "IoT, Satellite, API",
+        "s2": "4h ahead",
+        "s3": "1-second granularity"
+      },
+      "think": {
+        "s0": "4 hours",
+        "s1": "RL, Transformer, GNN",
+        "s2": "Multi-objective",
+        "s3": "<50ms"
+      },
+      "act": {
+        "s0": "Live, <200ms",
+        "s1": "Zero-downtime",
+        "s2": "Real-time context",
+        "s3": "99.999%"
+      }
+    },
+    "specValues": {
+      "totalGpus": "1,798",
+      "gpuTypes": "H100, A100, L40S",
+      "interconnect": "NVLink + InfiniBand",
+      "maxPerHub": "800 GPUs",
+      "scalingEfficiency": ">92% linear",
+      "renewableEnergy": "81.5%",
+      "avgCarbonIntensity": "~47 gCO2/kWh",
+      "bestHubCarbon": "18 gCO2/kWh",
+      "pueRange": "1.04 — 1.12",
+      "bestPue": "1.04",
+      "backbone": "400Gbps",
+      "dedicatedLinks": "100Gbps each",
+      "submarineSystems": "4 systems",
+      "latencyToEurope": "<5-12ms",
+      "latencyToAmericas": "<35ms"
+    },
+    "complianceBadges": {
+      "gdpr": "GDPR",
+      "iso27001": "ISO 27001",
+      "soc2TypeII": "SOC 2 Type II",
+      "law0908": "Law 09-08",
+      "fips1402L3": "FIPS 140-2 L3",
+      "tls13": "TLS 1.3"
+    },
+    "brandName": "HarchOS",
+    "footerBrandName": "Harch Corp",
+    "backToIntelligence": "Intelligence",
     "status": {
       "live": "LIVE",
       "healthy": "HEALTHY"
@@ -7546,7 +7783,18 @@
     "subscribed": "Subscribed",
     "subscribedMessage": "You are now subscribed to our newsletter.",
     "writeForUs": "Write for Us",
-    "writeForUsDescription": "Pitch an article or press release."
+    "writeForUsDescription": "Pitch an article or press release.",
+    "tags": {
+      "intelligence": "Intelligence",
+      "energy": "Energy",
+      "corporate": "Corporate",
+      "cement": "Cement",
+      "technology": "Technology",
+      "mining": "Mining",
+      "water": "Water",
+      "agri": "Agri",
+      "finance": "Finance"
+    }
   },
   "partners": {
     "becomePartner": {
@@ -7760,6 +8008,50 @@
       "max": "Max:",
       "bearing": "Bearing #3",
       "flaggedAgo": "Flagged 12m ago"
+    },
+    "hubMetrics": {
+      "casablanca": "1,798 GPUs — 48 Active",
+      "dakhla": "400 GPUs — 94.8% Renewable",
+      "banjul": "500kT/yr Cement — Phase 2",
+      "dakar": "IoT Mesh — 342 Sensors",
+      "nouakchott": "3 Mineral Streams",
+      "bamako": "200M m3/yr Desal"
+    },
+    "gpuHubNames": {
+      "dakhla1": "Dakhla-1",
+      "dakhla2": "Dakhla-2",
+      "casablanca": "Casablanca",
+      "tanger": "Tanger",
+      "marrakech": "Marrakech"
+    },
+    "platformLabel": "PLATFORM",
+    "headerTitle": "HARCH OS // PLATFORM",
+    "hubsOnline": "5/5 HUBS ONLINE",
+    "activeSensors": "2,847 ACTIVE SENSORS",
+    "liveLabel": "LIVE —",
+    "chartValues": {
+      "energyPeak": "218.4 MW",
+      "energyAvg": "94.7 MW",
+      "gpuAvg": "81.6%",
+      "gpuMax": "94% Dakhla-1",
+      "latencyAvg": "14.2 ms",
+      "latencyP99Label": "P99:",
+      "latencyP99Value": "24.7 ms"
+    },
+    "cementStats": {
+      "vsBaseline": "+2.3% vs baseline",
+      "temperatureValue": "1,423",
+      "temperatureUnit": "°C",
+      "throughputValue": "87.2",
+      "throughputUnit": "t/hr",
+      "carbonValue": "612",
+      "carbonUnit": "kg/t"
+    },
+    "version": "v3.7.2",
+    "hubStatuses": {
+      "operational": "OPERATIONAL",
+      "engineering": "ENGINEERING",
+      "planned": "PLANNED"
     }
   },
   "press": {
@@ -8062,7 +8354,18 @@
       "yearUnit": "/year",
       "saveWithAnnual": "Save with annual billing: {amount}",
       "estimateNote": "Estimate based on H100 Professional tier. Actual pricing varies by GPU type and region.",
-      "cta": "Use Calculator"
+      "cta": "Use Calculator",
+      "cdnLabel": "CDN",
+      "providers": {
+        "harchos": "HarchOS",
+        "aws": "AWS",
+        "gcp": "GCP",
+        "azure": "Azure"
+      },
+      "storageRangeMin": "10 GB",
+      "storageRangeMax": "50 TB",
+      "bandwidthRangeMin": "0 Gbps",
+      "bandwidthRangeMax": "100 Gbps"
     },
     "carbonSavings": {
       "description": "Track and optimize carbon savings across all GPU workloads with real-time reporting.",
@@ -14181,7 +14484,10 @@
           "halted": "Authority Halted",
           "modified": "Authority Modified",
           "reviews": "Authority Reviews",
-          "title": "Board Authority"
+          "title": "Board Authority",
+          "reviewsValue": "23",
+          "haltedValue": "2",
+          "modifiedValue": "5"
         },
         "chiefEthicsOfficer": {
           "desc": "The Chief Ethics Officer oversees AI ethics policy, ensures compliance with ethical guidelines, and reports directly to the board of directors.",
@@ -14596,6 +14902,15 @@
         "governmentRequestsValue": "All government data requests are publicly disclosed in our transparency report",
         "securityIncidentsValue": "Security incidents reported within 72 hours with full disclosure after remediation",
         "uptimeSlaValue": "99.9% uptime SLA with real-time status monitoring and incident history"
+      },
+      "auditDates": {
+        "q3_2026": "Q3 2026",
+        "q4_2026": "Q4 2026",
+        "q2_2026": "Q2 2026",
+        "jun_2025": "Jun 2025",
+        "jun_2026": "Jun 2026",
+        "q1_2027": "Q1 2027",
+        "q2_2027": "Q2 2027"
       }
     },
     "complianceDescription": "Comprehensive regulatory compliance with international certifications and regional data sovereignty requirements.",
@@ -15253,7 +15568,18 @@
       "outOfScopeSubtitle": "Systems and attack vectors explicitly excluded from our vulnerability disclosure program"
     },
     "heroDescription": "Security, compliance, and ethics at the heart of every infrastructure decision.",
-    "heroLabel": "Confiance"
+    "heroLabel": "Confiance",
+    "statusLabels": {
+      "achieved": "Achieved",
+      "inProgress": "In Progress",
+      "planned": "Planned",
+      "latest": "Latest",
+      "published": "Published"
+    },
+    "contactEmail": "amine@harchcorp.com",
+    "pdf": "PDF",
+    "tableId": "ID",
+    "slaLabel": "SLA:"
   },
   "status": {
     "heroLabel": "Status",
@@ -15358,7 +15684,9 @@
       }
     },
     "allSystemsOperationalDescription": "All Harch Corp services are operating normally.",
-    "partialServiceDisruptionDescription": "Some services are experiencing issues. Our team is investigating."
+    "partialServiceDisruptionDescription": "Some services are experiencing issues. Our team is investigating.",
+    "utc": "UTC",
+    "dayTooltip": "Day {day}: {status}"
   },
   "charts": {
     "energyMix": {

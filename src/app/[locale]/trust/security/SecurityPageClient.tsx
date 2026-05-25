@@ -416,7 +416,7 @@ export default function SecurityPageClient() {
                 <table className="data-table">
                   <thead>
                     <tr>
-                      <th>ID</th>
+                      <th>{t('tableId')}</th>
                       <th>{t('security.bulletins.tableTitle')}</th>
                       <th>{t('security.bulletins.tableSeverity')}</th>
                       <th>{t('security.bulletins.tableDate')}</th>
@@ -475,7 +475,7 @@ export default function SecurityPageClient() {
                         <h3 className="text-[17px] font-bold text-white">{step.phase}</h3>
                         <div className="flex items-center gap-2 mt-1">
                           <Clock size={12} className="text-white/30" />
-                          <span className="text-[12px] stat-mono text-white/50">SLA: {step.sla}</span>
+                          <span className="text-[12px] stat-mono text-white/50">{t('slaLabel')} {step.sla}</span>
                         </div>
                       </div>
                     </div>

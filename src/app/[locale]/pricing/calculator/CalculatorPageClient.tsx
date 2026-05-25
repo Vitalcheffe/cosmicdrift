@@ -252,8 +252,8 @@ export default function CalculatorPageClient() {
                       className="w-full h-1.5 bg-[rgba(255,255,255,0.08)] rounded-full appearance-none cursor-pointer accent-[#8B5CF6]"
                     />
                     <div className="flex justify-between mt-1">
-                      <span className="text-[10px] text-[#666666]">10 GB</span>
-                      <span className="text-[10px] text-[#666666]">50 TB</span>
+                      <span className="text-[10px] text-[#666666]">{t('calculator.storageRangeMin')}</span>
+                      <span className="text-[10px] text-[#666666]">{t('calculator.storageRangeMax')}</span>
                     </div>
                   </div>
                 </div>
@@ -282,15 +282,15 @@ export default function CalculatorPageClient() {
                       className="w-full h-1.5 bg-[rgba(255,255,255,0.08)] rounded-full appearance-none cursor-pointer accent-[#F59E0B]"
                     />
                     <div className="flex justify-between mt-1">
-                      <span className="text-[10px] text-[#666666]">0 Gbps</span>
-                      <span className="text-[10px] text-[#666666]">100 Gbps</span>
+                      <span className="text-[10px] text-[#666666]">{t('calculator.bandwidthRangeMin')}</span>
+                      <span className="text-[10px] text-[#666666]">{t('calculator.bandwidthRangeMax')}</span>
                     </div>
                   </div>
 
                   {/* CDN Toggle */}
                   <div className="flex items-center justify-between p-4 rounded-lg bg-[rgba(255,255,255,0.02)] border border-white/[0.04]">
                     <div>
-                      <p className="text-[13px] font-semibold text-white">CDN</p>
+                      <p className="text-[13px] font-semibold text-white">{t('calculator.cdnLabel')}</p>
                       <p className="text-[11px] text-[#666666]">{t('calculator.cdnDescription')}</p>
                     </div>
                     <button
@@ -420,7 +420,7 @@ export default function CalculatorPageClient() {
                       <div className="flex items-center justify-between p-3 rounded-lg bg-[rgba(16,185,129,0.06)] border border-[rgba(16,185,129,0.15)]">
                         <div className="flex items-center gap-2">
                           <Shield size={14} className="text-[#10B981]" />
-                          <span className="text-[13px] font-bold text-white">HarchOS</span>
+                          <span className="text-[13px] font-bold text-white">{t('calculator.providers.harchos')}</span>
                         </div>
                         <span className="text-[14px] font-bold text-[#10B981] stat-mono">${costs.totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/{t('calculator.monthUnit')}</span>
                       </div>
@@ -428,7 +428,7 @@ export default function CalculatorPageClient() {
                       {/* AWS */}
                       <div className="flex items-center justify-between p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-white/[0.04]">
                         <div className="flex items-center gap-2">
-                          <span className="text-[13px] text-[#999999]">AWS</span>
+                          <span className="text-[13px] text-[#999999]">{t('calculator.providers.aws')}</span>
                         </div>
                         <div className="text-right">
                           <span className="text-[13px] text-[#999999] stat-mono">${costs.awsCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/{t('calculator.monthUnit')}</span>
@@ -439,7 +439,7 @@ export default function CalculatorPageClient() {
                       {/* GCP */}
                       <div className="flex items-center justify-between p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-white/[0.04]">
                         <div className="flex items-center gap-2">
-                          <span className="text-[13px] text-[#999999]">GCP</span>
+                          <span className="text-[13px] text-[#999999]">{t('calculator.providers.gcp')}</span>
                         </div>
                         <div className="text-right">
                           <span className="text-[13px] text-[#999999] stat-mono">${costs.gcpCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/{t('calculator.monthUnit')}</span>
@@ -450,7 +450,7 @@ export default function CalculatorPageClient() {
                       {/* Azure */}
                       <div className="flex items-center justify-between p-3 rounded-lg bg-[rgba(255,255,255,0.02)] border border-white/[0.04]">
                         <div className="flex items-center gap-2">
-                          <span className="text-[13px] text-[#999999]">Azure</span>
+                          <span className="text-[13px] text-[#999999]">{t('calculator.providers.azure')}</span>
                         </div>
                         <div className="text-right">
                           <span className="text-[13px] text-[#999999] stat-mono">${costs.azureCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/{t('calculator.monthUnit')}</span>

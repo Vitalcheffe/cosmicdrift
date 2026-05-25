@@ -45,7 +45,7 @@ export default function CompliancePageClient() {
       description: t('compliance.certifications.soc2.description'),
       status: 'In Progress',
       region: t('compliance.regionGlobal'),
-      nextAudit: 'Q3 2026',
+      nextAudit: t('compliance.auditDates.q3_2026'),
       scope: t('compliance.certifications.soc2.scope'),
     },
     {
@@ -54,7 +54,7 @@ export default function CompliancePageClient() {
       description: t('compliance.certifications.iso27001.description'),
       status: 'In Progress',
       region: t('compliance.regionGlobal'),
-      nextAudit: 'Q4 2026',
+      nextAudit: t('compliance.auditDates.q4_2026'),
       scope: t('compliance.certifications.iso27001.scope'),
     },
     {
@@ -63,7 +63,7 @@ export default function CompliancePageClient() {
       description: t('compliance.certifications.iso22301.description'),
       status: 'In Progress',
       region: t('compliance.regionGlobal'),
-      nextAudit: 'Q4 2026',
+      nextAudit: t('compliance.auditDates.q4_2026'),
       scope: t('compliance.certifications.iso22301.scope'),
     },
     {
@@ -93,8 +93,8 @@ export default function CompliancePageClient() {
       status: 'Achieved',
       region: t('compliance.regionMorocco'),
       auditor: t('compliance.certifications.moroccanDpa.auditor'),
-      lastAudit: 'Jun 2025',
-      nextAudit: 'Jun 2026',
+      lastAudit: t('compliance.auditDates.jun_2025'),
+      nextAudit: t('compliance.auditDates.jun_2026'),
       scope: t('compliance.certifications.moroccanDpa.scope'),
     },
     {
@@ -103,7 +103,7 @@ export default function CompliancePageClient() {
       description: t('compliance.certifications.iso27017.description'),
       status: 'In Progress',
       region: t('compliance.regionGlobal'),
-      nextAudit: 'Q2 2026',
+      nextAudit: t('compliance.auditDates.q2_2026'),
       scope: t('compliance.certifications.iso27017.scope'),
     },
     {
@@ -112,7 +112,7 @@ export default function CompliancePageClient() {
       description: t('compliance.certifications.iso27018.description'),
       status: 'In Progress',
       region: t('compliance.regionGlobal'),
-      nextAudit: 'Q2 2026',
+      nextAudit: t('compliance.auditDates.q2_2026'),
       scope: t('compliance.certifications.iso27018.scope'),
     },
     {
@@ -121,7 +121,7 @@ export default function CompliancePageClient() {
       description: t('compliance.certifications.pciDss.description'),
       status: 'In Progress',
       region: t('compliance.regionGlobal'),
-      nextAudit: 'Q3 2026',
+      nextAudit: t('compliance.auditDates.q3_2026'),
       scope: t('compliance.certifications.pciDss.scope'),
     },
     {
@@ -130,7 +130,7 @@ export default function CompliancePageClient() {
       description: t('compliance.certifications.csaStar.description'),
       status: 'In Progress',
       region: t('compliance.regionGlobal'),
-      nextAudit: 'Q3 2026',
+      nextAudit: t('compliance.auditDates.q3_2026'),
       scope: t('compliance.certifications.csaStar.scope'),
     },
     {
@@ -139,7 +139,7 @@ export default function CompliancePageClient() {
       description: t('compliance.certifications.hitrust.description'),
       status: 'Planned',
       region: t('compliance.regionGlobal'),
-      nextAudit: 'Q1 2027',
+      nextAudit: t('compliance.auditDates.q1_2027'),
       scope: t('compliance.certifications.hitrust.scope'),
     },
     {
@@ -148,7 +148,7 @@ export default function CompliancePageClient() {
       description: t('compliance.certifications.fedramp.description'),
       status: 'Planned',
       region: t('compliance.regionUS'),
-      nextAudit: 'Q2 2027',
+      nextAudit: t('compliance.auditDates.q2_2027'),
       scope: t('compliance.certifications.fedramp.scope'),
     },
   ];

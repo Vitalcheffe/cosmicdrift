@@ -12,6 +12,18 @@ import { FadeIn } from '@/components/ui/motion';
 export default function NewsroomPageClient() {
   const t = useTranslations('newsroom');
 
+  const tagKeyMap: Record<string, string> = {
+    'Intelligence': 'intelligence',
+    'Energy': 'energy',
+    'Corporate': 'corporate',
+    'Cement': 'cement',
+    'Technology': 'technology',
+    'Mining': 'mining',
+    'Water': 'water',
+    'Agri': 'agri',
+    'Finance': 'finance',
+  };
+
   const tagIcons: Record<string, React.ComponentType<{ size?: number; className?: string; strokeWidth?: number }>> = {
     Intelligence: Cpu,
     Energy: Bolt,
@@ -81,7 +93,7 @@ export default function NewsroomPageClient() {
                       <div className="flex items-center gap-3 mb-6">
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[rgba(139,157,175,0.08)] border border-[rgba(139,157,175,0.15)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">
                           {(() => { const Icon = tagIcons[featuredArticle.tag]; return Icon ? <Icon size={10} /> : null; })()}
-                          {featuredArticle.tag}
+                          {t(`tags.${tagKeyMap[featuredArticle.tag]}`)}
                         </span>
                         <span className="text-[11px] text-[#666666] flex items-center gap-1 font-[family-name:var(--font-space-mono)]"><Calendar size={10} />{featuredArticle.date}</span>
                       </div>
@@ -133,7 +145,7 @@ export default function NewsroomPageClient() {
                       )}
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <span className="inline-block px-2 py-0.5 rounded-md bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{article.tag}</span>
+                          <span className="inline-block px-2 py-0.5 rounded-md bg-[rgba(139,157,175,0.06)] border border-[rgba(139,157,175,0.1)] text-[9px] font-bold tracking-[0.12em] uppercase text-[#8B9DAF]">{t(`tags.${tagKeyMap[article.tag]}`)}</span>
                           <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{article.date}</span>
                         </div>
                         <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-[#CCCCCC] transition-colors leading-snug">{article.title}</h3>

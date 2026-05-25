@@ -386,15 +386,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           <FadeIn>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
               <div className="card p-5">
-                <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">macOS</p>
+                <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">{t('sdks.osLabels.macos')}</p>
                 <code className="text-[13px] text-[#10B981] font-[family-name:var(--font-space-mono)]">brew install harchcorp/tap/harchos</code>
               </div>
               <div className="card p-5">
-                <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">Linux</p>
+                <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">{t('sdks.osLabels.linux')}</p>
                 <code className="text-[13px] text-[#10B981] font-[family-name:var(--font-space-mono)]">curl -fsSL https://get.harchos.io | sh</code>
               </div>
               <div className="card p-5">
-                <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">Windows</p>
+                <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">{t('sdks.osLabels.windows')}</p>
                 <code className="text-[13px] text-[#10B981] font-[family-name:var(--font-space-mono)]">winget install HarchCorp.HarchOS</code>
               </div>
             </div>
@@ -440,10 +440,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   <thead>
                     <tr>
                       <th>{t('sdks.comparison.table.feature')}</th>
-                      <th>Python</th>
-                      <th>TypeScript</th>
-                      <th>Go</th>
-                      <th>Rust</th>
+                      <th>{t('sdks.comparison.table.python')}</th>
+                      <th>{t('sdks.comparison.table.typescript')}</th>
+                      <th>{t('sdks.comparison.table.go')}</th>
+                      <th>{t('sdks.comparison.table.rust')}</th>
                     </tr>
                   </thead>
                   <tbody>

@@ -135,7 +135,21 @@
     "subscribedMessage": "Vous êtes inscrit à notre newsletter. Bienvenue dans la mission.",
     "title": "Blog",
     "writeForUs": "Écrire pour nous",
-    "writeForUsDescription": "Partagez votre expertise en infrastructure souveraine avec notre communauté."
+    "writeForUsDescription": "Partagez votre expertise en infrastructure souveraine avec notre communauté.",
+    "categories": {
+      "all": "Tout",
+      "engineering": "Ingénierie",
+      "aiMl": "IA et ML",
+      "infrastructure": "Infrastructure",
+      "energy": "Énergie",
+      "agriculture": "Agriculture",
+      "industry": "Industrie",
+      "mining": "Mines",
+      "technology": "Technologie",
+      "finance": "Finance",
+      "company": "Entreprise",
+      "water": "Eau"
+    }
   },
   "careers": {
     "aboutHarchCorp": "À Propos de Harch Corp",
@@ -429,7 +443,131 @@
       "title": "Études de cas"
     },
     "theProblem": "Le problème",
-    "timeline": "Chronologie"
+    "timeline": "Chronologie",
+    "types": {
+      "industrial": "Industriel",
+      "government": "Gouvernement",
+      "energy": "Énergie",
+      "infrastructure": "Infrastructure"
+    },
+    "items": {
+      "tanger-cement-predictive-maintenance": {
+        "title": "Maintenance prédictive à Tanger Cement",
+        "subtitle": "Comment Harch Cement a réduit la consommation d'énergie de 20% et augmenté la disponibilité de 15% grâce à la maintenance prédictive pilotée par l'IA",
+        "client": "Tanger Cement S.A.",
+        "location": "Tanger, Maroc",
+        "duration": "18 mois (Jan 2025 - Juin 2026)",
+        "results": [
+          {
+            "label": "Consommation d'énergie",
+            "change": "Réduite"
+          },
+          {
+            "label": "Disponibilité",
+            "change": "Améliorée"
+          },
+          {
+            "label": "Économies annuelles",
+            "change": "Livré"
+          },
+          {
+            "label": "Précision de prédiction",
+            "change": "Atteinte"
+          },
+          {
+            "label": "Capteurs IoT",
+            "change": "Déployés"
+          }
+        ]
+      },
+      "regional-economic-community-sovereign-infrastructure": {
+        "title": "Infrastructure de données souveraine pour la Communauté Économique Régionale",
+        "subtitle": "100% de localisation des données et communications sécurisées pour 5 nations ouest-africaines",
+        "client": "Communauté Économique Régionale",
+        "location": "Dakar, Sénégal (Hub principal)",
+        "duration": "24 mois (Mar 2024 - Fév 2026)",
+        "results": [
+          {
+            "label": "Localisation des données",
+            "change": "Atteinte"
+          },
+          {
+            "label": "Nations connectées",
+            "change": "Unifiées"
+          },
+          {
+            "label": "Latence inter-capitales",
+            "change": "Optimisée"
+          },
+          {
+            "label": "Violations de sécurité",
+            "change": "Maintenues"
+          },
+          {
+            "label": "Traitement quotidien",
+            "change": "Opérationnel"
+          }
+        ]
+      },
+      "onee-morocco-smart-grid-optimization": {
+        "title": "Optimisation du réseau intelligent pour ONEE Maroc",
+        "subtitle": "Comment Harch Energy a réduit le délestage de 40% et intégré 1,8 GW de capacité renouvelable grâce à l'orchestration IA du réseau",
+        "client": "Office National de l'Électricité et de l'Eau Potable (ONEE)",
+        "location": "Casablanca, Maroc",
+        "duration": "20 mois (Sep 2024 - Avr 2026)",
+        "results": [
+          {
+            "label": "Délestage renouvelable",
+            "change": "Réduit"
+          },
+          {
+            "label": "Intégration renouvelable",
+            "change": "Orchestree"
+          },
+          {
+            "label": "Économies annuelles",
+            "change": "Récupérées"
+          },
+          {
+            "label": "Restauration des pannes",
+            "change": "Atteinte"
+          },
+          {
+            "label": "Capteurs réseau",
+            "change": "Déployés"
+          }
+        ]
+      },
+      "tanger-med-intelligent-port-operations": {
+        "title": "Opérations portuaires intelligentes à Tanger Med",
+        "subtitle": "Comment Harch Intelligence a augmenté le débit de conteneurs de 32% et réduit le temps d'attente des navires de 60% grâce à l'orchestration IA du port",
+        "client": "Autorité Portuaire de Tanger Med",
+        "location": "Tanger Med, Maroc",
+        "duration": "16 mois (Juin 2024 - Sep 2025)",
+        "results": [
+          {
+            "label": "Débit de conteneurs",
+            "change": "Augmenté"
+          },
+          {
+            "label": "Temps d'attente des navires",
+            "change": "Réduit"
+          },
+          {
+            "label": "Mouvements de manutention",
+            "change": "Éliminés"
+          },
+          {
+            "label": "Taux d'inspection douanière",
+            "change": "Optimisé"
+          },
+          {
+            "label": "Capacité de zone libérée",
+            "change": "Récupérée"
+          }
+        ]
+      }
+    }
   },
   "common": {
     "accessibility": "Accessibilité",
@@ -874,31 +1012,6 @@
           "bio": "Fondateur et CEO de Harch Corp. Visionnaire de la souveraineté industrielle africaine avec une expérience en IA, énergie et infrastructure.",
           "name": "Amine Harch El Korane",
           "title": "Fondateur & PDG"
-        },
-        {
-          "bio": "Opérateur chevronné avec 20 ans d'expérience dans le déploiement d'infrastructure à grande échelle en Afrique et au Moyen-Orient.",
-          "name": "Sarah Benmoussa",
-          "title": "Directrice des Opérations"
-        },
-        {
-          "bio": "Expert en cloud GPU et IA souveraine. Ancien de Google et NVIDIA, spécialisé dans l'infrastructure compute bas carbone.",
-          "name": "Dr. Karim Oujdi",
-          "title": "Directeur Technique"
-        },
-        {
-          "bio": "Financière de l'infrastructure avec 15 ans d'expérience en obligations vertes et financement de projets souverains.",
-          "name": "Aicha Tazi",
-          "title": "Directrice Financière"
-        },
-        {
-          "bio": "Stratège en énergie renouvelable. Pilotage de projets solaires et éoliens de 2GW+ à travers le continent.",
-          "name": "Moussa Diop",
-          "title": "Directeur Énergie"
-        },
-        {
-          "bio": "Ingénieur en mines stratégiques et ressources minérales. Expert en phosphates et terres rares.",
-          "name": "Omar Fassi Fihri",
-          "title": "Directeur Mines"
         }
       ],
       "heroDescription": "Les leaders qui construisent la souveraineté industrielle de l'Afrique, une filiale à la fois.",
@@ -1947,7 +2060,7 @@
       "pypi": "PyPI",
       "pythonVersions": "Python versions",
       "downloads": "Downloads",
-      "npm": "npm"
+      "npm": "Gestionnaire de paquets npm"
     }
   },
   "docs": {
@@ -1995,7 +2108,7 @@
       },
       "errorCodes": [
         {
-          "desc": "The request was malformed or missing required parameters.",
+          "desc": "La requête était malformée ou des paramètres requis étaient manquants.",
           "name": "400 Bad Request"
         },
         {
@@ -3036,7 +3149,7 @@
       },
       "cliCommands": [
         {
-          "desc": "harchos auth login — Authenticate with your HarchOS account"
+          "desc": "harchos auth login — S'authentifier avec votre compte HarchOS"
         },
         {
           "desc": "harchos compute allocate — Allocate GPU resources for workloads"
@@ -3054,7 +3167,7 @@
           "desc": "harchos monitor dashboard — Open the monitoring dashboard"
         },
         {
-          "desc": "harchos carbon report — Generate carbon intensity report"
+          "desc": "harchos carbon report — Générer un rapport d'intensité carbone"
         },
         {
           "desc": "harchos config set — Set configuration parameters"
@@ -3103,7 +3216,11 @@
         },
         "label": "Comparaison",
         "table": {
-          "feature": "Langue"
+          "feature": "Langue",
+          "python": "Python",
+          "typescript": "TypeScript",
+          "go": "Go",
+          "rust": "Rust"
         },
         "title": "Comparaison des SDK"
       },
@@ -3163,7 +3280,12 @@
       "package": "Package",
       "stable": "Stable",
       "versionLabel": "Version du SDK",
-      "viewApiReference": "Sdks View Api Référence"
+      "viewApiReference": "Sdks View Api Référence",
+      "osLabels": {
+        "macos": "macOS",
+        "linux": "Linux",
+        "windows": "Windows"
+      }
     },
     "heroDescription": "Documentation technique, références API et guides pour construire sur l'infrastructure souveraine.",
     "heroLabel": "Documentation",
@@ -3412,7 +3534,14 @@
     "articleNotFound": "Article introuvable",
     "articleNotFoundDescription": "L'article technique que vous recherchez n'existe pas.",
     "backToBlog": "Retour au blog technique",
-    "categories": "Catégories",
+    "categories": {
+      "all": "Tout",
+      "backend": "Backend",
+      "infrastructure": "Infrastructure",
+      "aiMl": "IA/ML",
+      "devOps": "DevOps",
+      "security": "Sécurité"
+    },
     "continueReading": "Continuer la lecture",
     "deepDives": "Analyses approfondies",
     "description": "Analyses techniques approfondies sur l'infrastructure souveraine, le cloud GPU et l'IA.",
@@ -3493,7 +3622,12 @@
     "relatedTopics": "Sujets Connexes",
     "updatedWeekly": "Mise à Jour Hebdomadaire",
     "viewAllOpenSourceProjects": "Voir Tous les Projets Open Source",
-    "viewOpenRoles": "Voir les Postes Ouverts"
+    "viewOpenRoles": "Voir les Postes Ouverts",
+    "difficulties": {
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé"
+    }
   },
   "esg": {
     "carbonIntensity": {
@@ -4639,10 +4773,18 @@
           "sovereignScore": "Score Souverain"
         },
         "recentAlerts": "Alertes Récentes",
+        "metricValues": {
+          "uptime": "99,999%",
+          "latency": "<5ms",
+          "sovereignScore": "98/100"
+        },
         "alerts": {
           "a1": "Hub Ouarzazate — Tous systèmes nominaux",
+          "a1Time": "il y a 2m",
           "a2": "Hub Dakhla — Production éolienne stable",
-          "a3": "Hub Benguerir — Mode dégradé, basculement actif"
+          "a2Time": "il y a 8m",
+          "a3": "Hub Benguerir — Mode dégradé, basculement actif",
+          "a3Time": "il y a 15m"
         }
       },
       "steps": {
@@ -5218,6 +5360,76 @@
         }
       }
     },
+    "hubs": {
+      "ouarzazate": {
+        "name": "Harch Ouarzazate",
+        "latency": "<5ms vers l'UE"
+      },
+      "dakhla": {
+        "name": "Harch Dakhla",
+        "latency": "<8ms vers l'UE"
+      },
+      "benguerir": {
+        "name": "Harch Benguerir",
+        "latency": "<12ms vers l'UE"
+      },
+      "tanger": {
+        "name": "Harch Tanger",
+        "latency": "<3ms vers l'UE"
+      },
+      "casablanca": {
+        "name": "Harch Casablanca",
+        "latency": "<2ms local"
+      }
+    },
+    "architectureSpecs": {
+      "sense": {
+        "s0": "5K+ pts/sec",
+        "s1": "IoT, Satellite, API",
+        "s2": "4h à l'avance",
+        "s3": "Granularité 1-seconde"
+      },
+      "think": {
+        "s0": "4 heures",
+        "s1": "RL, Transformer, GNN",
+        "s2": "Multi-objectif",
+        "s3": "<50ms"
+      },
+      "act": {
+        "s0": "En direct, <200ms",
+        "s1": "Sans interruption",
+        "s2": "Contexte temps réel",
+        "s3": "99.999%"
+      }
+    },
+    "specValues": {
+      "totalGpus": "1 798",
+      "gpuTypes": "H100, A100, L40S",
+      "interconnect": "NVLink + InfiniBand",
+      "maxPerHub": "800 GPU",
+      "scalingEfficiency": ">92% linéaire",
+      "renewableEnergy": "81,5%",
+      "avgCarbonIntensity": "~47 gCO2/kWh",
+      "bestHubCarbon": "18 gCO2/kWh",
+      "pueRange": "1,04 — 1,12",
+      "bestPue": "1,04",
+      "backbone": "400Gbps",
+      "dedicatedLinks": "100Gbps chacun",
+      "submarineSystems": "4 systèmes",
+      "latencyToEurope": "<5-12ms",
+      "latencyToAmericas": "<35ms"
+    },
+    "complianceBadges": {
+      "gdpr": "RGPD",
+      "iso27001": "ISO 27001",
+      "soc2TypeII": "SOC 2 Type II",
+      "law0908": "Loi 09-08",
+      "fips1402L3": "FIPS 140-2 L3",
+      "tls13": "TLS 1.3"
+    },
+    "brandName": "HarchOS",
+    "footerBrandName": "Harch Corp",
+    "backToIntelligence": "Intelligence",
     "status": {
       "live": "EN DIRECT",
       "healthy": "EN BONNE SANTÉ"
@@ -6565,7 +6777,7 @@
         },
         {
           "feature": "Screen Reader Compatibility",
-          "description": "We have designed our website to be compatible with leading screen readers, including JAWS, NVDA, and VoiceOver. We use semantic HTML, ARIA landmarks, and descriptive labels to ensure screen reader users can effectively navigate and understand our content."
+          "description": "Nous avons conçu notre site Web pour qu'il soit compatible avec les lecteurs d'écran les plus utilisés, notamment JAWS, NVDA et VoiceOver. Nous utilisons du HTML sémantique, des points de repère ARIA et des étiquettes descriptives pour garantir que les utilisateurs de lecteurs d'écran peuvent naviguer efficacement et comprendre notre contenu."
         },
         {
           "feature": "Contraste et lisibilité",
@@ -6742,27 +6954,27 @@
       "keyPolicies": [
         {
           "policy": "Anti-corruption et anti-corruption",
-          "description": "Harch Corp maintains a zero-tolerance policy toward corruption and bribery in all forms, whether involving public officials or private sector counterparts. We comply with the Kingdom of Morocco's anti-corruption laws, the UK Bribery Act, the US Foreign Corrupt Practices Act, and all applicable anti-corruption legislation in jurisdictions where we operate. No employee, officer, or agent may offer, promise, give, or accept any bribe, kickback, or improper inducement. All business hospitality and gifts must be reasonable, proportionate, and properly documented. We maintain rigorous due diligence processes for third-party intermediaries, agents, and business partners."
+          "description": "Harch Corp maintient une politique de tolérance zéro envers la corruption et les pots-de-vin sous toutes leurs formes, qu'ils impliquent des responsables publics ou des contreparties du secteur privé. Nous nous conformons aux lois anti-corruption du Royaume du Maroc, au UK Bribery Act, au US Foreign Corrupt Practices Act et à toutes les législations anti-corruption applicables dans les juridictions où nous opérons. Aucun employé, dirigeant ou agent ne peut offrir, promettre, donner ou accepter de pot-de-vin, de commission occulte ou d'incitation abusive. Tous les frais d'hospitalité et cadeaux professionnels doivent être raisonnables, proportionnés et correctement documentés. Nous maintenons des processus rigoureux de vérification préalable pour les intermédiaires tiers, agents et partenaires commerciaux."
         },
         {
           "policy": "Conflict of Interest",
-          "description": "All directors, officers, and employees are expected to act in the best interests of Harch Corp and to avoid situations where personal interests conflict or appear to conflict with the interests of the company. Conflicts of interest may arise from financial interests in competing or supplier organizations, outside employment or directorships, related-party transactions, or personal relationships that could influence business decisions. Any actual or potential conflict of interest must be disclosed promptly to the Compliance Office and managed transparently. Employees must recuse themselves from decisions where a conflict exists."
+          "description": "Tous les administrateurs, dirigeants et employés sont tenus d'agir dans l'intérêt supérieur de Harch Corp et d'éviter les situations où leurs intérêts personnels entrent en conflit ou semblent entrer en conflit avec ceux de l'entreprise. Les conflits d'intérêts peuvent découler d'intérêts financiers dans des organisations concurrentes ou fournisseuses, d'emplois extérieurs ou de postes d'administrateur, de transactions entre parties liées ou de relations personnelles pouvant influencer les décisions commerciales. Tout conflit d'intérêts réel ou potentiel doit être divulgué rapidement au Bureau de la Conformité et géré de manière transparente. Les employés doivent se récuser des décisions lorsqu'un conflit existe."
         },
         {
           "policy": "Insider Trading",
-          "description": "Trading in securities while in possession of material non-public information about Harch Corp or any company with which we do business is strictly prohibited. Material non-public information includes any information that a reasonable investor would consider important in making an investment decision and that has not been publicly disclosed. This prohibition extends to tipping others who might trade on such information. All employees with access to material non-public information must observe designated trading windows and pre-clearance requirements as specified in our Insider Trading Policy."
+          "description": "Le négoce de titres en possession d'informations privilégiées non publiques sur Harch Corp ou toute entreprise avec laquelle nous faisons affaire est strictement interdit. Les informations privilégiées non publiques incluent toute information qu'un investisseur raisonnable considérerait comme importante dans sa décision d'investissement et qui n'a pas été diffusée publiquement. Cette interdiction s'étend à la divulgation à des tiers susceptibles de négocier sur la base de ces informations. Tous les employés ayant accès à des informations privilégiées non publiques doivent observer les fenêtres de négociation désignées et les exigences de pré-autorisation telles que spécifiées dans notre Politique de Négociation d'Initiés."
         },
         {
           "policy": "Protection des données et vie privée",
-          "description": "We are committed to protecting the personal data of our employees, clients, partners, and other stakeholders. All employees must comply with our data protection policies and applicable privacy laws, including the GDPR, the Kingdom of Morocco's Law No. 09-08, and other relevant legislation. Personal data must be collected only for legitimate purposes, processed lawfully and fairly, kept accurate and up to date, retained only as long as necessary, and protected against unauthorized access, disclosure, or loss. Any data breach must be reported immediately to the Data Protection Officer."
+          "description": "Nous nous engageons à protéger les données personnelles de nos employés, clients, partenaires et autres parties prenantes. Tous les employés doivent se conformer à nos politiques de protection des données et aux lois applicables en matière de confidentialité, y compris le RGPD, la Loi n° 09-08 du Royaume du Maroc et toute autre législation pertinente. Les données personnelles doivent être collectées uniquement à des fins légitimes, traitées de manière licite et loyale, tenues exactes et à jour, conservées uniquement aussi longtemps que nécessaire et protégées contre tout accès, divulgation ou perte non autorisé. Toute violation de données doit être signalée immédiatement au Délégué à la Protection des Données."
         },
         {
           "policy": "Human Rights",
-          "description": "Harch Corp is committed to respecting and promoting human rights in all our operations and business relationships, consistent with the Universal Declaration of Human Rights, the International Labour Organization's core conventions, and the UN Guiding Principles on Business and Human Rights. We prohibit forced labor, child labor, and human trafficking in our operations and supply chain. We uphold the principles of non-discrimination, freedom of association, and the right to collective bargaining. We conduct human rights due diligence on our operations and supply chain and engage with stakeholders to identify and address potential impacts."
+          "description": "Harch Corp s'engage à respecter et promouvoir les droits humains dans toutes nos opérations et relations commerciales, conformément à la Déclaration universelle des droits de l'homme, aux conventions fondamentales de l'Organisation internationale du Travail et aux Principes directeurs des Nations Unies sur les entreprises et les droits humains. Nous interdisons le travail forcé, le travail des enfants et la traite des êtres humains dans nos opérations et notre chaîne d'approvisionnement. Nous défendons les principes de non-discrimination, de liberté d'association et du droit à la négociation collective. Nous menons une diligence raisonnable en matière de droits humains sur nos opérations et notre chaîne d'approvisionnement et nous engageons avec les parties prenantes pour identifier et traiter les impacts potentiels."
         },
         {
           "policy": "Environmental Responsibility",
-          "description": "As a multi-sector industrial conglomerate, we recognize our significant environmental footprint and our responsibility to minimize it. We are committed to operating in an environmentally sustainable manner, complying with all applicable environmental laws and regulations, and continuously improving our environmental performance. Our environmental commitments include reducing greenhouse gas emissions in line with science-based targets, minimizing waste and promoting circular economy principles, protecting biodiversity in areas where we operate, investing in clean technologies and renewable energy, and transparently reporting our environmental performance. Each business unit maintains an Environmental Management System aligned with ISO 14001 standards."
+          "description": "En tant que conglomérat industriel multi-secteur, nous reconnaissons notre empreinte environnementale significative et notre responsabilité de la minimiser. Nous nous engageons à opérer de manière écologiquement durable, à nous conformer à toutes les lois et réglementations environnementales applicables et à améliorer continuellement nos performances environnementales. Nos engagements environnementaux incluent la réduction des émissions de gaz à effet de serre conformément aux objectifs fondés sur la science, la minimisation des déchets et la promotion des principes d'économie circulaire, la protection de la biodiversité dans les zones où nous opérons, l'investissement dans les technologies propres et les énergies renouvelables, et la communication transparente de nos performances environnementales. Chaque unité opérationnelle maintient un Système de Management Environnemental aligné sur les normes ISO 14001."
         }
       ],
       "reportingConcerns": "Signaler des préoccupations",
@@ -6820,10 +7032,10 @@
       "managingDescription1": "Vous avez le droit de décider d'accepter ou de refuser les cookies. Lors de votre première visite sur notre site web, vous verrez une bannière de consentement aux cookies qui vous permet de sélectionner les catégories de cookies que vous souhaitez accepter. Vous pouvez mettre à jour vos préférences à tout moment en accédant à notre Centre de Préférences en matière de Cookies.",
       "managingDescription2": "En outre, vous pouvez gérer les cookies via les paramètres de votre navigateur. La plupart des navigateurs vous permettent d'afficher, de gérer et de supprimer les cookies. Veuillez noter que si vous supprimez ou refusez les cookies, vous ne pourrez peut-être pas utiliser certaines fonctionnalités de notre site web, et votre expérience utilisateur peut être dégradée. Voici des liens vers les instructions de gestion des cookies pour les navigateurs populaires :",
       "browserInstructions": [
-        "Google Chrome: Settings → Privacy and security → Cookies and other site data",
-        "Mozilla Firefox: Settings → Privacy & Security → Cookies and Site Data",
+        "Google Chrome : Paramètres → Confidentialité et sécurité → Cookies et autres données de site",
+        "Mozilla Firefox : Paramètres → Vie privée et sécurité → Cookies et données de sites",
         "Apple Safari: Preferences → Privacy → Manage Website Data",
-        "Microsoft Edge: Settings → Cookies and site permissions → Manage and delete cookies"
+        "Microsoft Edge : Paramètres → Cookies et autorisations de site → Gérer et supprimer les cookies"
       ],
       "tableTitle": "5. Tableau de durée des cookies",
       "tableIntro": "Le tableau suivant répertorie les cookies spécifiques utilisés sur notre site Web, leur objectif, catégorie et durée :",
@@ -6918,11 +7130,11 @@
         },
         {
           "title": "Data Security",
-          "description": "We implement and maintain appropriate technical and organizational measures to ensure a level of security appropriate to the risk, including encryption at rest and in transit (AES-256 and TLS 1.3), access controls and authentication mechanisms (multi-factor authentication, role-based access control), regular security testing and vulnerability assessments (annual penetration tests, quarterly vulnerability scans), employee training and confidentiality obligations, and physical security measures at our data centers and offices. Security measures are documented in our Technical and Organizational Measures (TOMs) annex."
+          "description": "Nous mettons en œuvre et maintenons des mesures techniques et organisationnelles appropriées pour garantir un niveau de sécurité adapté au risque, incluant le chiffrement au repos et en transit (AES-256 et TLS 1.3), les contrôles d'accès et mécanismes d'authentification (authentification multifacteur, contrôle d'accès basé sur les rôles), les tests de sécurité réguliers et évaluations de vulnérabilité (tests de pénétration annuels, analyses de vulnérabilité trimestrielles), la formation des employés et les obligations de confidentialité, et les mesures de sécurité physique dans nos centres de données et bureaux. Les mesures de sécurité sont documentées dans notre annexe des Mesures Techniques et Organisationnelles (MTO)."
         },
         {
           "title": "Audit Rights",
-          "description": "Clients have the right to audit our compliance with the DPA, subject to reasonable notice of at least 30 business days. Audits may be conducted by the client or by a qualified independent third-party auditor at the client's expense. We cooperate fully with audits and provide reasonable access to relevant facilities, systems, and records. We also make available current third-party audit reports, including SOC 2 Type II and ISO 27001 certificates, to reduce the need for on-site audits."
+          "description": "Les clients ont le droit d'auditer notre conformité avec le DPA, sous réserve d'un préavis raisonnable d'au moins 30 jours ouvrables. Les audits peuvent être réalisés par le client ou par un auditeur indépendant qualifié aux frais du client. Nous coopérons pleinement avec les audits et fournissons un accès raisonnable aux installations, systèmes et documents pertinents. Nous mettons également à disposition les rapports d'audit tiers actuels, notamment les certificats SOC 2 Type II et ISO 27001, pour réduire le besoin d'audits sur site."
         },
         {
           "title": "Breach Notification",
@@ -6963,7 +7175,7 @@
         },
         {
           "basis": "Legal Obligation",
-          "description": "Where processing is necessary for compliance with a legal obligation to which Harch Corp S.A. is subject, including obligations under Moroccan law, EU regulations, and other applicable jurisdictions where we operate."
+          "description": "Lorsque le traitement est nécessaire pour se conformer à une obligation légale à laquelle Harch Corp S.A. est assujettie, y compris les obligations au titre du droit marocain, des réglementations de l'UE et des autres juridictions applicables où nous opérons."
         },
         {
           "basis": "Vital Interests",
@@ -6975,7 +7187,7 @@
         },
         {
           "basis": "Legitimate Interests",
-          "description": "Where processing is necessary for the purposes of the legitimate interests pursued by Harch Corp S.A. or a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject. We conduct Legitimate Interest Assessments (LIAs) for all processing under this basis."
+          "description": "Lorsque le traitement est nécessaire aux fins des intérêts légitimes poursuivis par Harch Corp S.A. ou un tiers, sauf si ces intérêts sont outrepassés par les intérêts ou les droits et libertés fondamentaux de la personne concernée. Nous réalisons des Évaluations d'Intérêt Légitime (EIL) pour tout traitement fondé sur cette base."
         }
       ],
       "dataSubjectRightsTitle": "Droits des personnes concernées",
@@ -7050,7 +7262,7 @@
       "legalPages": [
         {
           "title": "Legal Notice",
-          "description": "Company information, intellectual property rights, limitation of liability, and governing law for Harch Corp S.A.",
+          "description": "Informations sur l'entreprise, droits de propriété intellectuelle, limitation de responsabilité et droit applicable pour Harch Corp S.A.",
           "href": "/legal",
           "icon": "FileText",
           "updated": "January 2026"
@@ -7064,7 +7276,7 @@
         },
         {
           "title": "Terms of Service",
-          "description": "Terms and conditions governing your use of the Harch Corp website and digital services.",
+          "description": "Conditions générales régissant votre utilisation du site Web et des services numériques de Harch Corp.",
           "href": "/terms",
           "icon": "Scale",
           "updated": "January 2026"
@@ -7078,7 +7290,7 @@
         },
         {
           "title": "GDPR Compliance",
-          "description": "Our commitment to GDPR compliance, data subject rights, legal bases for processing, and international data transfers.",
+          "description": "Notre engagement envers la conformité au RGPD, les droits des personnes concernées, les bases légales de traitement et les transferts internationaux de données.",
           "href": "/legal/gdpr",
           "icon": "Globe",
           "updated": "January 2026"
@@ -7106,7 +7318,7 @@
         },
         {
           "title": "Accessibility Statement",
-          "description": "Our commitment to digital accessibility, WCAG 2.1 Level AA compliance, features, and known limitations.",
+          "description": "Notre engagement envers l'accessibilité numérique, la conformité WCAG 2.1 Niveau AA, les fonctionnalités et les limitations connues.",
           "href": "/legal/accessibility",
           "icon": "BookOpen",
           "updated": "January 2026"
@@ -7120,14 +7332,14 @@
         },
         {
           "title": "Modern Slavery Statement",
-          "description": "Our statement on modern slavery and human trafficking, covering due diligence, risk assessment, and actions taken.",
+          "description": "Notre déclaration sur l'esclavage moderne et la traite des êtres humains, couvrant la diligence raisonnable, l'évaluation des risques et les mesures prises.",
           "href": "/legal/modern-slavery",
           "icon": "HandHeart",
           "updated": "January 2026"
         },
         {
           "title": "Trademark Guidelines",
-          "description": "Proper use of Harch Corp trademarks, logo usage rules, color and typography standards, and permission requests.",
+          "description": "Utilisation appropriée des marques de Harch Corp, règles d'utilisation du logo, normes de couleur et de typographie, et demandes d'autorisation.",
           "href": "/legal/trademark",
           "icon": "Tag",
           "updated": "January 2026"
@@ -7181,7 +7393,7 @@
         "Mis en place une plateforme numérique de traçabilité de la chaîne d'approvisionnement pour nos verticales minières et agricoles, permettant une visibilité de bout en bout.",
         "Résilié les relations avec 2 fournisseurs qui n'ont pas démontré de contrôles adéquats contre l'esclavage moderne après une période de remédiation.",
         "Établi une équipe dédiée Droits de l'Homme et Intégrité de la Chaîne d'Approvisionnement au sein du Bureau de Conformité, dotée de spécialistes.",
-        "Adopted the Employer Pays Principle across all our operations, ensuring that no worker bears the cost of recruitment to obtain employment with Harch Corp or its suppliers."
+        "Adopté le Principe de l'Employeur Paie dans toutes nos opérations, garantissant qu'aucun travailleur ne supporte le coût du recrutement pour obtenir un emploi chez Harch Corp ou ses fournisseurs."
       ],
       "trainingTitle": "Formation et Sensibilisation",
       "trainingDescription": "Pendant l'exercice fiscal 2025, nous avons dispensé une formation sur la sensibilisation à l'esclavage moderne à 100% de nos employés et du personnel clé des entrepreneurs. Les programmes de formation comprenaient des modules d'apprentissage en ligne obligatoires pour tous les employés sur l'identification et le signalement de l'esclavage moderne, des ateliers en présentiel spécialisés pour les équipes d'approvisionnement et de chaîne d'approvisionnement, une formation ciblée pour les responsables de site et les superviseurs sur les droits du travail et le bien-être des travailleurs, une formation pour les professionnels des RH sur les pratiques de recrutement éthiques et le principe Employeur Paie, et des sessions de sensibilisation pour la direction supérieure sur les exigences réglementaires émergentes et les meilleures pratiques. Au total, plus de 2 800 heures de formation ont été dispensées, et nous avons atteint un taux de réussite de 96% pour tous les modules obligatoires.",
@@ -7320,7 +7532,7 @@
           "mark": "Harch",
           "status": "Registered",
           "registration": "MA-2024-001",
-          "description": "Primary corporate mark for Harch Corp S.A. and its consolidated entities"
+          "description": "Marque corporative principale pour Harch Corp S.A. et ses entités consolidées"
         },
         {
           "mark": "Harch Corp",
@@ -7338,13 +7550,13 @@
           "mark": "Harch Intelligence",
           "status": "Registered",
           "registration": "MA-2024-004",
-          "description": "Intelligence and data center infrastructure vertical brand"
+          "description": "Marque de la filiale Intelligence et infrastructure de centres de données"
         },
         {
           "mark": "Harch Energy",
           "status": "Registered",
           "registration": "MA-2024-005",
-          "description": "Renewable energy generation and distribution vertical brand"
+          "description": "Marque de la filiale de production et distribution d'énergie renouvelable"
         },
         {
           "mark": "Harch Cement",
@@ -7368,13 +7580,13 @@
           "mark": "Harch Water",
           "status": "Registered",
           "registration": "MA-2024-009",
-          "description": "Water infrastructure and desalination vertical brand"
+          "description": "Marque de la filiale Infrastructure hydraulique et dessalement"
         },
         {
           "mark": "Harch Tech",
           "status": "Registered",
           "registration": "MA-2024-010",
-          "description": "Sovereign technology and cybersecurity vertical brand"
+          "description": "Marque de la filiale Technologie souveraine et cybersécurité"
         },
         {
           "mark": "Harch Shield",
@@ -7386,7 +7598,7 @@
           "mark": "Harch Mesh",
           "status": "Pending",
           "registration": "MA-2025-P002",
-          "description": "Distributed network infrastructure and connectivity platform"
+          "description": "Plateforme d'infrastructure réseau distribué et connectivité"
         }
       ],
       "usageTitle": "Directives d'utilisation appropriée",
@@ -7424,16 +7636,16 @@
       "notAllowedTitle": "Ce qui n'est pas autorisé",
       "notAllowedDescription": "Les utilisations suivantes des marques de Harch Corp sont strictement interdites sans autorisation écrite préalable :",
       "notAllowedItems": [
-        "Using Harch Corp trademarks in a way that implies endorsement, partnership, or sponsorship without written authorization from Harch Corp S.A.",
+        "Utiliser les marques de Harch Corp d'une manière qui implique un soutien, un partenariat ou un parrainage sans autorisation écrite de Harch Corp S.A.",
         "Modifying, distorting, or altering the Harch Corp logo or any trademark in any way, including changing colors, proportions, or adding effects.",
         "Using Harch Corp trademarks as part of your own company name, product name, domain name, or social media handle.",
-        "Displaying the Harch Corp logo alongside competitor trademarks or in contexts that could create confusion about the source of products or services.",
+        "Afficher le logo Harch Corp à côté de marques de concurrents ou dans des contextes pouvant créer une confusion sur l'origine des produits ou services.",
         "Using Harch Corp trademarks on merchandise, promotional items, or commercial products without explicit written permission.",
         "Incorporating Harch Corp trademarks into your own logos, icons, or brand identifiers.",
         "Using Harch Corp trademarks in any manner that is misleading, defamatory, obscene, or otherwise objectionable.",
         "Registering or attempting to register any Harch Corp trademark or confusingly similar marks as domain names, social media handles, or trade names.",
         "Using Harch Corp trademarks in metadata, hidden text, or keyword advertising (including Google Ads) to divert traffic from Harch Corp's own digital properties.",
-        "Creating derivative works based on Harch Corp trademarks, including parodies that could dilute the brand or tarnish its reputation."
+        "Créer des œuvres dérivées basées sur les marques de Harch Corp, y compris des parodies pouvant diluer la marque ou nuire à sa réputation."
       ],
       "requestTitle": "Demande d'autorisation",
       "requestDescription": "Si vous souhaitez utiliser une marque ou un logo de Harch Corp d'une manière non expressément couverte par ces directives, vous devez obtenir une autorisation écrite préalable de notre équipe de marque. Les demandes d'autorisation doivent inclure :",
@@ -7459,11 +7671,11 @@
         },
         {
           "title": "2. Intellectual Property",
-          "text": "All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Harch Corp S.A. and is protected by international copyright, trademark, and other intellectual property laws. Unauthorized use, reproduction, or distribution of any content is strictly prohibited."
+          "text": "Tout le contenu de ce site Web, y compris mais sans s'y limiter les textes, graphiques, logos, images et logiciels, est la propriété de Harch Corp S.A. et est protégé par les lois internationales sur le droit d'auteur, les marques et autres droits de propriété intellectuelle. Toute utilisation, reproduction ou distribution non autorisée de tout contenu est strictement interdite."
         },
         {
           "title": "3. Limitation of Liability",
-          "text": "The information on this website is provided for general informational purposes only. While we strive to keep the information up to date and correct, Harch Corp S.A. makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information, products, services, or related graphics contained on this website."
+          "text": "Les informations sur ce site Web sont fournies à des fins d'information générale uniquement. Bien que nous nous efforcions de maintenir les informations à jour et correctes, Harch Corp S.A. ne donne aucune garantie ou déclaration, explicite ou implicite, concernant l'exhaustivité, l'exactitude, la fiabilité, l'adéquation ou la disponibilité des informations, produits, services ou graphiques associés contenus sur ce site Web."
         },
         {
           "title": "4. Forward-Looking Statements",
@@ -7571,7 +7783,18 @@
     "moreDispatches": "Plus de dispatches",
     "newsAndAnnouncements": "Actualités et annonces",
     "press": "Presse",
-    "readFullDispatch": "Lire la dépêche complète"
+    "readFullDispatch": "Lire la dépêche complète",
+    "tags": {
+      "intelligence": "Intelligence",
+      "energy": "Énergie",
+      "corporate": "Corporate",
+      "cement": "Ciment",
+      "technology": "Technologie",
+      "mining": "Mines",
+      "water": "Eau",
+      "agri": "Agri",
+      "finance": "Finance"
+    }
   },
   "partners": {
     "title": "Partenaires",
@@ -7785,6 +8008,50 @@
       "max": "Max :",
       "bearing": "Roulement n°3",
       "flaggedAgo": "Signalé il y a 12 min"
+    },
+    "hubMetrics": {
+      "casablanca": "1 798 GPU — 48 Actifs",
+      "dakhla": "400 GPU — 94,8 % Renouvelable",
+      "banjul": "500kT/an Ciment — Phase 2",
+      "dakar": "Maillage IoT — 342 Capteurs",
+      "nouakchott": "3 Flux Minéraux",
+      "bamako": "200M m³/an Dessalement"
+    },
+    "gpuHubNames": {
+      "dakhla1": "Dakhla-1",
+      "dakhla2": "Dakhla-2",
+      "casablanca": "Casablanca",
+      "tanger": "Tanger",
+      "marrakech": "Marrakech"
+    },
+    "platformLabel": "PLATEFORME",
+    "headerTitle": "HARCH OS // PLATEFORME",
+    "hubsOnline": "5/5 HUBS EN LIGNE",
+    "activeSensors": "2 847 CAPTEURS ACTIFS",
+    "liveLabel": "EN DIRECT —",
+    "chartValues": {
+      "energyPeak": "218,4 MW",
+      "energyAvg": "94,7 MW",
+      "gpuAvg": "81,6 %",
+      "gpuMax": "94 % Dakhla-1",
+      "latencyAvg": "14,2 ms",
+      "latencyP99Label": "P99 :",
+      "latencyP99Value": "24,7 ms"
+    },
+    "cementStats": {
+      "vsBaseline": "+2,3 % vs référence",
+      "temperatureValue": "1 423",
+      "temperatureUnit": "°C",
+      "throughputValue": "87,2",
+      "throughputUnit": "t/hr",
+      "carbonValue": "612",
+      "carbonUnit": "kg/t"
+    },
+    "version": "v3.7.2",
+    "hubStatuses": {
+      "operational": "OPÉRATIONNEL",
+      "engineering": "INGÉNIERIE",
+      "planned": "PLANIFIÉ"
     }
   },
   "press": {
@@ -8137,7 +8404,18 @@
       "vsIndustryAvg": "Calculator Vs Industry Avg",
       "yearUnit": "Calculator Year Unit",
       "saveWithAnnual": "Économisez avec la facturation annuelle : {amount}",
-      "estimateNote": "Estimation basée sur le tier Professionnel H100. Le tarif réel varie selon le type de GPU et la région."
+      "estimateNote": "Estimation basée sur le tier Professionnel H100. Le tarif réel varie selon le type de GPU et la région.",
+      "cdnLabel": "CDN",
+      "providers": {
+        "harchos": "HarchOS",
+        "aws": "AWS",
+        "gcp": "GCP",
+        "azure": "Azure"
+      },
+      "storageRangeMin": "10 Go",
+      "storageRangeMax": "50 To",
+      "bandwidthRangeMin": "0 Gbps",
+      "bandwidthRangeMax": "100 Gbps"
     },
     "faq": {
       "title": "Questions frequentes",
@@ -11115,7 +11393,7 @@
               "harchWins": true
             }
           ],
-          "verdict": "AWS Cape Town is a US cloud region on South African soil. Harch Technology is an African sovereign platform on African soil — with GPU compute AWS lacks in Africa."
+          "verdict": "AWS Cape Town est une région cloud américaine sur le sol sud-africain. Harch Technology est une plateforme souveraine africaine sur le sol africain — avec du calcul GPU qu'AWS n'a pas en Afrique."
         }
       ]
     },
@@ -12168,7 +12446,7 @@
               "harchWins": true
             }
           ],
-          "verdict": "Dangote produces volume. Harch Cement produces the future — green LC3 cement at 30-50% below import prices, powered by 100% renewable energy."
+          "verdict": "Dangote produit du volume. Harch Cement produit l'avenir — ciment vert LC3 à 30-50 % en dessous des prix d'importation, alimenté par 100 % d'énergie renouvelable."
         },
         {
           "name": "Holcim (ECOPact)",
@@ -13072,7 +13350,7 @@
         },
         {
           "title": "Nexus intégré eau-énergie-agriculture",
-          "desc": "Harch Water provides desalinated irrigation water, Harch Energy supplies solar-powered pumps, and Harch Technology delivers IoT and AI analytics — an integrated stack no standalone agri company can replicate."
+          "desc": "Harch Water fournit de l'eau d'irrigation dessalée, Harch Energy fournit des pompes solaires et Harch Technology offre l'IoT et l'analytique IA — une pile intégrée qu'aucune entreprise agricole autonome ne peut reproduire."
         },
         {
           "title": "Proximité des exportations européennes",
@@ -14674,6 +14952,15 @@
         "governmentRequestsValue": "Toutes les demandes de données gouvernementales sont divulguées publiquement dans notre rapport de transparence",
         "securityIncidentsValue": "Incidents de sécurité signalés dans les 72 heures avec divulgation complète après la remédiation",
         "uptimeSlaValue": "SLA de disponibilité de 99,9 % avec un suivi en temps réel de l'état et un historique des incidents"
+      },
+      "auditDates": {
+        "q3_2026": "T3 2026",
+        "q4_2026": "T4 2026",
+        "q2_2026": "T2 2026",
+        "jun_2025": "Juin 2025",
+        "jun_2026": "Juin 2026",
+        "q1_2027": "T1 2027",
+        "q2_2027": "T2 2027"
       }
     },
     "aiEthics": {
@@ -14834,7 +15121,10 @@
           "halted": "Autorité suspendue",
           "modified": "Autorité modifiée",
           "reviews": "Révisions d'autorité",
-          "title": "Autorité"
+          "title": "Autorité",
+          "reviewsValue": "23",
+          "haltedValue": "2",
+          "modifiedValue": "5"
         },
         "chiefEthicsOfficer": {
           "desc": "Description de directeur de l'éthique",
@@ -15279,7 +15569,18 @@
     },
     "transparencyReportDescription": "Description de rapport de transparence",
     "transparencyReportTitle": "Rapport de transparence",
-    "viewAllCompliance": "View All Conformité"
+    "viewAllCompliance": "View All Conformité",
+    "statusLabels": {
+      "achieved": "Atteint",
+      "inProgress": "En cours",
+      "planned": "Prévu",
+      "latest": "Dernier",
+      "published": "Publié"
+    },
+    "contactEmail": "amine@harchcorp.com",
+    "pdf": "PDF",
+    "tableId": "ID",
+    "slaLabel": "SLA :"
   },
   "charts": {
     "energyMix": {
@@ -17038,7 +17339,7 @@
               },
               "1": {
                 "title": "Fleet Management",
-                "description": "Real-time dispatch of excavators and haul trucks using GPS tracking and onboard weighing. Productivity dashboards show tonnes moved per hour, fuel consumption per tonne, and equipment utilization. Haul road condition monitoring identifies maintenance needs before they cause equipment damage."
+                "description": "Dispatch en temps réel des excavatrices et des camions-bennes par suivi GPS et pesée embarquée. Les tableaux de bord de productivité affichent les tonnes déplacées par heure, la consommation de carburant par tonne et l'utilisation des équipements. La surveillance de l'état des pistes de transport identifie les besoins de maintenance avant qu'ils n'endommagent les équipements."
               },
               "2": {
                 "title": "Grade Contrôle",
@@ -17248,7 +17549,7 @@
               },
               "2": {
                 "title": "Wastewater Treatment",
-                "description": "Biological treatment process management including activated sludge, MBR, and constructed wetlands. Nutrient removal optimization (nitrogen and phosphorus) to meet discharge standards. Sludge management tracking including thickening, dewatering, and disposal or beneficial reuse."
+                "description": "Gestion des procédés de traitement biologique, incluant les boues activées, les MBR et les zones humides construites. Optimisation de l'élimination des nutriments (azote et phosphore) pour respecter les normes de rejet. Suivi de la gestion des boues, incluant l'épaississement, la déshydratation et l'élimination ou la réutilisation bénéfique."
               },
               "3": {
                 "title": "Laboratory Information Management",
@@ -17272,7 +17573,7 @@
               },
               "2": {
                 "title": "Pressure Management",
-                "description": "Pressure reducing valve management and modulating pressure control to minimize leakage while maintaining adequate service levels. Time-based and flow-based pressure modulation reduces pipe stress during low-demand periods. Burst frequency reduction demonstrated through before/after analysis."
+                "description": "Gestion des vannes réductrices de pression et contrôle modulant de la pression pour minimiser les fuites tout en maintenant des niveaux de service adéquats. La modulation de pression basée sur le temps et le débit réduit la contrainte des tuyaux pendant les périodes de faible demande. La réduction de la fréquence des ruptures est démontrée par une analyse avant/après."
               },
               "3": {
                 "title": "Demand Monitoring & Forecasting",
@@ -17520,7 +17821,9 @@
       }
     },
     "allSystemsOperationalDesc": "Tous les services Harch Corp fonctionnent normalement.",
-    "partialServiceDisruptionDesc": "Certains services rencontrent des problèmes. Notre équipe intervient."
+    "partialServiceDisruptionDesc": "Certains services rencontrent des problèmes. Notre équipe intervient.",
+    "utc": "UTC",
+    "dayTooltip": "Jour {day} : {status}"
   },
   "topNav": {
     "platform": "Plateforme",

@@ -13939,7 +13939,13 @@
     "whitepaper": "Platform Whitepaper",
     "whitepaperDesc": "In-depth analysis of carbon-aware scheduling, architecture, and competitive positioning.",
     "sustainabilityReport": "Sustainability Impact Report",
-    "sustainabilityReportDesc": "Carbon lifecycle assessment, renewable energy metrics, and our net-zero roadmap."
+    "sustainabilityReportDesc": "Carbon lifecycle assessment, renewable energy metrics, and our net-zero roadmap.",
+    "companyOverview": "Company Overview",
+    "companyOverviewDesc": "Complete introduction to Harch Corp, our vertical integration model, subsidiaries, and competitive positioning across 8 verticals in 5 countries.",
+    "aiSolutions": "AI Solutions Brochure",
+    "aiSolutionsDesc": "Enterprise AI capabilities, service tiers, use cases, and performance benchmarks for the Harch Intelligence GPU compute platform.",
+    "energyDatasheet": "Renewable Energy Datasheet",
+    "energyDatasheetDesc": "2GW+ renewable energy pipeline specifications, solar and wind installation details, storage systems, and economic advantages."
   },
   "support": {
     "cta": {

@@ -549,9 +549,28 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8">{t('downloadTitle')}</h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Datasheet */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Company Overview */}
             <FadeIn delay={0.05}>
+              <a
+                href="/pdfs/harchcorp-company-overview.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 bg-white border border-neutral-200 p-6 hover:border-neutral-300 hover:shadow-sm transition-all group"
+              >
+                <div className="w-10 h-10 flex items-center justify-center border border-neutral-200 group-hover:border-neutral-300 transition-colors shrink-0" style={{ color: accent }}>
+                  <Download size={18} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-[14px] font-bold text-neutral-900 mb-1">{t('companyOverview')}</h4>
+                  <p className="text-[12px] text-neutral-500 leading-relaxed">{t('companyOverviewDesc')}</p>
+                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 7 pages</span>
+                </div>
+              </a>
+            </FadeIn>
+
+            {/* Datasheet */}
+            <FadeIn delay={0.1}>
               <a
                 href="/pdfs/harch-intelligence-datasheet.pdf"
                 target="_blank"
@@ -570,9 +589,9 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
             </FadeIn>
 
             {/* Whitepaper */}
-            <FadeIn delay={0.1}>
+            <FadeIn delay={0.15}>
               <a
-                href="/pdfs/harch-platform-whitepaper.pdf"
+                href="/pdfs/harch-intelligence-whitepaper.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 bg-white border border-neutral-200 p-6 hover:border-neutral-300 hover:shadow-sm transition-all group"
@@ -583,13 +602,32 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                 <div>
                   <h4 className="text-[14px] font-bold text-neutral-900 mb-1">{t('whitepaper')}</h4>
                   <p className="text-[12px] text-neutral-500 leading-relaxed">{t('whitepaperDesc')}</p>
-                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 18 pages</span>
+                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 7 pages</span>
+                </div>
+              </a>
+            </FadeIn>
+
+            {/* AI Solutions Brochure */}
+            <FadeIn delay={0.2}>
+              <a
+                href="/pdfs/harch-intelligence-ai-solutions.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 bg-white border border-neutral-200 p-6 hover:border-neutral-300 hover:shadow-sm transition-all group"
+              >
+                <div className="w-10 h-10 flex items-center justify-center border border-neutral-200 group-hover:border-neutral-300 transition-colors shrink-0" style={{ color: accent }}>
+                  <Download size={18} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-[14px] font-bold text-neutral-900 mb-1">{t('aiSolutions')}</h4>
+                  <p className="text-[12px] text-neutral-500 leading-relaxed">{t('aiSolutionsDesc')}</p>
+                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 5 pages</span>
                 </div>
               </a>
             </FadeIn>
 
             {/* Sustainability Report */}
-            <FadeIn delay={0.15}>
+            <FadeIn delay={0.25}>
               <a
                 href="/pdfs/harch-sustainability-report.pdf"
                 target="_blank"
@@ -602,7 +640,26 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                 <div>
                   <h4 className="text-[14px] font-bold text-neutral-900 mb-1">{t('sustainabilityReport')}</h4>
                   <p className="text-[12px] text-neutral-500 leading-relaxed">{t('sustainabilityReportDesc')}</p>
-                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 18 pages</span>
+                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 7 pages</span>
+                </div>
+              </a>
+            </FadeIn>
+
+            {/* Energy Datasheet */}
+            <FadeIn delay={0.3}>
+              <a
+                href="/pdfs/harch-energy-datasheet.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 bg-white border border-neutral-200 p-6 hover:border-neutral-300 hover:shadow-sm transition-all group"
+              >
+                <div className="w-10 h-10 flex items-center justify-center border border-neutral-200 group-hover:border-neutral-300 transition-colors shrink-0" style={{ color: '#4A7B5F' }}>
+                  <Download size={18} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-[14px] font-bold text-neutral-900 mb-1">{t('energyDatasheet')}</h4>
+                  <p className="text-[12px] text-neutral-500 leading-relaxed">{t('energyDatasheetDesc')}</p>
+                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 6 pages</span>
                 </div>
               </a>
             </FadeIn>

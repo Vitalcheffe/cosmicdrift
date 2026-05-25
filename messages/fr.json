@@ -13940,7 +13940,13 @@
     "whitepaper": "Livre Blanc Plateforme",
     "whitepaperDesc": "Analyse approfondie de l'ordonnancement conscient du carbone, de l'architecture et du positionnement concurrentiel.",
     "sustainabilityReport": "Rapport d'Impact Durabilité",
-    "sustainabilityReportDesc": "Évaluation du cycle de vie carbone, métriques d'énergie renouvelable et notre feuille de route net-zéro."
+    "sustainabilityReportDesc": "Évaluation du cycle de vie carbone, métriques d'énergie renouvelable et notre feuille de route net-zéro.",
+    "companyOverview": "Présentation de l'Entreprise",
+    "companyOverviewDesc": "Présentation complète de Harch Corp, notre modèle d'intégration verticale, nos filiales et notre positionnement concurrentiel à travers 8 secteurs dans 5 pays.",
+    "aiSolutions": "Brochure Solutions IA",
+    "aiSolutionsDesc": "Capacités IA entreprise, niveaux de service, cas d'usage et benchmarks de performance pour la plateforme de calcul GPU Harch Intelligence.",
+    "energyDatasheet": "Fiche Technique Énergie Renouvelable",
+    "energyDatasheetDesc": "Spécifications du pipeline d'énergie renouvelable de 2GW+, détails des installations solaires et éoliennes, systèmes de stockage et avantages économiques."
   },
   "support": {
     "title": "Support",

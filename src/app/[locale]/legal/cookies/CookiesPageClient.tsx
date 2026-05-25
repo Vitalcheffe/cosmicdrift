@@ -20,6 +20,7 @@ export default function CookiesPageClient() {
             <p className="section-label mb-4">{t('title')}</p>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('cookies.title')}</h1>
             <div className="accent-line mb-8" />
+            <p className="text-base md:text-lg text-[#999999] leading-relaxed max-w-2xl">{t('cookies.description')}</p>
             <p className="text-[14px] text-[#999999] leading-relaxed mb-8">{t('cookies.lastUpdated')}</p>
           </FadeIn>
 

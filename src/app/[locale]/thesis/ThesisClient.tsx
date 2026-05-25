@@ -197,7 +197,7 @@ export default function ThesisClient() {
         {/* ── CTA ── */}
         <FadeIn>
           <div className="card p-8 md:p-12 text-center">
-            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-4">{t('cta.subtitle')}</p>
+            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#666666] font-[family-name:var(--font-space-mono)] mb-4">{t('cta.badge')}</p>
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               {t('cta.title')}
             </h3>

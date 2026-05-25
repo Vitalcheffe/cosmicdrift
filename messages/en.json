@@ -6759,10 +6759,11 @@
     "title": "Legal",
     "heroLabel": "Legal",
     "heroTitle": "Legal Center",
+    "description": "Legal documents and policies governing the use of Harch Corp services, protection of your data, and our corporate responsibilities.",
     "heroDescription": "Legal documents, compliance policies, and regulatory information.",
     "accessibility": {
       "title": "Accessibility Statement",
-      "description": "Harch Corp accessibility policy.",
+      "description": "Our commitment to making Harch Corp digital services accessible to everyone, including users with disabilities, in compliance with WCAG 2.1 Level AA standards.",
       "lastUpdated": "Last updated: January 2026",
       "commitmentTitle": "Our Commitment to Accessibility",
       "commitmentDescription": "Harch Corp S.A. is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards to ensure our website and digital services are perceivable, operable, understandable, and robust for all users. Accessibility is not just a compliance obligation for us — it is a core principle that aligns with our values as a responsible corporate citizen and our mission to serve diverse communities across Africa and beyond. We invest in accessibility because we believe everyone should have equal access to information about our company, services, and opportunities.",
@@ -6835,7 +6836,7 @@
     },
     "ccpa": {
       "title": "CCPA Compliance",
-      "description": "California Consumer Privacy Act compliance.",
+      "description": "This notice describes the rights of California residents under the California Consumer Privacy Act (CCPA) and how Harch Corp handles personal information subject to this regulation.",
       "lastUpdated": "Last updated: January 2026",
       "rightsTitle": "Your Rights Under CCPA",
       "rightsDescription": "The California Consumer Privacy Act of 2018 (CCPA), as amended by the California Privacy Rights Act (CPRA), provides California residents with specific rights regarding their personal information. Harch Corp S.A. is committed to complying with the CCPA/CPRA and respecting the privacy rights of all California consumers. This notice describes the categories of personal information we collect, the purposes for which we use that information, and the rights available to you under California law.",
@@ -6925,7 +6926,7 @@
     },
     "codeOfConduct": {
       "title": "Code of Business Conduct",
-      "description": "Business ethics and code of conduct.",
+      "description": "The Harch Corp Code of Conduct defines the ethical standards and behavioral expectations that guide every director, officer, and employee across all our operations worldwide.",
       "lastUpdated": "Last updated: January 2026",
       "purposeAndScope": "Purpose and Scope",
       "purposeAndScopeDescription": "This Code of Business Conduct (“Code”) establishes the ethical standards and behavioral expectations that govern the conduct of all directors, officers, employees, contractors, and agents of Harch Corp S.A. and its subsidiaries, joint ventures, and affiliated entities worldwide. The Code applies to all business activities and relationships, whether conducted in person, electronically, or through third-party representatives. It reflects our commitment to integrity, transparency, and accountability in everything we do. Compliance with this Code is mandatory, and violations may result in disciplinary action up to and including termination of employment or business relationship, as well as potential legal consequences.",
@@ -6992,7 +6993,7 @@
     },
     "cookies": {
       "title": "Cookie Policy",
-      "description": "Cookie usage policy.",
+      "description": "This policy explains how Harch Corp uses cookies and similar technologies on our website, what data they collect, and how you can manage your preferences.",
       "lastUpdated": "Last updated: January 2026",
       "whatAreCookiesTitle": "1. What Are Cookies",
       "whatAreCookiesDescription": "Cookies are small text files that are stored on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently, to provide a better browsing experience, and to supply information to the owners of the site. Cookies allow websites to recognize your device and remember information about your visit, such as your preferred language and other settings. Similar technologies such as web beacons (also known as pixel tags or clear GIFs), local storage, and session storage operate in similar ways and are covered by this policy.",
@@ -7113,7 +7114,7 @@
     },
     "dpa": {
       "title": "Data Processing Agreement",
-      "description": "Data Processing Agreement.",
+      "description": "Our Data Processing Agreement sets out the terms under which Harch Corp processes personal data on behalf of our clients, ensuring GDPR compliance and robust data protection.",
       "lastUpdated": "Last updated: January 2026",
       "overviewTitle": "Overview",
       "overviewDescription": "Harch Corp S.A. recognizes that data protection is fundamental to our relationships with clients, partners, and stakeholders. Our Data Processing Agreement (DPA) establishes the terms and conditions under which we process personal data on behalf of our clients, ensuring compliance with the General Data Protection Regulation (GDPR), the Kingdom of Morocco's Law No. 09-08 on the Protection of Personal Data, and other applicable data protection laws. This page outlines the key provisions of our DPA and provides access to our DPA template for review and execution.",
@@ -7158,7 +7159,7 @@
     },
     "gdpr": {
       "title": "GDPR Compliance",
-      "description": "General Data Protection Regulation compliance.",
+      "description": "Harch Corp S.A. is committed to full compliance with the General Data Protection Regulation (GDPR) and Moroccan Law No. 09-08 on the protection of personal data.",
       "lastUpdated": "Last updated: January 2026",
       "commitmentTitle": "Our GDPR Commitment",
       "commitmentDescription": "Harch Corp S.A. is committed to ensuring compliance with the General Data Protection Regulation (EU) 2016/679 (GDPR) and the Kingdom of Morocco's Law No. 09-08 on the Protection of Individuals with Regard to the Processing of Personal Data. Although headquartered in Casablanca, Morocco, we recognize that our operations, partnerships, and services may involve the processing of personal data of individuals within the European Economic Area (EEA). We have implemented comprehensive data protection measures, appointed a Data Protection Officer, and established robust processes to ensure that the personal data of EU data subjects is processed lawfully, fairly, and transparently.",
@@ -7253,7 +7254,7 @@
       "footerNote": "Last updated: January 2026 | This statement is governed by the laws of the Kingdom of Morocco and the GDPR where applicable."
     },
     "hub": {
-      "subtitle": "Policies, compliance documents, and regulatory information",
+      "subtitle": "Access all legal documents, policies, and compliance information for Harch Corp S.A. and its subsidiaries.",
       "title": "Legal Hub",
       "description": "Central hub for all legal documents and compliance resources.",
       "updatedLabel": "Updated:",
@@ -7348,7 +7349,7 @@
     },
     "modernSlavery": {
       "title": "Modern Slavery Statement",
-      "description": "Modern slavery and forced labor statement.",
+      "description": "Our modern slavery statement outlines the steps Harch Corp takes to prevent slavery, forced labor, and human trafficking in our operations and supply chains.",
       "lastUpdated": "Fiscal Year 2025 | Published: January 2026",
       "ceoStatementTitle": "Statement from the CEO",
       "ceoStatement1": "“At Harch Corp, we believe that the dignity of every human being is non-negotiable. Modern slavery, in all its forms — forced labor, human trafficking, debt bondage, and child labor — represents a fundamental violation of human rights that has no place in our operations or supply chain. As a Moroccan industrial conglomerate operating across seven verticals and multiple geographies, we recognize both our responsibility and our influence to drive positive change.",
@@ -7448,7 +7449,7 @@
     },
     "sla": {
       "title": "Service Level Agreement",
-      "description": "Service Level Agreement.",
+      "description": "Our Service Level Agreement defines the availability commitments, performance targets, and remediation processes that govern Harch Corp infrastructure and platform services.",
       "lastUpdated": "Last updated: January 2026",
       "serviceAvailabilityTarget": "Service Availability Target",
       "serviceAvailabilityDescription": "Harch Corp S.A. is committed to providing highly available and reliable services to our clients. Our Service Level Agreement guarantees a monthly uptime target of <span class=\"text-white font-semibold\">99.95%</span> for all covered services, including our digital platform, API endpoints, and managed infrastructure. This commitment reflects our investment in enterprise-grade infrastructure, redundant systems, and 24/7 operations monitoring across our data centers and service delivery platforms.",
@@ -7547,7 +7548,7 @@
     },
     "trademark": {
       "title": "Trademark Policy",
-      "description": "Harch Corp trademark usage policy.",
+      "description": "Guidelines for the proper use of Harch Corp trademarks, logos, and brand assets. These rules ensure consistent and authorized representation of our brand across all media.",
       "lastUpdated": "Last updated: January 2026",
       "trademarksTitle": "Harch Corp Trademarks",
       "trademarksDescription": "The following are trademarks and service marks owned by Harch Corp S.A. This list is not exhaustive and may be updated from time to time. The absence of a mark from this list does not mean it is not a trademark of Harch Corp:",
@@ -7905,6 +7906,94 @@
         }
       ],
       "title": "Technology Partners"
+    },
+    "models": {
+      "label": "Partnership Models",
+      "title": "How Partnerships Work",
+      "items": {
+        "strategicAlliance": {
+          "title": "Strategic Alliance",
+          "description": "Deep, long-term partnerships with aligned missions and shared resources. Strategic allies co-invest in infrastructure and jointly develop sovereign solutions for the continent."
+        },
+        "technologyIntegration": {
+          "title": "Technology Integration",
+          "description": "Embed partner technologies into the Harch ecosystem and vice versa. Our integration model ensures seamless interoperability across platforms, from GPU cloud to energy management."
+        },
+        "jointVenture": {
+          "title": "Joint Venture",
+          "description": "Create shared entities for specific projects or markets. Joint ventures combine Harch's vertical integration with partner expertise to execute at continental scale."
+        }
+      }
+    },
+    "benefits": {
+      "label": "Why Partner With Us",
+      "title": "Partnership Benefits",
+      "items": {
+        "marketAccess": {
+          "title": "Market Access",
+          "description": "Gain direct access to Africa's fastest-growing infrastructure markets through our established presence in 5+ countries and 8 operational verticals."
+        },
+        "technologyTransfer": {
+          "title": "Technology Transfer",
+          "description": "Leverage Harch's proprietary technology stack — from carbon-aware GPU scheduling to AI-driven industrial optimization — through structured transfer programs."
+        },
+        "esgAlignment": {
+          "title": "ESG Alignment",
+          "description": "Meet and exceed environmental, social, and governance standards through partnerships built on transparency, sustainability reporting, and measurable impact."
+        },
+        "sovereignInfrastructure": {
+          "title": "Sovereign Infrastructure",
+          "description": "Build infrastructure that nations own and control. Our model ensures data sovereignty, operational autonomy, and local value capture at every level."
+        }
+      }
+    },
+    "process": {
+      "label": "Partnership Process",
+      "title": "How to Get Started",
+      "items": {
+        "initialConsultation": {
+          "step": "01",
+          "title": "Initial Consultation",
+          "description": "We begin with a strategic assessment to understand your objectives, capabilities, and alignment with our mission of African industrial sovereignty."
+        },
+        "dueDiligence": {
+          "step": "02",
+          "title": "Due Diligence",
+          "description": "Comprehensive evaluation of technical, financial, and operational compatibility. We assess ESG compliance, regulatory standing, and strategic fit."
+        },
+        "agreementFramework": {
+          "step": "03",
+          "title": "Agreement Framework",
+          "description": "Structure the partnership with clear governance, resource allocation, IP frameworks, and performance milestones tailored to the collaboration model."
+        },
+        "jointExecution": {
+          "step": "04",
+          "title": "Joint Execution",
+          "description": "Launch the partnership with dedicated teams, shared project management, and regular strategic reviews to ensure measurable outcomes and continuous alignment."
+        }
+      }
+    },
+    "stats": {
+      "label": "By The Numbers",
+      "title": "Our Partnership Footprint",
+      "items": {
+        "countries": {
+          "value": "5+",
+          "label": "Countries"
+        },
+        "partners": {
+          "value": "20+",
+          "label": "Global Partners"
+        },
+        "jointVentures": {
+          "value": "3",
+          "label": "Joint Ventures"
+        },
+        "pipeline": {
+          "value": "$2.4B+",
+          "label": "Investment Pipeline"
+        }
+      }
     }
   },
   "platform": {
@@ -8696,6 +8785,12 @@
     }
   },
   "privacy": {
+    "description": "We are committed to protecting your privacy and ensuring the security of your personal data. This policy outlines how Harch Corp S.A. collects, uses, and safeguards your information in compliance with Moroccan Law No. 09-08, the GDPR, and international best practices.",
+    "cta": {
+      "title": "Questions About Your Data?",
+      "description": "Our Data Protection Officer is available to address any concerns about how we handle your information.",
+      "button": "Contact DPO"
+    },
     "contactUs": "Contact Us",
     "contactUsText": "For any questions about this privacy policy or our data practices, contact us at amine@harchcorp.com or write to Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco.",
     "cookies": "Cookies",
@@ -14109,6 +14204,12 @@
     }
   },
   "terms": {
+    "description": "These terms and conditions govern your use of the Harch Corp website and digital services. By accessing our platforms, you agree to these terms. Please review them carefully.",
+    "cta": {
+      "title": "Need Legal Clarification?",
+      "description": "Our legal team can provide guidance on any aspect of these terms and conditions.",
+      "button": "Contact Legal"
+    },
     "acceptance": "Acceptance",
     "acceptanceText": "By accessing or using any Harch Corp service, you agree to be bound by these Terms of Service. If you do not agree to all of these terms, do not use our services.",
     "accuracy": "Accuracy of Information",
@@ -14210,6 +14311,7 @@
       ]
     },
     "cta": {
+      "badge": "Build With Us",
       "primary": "Investor Relations",
       "secondary": "Read the Full Thesis",
       "subtitle": "Join institutional investors funding Africa's next-generation infrastructure.",

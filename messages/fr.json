@@ -6759,10 +6759,11 @@
     "title": "Juridique",
     "heroLabel": "Juridique",
     "heroTitle": "Centre Juridique",
+    "description": "Documents juridiques et politiques régissant l'utilisation des services de Harch Corp, la protection de vos données et nos responsabilités corporate.",
     "heroDescription": "Documents juridiques, politiques de conformité et informations reglementaires.",
     "accessibility": {
       "title": "Accessibilité",
-      "description": "Politique d'accessibilité de Harch Corp.",
+      "description": "Notre engagement à rendre les services numériques de Harch Corp accessibles à tous, y compris aux utilisateurs en situation de handicap, en conformité avec les normes WCAG 2.1 Niveau AA.",
       "lastUpdated": "Dernière mise à jour : Janvier 2026",
       "commitmentTitle": "Notre engagement envers l'accessibilité",
       "commitmentDescription": "Harch Corp S.A. s'engage à garantir l'accessibilité numérique pour les personnes en situation de handicap. Nous continuons à améliorer l'expérience utilisateur pour tous.",
@@ -6835,7 +6836,7 @@
     },
     "ccpa": {
       "title": "CCPA",
-      "description": "Conformité au California Consumer Privacy Act.",
+      "description": "Cet avis décrit les droits des résidents de Californie en vertu de la California Consumer Privacy Act (CCPA) et la manière dont Harch Corp traite les informations personnelles soumises à cette réglementation.",
       "lastUpdated": "Dernière mise à jour : Janvier 2026",
       "rightsTitle": "Vos droits en vertu du CCPA",
       "rightsDescription": "La loi californienne sur la protection de la vie privée des consommateurs de 2018 (CCPA), amendée par la loi californienne sur les droits à la vie privée (CPRA), accorde aux résidents de Californie des droits spécifiques concernant leurs informations personnelles. Harch Corp S.A. s'engage à se conformer à la CCPA/CPRA et à respecter les droits à la vie privée de tous les consommateurs de Californie. Le présent avis décrit les catégories d'informations personnelles que nous collectons, les raisons pour lesquelles nous utilisons ces informations, et les droits qui vous sont accordés en vertu de la loi californienne.",
@@ -6925,7 +6926,7 @@
     },
     "codeOfConduct": {
       "title": "Code de conduite",
-      "description": "Code de conduite et d'éthique des affaires.",
+      "description": "Le Code de Conduite de Harch Corp définit les normes éthiques et les attentes comportementales qui guident chaque administrateur, dirigeant et employé dans toutes nos opérations dans le monde.",
       "lastUpdated": "Dernière mise à jour : Janvier 2026",
       "purposeAndScope": "Purpose and Périmètre",
       "purposeAndScopeDescription": "Le Code de conduite commerciale (« Code ») établit les normes éthiques et les attentes de comportement qui régissent la conduite de tous les directeurs, cadres, employés, contractants et agents de Harch Corp S.A. et de ses filiales, coentreprises et entités affiliées dans le monde entier. Le Code s'applique à toutes les activités et relations commerciales, qu'elles soient menées en personne, électroniquement ou par l'intermédiaire de représentants tiers. Il reflète notre engagement en faveur de l'intégrité, de la transparence et de la responsabilité dans tout ce que nous faisons. La conformité à ce Code est obligatoire, et les violations peuvent entraîner des mesures disciplinaires allant jusqu'à et y compris la résiliation de l'emploi ou de la relation commerciale, ainsi que d'éventuelles conséquences juridiques.",
@@ -6992,7 +6993,7 @@
     },
     "cookies": {
       "title": "Cookies",
-      "description": "Politique d'utilisation des cookies.",
+      "description": "Cette politique explique comment Harch Corp utilise les cookies et technologies similaires sur notre site Web, quelles données ils collectent et comment vous pouvez gérer vos préférences.",
       "lastUpdated": "Dernière mise à jour : Janvier 2026",
       "whatAreCookiesTitle": "1. Qu'est-ce que les cookies",
       "whatAreCookiesDescription": "Les cookies sont de petits fichiers texte qui sont stockés sur votre ordinateur ou votre appareil mobile lorsque vous visitez un site web. Ils sont largement utilisés pour rendre les sites web plus efficaces, pour offrir une meilleure expérience de navigation et pour fournir des informations aux propriétaires du site. Les cookies permettent aux sites web de reconnaître votre appareil et de se souvenir d'informations sur votre visite, telles que votre langue préférée et autres paramètres. Des technologies similaires telles que les balises web (également connues sous le nom de balises pixels ou GIF transparents), le stockage local et le stockage de session fonctionnent de manière similaire et sont couverts par cette politique.",
@@ -7113,7 +7114,7 @@
     },
     "dpa": {
       "title": "DPA",
-      "description": "Accord de traitement des données.",
+      "description": "Notre Accord de Traitement des Données définit les conditions dans lesquelles Harch Corp traite les données personnelles pour le compte de nos clients, garantissant la conformité au RGPD et une protection robuste des données.",
       "lastUpdated": "Dernière mise à jour : Janvier 2026",
       "overviewTitle": "Aperçu",
       "overviewDescription": "Harch Corp S.A. reconnaît que la protection des données est fondamentale à nos relations avec les clients, partenaires et parties prenantes. Notre Accord de Traitement des Données (DPA) établit les termes et conditions selon lesquels nous traitons des données personnelles pour le compte de nos clients, en garantissant la conformité avec le Règlement Général sur la Protection des Données (RGPD), la loi n° 09-08 du Royaume du Maroc sur la Protection des Données Personnelles, et autres lois applicables en matière de protection des données. Cette page présente les dispositions clés de notre DPA et donne accès à notre modèle de DPA pour examen et exécution.",
@@ -7158,7 +7159,7 @@
     },
     "gdpr": {
       "title": "RGPD",
-      "description": "Conformité au Règlement Général sur la Protection des Données.",
+      "description": "Harch Corp S.A. s'engage à une conformité totale avec le Règlement Général sur la Protection des Données (RGPD) et la Loi marocaine n° 09-08 relative à la protection des données personnelles.",
       "lastUpdated": "Dernière mise à jour : Janvier 2026",
       "commitmentTitle": "Our GDPR Engagement",
       "commitmentDescription": "Harch Corp S.A. s'engage à assurer la conformité avec le Règlement Général sur la Protection des Données (UE) 2016/679 (RGPD) et la loi n° 09-08 du Royaume du Maroc sur la Protection des Personnes en ce qui concerne le Traitement des Données Personnelles. Bien que notre siège social soit à Casablanca, au Maroc, nous reconnaissons que nos opérations, partenariats et services peuvent impliquer le traitement de données personnelles d'individus de l'Espace Économique Européen (EEE). Nous avons mis en place des mesures de protection des données complètes, nommé un Délégué à la Protection des Données et établi des processus robustes pour garantir que les données personnelles des sujets de données de l'UE sont traitées de manière légale, loyale et transparente.",
@@ -7255,7 +7256,7 @@
     "hub": {
       "title": "Centre juridique",
       "description": "Hub central pour tous les documents juridiques.",
-      "subtitle": "Hub Subtitle",
+      "subtitle": "Accédez à tous les documents juridiques, politiques et informations de conformité pour Harch Corp S.A. et ses filiales.",
       "updatedLabel": "Mis à jour :",
       "footerGoverningLaw": "Tous les documents sont régis par les lois du Royaume du Maroc sauf indication contraire.",
       "footerContact": "Pour les demandes juridiques : amine@harchcorp.com | Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Maroc",
@@ -7348,7 +7349,7 @@
     },
     "modernSlavery": {
       "title": "Esclavage moderne",
-      "description": "Declaration sur l'esclavage moderne et le travail force.",
+      "description": "Notre déclaration sur l'esclavage moderne décrit les mesures prises par Harch Corp pour prévenir l'esclavage, le travail forcé et la traite des êtres humains dans nos opérations et chaînes d'approvisionnement.",
       "lastUpdated": "Exercice fiscal 2025 | Publié : janvier 2026",
       "ceoStatementTitle": "Déclaration du PDG",
       "ceoStatement1": "« Chez Harch Corp, nous croyons que la dignité de chaque être humain est non négociable. L'esclavage moderne, sous toutes ses formes — travail forcé, traite des êtres humains, servitude pour dettes et travail des enfants — représente une violation fondamentale des droits de l'homme qui n'a pas sa place dans nos opérations ou notre chaîne d'approvisionnement. En tant que conglomérat industriel marocain opérant dans sept secteurs verticaux et plusieurs géographies, nous reconnons à la fois notre responsabilité et notre influence pour favoriser un changement positif. »",
@@ -7448,7 +7449,7 @@
     },
     "sla": {
       "title": "SLA",
-      "description": "Accords de niveau de service.",
+      "description": "Notre Accord de Niveau de Service définit les engagements de disponibilité, les objectifs de performance et les processus de remédiation qui régissent les services d'infrastructure et de plateforme de Harch Corp.",
       "lastUpdated": "Dernière mise à jour : Janvier 2026",
       "serviceAvailabilityTarget": "Cible de Disponibilité du Service",
       "serviceAvailabilityDescription": "Harch Corp S.A. s'engage à fournir des services hautement disponibles et fiables à nos clients. Notre Accord sur le Niveau de Service garantit une cible de disponibilité mensuelle de <span class=\"text-white font-semibold\">99,95%</span> pour tous les services couverts, y compris notre plateforme numérique, les points de terminaison API et notre infrastructure gérée. Cet engagement reflète notre investissement dans une infrastructure d'entreprise, des systèmes redondants et une surveillance opérationnelle 24h/24 et 7j/7 à travers nos centres de données et nos plateformes de livraison de services.",
@@ -7517,7 +7518,7 @@
     },
     "trademark": {
       "title": "Marques deposees",
-      "description": "Politique d'utilisation des marques deposees Harch Corp.",
+      "description": "Directives pour l'utilisation appropriée des marques, logos et éléments de marque de Harch Corp. Ces règles garantissent une représentation cohérente et autorisée de notre marque dans tous les médias.",
       "lastUpdated": "Dernière mise à jour : Janvier 2026",
       "trademarksTitle": "Marques de Harch Corp",
       "trademarksDescription": "Les suivantes sont des marques de commerce et des marques de service appartenant à Harch Corp S.A. Cette liste n'est pas exhaustive et peut être mise à jour de temps à autre. L'absence d'une marque de cette liste ne signifie pas qu'elle n'est pas une marque de Harch Corp :",
@@ -7897,6 +7898,94 @@
           "Contactez-nous pour les partenariats"
         ],
         "title": "Partenaires technologiques"
+      }
+    },
+    "models": {
+      "label": "Modèles de Partenariat",
+      "title": "Comment Fonctionnent les Partenariats",
+      "items": {
+        "strategicAlliance": {
+          "title": "Alliance Stratégique",
+          "description": "Des partenariats profonds et à long terme avec des missions alignées et des ressources partagées. Les alliés stratégiques co-investissent dans l'infrastructure et développent conjointement des solutions souveraines pour le continent."
+        },
+        "technologyIntegration": {
+          "title": "Intégration Technologique",
+          "description": "Intégrer les technologies partenaires dans l'écosystème Harch et vice versa. Notre modèle d'intégration garantit une interopérabilité fluide entre les plateformes, du cloud GPU à la gestion énergétique."
+        },
+        "jointVenture": {
+          "title": "Coentreprise",
+          "description": "Créer des entités partagées pour des projets ou marchés spécifiques. Les coentreprises combinent l'intégration verticale de Harch avec l'expertise du partenaire pour exécuter à l'échelle continentale."
+        }
+      }
+    },
+    "benefits": {
+      "label": "Pourquoi Partenariat Avec Nous",
+      "title": "Avantages du Partenariat",
+      "items": {
+        "marketAccess": {
+          "title": "Accès au Marché",
+          "description": "Accédez directement aux marchés d'infrastructure les plus dynamiques d'Afrique grâce à notre présence établie dans plus de 5 pays et 8 verticales opérationnelles."
+        },
+        "technologyTransfer": {
+          "title": "Transfert de Technologie",
+          "description": "Tirez parti de la pile technologique propriétaire de Harch — de l'ordonnancement GPU conscient du carbone à l'optimisation industrielle pilotée par l'IA — grâce à des programmes de transfert structurés."
+        },
+        "esgAlignment": {
+          "title": "Alignement ESG",
+          "description": "Atteignez et dépassez les normes environnementales, sociales et de gouvernance grâce à des partenariats fondés sur la transparence, le reporting de durabilité et l'impact mesurable."
+        },
+        "sovereignInfrastructure": {
+          "title": "Infrastructure Souveraine",
+          "description": "Construisez des infrastructures que les nations possèdent et contrôlent. Notre modèle garantit la souveraineté des données, l'autonomie opérationnelle et la capture de valeur locale à chaque niveau."
+        }
+      }
+    },
+    "process": {
+      "label": "Processus de Partenariat",
+      "title": "Comment Commencer",
+      "items": {
+        "initialConsultation": {
+          "step": "01",
+          "title": "Consultation Initiale",
+          "description": "Nous commençons par une évaluation stratégique pour comprendre vos objectifs, capacités et alignement avec notre mission de souveraineté industrielle africaine."
+        },
+        "dueDiligence": {
+          "step": "02",
+          "title": "Diligence Raisonnable",
+          "description": "Évaluation approfondie de la compatibilité technique, financière et opérationnelle. Nous évaluons la conformité ESG, la situation réglementaire et l'adéquation stratégique."
+        },
+        "agreementFramework": {
+          "step": "03",
+          "title": "Cadre d'Accord",
+          "description": "Structurer le partenariat avec une gouvernance claire, une allocation de ressources, des frameworks de propriété intellectuelle et des jalons de performance adaptés au modèle de collaboration."
+        },
+        "jointExecution": {
+          "step": "04",
+          "title": "Exécution Conjointe",
+          "description": "Lancer le partenariat avec des équipes dédiées, une gestion de projet partagée et des revues stratégiques régulières pour garantir des résultats mesurables et un alignement continu."
+        }
+      }
+    },
+    "stats": {
+      "label": "En Chiffres",
+      "title": "Notre Empreinte de Partenariat",
+      "items": {
+        "countries": {
+          "value": "5+",
+          "label": "Pays"
+        },
+        "partners": {
+          "value": "20+",
+          "label": "Partenaires Mondiaux"
+        },
+        "jointVentures": {
+          "value": "3",
+          "label": "Coentreprises"
+        },
+        "pipeline": {
+          "value": "2,4 Md$+",
+          "label": "Pipeline d'Investissement"
+        }
       }
     },
     "description": "Harch Corp collabore avec des leaders mondiaux de la technologie, la finance, l'industrie et le gouvernement pour fournir une infrastructure souveraine de classe mondiale.",
@@ -8696,6 +8785,12 @@
     }
   },
   "privacy": {
+    "description": "Nous nous engageons à protéger votre vie privée et à assurer la sécurité de vos données personnelles. Cette politique décrit comment Harch Corp S.A. collecte, utilise et protège vos informations conformément à la Loi marocaine n° 09-08, au RGPD et aux meilleures pratiques internationales.",
+    "cta": {
+      "title": "Des questions sur vos données ?",
+      "description": "Notre Délégué à la Protection des Données est disponible pour répondre à toute préoccupation concernant le traitement de vos informations.",
+      "button": "Contacter le DPD"
+    },
     "title": "Confidentialité",
     "heroLabel": "Confidentialité",
     "heroTitle": "Politique de Confidentialité",
@@ -14110,6 +14205,12 @@
     }
   },
   "terms": {
+    "description": "Ces conditions générales régissent votre utilisation du site Web et des services numériques de Harch Corp. En accédant à nos plateformes, vous acceptez ces conditions. Veuillez les examiner attentivement.",
+    "cta": {
+      "title": "Besoin d'une clarification juridique ?",
+      "description": "Notre équipe juridique peut vous orienter sur tout aspect de ces conditions générales.",
+      "button": "Contacter le Service Juridique"
+    },
     "title": "Conditions",
     "heroLabel": "Conditions",
     "heroTitle": "Conditions d'Utilisation",
@@ -14274,6 +14375,7 @@
       }
     },
     "cta": {
+      "badge": "Construisez Avec Nous",
       "title": "Explorer l'opportunité",
       "description": "Découvrez comment investir dans l'infrastructure souveraine africaine.",
       "primary": "Demander un briefing",

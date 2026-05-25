@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 import { FadeIn } from '@/components/ui/motion';
@@ -31,6 +30,7 @@ export default function TermsPageClient() {
             <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-[-0.02em] leading-[1.05] mb-6">{t('title')}</h1>
             <div className="accent-line mb-8" />
             <p className="text-[14px] text-[#999999] leading-relaxed mb-8">{t('lastUpdated')}: {t('lastUpdatedDate')}</p>
+            <p className="text-base md:text-lg text-[#999999] leading-relaxed max-w-2xl mb-10">{t('description')}</p>
           </FadeIn>
           <div className="space-y-10">
             {termsSections.map((section, i) => (
@@ -40,6 +40,24 @@ export default function TermsPageClient() {
               </FadeIn>
             ))}
           </div>
+
+          {/* ── CTA ── */}
+          <FadeIn>
+            <div className="card p-8 md:p-12 text-center mt-16">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                {t('cta.title')}
+              </h3>
+              <p className="text-[14px] text-[#999999] leading-relaxed mb-8 max-w-lg mx-auto">
+                {t('cta.description')}
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-semibold rounded-md hover:bg-white/90 transition-colors"
+              >
+                {t('cta.button')} <ArrowRight size={14} />
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </div>

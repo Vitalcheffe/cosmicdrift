@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Cpu, Landmark, Building, Globe } from 'lucide-react';
+import { ArrowRight, Cpu, Landmark, Building, Globe, Handshake, Puzzle, Users, Globe2, TrendingUp, Cpu as TechTransfer, Leaf, Shield } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { FadeIn } from '@/components/ui/motion';
@@ -61,6 +61,77 @@ export default function PartnersPageClient() {
     },
   ];
 
+  const partnershipModels = [
+    {
+      icon: Handshake,
+      title: t('models.items.strategicAlliance.title'),
+      description: t('models.items.strategicAlliance.description'),
+    },
+    {
+      icon: Puzzle,
+      title: t('models.items.technologyIntegration.title'),
+      description: t('models.items.technologyIntegration.description'),
+    },
+    {
+      icon: Users,
+      title: t('models.items.jointVenture.title'),
+      description: t('models.items.jointVenture.description'),
+    },
+  ];
+
+  const partnershipBenefits = [
+    {
+      icon: TrendingUp,
+      title: t('benefits.items.marketAccess.title'),
+      description: t('benefits.items.marketAccess.description'),
+    },
+    {
+      icon: TechTransfer,
+      title: t('benefits.items.technologyTransfer.title'),
+      description: t('benefits.items.technologyTransfer.description'),
+    },
+    {
+      icon: Leaf,
+      title: t('benefits.items.esgAlignment.title'),
+      description: t('benefits.items.esgAlignment.description'),
+    },
+    {
+      icon: Shield,
+      title: t('benefits.items.sovereignInfrastructure.title'),
+      description: t('benefits.items.sovereignInfrastructure.description'),
+    },
+  ];
+
+  const partnershipProcess = [
+    {
+      step: t('process.items.initialConsultation.step'),
+      title: t('process.items.initialConsultation.title'),
+      description: t('process.items.initialConsultation.description'),
+    },
+    {
+      step: t('process.items.dueDiligence.step'),
+      title: t('process.items.dueDiligence.title'),
+      description: t('process.items.dueDiligence.description'),
+    },
+    {
+      step: t('process.items.agreementFramework.step'),
+      title: t('process.items.agreementFramework.title'),
+      description: t('process.items.agreementFramework.description'),
+    },
+    {
+      step: t('process.items.jointExecution.step'),
+      title: t('process.items.jointExecution.title'),
+      description: t('process.items.jointExecution.description'),
+    },
+  ];
+
+  const statsItems = [
+    { value: t('stats.items.countries.value'), label: t('stats.items.countries.label') },
+    { value: t('stats.items.partners.value'), label: t('stats.items.partners.label') },
+    { value: t('stats.items.jointVentures.value'), label: t('stats.items.jointVentures.label') },
+    { value: t('stats.items.pipeline.value'), label: t('stats.items.pipeline.label') },
+  ];
+
   return (
     <div className="bg-[#121212]">
       {/* Hero */}
@@ -106,6 +177,107 @@ export default function PartnersPageClient() {
                       </span>
                     ))}
                   </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Models */}
+      <section className="py-24 border-t border-[rgba(255,255,255,0.06)] bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">{t('models.label')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">
+              {t('models.title')}
+            </h2>
+          </FadeIn>
+          <div className="grid md:grid-cols-3 gap-8">
+            {partnershipModels.map((model, i) => (
+              <FadeIn key={model.title} delay={i * 0.1}>
+                <div className="border border-[rgba(255,255,255,0.06)] rounded-2xl p-8 bg-[#121212] h-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <model.icon size={18} className="text-white" strokeWidth={1.5} />
+                    <h3 className="text-lg font-semibold text-white">{model.title}</h3>
+                  </div>
+                  <p className="text-sm text-[#999999] leading-relaxed">{model.description}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Benefits */}
+      <section className="py-24 border-t border-[rgba(255,255,255,0.06)] bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">{t('benefits.label')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">
+              {t('benefits.title')}
+            </h2>
+          </FadeIn>
+          <div className="grid md:grid-cols-2 gap-8">
+            {partnershipBenefits.map((benefit, i) => (
+              <FadeIn key={benefit.title} delay={i * 0.1}>
+                <div className="border border-[rgba(255,255,255,0.06)] rounded-2xl p-8 bg-[#1A1A1A] h-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <benefit.icon size={18} className="text-white" strokeWidth={1.5} />
+                    <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
+                  </div>
+                  <p className="text-sm text-[#999999] leading-relaxed">{benefit.description}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Process */}
+      <section className="py-24 border-t border-[rgba(255,255,255,0.06)] bg-[#1A1A1A]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">{t('process.label')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">
+              {t('process.title')}
+            </h2>
+          </FadeIn>
+          <div className="grid md:grid-cols-4 gap-8">
+            {partnershipProcess.map((step, i) => (
+              <FadeIn key={step.title} delay={i * 0.1}>
+                <div className="relative">
+                  <span className="text-5xl font-bold text-[rgba(255,255,255,0.04)] absolute -top-4 -left-2">
+                    {step.step}
+                  </span>
+                  <div className="relative pt-8">
+                    <h3 className="text-base font-semibold text-white mb-3">{step.title}</h3>
+                    <p className="text-sm text-[#999999] leading-relaxed">{step.description}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-24 border-t border-[rgba(255,255,255,0.06)] bg-[#121212]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="section-label mb-4">{t('stats.label')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.01em] mb-12">
+              {t('stats.title')}
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {statsItems.map((stat, i) => (
+              <FadeIn key={stat.label} delay={i * 0.1}>
+                <div className="text-center md:text-left">
+                  <p className="text-4xl md:text-5xl font-bold text-white tracking-[-0.01em] mb-2">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-[#999999]">{stat.label}</p>
                 </div>
               </FadeIn>
             ))}

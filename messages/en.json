@@ -13931,7 +13931,15 @@
     "upcomingEvents": "Upcoming Events",
     "values": "Values",
     "viewAll": "View All",
-    "vision": "Vision"
+    "vision": "Vision",
+    "downloads": "Downloads",
+    "downloadTitle": "Download Our Resources",
+    "datasheet": "Infrastructure Datasheet",
+    "datasheetDesc": "Complete technical specifications for all five GPU hubs, connectivity, and security framework.",
+    "whitepaper": "Platform Whitepaper",
+    "whitepaperDesc": "In-depth analysis of carbon-aware scheduling, architecture, and competitive positioning.",
+    "sustainabilityReport": "Sustainability Impact Report",
+    "sustainabilityReportDesc": "Carbon lifecycle assessment, renewable energy metrics, and our net-zero roadmap."
   },
   "support": {
     "cta": {

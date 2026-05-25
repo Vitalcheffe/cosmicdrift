@@ -13932,7 +13932,15 @@
         }
       ]
     },
-    "finance": {}
+    "finance": {},
+    "downloads": "Téléchargements",
+    "downloadTitle": "Télécharger Nos Ressources",
+    "datasheet": "Fiche Technique Infrastructure",
+    "datasheetDesc": "Spécifications techniques complètes pour les cinq hubs GPU, la connectivité et le cadre de sécurité.",
+    "whitepaper": "Livre Blanc Plateforme",
+    "whitepaperDesc": "Analyse approfondie de l'ordonnancement conscient du carbone, de l'architecture et du positionnement concurrentiel.",
+    "sustainabilityReport": "Rapport d'Impact Durabilité",
+    "sustainabilityReportDesc": "Évaluation du cycle de vie carbone, métriques d'énergie renouvelable et notre feuille de route net-zéro."
   },
   "support": {
     "title": "Support",

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-import { ArrowUpRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets, Satellite, Lock, Eye, Factory, Mountain, Wheat, Waves, DollarSign } from 'lucide-react';
+import { ArrowUpRight, Cpu, Zap, Globe, Server, Shield, BarChart3, Wind, Droplets, Satellite, Lock, Eye, Factory, Mountain, Wheat, Waves, DollarSign, Download } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import dynamic from 'next/dynamic';
@@ -539,7 +539,78 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* ═══════════════ 10. CTA ═══════════════ */}
+      {/* ═══════════════ 10. PDF DOWNLOAD ═══════════════ */}
+      <section className="py-16 md:py-20 bg-[#F5F5F5] border-t border-neutral-200">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <FadeIn>
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: accent }}>
+              {t('downloads')}
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8">{t('downloadTitle')}</h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Datasheet */}
+            <FadeIn delay={0.05}>
+              <a
+                href="/pdfs/harch-intelligence-datasheet.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 bg-white border border-neutral-200 p-6 hover:border-neutral-300 hover:shadow-sm transition-all group"
+              >
+                <div className="w-10 h-10 flex items-center justify-center border border-neutral-200 group-hover:border-neutral-300 transition-colors shrink-0" style={{ color: accent }}>
+                  <Download size={18} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-[14px] font-bold text-neutral-900 mb-1">{t('datasheet')}</h4>
+                  <p className="text-[12px] text-neutral-500 leading-relaxed">{t('datasheetDesc')}</p>
+                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 6 pages</span>
+                </div>
+              </a>
+            </FadeIn>
+
+            {/* Whitepaper */}
+            <FadeIn delay={0.1}>
+              <a
+                href="/pdfs/harch-platform-whitepaper.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 bg-white border border-neutral-200 p-6 hover:border-neutral-300 hover:shadow-sm transition-all group"
+              >
+                <div className="w-10 h-10 flex items-center justify-center border border-neutral-200 group-hover:border-neutral-300 transition-colors shrink-0" style={{ color: accent }}>
+                  <Download size={18} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-[14px] font-bold text-neutral-900 mb-1">{t('whitepaper')}</h4>
+                  <p className="text-[12px] text-neutral-500 leading-relaxed">{t('whitepaperDesc')}</p>
+                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 18 pages</span>
+                </div>
+              </a>
+            </FadeIn>
+
+            {/* Sustainability Report */}
+            <FadeIn delay={0.15}>
+              <a
+                href="/pdfs/harch-sustainability-report.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 bg-white border border-neutral-200 p-6 hover:border-neutral-300 hover:shadow-sm transition-all group"
+              >
+                <div className="w-10 h-10 flex items-center justify-center border border-neutral-200 group-hover:border-neutral-300 transition-colors shrink-0" style={{ color: '#4A7B5F' }}>
+                  <Download size={18} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h4 className="text-[14px] font-bold text-neutral-900 mb-1">{t('sustainabilityReport')}</h4>
+                  <p className="text-[12px] text-neutral-500 leading-relaxed">{t('sustainabilityReportDesc')}</p>
+                  <span className="inline-block mt-2 text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400">PDF — 18 pages</span>
+                </div>
+              </a>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ 11. CTA ═══════════════ */}
       <section className="py-24 md:py-32 bg-white border-t border-neutral-200">
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

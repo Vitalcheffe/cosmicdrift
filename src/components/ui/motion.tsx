@@ -423,11 +423,12 @@ interface SmoothLinkProps {
   href: string;
   children: ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export function SmoothLink({ href, children, className }: SmoothLinkProps) {
+export function SmoothLink({ href, children, className, style }: SmoothLinkProps) {
   return (
-    <Link href={href} className={`group inline-flex items-center gap-1 ${className ?? ''}`}>
+    <Link href={href} className={`group inline-flex items-center gap-1 ${className ?? ''}`} style={style}>
       <span className="relative">
         {children}
         <span

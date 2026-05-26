@@ -4,9 +4,21 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { ArrowRight, Cpu, Server, Zap } from 'lucide-react';
 import { FadeIn } from '@/components/ui/motion';
-import ImmersiveHero from '@/components/ImmersiveHero';
-import { GPUUtilizationChart } from '@/components/charts/GPUUtilizationChart';
-import { CarbonIntensityChart } from '@/components/charts/CarbonIntensityChart';
+
+const ImmersiveHero = dynamic(
+  () => import('@/components/ImmersiveHero'),
+  { ssr: false, loading: () => <div className="h-[400px] bg-[#1A1A1A] animate-pulse" /> }
+);
+
+const GPUUtilizationChart = dynamic(
+  () => import('@/components/charts/GPUUtilizationChart').then(mod => ({ default: mod.GPUUtilizationChart })),
+  { ssr: false, loading: () => <div className="h-[200px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
+);
+
+const CarbonIntensityChart = dynamic(
+  () => import('@/components/charts/CarbonIntensityChart').then(mod => ({ default: mod.CarbonIntensityChart })),
+  { ssr: false, loading: () => <div className="h-[200px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
+);
 
 const LiveDashboard = dynamic(
   () => import('@/components/LiveDashboard'),

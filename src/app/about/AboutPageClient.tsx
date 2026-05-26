@@ -5,12 +5,20 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { ArrowRight, Building2, Target, Shield, Zap, Users, Globe, Award } from 'lucide-react';
 import { FadeIn } from '@/components/ui/motion';
-import { WorldMap } from '@/components/WorldMap';
-import ImmersiveHero from '@/components/ImmersiveHero';
+
+const ImmersiveHero = dynamic(
+  () => import('@/components/ImmersiveHero'),
+  { ssr: false, loading: () => <div className="h-[400px] bg-[#1A1A1A] animate-pulse" /> }
+);
 
 const LiveDashboard = dynamic(
   () => import('@/components/LiveDashboard'),
   { ssr: false, loading: () => <div className="h-[200px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
+);
+
+const WorldMap = dynamic(
+  () => import('@/components/WorldMap').then(mod => ({ default: mod.WorldMap })),
+  { ssr: false, loading: () => <div className="h-[300px] bg-[#1A1A1A] animate-pulse rounded-lg" /> }
 );
 
 const aboutMetrics = [

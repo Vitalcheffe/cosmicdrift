@@ -399,7 +399,7 @@ export default function HarchOSPageClient() {
                 <div
                   onClick={() => setActiveHub(activeHub === hub.id ? null : hub.id)}
                   className={`card cursor-pointer overflow-hidden group ${activeHub === hub.id ? 'ring-1' : ''}`}
-                  style={activeHub === hub.id ? { ringColor: hub.color, borderColor: `${hub.color}30` } : {}}
+                  style={activeHub === hub.id ? { '--tw-ring-color': hub.color, borderColor: `${hub.color}30` } as React.CSSProperties : {}}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image src={hub.image} alt={hub.name} fill className="object-cover industrial-image group-hover:scale-105 transition-transform duration-700" />

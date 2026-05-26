@@ -566,6 +566,27 @@
             "change": "Récupérée"
           }
         ]
+      },
+      "senegal-precision-agriculture-at-scale": {
+        "title": "Agriculture de précision à grande échelle au Sénégal",
+        "subtitle": "Comment Harch Agriculture a augmenté les rendements agricoles de 35% et réduit la consommation d'eau de 28% sur 120 000 hectares grâce à l'agriculture de précision pilotée par l'IA",
+        "client": "Compagnie Sénégalaise d'Agriculture et de Développement (CSAD)",
+        "location": "Saint-Louis, Sénégal",
+        "duration": "22 mois (Avr 2024 - Jan 2026)",
+        "results": [
+          {
+            "label": "Rendements agricoles",
+            "change": "Augmentés"
+          },
+          {
+            "label": "Consommation d'eau",
+            "change": "Réduite"
+          },
+          {
+            "label": "Efficacité fertilisants",
+            "change": "Améliorée"
+          }
+        ]
       }
     }
   },

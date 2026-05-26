@@ -566,6 +566,27 @@
             "change": "Recovered"
           }
         ]
+      },
+      "senegal-precision-agriculture-at-scale": {
+        "title": "Precision Agriculture at Scale in Senegal",
+        "subtitle": "How Harch Agriculture increased crop yields by 35% and reduced water usage by 28% across 120,000 hectares using AI-driven precision farming",
+        "client": "Compagnie Senegalaise d'Agriculture et de Developpement (CSAD)",
+        "location": "Saint-Louis, Senegal",
+        "duration": "22 months (Apr 2024 - Jan 2026)",
+        "results": [
+          {
+            "label": "Crop Yields",
+            "change": "Increased"
+          },
+          {
+            "label": "Water Usage",
+            "change": "Reduced"
+          },
+          {
+            "label": "Fertilizer Efficiency",
+            "change": "Improved"
+          }
+        ]
       }
     }
   },

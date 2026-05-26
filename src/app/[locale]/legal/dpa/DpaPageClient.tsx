@@ -52,7 +52,7 @@ export default function DpaPageClient() {
                   {t('dpa.downloadDescription')}
                 </p>
                 <a
-                  href="mailto:amine@harchcorp.com"
+                  href="mailto:legal@harchcorp.com"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-[13px] font-semibold rounded-md hover:bg-[#e0e0e0] transition-colors"
                 >
                   {t('dpa.contactLegalTeam')}
@@ -67,7 +67,7 @@ export default function DpaPageClient() {
               </p>
               <div className="mt-4 border border-[rgba(255,255,255,0.06)] rounded-lg p-5 bg-[#1E1E1E]">
                 <p className="text-[14px] text-white font-medium mb-2">{t('dpa.contactDepartment')}</p>
-                <p className="text-[14px] text-[#999999]">{t('dpa.contactEmailLabel')} <a href="mailto:amine@harchcorp.com" className="text-white hover:underline">amine@harchcorp.com</a></p>
+                <p className="text-[14px] text-[#999999]">{t('dpa.contactEmailLabel')} <a href="mailto:legal@harchcorp.com" className="text-white hover:underline">legal@harchcorp.com</a></p>
                 <p className="text-[14px] text-[#999999]">{t('dpa.contactAddress')}</p>
                 <p className="text-[14px] text-[#999999]">{t('dpa.contactResponseTime')}</p>
               </div>

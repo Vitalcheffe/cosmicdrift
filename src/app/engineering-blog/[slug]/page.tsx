@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
       url: `https://www.harchcorp.com/engineering-blog/${slug}`,
       siteName: 'Harch Corp',
-      publishedTime: article.date,
+      publishedTime: new Date(article.date).toISOString(),
       images: [
         {
           url: article.image,
@@ -81,8 +81,8 @@ export default async function EngArticlePage({ params }: PageProps) {
       width: 1344,
       height: 768,
     },
-    datePublished: article.date,
-    dateModified: article.date,
+    datePublished: new Date(article.date).toISOString(),
+    dateModified: new Date(article.date).toISOString(),
     author: {
       '@type': 'Organization',
       name: article.author || 'Harch Intelligence Engineering',

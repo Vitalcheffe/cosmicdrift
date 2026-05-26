@@ -20,7 +20,14 @@ export const metadata: Metadata = {
     siteName: 'Harch Corp',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.harchcorp.com/docs/api' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/docs/api',
+    languages: {
+      en: 'https://www.harchcorp.com/docs/api',
+      fr: 'https://www.harchcorp.com/fr/docs/api',
+      'x-default': 'https://www.harchcorp.com/docs/api',
+    },
+  },
 };
 
 export default function ApiDocsPage() {

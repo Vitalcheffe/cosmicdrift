@@ -19,7 +19,14 @@ export const metadata: Metadata = {
     siteName: 'Harch Corp',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.harchcorp.com/docs/architecture' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/docs/architecture',
+    languages: {
+      en: 'https://www.harchcorp.com/docs/architecture',
+      fr: 'https://www.harchcorp.com/fr/docs/architecture',
+      'x-default': 'https://www.harchcorp.com/docs/architecture',
+    },
+  },
 };
 
 export default function ArchitecturePage() {

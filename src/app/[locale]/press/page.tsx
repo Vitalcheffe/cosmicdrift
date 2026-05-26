@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.harchcorp.com/press',
+    languages: {
+      en: 'https://www.harchcorp.com/press',
+      fr: 'https://www.harchcorp.com/fr/presse',
+      'x-default': 'https://www.harchcorp.com/press',
+    },
   },
 };
 

@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: "Latest news, press releases, and announcements from Harch Corp — Africa's multi-sector industrial conglomerate building sovereign infrastructure across 7 verticals.",
   alternates: {
     canonical: 'https://www.harchcorp.com/newsroom',
+    languages: {
+      en: 'https://www.harchcorp.com/newsroom',
+      fr: 'https://www.harchcorp.com/fr/actualites',
+      'x-default': 'https://www.harchcorp.com/newsroom',
+    },
   },
   openGraph: {
     title: 'Newsroom',

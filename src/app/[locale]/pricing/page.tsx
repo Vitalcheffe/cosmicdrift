@@ -30,6 +30,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.harchcorp.com/pricing',
+    languages: {
+      en: 'https://www.harchcorp.com/pricing',
+      fr: 'https://www.harchcorp.com/fr/tarifs',
+      'x-default': 'https://www.harchcorp.com/pricing',
+    },
   },
 };
 

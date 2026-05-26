@@ -22,6 +22,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: article.seoKeywords,
     alternates: {
       canonical: `https://www.harchcorp.com/engineering-blog/${slug}`,
+      languages: {
+        en: `https://www.harchcorp.com/engineering-blog/${slug}`,
+        fr: `https://www.harchcorp.com/fr/engineering-blog/${slug}`,
+        'x-default': `https://www.harchcorp.com/engineering-blog/${slug}`,
+      },
     },
     openGraph: {
       title: article.title,
@@ -29,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
       url: `https://www.harchcorp.com/engineering-blog/${slug}`,
       siteName: 'Harch Corp',
-      publishedTime: article.date,
+      publishedTime: new Date(article.date).toISOString(),
       images: [
         {
           url: article.image,
@@ -81,8 +86,8 @@ export default async function EngArticlePage({ params }: PageProps) {
       width: 1344,
       height: 768,
     },
-    datePublished: article.date,
-    dateModified: article.date,
+    datePublished: new Date(article.date).toISOString(),
+    dateModified: new Date(article.date).toISOString(),
     author: {
       '@type': 'Organization',
       name: article.author || 'Harch Intelligence Engineering',

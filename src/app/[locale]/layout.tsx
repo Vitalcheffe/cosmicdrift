@@ -77,13 +77,14 @@ export async function generateMetadata({
       index: true,
       follow: true,
     },
-    // Replace with actual Google Search Console verification code
-    // verification: {
-    //   google: "YOUR_VERIFICATION_CODE_HERE",
-    // },
-    // other: {
-    //   "google-site-verification": "YOUR_VERIFICATION_CODE_HERE",
-    // },
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    },
+    other: {
+      ...(process.env.GOOGLE_SITE_VERIFICATION
+        ? { 'google-site-verification': process.env.GOOGLE_SITE_VERIFICATION }
+        : {}),
+    },
     keywords: isFr
       ? ["Harch Corp", "souveraineté industrielle Afrique", "centre de données Afrique", "IA souveraine", "centre de données IA Maroc", "cloud GPU conscient du carbone", "planification consciente du carbone", "énergie renouvelable Maroc", "infrastructure industrielle", "conglomérat Maroc", "énergie renouvelable Afrique", "fabrication ciment Gambie", "mines stratégiques Maroc", "agriculture de précision Sahel", "dessalement eau Afrique", "technologie souveraine", "cloud GPU vert", "calcul faible intensité carbone", "centre de données Dakhla", "Dakhla 500 MW", "centre de données vert Afrique"]
       : ["Harch Corp", "Africa industrial sovereignty", "Data Center Africa", "Sovereign AI", "AI data center Morocco", "carbon-aware GPU cloud", "carbon-aware scheduling", "Renewable Energy Morocco", "Industrial Infrastructure", "Morocco conglomerate", "renewable energy Africa", "cement manufacturing Gambia", "strategic mining Morocco", "precision agriculture Sahel", "water desalination Africa", "sovereign technology", "green GPU cloud", "low carbon intensity compute", "Dakhla data center", "Dakhla 500MW", "500 MW data center Morocco", "green data center Africa"],
@@ -223,7 +224,7 @@ export default async function LocaleLayout({
           longitude: -7.5898,
         },
         telephone: "+212-522-000-000",
-        email: "amine@harchcorp.com",
+        email: "info@harchcorp.com",
         areaServed: [
           { "@type": "Country", name: "Morocco" },
           { "@type": "Country", name: "Gambia" },
@@ -235,15 +236,9 @@ export default async function LocaleLayout({
         naics: "551112",
         slogan: "Africa's Sovereign Infrastructure OS",
         knowsLanguage: ["en", "fr", "ar"],
-        sameAs: [
-          "https://www.linkedin.com/company/harchcorp",
-          "https://twitter.com/harchcorp",
-          "https://www.instagram.com/harchcorp/",
-          "https://www.youtube.com/@harchcorp",
-          "https://www.crunchbase.com/organization/harchcorp",
-          "https://github.com/HarchCorp",
-          "https://www.wikidata.org/wiki/Q133902221",
-        ],
+        // Social profile URLs removed — none are verified to exist.
+        // Re-enable sameAs only when actual profiles are confirmed.
+        // sameAs: [],
         subOrganization: [
           {
             "@type": "Organization",
@@ -321,21 +316,21 @@ export default async function LocaleLayout({
           {
             "@type": "ContactPoint",
             contactType: "investor relations",
-            email: "amine@harchcorp.com",
+            email: "investors@harchcorp.com",
             telephone: "+212-522-000-001",
             availableLanguage: ["English", "French", "Arabic"],
           },
           {
             "@type": "ContactPoint",
             contactType: "media relations",
-            email: "amine@harchcorp.com",
+            email: "press@harchcorp.com",
             telephone: "+212-522-000-002",
             availableLanguage: ["English", "French", "Arabic"],
           },
           {
             "@type": "ContactPoint",
             contactType: "customer service",
-            email: "amine@harchcorp.com",
+            email: "support@harchcorp.com",
             telephone: "+212-522-000-000",
             availableLanguage: ["English", "French", "Arabic"],
           },
@@ -350,7 +345,7 @@ export default async function LocaleLayout({
         description:
           "Founder and CEO of Harch Corp S.A., a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across 8 verticals with a $2.4B+ investment pipeline.",
         url: "https://www.harchcorp.com",
-        sameAs: ["https://www.linkedin.com/in/amineharchelkorane"],
+        // sameAs: ["https://www.linkedin.com/in/amineharchelkorane"],
       },
       {
         "@type": "WebSite",

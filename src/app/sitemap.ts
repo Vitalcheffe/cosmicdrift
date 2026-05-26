@@ -73,20 +73,8 @@ const frPathMap: Record<string, string> = {
   '/status': '/statut',
 };
 
-// Subsidiary slug French mappings
-// Note: The actual Next.js routes use English slugs even for French locale
-// e.g., /fr/subsidiaries/cement (NOT /fr/filiales/ciment)
-// because there are no per-slug i18n routing entries
-const frVerticalMap: Record<string, string> = {
-  intelligence: 'intelligence',
-  cement: 'cement',
-  energy: 'energy',
-  technology: 'technology',
-  mining: 'mining',
-  agriculture: 'agriculture',
-  water: 'water',
-  finance: 'finance',
-};
+// Subsidiary slugs remain the same across locales (no per-slug translations)
+// but the base path changes: /subsidiaries → /filiales
 
 function getFrPath(enPath: string): string {
   return frPathMap[enPath] || `/fr${enPath}`;
@@ -308,11 +296,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Vertical/subsidiary pages with alternates
-  // Note: French URLs use /fr/subsidiaries/{slug} (English slugs) because
-  // the Next.js route structure uses [locale]/subsidiaries/[slug] with English slugs
+  // French URLs use /fr/filiales/{slug} (localized base path with English slugs)
+  const frSubsPath = getFrPath('/subsidiaries'); // → /filiales
   const verticalPages = verticals.map((v) => {
     const enUrl = `${baseUrl}/subsidiaries/${v}`;
-    const frUrl = `${baseUrl}/fr/subsidiaries/${v}`;
+    const frUrl = `${baseUrl}/fr${frSubsPath}/${v}`;
     return {
       url: enUrl,
       lastModified: now,
@@ -332,7 +320,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Also add French vertical pages
   const frVerticalPages = verticals.map((v) => {
     const enUrl = `${baseUrl}/subsidiaries/${v}`;
-    const frUrl = `${baseUrl}/fr/subsidiaries/${v}`;
+    const frUrl = `${baseUrl}/fr${frSubsPath}/${v}`;
     return {
       url: frUrl,
       lastModified: now,
@@ -360,13 +348,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           en: `${baseUrl}/subsidiaries/agriculture`,
-          fr: `${baseUrl}/fr/subsidiaries/agriculture`,
+          fr: `${baseUrl}/fr${frSubsPath}/agriculture`,
           'x-default': `${baseUrl}/subsidiaries/agriculture`,
         },
       },
     },
     {
-      url: `${baseUrl}/fr/subsidiaries/agriculture`,
+      url: `${baseUrl}/fr${frSubsPath}/agriculture`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
@@ -374,7 +362,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           en: `${baseUrl}/subsidiaries/agriculture`,
-          fr: `${baseUrl}/fr/subsidiaries/agriculture`,
+          fr: `${baseUrl}/fr${frSubsPath}/agriculture`,
           'x-default': `${baseUrl}/subsidiaries/agriculture`,
         },
       },

@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: "Harch Corp's Trust Center: Security, compliance, and transparency. SOC 2 Type II, ISO 27001, GDPR compliant. Building trust through sovereign infrastructure.",
   alternates: {
     canonical: 'https://www.harchcorp.com/trust',
+    languages: {
+      en: 'https://www.harchcorp.com/trust',
+      fr: 'https://www.harchcorp.com/fr/confiance',
+      'x-default': 'https://www.harchcorp.com/trust',
+    },
   },
   openGraph: {
     title: 'Trust Center',

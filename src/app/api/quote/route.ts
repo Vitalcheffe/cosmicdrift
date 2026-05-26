@@ -60,23 +60,6 @@ export async function POST(request: NextRequest) {
 
     const reference = generateReference();
 
-    // Log the submission (email would be configured with SMTP creds in production)
-    console.log('[Quote Submission]', {
-      reference,
-      timestamp: new Date().toISOString(),
-      name: name.trim(),
-      email: email.trim(),
-      organization: organization.trim(),
-      designation: designation || '',
-      country: country || '',
-      phone: phone || '',
-      vertical,
-      projectType: projectType || '',
-      budgetRange: budgetRange || '',
-      timeline: timeline || '',
-      projectDescriptionLength: projectDescription ? projectDescription.trim().length : 0,
-    });
-
     return NextResponse.json({
       success: true,
       reference,

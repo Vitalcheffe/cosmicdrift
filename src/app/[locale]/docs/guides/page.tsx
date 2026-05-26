@@ -19,7 +19,14 @@ export const metadata: Metadata = {
     siteName: 'Harch Corp',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.harchcorp.com/docs/guides' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/docs/guides',
+    languages: {
+      en: 'https://www.harchcorp.com/docs/guides',
+      fr: 'https://www.harchcorp.com/fr/docs/guides',
+      'x-default': 'https://www.harchcorp.com/docs/guides',
+    },
+  },
 };
 
 export default function GuidesPage() {

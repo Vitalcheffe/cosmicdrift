@@ -4,7 +4,14 @@ import LeadershipPageClient from './LeadershipPageClient';
 export const metadata: Metadata = {
   title: 'Leadership',
   description: 'Meet the leadership team driving Harch Corp\'s mission to build Africa\'s sovereign industrial backbone across 7 verticals and 5 countries.',
-  alternates: { canonical: 'https://www.harchcorp.com/company/leadership' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/company/leadership',
+    languages: {
+      en: 'https://www.harchcorp.com/company/leadership',
+      fr: 'https://www.harchcorp.com/fr/entreprise/direction',
+      'x-default': 'https://www.harchcorp.com/company/leadership',
+    },
+  },
   openGraph: {
     title: 'Leadership',
     description: 'Meet the leadership team driving Harch Corp\'s mission to build Africa\'s sovereign industrial backbone across 7 verticals and 5 countries.',

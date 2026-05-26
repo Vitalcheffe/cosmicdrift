@@ -329,8 +329,8 @@ export default function HiringProcessPageClient() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between py-3 border-b border-white/[0.04]">
                     <span className="text-[13px] text-[#999999]">{t('accommodationEmailLabel')}</span>
-                    <a href="mailto:amine@harchcorp.com" className="text-[14px] font-semibold text-[rgba(139,157,175,0.7)] hover:text-[#8B9DAF] transition-colors">
-                      amine@harchcorp.com
+                    <a href="mailto:careers@harchcorp.com" className="text-[14px] font-semibold text-[rgba(139,157,175,0.7)] hover:text-[#8B9DAF] transition-colors">
+                      careers@harchcorp.com
                     </a>
                   </div>
                   <div className="flex items-center justify-between py-3 border-b border-white/[0.04]">

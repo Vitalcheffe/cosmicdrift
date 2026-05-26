@@ -726,7 +726,7 @@ export default function HomePageClient() {
 
             {/* Case Study 2: Government */}
             <StaggerItem>
-              <Link href="/case-studies/west-african-alliance-sovereign-infrastructure" className="group block">
+              <Link href="/case-studies/regional-economic-community-sovereign-infrastructure" className="group block">
                 <div className="relative rounded-xl overflow-hidden border border-[rgba(255,255,255,0.06)] hover:border-[rgba(139,157,175,0.3)] transition-all duration-500 bg-[#141414]">
                   <div className="relative h-[200px] md:h-[240px] overflow-hidden">
                     <Image

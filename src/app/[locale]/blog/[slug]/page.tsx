@@ -25,6 +25,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: article.seoKeywords,
     alternates: {
       canonical: `https://www.harchcorp.com/blog/${slug}`,
+      languages: {
+        en: `https://www.harchcorp.com/blog/${slug}`,
+        fr: `https://www.harchcorp.com/fr/blog/${slug}`,
+        'x-default': `https://www.harchcorp.com/blog/${slug}`,
+      },
     },
     openGraph: {
       title: article.title,
@@ -32,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
       url: `https://www.harchcorp.com/blog/${slug}`,
       siteName: 'Harch Corp',
-      publishedTime: article.date,
+      publishedTime: new Date(article.date).toISOString(),
       images: [
         {
           url: article.image,
@@ -84,8 +89,8 @@ export default async function BlogArticlePage({ params }: PageProps) {
       width: 1344,
       height: 768,
     },
-    datePublished: article.date,
-    dateModified: article.date,
+    datePublished: new Date(article.date).toISOString(),
+    dateModified: new Date(article.date).toISOString(),
     author: {
       '@type': article.author?.includes('Engineering') ? 'Organization' : 'Organization',
       name: article.author || 'Harch Corp S.A.',

@@ -139,7 +139,7 @@ export default function SlaPageClient() {
               </p>
               <div className="mt-4 border border-[rgba(255,255,255,0.06)] rounded-lg p-5 bg-[#1E1E1E]">
                 <p className="text-[14px] text-white font-medium mb-2">{t('sla.contactTeam')}</p>
-                <p className="text-[14px] text-[#999999]">{t('sla.contactEmailLabel')} <a href="mailto:amine@harchcorp.com" className="text-white hover:underline">amine@harchcorp.com</a></p>
+                <p className="text-[14px] text-[#999999]">{t('sla.contactEmailLabel')} <a href="mailto:legal@harchcorp.com" className="text-white hover:underline">legal@harchcorp.com</a></p>
                 <p className="text-[14px] text-[#999999]">{t('sla.contactStatusLabel')} status.harchcorp.com</p>
                 <p className="text-[14px] text-[#999999]">{t('sla.contactAddress')}</p>
               </div>

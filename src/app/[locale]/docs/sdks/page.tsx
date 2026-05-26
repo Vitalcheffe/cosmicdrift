@@ -20,7 +20,14 @@ export const metadata: Metadata = {
     siteName: 'Harch Corp',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.harchcorp.com/docs/sdks' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/docs/sdks',
+    languages: {
+      en: 'https://www.harchcorp.com/docs/sdks',
+      fr: 'https://www.harchcorp.com/fr/docs/sdks',
+      'x-default': 'https://www.harchcorp.com/docs/sdks',
+    },
+  },
 };
 
 export default function SdksPage() {

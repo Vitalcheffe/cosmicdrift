@@ -21,6 +21,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: cs.subtitle,
     alternates: {
       canonical: `https://www.harchcorp.com/case-studies/${slug}`,
+      languages: {
+        en: `https://www.harchcorp.com/case-studies/${slug}`,
+        fr: `https://www.harchcorp.com/fr/etudes-de-cas/${slug}`,
+        'x-default': `https://www.harchcorp.com/case-studies/${slug}`,
+      },
     },
     openGraph: {
       title: cs.title,

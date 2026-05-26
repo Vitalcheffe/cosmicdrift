@@ -48,20 +48,6 @@ export async function POST(request: NextRequest) {
 
     const reference = generateReference();
 
-    // Log the submission (email would be configured with SMTP creds in production)
-    console.log('[Contact Submission]', {
-      reference,
-      timestamp: new Date().toISOString(),
-      name: name.trim(),
-      email: email.trim(),
-      consultationType,
-      organization: organization || '',
-      designation: designation || '',
-      country: country || '',
-      nda: !!nda,
-      messageLength: message.trim().length,
-    });
-
     return NextResponse.json({
       success: true,
       reference,

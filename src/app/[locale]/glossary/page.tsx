@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/glossary',
+    languages: {
+      en: 'https://www.harchcorp.com/glossary',
+      fr: 'https://www.harchcorp.com/fr/glossaire',
+      'x-default': 'https://www.harchcorp.com/glossary',
+    },
   },
   openGraph: {
     title: 'Glossary: Sovereign AI, Carbon-Aware Computing & African Infrastructure Terms',

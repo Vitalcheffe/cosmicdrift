@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
       url: `https://www.harchcorp.com/newsroom/${slug}`,
       siteName: 'Harch Corp',
-      publishedTime: article.date,
+      publishedTime: new Date(article.date).toISOString(),
       section: article.tag,
       tags: article.seoKeywords,
       images: [
@@ -82,8 +82,8 @@ export default async function ArticlePage({ params }: PageProps) {
       width: 1344,
       height: 768,
     },
-    datePublished: article.date,
-    dateModified: article.date,
+    datePublished: new Date(article.date).toISOString(),
+    dateModified: new Date(article.date).toISOString(),
     author: {
       '@type': 'Organization',
       name: 'Harch Corp S.A.',

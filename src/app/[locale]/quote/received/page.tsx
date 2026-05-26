@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.harchcorp.com/quote/received',
+    languages: {
+      en: 'https://www.harchcorp.com/quote/received',
+      fr: 'https://www.harchcorp.com/fr/devis/recu',
+      'x-default': 'https://www.harchcorp.com/quote/received',
+    },
   },
 };
 

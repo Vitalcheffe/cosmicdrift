@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/docs',
+    languages: {
+      en: 'https://www.harchcorp.com/docs',
+      fr: 'https://www.harchcorp.com/fr/docs',
+      'x-default': 'https://www.harchcorp.com/docs',
+    },
   },
   openGraph: {
     title: 'Documentation — HarchOS Platform Docs',

@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/case-studies',
+    languages: {
+      en: 'https://www.harchcorp.com/case-studies',
+      fr: 'https://www.harchcorp.com/fr/etudes-de-cas',
+      'x-default': 'https://www.harchcorp.com/case-studies',
+    },
   },
   openGraph: {
     title: 'Case Studies | Harch Corp Proof of Impact',

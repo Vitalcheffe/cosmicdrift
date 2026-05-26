@@ -73,7 +73,7 @@ export default function AccessibilityPageClient() {
               </p>
               <div className="border border-[rgba(255,255,255,0.06)] rounded-lg p-5 bg-[#1E1E1E]">
                 <p className="text-[14px] text-white font-medium mb-2">{t('accessibility.contactTeam')}</p>
-                <p className="text-[14px] text-[#999999]">{t('accessibility.contactEmailLabel')} <a href="mailto:amine@harchcorp.com" className="text-white hover:underline">amine@harchcorp.com</a></p>
+                <p className="text-[14px] text-[#999999]">{t('accessibility.contactEmailLabel')} <a href="mailto:legal@harchcorp.com" className="text-white hover:underline">legal@harchcorp.com</a></p>
                 <p className="text-[14px] text-[#999999]">{t('accessibility.contactPhone')}</p>
                 <p className="text-[14px] text-[#999999]">{t('accessibility.contactAddress')}</p>
                 <p className="text-[14px] text-[#999999] mt-2">{t('accessibility.contactResponseTime')}</p>

@@ -4,7 +4,14 @@ import SecurityPageClient from './SecurityPageClient';
 export const metadata: Metadata = {
   title: 'Security — Trust Center',
   description: "Harch Corp security architecture: infrastructure security, data protection, identity & access management, incident response, and security bulletins.",
-  alternates: { canonical: 'https://www.harchcorp.com/trust/security' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/trust/security',
+    languages: {
+      en: 'https://www.harchcorp.com/trust/security',
+      fr: 'https://www.harchcorp.com/fr/confiance/securite',
+      'x-default': 'https://www.harchcorp.com/trust/security',
+    },
+  },
   openGraph: {
     title: 'Security — Trust Center',
     description: "Harch Corp security architecture: infrastructure security, data protection, identity & access management, incident response, and security bulletins.",

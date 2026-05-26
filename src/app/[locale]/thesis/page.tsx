@@ -31,6 +31,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.harchcorp.com/thesis',
+    languages: {
+      en: 'https://www.harchcorp.com/thesis',
+      fr: 'https://www.harchcorp.com/fr/these',
+      'x-default': 'https://www.harchcorp.com/thesis',
+    },
   },
 };
 

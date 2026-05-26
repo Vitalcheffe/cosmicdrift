@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: 'Common questions about Harch Corp — our verticals, investment pipeline, technology, and how to partner with us.',
   alternates: {
     canonical: 'https://www.harchcorp.com/faq',
+    languages: {
+      en: 'https://www.harchcorp.com/faq',
+      fr: 'https://www.harchcorp.com/fr/faq',
+      'x-default': 'https://www.harchcorp.com/faq',
+    },
   },
   openGraph: {
     title: 'FAQ',
@@ -72,7 +77,7 @@ const faqSchema = {
       "name": "How can I invest in Harch Corp or partner with the company?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Harch Corp welcomes partnerships across multiple structures: strategic equity investments (we are currently raising from DFIs, sovereign wealth funds, and strategic industrial partners), offtake agreements for cement and energy products, GPU-as-a-Service contracts for AI compute, joint venture structures for specific verticals or geographies, and government partnerships for public infrastructure projects. Contact our team at amine@harchcorp.com or visit our Contact page for partnership inquiries."
+        "text": "Harch Corp welcomes partnerships across multiple structures: strategic equity investments (we are currently raising from DFIs, sovereign wealth funds, and strategic industrial partners), offtake agreements for cement and energy products, GPU-as-a-Service contracts for AI compute, joint venture structures for specific verticals or geographies, and government partnerships for public infrastructure projects. Contact our team at support@harchcorp.com or visit our Contact page for partnership inquiries."
       }
     },
     {

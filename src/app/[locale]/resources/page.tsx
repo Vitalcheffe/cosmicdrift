@@ -9,6 +9,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: locale === 'fr'
       ? 'Téléchargez nos fiches techniques, livres blancs et rapports sur l\'infrastructure AI, les centres de données et la durabilité.'
       : 'Download our datasheets, whitepapers, and reports on AI infrastructure, data centers, and sustainability.',
+    alternates: {
+      canonical: `https://www.harchcorp.com/resources`,
+      languages: {
+        en: `https://www.harchcorp.com/resources`,
+        fr: `https://www.harchcorp.com/fr/resources`,
+        'x-default': `https://www.harchcorp.com/resources`,
+      },
+    },
   };
 }
 

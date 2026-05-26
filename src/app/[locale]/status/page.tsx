@@ -4,7 +4,14 @@ import StatusPageClient from './StatusPageClient';
 export const metadata: Metadata = {
   title: 'System Status',
   description: 'Real-time system status and uptime monitoring for all Harch Corp services including HarchOS, SENSE, THINK, ACT, and Developer Portal.',
-  alternates: { canonical: 'https://www.harchcorp.com/status' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/status',
+    languages: {
+      en: 'https://www.harchcorp.com/status',
+      fr: 'https://www.harchcorp.com/fr/statut',
+      'x-default': 'https://www.harchcorp.com/status',
+    },
+  },
   openGraph: {
     title: 'System Status',
     description: 'Real-time system status and uptime monitoring for all Harch Corp services including HarchOS, SENSE, THINK, ACT, and Developer Portal.',

@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/esg',
+    languages: {
+      en: 'https://www.harchcorp.com/esg',
+      fr: 'https://www.harchcorp.com/fr/esg',
+      'x-default': 'https://www.harchcorp.com/esg',
+    },
   },
   openGraph: {
     title: 'ESG — Environmental, Social & Governance',

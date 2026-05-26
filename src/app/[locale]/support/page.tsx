@@ -4,7 +4,14 @@ import SupportPageClient from './SupportPageClient';
 export const metadata: Metadata = {
   title: 'Support Hub',
   description: 'Harch Corp support hub: choose your support tier, browse the knowledge base, submit tickets, and access customer success resources.',
-  alternates: { canonical: 'https://www.harchcorp.com/support' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/support',
+    languages: {
+      en: 'https://www.harchcorp.com/support',
+      fr: 'https://www.harchcorp.com/fr/support',
+      'x-default': 'https://www.harchcorp.com/support',
+    },
+  },
   openGraph: {
     title: 'Support Hub',
     description: 'Harch Corp support hub: choose your support tier, browse the knowledge base, submit tickets, and access customer success resources.',

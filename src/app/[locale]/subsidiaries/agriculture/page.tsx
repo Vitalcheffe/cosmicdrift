@@ -16,7 +16,14 @@ export const metadata: Metadata = {
     description: 'Drones, IoT, vertical farms, and carbon credits — Africa\'s only integrated AgTech platform.',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.harchcorp.com/subsidiaries/agriculture' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/subsidiaries/agriculture',
+    languages: {
+      en: 'https://www.harchcorp.com/subsidiaries/agriculture',
+      fr: 'https://www.harchcorp.com/fr/filiales/agriculture',
+      'x-default': 'https://www.harchcorp.com/subsidiaries/agriculture',
+    },
+  },
 };
 
 export default function AgriculturePage() {

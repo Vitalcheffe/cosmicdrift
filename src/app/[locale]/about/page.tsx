@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/about',
+    languages: {
+      en: 'https://www.harchcorp.com/about',
+      fr: 'https://www.harchcorp.com/fr/a-propos',
+      'x-default': 'https://www.harchcorp.com/about',
+    },
   },
   openGraph: {
     title: 'About Harch Corp — Our Mission',

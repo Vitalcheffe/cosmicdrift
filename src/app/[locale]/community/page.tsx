@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description: 'Join the Harch Corp developer community — Discord, GitHub, Stack Overflow, and our community forum. Connect with 2,500+ engineers building on sovereign infrastructure.',
   alternates: {
     canonical: 'https://www.harchcorp.com/community',
+    languages: {
+      en: 'https://www.harchcorp.com/community',
+      fr: 'https://www.harchcorp.com/fr/communaute',
+      'x-default': 'https://www.harchcorp.com/community',
+    },
   },
   openGraph: {
     title: 'Community',

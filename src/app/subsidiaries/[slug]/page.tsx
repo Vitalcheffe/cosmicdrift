@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import SubsidiaryWrapper from './SubsidiaryWrapper';
 
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

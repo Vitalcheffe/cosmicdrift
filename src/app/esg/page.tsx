@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import ESGPageClient from './ESGPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'ESG — Environmental, Social & Governance',
   description:

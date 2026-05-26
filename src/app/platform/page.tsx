@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import PlatformPageClient from './PlatformPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Platform — Live Infrastructure Monitoring',
   description:

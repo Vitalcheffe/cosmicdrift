@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import OpenSourcePageClient from './OpenSourcePageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Open Source at Harch',
   description: 'Harch Corp open source projects. SDKs, CLI tools, Terraform providers, and integrations — all Apache 2.0 licensed. Contribute to sovereign AI infrastructure.',

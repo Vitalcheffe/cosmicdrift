@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import ThesisClient from './ThesisClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'The Thesis: Africa\'s Path to Industrial Sovereignty',
   description: 'A comprehensive manifesto on Africa\'s industrial sovereignty — why the continent must build its own AI infrastructure, energy systems, and value chains. By Harch Corp S.A.',

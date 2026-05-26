@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import ArchitecturePageClient from './ArchitecturePageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Architecture Center — HarchOS',
   description: 'Understand the HarchOS architecture: SENSE-THINK-ACT layers, reference architectures, well-architected framework pillars, design patterns, and best practices.',

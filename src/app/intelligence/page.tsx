@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import IntelligencePageClient from './IntelligencePageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Harch Intelligence — Sovereign AI Infrastructure',
   description:

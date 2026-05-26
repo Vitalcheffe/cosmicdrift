@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import SubsidiariesPageClient from './SubsidiariesPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Subsidiaries — 8 Industrial Verticals',
   description:

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import GuidesPageClient from './GuidesPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'How-to Guides — HarchOS',
   description: 'Step-by-step guides for HarchOS platform. Deploy models, set up data pipelines, configure monitoring, manage security, and more.',

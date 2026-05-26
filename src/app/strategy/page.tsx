@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import StrategyPageClient from './StrategyPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Strategy — Vertically Integrated Value Capture',
   description:

@@ -3,6 +3,8 @@ import { blogArticles } from '@/data/blog-articles';
 import { seoArticles } from '@/data/seo-articles';
 import BlogArticlePageClient from './BlogArticlePageClient';
 
+export const dynamic = 'force-dynamic';
+
 const allArticles = [...blogArticles, ...seoArticles];
 
 interface PageProps {

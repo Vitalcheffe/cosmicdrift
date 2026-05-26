@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import InvestorsPageClient from './InvestorsPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Investor Relations  | Harch Corp',
   description:

@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import QuotePageClient from './QuotePageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Request a Quote | Harch Corp',
   description:

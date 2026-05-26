@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import DevelopersPageClient from './DevelopersPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Developer Center — Build on HarchOS',
   description: 'Everything you need to build on HarchOS. SDKs, CLI tools, API playground, and comprehensive documentation for sovereign AI infrastructure.',

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import PlaygroundPageClient from './PlaygroundPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'API Playground — HarchOS',
   description: 'Interactive API playground for HarchOS. Test endpoints, build requests, explore responses, and generate code snippets in curl, Python, TypeScript, and Go.',

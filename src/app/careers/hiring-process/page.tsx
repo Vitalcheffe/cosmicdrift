@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import HiringProcessPageClient from './HiringProcessPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Hiring Process  | Harch Corp',
   description: 'Our transparent, fair hiring process. Learn how we hire at Harch Corp — from application to offer in 6 clear steps.',

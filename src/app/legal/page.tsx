@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import LegalPageClient from './LegalPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Legal  | Harch Corp',
   description: 'Legal information and disclaimers for Harch Corp.',

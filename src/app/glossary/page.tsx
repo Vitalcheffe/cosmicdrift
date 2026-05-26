@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import GlossaryPageClient from './GlossaryPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Glossary: Sovereign AI, Carbon-Aware Computing & African Infrastructure Terms',
   description: 'Comprehensive glossary of infrastructure, AI, and energy terms — from sovereign AI and carbon-aware computing to green hydrogen, phosphate mining, water desalination, and Islamic finance. 50+ definitions for Africa\'s industrial transformation.',

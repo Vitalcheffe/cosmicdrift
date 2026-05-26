@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import HarchAgriPage from './HarchAgriPage';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'HarchAgri — Precision Agriculture for Africa | Harch Corp',
   description:

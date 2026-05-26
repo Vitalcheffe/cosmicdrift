@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import PricingPageClient from './PricingPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Pricing — Transparent Carbon-Aware GPU Compute Pricing',
   description: 'Transparent, predictable pricing for HarchOS sovereign AI infrastructure. Start free with 10 GPU hours/month. From $1.40/gpu-hr. 40-60% cheaper than AWS, GCP, and Azure. Carbon-aware scheduling at ~47 gCO2/kWh.',

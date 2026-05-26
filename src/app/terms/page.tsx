@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import TermsPageClient from './TermsPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Terms of Service  | Harch Corp',
   description: 'Terms of service and usage conditions for Harch Corp.',

@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import TrademarkPageClient from './TrademarkPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Trademark Guidelines  | Harch Corp',
   description: 'Guidelines for the proper use of Harch Corp trademarks, logos, and brand assets.',

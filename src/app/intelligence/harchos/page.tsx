@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import HarchOSPageClient from './HarchOSPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'HarchOS — The Operating System for Sovereign AI Infrastructure',
   description: 'HarchOS orchestrates the Harch Intelligence Distributed Mesh — 5 hubs of AI compute powered by renewable energy across Morocco. 250MW installed, 400Gbps backbone, zero-downtime architecture.',

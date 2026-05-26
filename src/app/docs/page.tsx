@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import DocsPageClient from './DocsPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Documentation — HarchOS Platform Docs',
   description: 'Comprehensive documentation for HarchOS, the operating system for sovereign AI infrastructure. API reference, SDK guides, architecture, and quickstart tutorials.',

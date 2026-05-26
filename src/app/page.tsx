@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import HomePageClient from './HomePageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: "Harch Corp — Africa's Industrial Sovereignty | $2.4B+ Investment Pipeline",
   description:

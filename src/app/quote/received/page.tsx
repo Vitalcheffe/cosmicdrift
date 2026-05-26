@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import QuoteReceivedClient from './QuoteReceivedClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Quote Request Received | Harch Corp',
   description:

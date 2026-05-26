@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { caseStudies } from '@/data/case-studies';
 import CaseStudyPageClient from './CaseStudyPageClient';
 
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

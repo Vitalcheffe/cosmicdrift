@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import CaseStudiesPageClient from './CaseStudiesPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Case Studies — Proof of Impact',
   description:

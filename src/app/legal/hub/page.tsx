@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import LegalHubPageClient from './LegalHubPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Legal Hub  | Harch Corp',
   description: 'Complete index of all Harch Corp legal documents, policies, and compliance information.',

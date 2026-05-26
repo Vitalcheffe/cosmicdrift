@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import ChangelogPageClient from './ChangelogPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Release Notes — HarchOS',
   description: 'HarchOS release notes and changelog. Track new features, improvements, bug fixes, breaking changes, and deprecations across all versions.',

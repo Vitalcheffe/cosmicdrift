@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import EngineeringBlogPageClient from './EngineeringBlogPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Engineering Blog  | Harch Corp',
   description: 'Technical deep-dives, architecture breakdowns, and engineering war stories from the teams building HarchOS, SENSE, and Africa\'s sovereign compute platform.',

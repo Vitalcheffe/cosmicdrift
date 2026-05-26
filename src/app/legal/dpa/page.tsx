@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import DpaPageClient from './DpaPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Data Processing Agreement  | Harch Corp',
   description: 'Harch Corp\'s Data Processing Agreement provisions and template for clients and partners.',

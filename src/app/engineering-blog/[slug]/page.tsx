@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { engArticles } from '@/data/eng-articles';
 import EngArticlePageClient from './EngArticlePageClient';
 
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

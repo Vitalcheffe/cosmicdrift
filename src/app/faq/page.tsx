@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import FaqPageClient from './FaqPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
   description: 'Common questions about Harch Corp — our verticals, investment pipeline, technology, and how to partner with us.',

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import QuickstartsPageClient from './QuickstartsPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Quickstart Guides — HarchOS',
   description: 'Get started with HarchOS in 5 minutes. Quickstart guides for deploying AI models, setting up data pipelines, creating dashboards, and configuring access control.',

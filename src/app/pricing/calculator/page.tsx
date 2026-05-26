@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import CalculatorPageClient from './CalculatorPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Cost Calculator — Carbon-Aware HarchOS Pricing',
   description: 'Calculate your HarchOS infrastructure costs. From $1.40/gpu-hr with carbon-aware scheduling at ~47 gCO2/kWh. Compare GPU compute pricing against AWS, GCP, and Azure. See 40-60% savings with 100% renewable sovereign infrastructure.',

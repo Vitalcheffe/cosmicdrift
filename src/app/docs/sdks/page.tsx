@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import SdksPageClient from './SdksPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'SDKs & Libraries — HarchOS',
   description: 'Install and use HarchOS SDKs for Python, TypeScript, Go, and Rust. CLI tool reference, feature comparison, and integration guides.',

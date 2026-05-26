@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import PressPageClient from './PressPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Press & Media  | Harch Corp',
   description: 'Official press resources for Harch Corp S.A. — Moroccan industrial conglomerate. Media kit, brand assets, press releases, executive bios, and media contact information.',

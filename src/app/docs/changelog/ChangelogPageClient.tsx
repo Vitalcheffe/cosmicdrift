@@ -188,7 +188,7 @@ export default function ChangelogPageClient() {
                   <div className="relative pl-14 lg:pl-16">
                     {/* Timeline dot */}
                     <div className="absolute left-0 top-1 w-10 h-10 lg:w-12 lg:h-12 rounded-full border-2 flex items-center justify-center z-10" style={{ borderColor: statusStyles[version.status].border, backgroundColor: statusStyles[version.status].bg }}>
-                      <Package size={16} style={{ color: statusStyles[version.status].text }} />
+                      <span style={{ color: statusStyles[version.status].text }}><Package size={16} /></span>
                     </div>
 
                     {/* Version Card */}

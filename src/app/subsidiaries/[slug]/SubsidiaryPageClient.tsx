@@ -1017,7 +1017,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
               <StaggerItem key={cap.title}>
                 <Card3D className="h-full" glareEnabled>
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${accent}15` }}>
-                    <cap.icon size={18} style={{ color: accent }} strokeWidth={1.5} />
+                    <span style={{ color: accent }}><cap.icon size={18} strokeWidth={1.5} /></span>
                   </div>
                   <h3 className="text-[14px] font-bold text-white mb-2">{cap.title}</h3>
                   <p className="text-[12px] text-[#999999] leading-relaxed">{cap.desc}</p>
@@ -1120,7 +1120,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
 
               <div className="card p-6 mb-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <MapPin size={18} style={{ color: accent }} />
+                  <span style={{ color: accent }}><MapPin size={18} /></span>
                   <span className="text-[14px] font-bold text-white">{data.location}</span>
                 </div>
                 <p className="text-[13px] text-[#999999] leading-[1.7]">{data.locationDesc}</p>
@@ -1259,7 +1259,7 @@ export default function SubsidiaryPageClient({ slug }: { slug: string }) {
                   <div className="flex gap-6 md:gap-8 pl-0">
                     <div className="flex-shrink-0 relative z-10">
                       <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accent}20`, border: `2px solid ${accent}` }}>
-                        <Calendar size={14} style={{ color: accent }} />
+                        <span style={{ color: accent }}><Calendar size={14} /></span>
                       </div>
                     </div>
                     <div className="pb-2">

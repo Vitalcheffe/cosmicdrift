@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Legal | Harch Corp',
-  description: 'Legal information, terms of service, privacy policy, GDPR compliance, and regulatory disclaimers for Harch Corp S.A.',
+  description: 'Access Harch Corp legal documents including terms of service, privacy policy, GDPR & CCPA compliance, SLA guarantees, and regulatory disclaimers.',
   alternates: {
     canonical: 'https://www.harchcorp.com/legal',
     languages: {

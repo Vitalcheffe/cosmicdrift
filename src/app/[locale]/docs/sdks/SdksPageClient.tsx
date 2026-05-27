@@ -24,7 +24,7 @@ export default function SdksPageClient() {
       package: 'harchos',
       install: 'pip install harchos',
       version: '0.1.0',
-      status: 'stable',
+      status: 'coming-soon',
       accent: '#3776AB',
       quickStart: `import harchos
 
@@ -63,7 +63,7 @@ for event in workload.stream_metrics():
       package: '@harchos/sdk',
       install: 'npm install @harchos/sdk',
       version: '0.1.0',
-      status: 'stable',
+      status: 'coming-soon',
       accent: '#3178C6',
       quickStart: `import { HarchOS } from '@harchos/sdk';
 
@@ -101,9 +101,9 @@ for await (const event of workload.streamMetrics()) {
       id: 'go',
       name: t('sdks.items.2.name'),
       package: 'harchos-cli',
-      install: 'go get github.com/HarchCorp/harchos-cli/pkg/client',
+      install: 'go get github.com/harchos/sdk-go/pkg/client',
       version: '0.1.0',
-      status: 'stable',
+      status: 'coming-soon',
       accent: '#00ADD8',
       quickStart: `package main
 
@@ -112,7 +112,7 @@ import (
     "fmt"
     "log"
 
-    harchos "github.com/HarchCorp/harchos-cli/pkg/client"
+    harchos "github.com/harchos/sdk-go/pkg/client"
 )
 
 func main() {
@@ -387,7 +387,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
               <div className="card p-5">
                 <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">{t('sdks.osLabels.macos')}</p>
-                <code className="text-[13px] text-[#10B981] font-[family-name:var(--font-space-mono)]">brew install harchcorp/tap/harchos</code>
+                <code className="text-[13px] text-[#10B981] font-[family-name:var(--font-space-mono)]">brew install harchos/tap/harchos</code>
               </div>
               <div className="card p-5">
                 <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">{t('sdks.osLabels.linux')}</p>
@@ -395,7 +395,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               </div>
               <div className="card p-5">
                 <p className="text-[11px] text-[#666666] uppercase tracking-[0.15em] font-bold font-[family-name:var(--font-space-mono)] mb-2">{t('sdks.osLabels.windows')}</p>
-                <code className="text-[13px] text-[#10B981] font-[family-name:var(--font-space-mono)]">winget install HarchCorp.HarchOS</code>
+                <code className="text-[13px] text-[#10B981] font-[family-name:var(--font-space-mono)]">winget install HarchOS.HarchOS</code>
               </div>
             </div>
           </FadeIn>

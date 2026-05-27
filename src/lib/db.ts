@@ -1,13 +1,5 @@
-import { PrismaClient } from '@prisma/client'
+// Prisma client — disabled until database is configured.
+// This file is unused. Re-enable when a real database connection is needed.
+// See prisma/schema.prisma for the schema definition.
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined
-}
-
-export const db =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    log: ['query'],
-  })
-
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
+export const db = null as unknown as never;

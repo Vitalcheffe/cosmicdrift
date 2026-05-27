@@ -1270,7 +1270,7 @@ export default function HarchOSPageClient() {
                 <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
                 <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
                 <span className="w-3 h-3 rounded-full bg-[#28CA41]" />
-                <span className="ml-4 text-[11px] text-[#5C6370] font-[family-name:var(--font-space-mono)]">harchos-sdk.py</span>
+                <span className="ml-4 text-[11px] text-[#5C6370] font-[family-name:var(--font-space-mono)]">harchos-sdk.py <span className="text-[#F59E0B]">(coming soon)</span></span>
               </div>
               <div className="p-6 overflow-x-auto">
                 <pre className="text-[13px] leading-[1.8] font-[family-name:var(--font-space-mono)]">

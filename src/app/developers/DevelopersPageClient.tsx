@@ -195,9 +195,7 @@ export default function DevelopersPageClient() {
                   <div>
                     <h3 className="text-lg font-bold text-white">Python SDK</h3>
                     <div className="flex items-center gap-2 mt-1">
-                      <img src="https://img.shields.io/pypi/v/harchos.svg" alt="PyPI" className="h-5" />
-                      <img src="https://img.shields.io/pypi/pyversions/harchos.svg" alt="Python versions" className="h-5" />
-                      <img src="https://img.shields.io/pypi/dm/harchos.svg" alt="Downloads" className="h-5" />
+                      <span className="px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[rgba(245,158,11,0.1)] text-[#F59E0B] border border-[rgba(245,158,11,0.2)]">Coming Soon</span>
                     </div>
                   </div>
                 </div>
@@ -224,8 +222,7 @@ export default function DevelopersPageClient() {
                   <div>
                     <h3 className="text-lg font-bold text-white">TypeScript SDK</h3>
                     <div className="flex items-center gap-2 mt-1">
-                      <img src="https://img.shields.io/npm/v/@harchos/sdk.svg" alt="npm" className="h-5" />
-                      <img src="https://img.shields.io/npm/dt/@harchos/sdk.svg" alt="Downloads" className="h-5" />
+                      <span className="px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[rgba(245,158,11,0.1)] text-[#F59E0B] border border-[rgba(245,158,11,0.2)]">Coming Soon</span>
                     </div>
                   </div>
                 </div>
@@ -551,24 +548,24 @@ export default function DevelopersPageClient() {
                 icon: MessageCircle,
                 title: 'Discord',
                 description: 'Real-time conversations with 4,200+ developers. Get help, share projects, and connect with the core team.',
-                members: '4,200+',
-                link: 'discord.gg/harchos',
+                members: 'Coming soon',
+                link: 'Coming soon',
                 color: '#5865F2',
               },
               {
                 icon: Github,
                 title: 'GitHub Discussions',
                 description: 'Feature requests, RFCs, and deep technical discussions. Shape the roadmap with your input.',
-                members: '1,800+',
-                link: 'github.com/harchcorp/discussions',
+                members: 'Coming soon',
+                link: 'Coming soon',
                 color: '#FFFFFF',
               },
               {
                 icon: BookOpen,
                 title: 'Stack Overflow',
                 description: 'Find answers to common questions. Tag [harchos] for visibility with our developer advocates.',
-                members: '900+',
-                link: 'stackoverflow.com/questions/tagged/harchos',
+                members: 'Coming soon',
+                link: 'Coming soon',
                 color: '#F48024',
               },
             ].map((community, i) => (

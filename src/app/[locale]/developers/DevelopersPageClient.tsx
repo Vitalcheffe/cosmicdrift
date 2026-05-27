@@ -197,9 +197,7 @@ export default function DevelopersPageClient() {
                   <div>
                     <h3 className="text-lg font-bold text-white">{t('pythonSdkTitle')}</h3>
                     <div className="flex items-center gap-2 mt-1">
-                      <img src="https://img.shields.io/pypi/v/harchos.svg" alt={t('altTexts.pypi')} className="h-5" />
-                      <img src="https://img.shields.io/pypi/pyversions/harchos.svg" alt={t('altTexts.pythonVersions')} className="h-5" />
-                      <img src="https://img.shields.io/pypi/dm/harchos.svg" alt={t('altTexts.downloads')} className="h-5" />
+                      <span className="px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[rgba(245,158,11,0.1)] text-[#F59E0B] border border-[rgba(245,158,11,0.2)]">Coming Soon</span>
                     </div>
                   </div>
                 </div>
@@ -226,8 +224,7 @@ export default function DevelopersPageClient() {
                   <div>
                     <h3 className="text-lg font-bold text-white">{t('typescriptSdkTitle')}</h3>
                     <div className="flex items-center gap-2 mt-1">
-                      <img src="https://img.shields.io/npm/v/@harchos/sdk.svg" alt={t('altTexts.npm')} className="h-5" />
-                      <img src="https://img.shields.io/npm/dt/@harchos/sdk.svg" alt={t('altTexts.downloads')} className="h-5" />
+                      <span className="px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[rgba(245,158,11,0.1)] text-[#F59E0B] border border-[rgba(245,158,11,0.2)]">Coming Soon</span>
                     </div>
                   </div>
                 </div>
@@ -554,7 +551,7 @@ export default function DevelopersPageClient() {
                 title: t('community.0.title'),
                 description: t('community.0.description'),
                 members: t('community.0.members'),
-                link: 'discord.gg/harchos',
+                link: 'Coming soon',
                 color: '#5865F2',
               },
               {
@@ -562,7 +559,7 @@ export default function DevelopersPageClient() {
                 title: t('community.1.title'),
                 description: t('community.1.description'),
                 members: t('community.1.members'),
-                link: 'github.com/harchcorp/discussions',
+                link: 'Coming soon',
                 color: '#FFFFFF',
               },
               {
@@ -570,7 +567,7 @@ export default function DevelopersPageClient() {
                 title: t('community.2.title'),
                 description: t('community.2.description'),
                 members: t('community.2.members'),
-                link: 'stackoverflow.com/questions/tagged/harchos',
+                link: 'Coming soon',
                 color: '#F48024',
               },
             ].map((community, i) => (

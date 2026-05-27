@@ -223,9 +223,7 @@ export default async function LocaleLayout({
           latitude: 33.5731,
           longitude: -7.5898,
         },
-        // telephone removed — placeholder number was fake (+212-522-000-xxx)
-        // Re-enable with real phone number when available.
-        // telephone: "+212-522-000-000",
+        // telephone: to be added when a real business number is available
         email: "info@harchcorp.com",
         areaServed: [
           { "@type": "Country", name: "Morocco" },
@@ -347,7 +345,6 @@ export default async function LocaleLayout({
         description:
           "Founder and CEO of Harch Corp S.A., a Moroccan multi-sector industrial conglomerate building Africa's industrial sovereignty across 8 verticals with a $2.4B+ investment pipeline.",
         url: "https://www.harchcorp.com",
-        // sameAs: ["https://www.linkedin.com/in/amineharchelkorane"],
       },
       {
         "@type": "WebSite",

@@ -17,7 +17,7 @@ export default function LeadershipPageClient() {
       name: t('leadership.executives.0.name'),
       title: t('leadership.executives.0.title'),
       bio: t('leadership.executives.0.bio'),
-      linkedin: 'https://www.linkedin.com/in/amineharchelkorane',
+      linkedin: '#', // LinkedIn not yet created — replace with real URL when available
     },
   ];
 
@@ -56,9 +56,15 @@ export default function LeadershipPageClient() {
                   <p className="text-[12px] font-semibold text-[rgba(255,255,255,0.4)] uppercase tracking-wider mb-4">{exec.title}</p>
                   <div className="accent-line mb-4" />
                   <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{exec.bio}</p>
-                  <a href={exec.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[12px] text-[#666666] hover:text-white transition-colors">
-                    <Linkedin size={14} /> {t('leadership.linkedin')}
-                  </a>
+                  {exec.linkedin !== '#' ? (
+                    <a href={exec.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-[12px] text-[#666666] hover:text-white transition-colors">
+                      <Linkedin size={14} /> {t('leadership.linkedin')}
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-2 text-[12px] text-[#666666]">
+                      <Linkedin size={14} /> {t('leadership.linkedin')}
+                    </span>
+                  )}
                 </div>
               </FadeIn>
             ))}

@@ -29,7 +29,7 @@ export default function CommunityPageClient() {
       accent: '#FFFFFF',
       channels: [t('channels.items.1.channels.0'), t('channels.items.1.channels.1'), t('channels.items.1.channels.2')],
       cta: t('channels.items.1.cta'),
-      href: 'https://github.com/harchcorp',
+      href: '#', // GitHub org not yet created — replace with real URL when available
     },
     {
       name: t('channels.items.2.name'),

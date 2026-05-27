@@ -25,7 +25,7 @@ const communityChannels = [
     accent: '#FFFFFF',
     channels: ['15 repos', '120+ contributors', 'MIT licensed'],
     cta: 'View on GitHub',
-    href: 'https://github.com/harchcorp',
+    href: '#', // GitHub org not yet created — replace with real URL when available
   },
   {
     name: 'Stack Overflow',

@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/motion';
 import { useTranslations } from 'next-intl';
@@ -14,9 +13,6 @@ import { motion } from 'framer-motion';
 /* ─── MAIN COMPONENT ─── */
 export default function OpenSourcePageClient() {
   const t = useTranslations('developers');
-  const [repoStats, setRepoStats] = useState<Record<string, { stars: number; forks: number }>>({});
-
-  const GITHUB_ORG = 'HarchCorp';
 
   const projects = [
     {
@@ -136,24 +132,6 @@ export default function OpenSourcePageClient() {
     },
   ];
 
-  useEffect(() => {
-    async function fetchGitHubStats() {
-      try {
-        const res = await fetch(`https://api.github.com/orgs/${GITHUB_ORG}/repos?per_page=100`);
-        if (!res.ok) return;
-        const repos: Array<{ name: string; stargazers_count: number; forks_count: number }> = await res.json();
-        const stats: Record<string, { stars: number; forks: number }> = {};
-        for (const repo of repos) {
-          stats[repo.name] = { stars: repo.stargazers_count, forks: repo.forks_count };
-        }
-        setRepoStats(stats);
-      } catch {
-        // Silently fall back to defaults if GitHub API is unavailable
-      }
-    }
-    fetchGitHubStats();
-  }, []);
-
   return (
     <div className="bg-[#1A1A1A]">
 
@@ -184,9 +162,9 @@ export default function OpenSourcePageClient() {
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <a href="https://github.com/harchcorp" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all">
-              <Github size={16} /> github.com/harchcorp
-            </a>
+            <Link href="/developers" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all">
+              <Github size={16} /> {t('openSource.ctaButton1')}
+            </Link>
           </FadeIn>
         </div>
       </section>
@@ -209,9 +187,6 @@ export default function OpenSourcePageClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, i) => {
-              const stats = repoStats[project.name];
-              const stars = stats?.stars ?? project.defaultStars;
-              const forks = stats?.forks ?? project.defaultForks;
               return (
                 <FadeIn key={project.name} delay={i * 0.08}>
                   {project.comingSoon ? (
@@ -248,11 +223,11 @@ export default function OpenSourcePageClient() {
                           </div>
                           <div className="flex items-center gap-1.5 text-[#999999]">
                             <Star size={13} />
-                            <span className="text-[11px] stat-mono">{stars.toLocaleString()}</span>
+                            <span className="text-[11px] stat-mono">{project.defaultStars.toLocaleString()}</span>
                           </div>
                           <div className="flex items-center gap-1.5 text-[#666666]">
                             <GitFork size={13} />
-                            <span className="text-[11px] stat-mono">{forks.toLocaleString()}</span>
+                            <span className="text-[11px] stat-mono">{project.defaultForks.toLocaleString()}</span>
                           </div>
                         </div>
                         <span className="text-[10px] text-[#666666] font-[family-name:var(--font-space-mono)]">{project.license}</span>
@@ -384,9 +359,9 @@ export default function OpenSourcePageClient() {
               {t('openSource.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="https://github.com/harchcorp" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all">
+              <Link href="/developers" className="inline-flex items-center gap-2.5 bg-white text-black px-8 py-4 rounded-lg text-sm font-semibold hover:bg-white/90 transition-all">
                 <Github size={16} /> {t('openSource.ctaButton1')}
-              </a>
+              </Link>
               <Link href="/developers" className="inline-flex items-center gap-2.5 border border-white/12 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:border-white/25 hover:bg-white/[0.03] transition-all">
                 <ArrowLeft size={14} /> {t('openSource.ctaButton2')}
               </Link>

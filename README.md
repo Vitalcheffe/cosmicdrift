@@ -47,22 +47,12 @@ npm run build
 
 ## HarchOS Ecosystem
 
-This web platform is part of the broader HarchOS open-source ecosystem:
-
-| Repository | Description |
-|------------|-------------|
-| [harchos-server](https://github.com/HarchCorp/harchos-server) | Carbon-aware GPU orchestration API (FastAPI) |
-| [harchos-sdk-python](https://github.com/HarchCorp/harchos-sdk-python) | Python SDK with OpenAI-compatible inference |
-| [harchos-sdk-js](https://github.com/HarchCorp/harchos-sdk-js) | TypeScript/JavaScript SDK |
-| [harchos-cli](https://github.com/HarchCorp/harchos-cli) | Command-line interface for HarchOS |
-| [harchos-terraform-provider](https://github.com/HarchCorp/harchos-terraform-provider) | Terraform provider for sovereign AI cloud |
-| [harchos-grafana-plugins](https://github.com/HarchCorp/harchos-grafana-plugins) | GPU monitoring & carbon tracking dashboards |
-| [harchos-examples](https://github.com/HarchCorp/harchos-examples) | Starter templates & tutorials |
+HarchOS SDKs and tooling will be released as the platform reaches public availability. Stay tuned via [harchcorp.com/developers](https://www.harchcorp.com/developers).
 
 ## Contact
 
 - Website: [harchcorp.com](https://www.harchcorp.com)
-- Email: amine@harchcorp.com
+- Email: press@harchcorp.com
 
 ---
 

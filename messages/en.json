@@ -4494,70 +4494,67 @@
     "hero": {
       "headline": "Sovereign GPU Cloud.",
       "headlineLine2": "Carbon-Aware. Built in Africa.",
-      "subtext": "HarchOS is the operating system for Africa's first carbon-aware GPU compute platform — powered by Morocco's renewable energy advantage.",
-      "statGpus": "1,798 GPUs",
+      "subtext": "HarchOS is the operating system for Africa's first carbon-aware GPU compute platform — powered by Morocco's renewable energy advantage. Open-source from day one.",
       "statGpusSub": "Planned across 5 hubs",
-      "statHubs": "5 Hubs",
       "statHubsSub": "Morocco-wide mesh",
-      "statCarbon": "~47 gCO2/kWh",
       "statCarbonSub": "Target carbon intensity",
       "ctaPrimary": "Request Early Access",
-      "ctaSecondary": "View Architecture",
+      "ctaGithub": "View on GitHub",
       "label": "HarchOS /0.1"
     },
     "why": {
       "title": "Three problems. One platform.",
-      "subtitle": "Why HarchOS",
+      "subtitle": "The AI infrastructure gap in Africa isn't just about hardware — it's about sovereignty, sustainability, and scale.",
       "sovereign": {
         "title": "Sovereign AI",
-        "desc": "AI workloads in Africa route through US and EU data centers. HarchOS keeps data on African soil — by default, not by configuration. Every deployment enforces data residency at the infrastructure level."
+        "desc": "AI workloads in Africa route through US and EU data centers by default. Every inference call, every training run, every dataset leaves the continent. HarchOS keeps data on African soil — by default, not by configuration. Every deployment enforces data residency at the infrastructure level with three sovereignty tiers: strict, regional, and global."
       },
       "carbon": {
         "title": "Carbon-Aware Computing",
-        "desc": "Training an LLM emits 5x more CO2 on a US fossil grid than on Morocco's renewable mix. HarchOS schedules workloads when and where carbon intensity is lowest — without sacrificing performance."
+        "desc": "Training a single LLM can emit over 300 tonnes of CO2. On a fossil-heavy US grid, that number multiplies. Morocco's grid runs on solar, wind, and CSP — averaging 47 gCO2/kWh versus 400+ in the US. HarchOS doesn't just run workloads — it schedules them when and where carbon intensity is lowest, without sacrificing performance."
       },
       "panAfrican": {
         "title": "Pan-African Infrastructure",
-        "desc": "Africa has 1% of global compute capacity for 17% of the population. HarchOS is building the infrastructure to close that gap — starting from Morocco's strategic position at the crossroads of Europe and Africa."
+        "desc": "Africa has 1% of global compute capacity for 17% of the population. That gap is widening, not closing. HarchOS is building the infrastructure to reverse this trend — starting from Morocco's strategic position at the crossroads of Europe and Africa, with undersea cables reaching both continents."
       },
       "label": "Why HarchOS /0.2"
     },
     "hubs": {
       "title": "Five hubs. Morocco's renewable advantage.",
-      "subtitle": "Each hub is strategically located near renewable energy sources. Combined, they form Africa's largest planned GPU mesh.",
+      "subtitle": "Each hub is strategically located near renewable energy sources. Combined, they form Africa's largest planned GPU mesh — 1,798 GPUs across solar, wind, and hybrid installations.",
       "disclaimer": "Hub specifications are planned targets. Actual deployment timelines depend on infrastructure development and regulatory approval.",
       "planned": "Planned",
       "ouarzazate": {
         "name": "Ouarzazate",
-        "energy": "Solar CSP",
+        "energy": "Solar CSP — Noor Complex",
         "gpus": "800 GPUs planned",
         "renewable": "~97% renewable",
         "status": "Planned"
       },
       "dakhla": {
         "name": "Dakhla",
-        "energy": "Offshore Wind",
+        "energy": "Offshore Wind — Atlantic Coast",
         "gpus": "400 GPUs planned",
         "renewable": "~85% renewable target",
         "status": "Planned"
       },
       "benguerir": {
         "name": "Benguerir",
-        "energy": "Solar + Wind",
+        "energy": "Solar + Wind Hybrid — Green City",
         "gpus": "350 GPUs planned",
         "renewable": "~75% renewable target",
         "status": "Planned"
       },
       "tanger": {
         "name": "Tanger",
-        "energy": "Wind + Grid",
+        "energy": "Wind + Grid — Mediterranean Gateway",
         "gpus": "200 GPUs planned",
         "renewable": "~65% renewable target",
         "status": "Planned"
       },
       "casablanca": {
         "name": "Casablanca",
-        "energy": "Grid + Solar",
+        "energy": "Grid + Solar — Urban Edge",
         "gpus": "48 GPUs planned",
         "renewable": "~40% renewable (urban grid)",
         "status": "Planned"
@@ -4567,101 +4564,258 @@
     },
     "architecture": {
       "title": "SENSE. THINK. ACT.",
-      "subtitle": "HarchOS operates on a three-layer architecture inspired by autonomous systems — observe the grid, predict the optimal path, execute with precision.",
+      "subtitle": "HarchOS operates on a three-layer architecture inspired by autonomous systems — observe the grid, predict the optimal path, execute with precision. Every layer is open-source and auditable.",
       "sense": {
         "title": "SENSE",
         "subtitle": "Real-time grid monitoring",
-        "desc": "Continuous ingestion of carbon intensity data, energy pricing, GPU utilization, and grid reliability across all hubs.",
-        "specs": "Carbon API feeds, Energy market data, Hub telemetry, Regional grid status"
+        "desc": "Continuous ingestion of carbon intensity data from national grid APIs, energy spot pricing from Moroccan utilities, GPU utilization metrics from all hubs, and inter-hub network reliability telemetry. The SENSE layer maintains a real-time topology graph of every GPU, including NVLink bandwidth, PCIe lane assignments, and cooling capacity.",
+        "specs": "Carbon API feeds, Energy market data, Hub telemetry, Regional grid status, NVLink topology, Cooling metrics"
       },
       "think": {
         "title": "THINK",
         "subtitle": "Carbon-aware intelligence",
-        "desc": "ML-powered scheduling engine that predicts the optimal hub, time window, and GPU configuration for each workload based on carbon, cost, and latency.",
-        "specs": "Carbon prediction model, Cost optimization engine, Workload profiler, Sovereignty validator"
+        "desc": "The ML-powered scheduling engine that predicts the optimal hub, time window, and GPU configuration for each workload. It considers carbon intensity forecasts, spot pricing trends, workload latency requirements, and sovereignty constraints simultaneously — optimizing for the Pareto frontier of cost, carbon, and performance.",
+        "specs": "Carbon prediction model, Cost optimization engine, Workload profiler, Sovereignty validator, Spot pricing forecaster, Latency calculator"
       },
       "act": {
         "title": "ACT",
         "subtitle": "Autonomous orchestration",
-        "desc": "Deploys, migrates, and scales workloads automatically. Live migration between hubs when carbon conditions change. Zero-touch operations.",
-        "specs": "Auto-deployment, Cross-hub migration, Auto-scaling, Self-healing"
+        "desc": "Deploys, migrates, and scales workloads automatically based on THINK layer decisions. Supports live migration between hubs when carbon conditions shift — moving a training job from Tanger to Ouarzazate when solar output peaks. Zero-touch operations with self-healing and automated failover.",
+        "specs": "Auto-deployment, Cross-hub migration, Auto-scaling, Self-healing, Live migration, Automated failover"
       },
       "label": "Architecture /0.4"
     },
+    "opensource": {
+      "title": "Open-source from day one.",
+      "subtitle": "The entire HarchOS platform is open-source. Server, SDKs, CLI, Terraform provider, Grafana plugins, examples — everything. We believe sovereign infrastructure requires transparent code.",
+      "desc": "Every component is developed in the open on GitHub under permissive licenses (Apache 2.0, MIT, MPL). You can audit, fork, contribute, or self-host. Sovereign infrastructure can't be sovereign if you can't read the code that runs it.",
+      "statRepos": "Public repositories",
+      "statLanguages": "Languages (Python, TS, Go)",
+      "statRegistries": "Package registries (PyPI, npm, TF)",
+      "statOpenSource": "Open-source repos",
+      "label": "Open Source /0.5"
+    },
+    "sdkPython": {
+      "title": "Python SDK — pip install harchos",
+      "desc": "The official Python SDK provides OpenAI-compatible inference with built-in carbon tracking. Every API response includes carbon footprint data — gCO2 emitted, renewable percentage, and the hub that served your request. Supports async workloads, SSE streaming, and a context manager for carbon-aware batch processing.",
+      "features": "OpenAI-compatible, Carbon tracking, SSE streaming, Async support, CLI included, Pydantic models",
+      "label": "Python SDK /0.6"
+    },
+    "sdkJs": {
+      "title": "TypeScript SDK — npm install @harchos/sdk",
+      "desc": "The TypeScript/JavaScript SDK brings sovereign defaults to Node.js. Every client is initialized with region='morocco', sovereignty='strict', and carbonAware=true — you have to explicitly opt out of carbon-awareness, not opt in. Full type safety, carbon intensity queries, optimal hub finder, and workload scheduling.",
+      "features": "Typed API client, Sovereign defaults, Carbon intensity, Hub finder, Workload scheduler, Zero-config",
+      "label": "TypeScript SDK /0.7"
+    },
+    "cli": {
+      "title": "CLI — harchos",
+      "desc": "Written in Go for single-binary cross-platform distribution. Sovereign by default, multi-profile configuration, structured output (JSON/YAML/table), and CI/CD-friendly with --dry-run and --quiet modes. Secure credential storage via system keyring. Available via Homebrew, binary download, or build from source.",
+      "features": "Single binary, Multi-profile, Structured output, CI/CD ready, System keyring, Cross-platform",
+      "label": "CLI /0.8"
+    },
+    "terraform": {
+      "title": "Terraform Provider — Infrastructure as Code",
+      "desc": "Manage HarchOS workloads, models, inference endpoints, datasets, network policies, and storage volumes with Terraform. Define sovereignty levels in HCL — and once set, sovereignty cannot be downgraded. The provider enforces this at the API level. Available on the Terraform Registry as HarchCorp/harchos.",
+      "features": "6 resources, 3 data sources, Sovereignty enforcement, Carbon thresholds, Registry published, HCL-native",
+      "label": "Terraform /0.9"
+    },
+    "grafana": {
+      "title": "Grafana Plugins — Observe Everything",
+      "subtitle": "Six custom Grafana plugins for GPU monitoring, carbon tracking, hub health, workload distribution, and carbon forecasting. Introduces two custom query languages: EnergyQL for energy metrics and SovereigntyQL for compliance auditing.",
+      "datasource": {
+        "title": "HarchOS Data Source",
+        "desc": "Connect Grafana directly to HarchOS hubs. Query real-time GPU utilization, carbon metrics, hub health, and sovereignty status with custom query languages."
+      },
+      "gpuPanel": {
+        "title": "GPU Utilization Panel",
+        "desc": "Visualize GPU utilization across all hubs. Drill down by hub, rack, or individual GPU. Track memory, compute, and thermal metrics in real time."
+      },
+      "carbonPanel": {
+        "title": "Carbon Metrics Panel",
+        "desc": "Track carbon emissions per workload, per hub, or per project. Compare against grid averages and renewable targets. Historical trend analysis."
+      },
+      "hubHealth": {
+        "title": "Hub Health Panel",
+        "desc": "Monitor hub operational status including power supply, cooling capacity, network connectivity, and GPU availability across the mesh."
+      },
+      "workloadDist": {
+        "title": "Workload Distribution",
+        "desc": "Visualize how workloads are distributed across hubs. See carbon-aware routing decisions in real time. Identify optimization opportunities."
+      },
+      "forecast": {
+        "title": "Carbon Forecast Panel",
+        "desc": "Predict future carbon intensity based on weather forecasts, solar/wind generation predictions, and grid demand patterns. Plan workloads accordingly."
+      },
+      "label": "Grafana /0.10"
+    },
+    "carbon": {
+      "title": "Carbon Intelligence",
+      "subtitle": "HarchOS doesn't just run workloads — it understands the carbon impact of every compute decision and actively minimizes it.",
+      "realtime": {
+        "title": "Real-Time Carbon Tracking",
+        "desc": "Every API response includes a carbon_footprint object with gCO2 emitted, renewable percentage, and the serving hub. Track your carbon impact per request, per session, or per project with zero additional API calls."
+      },
+      "prediction": {
+        "title": "Carbon Intensity Forecasting",
+        "desc": "ML models predict carbon intensity 24-48 hours ahead using weather forecasts, solar generation curves, wind speed predictions, and historical grid patterns. Schedule training jobs when carbon intensity will be lowest."
+      },
+      "routing": {
+        "title": "Carbon-Aware Workload Routing",
+        "desc": "The THINK layer automatically routes workloads to the greenest available hub. If Ouarzazate's solar output peaks at 2PM, your training job gets routed there. If Dakhla's wind picks up at midnight, batch processing shifts automatically."
+      },
+      "reporting": {
+        "title": "Compliance & ESG Reporting",
+        "desc": "Generate carbon reports per project, per team, or per organization. Export in formats compatible with GHG Protocol, CDP, and EU CSRD reporting frameworks. Built-in audit trail for regulatory compliance."
+      },
+      "comparison": {
+        "title": "Carbon intensity comparison",
+        "us": {
+          "label": "US Fossil Grid",
+          "value": "400+",
+          "unit": "gCO2/kWh average"
+        },
+        "eu": {
+          "label": "EU Average Grid",
+          "value": "250",
+          "unit": "gCO2/kWh average"
+        },
+        "morocco": {
+          "label": "HarchOS Mesh",
+          "value": "~47",
+          "unit": "gCO2/kWh target"
+        }
+      },
+      "label": "Carbon Intelligence /0.11"
+    },
+    "sovereignty": {
+      "title": "Sovereignty by default.",
+      "subtitle": "Data sovereignty isn't a feature — it's the architecture. HarchOS enforces sovereignty at three levels, and once set, it can never be downgraded.",
+      "strict": {
+        "title": "STRICT",
+        "desc": "Data and workloads never leave the designated hub. All processing, storage, and inference happen within a single facility. Maximum data isolation for government, defense, and regulated industries.",
+        "rules": "No cross-hub transfer, Single hub only, Air-gapped option"
+      },
+      "regional": {
+        "title": "REGIONAL",
+        "desc": "Workloads can move between hubs within the same geographic region (Morocco). Enables carbon-aware routing within the country while keeping data on sovereign soil. Recommended for most enterprise workloads.",
+        "rules": "Within Morocco only, Carbon-aware routing, Cross-hub migration"
+      },
+      "global": {
+        "title": "GLOBAL",
+        "desc": "Workloads can span multiple regions across Africa. Enables pan-African mesh networking for distributed training and low-latency inference across the continent. Data still never leaves Africa.",
+        "rules": "Pan-African, Multi-region, Lowest latency"
+      },
+      "rule": "Sovereignty levels are enforced at the infrastructure level and cannot be downgraded once set. A workload deployed with strict sovereignty will never be migrated to a regional or global configuration — even under failover conditions. This is a technical guarantee, not a policy.",
+      "label": "Sovereignty /0.12"
+    },
     "specs": {
       "title": "What we're building towards.",
-      "subtitle": "These are our engineering targets, not current capabilities. We believe in transparency over marketing.",
+      "subtitle": "These are our engineering targets, not current capabilities. We believe in transparency over marketing. Every number here is a commitment we're working to deliver.",
       "compute": {
         "title": "Compute",
-        "items": "1,798 GPUs (H100 & A100), Up to 256 GPUs per workload, Target PUE: 1.15"
+        "items": "1,798 GPUs (H100 & A100), Up to 256 GPUs per workload, Target PUE: 1.15, NVLink interconnect"
       },
       "network": {
         "title": "Network",
-        "items": "400 Gbps backbone, <5ms inter-hub latency, 4 submarine cable paths"
+        "items": "400 Gbps backbone, <5ms inter-hub latency, 4 submarine cable paths, Redundant mesh routing"
       },
       "sustainability": {
         "title": "Sustainability",
-        "items": "Target ~47 gCO2/kWh avg, Up to 97% renewable (Ouarzazate), Carbon-aware scheduling"
+        "items": "Target ~47 gCO2/kWh avg, Up to 97% renewable (Ouarzazate), Carbon-aware scheduling, Real-time carbon tracking"
       },
       "reliability": {
         "title": "Reliability",
         "items": "Target 99.9% SLA, RPO <15min, RTO <30min, Automated failover"
       },
-      "label": "Specifications /0.5"
+      "label": "Specifications /0.13"
     },
     "security": {
       "title": "Security by design. Sovereignty by default.",
       "zeroTrust": {
         "title": "Zero-Trust Architecture",
-        "desc": "Every request is authenticated and authorized. No implicit trust between services, hubs, or users."
+        "desc": "Every request is authenticated and authorized — no implicit trust between services, hubs, or users. Mutual TLS between all hub components. Service mesh with per-request identity verification."
       },
       "dataResidency": {
         "title": "Data Residency Enforcement",
-        "desc": "Workloads and data never leave the designated region. Technical enforcement, not just policy."
+        "desc": "Workloads and data never leave the designated region. Technical enforcement at the infrastructure level, not just policy. Encryption keys are region-bound and cannot be exported. Verified by automated compliance checks."
       },
       "encryption": {
         "title": "End-to-End Encryption",
-        "desc": "TLS 1.3 in transit, AES-256 at rest. HSM-backed key management in every hub."
+        "desc": "TLS 1.3 in transit, AES-256 at rest. HSM-backed key management in every hub. Keys never leave the sovereign region. Support for customer-managed keys (BYOK) for maximum control."
       },
       "compliance": {
         "title": "Compliance Framework",
-        "desc": "Designed for GDPR, Morocco's Law 09-08, and SOC 2 Type II. Compliance is built into the architecture, not bolted on."
+        "desc": "Designed for GDPR, Morocco's Law 09-08, and SOC 2 Type II from the ground up. Compliance isn't bolted on — it's built into the architecture. Automated audit trails and continuous compliance monitoring."
       },
-      "badges": "GDPR, Law 09-08, SOC 2, TLS 1.3",
-      "label": "Security /0.6"
+      "badges": "GDPR, Law 09-08, SOC 2, TLS 1.3, HSM, BYOK",
+      "label": "Security /0.14"
     },
     "roadmap": {
       "title": "Building in phases. Shipping with discipline.",
-      "subtitle": "Our roadmap is public because accountability matters.",
+      "subtitle": "Our roadmap is public because accountability matters. Every phase has clear deliverables and measurable outcomes.",
       "phase1": {
         "title": "Foundation",
         "period": "2025",
-        "items": "Architecture design, Carbon API integration, First hub site preparation"
+        "items": "Architecture design & validation, Carbon API integration, First hub site preparation, Open-source repo launch, SDK alpha development, Terraform provider v0.1"
       },
       "phase2": {
         "title": "Alpha",
         "period": "2026",
-        "items": "Ouarzazate hub deployment, SDK alpha release, Carbon-aware scheduling beta"
+        "items": "Ouarzazate hub deployment, SDK alpha release (Python + JS), Carbon-aware scheduling beta, Grafana plugins v0.1, CLI public beta, First external users"
       },
       "phase3": {
         "title": "Scale",
         "period": "2027",
-        "items": "3 additional hubs online, Full mesh networking, Enterprise features"
+        "items": "3 additional hubs online, Full mesh networking, Enterprise features (SSO, RBAC), Grafana plugins v1.0, Terraform provider v1.0, 99.9% SLA target"
       },
       "phase4": {
         "title": "Pan-African",
         "period": "2028+",
-        "items": "Expansion beyond Morocco, Continental mesh, Regional sovereignty zones"
+        "items": "Expansion beyond Morocco, Continental mesh, Regional sovereignty zones, Subsea cable partnerships, 5,000+ GPU target, Multi-continent inference"
       },
       "inProgress": "In Progress",
       "planned": "Planned",
-      "label": "Roadmap /0.7"
+      "label": "Roadmap /0.15"
     },
+    "repos": {
+      "title": "Explore the codebase.",
+      "subtitle": "Every component of HarchOS is developed in the open. Audit the code, file issues, contribute patches, or deploy your own instance.",
+      "server": {
+        "name": "HarchOS Server",
+        "desc": "Core platform — FastAPI backend with 30+ API endpoints for carbon-aware GPU orchestration, hub management, and workload scheduling."
+      },
+      "sdkPython": {
+        "name": "HarchOS SDK Python",
+        "desc": "Official Python SDK with OpenAI-compatible inference, built-in carbon tracking, async support, and CLI. Available on PyPI as 'harchos'."
+      },
+      "sdkJs": {
+        "name": "HarchOS SDK JS",
+        "desc": "TypeScript/JavaScript SDK with sovereign defaults, carbon intensity queries, and workload scheduling. Published as @harchos/sdk on npm."
+      },
+      "cli": {
+        "name": "HarchOS CLI",
+        "desc": "Go-powered command-line interface with multi-profile support, structured output, CI/CD integration, and system keyring security."
+      },
+      "terraform": {
+        "name": "HarchOS Terraform",
+        "desc": "Infrastructure-as-Code provider for HarchOS. 6 resources, 3 data sources, sovereignty enforcement in HCL. Published on Terraform Registry."
+      },
+      "grafana": {
+        "name": "HarchOS Grafana",
+        "desc": "Custom Grafana plugins for GPU monitoring, carbon tracking, hub health, and workload visualization. Introduces EnergyQL and SovereigntyQL."
+      },
+      "examples": {
+        "name": "HarchOS Examples",
+        "desc": "Starter templates for PyTorch training, LLM inference, multi-region GPU training, and cost estimation. Production-ready patterns."
+      },
+      "viewAll": "View all repositories on GitHub"
+    },
+    "reposLabel": "GitHub /0.16",
     "cta": {
-      "title": "Early access starts here.",
-      "subtitle": "Join the waitlist for HarchOS early access. Be among the first to deploy on Africa's carbon-aware GPU cloud.",
+      "title": "The future of African compute starts here.",
+      "subtitle": "Join the waitlist for HarchOS early access. Deploy on Africa's first carbon-aware GPU cloud — or explore the open-source codebase today.",
       "primary": "Request Early Access",
-      "secondary": "Back to Intelligence"
+      "github": "Explore on GitHub"
     }
   },
   "hiringProcess": {

@@ -4491,972 +4491,177 @@
     "noResultsTitle": "Aucun résultat"
   },
   "harchos": {
-    "header": {
-      "requestAccess": "Demander l'accès"
-    },
-    "navOverlay": {
-      "getStarted": "Commencer",
-      "navigation": "NAVIGATION",
-      "nav": {
-        "generateAlpha": "Infrastructure Souveraine",
-        "aip": "HarchOS",
-        "foundry": "Fonderie",
-        "gotham": "Intelligence",
-        "ontology": "Ontologie",
-        "apollo": "Opérations",
-        "offerings": "Offres",
-        "impactStudies": "Études d'Impact"
-      },
-      "latestNews": "DERNIÈRES ACTUALITÉS",
-      "newsroom": "RÉDACTION",
-      "news": {
-        "card1Source": "MOROCCO WORLD NEWS, JANVIER 2025",
-        "card1ImageAlt": "PDG de Harch Corp au Sommet Africain des Infrastructures",
-        "card1Title": "Le PDG de Harch Corp discute de l'infrastructure IA souveraine et de l'indépendance numérique de l'Afrique au Sommet Africain des Infrastructures",
-        "card1Desc": "Le PDG de Harch Corp a évoqué la construction de la première plateforme de calcul IA souveraine d'Afrique, le rôle de l'infrastructure carbone-aware et l'avenir de la souveraineté technologique sur le continent.",
-        "card2Source": "AFRICA TECH NOW, MARS 2025",
-        "card2ImageAlt": "Hub GPU Solaire d'Ouarzazate",
-        "card2Title": "Les hubs GPU carbone-aware de Harch Corp alimentent les charges de travail IA en Afrique et en Europe",
-        "card2Desc": "Le premier cluster GPU alimenté par l'énergie solaire au monde à Ouarzazate dessert désormais des charges IA à 18 gCO2/kWh — 89% en dessous de la moyenne mondiale — avec une latence inférieure à 5ms vers les marchés européens."
-      },
-      "offerings": "OFFRES",
-      "viewAllOfferings": "VOIR TOUTES LES OFFRES",
-      "offeringsDesc": "Nos plateformes sont utilisées dans les secteurs public, privé et à but non lucratif pour aider les organisations à mettre en œuvre rapidement des solutions aux problèmes d'infrastructure les plus complexes auxquels elles sont confrontées.",
-      "learnMoreAIP": "En savoir plus sur HarchOS",
-      "impactStudy": "ÉTUDE D'IMPACT",
-      "viewAllImpactStudies": "VOIR TOUTES LES ÉTUDES D'IMPACT",
-      "impactTitle": "Complexe Solaire d'Ouarzazate",
-      "impactDesc": "Comment HarchOS a transformé l'installation solaire phare du Maroc en le hub de calcul GPU le plus vert au monde — atteignant 97,2% d'énergie renouvelable et 18 gCO2/kWh d'intensité carbone tout en servant des charges de travail IA souveraines en Afrique et en Europe.",
-      "readMore": "Lire la Suite",
-      "impactImageAlt": "Complexe Solaire-GPU d'Ouarzazate",
-      "impactCaption": "Alimenter l'IA souveraine du Sahara à l'Europe",
-      "bottomLinks": {
-        "about": "À Propos de Harch Corp",
-        "blog": "Blog",
-        "investorRelations": "Relations Investisseurs",
-        "lettersCeo": "Lettres du PDG",
-        "privacy": "Vie Privée & Libertés Civiles",
-        "infoSecurity": "Sécurité de l'Information",
-        "cloudPartners": "Partenaires Cloud",
-        "learning": "Formation HarchOS",
-        "customerSuccess": "Services de Réussite Client",
-        "store": "Boutique Harch Corp",
-        "contact": "Contact"
-      }
-    },
-    "title": "HarchOS",
-    "description": "HarchOS est le système nerveux central du portefeuille Harch Corp — unifiant la surveillance, la prise de décision et l'exécution à travers 8 filiales d'infrastructure.",
-    "subtitle": "Le système d'exploitation pour l'infrastructure souveraine",
     "hero": {
-      "headline": "Au-delà de",
-      "headlineLine2": "l'infrastructure",
-      "subheadline": "Explorer HarchOS",
-      "subheadlineSovereign": "Souveraineté",
-      "subheadlineAutonomy": "Autonomie",
-      "stats": {
-        "gpus": "GPU",
-        "hubs": "Hubs",
-        "carbon": "gCO₂/kWh",
-        "uptime": "Disponibilité SLA"
-      },
-      "tabs": {
-        "sovereign": "APP IA SOUVERAINE",
-        "carbon": "LOGIQUE ÉCO-RESPONSABLE",
-        "automation": "AUTOMATISATION"
-      },
-      "annotations": {
-        "accept": "Accepter",
-        "modify": "Modifier",
-        "explain": "Expliquer",
-        "sovereign": {
-          "a": "Flux d'alertes IA souveraine",
-          "b": "Avertissement d'intensité carbone",
-          "c": "Panneau d'actions proposées par l'IA"
-        },
-        "carbon": {
-          "a": "Hub le plus performant",
-          "b": "Carbone réseau en temps réel",
-          "c": "Comparaison carbone des hubs"
-        },
-        "automation": {
-          "a": "Barre latérale des workflows actifs",
-          "b": "Étapes d'exécution du pipeline",
-          "c": "Suivi de l'état des workflows"
-        }
-      }
+      "headline": "Cloud GPU Souverain.",
+      "headlineLine2": "Conscient du Carbone. Construit en Afrique.",
+      "subtext": "HarchOS est le système d'exploitation de la première plateforme de calcul GPU consciente du carbone en Afrique — alimentée par l'avantage énergétique renouvelable du Maroc.",
+      "statGpus": "1 798 GPUs",
+      "statGpusSub": "Prévus sur 5 hubs",
+      "statHubs": "5 Hubs",
+      "statHubsSub": "Maillage à l'échelle du Maroc",
+      "statCarbon": "~47 gCO2/kWh",
+      "statCarbonSub": "Objectif d'intensité carbone",
+      "ctaPrimary": "Demander un Accès Anticipé",
+      "ctaSecondary": "Voir l'Architecture",
+      "label": "HarchOS /0.1"
     },
-    "demo": {
-      "label": "Démonstration de plateforme",
-      "title": "Autonomie d'entreprise",
-      "consoleLabel": "harchos-console — en direct",
+    "why": {
+      "title": "Trois problèmes. Une plateforme.",
+      "subtitle": "Pourquoi HarchOS",
       "sovereign": {
-        "liveAlerts": "Alertes en direct",
-        "consoleTitle": "HarchOS IA Souveraine",
-        "activeAlerts": "5 alertes actives",
-        "autoResolvedCount": "2 auto-résolues",
-        "viewAll": "Tout voir",
-        "activeWorkloads": "Charges actives",
-        "workloadsTrend": "+12% par rapport à hier",
-        "sovereignScore": "Score de souveraineté",
-        "sovereignNote": "Toutes les données sous juridiction marocaine",
-        "incidents24h": "Incidents (24h)",
-        "incidentsNote": "2 auto-résolus · 1 escaladé",
-        "aiProposedActions": "App IA — Actions proposées",
-        "impactLabel": "Impact",
-        "confidenceLabel": "Confiance",
-        "statusApproved": "approuvé",
-        "statusPending": "en attente",
-        "statusAutoApproved": "auto-approuvé",
-        "alerts": {
-          "a1Title": "Limitation GPU détectée — Hub Ouarzazate",
-          "a1Detail": "Nœud HOU-47 limite thermique à 92°C. Auto-migration initiée vers HOU-12.",
-          "a1Time": "il y a 2s",
-          "a2Title": "Pic d'intensité carbone — Hub Casablanca",
-          "a2Detail": "Carbone réseau a bondi à 210 gCO2/kWh. Ordonnancement en pause pour les jobs non critiques.",
-          "a2Time": "il y a 14s",
-          "a3Title": "Charge rééquilibrée — 23 jobs migrés",
-          "a3Detail": "HarchOS a déplacé 23 jobs d'entraînement de Casablanca vers Ouarzazate. Carbone économisé : 1,2t CO2.",
-          "a3Time": "il y a 1m",
-          "a4Title": "Latence câble sous-marin — 2Africa",
-          "a4Detail": "Aller-retour vers Marseille passé de 8ms à 12ms. Surveillance active.",
-          "a4Time": "il y a 3m",
-          "a5Title": "Anomalie électrique — Hub Parc éolien Dakhla",
-          "a5Detail": "Génération éolienne chute de 40%. Réserves batterie à 78%. Protocole de délestage engagé.",
-          "a5Time": "il y a 5m"
-        },
-        "actions": {
-          "a1Action": "Migrer 23 jobs d'entraînement de Casablanca vers Ouarzazate",
-          "a1Impact": "-1,2t CO₂",
-          "a1Confidence": "94%",
-          "a2Action": "Réduire les GPUs en veille du Hub Casablanca",
-          "a2Impact": "-18kW de charge",
-          "a2Confidence": "89%",
-          "a3Action": "Basculement préventif du Hub Dakhla vers Parc éolien B",
-          "a3Impact": "Zéro interruption",
-          "a3Confidence": "91%",
-          "a4Action": "Reorienter le trafic UE de 2Africa vers SEAMEWE-3",
-          "a4Impact": "-4ms de latence",
-          "a4Confidence": "87%",
-          "a5Action": "Augmenter l'engagement solaire du Hub Ouarzazate de 15%",
-          "a5Impact": "+120 GPU-heures",
-          "a5Confidence": "96%"
-        }
+        "title": "IA Souveraine",
+        "desc": "Les charges de travail IA en Afrique transitent par des centres de données américains et européens. HarchOS garde les données sur le sol africain — par défaut, pas par configuration. Chaque déploiement applique la résidence des données au niveau de l'infrastructure."
       },
       "carbon": {
-        "schedulerTitle": "Ordonnanceur éco-responsable",
-        "liveGridData": "Données réseau en direct",
-        "renewable": "Renouvelable",
-        "gpus": "GPU",
-        "type": "Type",
-        "latency": "Latence",
-        "avgCarbonNote": "Carbone moyen : 71,2 gCO₂/kWh · 81,5% renouvelable",
-        "dashboard": "Tableau de bord",
-        "gridCarbonNow": "Carbone réseau (actuel)",
-        "gco2kwhAvg": "moyenne gCO₂/kWh",
-        "renewableNote": "81,5% renouvelable — 89% sous la moyenne mondiale",
-        "carbonSavedToday": "Carbone économisé (aujourd'hui)",
-        "carbonSavedNote": "Équivalent CO₂ évité via l'ordonnancement",
-        "bestHubLive": "Meilleur hub (en direct)",
-        "bestHubName": "Harch Ouarzazate",
-        "bestHubDetail": "18 gCO₂/kWh · 97,2% solaire",
-        "hubComparisonTitle": "Comparaison d'intensité carbone des hubs",
-        "percentRenewable": "{value}% renouvelable",
-        "casablancaNote": "* Le hub Casablanca fonctionne en mode veille pendant les périodes de réseau à haute intensité carbone. L'ordonnancement éco-responsable redirige automatiquement les charges vers les hubs plus propres."
+        "title": "Calcul Conscient du Carbone",
+        "desc": "L'entraînement d'un LLM émet 5x plus de CO2 sur un réseau fossile américain que sur le mix renouvelable marocain. HarchOS planifie les charges de travail quand et où l'intensité carbone est la plus basse — sans sacrifier la performance."
       },
-      "automation": {
-        "workflowEngine": "Moteur de workflows",
-        "workflowCount": "5 workflows",
-        "triggerLabel": "Déclencheur",
-        "summary": "3 en cours · 2 inactifs · 9 étapes actives",
-        "builder": "Constructeur",
-        "activeWorkflows": "Workflows actifs",
-        "workflowsNote": "sur 5 au total · 9 étapes en cours",
-        "avgResponseTime": "Temps de réponse moyen",
-        "responseNote": "Du déclencheur à la première action",
-        "autoResolved30d": "Auto-résolus (30j)",
-        "autoResolvedNote": "Zéro intervention humaine requise",
-        "pipelineTitle": "Pipeline d'entraînement éco-optimal (actif)",
-        "statusRunning": "en cours",
-        "statusIdle": "inactif",
-        "workflows": {
-          "wf1Name": "Pipeline d'entraînement éco-optimal",
-          "wf1Trigger": "Carbone < 50 gCO2/kWh",
-          "wf2Name": "Protocole de basculement inter-hub",
-          "wf2Trigger": "Santé hub < 99,9%",
-          "wf3Name": "Application de résidence UE",
-          "wf3Trigger": "Violation de frontière GDPR",
-          "wf4Name": "Récolteur de pic renouvelable",
-          "wf4Trigger": "Solaire > 95% de capacité",
-          "wf5Name": "Escalade de réponse aux incidents",
-          "wf5Trigger": "Sévérité >= P2"
-        },
-        "steps": {
-          "s1Label": "Surveiller le carbone réseau",
-          "s1Detail": "Interrogation de 5 hubs toutes les 60 secondes",
-          "s2Label": "Évaluer la fenêtre d'ordonnancement",
-          "s2Detail": "Seuil carbone : <50 gCO₂/kWh · Fenêtre : 4h à venir",
-          "s3Label": "Sélectionner le hub optimal",
-          "s3Detail": "Sélectionné : Harch Ouarzazate (18 gCO₂/kWh, 800 GPUs)",
-          "s4Label": "Provisionner le cluster GPU",
-          "s4Detail": "Allocation de 256x H100 sur HOU-Rack-07",
-          "s5Label": "Déployer le job d'entraînement",
-          "s5Detail": "Téléchargement des poids du modèle et des fragments de dataset...",
-          "s6Label": "Surveiller et auto-migrer",
-          "s6Detail": "En attente du démarrage du job..."
-        }
-      }
-    },
-    "workflow": {
-      "title": "Conçu pour les constructeurs de workflows IA",
-      "description": "HarchOS fournit les outils et l'infrastructure pour construire, tester et déployer des workflows IA éco-responsables à grande échelle. De l'ingestion de données au service de modèles, chaque étape est optimisée pour la souveraineté et la durabilité.",
-      "check1": "Ordonnancement éco-optimal intégré dans chaque pipeline",
-      "check2": "Constructeur visuel de workflows avec automatisation glisser-déposer",
-      "check3": "Surveillance en temps réel et réponse autonome aux incidents",
-      "videoTab": "VIDÉO",
-      "diagramTab": "DIAGRAMME",
-      "detailsTab": "DÉTAILS",
-      "videoLabel": "Démonstration du constructeur de workflows",
-      "videoDuration": "2:34 min",
-      "video": {
-        "sidebar": {
-          "overview": "Aperçu",
-          "pipeline": "Constructeur de Pipeline",
-          "carbon": "Planificateur Carbone",
-          "workflows": "Flux de travail",
-          "apiDocs": "Docs API"
-        },
-        "pipelineBuilder": "Constructeur de Pipeline",
-        "resources": "Ressources",
-        "generation": "Génération SDK",
-        "nodes": {
-          "ingest": "[HarchOS] Pipeline d'Ingestion",
-          "ingestType": "IoT + Satellite + Sources API",
-          "transform": "[HarchOS] Couche IA Transformation",
-          "transformType": "RL + Transformer + GNN",
-          "schedule": "[HarchOS] Planificateur Carbone-Aware",
-          "scheduleType": "Optimisation Temps Réel du Réseau",
-          "deploy": "[HarchOS] Déploiement Souverain",
-          "deployType": "Basculement Sans Interruption"
-        },
-        "stats": {
-          "throughput": "Débit",
-          "latency": "Latence",
-          "carbonSaved": "CO2 Économisé"
-        }
+      "panAfrican": {
+        "title": "Infrastructure Panafricaine",
+        "desc": "L'Afrique dispose de 1% de la capacité de calcul mondiale pour 17% de la population. HarchOS construit l'infrastructure pour combler cet écart — à partir de la position stratégique du Maroc, carrefour entre l'Europe et l'Afrique."
       },
-      "nodes": {
-        "n1Label": "Source de données",
-        "n1Sub": "IoT / API / Satellite",
-        "n2Label": "Évaluation carbone",
-        "n2Sub": "Analyse de grille à 47 paramètres",
-        "n3Label": "Sélection de hub",
-        "n3Sub": "Optimisation RL + GNN",
-        "n4Label": "Provisionnement GPU",
-        "n4Sub": "Allocation H100/A100/L40S",
-        "n5Label": "Déployer et surveiller",
-        "n5Sub": "Réponse en direct <200ms"
-      },
-      "details": {
-        "dataPipelining": {
-          "title": "Pipelining de données piloté par l'IA",
-          "desc": "Ingestion, transformation et routage automatisés des données sur 5 hubs souverains avec ordonnancement éco-responsable en temps réel et garanties de non-franchissement des frontières."
-        },
-        "actions": {
-          "title": "Actions pilotées par l'IA",
-          "desc": "Exécution autonome des décisions d'infrastructure — migration de charges, basculement et mise à l'échelle — basée sur les contraintes carbone, latence et souveraineté en temps réel."
-        },
-        "agents": {
-          "title": "Agents pilotés par l'IA",
-          "desc": "Agents IA persistants qui surveillent, raisonnent et agissent en votre nom — de la réponse aux incidents à la planification de capacité — avec supervision humaine."
-        }
-      }
-    },
-    "evaluate": {
-      "title": "Évaluez et déployez en toute confiance",
-      "description": "Les frameworks d'évaluation intégrés, les tests A/B et les vérifications de conformité automatisées garantissent que chaque déploiement respecte les standards souverains, de sécurité et carbone avant sa mise en production.",
-      "check1": "Validation de conformité automatisée avant chaque déploiement",
-      "check2": "Évaluation de l'impact carbone intégrée au pipeline CI/CD",
-      "check3": "Vérifications de résidence souveraine des données appliquées automatiquement",
-      "videoTab": "VIDÉO",
-      "diagramTab": "DIAGRAMME",
-      "detailsTab": "DÉTAILS",
-      "videoLabel": "Démonstration du pipeline d'évaluation",
-      "videoDuration": "1:58 min",
-      "video": {
-        "sidebar": {
-          "overview": "Aperçu",
-          "monitoring": "Surveillance",
-          "alerts": "Alertes",
-          "compliance": "Conformité",
-          "auditLog": "Journal d'Audit"
-        },
-        "monitoringDashboard": "Tableau de Bord Surveillance",
-        "metrics": {
-          "uptime": "Disponibilité (30j)",
-          "latency": "Latence Moy.",
-          "sovereignScore": "Score Souverain"
-        },
-        "recentAlerts": "Alertes Récentes",
-        "metricValues": {
-          "uptime": "99,999%",
-          "latency": "<5ms",
-          "sovereignScore": "98/100"
-        },
-        "alerts": {
-          "a1": "Hub Ouarzazate — Tous systèmes nominaux",
-          "a1Time": "il y a 2m",
-          "a2": "Hub Dakhla — Production éolienne stable",
-          "a2Time": "il y a 8m",
-          "a3": "Hub Benguerir — Mode dégradé, basculement actif",
-          "a3Time": "il y a 15m"
-        }
-      },
-      "steps": {
-        "s1Label": "Commit de code",
-        "s1Detail": "Tous les tests unitaires passent",
-        "s2Label": "Vérification d'impact carbone",
-        "s2Detail": "Estimé +0,3t CO₂ — dans le seuil",
-        "s3Label": "Scan de données souveraines",
-        "s3Detail": "Aucune violation de frontière de données détectée",
-        "s4Label": "Audit de sécurité",
-        "s4Detail": "Aucun CVE dans les dépendances",
-        "s5Label": "Validation de conformité",
-        "s5Detail": "GDPR + ISO 27001 + SOC 2 + Loi 09-08",
-        "s6Label": "Déployer en production",
-        "s6Detail": "En attente de la porte de conformité..."
-      },
-      "details": {
-        "debugLogic": {
-          "title": "Logique de débogage",
-          "desc": "Débogage pas-à-pas des chaînes de décision IA avec pistes d'audit complètes — remontez chaque décision d'ordonnancement éco-responsable, vérification de souveraineté et action automatisée à sa source."
-        },
-        "compareModels": {
-          "title": "Comparer les modèles",
-          "desc": "Évaluation comparative des performances, de l'impact carbone et de la latence des modèles entre les hubs. Tests A/B des configurations de déploiement avec portes de conformité intégrées avant la mise en production."
-        }
-      }
-    },
-    "capabilities": {
-      "title": "Capacités clés",
-      "carbonAware": {
-        "title": "Ordonnancement éco-responsable",
-        "desc": "Optimisation automatique des charges basée sur l'intensité carbone du réseau, déplacant les travaux vers les périodes et régions les plus propres. Ordonnancement en temps réel par job avec 47 paramètres."
-      },
-      "sovereignData": {
-        "title": "Résidence souveraine des données",
-        "desc": "100% de souveraineté africaine des données avec juridiction marocaine garantie. Conformité GDPR, ISO 27001, SOC 2 Type II et Loi 09-08 — aucune exposition au CLOUD Act."
-      },
-      "aiPlatform": {
-        "title": "Services de plateforme IA",
-        "desc": "Plateforme IA complète pour l'entraînement, le fine-tuning et le service de modèles sur GPUs H100/A100/L40S. Ordonnancement éco-optimal intégré dans chaque pipeline."
-      },
-      "devSdk": {
-        "title": "SDK Développeur",
-        "desc": "SDK complet TypeScript/Python avec authentification OAuth 2.0, limitation de débit et documentation interactive pour une intégration fluide."
-      }
-    },
-    "architecture": {
-      "act": {
-        "capabilities": [
-          "Basculement de charge automatisé",
-          "Réponse aux incidents en temps réel",
-          "Contrôle de processus industriel",
-          "Délestage de charge éco-responsable"
-        ],
-        "description": "Commandes automatisées, basculement de charge et réponse aux incidents en temps réel. De la détection à la résolution en secondes, pas en heures.",
-        "subtitle": "Exécution",
-        "title": "ACTION"
-      },
-      "sense": {
-        "capabilities": [
-          "Surveillance IoT à l'échelle du réseau",
-          "Ingestion de données en temps réel",
-          "Détection d'anomalies automatisée",
-          "Télémétrie satellite et au sol"
-        ],
-        "description": "Capteurs IoT, flux de télémétrie et agrégation de données en temps réel à travers toutes les filiales. Plus de 50 000 points de données surveillés en continu.",
-        "subtitle": "Perception",
-        "title": "PERCEPTION"
-      },
-      "think": {
-        "capabilities": [
-          "Maintenance prédictive pilotée par l'IA",
-          "Ordonnancement éco-responsable",
-          "Optimisation multi-filiales des ressources",
-          "Modélisation prédictive et simulation"
-        ],
-        "description": "Moteurs d'IA et d'apprentissage automatique pour l'analyse prédictive, l'optimisation et la prise de décision autonome. Ordonnancement éco-responsable et allocation des ressources.",
-        "subtitle": "Analyse",
-        "title": "PENSÉE"
-      },
-      "title": "Architecture SENSE-THINK-ACT"
-    },
-    "features": {
-      "api": {
-        "description": "API RESTful complète avec authentification OAuth 2.0, limitation de débit et documentation interactive pour l'intégration avec les systèmes existants.",
-        "title": "API complète"
-      },
-      "carbonAware": {
-        "description": "Optimisation automatique des charges basée sur l'intensité carbone du réseau, déplacant les travaux vers les périodes et régions les plus propres.",
-        "title": "Orchestration éco-responsable"
-      },
-      "compliance": {
-        "description": "Surveillance et rapports continus de conformité pour GDPR, ISO 27001 et SOC 2 avec pistes d'audit et preuves automatisées.",
-        "title": "Conformité automatisée"
-      },
-      "dashboard": {
-        "description": "Vue unique de l'ensemble du portefeuille d'infrastructure avec surveillance en temps réel, alertes et KPIs.",
-        "title": "Tableau de bord unifié"
-      },
-      "mobile": {
-        "description": "Surveillance et gestion mobile avec alertes push, approbations et commandes vocales pour les opérateurs en déplacement.",
-        "title": "Application mobile"
-      },
-      "security": {
-        "description": "Opérations de sécurité 24/7/365 avec détection de menaces par IA, réponse automatisée aux incidents et rapports de conformité.",
-        "title": "Centre d'opérations de sécurité"
-      },
-      "title": "Fonctionnalités"
-    },
-    "specs": {
-      "title": "Spécifications techniques",
-      "compliance": "RGPD, ISO 27001, SOC 2 Type II",
-      "dataPoints": "50 000+ points de données surveillés",
-      "encryption": "Chiffrement AES-256 de bout en bout",
-      "integrations": "8 intégrations filiales natives",
-      "latency": "< 100ms de latence de détection",
-      "uptime": "99,99% de disponibilité SLA",
-      "network": "Réseau",
-      "totalGpus": "Total GPU",
-      "gpuTypes": "Types de GPU",
-      "interconnect": "Interconnexion",
-      "maxPerHub": "Max par hub",
-      "scalingEfficiency": "Efficacité de mise à l'échelle",
-      "renewableEnergy": "Énergie renouvelable",
-      "avgCarbonIntensity": "Intensité carbone moyenne",
-      "bestHubCarbon": "Meilleur carbone hub",
-      "pueRange": "Plage PUE",
-      "bestPue": "Meilleur PUE",
-      "backbone": "Fédérateur",
-      "dedicatedLinks": "Liens dédiés",
-      "submarineSystems": "Systèmes sous-marins",
-      "latencyToEurope": "Latence vers l'Europe",
-      "latencyToAmericas": "Latence vers les Amériques"
-    },
-    "security": {
-      "zeroTrust": {
-        "title": "Architecture Zero-Trust",
-        "desc": "Chaque requête est authentifiée et autorisée. Aucune confiance implicite entre services, hubs ou utilisateurs. mTLS sur toutes les connexions internes."
-      },
-      "sovereignEncryption": {
-        "title": "Chiffrement souverain",
-        "desc": "Chiffrement AES-256 de bout en bout avec clés détenues au Maroc. Pas de dépôt de clés américain, pas de divulgation de clés possible via le CLOUD Act."
-      },
-      "socMonitoring": {
-        "title": "Surveillance SOC 24/7/365",
-        "desc": "Détection de menaces par IA avec réponse automatisée aux incidents. Détection d'anomalies en temps réel sur les 5 hubs simultanément."
-      },
-      "autoCompliance": {
-        "title": "Conformité automatisée",
-        "desc": "Surveillance continue de la conformité pour GDPR, ISO 27001, SOC 2 Type II et Loi 09-08 avec pistes d'audit et collecte automatisée de preuves."
-      }
-    },
-    "devPlatform": {
-      "codeComment": "// Déployé sur Harch Ouarzazate — énergie solaire à 97,2% de capacité"
-    },
-    "competitive": {
-      "title": "Paysage concurrentiel",
-      "subtitle": "HarchOS face aux fournisseurs d'infrastructure GPU du monde entier. Nous ne nous contentons pas d'être verts — nous ordonnançons vert. Aucun concurrent ne nous égale sur un seul critère.",
-      "harchName": "HarchOS",
-      "coreweave": {
-        "name": "CoreWeave",
-        "country": "États-Unis",
-        "verdict": "CoreWeave possède plus de GPUs. HarchOS possède tout le reste — intensité carbone 9,5x inférieure, énergie 4x moins chère, SLA cinq-neuf, migration de conteneurs en direct, ordonnancement éco-responsable en temps réel, souveraineté africaine et passerelle par câble sous-marin vers l'Europe. L'échelle sans souveraineté n'est que de l'infrastructure louée.",
-        "m0Label": "Ordonnancement GPU éco-responsable",
-        "m0Harch": "Temps réel, par job, 47 paramètres",
-        "m0Competitor": "Aucun — placement statique",
-        "m1Label": "DC souverain africain",
-        "m1Harch": "5 hubs — juridiction Maroc",
-        "m1Competitor": "0 hub en Afrique",
-        "m2Label": "SLA de disponibilité",
-        "m2Harch": "99,999% (cinq-neuf)",
-        "m2Competitor": "99,99% (quatre-neuf)",
-        "m3Label": "Énergie renouvelable",
-        "m3Harch": "81,5% moyen — 97,2% meilleur hub",
-        "m3Competitor": "0% déclaré — réseau fossile américain",
-        "m4Label": "Intensité carbone",
-        "m4Harch": "~47 gCO2/kWh (89% sous la moyenne)",
-        "m4Competitor": "~450 gCO2/kWh (réseau américain)",
-        "m5Label": "PUE",
-        "m5Harch": "Plage 1,04 — 1,12",
-        "m5Competitor": "Non divulgué — probablement 1,3+",
-        "m6Label": "Hub câble sous-marin",
-        "m6Harch": "4 systèmes — 8ms vers l'UE",
-        "m6Competitor": "0 — peering américain uniquement",
-        "m7Label": "Conformité souveraine",
-        "m7Harch": "GDPR + ISO 27001 + SOC 2 + Loi 09-08",
-        "m7Competitor": "Juridiction CLOUD Act américain",
-        "m8Label": "Coût énergétique /kWh",
-        "m8Harch": "0,03$ (4x moins cher)",
-        "m8Competitor": "0,08-0,12$",
-        "m9Label": "Garantie de résidence des données",
-        "m9Harch": "100% africaine — souveraine",
-        "m9Competitor": "Contrôlée par les États-Unis — CLOUD Act",
-        "m10Label": "Efficacité GPU par watt",
-        "m10Harch": "Leader du marché (PUE 1,04)",
-        "m10Competitor": "Non divulgué — aucune métrique carbone",
-        "m11Label": "Migration de conteneurs en direct",
-        "m11Harch": "<200ms — zéro interruption",
-        "m11Competitor": "Non disponible",
-        "m12Label": "Temps de basculement",
-        "m12Harch": "<200ms — inter-hub",
-        "m12Competitor": "Minutes — site unique uniquement",
-        "m13Label": "Intégration énergie multi-vertical",
-        "m13Harch": "Approvisionnement direct Harch Energy",
-        "m13Competitor": "Aucune — dépendant du réseau"
-      },
-      "googleCloud": {
-        "name": "Google Cloud (Hamina)",
-        "country": "Finlande",
-        "verdict": "Google Hamina est un centre de données vert que vous ne pouvez pas utiliser pour le calcul GPU. HarchOS est un cloud GPU vert que vous pouvez utiliser — à un coût énergétique 3x inférieur, avec souveraineté africaine, ordonnancement éco-responsable en temps réel et l'unique passerelle par câble sous-marin entre l'Afrique et l'Europe. L'accès compte.",
-        "m0Label": "Ordonnancement éco-responsable",
-        "m0Harch": "Temps réel par job — 47 paramètres",
-        "m0Competitor": "Aucun — DC vert statique uniquement",
-        "m1Label": "Accès au cloud GPU",
-        "m1Harch": "H100/A100/L40S — à la demande",
-        "m1Competitor": "Pas de cloud GPU — interne uniquement",
-        "m2Label": "Souveraineté des données africaines",
-        "m2Harch": "100% — juridiction Maroc",
-        "m2Competitor": "0% — juridiction Finlande/États-Unis",
-        "m3Label": "Latence vers l'Afrique",
-        "m3Harch": "<5ms depuis les hubs marocains",
-        "m3Competitor": ">100ms depuis la Finlande",
-        "m4Label": "Coût énergétique /kWh",
-        "m4Harch": "0,03$ (2-3x moins cher)",
-        "m4Competitor": "0,06-0,10$",
-        "m5Label": "Conformité EU CBAM",
-        "m5Harch": "Marge zéro — nativement vert",
-        "m5Competitor": "N/A — pas de cloud GPU à taxer",
-        "m6Label": "Passerelle câble sous-marin",
-        "m6Harch": "4 systèmes — hub Afrique-UE",
-        "m6Competitor": "Nordique — pas de chemin Afrique",
-        "m7Label": "Résidence des données",
-        "m7Harch": "100% africaine — garantie",
-        "m7Competitor": "États-Unis/Finlande — aucune option africaine",
-        "m8Label": "Intensité carbone",
-        "m8Harch": "~47 gCO2/kWh",
-        "m8Competitor": "~80 gCO2/kWh (réseau nordique)",
-        "m9Label": "Conformité souveraine",
-        "m9Harch": "GDPR + ISO 27001 + SOC 2 + Loi 09-08",
-        "m9Competitor": "GDPR uniquement — CLOUD Act américain s'applique",
-        "m10Label": "Migration de charges en direct",
-        "m10Harch": "Basculement inter-hub <200ms",
-        "m10Competitor": "Non disponible — DC statique",
-        "m11Label": "Prix par GPU-heure (H100)",
-        "m11Harch": "1,89$ — alimenté par renouvelable",
-        "m11Competitor": "N/A — aucune offre de cloud GPU"
-      },
-      "africaDataCentres": {
-        "name": "Africa Data Centres (Cassava)",
-        "country": "Afrique du Sud",
-        "verdict": "Le plus grand opérateur de centres de données d'Afrique possède zéro GPU, zéro conscience carbone, zéro plateforme IA, 17x moins de pipeline de puissance, 10x plus d'intensité carbone et 3x plus de coûts énergétiques. HarchOS ne rivalise pas avec Africa Data Centres — nous sommes dans une catégorie entièrement différente.",
-        "m0Label": "Calcul GPU",
-        "m0Harch": "1 798 GPUs (H100/A100/L40S)",
-        "m0Competitor": "0 GPU — colocation uniquement",
-        "m1Label": "Ordonnancement éco-responsable",
-        "m1Harch": "Temps réel par job — 47 paramètres",
-        "m1Competitor": "Aucun",
-        "m2Label": "Pipeline MW",
-        "m2Harch": "500MW (17x plus grand)",
-        "m2Competitor": "30MW",
-        "m3Label": "Plateforme IA souveraine",
-        "m3Harch": "Pile complète (entraîner/ajuster/servir)",
-        "m3Competitor": "Aucune — pas de plateforme IA",
-        "m4Label": "PUE",
-        "m4Harch": "Plage 1,04 — 1,12",
-        "m4Competitor": "Non divulgué — probablement 1,4+",
-        "m5Label": "Énergie renouvelable",
-        "m5Harch": "81,5% moyen — 97,2% meilleur hub",
-        "m5Competitor": "Non divulgué — probablement <20%",
-        "m6Label": "Hub câble sous-marin",
-        "m6Harch": "4 systèmes — passerelle Europe",
-        "m6Competitor": "Aucun — colocation uniquement",
-        "m7Label": "Intensité carbone",
-        "m7Harch": "~47 gCO2/kWh",
-        "m7Competitor": "~500 gCO2/kWh (réseau sud-africain)",
-        "m8Label": "Coût énergétique /kWh",
-        "m8Harch": "0,03$",
-        "m8Competitor": "0,08-0,15$ (réseau sud-africain)",
-        "m9Label": "Garantie de résidence des données",
-        "m9Harch": "100% africaine — droit marocain",
-        "m9Competitor": "Afrique du Sud — CLOUD Act américain via partenaires",
-        "m10Label": "Énergie multi-vertical",
-        "m10Harch": "Approvisionnement direct Harch Energy",
-        "m10Competitor": "Réseau Eskom — peu fiable",
-        "m11Label": "Basculement",
-        "m11Harch": "<200ms inter-hub",
-        "m11Competitor": "Site unique — pas de maillage"
-      },
-      "qscale": {
-        "name": "QScale",
-        "country": "Canada",
-        "verdict": "QScale fonctionne sur un réseau propre avec un carbone réseau inférieur, mais ne peut pas ordonnancer le carbone par job, ne peut pas servir de charges cloud GPU, ne peut pas atteindre l'Europe en moins de 80ms, ne peut pas atteindre l'Afrique du tout et ne peut pas offrir de souveraineté. HarchOS est la seule plateforme qui combine conscience carbone + cloud GPU + proximité UE + souveraineté africaine + intégration industrielle.",
-        "m0Label": "Ordonnancement éco-responsable",
-        "m0Harch": "Temps réel par job — 47 paramètres",
-        "m0Competitor": "Aucun — pas d'ordonnancement",
-        "m1Label": "Cloud GPU (accessible)",
-        "m1Harch": "À la demande + réservé — H100/A100/L40S",
-        "m1Competitor": "Colocation uniquement — pas de cloud GPU",
-        "m2Label": "Souveraineté des données africaines",
-        "m2Harch": "100% — juridiction Maroc",
-        "m2Competitor": "0% — Canada uniquement",
-        "m3Label": "Latence vers l'Europe",
-        "m3Harch": "<8ms via câble sous-marin",
-        "m3Competitor": ">80ms depuis Québec",
-        "m4Label": "Latence vers l'Afrique",
-        "m4Harch": "<5ms",
-        "m4Competitor": ">150ms",
-        "m5Label": "Accès au marché UE",
-        "m5Harch": "8ms — même fuseau horaire",
-        "m5Competitor": "80ms+ — transatlantique",
-        "m6Label": "Coût énergétique /kWh",
-        "m6Harch": "0,03$ (1,5x moins cher)",
-        "m6Competitor": "0,04-0,05$ (Hydro-Québec)",
-        "m7Label": "Conformité souveraine",
-        "m7Harch": "GDPR + ISO 27001 + SOC 2 + Loi 09-08",
-        "m7Competitor": "Juridiction canadienne — pas de GDPR",
-        "m8Label": "Intensité carbone",
-        "m8Harch": "~47 gCO2/kWh",
-        "m8Competitor": "~30 gCO2/kWh (hydro)",
-        "m9Label": "Migration de charges en direct",
-        "m9Harch": "<200ms — maillage inter-hub",
-        "m9Competitor": "Non disponible",
-        "m10Label": "Hub câble sous-marin",
-        "m10Harch": "4 systèmes — passerelle Afrique-UE",
-        "m10Competitor": "Aucun — peering canadien uniquement",
-        "m11Label": "Prix par GPU-heure (H100)",
-        "m11Harch": "1,89$ — tout inclus",
-        "m11Competitor": "N/A — modèle de tarification colocation",
-        "m12Label": "Intégration multi-vertical",
-        "m12Harch": "Énergie + Mines + Ciment + Agriculture + Eau",
-        "m12Competitor": "Aucune — calcul autonome"
-      },
-      "lambdaLabs": {
-        "name": "Lambda Labs",
-        "country": "États-Unis",
-        "verdict": "Lambda Labs offre un accès GPU bon marché sur un réseau américain alimenté aux énergies fossiles. HarchOS offre du calcul GPU souverain à un coût énergétique 4x inférieur, 10x moins de carbone, SLA cinq-neuf, migration en direct inter-hub et juridiction africaine. Bon marché n'est pas synonyme de supériorité.",
-        "m0Label": "Ordonnancement éco-responsable",
-        "m0Harch": "Temps réel par job — 47 paramètres",
-        "m0Competitor": "Aucun — allocation statique",
-        "m1Label": "Souveraineté des données africaines",
-        "m1Harch": "5 hubs — juridiction Maroc",
-        "m1Competitor": "0 — États-Unis uniquement",
-        "m2Label": "Énergie renouvelable",
-        "m2Harch": "81,5% moyen — 97,2% meilleur hub",
-        "m2Competitor": "0% déclaré — réseau fossile américain",
-        "m3Label": "Intensité carbone",
-        "m3Harch": "~47 gCO2/kWh",
-        "m3Competitor": "~450 gCO2/kWh (réseau américain)",
-        "m4Label": "SLA de disponibilité",
-        "m4Harch": "99,999% (cinq-neuf)",
-        "m4Competitor": "99,9% (trois-neuf)",
-        "m5Label": "Coût énergétique /kWh",
-        "m5Harch": "0,03$ (3-4x moins cher)",
-        "m5Competitor": "0,08-0,12$",
-        "m6Label": "PUE",
-        "m6Harch": "1,04 — 1,12",
-        "m6Competitor": "Non divulgué — probablement 1,3+",
-        "m7Label": "Hub câble sous-marin",
-        "m7Harch": "4 systèmes — passerelle UE",
-        "m7Competitor": "0 — peering américain uniquement",
-        "m8Label": "Migration de charges en direct",
-        "m8Harch": "<200ms — inter-hub",
-        "m8Competitor": "Non disponible",
-        "m9Label": "Garantie de résidence des données",
-        "m9Harch": "100% africaine — souveraine",
-        "m9Competitor": "Contrôlée par les États-Unis — CLOUD Act",
-        "m10Label": "Intégration multi-vertical",
-        "m10Harch": "Énergie + Mines + Ciment + Agriculture + Eau",
-        "m10Competitor": "Aucune — cloud GPU uniquement",
-        "m11Label": "Basculement",
-        "m11Harch": "<200ms — maillage distribué",
-        "m11Competitor": "Site unique — redémarrage manuel"
-      },
-      "oracleCloud": {
-        "name": "Oracle Cloud Infrastructure",
-        "country": "États-Unis",
-        "verdict": "Oracle possède une région africaine sur un réseau alimenté aux énergies fossiles, sans conscience carbone, sans garanties souveraines et avec une exposition au CLOUD Act américain. HarchOS possède 5 hubs sur 81,5% d'énergie renouvelable, 100% de souveraineté africaine, ordonnancement éco-responsable et des coûts énergétiques 4x inférieurs. La souveraineté n'est pas une fonctionnalité — c'est l'architecture.",
-        "m0Label": "Ordonnancement éco-responsable",
-        "m0Harch": "Temps réel par job — 47 paramètres",
-        "m0Competitor": "Aucun — allocation statique",
-        "m1Label": "Hubs GPU africains",
-        "m1Harch": "5 hubs — Maroc",
-        "m1Competitor": "1 région — Afrique du Sud uniquement",
-        "m2Label": "Énergie renouvelable",
-        "m2Harch": "81,5% moyen — 97,2% meilleur hub",
-        "m2Competitor": "~42% mondial — 0% en Afrique",
-        "m3Label": "Intensité carbone",
-        "m3Harch": "~47 gCO2/kWh",
-        "m3Competitor": "~400 gCO2/kWh (réseau sud-africain)",
-        "m4Label": "Coût énergétique /kWh",
-        "m4Harch": "0,03$",
-        "m4Competitor": "0,08-0,15$",
-        "m5Label": "Garantie de résidence des données",
-        "m5Harch": "100% africaine — droit marocain",
-        "m5Competitor": "Afrique du Sud — CLOUD Act américain",
-        "m6Label": "Conformité souveraine",
-        "m6Harch": "GDPR + ISO 27001 + SOC 2 + Loi 09-08",
-        "m6Competitor": "SOC 2 uniquement — juridiction américaine",
-        "m7Label": "Migration de charges en direct",
-        "m7Harch": "<200ms — maillage inter-hub",
-        "m7Competitor": "Non disponible — verrouillé par région",
-        "m8Label": "Hub câble sous-marin",
-        "m8Harch": "4 systèmes — passerelle UE",
-        "m8Competitor": "Aucun — peering standard",
-        "m9Label": "Énergie multi-vertical",
-        "m9Harch": "Approvisionnement direct Harch Energy",
-        "m9Competitor": "Dépendant du réseau — pas de verticales"
-      },
-      "equinix": {
-        "name": "Equinix",
-        "country": "États-Unis",
-        "verdict": "Equinix achète des RECs pour revendiquer 95% de renouvelable — mais les RECs ne réduisent pas le carbone réel. HarchOS fonctionne sur 81,5% de génération renouvelable directe à 47 gCO2/kWh — sans artifices comptables, sans compensations, juste de l'énergie propre issue de nos propres fermes solaires et éoliennes. Le direct bat l'acheté. Toujours.",
-        "m0Label": "Cloud GPU",
-        "m0Harch": "1 798 GPUs — H100/A100/L40S à la demande",
-        "m0Competitor": "0 GPU — colocation uniquement",
-        "m1Label": "Ordonnancement éco-responsable",
-        "m1Harch": "Temps réel par job — 47 paramètres",
-        "m1Competitor": "Aucun — modèle colocation",
-        "m2Label": "Présence africaine",
-        "m2Harch": "5 hubs — Maroc",
-        "m2Competitor": "3 installations colo — Afrique du Sud uniquement",
-        "m3Label": "Énergie renouvelable",
-        "m3Harch": "81,5% moyen — vérifié",
-        "m3Competitor": "~95% mondial — RECs (pas direct)",
-        "m4Label": "Intensité carbone",
-        "m4Harch": "~47 gCO2/kWh (génération directe)",
-        "m4Competitor": "~100 gCO2/kWh (les RECs ne réduisent pas)",
-        "m5Label": "Services de plateforme IA",
-        "m5Harch": "Pile complète — entraîner/ajuster/servir",
-        "m5Competitor": "Aucun — serveur nu uniquement",
-        "m6Label": "Conformité souveraine",
-        "m6Harch": "GDPR + ISO 27001 + SOC 2 + Loi 09-08",
-        "m6Competitor": "Juridiction américaine — CLOUD Act",
-        "m7Label": "Coût énergétique /kWh",
-        "m7Harch": "0,03$ (renouvelable direct)",
-        "m7Competitor": "0,10-0,18$ (tarifs commerciaux)",
-        "m8Label": "Migration de charges en direct",
-        "m8Harch": "<200ms — maillage inter-hub",
-        "m8Competitor": "Non applicable — colocation",
-        "m9Label": "Hub câble sous-marin",
-        "m9Harch": "4 systèmes — passerelle Afrique-UE",
-        "m9Competitor": "Peering standard — pas de passerelle"
-      }
-    },
-    "cta": {
-      "title": "Accéder à HarchOS",
-      "primary": "Demander une démonstration",
-      "secondary": "Documentation API",
-      "subtitle": "Demandez une démonstration et découvrez comment HarchOS unifie les opérations d'infrastructure souveraine.",
-      "briefing": "Briefing",
-      "briefingTitle": "Demander un briefing",
-      "platform": "Plateforme",
-      "platformTitle": "Explorer la plateforme",
-      "platformDescription": "Plongez dans l'architecture SENSE-THINK-ACT, le moteur d'ordonnancement éco-responsable et le cloud GPU souverain."
-    },
-    "hubTypes": {
-      "solar": "Solaire",
-      "wind": "Éolien",
-      "solarWind": "Solaire+Éolien",
-      "hybrid": "Hybride",
-      "grid": "Réseau"
-    },
-    "progress": {
-      "define": "Définir",
-      "build": "Construire",
-      "evaluate": "Évaluer",
-      "ship": "Déployer"
-    },
-    "sectors": {
-      "title": "Résoudre les problèmes complexes dans chaque secteur de l'infrastructure souveraine",
-      "cta": "Explorer HarchOS Maintenant",
-      "items": {
-        "s1": "ÉNERGIE & RENOUVELABLES",
-        "s2": "MINES & MINÉRAUX",
-        "s3": "CIMENT & CONSTRUCTION",
-        "s4": "AGRICULTURE & AgriTech",
-        "s5": "EAU & DESSALEMENT",
-        "s6": "DÉFENSE & SOUVERAINETÉ",
-        "s7": "GOUVERNEMENT & SECTEUR PUBLIC",
-        "s8": "SANTÉ & SCIENCES DE LA VIE",
-        "s9": "SERVICES FINANCIERS & BANQUE",
-        "s10": "FABRICATION & INDUSTRIELS",
-        "s11": "TÉLÉCOMMUNICATIONS",
-        "s12": "TRANSPORT & LOGISTIQUE",
-        "s13": "PÉTROLE & GAZ"
-      }
-    },
-    "buildNow": {
-      "title": "Construisez maintenant avec HarchOS",
-      "build": {
-        "title": "Construire avec HarchOS",
-        "desc": "Demandez l'accès à HarchOS et commencez à construire. Déploiement en un clic vers l'infrastructure IA souveraine, puis personnalisez à volonté."
-      },
-      "explore": {
-        "title": "Explorer HarchOS Maintenant",
-        "desc": "Visitez HarchOS pour découvrir des dizaines de cas d'usage IA souveraine qui alimentent l'infrastructure fondamentale, disponibles en déploiement en un clic."
-      }
-    },
-    "pageFooter": {
-      "copyright": "© 2026 Harch Corp S.A. Tous droits réservés.",
-      "regions": "MA EU AF",
-      "social": {
-        "youtube": "YOUTUBE",
-        "x": "X",
-        "linkedin": "LINKEDIN",
-        "github": "GITHUB"
-      },
-      "offerings": {
-        "title": "OFFRES",
-        "items": {
-          "i1": "Calcul Conscient du Carbone",
-          "i2": "Plateforme IA Souveraine",
-          "i3": "IA en Périphérie",
-          "i4": "Intégration de Données",
-          "i5": "Jumeau Numérique",
-          "i6": "Ordonnancement Dynamique",
-          "i7": "Constructeur de Pipelines",
-          "i8": "Exploration de Processus",
-          "i9": "Alertes en Temps Réel",
-          "i10": "Streaming",
-          "i11": "Architecture Maillée"
-        }
-      },
-      "impactStudies": {
-        "title": "ÉTUDES D'IMPACT",
-        "items": {
-          "i1": "Hub Solaire Ouarzazate",
-          "i2": "Parc Éolien Dakhla",
-          "i3": "Hub Mixte Benguerir",
-          "i4": "Tanger Méditerranée",
-          "i5": "Optimisation du Réseau National",
-          "i6": "Réseau de Dessalement d'Eau",
-          "i7": "Automatisation Cimenterie",
-          "i8": "Hub Opérations Minières",
-          "i9": "Intelligence Agricole",
-          "i10": "Infrastructure Portuaire",
-          "i11": "Gestion Ferroviaire",
-          "i12": "Planification Urbaine"
-        }
-      },
-      "capabilities": {
-        "title": "CAPACITÉS",
-        "items": {
-          "i1": "Ordonnancement Conscient du Carbone",
-          "i2": "Maillage de Données Souveraines",
-          "i3": "Plateforme IA/ML",
-          "i4": "SDK Développeur",
-          "i5": "Sécurité Zero-Trust",
-          "i6": "Surveillance SOC",
-          "i7": "Conformité Automatisée",
-          "i8": "SDK Ontologie",
-          "i9": "Orchestration Maillée",
-          "i10": "Déploiement IA Périphérique",
-          "i11": "Prêt pour le Quantique",
-          "i12": "SLA Vert"
-        }
-      },
-      "documents": {
-        "title": "DOCUMENTS",
-        "items": {
-          "i1": "Documentation de la Plateforme",
-          "i2": "Communauté Développeurs",
-          "i3": "Centre de Confiance",
-          "i4": "Vie Privée & Libertés Civiles",
-          "i5": "Durabilité",
-          "i6": "Politique des Droits Humains",
-          "i7": "Déclaration de Confidentialité",
-          "i8": "Conditions d'Utilisation",
-          "i9": "HarchOS Expliqué",
-          "i10": "Référence API",
-          "i11": "Page de Statut",
-          "i12": "Livre Blanc de Sécurité"
-        }
-      }
+      "label": "Pourquoi HarchOS /0.2"
     },
     "hubs": {
+      "title": "Cinq hubs. L'avantage renouvelable du Maroc.",
+      "subtitle": "Chaque hub est stratégiquement situé près de sources d'énergie renouvelable. Ensemble, ils forment le plus grand maillage GPU planifié d'Afrique.",
+      "disclaimer": "Les spécifications des hubs sont des objectifs planifiés. Les délais de déploiement réels dépendent du développement des infrastructures et des approbations réglementaires.",
+      "planned": "Planifié",
       "ouarzazate": {
-        "name": "Harch Ouarzazate",
-        "latency": "<5ms vers l'UE"
+        "name": "Ouarzazate",
+        "energy": "Solaire CSP",
+        "gpus": "800 GPUs prévus",
+        "renewable": "~97% renouvelable",
+        "status": "Planifié"
       },
       "dakhla": {
-        "name": "Harch Dakhla",
-        "latency": "<8ms vers l'UE"
+        "name": "Dakhla",
+        "energy": "Éolien Offshore",
+        "gpus": "400 GPUs prévus",
+        "renewable": "~85% renouvelable cible",
+        "status": "Planifié"
       },
       "benguerir": {
-        "name": "Harch Benguerir",
-        "latency": "<12ms vers l'UE"
+        "name": "Benguerir",
+        "energy": "Solaire + Éolien",
+        "gpus": "350 GPUs prévus",
+        "renewable": "~75% renouvelable cible",
+        "status": "Planifié"
       },
       "tanger": {
-        "name": "Harch Tanger",
-        "latency": "<3ms vers l'UE"
+        "name": "Tanger",
+        "energy": "Éolien + Réseau",
+        "gpus": "200 GPUs prévus",
+        "renewable": "~65% renouvelable cible",
+        "status": "Planifié"
       },
       "casablanca": {
-        "name": "Harch Casablanca",
-        "latency": "<2ms local"
-      }
+        "name": "Casablanca",
+        "energy": "Réseau + Solaire",
+        "gpus": "48 GPUs prévus",
+        "renewable": "~40% renouvelable (réseau urbain)",
+        "status": "Planifié"
+      },
+      "label": "Réseau de Hubs /0.3",
+      "renewableLabel": "Renouvelable"
     },
-    "architectureSpecs": {
+    "architecture": {
+      "title": "PERCEVOIR. PENSER. AGIR.",
+      "subtitle": "HarchOS repose sur une architecture à trois couches inspirée des systèmes autonomes — observer le réseau, prédire le chemin optimal, exécuter avec précision.",
       "sense": {
-        "s0": "5K+ pts/sec",
-        "s1": "IoT, Satellite, API",
-        "s2": "4h à l'avance",
-        "s3": "Granularité 1-seconde"
+        "title": "PERCEVOIR",
+        "subtitle": "Surveillance réseau en temps réel",
+        "desc": "Ingestion continue des données d'intensité carbone, des prix de l'énergie, de l'utilisation des GPUs et de la fiabilité du réseau à travers tous les hubs.",
+        "specs": "Flux API Carbone, Données marchés énergie, Télémétrie des hubs, État du réseau régional"
       },
       "think": {
-        "s0": "4 heures",
-        "s1": "RL, Transformer, GNN",
-        "s2": "Multi-objectif",
-        "s3": "<50ms"
+        "title": "PENSER",
+        "subtitle": "Intelligence consciente du carbone",
+        "desc": "Moteur de planification basé sur le ML qui prédit le hub optimal, la fenêtre temporelle et la configuration GPU pour chaque charge de travail en fonction du carbone, du coût et de la latence.",
+        "specs": "Modèle de prédiction carbone, Moteur d'optimisation des coûts, Profileur de charges, Validateur de souveraineté"
       },
       "act": {
-        "s0": "En direct, <200ms",
-        "s1": "Sans interruption",
-        "s2": "Contexte temps réel",
-        "s3": "99.999%"
-      }
+        "title": "AGIR",
+        "subtitle": "Orchestration autonome",
+        "desc": "Déploie, migre et met à l'échelle les charges de travail automatiquement. Migration en direct entre hubs lorsque les conditions carbone changent. Opérations sans intervention.",
+        "specs": "Auto-déploiement, Migration inter-hubs, Auto-scaling, Auto-réparation"
+      },
+      "label": "Architecture /0.4"
     },
-    "specValues": {
-      "totalGpus": "1 798",
-      "gpuTypes": "H100, A100, L40S",
-      "interconnect": "NVLink + InfiniBand",
-      "maxPerHub": "800 GPU",
-      "scalingEfficiency": ">92% linéaire",
-      "renewableEnergy": "81,5%",
-      "avgCarbonIntensity": "~47 gCO2/kWh",
-      "bestHubCarbon": "18 gCO2/kWh",
-      "pueRange": "1,04 — 1,12",
-      "bestPue": "1,04",
-      "backbone": "400Gbps",
-      "dedicatedLinks": "100Gbps chacun",
-      "submarineSystems": "4 systèmes",
-      "latencyToEurope": "<5-12ms",
-      "latencyToAmericas": "<35ms"
+    "specs": {
+      "title": "Ce vers quoi nous construisons.",
+      "subtitle": "Ce sont nos objectifs techniques, pas nos capacités actuelles. Nous croyons en la transparence plutôt que dans le marketing.",
+      "compute": {
+        "title": "Calcul",
+        "items": "1 798 GPUs (H100 & A100), Jusqu'à 256 GPUs par charge, PUE cible : 1.15"
+      },
+      "network": {
+        "title": "Réseau",
+        "items": "Backbone 400 Gbps, Latence inter-hubs <5ms, 4 chemins de câbles sous-marins"
+      },
+      "sustainability": {
+        "title": "Durabilité",
+        "items": "Objectif ~47 gCO2/kWh moyen, Jusqu'à 97% renouvelable (Ouarzazate), Planification consciente du carbone"
+      },
+      "reliability": {
+        "title": "Fiabilité",
+        "items": "SLA cible 99.9%, RPO <15min, RTO <30min, Basculement automatisé"
+      },
+      "label": "Spécifications /0.5"
     },
-    "complianceBadges": {
-      "gdpr": "RGPD",
-      "iso27001": "ISO 27001",
-      "soc2TypeII": "SOC 2 Type II",
-      "law0908": "Loi 09-08",
-      "fips1402L3": "FIPS 140-2 L3",
-      "tls13": "TLS 1.3"
+    "security": {
+      "title": "Sécurité par conception. Souveraineté par défaut.",
+      "zeroTrust": {
+        "title": "Architecture Zero-Trust",
+        "desc": "Chaque requête est authentifiée et autorisée. Aucune confiance implicite entre services, hubs ou utilisateurs."
+      },
+      "dataResidency": {
+        "title": "Application de la Résidence des Données",
+        "desc": "Les charges de travail et les données ne quittent jamais la région désignée. Application technique, pas seulement une politique."
+      },
+      "encryption": {
+        "title": "Chiffrement de Bout en Bout",
+        "desc": "TLS 1.3 en transit, AES-256 au repos. Gestion des clés soutenue par HSM dans chaque hub."
+      },
+      "compliance": {
+        "title": "Cadre de Conformité",
+        "desc": "Conçu pour le RGPD, la Loi 09-08 du Maroc et SOC 2 Type II. La conformité est intégrée dans l'architecture, pas ajoutée après coup."
+      },
+      "badges": "RGPD, Loi 09-08, SOC 2, TLS 1.3",
+      "label": "Sécurité /0.6"
     },
-    "brandName": "HarchOS",
-    "footerBrandName": "Harch Corp",
-    "backToIntelligence": "Intelligence",
-    "status": {
-      "live": "EN DIRECT",
-      "healthy": "EN BONNE SANTÉ"
+    "roadmap": {
+      "title": "Construire par phases. Livrer avec discipline.",
+      "subtitle": "Notre feuille de route est publique car la responsabilité compte.",
+      "phase1": {
+        "title": "Fondation",
+        "period": "2025",
+        "items": "Conception de l'architecture, Intégration API Carbone, Préparation du premier site"
+      },
+      "phase2": {
+        "title": "Alpha",
+        "period": "2026",
+        "items": "Déploiement du hub Ouarzazate, Version alpha du SDK, Bêta de la planification carbone"
+      },
+      "phase3": {
+        "title": "Échelle",
+        "period": "2027",
+        "items": "3 hubs supplémentaires en ligne, Maillage réseau complet, Fonctionnalités entreprise"
+      },
+      "phase4": {
+        "title": "Panafricain",
+        "period": "2028+",
+        "items": "Expansion au-delà du Maroc, Maillage continental, Zones de souveraineté régionales"
+      },
+      "inProgress": "En Cours",
+      "planned": "Planifié",
+      "label": "Feuille de route /0.7"
+    },
+    "cta": {
+      "title": "L'accès anticipé commence ici.",
+      "subtitle": "Rejoignez la liste d'attente pour l'accès anticipé à HarchOS. Soyez parmi les premiers à déployer sur le cloud GPU conscient du carbone d'Afrique.",
+      "primary": "Demander un Accès Anticipé",
+      "secondary": "Retour à Intelligence"
     }
   },
   "hiringProcess": {

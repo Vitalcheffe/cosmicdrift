@@ -130,3 +130,65 @@ Stage Summary:
 - Go import paths updated to plausible future structure
 - Visual design preserved — badges replaced with styled "Coming Soon" tags
 - Build passes (only pre-existing Prisma error)
+
+---
+Task ID: 4
+Agent: general-purpose
+Task: Write HarchOS EN/FR translations (replace old 850-key harchos object with clean ~80-key version)
+
+Work Log:
+- Read en.json and fr.json to locate the `harchos` top-level key (line 4493 in both files)
+- Identified old harchos objects had 850 keys each (en) and 850 keys (fr) — filled with fake demo data, Palantir overlays, competitive propaganda
+- Old top-level harchos keys: header, navOverlay, title, description, subtitle, hero, demo, workflow, evaluate, capabilities, architecture, features, specs, security, devPlatform, competitive, cta, hubTypes, progress, sectors, buildNow, pageFooter, hubs, architectureSpecs, specValues, complianceBadges, brandName, footerBrandName, backToIntelligence, status
+- Replaced entire `harchos` object in en.json with new clean English translations using Node.js script (parsed JSON, replaced key, wrote back with 2-space indent)
+- Replaced entire `harchos` object in fr.json with new clean French translations using same approach
+- New top-level harchos keys: hero, why, hubs, architecture, specs, security, roadmap, cta (8 sections)
+- New harchos key count: 133 per file (including nested keys) — reduced from 850
+- Validated both JSON files parse correctly with `JSON.parse()`
+- No other keys in either file were modified
+
+Stage Summary:
+- 2 files changed: en.json, fr.json
+- harchos translations replaced: 850 keys → 133 keys per file (~84% reduction)
+- Removed: fake demo console data, Palantir-style navOverlay, competitive comparison tables, workflow builder mockups, evaluate pipeline mockups, dev platform code snippets, status badges, brand name overrides
+- Added: clean hero section, "why" value proposition, hub specifications with planned disclaimers, honest architecture (SENSE/THINK/ACT), transparent specs with "targets not capabilities" language, security section, public roadmap, CTA
+- All French translations are proper translations of the English content (not machine-translated propaganda)
+- Both files validated as valid JSON
+
+---
+Task ID: 5
+Agent: general-purpose
+Task: Rewrite HarchOS page component (complete rewrite of HarchOSPageClient.tsx)
+
+Work Log:
+- Analyzed existing component: 1,474 lines, Palantir AIP clone with fake demo consoles, competitive comparison tables, workflow builder mockups, annotation overlays
+- Identified 8 imported icons used but 30+ imported (massive waste), competitive comparison component import, fake state management for demo tabs
+- Read FadeIn component from @/components/ui/motion (supports delay, direction, className, duration)
+- Confirmed i18n keys already replaced (Task ID 4) — new clean structure with 8 sections
+- Wrote complete new component from scratch: 439 lines (70% reduction from 1,474)
+- Component structure (8 sections):
+  1. Hero — gradient orb, headline, stat badges, CTA buttons
+  2. Why HarchOS — 3 value proposition cards (Sovereign AI, Carbon-Aware, Pan-African)
+  3. Hub Network — 5 hub cards with amber "Planned" badges, renewable bars
+  4. Architecture — SENSE/THINK/ACT layers with spec chips
+  5. Target Specifications — 4 spec groups with "Target" language
+  6. Security & Compliance — 4 items + compliance badges
+  7. Roadmap — horizontal timeline with "In Progress"/"Planned" status
+  8. CTA — gradient orb, waitlist CTA
+- Fixed i18n key mismatch: `architecture.${key}.tagline` → `architecture.${key}.subtitle` (matching translation keys)
+- Added missing label keys to en.json and fr.json:
+  - hero.label, why.label, hubs.label, hubs.renewableLabel, architecture.label, specs.label, security.label, roadmap.label
+- Fixed page.tsx metadata:
+  - Removed "100% renewable" and "250MW" claims from description and OG tags
+  - Replaced with honest "1,798 planned GPUs, 5 hubs, ~47 gCO2/kWh target, up to 97% renewable"
+- TypeScript compilation passes with zero errors
+- Only 7 icons imported (Shield, Leaf, Globe, Eye, Brain, Zap, Lock, ArrowRight) — all used
+
+Stage Summary:
+- 3 files changed: HarchOSPageClient.tsx, en.json, fr.json, page.tsx
+- Component reduced from 1,474 lines → 439 lines (70% reduction)
+- Removed: Palantir demo consoles, fake live data, competitive comparisons, annotation overlays, workflow builder mockups, tab-based demo states, AnimatePresence, CompetitiveComparison component
+- Added: Clean 8-section layout, honest "planned"/"target" language, no fake data, amber "Planned" status badges, renewable energy progress bars
+- All text uses t() — zero hardcoded strings
+- Dark design system consistent: bg-[#0A0A0A]/bg-[#0D0D0D] alternating, #8B9DAF accent, #111111 cards
+- Metadata fixed: no more "100% renewable" or impossible specs

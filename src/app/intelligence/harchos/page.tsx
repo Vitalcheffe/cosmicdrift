@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import HarchOSPageClient from './HarchOSPageClient';
+import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'HarchOS — The Operating System for Sovereign AI Infrastructure',
-  description: 'HarchOS orchestrates the Harch Intelligence Distributed Mesh — 5 hubs of AI compute powered by renewable energy across Morocco. 250MW installed, 400Gbps backbone, zero-downtime architecture.',
+  description: 'HarchOS is the operating system for Africa\'s first carbon-aware GPU compute platform — powered by Morocco\'s renewable energy advantage. 1,798 planned GPUs, 5 hubs, ~47 gCO2/kWh target.',
   keywords: [
     'HarchOS',
     'AI operating system',
@@ -14,13 +14,11 @@ export const metadata: Metadata = {
     'green GPU cloud',
     'renewable energy data center',
     'Morocco AI compute',
-    'Dakhla data center',
-    'Tanger data center',
     'Ouarzazate solar data center',
   ],
   openGraph: {
     title: 'HarchOS — The Operating System for Sovereign AI Infrastructure',
-    description: '5 hubs. 250MW. 100% renewable. The distributed AI compute mesh that powers Africa\'s sovereign intelligence.',
+    description: '5 hubs. 1,798 planned GPUs. Up to 97% renewable. Africa\'s carbon-aware GPU platform.',
     url: 'https://www.harchcorp.com/intelligence/harchos',
     siteName: 'Harch Corp',
     type: 'website',
@@ -36,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'HarchOS — The Operating System for Sovereign AI Infrastructure',
-    description: '5 hubs. 250MW. 100% renewable. The distributed AI compute mesh that powers Africa\'s sovereign intelligence.',
+    description: '5 hubs. 1,798 planned GPUs. Up to 97% renewable. Africa\'s carbon-aware GPU platform.',
     images: ['/images/intelligence/harchos-hero.png'],
   },
   alternates: {
@@ -50,23 +48,5 @@ export const metadata: Metadata = {
 };
 
 export default function HarchOSPage() {
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.harchcorp.com' },
-      { '@type': 'ListItem', position: 2, name: 'Intelligence', item: 'https://www.harchcorp.com/intelligence' },
-      { '@type': 'ListItem', position: 3, name: 'HarchOS', item: 'https://www.harchcorp.com/intelligence/harchos' },
-    ],
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <HarchOSPageClient />
-    </>
-  );
+  redirect('/en/intelligence/harchos');
 }

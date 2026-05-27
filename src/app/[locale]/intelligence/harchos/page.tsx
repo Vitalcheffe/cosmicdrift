@@ -14,12 +14,12 @@ export async function generateMetadata({
     : 'HarchOS — The Operating System for Sovereign AI Infrastructure';
 
   const description = isFr
-    ? 'HarchOS orchestre le Maillage Distribué Harch Intelligence — 5 hubs de calcul IA alimentés par l\'énergie renouvelable à travers le Maroc. 250 MW installés, backbone 400 Gbps, architecture sans interruption.'
-    : 'HarchOS orchestrates the Harch Intelligence Distributed Mesh — 5 hubs of AI compute powered by renewable energy across Morocco. 250MW installed, 400Gbps backbone, zero-downtime architecture.';
+    ? 'HarchOS est le système d\'exploitation pour la première plateforme de calcul GPU sensible au carbone en Afrique — alimentée par l\'avantage énergétique renouvelable du Maroc. 1 798 GPUs planifiés, 5 hubs, cible ~47 gCO2/kWh.'
+    : 'HarchOS is the operating system for Africa\'s first carbon-aware GPU compute platform — powered by Morocco\'s renewable energy advantage. 1,798 planned GPUs, 5 hubs, ~47 gCO2/kWh target.';
 
   const ogDescription = isFr
-    ? '5 hubs. 250 MW. 100 % renouvelable. Le maillage de calcul IA distribué qui alimente l\'intelligence souveraine de l\'Afrique.'
-    : '5 hubs. 250MW. 100% renewable. The distributed AI compute mesh that powers Africa\'s sovereign intelligence.';
+    ? '5 hubs. 1 798 GPUs planifiés. Jusqu\'à 97 % renouvelable. La plateforme GPU sensible au carbone de l\'Afrique.'
+    : '5 hubs. 1,798 planned GPUs. Up to 97% renewable. Africa\'s carbon-aware GPU platform.';
 
   return {
     title,

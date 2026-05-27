@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   ArrowRight,
-  Linkedin,
   Globe,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -128,9 +127,7 @@ export default function LeadershipPageClient() {
                   <p className="text-[12px] font-semibold text-[rgba(255,255,255,0.4)] uppercase tracking-wider mb-4">{exec.title}</p>
                   <div className="accent-line mb-4" />
                   <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{exec.bio}</p>
-                  <a href={exec.linkedin} className="inline-flex items-center gap-2 text-[12px] text-[#666666] hover:text-white transition-colors">
-                    <Linkedin size={14} /> LinkedIn
-                  </a>
+                  {/* LinkedIn link removed — no verified profiles exist yet */}
                 </div>
               </FadeIn>
             ))}

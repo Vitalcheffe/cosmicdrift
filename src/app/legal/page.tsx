@@ -4,8 +4,8 @@ import LegalPageClient from './LegalPageClient';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Legal  | Harch Corp',
-  description: 'Legal information and disclaimers for Harch Corp.',
+  title: 'Legal | Harch Corp',
+  description: 'Legal information, terms of service, privacy policy, GDPR compliance, and regulatory disclaimers for Harch Corp S.A.',
   alternates: {
     canonical: 'https://www.harchcorp.com/legal',
     languages: {

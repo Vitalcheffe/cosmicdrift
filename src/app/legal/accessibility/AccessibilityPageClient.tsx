@@ -124,7 +124,6 @@ export default function AccessibilityPageClient() {
               <div className="border border-[rgba(255,255,255,0.06)] rounded-lg p-5 bg-[#1E1E1E]">
                 <p className="text-[14px] text-white font-medium mb-2">Accessibility Team</p>
                 <p className="text-[14px] text-[#999999]">Email: <a href="mailto:accessibility@harchcorp.com" className="text-white hover:underline">accessibility@harchcorp.com</a></p>
-                <p className="text-[14px] text-[#999999]">Phone: +212 5 22 00 00 00</p>
                 <p className="text-[14px] text-[#999999]">Address: Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco</p>
                 <p className="text-[14px] text-[#999999] mt-2">We aim to respond to accessibility feedback within 3 business days and to propose a resolution within 10 business days.</p>
               </div>

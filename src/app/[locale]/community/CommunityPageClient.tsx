@@ -49,7 +49,7 @@ export default function CommunityPageClient() {
       accent: '#8B9DAF',
       channels: [t('channels.items.3.channels.0'), t('channels.items.3.channels.1'), t('channels.items.3.channels.2')],
       cta: t('channels.items.3.cta'),
-      href: 'https://discussions.harchcorp.com',
+      href: '/community',
     },
   ];
 

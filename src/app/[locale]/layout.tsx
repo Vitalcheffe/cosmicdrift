@@ -202,7 +202,7 @@ export default async function LocaleLayout({
         ],
         description:
           "Harch Corp S.A. is a Moroccan multi-sector industrial conglomerate and holding company building Africa's industrial sovereignty across 8 verticals: AI data centers, renewable energy, cement manufacturing, sovereign technology, strategic mining, precision agriculture, water infrastructure, and finance. $2.4B+ investment pipeline across 5 countries.",
-        foundingDate: "2024",
+        foundingDate: "2024-01-01",
         founder: { "@id": "https://www.harchcorp.com/#founder" },
         numberOfEmployees: {
           "@type": "QuantitativeValue",
@@ -223,7 +223,9 @@ export default async function LocaleLayout({
           latitude: 33.5731,
           longitude: -7.5898,
         },
-        telephone: "+212-522-000-000",
+        // telephone removed — placeholder number was fake (+212-522-000-xxx)
+        // Re-enable with real phone number when available.
+        // telephone: "+212-522-000-000",
         email: "info@harchcorp.com",
         areaServed: [
           { "@type": "Country", name: "Morocco" },
@@ -317,21 +319,21 @@ export default async function LocaleLayout({
             "@type": "ContactPoint",
             contactType: "investor relations",
             email: "investors@harchcorp.com",
-            telephone: "+212-522-000-001",
+            // telephone removed — placeholder was fake
             availableLanguage: ["English", "French", "Arabic"],
           },
           {
             "@type": "ContactPoint",
             contactType: "media relations",
             email: "press@harchcorp.com",
-            telephone: "+212-522-000-002",
+            // telephone removed — placeholder was fake
             availableLanguage: ["English", "French", "Arabic"],
           },
           {
             "@type": "ContactPoint",
             contactType: "customer service",
             email: "support@harchcorp.com",
-            telephone: "+212-522-000-000",
+            // telephone removed — placeholder was fake
             availableLanguage: ["English", "French", "Arabic"],
           },
         ],
@@ -478,15 +480,17 @@ export default async function LocaleLayout({
             height: 768,
           },
         ],
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate:
-              "https://www.harchcorp.com/search?q={search_term_string}",
-          },
-          "query-input": "required name=search_term_string",
-        },
+        // SearchAction removed — no /search page exists yet.
+        // Re-enable when a search endpoint is implemented.
+        // potentialAction: {
+        //   "@type": "SearchAction",
+        //   target: {
+        //     "@type": "EntryPoint",
+        //     urlTemplate:
+        //       "https://www.harchcorp.com/search?q={search_term_string}",
+        //   },
+        //   "query-input": "required name=search_term_string",
+        // },
       },
     ],
   };

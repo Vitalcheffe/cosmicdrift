@@ -6919,7 +6919,7 @@
       "title": "Contact presse",
       "description": "Pour les demandes d'interview et de couverture mediatique.",
       "email": "press@harchcorp.com",
-      "phone": "+212 522 000 002"
+      "phone": ""
     },
     "brandAssets": {
       "brandGuidelines": "Brand Guidelines",
@@ -7952,7 +7952,7 @@
       "emailPlaceholder": "vous@organisation.com",
       "phonePlaceholder": "+212 / +221 / +220 ...",
       "whatsappText": "Préférez WhatsApp ? Contactez-nous directement",
-      "whatsappLink": "+212 522 000 000 sur WhatsApp →"
+      "whatsappLink": "Contactez-nous par courriel →"
     },
     "step4": {
       "contactInfo": "Contact Information",
@@ -12145,7 +12145,7 @@
       "items": [
         {
           "question": "Comment contacter le support ?",
-          "answer": "Par email a support@harchcorp.com, via le portail client ou par téléphone au +212 522 000 000."
+          "answer": "Par email à support@harchcorp.com ou via le portail client."
         },
         {
           "question": "Quels sont les horaires de support ?",
@@ -12160,7 +12160,7 @@
     "contact": {
       "title": "Nous contacter",
       "email": "support@harchcorp.com",
-      "phone": "+212 522 000 000",
+      "phone": "",
       "portal": "Portail client"
     },
     "cta": {

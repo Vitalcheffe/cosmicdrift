@@ -98,7 +98,7 @@ TRANSLATION_MAP = {
     "legal.accessibility.feedbackDescription": "Nous accueillons vos commentaires sur l'accessibilité de notre site web. Si vous rencontrez des barrières d'accessibilité, veuillez nous contacter.",
     "legal.accessibility.contactTeam": "Équipe Accessibilité",
     "legal.accessibility.contactEmailLabel": "E-mail :",
-    "legal.accessibility.contactPhone": "Téléphone : +212 5 22 00 00 00",
+    "legal.accessibility.contactPhone": "Contactez-nous pour le support téléphonique",
     "legal.accessibility.contactAddress": "Adresse : Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Maroc",
     
     # === common ===

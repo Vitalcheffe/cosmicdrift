@@ -73,7 +73,7 @@ export async function GET(
   } catch (error) {
     console.error('PDF generation error:', error);
     return NextResponse.json(
-      { error: 'Failed to generate PDF', details: String(error) },
+      { error: 'Failed to generate PDF' },
       { status: 500 }
     );
   }

@@ -144,8 +144,7 @@ export default function CodeOfConductPageClient() {
               <div className="border border-[rgba(255,255,255,0.06)] rounded-lg p-5 bg-[#1E1E1E]">
                 <p className="text-[14px] text-white font-medium mb-2">Ethics Hotline</p>
                 <p className="text-[14px] text-[#999999]">Email: <a href="mailto:ethics@harchcorp.com" className="text-white hover:underline">ethics@harchcorp.com</a></p>
-                <p className="text-[14px] text-[#999999]">Phone: +212 5 22 00 00 01 (available 24/7)</p>
-                <p className="text-[14px] text-[#999999]">Online: ethics.harchcorp.com (secure, anonymous reporting portal)</p>
+                <p className="text-[14px] text-[#999999]">Online: ethics@harchcorp.com (secure, anonymous reporting)</p>
                 <p className="text-[14px] text-[#999999] mt-2">You may also report concerns to your direct manager, the Compliance Office, the Legal Department, or the Human Resources Department. All reports will be handled confidentially to the extent possible.</p>
               </div>
             </FadeIn>

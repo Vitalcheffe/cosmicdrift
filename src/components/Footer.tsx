@@ -232,11 +232,8 @@ export function Footer() {
               &copy; 2026 Harch Corp S.A. {t('allRightsReserved')}
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://wa.me/212522000000" target="_blank" rel="noopener noreferrer" aria-label={t('ariaWhatsapp')} className="text-[10px] text-white/55 hover:text-white/70 transition-colors flex items-center gap-1">WhatsApp</a>
-              <a href="https://linkedin.com/company/harchcorp" target="_blank" rel="noopener noreferrer" aria-label={t('ariaLinkedin')} className="text-[10px] text-white/55 hover:text-white/70 transition-colors">LinkedIn</a>
-              <a href="https://twitter.com/harchcorp" target="_blank" rel="noopener noreferrer" aria-label={t('ariaTwitter')} className="text-[10px] text-white/55 hover:text-white/70 transition-colors">Twitter</a>
-              <a href="https://github.com/HarchCorp" target="_blank" rel="noopener noreferrer" aria-label={t('ariaGithub')} className="text-[10px] text-white/55 hover:text-white/70 transition-colors">GitHub</a>
-              <a href="https://www.youtube.com/@harchcorp" target="_blank" rel="noopener noreferrer" aria-label={t('ariaYoutube')} className="text-[10px] text-white/55 hover:text-white/70 transition-colors">YouTube</a>
+              {/* Social links removed — no verified social profiles exist yet.
+                  Re-enable when actual accounts are created and verified. */}
             </div>
           </div>
           <div className="flex items-center gap-4 flex-wrap justify-center">

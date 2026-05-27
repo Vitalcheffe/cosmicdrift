@@ -238,7 +238,7 @@ export default function PressPageClient() {
                     <Phone size={14} className="text-[#8B9DAF]" />
                     <div>
                       <p className="text-[12px] text-[#666666]">Phone</p>
-                      <p className="text-[14px] text-white">+212-522-000-002</p>
+                      <p className="text-[14px] text-white">Contact us for phone support</p>
                     </div>
                   </div>
                 </div>

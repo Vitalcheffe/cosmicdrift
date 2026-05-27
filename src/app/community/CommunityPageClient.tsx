@@ -43,9 +43,9 @@ const communityChannels = [
     members: '1,800+ threads',
     icon: Users,
     accent: '#8B9DAF',
-    channels: ['discussions.harchcorp.com', 'RFCs', 'Show & Tell'],
+    channels: ['Community Forum', 'RFCs', 'Show & Tell'],
     cta: 'Visit Forum',
-    href: 'https://discussions.harchcorp.com',
+    href: '/community',
   },
 ];
 

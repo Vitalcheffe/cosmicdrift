@@ -965,8 +965,8 @@ fr['platform']['heroLabel'] = 'Plateforme'
 
 # press
 fr['press']['factSheet']['capital'] = 'Capital'
-fr['press']['mediaContact']['phone'] = '+212 5XX-XXXXXX'
-fr['press']['contact']['phone'] = '+212 522 000 002'
+fr['press']['mediaContact']['phone'] = ''
+fr['press']['contact']['phone'] = ''
 fr['press']['contact']['title'] = 'Contact presse'
 fr['press']['heroLabel'] = 'Presse'
 
@@ -1309,7 +1309,7 @@ fr['subsidiaryDetail']['operationalStatus'] = 'Statut opérationnel'
 # support
 fr['support']['title'] = 'Support'
 fr['support']['channels']['title'] = 'Nos canaux'
-fr['support']['contact']['phone'] = '+212 522 000 000'
+fr['support']['contact']['phone'] = ''
 fr['support']['contact']['portal'] = 'Portail client'
 fr['support']['contact']['title'] = 'Nous contacter'
 fr['support']['heroLabel'] = 'Support'

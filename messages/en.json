@@ -6853,7 +6853,7 @@
       "feedbackDescription": "We welcome your feedback on the accessibility of our website. If you encounter any accessibility barriers or have suggestions for improvement, please let us know. We take all feedback seriously and will make reasonable efforts to address accessibility issues promptly.",
       "contactTeam": "Accessibility Team",
       "contactEmailLabel": "Email:",
-      "contactPhone": "Phone: +212 5 22 00 00 00",
+      "contactPhone": "Contact us for phone support",
       "contactAddress": "Address: Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco",
       "contactResponseTime": "We aim to respond to accessibility feedback within 3 business days and to propose a resolution within 10 business days.",
       "footerNote": "Last updated: January 2026 | This statement is reviewed quarterly and governed by the laws of the Kingdom of Morocco."
@@ -7006,8 +7006,8 @@
       "reportingConcernsDescription": "Harch Corp is committed to fostering an environment where employees and stakeholders feel safe to raise concerns about potential violations of this Code, company policies, or applicable laws. We provide multiple channels for reporting concerns, and all reports are taken seriously and investigated promptly.",
       "ethicsHotline": "Ethics Hotline",
       "reportingEmailLabel": "Email:",
-      "reportingPhone": "Phone: +212 5 22 00 00 01 (available 24/7)",
-      "reportingOnline": "Online: ethics.harchcorp.com (secure, anonymous reporting portal)",
+      "reportingPhone": "Available 24/7 via email",
+      "reportingOnline": "Online: ethics@harchcorp.com (secure, anonymous reporting)",
       "reportingAlternative": "You may also report concerns to your direct manager, the Compliance Office, the Legal Department, or the Human Resources Department. All reports will be handled confidentially to the extent possible.",
       "nonRetaliationTitle": "Non-Retaliation Policy",
       "nonRetaliationDescription": "Harch Corp strictly prohibits retaliation against any person who, in good faith, reports a concern about potential misconduct, participates in an investigation, or exercises any right under this Code or applicable law. Retaliation includes any adverse employment action, threat, intimidation, or harassment directed at an individual because they reported a concern or participated in an investigation. Any employee who engages in retaliation will be subject to disciplinary action up to and including termination. If you believe you have experienced retaliation, please report it immediately through any of the reporting channels listed above.",
@@ -8362,7 +8362,7 @@
     "contact": {
       "description": "For interview requests and media coverage inquiries.",
       "email": "amine@harchcorp.com",
-      "phone": "+212 522 000 002",
+      "phone": "",
       "title": "Press Contact"
     },
     "heroDescription": "Press releases, media resources, and contacts for journalistic coverage.",
@@ -9206,7 +9206,7 @@
       "emailPlaceholder": "amine@harchcorp.com",
       "phonePlaceholder": "+212 / +221 / +220 ...",
       "whatsappText": "Prefer WhatsApp? Reach us directly",
-      "whatsappLink": "+212 522 000 000 on WhatsApp →"
+      "whatsappLink": "Contact us via email →"
     },
     "step4": {
       "contactInfo": "Contact Information",
@@ -14193,7 +14193,7 @@
     },
     "contact": {
       "email": "amine@harchcorp.com",
-      "phone": "+212 522 000 000",
+      "phone": "",
       "portal": "Client Portal",
       "title": "Contact Us"
     },
@@ -14201,7 +14201,7 @@
       "items": [
         {
           "question": "How do I contact support?",
-          "answer": "By email at amine@harchcorp.com, via the client portal, or by phone at +212 522 000 000."
+          "answer": "By email at amine@harchcorp.com or via the client portal."
         },
         {
           "question": "What are the support hours?",

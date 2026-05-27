@@ -6853,7 +6853,7 @@
       "feedbackDescription": "Nous accueillons vos commentaires sur l'accessibilité de notre site web. Si vous rencontrez des barrières d'accessibilité, veuillez nous contacter.",
       "contactTeam": "Accessibility Équipe",
       "contactEmailLabel": "E-mail :",
-      "contactPhone": "Téléphone : +212 5 22 00 00 00",
+      "contactPhone": "Contactez-nous pour le support téléphonique",
       "contactAddress": "Adresse : Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Maroc",
       "contactResponseTime": "Nous nous engageons à répondre aux commentaires sur l'accessibilité sous 3 jours ouvrés et à proposer une résolution sous 10 jours ouvrés.",
       "footerNote": "Dernière mise à jour : Janvier 2026 | Cette déclaration est révisée trimestriellement et régie par les lois du Royaume du Maroc."
@@ -7006,8 +7006,8 @@
       "reportingConcernsDescription": "Harch Corp s'engage à favoriser un environnement où les employés et les parties prenantes se sentent en sécurité pour soulever des préoccupations concernant d'éventuelles violations du présent Code, des politiques de l'entreprise ou des lois applicables. Nous offrons plusieurs canaux pour signaler des préoccupations, et tous les signalements sont pris au sérieux et examinés rapidement.",
       "ethicsHotline": "Ligne d'Éthique",
       "reportingEmailLabel": "Courriel :",
-      "reportingPhone": "Téléphone : +212 5 22 00 00 01 (disponible 24/7)",
-      "reportingOnline": "En ligne : ethics.harchcorp.com (portail de signalement sécurisé et anonyme)",
+      "reportingPhone": "Disponible 24/7 par courriel",
+      "reportingOnline": "En ligne : ethics@harchcorp.com (signalement sécurisé et anonyme)",
       "reportingAlternative": "Vous pouvez également signaler vos préoccupations à votre manager direct, au Bureau de Conformité, au Département Juridique ou au Département des Ressources Humaines. Tous les signalements seront traités de manière confidentielle dans la mesure du possible.",
       "nonRetaliationTitle": "Politique de non-représailles",
       "nonRetaliationDescription": "Harch Corp interdit strictement toute représaille contre toute personne qui, de bonne foi, signale une préoccupation concernant d'éventuels manquements, participe à une enquête ou exerce tout droit en vertu du présent Code ou de la loi applicable. Les représailles incluent toute mesure disciplinaire, menace, intimidation ou harcèlement dirigés contre un individu parce qu'il a signalé une préoccupation ou participé à une enquête. Tout employé qui engage des représailles sera passible de mesures disciplinaires, allant jusqu'au licenciement. Si vous pensez avoir fait l'objet de représailles, veuillez le signaler immédiatement par l'un des canaux de signalement mentionnés ci-dessus.",
@@ -8198,7 +8198,7 @@
       "title": "Contact presse",
       "description": "Pour les demandes d'interview et de couverture mediatique.",
       "email": "press@harchcorp.com",
-      "phone": "+212 522 000 002"
+      "phone": ""
     },
     "brandAssets": {
       "brandGuidelines": "Directives de marque",
@@ -9268,7 +9268,7 @@
       "emailPlaceholder": "amine@harchcorp.com",
       "phonePlaceholder": "+212 / +221 / +220 ...",
       "whatsappText": "Préférer WhatsApp? Contactez-nous directement",
-      "whatsappLink": "+212 522 000 000 sur WhatsApp →"
+      "whatsappLink": "Contactez-nous par courriel →"
     },
     "step4": {
       "contactInfo": "Informations de contact",
@@ -14040,7 +14040,7 @@
       "items": [
         {
           "question": "Comment contacter le support ?",
-          "answer": "Par email a support@harchcorp.com, via le portail client ou par téléphone au +212 522 000 000."
+          "answer": "Par email à support@harchcorp.com ou via le portail client."
         },
         {
           "question": "Quels sont les horaires de support ?",
@@ -14055,7 +14055,7 @@
     "contact": {
       "title": "Nous contacter",
       "email": "support@harchcorp.com",
-      "phone": "+212 522 000 000",
+      "phone": "",
       "portal": "Portail client"
     },
     "cta": {

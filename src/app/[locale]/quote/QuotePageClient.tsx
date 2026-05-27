@@ -713,16 +713,14 @@ export default function QuotePageClient() {
                     </div>
                   </div>
 
-                  {/* WhatsApp Direct Contact */}
+                  {/* Email Direct Contact */}
                   <div className="mt-8 p-4 border border-[rgba(74,123,95,0.15)] bg-[rgba(74,123,95,0.03)] rounded-lg">
                     <div className="flex items-center gap-3">
-                      <span className="text-[13px]">💬</span>
+                      <span className="text-[13px]">📧</span>
                       <div>
                         <p className="text-[12px] text-white/70">{t('step3.whatsappText')}</p>
                         <a
-                          href="https://wa.me/212522000000?text=Hello%20Harch%20Corp%2C%20I%27d%20like%20to%20discuss%20a%20project."
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href="mailto:contact@harchcorp.com"
                           className="text-[12px] text-[#4A7B5F] hover:text-[#5A9B7F] font-semibold transition-colors"
                         >
                           {t('step3.whatsappLink')}

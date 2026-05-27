@@ -25,7 +25,14 @@ export const metadata: Metadata = {
     title: 'Open Source at Harch',
     description: 'Our open source projects for sovereign AI infrastructure. Contribute, fork, or audit every line.',
   },
-  alternates: { canonical: 'https://www.harchcorp.com/developers/open-source' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/developers/open-source',
+    languages: {
+      en: 'https://www.harchcorp.com/developers/open-source',
+      fr: 'https://www.harchcorp.com/fr/developpeurs/open-source',
+      'x-default': 'https://www.harchcorp.com/developers/open-source',
+    },
+  },
 };
 
 export default function OpenSourcePage() {

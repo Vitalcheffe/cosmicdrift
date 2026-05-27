@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/contact',
+    languages: {
+      en: 'https://www.harchcorp.com/contact',
+      fr: 'https://www.harchcorp.com/fr/contact',
+      'x-default': 'https://www.harchcorp.com/contact',
+    },
   },
   openGraph: {
     title: 'Request a Briefing  | Harch Corp',

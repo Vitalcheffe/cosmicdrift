@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/careers',
+    languages: {
+      en: 'https://www.harchcorp.com/careers',
+      fr: 'https://www.harchcorp.com/fr/carrieres',
+      'x-default': 'https://www.harchcorp.com/careers',
+    },
   },
   openGraph: {
     title: 'Careers — Build Africa\'s Industrial Future',

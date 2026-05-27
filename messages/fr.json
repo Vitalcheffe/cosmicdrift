@@ -1248,7 +1248,7 @@
       "briefingRequest": "Demande de Briefing",
       "personalInfo": "Informations Personnelles",
       "namePlaceholder": "Your Nom",
-      "emailPlaceholder": "amine@harchcorp.com",
+      "emailPlaceholder": "info@harchcorp.com",
       "organizationLabel": "Organisation",
       "organizationPlaceholder": "Organization Nom",
       "designation": "Fonction",
@@ -6939,13 +6939,13 @@
         }
       ],
       "exerciseTitle": "How to Exercise Vos droits",
-      "exerciseDescription1": "Pour exercer l'un des droits décrits ci-dessus, veuillez soumettre une demande en nous envoyant un e-mail à amine@harchcorp.com ou en appelant notre numéro sans frais (disponible pour les résidents de Californie). Nous répondrons à votre demande dans les 45 jours suivant sa réception, comme l'exige la CCPA. Si nous avons besoin de plus de temps, nous vous informerons par écrit des raisons et de la période d'extension.",
+      "exerciseDescription1": "Pour exercer l'un des droits décrits ci-dessus, veuillez soumettre une demande en nous envoyant un e-mail à dpo@harchcorp.com ou en appelant notre numéro sans frais (disponible pour les résidents de Californie). Nous répondrons à votre demande dans les 45 jours suivant sa réception, comme l'exige la CCPA. Si nous avons besoin de plus de temps, nous vous informerons par écrit des raisons et de la période d'extension.",
       "exerciseDescription2": "Vous pouvez également désigner un mandataire pour effectuer une demande en votre nom. Pour ce faire, vous devez fournir au mandataire une autorisation écrite pour agir en votre nom, et nous pouvons exiger une vérification de votre identité et une confirmation que vous avez autorisé le mandataire à effectuer la demande. Nous vérifierons votre identité avant de traiter votre demande en faisant correspondre les informations que vous fournissez avec les informations personnelles que nous conservons à votre sujet.",
       "disclosureTitle": "Divulgation d'informations",
       "disclosureDescription": "Au cours des 12 derniers mois, nous avons divulgué des informations personnelles à des fins commerciales aux catégories de tiers suivantes : fournisseurs d'infrastructure cloud et d'hébergement, services d'analyse et de surveillance des performances, plateformes de marketing et de communication, conseillers juridiques et professionnels, et autorités réglementaires lorsque requis par la loi. Nous ne vendons pas d'informations personnelles à des tiers. Nous exigeons de tous les fournisseurs de services qui traitent des informations personnelles en notre nom qu'ils se conforment à des obligations strictes de protection des données et qu'ils traitent ces informations uniquement aux fins commerciales spécifiques pour lesquelles nous les leur divulguons.",
       "doNotSellTitle": "Ne vendez pas mes informations personnelles",
       "doNotSellDescription1": "Harch Corp S.A. ne vend, ne loue ni n'échange d'informations personnelles à des tiers contre une rétribution monétaire ou autre considération précieuse. Nous n'avons jamais vendu d'informations personnelles au cours des 12 derniers mois et n'avons pas l'intention de le faire à l'avenir. Si nos pratiques changent, nous mettrons à jour cet avis et fournirons un lien clair et apparent « Ne vendez pas mes informations personnelles » sur notre page d'accueil, comme l'exige la CCPA.",
-      "doNotSellDescription2": "Bien que nous ne vendions pas d'informations personnelles, nous respectons vos choix en matière de vie privée. Si vous avez des préoccupations concernant la manière dont vos informations sont partagées, veuillez nous contacter à amine@harchcorp.com.",
+      "doNotSellDescription2": "Bien que nous ne vendions pas d'informations personnelles, nous respectons vos choix en matière de vie privée. Si vous avez des préoccupations concernant la manière dont vos informations sont partagées, veuillez nous contacter à dpo@harchcorp.com.",
       "footerNote": "Dernière mise à jour : janvier 2026 | Cet avis s'adresse aux résidents de Californie et est régi par les lois du Royaume du Maroc et de l'État de Californie, le cas échéant."
     },
     "codeOfConduct": {
@@ -7133,7 +7133,7 @@
       "updatesTitle": "6. Mises à jour de cette politique",
       "updatesDescription": "Nous pouvons mettre à jour cette politique de cookies de temps à autre pour refléter les changements dans les cookies que nous utilisons ou pour d'autres raisons opérationnelles, légales ou réglementaires. Toute modification sera publiée sur cette page avec une date de révision mise à jour. Nous vous encourageons à consulter périodiquement cette politique de cookies pour rester informé sur notre utilisation des cookies. Si nous apportons des modifications importantes à cette politique, nous vous en informerons par un avis visible sur notre site Web ou par d'autres moyens tels que requis par la loi applicable.",
       "contactTitle": "7. Contact",
-      "contactDescription": "Si vous avez des questions sur notre utilisation des cookies ou sur cette politique de cookies, veuillez nous contacter à : amine@harchcorp.com ou écrivez-nous à Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Maroc.",
+      "contactDescription": "Si vous avez des questions sur notre utilisation des cookies ou sur cette politique de cookies, veuillez nous contacter à : dpo@harchcorp.com ou écrivez-nous à Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Maroc.",
       "footerNote": "Dernière mise à jour : janvier 2026 | Cette politique est régie par les lois du Royaume du Maroc."
     },
     "dpa": {
@@ -7260,7 +7260,7 @@
         }
       ],
       "dpaTitle": "Convention de traitement des données",
-      "dpaDescription": "Conformément à l'article 28 du RGPD, Harch Corp S.A. maintient des Conventions de Traitement des Données (CTD) avec tous les sous-traitants et sous-sous-traitants qui traitent des données personnelles pour notre compte. Notre modèle de CTD intègre toutes les dispositions obligatoires requises par le RGPD, y compris l'objet et la durée du traitement, la nature et la finalité du traitement, le type de données personnelles et les catégories de personnes concernées, ainsi que les obligations et droits du responsable de traitement. Nous mettons notre CTD à la disposition de tous nos partenaires commerciaux et clients sur demande. Pour demander une copie de notre modèle de CTD, veuillez contacter notre équipe juridique à amine@harchcorp.com.",
+      "dpaDescription": "Conformément à l'article 28 du RGPD, Harch Corp S.A. maintient des Conventions de Traitement des Données (CTD) avec tous les sous-traitants et sous-sous-traitants qui traitent des données personnelles pour notre compte. Notre modèle de CTD intègre toutes les dispositions obligatoires requises par le RGPD, y compris l'objet et la durée du traitement, la nature et la finalité du traitement, le type de données personnelles et les catégories de personnes concernées, ainsi que les obligations et droits du responsable de traitement. Nous mettons notre CTD à la disposition de tous nos partenaires commerciaux et clients sur demande. Pour demander une copie de notre modèle de CTD, veuillez contacter notre équipe juridique à dpo@harchcorp.com.",
       "internationalTransfersTitle": "Transferts internationaux de données",
       "internationalTransfersIntro": "En tant qu'entreprise marocaine avec des opérations et des partenariats mondiaux, nous pouvons transférer des données personnelles en dehors de l'EEE. Nous nous assurons que tous les transferts internationaux respectent le chapitre V du RGPD par les mécanismes suivants :",
       "sccTitle": "Clauses Contractuelles Types (CCT)",
@@ -7283,7 +7283,7 @@
       "subtitle": "Accédez à tous les documents juridiques, politiques et informations de conformité pour Harch Corp S.A. et ses filiales.",
       "updatedLabel": "Mis à jour :",
       "footerGoverningLaw": "Tous les documents sont régis par les lois du Royaume du Maroc sauf indication contraire.",
-      "footerContact": "Pour les demandes juridiques : amine@harchcorp.com | Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Maroc",
+      "footerContact": "Pour les demandes juridiques : dpo@harchcorp.com | Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Maroc",
       "legalPages": [
         {
           "title": "Legal Notice",
@@ -7527,7 +7527,7 @@
       "claimsProcessTitle": "SLA Claims Processus",
       "claimsProcessIntro": "Pour soumettre une réclamation SLA, les clients doivent suivre le processus décrit ci-dessous :",
       "claimsStep1Title": "Soumettre une réclamation",
-      "claimsStep1Description": "Soumettre une réclamation à amine@harchcorp.com dans les 30 jours calendaires suivant la fin du mois au cours duquel la panne s'est produite. Les réclamations doivent inclure le service affecté, les dates et heures de la panne, et toute preuve ou journal de soutien.",
+      "claimsStep1Description": "Soumettre une réclamation à support@harchcorp.com dans les 30 jours calendaires suivant la fin du mois au cours duquel la panne s'est produite. Les réclamations doivent inclure le service affecté, les dates et heures de la panne, et toute preuve ou journal de soutien.",
       "claimsStep2Title": "Examen et vérification",
       "claimsStep2Description": "Notre équipe examinera la réclamation par rapport à nos données de surveillance et journaux système dans un délai de 15 jours ouvrables. Nous pouvons demander des informations supplémentaires au client pendant cette période d'examen.",
       "claimsStep3Title": "Application du crédit",
@@ -7712,7 +7712,7 @@
         },
         {
           "title": "6. Contact",
-          "text": "For any legal inquiries, please contact: amine@harchcorp.com or Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco."
+          "text": "For any legal inquiries, please contact: dpo@harchcorp.com or Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Morocco."
         }
       ]
     }
@@ -8847,7 +8847,7 @@
       }
     },
     "contactUs": "Contactez-nous",
-    "contactUsText": "Pour toute question concernant cette politique de confidentialité ou nos pratiques en matière de données, contactez-nous à amine@harchcorp.com ou écrivez à Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Maroc.",
+    "contactUsText": "Pour toute question concernant cette politique de confidentialité ou nos pratiques en matière de données, contactez-nous à dpo@harchcorp.com ou écrivez à Harch Corp S.A., 123 Boulevard Mohammed V, Casablanca 20000, Maroc.",
     "cookies": "Cookies",
     "cookiesText": "Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic du site et fournir du contenu personnalisé. Vous pouvez gérer vos préférences de cookies à tout moment.",
     "dataCollection": "Collecte de données",
@@ -8862,7 +8862,7 @@
     "internationalTransfersText": "Lorsque des transferts de données en dehors du Maroc sont nécessaires, nous assurons une protection adéquate par des clauses contractuelles types, des décisions d'adéquation ou d'autres mécanismes conformes à la loi 09-08 et au RGPD.",
     "lastUpdatedDate": "Janvier 2026",
     "yourRights": "Vos droits",
-    "yourRightsText": "Vous avez le droit d'accéder, de rectifier, de supprimer et de porter vos données personnelles. Vous pouvez également vous opposer au traitement ou retirer votre consentement à tout moment. Pour exercer ces droits, contactez amine@harchcorp.com."
+    "yourRightsText": "Vous avez le droit d'accéder, de rectifier, de supprimer et de porter vos données personnelles. Vous pouvez également vous opposer au traitement ou retirer votre consentement à tout moment. Pour exercer ces droits, contactez dpo@harchcorp.com."
   },
   "quote": {
     "title": "Devis",
@@ -9265,7 +9265,7 @@
         "website": "Site web"
       },
       "title": "Informations de contact",
-      "emailPlaceholder": "amine@harchcorp.com",
+      "emailPlaceholder": "info@harchcorp.com",
       "phonePlaceholder": "+212 / +221 / +220 ...",
       "whatsappText": "Préférer WhatsApp? Contactez-nous directement",
       "whatsappLink": "Contactez-nous par courriel →"
@@ -14298,7 +14298,7 @@
     "accuracy": "Exactitude des Informations",
     "accuracyText": "Bien que nous nous efforcions de fournir des informations exactes et à jour sur notre plateforme, Harch Corp ne garantit pas l'exhaustivité, la fiabilité ou l'exactitude de tout contenu. Toute confiance que vous accordez à ces informations est à vos propres risques.",
     "contact": "Contact",
-    "contactText": "Pour toute question concernant ces conditions d'utilisation, veuillez contacter notre équipe juridique à amine@harchcorp.com ou écrire à Harch Corp S.A., Casablanca, Maroc.",
+    "contactText": "Pour toute question concernant ces conditions d'utilisation, veuillez contacter notre équipe juridique à dpo@harchcorp.com ou écrire à Harch Corp S.A., Casablanca, Maroc.",
     "disclaimer": "Avertissement",
     "disclaimerText": "Nos services sont fournis « tels quels » et « selon disponibilité ». Harch Corp décline toutes les garanties, expresses ou implicites, y compris mais sans s'y limiter, les garanties implicites de commercialisation et d'adéquation à un usage particulier.",
     "governingLaw": "Droit applicable",
@@ -15722,7 +15722,7 @@
       "latest": "Dernier",
       "published": "Publié"
     },
-    "contactEmail": "amine@harchcorp.com",
+    "contactEmail": "support@harchcorp.com",
     "pdf": "PDF",
     "tableId": "ID",
     "slaLabel": "SLA :"

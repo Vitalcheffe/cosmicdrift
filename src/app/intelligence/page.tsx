@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/intelligence',
+    languages: {
+      en: 'https://www.harchcorp.com/intelligence',
+      fr: 'https://www.harchcorp.com/fr/intelligence',
+      'x-default': 'https://www.harchcorp.com/intelligence',
+    },
   },
   openGraph: {
     title: 'Harch Intelligence — Sovereign AI Infrastructure',

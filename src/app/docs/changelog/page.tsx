@@ -20,7 +20,14 @@ export const metadata: Metadata = {
     siteName: 'Harch Corp',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.harchcorp.com/docs/changelog' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/docs/changelog',
+    languages: {
+      en: 'https://www.harchcorp.com/docs/changelog',
+      fr: 'https://www.harchcorp.com/fr/docs/changelog',
+      'x-default': 'https://www.harchcorp.com/docs/changelog',
+    },
+  },
 };
 
 export default function ChangelogPage() {

@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/subsidiaries',
+    languages: {
+      en: 'https://www.harchcorp.com/subsidiaries',
+      fr: 'https://www.harchcorp.com/fr/filiales',
+      'x-default': 'https://www.harchcorp.com/subsidiaries',
+    },
   },
   openGraph: {
     title: 'Harch Corp Subsidiaries — 8 Industrial Verticals',

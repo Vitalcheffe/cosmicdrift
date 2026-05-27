@@ -85,10 +85,10 @@ export default function DevelopersPageClient() {
   ];
 
   const openSourceProjects = [
-    { name: 'harchos-sdk-python', description: t('openSourceProjects.0.description'), githubUrl: 'https://github.com/HarchCorp/harchos-sdk-python', language: 'Python', languageColor: '#3572A5' },
-    { name: 'harchos-sdk-js', description: t('openSourceProjects.1.description'), githubUrl: 'https://github.com/HarchCorp/harchos-sdk-js', language: 'TypeScript', languageColor: '#2B7489' },
-    { name: 'harchos-cli', description: t('openSourceProjects.2.description'), githubUrl: 'https://github.com/HarchCorp/harchos-cli', language: 'Go', languageColor: '#00ADD8' },
-    { name: 'harchos-terraform-provider', description: t('openSourceProjects.3.description'), githubUrl: 'https://github.com/HarchCorp/harchos-terraform-provider', language: 'Go', languageColor: '#00ADD8' },
+    { name: 'harchos-sdk-python', description: t('openSourceProjects.0.description'), githubUrl: '', language: 'Python', languageColor: '#3572A5', comingSoon: true },
+    { name: 'harchos-sdk-js', description: t('openSourceProjects.1.description'), githubUrl: '', language: 'TypeScript', languageColor: '#2B7489', comingSoon: true },
+    { name: 'harchos-cli', description: t('openSourceProjects.2.description'), githubUrl: '', language: 'Go', languageColor: '#00ADD8', comingSoon: true },
+    { name: 'harchos-terraform-provider', description: t('openSourceProjects.3.description'), githubUrl: '', language: 'Go', languageColor: '#00ADD8', comingSoon: true },
   ];
 
   return (
@@ -480,23 +480,43 @@ export default function DevelopersPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {openSourceProjects.map((project, i) => (
               <FadeIn key={project.name} delay={i * 0.08}>
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="card p-8 h-full group block hover:border-[#8B9DAF]/30 transition-all">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <GitBranch size={18} className="text-[#8B9DAF]" />
-                      <h3 className="text-lg font-bold text-white group-hover:text-[#8B9DAF] transition-colors">{project.name}</h3>
+                {project.comingSoon ? (
+                  <div className="card p-8 h-full group">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <GitBranch size={18} className="text-[#8B9DAF]" />
+                        <h3 className="text-lg font-bold text-white">{project.name}</h3>
+                      </div>
+                      <span className="px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider bg-[#8B5CF6]/15 text-[#8B5CF6] border border-[#8B5CF6]/20">Coming Soon</span>
                     </div>
-                    <ExternalLink size={14} className="text-[#666666] group-hover:text-[#8B9DAF] transition-colors" />
-                  </div>
-                  <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{project.description}</p>
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: project.languageColor }} />
-                      <span className="text-[11px] text-[#999999] font-[family-name:var(--font-space-mono)]">{project.language}</span>
+                    <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{project.description}</p>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: project.languageColor }} />
+                        <span className="text-[11px] text-[#999999] font-[family-name:var(--font-space-mono)]">{project.language}</span>
+                      </div>
+                      <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">Apache 2.0</span>
                     </div>
-                    <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">Apache 2.0</span>
                   </div>
-                </a>
+                ) : (
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="card p-8 h-full group block hover:border-[#8B9DAF]/30 transition-all">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <GitBranch size={18} className="text-[#8B9DAF]" />
+                        <h3 className="text-lg font-bold text-white group-hover:text-[#8B9DAF] transition-colors">{project.name}</h3>
+                      </div>
+                      <ExternalLink size={14} className="text-[#666666] group-hover:text-[#8B9DAF] transition-colors" />
+                    </div>
+                    <p className="text-[14px] text-[#999999] leading-[1.7] mb-5">{project.description}</p>
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: project.languageColor }} />
+                        <span className="text-[11px] text-[#999999] font-[family-name:var(--font-space-mono)]">{project.language}</span>
+                      </div>
+                      <span className="text-[11px] text-[#666666] font-[family-name:var(--font-space-mono)]">Apache 2.0</span>
+                    </div>
+                  </a>
+                )}
               </FadeIn>
             ))}
           </div>

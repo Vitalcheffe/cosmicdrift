@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/quote',
+    languages: {
+      en: 'https://www.harchcorp.com/quote',
+      fr: 'https://www.harchcorp.com/fr/devis',
+      'x-default': 'https://www.harchcorp.com/quote',
+    },
   },
   openGraph: {
     title: 'Request a Quote | Harch Corp',

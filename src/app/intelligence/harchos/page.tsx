@@ -41,6 +41,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.harchcorp.com/intelligence/harchos',
+    languages: {
+      en: 'https://www.harchcorp.com/intelligence/harchos',
+      fr: 'https://www.harchcorp.com/fr/intelligence/harchos',
+      'x-default': 'https://www.harchcorp.com/intelligence/harchos',
+    },
   },
 };
 

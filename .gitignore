@@ -63,3 +63,4 @@ generate_report*.py
 generate_charts.py
 cover.html
 GPU_DataCenter_Infrastructure_Research_Report.mdharch-corp
+*.bak

@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/platform',
+    languages: {
+      en: 'https://www.harchcorp.com/platform',
+      fr: 'https://www.harchcorp.com/fr/plateforme',
+      'x-default': 'https://www.harchcorp.com/platform',
+    },
   },
   openGraph: {
     title: 'Harch OS Platform — Live Infrastructure Monitor',

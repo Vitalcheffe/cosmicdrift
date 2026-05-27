@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   description: 'Common questions about Harch Corp — our verticals, investment pipeline, technology, and how to partner with us.',
   alternates: {
     canonical: 'https://www.harchcorp.com/faq',
+    languages: {
+      en: 'https://www.harchcorp.com/faq',
+      fr: 'https://www.harchcorp.com/fr/faq',
+      'x-default': 'https://www.harchcorp.com/faq',
+    },
   },
   openGraph: {
     title: 'FAQ | Harch Corp',

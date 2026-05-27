@@ -14,7 +14,14 @@ export const metadata: Metadata = {
     'development finance', 'Morocco', 'Senegal', 'Kenya', 'Ghana', 'Gambia',
     'ECA financing', 'MIGA', 'OHI compliance',
   ],
-  alternates: { canonical: 'https://www.harchcorp.com/subsidiaries/finance' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/subsidiaries/finance',
+    languages: {
+      en: 'https://www.harchcorp.com/subsidiaries/finance',
+      fr: 'https://www.harchcorp.com/fr/filiales/finance',
+      'x-default': 'https://www.harchcorp.com/subsidiaries/finance',
+    },
+  },
   openGraph: {
     title: "Harch Finance — Financing Africa's Industrial Transformation",
     description:

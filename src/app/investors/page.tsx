@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/investors',
+    languages: {
+      en: 'https://www.harchcorp.com/investors',
+      fr: 'https://www.harchcorp.com/fr/investisseurs',
+      'x-default': 'https://www.harchcorp.com/investors',
+    },
   },
   openGraph: {
     title: 'Investor Relations  | Harch Corp',

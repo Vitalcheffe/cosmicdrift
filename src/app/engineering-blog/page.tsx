@@ -11,7 +11,14 @@ export const metadata: Metadata = {
     description: 'Technical deep-dives and architecture breakdowns from Harch Corp engineering.',
     url: 'https://www.harchcorp.com/engineering-blog',
   },
-  alternates: { canonical: 'https://www.harchcorp.com/engineering-blog' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/engineering-blog',
+    languages: {
+      en: 'https://www.harchcorp.com/engineering-blog',
+      fr: 'https://www.harchcorp.com/fr/blog-ingenierie',
+      'x-default': 'https://www.harchcorp.com/engineering-blog',
+    },
+  },
 };
 
 export default function EngineeringBlogPage() {

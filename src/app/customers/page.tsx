@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   description: 'How African organizations are transforming with Harch Corp — case studies from finance, energy, agriculture, mining, water, and government sectors.',
   alternates: {
     canonical: 'https://www.harchcorp.com/customers',
+    languages: {
+      en: 'https://www.harchcorp.com/customers',
+      fr: 'https://www.harchcorp.com/fr/clients',
+      'x-default': 'https://www.harchcorp.com/customers',
+    },
   },
 };
 

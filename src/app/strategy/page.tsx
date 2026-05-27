@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com/strategy',
+    languages: {
+      en: 'https://www.harchcorp.com/strategy',
+      fr: 'https://www.harchcorp.com/fr/strategie',
+      'x-default': 'https://www.harchcorp.com/strategy',
+    },
   },
   openGraph: {
     title: 'Strategy — Vertically Integrated Value Capture',

@@ -20,7 +20,14 @@ export const metadata: Metadata = {
     siteName: 'Harch Corp',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.harchcorp.com/docs/quickstarts' },
+  alternates: {
+    canonical: 'https://www.harchcorp.com/docs/quickstarts',
+    languages: {
+      en: 'https://www.harchcorp.com/docs/quickstarts',
+      fr: 'https://www.harchcorp.com/fr/docs/quickstarts',
+      'x-default': 'https://www.harchcorp.com/docs/quickstarts',
+    },
+  },
 };
 
 export default function QuickstartsPage() {

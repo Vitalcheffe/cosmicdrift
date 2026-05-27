@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.harchcorp.com/developers',
+    languages: {
+      en: 'https://www.harchcorp.com/developers',
+      fr: 'https://www.harchcorp.com/fr/developpeurs',
+      'x-default': 'https://www.harchcorp.com/developers',
+    },
   },
 };
 

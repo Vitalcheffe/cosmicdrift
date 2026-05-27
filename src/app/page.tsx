@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://www.harchcorp.com',
+    languages: {
+      en: 'https://www.harchcorp.com',
+      fr: 'https://www.harchcorp.com/fr',
+      'x-default': 'https://www.harchcorp.com',
+    },
   },
   openGraph: {
     title: "Harch Corp — Africa's Sovereign Infrastructure OS",

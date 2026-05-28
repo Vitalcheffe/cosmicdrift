@@ -18,8 +18,8 @@ export async function generateMetadata({
     : 'HarchOS is the operating system for Africa\'s first carbon-aware GPU compute platform — powered by Morocco\'s renewable energy advantage. 1,798 planned GPUs, 5 hubs, ~47 gCO2/kWh target.';
 
   const ogDescription = isFr
-    ? '5 hubs. 1 798 GPUs planifiés. Jusqu\'à 97 % renouvelable. La plateforme GPU sensible au carbone de l\'Afrique.'
-    : '5 hubs. 1,798 planned GPUs. Up to 97% renewable. Africa\'s carbon-aware GPU platform.';
+    ? '5 hubs. 1 798 GPUs planifiés. Jusqu\'à 97,2 % renouvelable. La plateforme GPU sensible au carbone de l\'Afrique.'
+    : '5 hubs. 1,798 planned GPUs. Up to 97.2% renewable. Africa\'s carbon-aware GPU platform.';
 
   return {
     title,
@@ -126,11 +126,81 @@ export default async function HarchOSPage({
     ],
   };
 
+  // Fix #20: SoftwareApplication JSON-LD
+  const softwareAppSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'HarchOS',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Linux',
+    description: isFr
+      ? 'HarchOS est le système d\'exploitation pour la première plateforme de calcul GPU consciente du carbone en Afrique — alimentée par l\'avantage énergétique renouvelable du Maroc.'
+      : 'HarchOS is the operating system for Africa\'s first carbon-aware GPU compute platform — powered by Morocco\'s renewable energy advantage.',
+    url: 'https://www.harchcorp.com/intelligence/harchos',
+    author: {
+      '@type': 'Organization',
+      name: 'Harch Corp',
+      url: 'https://www.harchcorp.com',
+    },
+    programmingLanguage: ['Python', 'TypeScript', 'Go', 'HCL'],
+    license: 'https://github.com/HarchCorp/harchos-server/blob/main/LICENSE',
+    codeRepository: 'https://github.com/HarchCorp',
+    featureList: isFr
+      ? 'Orchestration GPU carbone-aware, Souveraineté des données, Suivi carbone en temps réel, Migration inter-hubs, Plugins Grafana, SDK Python et TypeScript, CLI, Provider Terraform'
+      : 'Carbon-aware GPU orchestration, Data sovereignty, Real-time carbon tracking, Cross-hub migration, Grafana plugins, Python and TypeScript SDKs, CLI, Terraform provider',
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'H100 Enterprise',
+        price: '2.10',
+        priceCurrency: 'USD',
+        priceUnit: 'gpu-hour',
+        description: 'H100 GPU at Ouarzazate hub, 97.2% renewable, 18 gCO2/kWh',
+      },
+      {
+        '@type': 'Offer',
+        name: 'L40S Enterprise',
+        price: '1.40',
+        priceCurrency: 'USD',
+        priceUnit: 'gpu-hour',
+        description: 'L40S GPU at Dakhla hub, 94.8% renewable, 32 gCO2/kWh',
+      },
+      {
+        '@type': 'Offer',
+        name: 'H100 Performance',
+        price: '2.35',
+        priceCurrency: 'USD',
+        priceUnit: 'gpu-hour',
+        description: 'H100 GPU at Benguerir hub, 88.5% renewable, 55 gCO2/kWh',
+      },
+      {
+        '@type': 'Offer',
+        name: 'A100 Performance',
+        price: '1.80',
+        priceCurrency: 'USD',
+        priceUnit: 'gpu-hour',
+        description: 'A100 GPU at Tanger hub, 82.1% renewable, 95 gCO2/kWh',
+      },
+      {
+        '@type': 'Offer',
+        name: 'A100 Standard',
+        price: '1.95',
+        priceCurrency: 'USD',
+        priceUnit: 'gpu-hour',
+        description: 'A100 GPU at Casablanca hub, 45.0% renewable, 210 gCO2/kWh',
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
       />
       <HarchOSPageClient />
     </>

@@ -4528,35 +4528,45 @@
         "name": "Ouarzazate",
         "energy": "Solar CSP — Noor Complex",
         "gpus": "800 GPUs planned",
-        "renewable": "~97% renewable",
+        "renewable": "97.2% renewable",
+        "carbonIntensity": "18 gCO2/kWh",
+        "tier": "Enterprise",
         "status": "Planned"
       },
       "dakhla": {
         "name": "Dakhla",
         "energy": "Offshore Wind — Atlantic Coast",
         "gpus": "400 GPUs planned",
-        "renewable": "~85% renewable target",
+        "renewable": "94.8% renewable target",
+        "carbonIntensity": "32 gCO2/kWh",
+        "tier": "Enterprise",
         "status": "Planned"
       },
       "benguerir": {
         "name": "Benguerir",
         "energy": "Solar + Wind Hybrid — Green City",
         "gpus": "350 GPUs planned",
-        "renewable": "~75% renewable target",
+        "renewable": "88.5% renewable target",
+        "carbonIntensity": "55 gCO2/kWh",
+        "tier": "Performance",
         "status": "Planned"
       },
       "tanger": {
         "name": "Tanger",
         "energy": "Wind + Grid — Mediterranean Gateway",
         "gpus": "200 GPUs planned",
-        "renewable": "~65% renewable target",
+        "renewable": "82.1% renewable target",
+        "carbonIntensity": "95 gCO2/kWh",
+        "tier": "Performance",
         "status": "Planned"
       },
       "casablanca": {
         "name": "Casablanca",
         "energy": "Grid + Solar — Urban Edge",
         "gpus": "48 GPUs planned",
-        "renewable": "~40% renewable (urban grid)",
+        "renewable": "45.0% renewable (urban grid)",
+        "carbonIntensity": "210 gCO2/kWh",
+        "tier": "Standard",
         "status": "Planned"
       },
       "label": "Hub Network /0.3",
@@ -4685,6 +4695,7 @@
           "unit": "gCO2/kWh target"
         }
       },
+      "methodology": "Based on ONEE (Office National de l'Électricité) grid data, 2024. Carbon intensity calculated using IEA methodology. Renewable percentages reflect contracted energy supply agreements with MASEN and regional utilities.",
       "label": "Carbon Intelligence /0.11"
     },
     "sovereignty": {
@@ -4809,6 +4820,91 @@
         "desc": "Starter templates for PyTorch training, LLM inference, multi-region GPU training, and cost estimation. Production-ready patterns."
       },
       "viewAll": "View all repositories on GitHub"
+    },
+    "useCases": {
+      "title": "Built for real workloads.",
+      "subtitle": "Three concrete use cases showing how HarchOS delivers sovereign, carbon-aware GPU compute for production workloads.",
+      "label": "Use Cases /0.13a",
+      "aiTraining": {
+        "title": "AI Training with Carbon Tracking",
+        "desc": "Fine-tune LLMs on H100 clusters with real-time carbon footprint tracking. HarchOS automatically routes training jobs to the greenest hub — Ouarzazate during solar peaks, Dakhla when wind picks up. Every training run includes a carbon report with gCO2 emitted, renewable percentage, and hub provenance.",
+        "icon": "Brain"
+      },
+      "rendering": {
+        "title": "GPU Rendering with Auto-Routing",
+        "desc": "3D rendering workloads that auto-route to solar-powered hubs during peak generation. HarchOS detects when Ouarzazate's CSP output is at maximum and prioritizes rendering jobs there — cutting carbon emissions by up to 90% compared to fossil-grid alternatives.",
+        "icon": "Monitor"
+      },
+      "simulation": {
+        "title": "Scientific Simulation with Sovereignty",
+        "desc": "HPC simulations for research institutions that require strict data sovereignty. Workloads never leave the designated hub, with encryption keys bound to the region. Ideal for climate modeling, genomics, and national-scale simulations that must remain on sovereign soil.",
+        "icon": "FlaskConical"
+      }
+    },
+    "pricing": {
+      "title": "Transparent GPU pricing.",
+      "subtitle": "No hidden fees. No egress charges. Carbon tracking included in every tier.",
+      "label": "Pricing /0.13b",
+      "tierLabel": "Tier",
+      "gpuTypeLabel": "GPU Type",
+      "priceLabel": "Price",
+      "hubLabel": "Hub",
+      "renewableLabel": "Renewable",
+      "carbonLabel": "Carbon",
+      "tiers": {
+        "h100Enterprise": {
+          "gpuType": "H100",
+          "price": "$2.10/gpu-hr",
+          "hub": "Ouarzazate",
+          "renewable": "97.2%",
+          "carbon": "18 gCO2/kWh"
+        },
+        "h100Performance": {
+          "gpuType": "H100",
+          "price": "$2.35/gpu-hr",
+          "hub": "Benguerir",
+          "renewable": "88.5%",
+          "carbon": "55 gCO2/kWh"
+        },
+        "a100Performance": {
+          "gpuType": "A100",
+          "price": "$1.80/gpu-hr",
+          "hub": "Tanger",
+          "renewable": "82.1%",
+          "carbon": "95 gCO2/kWh"
+        },
+        "a100Standard": {
+          "gpuType": "A100",
+          "price": "$1.95/gpu-hr",
+          "hub": "Casablanca",
+          "renewable": "45.0%",
+          "carbon": "210 gCO2/kWh"
+        },
+        "l40sEnterprise": {
+          "gpuType": "L40S",
+          "price": "$1.40/gpu-hr",
+          "hub": "Dakhla",
+          "renewable": "94.8%",
+          "carbon": "32 gCO2/kWh"
+        }
+      }
+    },
+    "team": {
+      "title": "Built in Casablanca.",
+      "subtitle": "HarchOS is built by a Moroccan engineering team with deep expertise in distributed systems, GPU infrastructure, and renewable energy integration. We're hiring operators who think in systems and execute with discipline.",
+      "label": "Team /0.13c"
+    },
+    "docs": {
+      "title": "Get started.",
+      "documentation": "Documentation",
+      "documentationDesc": "Full API reference, guides, and tutorials",
+      "pypi": "PyPI",
+      "pypiDesc": "Python SDK on the Python Package Index",
+      "npm": "npm",
+      "npmDesc": "TypeScript SDK on the npm registry",
+      "terraformRegistry": "Terraform Registry",
+      "terraformRegistryDesc": "Infrastructure-as-Code provider",
+      "label": "Resources /0.13d"
     },
     "reposLabel": "GitHub /0.16",
     "cta": {

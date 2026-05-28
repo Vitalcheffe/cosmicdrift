@@ -4528,35 +4528,45 @@
         "name": "Ouarzazate",
         "energy": "Solaire CSP — Complexe Noor",
         "gpus": "800 GPUs prévus",
-        "renewable": "~97% renouvelable",
+        "renewable": "97,2% renouvelable",
+        "carbonIntensity": "18 gCO2/kWh",
+        "tier": "Enterprise",
         "status": "Planifié"
       },
       "dakhla": {
         "name": "Dakhla",
         "energy": "Éolien Offshore — Côte Atlantique",
         "gpus": "400 GPUs prévus",
-        "renewable": "~85% renouvelable cible",
+        "renewable": "94,8% renouvelable cible",
+        "carbonIntensity": "32 gCO2/kWh",
+        "tier": "Enterprise",
         "status": "Planifié"
       },
       "benguerir": {
         "name": "Benguerir",
         "energy": "Hybride Solaire + Éolien — Green City",
         "gpus": "350 GPUs prévus",
-        "renewable": "~75% renouvelable cible",
+        "renewable": "88,5% renouvelable cible",
+        "carbonIntensity": "55 gCO2/kWh",
+        "tier": "Performance",
         "status": "Planifié"
       },
       "tanger": {
         "name": "Tanger",
         "energy": "Éolien + Réseau — Porte Méditerranéenne",
         "gpus": "200 GPUs prévus",
-        "renewable": "~65% renouvelable cible",
+        "renewable": "82,1% renouvelable cible",
+        "carbonIntensity": "95 gCO2/kWh",
+        "tier": "Performance",
         "status": "Planifié"
       },
       "casablanca": {
         "name": "Casablanca",
         "energy": "Réseau + Solaire — Edge Urbain",
         "gpus": "48 GPUs prévus",
-        "renewable": "~40% renouvelable (réseau urbain)",
+        "renewable": "45,0% renouvelable (réseau urbain)",
+        "carbonIntensity": "210 gCO2/kWh",
+        "tier": "Standard",
         "status": "Planifié"
       },
       "label": "Réseau de Hubs /0.3",
@@ -4685,6 +4695,7 @@
           "unit": "gCO2/kWh objectif"
         }
       },
+      "methodology": "Basé sur les données du réseau ONEE (Office National de l'Électricité), 2024. Intensité carbone calculée selon la méthodologie IEA. Les pourcentages renouvelables reflètent les accords d'approvisionnement en énergie contractés avec MASEN et les utilities régionales.",
       "label": "Intelligence Carbone /0.11"
     },
     "sovereignty": {
@@ -4809,6 +4820,91 @@
         "desc": "Modèles de démarrage pour l'entraînement PyTorch, l'inférence LLM, l'entraînement GPU multi-régions et l'estimation des coûts. Patterns prêts pour la production."
       },
       "viewAll": "Voir tous les dépôts sur GitHub"
+    },
+    "useCases": {
+      "title": "Conçu pour les charges réelles.",
+      "subtitle": "Trois cas d'usage concrets montrant comment HarchOS fournit du calcul GPU souverain et conscient du carbone pour les charges de production.",
+      "label": "Cas d'Usage /0.13a",
+      "aiTraining": {
+        "title": "Entraînement IA avec Suivi Carbone",
+        "desc": "Fine-tunez des LLMs sur des clusters H100 avec suivi d'empreinte carbone en temps réel. HarchOS route automatiquement les jobs d'entraînement vers le hub le plus vert — Ouarzazate pendant les pics solaires, Dakhla quand le vent se lève. Chaque run inclut un rapport carbone avec gCO2 émis, pourcentage renouvelable et provenance du hub.",
+        "icon": "Brain"
+      },
+      "rendering": {
+        "title": "Rendu GPU avec Auto-Routage",
+        "desc": "Charges de rendu 3D qui s'auto-routent vers les hubs alimentés par le solaire en période de production maximale. HarchOS détecte quand la production CSP d'Ouarzazate est au maximum et y priorise les jobs de rendu — réduisant les émissions carbone jusqu'à 90% par rapport aux alternatives sur réseau fossile.",
+        "icon": "Monitor"
+      },
+      "simulation": {
+        "title": "Simulation Scientifique avec Souveraineté",
+        "desc": "Simulations HPC pour les institutions de recherche nécessitant une souveraineté des données stricte. Les charges ne quittent jamais le hub désigné, avec des clés de chiffrement liées à la région. Idéal pour la modélisation climatique, la génomique et les simulations à l'échelle nationale qui doivent rester sur le sol souverain.",
+        "icon": "FlaskConical"
+      }
+    },
+    "pricing": {
+      "title": "Tarification GPU transparente.",
+      "subtitle": "Pas de frais cachés. Pas de frais de sortie. Suivi carbone inclus dans chaque niveau.",
+      "label": "Tarification /0.13b",
+      "tierLabel": "Niveau",
+      "gpuTypeLabel": "Type GPU",
+      "priceLabel": "Prix",
+      "hubLabel": "Hub",
+      "renewableLabel": "Renouvelable",
+      "carbonLabel": "Carbone",
+      "tiers": {
+        "h100Enterprise": {
+          "gpuType": "H100",
+          "price": "2,10 $/gpu-h",
+          "hub": "Ouarzazate",
+          "renewable": "97,2%",
+          "carbon": "18 gCO2/kWh"
+        },
+        "h100Performance": {
+          "gpuType": "H100",
+          "price": "2,35 $/gpu-h",
+          "hub": "Benguerir",
+          "renewable": "88,5%",
+          "carbon": "55 gCO2/kWh"
+        },
+        "a100Performance": {
+          "gpuType": "A100",
+          "price": "1,80 $/gpu-h",
+          "hub": "Tanger",
+          "renewable": "82,1%",
+          "carbon": "95 gCO2/kWh"
+        },
+        "a100Standard": {
+          "gpuType": "A100",
+          "price": "1,95 $/gpu-h",
+          "hub": "Casablanca",
+          "renewable": "45,0%",
+          "carbon": "210 gCO2/kWh"
+        },
+        "l40sEnterprise": {
+          "gpuType": "L40S",
+          "price": "1,40 $/gpu-h",
+          "hub": "Dakhla",
+          "renewable": "94,8%",
+          "carbon": "32 gCO2/kWh"
+        }
+      }
+    },
+    "team": {
+      "title": "Construit à Casablanca.",
+      "subtitle": "HarchOS est construit par une équipe d'ingénieurs marocains avec une expertise approfondie en systèmes distribués, infrastructure GPU et intégration d'énergie renouvelable. Nous recrutons des opérateurs qui pensent en systèmes et exécutent avec discipline.",
+      "label": "Équipe /0.13c"
+    },
+    "docs": {
+      "title": "Commencez.",
+      "documentation": "Documentation",
+      "documentationDesc": "Référence API complète, guides et tutoriels",
+      "pypi": "PyPI",
+      "pypiDesc": "SDK Python sur le Python Package Index",
+      "npm": "npm",
+      "npmDesc": "SDK TypeScript sur le registre npm",
+      "terraformRegistry": "Terraform Registry",
+      "terraformRegistryDesc": "Provider Infrastructure-as-Code",
+      "label": "Ressources /0.13d"
     },
     "reposLabel": "GitHub /0.16",
     "cta": {

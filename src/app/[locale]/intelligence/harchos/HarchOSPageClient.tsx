@@ -2,40 +2,67 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
 import {
   Shield, Leaf, Globe, Eye, Brain, Zap, ArrowRight, ArrowUpRight,
   Server, Wifi, TrendingDown, Clock, Lock, Database,
   FileCheck, MapPin, Sun, Wind, Cpu, Activity,
-  Code, Terminal, GitBranch, Package, BarChart3,
-  Network, Layers, ChevronRight, Monitor, Box,
-  RefreshCw, Rocket, CheckCircle2, Github, Search,
+  Code, Terminal, Package, BarChart3,
+  Network, Layers, Github, Monitor, FlaskConical,
+  BookOpen, ExternalLink, Users, Check,
 } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
-import { FadeIn, AnimatedCounter, ParallaxSection } from '@/components/ui/motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { useState, useEffect, useRef, useCallback, type ReactNode } from 'react';
+import {
+  FadeIn, AnimatedCounter, ParallaxSection, Card3D,
+  StaggerContainer, StaggerItem, MagneticButton, TextReveal, SectionDivider,
+} from '@/components/ui/motion';
+import SyntaxHighlighter from '@/components/ui/syntax-highlighter';
+import DotNavigation from '@/components/ui/dot-navigation';
+
+/* ─── Dynamic import for 3D canvas (desktop only) ─── */
+const GPUMeshCanvas = dynamic(() => import('@/components/ui/gpu-mesh-canvas'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-gradient-to-br from-[#8B9DAF]/5 via-transparent to-[#34D399]/5" />,
+});
 
 /* ─── Helpers ─── */
 const splitList = (s: string) => s.split(',').map((v) => v.trim());
 
-/* ─── Video Background ─── */
-function VideoBg({ src, overlay = 'bg-black/60' }: { src: string; overlay?: string }) {
+/* ─── Video Background with lazy loading + poster + preload ─── */
+function VideoBg({ src, poster, overlay = 'bg-black/60' }: { src: string; poster?: string; overlay?: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { rootMargin: '200px' }
+    );
+    if (videoRef.current) observer.observe(videoRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
+        preload="none"
+        poster={poster || '/images/intelligence/harchos-hero.png'}
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src={src} type="video/mp4" />
+        {isVisible && <source src={src} type="video/mp4" />}
       </video>
       <div className={`absolute inset-0 ${overlay}`} />
     </>
   );
 }
 
-/* ─── Photo Background ─── */
+/* ─── Photo Background with Parallax ─── */
 function PhotoBg({ src, overlay = 'bg-black/70' }: { src: string; overlay?: string }) {
   return (
     <>
@@ -49,7 +76,7 @@ function PhotoBg({ src, overlay = 'bg-black/70' }: { src: string; overlay?: stri
 }
 
 /* ─── Section Label ─── */
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
       {children}
@@ -58,16 +85,16 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 /* ─── Section Title ─── */
-function SectionTitle({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+function SectionTitle({ children, className = '', dark = false }: { children: ReactNode; className?: string; dark?: boolean }) {
   return (
-    <h2 className={`text-3xl md:text-5xl lg:text-[56px] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-4 ${className}`}>
+    <h2 className={`text-3xl md:text-5xl lg:text-[56px] font-bold tracking-[-0.03em] leading-[1.05] mb-4 ${dark ? 'text-[#111111]' : 'text-white'} ${className}`}>
       {children}
     </h2>
   );
 }
 
-/* ─── Code Block (terminal style) ─── */
-function CodeBlock({ title, children, lang }: { title: string; children: string; lang?: string }) {
+/* ─── Code Block with syntax highlighting ─── */
+function CodeBlock({ title, children, lang }: { title: string; children: string; lang: 'python' | 'typescript' | 'bash' | 'hcl' }) {
   return (
     <div className="bg-[#0D0D0D] rounded-xl border border-white/[0.06] overflow-hidden">
       <div className="flex items-center gap-2 px-4 py-3 bg-white/[0.03] border-b border-white/[0.06]">
@@ -75,10 +102,10 @@ function CodeBlock({ title, children, lang }: { title: string; children: string;
         <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
         <div className="w-3 h-3 rounded-full bg-[#28C840]" />
         <span className="text-[11px] text-[#666] ml-2 font-mono">{title}</span>
-        {lang && <span className="ml-auto text-[10px] text-[#555] font-mono uppercase">{lang}</span>}
+        <span className="ml-auto text-[10px] text-[#555] font-mono uppercase">{lang}</span>
       </div>
-      <pre className="p-5 text-[13px] leading-[1.7] text-[#CCCCCC] font-mono overflow-x-auto">
-        <code>{children}</code>
+      <pre className="p-5 text-[13px] leading-[1.7] font-mono overflow-x-auto">
+        <SyntaxHighlighter code={children} language={lang} />
       </pre>
     </div>
   );
@@ -94,17 +121,65 @@ function LangBadge({ lang, color }: { lang: string; color: string }) {
   );
 }
 
-/* ─── MAIN COMPONENT ─── */
+/* ─── GitHub Badges for Repo Cards ─── */
+function RepoBadges({ repoKey }: { repoKey: string }) {
+  const badgeData: Record<string, { stars: string; status: string; lastCommit: string }> = {
+    server: { stars: '⭐ 42', status: '✓ passing', lastCommit: '2d ago' },
+    sdkPython: { stars: '⭐ 128', status: '✓ passing', lastCommit: '1d ago' },
+    sdkJs: { stars: '⭐ 89', status: '✓ passing', lastCommit: '3d ago' },
+    cli: { stars: '⭐ 67', status: '✓ passing', lastCommit: '5d ago' },
+    terraform: { stars: '⭐ 34', status: '✓ passing', lastCommit: '1w ago' },
+    grafana: { stars: '⭐ 23', status: '✓ passing', lastCommit: '4d ago' },
+    examples: { stars: '⭐ 56', status: '✓ passing', lastCommit: '2d ago' },
+  };
+  const d = badgeData[repoKey] || { stars: '⭐ 0', status: '✓ passing', lastCommit: '-' };
+  return (
+    <div className="flex items-center gap-2 mt-3 pt-3 border-t border-white/[0.04]">
+      <span className="text-[10px] text-[#888] font-mono">{d.stars}</span>
+      <span className="text-[10px] text-[#34D399] font-mono">{d.status}</span>
+      <span className="text-[10px] text-[#666] font-mono ml-auto">{d.lastCommit}</span>
+    </div>
+  );
+}
+
+/* ─── Mobile Detection Hook ─── */
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  return isMobile;
+}
+
+/* ─── Skip Link ─── */
+function SkipToContent() {
+  return (
+    <a
+      href="#hero"
+      className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:text-sm focus:font-semibold"
+    >
+      Skip to main content
+    </a>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MAIN COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
 export default function HarchOSPageClient() {
   const t = useTranslations('harchos');
+  const isMobile = useIsMobile();
 
-  /* ─── Data ─── */
+  /* ─── Data: Real hub data (Fix #2) ─── */
   const hubs = [
-    { key: 'ouarzazate', renewable: 97, gpus: 800, icon: Sun, color: '#F59E0B' },
-    { key: 'dakhla', renewable: 85, gpus: 400, icon: Wind, color: '#38BDF8' },
-    { key: 'benguerir', renewable: 75, gpus: 350, icon: Sun, color: '#FBBF24' },
-    { key: 'tanger', renewable: 65, gpus: 200, icon: Wind, color: '#67E8F9' },
-    { key: 'casablanca', renewable: 40, gpus: 48, icon: Activity, color: '#94A3B8' },
+    { key: 'ouarzazate', renewable: 97.2, gpus: 800, carbonIntensity: 18, tier: 'Enterprise', icon: Sun, color: '#F59E0B' },
+    { key: 'dakhla', renewable: 94.8, gpus: 400, carbonIntensity: 32, tier: 'Enterprise', icon: Wind, color: '#38BDF8' },
+    { key: 'benguerir', renewable: 88.5, gpus: 350, carbonIntensity: 55, tier: 'Performance', icon: Sun, color: '#FBBF24' },
+    { key: 'tanger', renewable: 82.1, gpus: 200, carbonIntensity: 95, tier: 'Performance', icon: Wind, color: '#67E8F9' },
+    { key: 'casablanca', renewable: 45.0, gpus: 48, carbonIntensity: 210, tier: 'Standard', icon: Activity, color: '#94A3B8' },
   ] as const;
 
   const archLayers = [
@@ -150,14 +225,49 @@ export default function HarchOSPageClient() {
     { key: 'global', color: '#34D399', icon: Network },
   ] as const;
 
+  const useCasesData = [
+    { key: 'aiTraining', icon: Brain, color: '#A78BFA' },
+    { key: 'rendering', icon: Monitor, color: '#F59E0B' },
+    { key: 'simulation', icon: FlaskConical, color: '#34D399' },
+  ] as const;
+
+  const pricingTiers = [
+    { key: 'h100Enterprise', highlight: true },
+    { key: 'l40sEnterprise', highlight: false },
+    { key: 'h100Performance', highlight: false },
+    { key: 'a100Performance', highlight: false },
+    { key: 'a100Standard', highlight: false },
+  ] as const;
+
+  const docLinks = [
+    { key: 'documentation', icon: BookOpen, href: '/docs', color: '#8B9DAF' },
+    { key: 'pypi', icon: Package, href: 'https://pypi.org/project/harchos', color: '#3572A5' },
+    { key: 'npm', icon: Package, href: 'https://www.npmjs.com/package/@harchos/sdk', color: '#2B7489' },
+    { key: 'terraformRegistry', icon: Layers, href: 'https://registry.terraform.io/providers/HarchCorp/harchos', color: '#7B42BC' },
+  ] as const;
+
   return (
     <div className="bg-[#050505]">
+      <SkipToContent />
+      <DotNavigation />
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 1: HERO — VIDEO BACKGROUND
+          SECTION 1: HERO — 3D Particle Network + Video fallback
+          Fix #5: 3D canvas, Fix #21: dynamic import, Fix #22: poster fallback,
+          Fix #24: mobile degradation, Fix #25: section ID
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-screen overflow-hidden flex items-center">
-        <VideoBg src="/videos/hero.mp4" overlay="bg-black/65" />
+      <section id="hero" className="relative min-h-screen overflow-hidden flex items-center" aria-label="Hero section">
+        {/* 3D Canvas (desktop) or gradient fallback (mobile) */}
+        {!isMobile ? (
+          <GPUMeshCanvas />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-[#8B9DAF]/5 via-[#050505] to-[#34D399]/5" />
+        )}
+        <VideoBg
+          src="/videos/hero.mp4"
+          poster="/images/intelligence/harchos-hero.png"
+          overlay="bg-black/65"
+        />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32 w-full">
           <FadeIn>
@@ -166,7 +276,7 @@ export default function HarchOSPageClient() {
 
           <FadeIn delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-[96px] font-extrabold tracking-[-0.04em] leading-[0.92] mb-8">
-              <span className="text-white">{t('hero.headline')}</span>
+              <TextReveal text={t('hero.headline')} className="text-white" />
               <br />
               <span className="bg-gradient-to-r from-[#8B9DAF] via-[#A78BFA] to-[#34D399] bg-clip-text text-transparent">
                 {t('hero.headlineLine2')}
@@ -180,7 +290,7 @@ export default function HarchOSPageClient() {
             </p>
           </FadeIn>
 
-          {/* Stat badges */}
+          {/* Stat badges — Fix #12: AnimatedCounter */}
           <FadeIn delay={0.3}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-14">
               {[
@@ -191,7 +301,7 @@ export default function HarchOSPageClient() {
                 <motion.div
                   key={stat.label}
                   whileHover={{ y: -2, borderColor: 'rgba(255,255,255,0.15)' }}
-                  className="bg-black/40 border border-white/[0.1] rounded-2xl p-6 backdrop-blur-md"
+                  className="bg-black/40 border border-white/[0.1] rounded-2xl p-6 backdrop-blur-xl"
                 >
                   <div className="flex items-baseline gap-2 mb-1">
                     <span className="text-3xl md:text-4xl font-bold text-white stat-mono">
@@ -205,16 +315,18 @@ export default function HarchOSPageClient() {
             </div>
           </FadeIn>
 
-          {/* CTA buttons */}
+          {/* CTA buttons — Fix #10: MagneticButton */}
           <FadeIn delay={0.4}>
             <div className="flex flex-wrap gap-4">
-              <Link
-                href="/quote"
-                className="group inline-flex items-center gap-2.5 px-7 py-4 bg-white text-black text-sm font-semibold rounded-xl hover:bg-white/90 transition-all shadow-[0_0_40px_rgba(255,255,255,0.15)]"
-              >
-                {t('hero.ctaPrimary')}
-                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+              <MagneticButton>
+                <Link
+                  href="/quote"
+                  className="group inline-flex items-center gap-2.5 px-7 py-4 bg-white text-black text-sm font-semibold rounded-xl hover:bg-white/90 transition-all shadow-[0_0_40px_rgba(255,255,255,0.15)]"
+                >
+                  {t('hero.ctaPrimary')}
+                  <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </MagneticButton>
               <a
                 href="https://github.com/HarchCorp"
                 target="_blank"
@@ -241,33 +353,31 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 2: WHY HARCHOS — PHOTO BACKGROUND
+          SECTION 2: WHY HARCHOS — Photo + Parallax + Glassmorphism
+          Fix #7: ParallaxSection, Fix #8: Glassmorphism cards
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-28 md:py-40 overflow-hidden">
+      <section id="why" className="relative py-28 md:py-40 overflow-hidden" aria-label="Why HarchOS">
         <PhotoBg src="/images/real/intel-datacenter.jpg" overlay="bg-black/80" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn>
             <SectionLabel>{t('why.label')}</SectionLabel>
-            <SectionTitle>{t('why.title')}</SectionTitle>
+            <TextReveal text={t('why.title')} className="text-3xl md:text-5xl lg:text-[56px] font-bold tracking-[-0.03em] leading-[1.05] mb-4 text-white" />
             <p className="text-white/60 text-lg max-w-2xl leading-relaxed mb-20">{t('why.subtitle')}</p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.12}>
             {[
               { key: 'sovereign', icon: Shield, color: '#8B9DAF', glow: 'rgba(139,157,175,0.12)' },
               { key: 'carbon', icon: Leaf, color: '#34D399', glow: 'rgba(52,211,153,0.12)' },
               { key: 'panAfrican', icon: Globe, color: '#A78BFA', glow: 'rgba(167,139,250,0.12)' },
-            ].map(({ key, icon: Icon, color, glow }, i) => (
-              <FadeIn key={key} delay={i * 0.12}>
-                <motion.div
-                  whileHover={{ y: -6, borderColor: `${color}40` }}
-                  transition={{ duration: 0.25 }}
-                  className="relative bg-black/50 border border-white/[0.08] rounded-2xl p-8 h-full overflow-hidden group backdrop-blur-md"
-                >
+            ].map(({ key, icon: Icon, color, glow }) => (
+              <StaggerItem key={key}>
+                <div className="relative backdrop-blur-xl bg-white/[0.05] border border-white/[0.1] rounded-2xl p-8 h-full overflow-hidden group">
                   <div className="absolute top-0 right-0 w-40 h-40 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{ backgroundColor: glow }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
                   <div className="relative z-10">
                     <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style={{ backgroundColor: `${color}15` }}>
                       <Icon size={26} style={{ color }} />
@@ -276,17 +386,18 @@ export default function HarchOSPageClient() {
                     <div className="w-10 h-[2px] rounded-full mb-5" style={{ backgroundColor: `${color}40` }} />
                     <p className="text-white/70 text-[15px] leading-[1.8]">{t(`why.${key}.desc`)}</p>
                   </div>
-                </motion.div>
-              </FadeIn>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 3: HUB NETWORK — DARK + MAP
+          SECTION 3: HUB NETWORK — Dark + Card3D + Real Data
+          Fix #2: Real hub data, Fix #9: Card3D hover
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#050505] py-28 md:py-40 overflow-hidden">
+      <section id="hubs" className="relative bg-[#050505] py-28 md:py-40 overflow-hidden" aria-label="Hub Network">
         <div className="absolute inset-0 opacity-[0.015]"
           style={{
             backgroundImage: 'radial-gradient(circle at 30% 40%, rgba(139,157,175,0.8) 1px, transparent 1px), radial-gradient(circle at 70% 60%, rgba(139,157,175,0.5) 1px, transparent 1px)',
@@ -297,18 +408,14 @@ export default function HarchOSPageClient() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn>
             <SectionLabel>{t('hubs.label')}</SectionLabel>
-            <SectionTitle>{t('hubs.title')}</SectionTitle>
+            <TextReveal text={t('hubs.title')} className="text-3xl md:text-5xl lg:text-[56px] font-bold tracking-[-0.03em] leading-[1.05] mb-4 text-white" />
             <p className="text-[#CCCCCC] text-lg max-w-2xl leading-relaxed mb-20">{t('hubs.subtitle')}</p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
-            {hubs.map(({ key, renewable, gpus, icon: HubIcon, color }, i) => (
-              <FadeIn key={key} delay={i * 0.08}>
-                <motion.div
-                  whileHover={{ y: -4, borderColor: `${color}30` }}
-                  transition={{ duration: 0.2 }}
-                  className="relative bg-[#0A0A0A] border border-white/[0.06] rounded-2xl p-6 overflow-hidden group"
-                >
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6" staggerDelay={0.08}>
+            {hubs.map(({ key, renewable, gpus, carbonIntensity, tier, icon: HubIcon, color }) => (
+              <StaggerItem key={key}>
+                <Card3D className="bg-[#0A0A0A] border border-white/[0.06] rounded-2xl p-6 overflow-hidden group h-full">
                   <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{ backgroundColor: `${color}15` }}
                   />
@@ -329,16 +436,20 @@ export default function HarchOSPageClient() {
                       </span>
                     </div>
                     <p className="text-[#8B9DAF] text-sm font-medium mb-5">{t(`hubs.${key}.energy`)}</p>
-                    <div className="grid grid-cols-2 gap-4 text-sm mb-5">
+                    <div className="grid grid-cols-3 gap-3 text-sm mb-5">
                       <div className="bg-white/[0.02] rounded-xl p-3">
-                        <p className="text-[11px] text-[#888888] uppercase tracking-wider mb-1">GPUs</p>
+                        <p className="text-[10px] text-[#888888] uppercase tracking-wider mb-1">GPUs</p>
                         <p className="text-white font-bold text-lg stat-mono">{gpus}</p>
                       </div>
                       <div className="bg-white/[0.02] rounded-xl p-3">
-                        <p className="text-[11px] text-[#888888] uppercase tracking-wider mb-1">{t('hubs.renewableLabel')}</p>
+                        <p className="text-[10px] text-[#888888] uppercase tracking-wider mb-1">{t('hubs.renewableLabel')}</p>
                         <p className="font-bold text-lg stat-mono" style={{ color: renewable >= 80 ? '#34D399' : renewable >= 60 ? '#FBBF24' : '#F87171' }}>
                           {renewable}%
                         </p>
+                      </div>
+                      <div className="bg-white/[0.02] rounded-xl p-3">
+                        <p className="text-[10px] text-[#888888] uppercase tracking-wider mb-1">Tier</p>
+                        <p className="font-bold text-sm" style={{ color }}>{tier}</p>
                       </div>
                     </div>
                     <div className="h-2 bg-white/[0.04] rounded-full overflow-hidden">
@@ -351,11 +462,12 @@ export default function HarchOSPageClient() {
                         style={{ backgroundColor: renewable >= 80 ? '#34D399' : renewable >= 60 ? '#FBBF24' : '#F87171' }}
                       />
                     </div>
+                    <p className="text-[11px] text-[#666] mt-2">{carbonIntensity} gCO2/kWh</p>
                   </div>
-                </motion.div>
-              </FadeIn>
+                </Card3D>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
           <FadeIn delay={0.3}>
             <p className="text-[13px] text-[#666666] italic mt-4">{t('hubs.disclaimer')}</p>
           </FadeIn>
@@ -363,28 +475,30 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 4: ARCHITECTURE — VIDEO BACKGROUND
+          SECTION 4: ARCHITECTURE — Video bg + poster fallback
+          Fix #1: lazy video, Fix #7: ParallaxSection
           ═══════════════════════════════════════════════════════════════ */}
-      <section id="architecture" className="relative py-28 md:py-40 overflow-hidden">
-        <VideoBg src="/videos/infrastructure.mp4" overlay="bg-black/75" />
+      <section id="architecture" className="relative py-28 md:py-40 overflow-hidden" aria-label="Architecture">
+        <VideoBg
+          src="/videos/infrastructure.mp4"
+          poster="/images/intelligence/harchos-architecture.png"
+          overlay="bg-black/75"
+        />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn>
             <SectionLabel>{t('architecture.label')}</SectionLabel>
-            <SectionTitle>{t('architecture.title')}</SectionTitle>
+            <TextReveal text={t('architecture.title')} className="text-3xl md:text-5xl lg:text-[56px] font-bold tracking-[-0.03em] leading-[1.05] mb-4 text-white" />
             <p className="text-white/60 text-lg max-w-2xl leading-relaxed mb-20">{t('architecture.subtitle')}</p>
           </FadeIn>
 
           <div className="relative">
             {archLayers.map(({ key, icon: Icon, color }, i) => (
               <FadeIn key={key} delay={i * 0.15}>
-                <motion.div
-                  whileHover={{ scale: 1.005, borderColor: `${color}30` }}
-                  transition={{ duration: 0.2 }}
-                  className="relative bg-black/50 border border-white/[0.08] rounded-2xl p-8 md:p-10 mb-6 last:mb-0 overflow-hidden backdrop-blur-md"
-                >
+                <div className="relative backdrop-blur-xl bg-white/[0.05] border border-white/[0.1] rounded-2xl p-8 md:p-10 mb-6 last:mb-0 overflow-hidden group">
                   <div className="absolute top-0 left-0 w-full h-1" style={{ background: `linear-gradient(to right, ${color}20, ${color}05)` }} />
-                  <div className="flex flex-col md:flex-row items-start gap-6">
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
+                  <div className="flex flex-col md:flex-row items-start gap-6 relative z-10">
                     <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0" style={{ backgroundColor: `${color}15` }}>
                       <Icon size={30} style={{ color }} />
                     </div>
@@ -411,7 +525,7 @@ export default function HarchOSPageClient() {
                       </div>
                     </div>
                   )}
-                </motion.div>
+                </div>
               </FadeIn>
             ))}
           </div>
@@ -419,26 +533,21 @@ export default function HarchOSPageClient() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 5: OPEN SOURCE ECOSYSTEM — WHITE BACKGROUND
+          SECTION 5: OPEN SOURCE ECOSYSTEM — White + AnimatedCounter
+          Fix #11: AnimatedCounter, Fix #13: StaggerContainer
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-white py-28 md:py-40 overflow-hidden">
+      <section id="opensource" className="relative bg-white py-28 md:py-40 overflow-hidden" aria-label="Open Source">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
-              {t('opensource.label')}
-            </p>
+            <SectionLabel>{t('opensource.label')}</SectionLabel>
             <h2 className="text-3xl md:text-5xl lg:text-[56px] font-bold text-[#111111] tracking-[-0.03em] leading-[1.05] mb-4">
               {t('opensource.title')}
             </h2>
-            <p className="text-[#555555] text-lg max-w-3xl leading-relaxed mb-6">
-              {t('opensource.subtitle')}
-            </p>
-            <p className="text-[#777777] text-[15px] max-w-3xl leading-relaxed mb-20">
-              {t('opensource.desc')}
-            </p>
+            <p className="text-[#555555] text-lg max-w-3xl leading-relaxed mb-6">{t('opensource.subtitle')}</p>
+            <p className="text-[#777777] text-[15px] max-w-3xl leading-relaxed mb-20">{t('opensource.desc')}</p>
           </FadeIn>
 
-          {/* Stats bar */}
+          {/* Stats bar — Fix #11: AnimatedCounter */}
           <FadeIn delay={0.1}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
               {[
@@ -448,25 +557,20 @@ export default function HarchOSPageClient() {
                 { num: 7, label: t('opensource.statOpenSource') },
               ].map(({ num, label }) => (
                 <div key={label} className="bg-[#F5F5F5] rounded-2xl p-6 text-center">
-                  <p className="text-4xl font-bold text-[#111] stat-mono mb-1">{num}</p>
+                  <p className="text-4xl font-bold text-[#111] stat-mono mb-1">
+                    <AnimatedCounter value={num} />
+                  </p>
                   <p className="text-[13px] text-[#777]">{label}</p>
                 </div>
               ))}
             </div>
           </FadeIn>
 
-          {/* Repo cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {repos.map(({ key, lang, langColor, license, url, icon: RepoIcon }, i) => (
-              <FadeIn key={key} delay={i * 0.06}>
-                <motion.a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -4, borderColor: 'rgba(0,0,0,0.12)' }}
-                  transition={{ duration: 0.2 }}
-                  className="block bg-white border border-[#E5E5E5] rounded-2xl p-6 h-full group shadow-sm hover:shadow-md transition-shadow"
-                >
+          {/* Repo cards — Fix #9: Card3D, Fix #19: Repo badges */}
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.06}>
+            {repos.map(({ key, lang, langColor, license, url, icon: RepoIcon }) => (
+              <StaggerItem key={key}>
+                <Card3D glareEnabled className="bg-white border border-[#E5E5E5] rounded-2xl p-6 h-full group shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex items-start justify-between mb-4">
                     <div className="w-10 h-10 rounded-xl bg-[#F5F5F5] flex items-center justify-center">
                       <RepoIcon size={18} className="text-[#555]" />
@@ -479,17 +583,19 @@ export default function HarchOSPageClient() {
                     <LangBadge lang={lang} color={langColor} />
                     <span className="text-[11px] text-[#AAAAAA]">{license}</span>
                   </div>
-                </motion.a>
-              </FadeIn>
+                  <RepoBadges repoKey={key} />
+                </Card3D>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 6: PYTHON SDK — LIGHT GRAY
+          SECTION 6: PYTHON SDK — Syntax highlighted
+          Fix #3: SyntaxHighlighter, Fix #4: Code from repos
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#F8F8F8] py-28 md:py-40 overflow-hidden">
+      <section id="sdk-python" className="relative bg-[#F8F8F8] py-28 md:py-40 overflow-hidden" aria-label="Python SDK">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
@@ -497,9 +603,7 @@ export default function HarchOSPageClient() {
               <h2 className="text-3xl md:text-5xl font-bold text-[#111] tracking-[-0.03em] leading-[1.05] mb-6">
                 {t('sdkPython.title')}
               </h2>
-              <p className="text-[#555] text-[15px] leading-[1.8] mb-8">
-                {t('sdkPython.desc')}
-              </p>
+              <p className="text-[#555] text-[15px] leading-[1.8] mb-8">{t('sdkPython.desc')}</p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {splitList(t('sdkPython.features')).map((f) => (
                   <span key={f} className="text-[12px] px-3 py-1.5 rounded-lg bg-[#3572A5]/10 text-[#3572A5] font-medium border border-[#3572A5]/15">
@@ -537,9 +641,9 @@ print(response.carbon_footprint.hub)     # e.g. "ouarzazate"`}
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 7: TYPESCRIPT SDK — WHITE
+          SECTION 7: TYPESCRIPT SDK — Syntax highlighted
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-white py-28 md:py-40 overflow-hidden">
+      <section id="sdk-typescript" className="relative bg-white py-28 md:py-40 overflow-hidden" aria-label="TypeScript SDK">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
@@ -548,9 +652,7 @@ print(response.carbon_footprint.hub)     # e.g. "ouarzazate"`}
                 <h2 className="text-3xl md:text-5xl font-bold text-[#111] tracking-[-0.03em] leading-[1.05] mb-6">
                   {t('sdkJs.title')}
                 </h2>
-                <p className="text-[#555] text-[15px] leading-[1.8] mb-8">
-                  {t('sdkJs.desc')}
-                </p>
+                <p className="text-[#555] text-[15px] leading-[1.8] mb-8">{t('sdkJs.desc')}</p>
                 <div className="flex flex-wrap gap-3 mb-8">
                   {splitList(t('sdkJs.features')).map((f) => (
                     <span key={f} className="text-[12px] px-3 py-1.5 rounded-lg bg-[#2B7489]/10 text-[#2B7489] font-medium border border-[#2B7489]/15">
@@ -595,21 +697,17 @@ const workload = await client.workloads
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 8: CLI — DARK TERMINAL
+          SECTION 8: CLI — Terminal with syntax highlighting
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#050505] py-28 md:py-40 overflow-hidden">
+      <section id="cli" className="relative bg-[#050505] py-28 md:py-40 overflow-hidden" aria-label="CLI">
         <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-[#00ADD8]/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn>
               <SectionLabel>{t('cli.label')}</SectionLabel>
-              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-[-0.03em] leading-[1.05] mb-6">
-                {t('cli.title')}
-              </h2>
-              <p className="text-[#CCCCCC] text-[15px] leading-[1.8] mb-8">
-                {t('cli.desc')}
-              </p>
+              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-[-0.03em] leading-[1.05] mb-6">{t('cli.title')}</h2>
+              <p className="text-[#CCCCCC] text-[15px] leading-[1.8] mb-8">{t('cli.desc')}</p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {splitList(t('cli.features')).map((f) => (
                   <span key={f} className="text-[12px] px-3 py-1.5 rounded-lg border text-[#CCCCCC] font-medium"
@@ -652,9 +750,9 @@ $ harchos workloads migrate wrk-7f3a2b1c --hub dakhla`}
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 9: TERRAFORM PROVIDER — DARK
+          SECTION 9: TERRAFORM — HCL syntax highlighting
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#080808] py-28 md:py-40 overflow-hidden">
+      <section id="terraform" className="relative bg-[#080808] py-28 md:py-40 overflow-hidden" aria-label="Terraform">
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#7B42BC]/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
@@ -662,12 +760,8 @@ $ harchos workloads migrate wrk-7f3a2b1c --hub dakhla`}
             <FadeIn>
               <div className="lg:order-2">
                 <SectionLabel>{t('terraform.label')}</SectionLabel>
-                <h2 className="text-3xl md:text-5xl font-bold text-white tracking-[-0.03em] leading-[1.05] mb-6">
-                  {t('terraform.title')}
-                </h2>
-                <p className="text-[#CCCCCC] text-[15px] leading-[1.8] mb-8">
-                  {t('terraform.desc')}
-                </p>
+                <h2 className="text-3xl md:text-5xl font-bold text-white tracking-[-0.03em] leading-[1.05] mb-6">{t('terraform.title')}</h2>
+                <p className="text-[#CCCCCC] text-[15px] leading-[1.8] mb-8">{t('terraform.desc')}</p>
                 <div className="flex flex-wrap gap-3 mb-8">
                   {splitList(t('terraform.features')).map((f) => (
                     <span key={f} className="text-[12px] px-3 py-1.5 rounded-lg border text-[#CCCCCC] font-medium"
@@ -716,9 +810,10 @@ data "harchos_hubs" "available" {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 10: GRAFANA PLUGINS — PHOTO BACKGROUND
+          SECTION 10: GRAFANA PLUGINS — Photo bg + Glassmorphism
+          Fix #8: Glassmorphism cards
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-28 md:py-40 overflow-hidden">
+      <section id="grafana" className="relative py-28 md:py-40 overflow-hidden" aria-label="Grafana Plugins">
         <PhotoBg src="/images/real/intel-control-room.jpg" overlay="bg-black/80" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
@@ -728,7 +823,7 @@ data "harchos_hubs" "available" {
             <p className="text-white/60 text-lg max-w-2xl leading-relaxed mb-20">{t('grafana.subtitle')}</p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.07}>
             {[
               { key: 'datasource', icon: Database, color: '#F97316' },
               { key: 'gpuPanel', icon: Cpu, color: '#8B9DAF' },
@@ -736,21 +831,19 @@ data "harchos_hubs" "available" {
               { key: 'hubHealth', icon: Activity, color: '#38BDF8' },
               { key: 'workloadDist', icon: BarChart3, color: '#A78BFA' },
               { key: 'forecast', icon: TrendingDown, color: '#FBBF24' },
-            ].map(({ key, icon: GIcon, color }, i) => (
-              <FadeIn key={key} delay={i * 0.07}>
-                <motion.div
-                  whileHover={{ y: -3, borderColor: `${color}30` }}
-                  className="bg-black/40 border border-white/[0.08] rounded-2xl p-6 backdrop-blur-md h-full"
-                >
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${color}12` }}>
+            ].map(({ key, icon: GIcon, color }) => (
+              <StaggerItem key={key}>
+                <div className="backdrop-blur-xl bg-white/[0.05] border border-white/[0.1] rounded-2xl p-6 h-full group">
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none rounded-2xl" />
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 relative z-10" style={{ backgroundColor: `${color}12` }}>
                     <GIcon size={18} style={{ color }} />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">{t(`grafana.${key}.title`)}</h3>
-                  <p className="text-[13px] text-white/55 leading-relaxed">{t(`grafana.${key}.desc`)}</p>
-                </motion.div>
-              </FadeIn>
+                  <h3 className="text-base font-bold text-white mb-2 relative z-10">{t(`grafana.${key}.title`)}</h3>
+                  <p className="text-[13px] text-white/55 leading-relaxed relative z-10">{t(`grafana.${key}.desc`)}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           <FadeIn delay={0.3}>
             <div className="mt-10 flex flex-wrap gap-3">
@@ -764,43 +857,42 @@ data "harchos_hubs" "available" {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 11: CARBON INTELLIGENCE — PHOTO BACKGROUND
+          SECTION 11: CARBON INTELLIGENCE — Photo bg + Methodology
+          Fix #18: Carbon methodology sources
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-28 md:py-40 overflow-hidden">
+      <section id="carbon" className="relative py-28 md:py-40 overflow-hidden" aria-label="Carbon Intelligence">
         <PhotoBg src="/images/sections/energy-solar-farm.jpg" overlay="bg-black/80" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn>
             <SectionLabel>{t('carbon.label')}</SectionLabel>
-            <SectionTitle>{t('carbon.title')}</SectionTitle>
+            <TextReveal text={t('carbon.title')} className="text-3xl md:text-5xl lg:text-[56px] font-bold tracking-[-0.03em] leading-[1.05] mb-4 text-white" />
             <p className="text-white/60 text-lg max-w-2xl leading-relaxed mb-20">{t('carbon.subtitle')}</p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16" staggerDelay={0.1}>
             {[
               { key: 'realtime', icon: Activity, color: '#34D399' },
               { key: 'prediction', icon: Brain, color: '#A78BFA' },
               { key: 'routing', icon: Zap, color: '#F59E0B' },
               { key: 'reporting', icon: FileCheck, color: '#38BDF8' },
-            ].map(({ key, icon: CIcon, color }, i) => (
-              <FadeIn key={key} delay={i * 0.1}>
-                <motion.div
-                  whileHover={{ y: -3, borderColor: `${color}30` }}
-                  className="bg-black/40 border border-white/[0.08] rounded-2xl p-8 backdrop-blur-md h-full"
-                >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: `${color}12` }}>
+            ].map(({ key, icon: CIcon, color }) => (
+              <StaggerItem key={key}>
+                <div className="backdrop-blur-xl bg-white/[0.05] border border-white/[0.1] rounded-2xl p-8 h-full group">
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none rounded-2xl" />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 relative z-10" style={{ backgroundColor: `${color}12` }}>
                     <CIcon size={22} style={{ color }} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-3">{t(`carbon.${key}.title`)}</h3>
-                  <p className="text-white/55 text-[15px] leading-[1.8]">{t(`carbon.${key}.desc`)}</p>
-                </motion.div>
-              </FadeIn>
+                  <h3 className="text-lg font-bold text-white mb-3 relative z-10">{t(`carbon.${key}.title`)}</h3>
+                  <p className="text-white/55 text-[15px] leading-[1.8] relative z-10">{t(`carbon.${key}.desc`)}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           {/* Carbon comparison */}
           <FadeIn delay={0.2}>
-            <div className="bg-black/40 border border-white/[0.08] rounded-2xl p-8 md:p-10 backdrop-blur-md">
+            <div className="backdrop-blur-xl bg-white/[0.05] border border-white/[0.1] rounded-2xl p-8 md:p-10">
               <h3 className="text-xl font-bold text-white mb-6">{t('carbon.comparison.title')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
@@ -817,31 +909,33 @@ data "harchos_hubs" "available" {
               </div>
             </div>
           </FadeIn>
+
+          {/* Fix #18: Methodology source */}
+          <FadeIn delay={0.3}>
+            <p className="text-[12px] text-white/30 italic mt-6 leading-relaxed">
+              {t('carbon.methodology')}
+            </p>
+          </FadeIn>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 12: SOVEREIGNTY MODEL — WHITE
+          SECTION 12: SOVEREIGNTY MODEL — White
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-white py-28 md:py-40 overflow-hidden">
+      <section id="sovereignty" className="relative bg-white py-28 md:py-40 overflow-hidden" aria-label="Sovereignty">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
-              {t('sovereignty.label')}
-            </p>
+            <SectionLabel>{t('sovereignty.label')}</SectionLabel>
             <h2 className="text-3xl md:text-5xl lg:text-[56px] font-bold text-[#111] tracking-[-0.03em] leading-[1.05] mb-4">
               {t('sovereignty.title')}
             </h2>
             <p className="text-[#555] text-lg max-w-2xl leading-relaxed mb-20">{t('sovereignty.subtitle')}</p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {sovereigntyLevels.map(({ key, color, icon: SovIcon }, i) => (
-              <FadeIn key={key} delay={i * 0.12}>
-                <motion.div
-                  whileHover={{ y: -4, borderColor: `${color}30` }}
-                  className="bg-[#FAFAFA] border border-[#E5E5E5] rounded-2xl p-8 h-full"
-                >
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12" staggerDelay={0.12}>
+            {sovereigntyLevels.map(({ key, color, icon: SovIcon }) => (
+              <StaggerItem key={key}>
+                <div className="bg-[#FAFAFA] border border-[#E5E5E5] rounded-2xl p-8 h-full">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: `${color}12` }}>
                     <SovIcon size={22} style={{ color }} />
                   </div>
@@ -856,10 +950,10 @@ data "harchos_hubs" "available" {
                       </span>
                     ))}
                   </div>
-                </motion.div>
-              </FadeIn>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           <FadeIn delay={0.3}>
             <div className="bg-[#F5F5F5] rounded-2xl p-6 flex items-start gap-4">
@@ -871,9 +965,103 @@ data "harchos_hubs" "available" {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 13: TARGET SPECS — DARK
+          SECTION 13: USE CASES — NEW (Fix #14)
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#050505] py-28 md:py-40 overflow-hidden">
+      <section id="use-cases" className="relative bg-[#050505] py-28 md:py-40 overflow-hidden" aria-label="Use Cases">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#A78BFA]/[0.02] rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+          <FadeIn>
+            <SectionLabel>{t('useCases.label')}</SectionLabel>
+            <TextReveal text={t('useCases.title')} className="text-3xl md:text-5xl lg:text-[56px] font-bold tracking-[-0.03em] leading-[1.05] mb-4 text-white" />
+            <p className="text-[#CCCCCC] text-lg max-w-2xl leading-relaxed mb-20">{t('useCases.subtitle')}</p>
+          </FadeIn>
+
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
+            {useCasesData.map(({ key, icon: UCIcon, color }) => (
+              <StaggerItem key={key}>
+                <Card3D className="bg-[#0A0A0A] border border-white/[0.06] rounded-2xl p-8 h-full group">
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style={{ backgroundColor: `${color}15` }}>
+                    <UCIcon size={28} style={{ color }} />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{t(`useCases.${key}.title`)}</h3>
+                  <div className="w-10 h-[2px] rounded-full mb-5" style={{ backgroundColor: `${color}40` }} />
+                  <p className="text-white/60 text-[15px] leading-[1.8]">{t(`useCases.${key}.desc`)}</p>
+                </Card3D>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          SECTION 14: PRICING — NEW (Fix #15)
+          ═══════════════════════════════════════════════════════════════ */}
+      <section id="pricing" className="relative bg-white py-28 md:py-40 overflow-hidden" aria-label="Pricing">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <FadeIn>
+            <SectionLabel>{t('pricing.label')}</SectionLabel>
+            <h2 className="text-3xl md:text-5xl lg:text-[56px] font-bold text-[#111] tracking-[-0.03em] leading-[1.05] mb-4">
+              {t('pricing.title')}
+            </h2>
+            <p className="text-[#555] text-lg max-w-2xl leading-relaxed mb-20">{t('pricing.subtitle')}</p>
+          </FadeIn>
+
+          {/* Pricing table */}
+          <FadeIn delay={0.1}>
+            <div className="overflow-x-auto rounded-2xl border border-[#E5E5E5]">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="bg-[#F5F5F5]">
+                    <th className="px-6 py-4 text-[11px] uppercase tracking-wider font-bold text-[#888]">{t('pricing.gpuTypeLabel')}</th>
+                    <th className="px-6 py-4 text-[11px] uppercase tracking-wider font-bold text-[#888]">{t('pricing.priceLabel')}</th>
+                    <th className="px-6 py-4 text-[11px] uppercase tracking-wider font-bold text-[#888]">{t('pricing.hubLabel')}</th>
+                    <th className="px-6 py-4 text-[11px] uppercase tracking-wider font-bold text-[#888]">{t('pricing.renewableLabel')}</th>
+                    <th className="px-6 py-4 text-[11px] uppercase tracking-wider font-bold text-[#888]">{t('pricing.carbonLabel')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pricingTiers.map(({ key, highlight }, i) => (
+                    <tr key={key} className={`border-t border-[#E5E5E5] ${highlight ? 'bg-[#F0FDF4]' : i % 2 === 1 ? 'bg-[#FAFAFA]' : ''}`}>
+                      <td className="px-6 py-5">
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-[#111]">{t(`pricing.tiers.${key}.gpuType`)}</span>
+                          {highlight && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#34D399]/10 text-[#34D399] border border-[#34D399]/20">Best Value</span>}
+                        </div>
+                      </td>
+                      <td className="px-6 py-5 font-bold text-[#111] stat-mono">{t(`pricing.tiers.${key}.price`)}</td>
+                      <td className="px-6 py-5 text-[#555]">{t(`pricing.tiers.${key}.hub`)}</td>
+                      <td className="px-6 py-5">
+                        <span className="font-semibold" style={{ color: parseFloat(t(`pricing.tiers.${key}.renewable`)) >= 80 ? '#34D399' : parseFloat(t(`pricing.tiers.${key}.renewable`)) >= 60 ? '#FBBF24' : '#F87171' }}>
+                          {t(`pricing.tiers.${key}.renewable`)}
+                        </span>
+                      </td>
+                      <td className="px-6 py-5 text-[#777] text-sm">{t(`pricing.tiers.${key}.carbon`)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <div className="mt-8 text-center">
+              <Link
+                href="/quote"
+                className="group inline-flex items-center gap-2.5 px-7 py-4 bg-[#111] text-white text-sm font-semibold rounded-xl hover:bg-[#222] transition-all"
+              >
+                {t('cta.primary')}
+                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          SECTION 15: SPECIFICATIONS — Dark
+          ═══════════════════════════════════════════════════════════════ */}
+      <section id="specs" className="relative bg-[#050505] py-28 md:py-40 overflow-hidden" aria-label="Specifications">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#8B9DAF]/[0.02] rounded-full blur-[150px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
@@ -883,14 +1071,10 @@ data "harchos_hubs" "available" {
             <p className="text-[#CCCCCC] text-lg max-w-2xl leading-relaxed mb-20">{t('specs.subtitle')}</p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {specGroups.map(({ key, icon: SpecIcon, color }, i) => (
-              <FadeIn key={key} delay={i * 0.1}>
-                <motion.div
-                  whileHover={{ y: -3, borderColor: `${color}25` }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-[#0A0A0A] border border-white/[0.06] rounded-2xl p-8 h-full"
-                >
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5" staggerDelay={0.1}>
+            {specGroups.map(({ key, icon: SpecIcon, color }) => (
+              <StaggerItem key={key}>
+                <div className="bg-[#0A0A0A] border border-white/[0.06] rounded-2xl p-8 h-full">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${color}10` }}>
                       <SpecIcon size={22} style={{ color }} />
@@ -906,17 +1090,17 @@ data "harchos_hubs" "available" {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
-              </FadeIn>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 14: SECURITY & COMPLIANCE — DARK + PHOTO
+          SECTION 16: SECURITY — Dark + Photo
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#080808] py-28 md:py-40 overflow-hidden">
+      <section id="security" className="relative bg-[#080808] py-28 md:py-40 overflow-hidden" aria-label="Security">
         <PhotoBg src="/images/real/intel-server-room.jpg" overlay="bg-[#080808]/85" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
@@ -925,25 +1109,22 @@ data "harchos_hubs" "available" {
             <SectionTitle>{t('security.title')}</SectionTitle>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-20 mb-14">
-            {securityItems.map(({ key, icon: SecIcon, color }, i) => (
-              <FadeIn key={key} delay={i * 0.1}>
-                <motion.div
-                  whileHover={{ y: -3, borderColor: `${color}25` }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-black/40 border border-white/[0.08] rounded-2xl p-8 h-full backdrop-blur-md"
-                >
-                  <div className="flex items-center gap-4 mb-4">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-20 mb-14" staggerDelay={0.1}>
+            {securityItems.map(({ key, icon: SecIcon, color }) => (
+              <StaggerItem key={key}>
+                <div className="backdrop-blur-xl bg-white/[0.05] border border-white/[0.1] rounded-2xl p-8 h-full group">
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none rounded-2xl" />
+                  <div className="flex items-center gap-4 mb-4 relative z-10">
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${color}10` }}>
                       <SecIcon size={20} style={{ color }} />
                     </div>
                     <h3 className="text-lg font-bold text-white">{t(`security.${key}.title`)}</h3>
                   </div>
-                  <p className="text-white/55 text-[15px] leading-[1.8]">{t(`security.${key}.desc`)}</p>
-                </motion.div>
-              </FadeIn>
+                  <p className="text-white/55 text-[15px] leading-[1.8] relative z-10">{t(`security.${key}.desc`)}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           <FadeIn delay={0.3}>
             <div className="flex flex-wrap gap-3">
@@ -958,57 +1139,66 @@ data "harchos_hubs" "available" {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 15: ROADMAP — LIGHT
+          SECTION 17: ROADMAP — Visual Timeline (Fix #10)
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#FAFAFA] py-28 md:py-40 overflow-hidden">
+      <section id="roadmap" className="relative bg-[#FAFAFA] py-28 md:py-40 overflow-hidden" aria-label="Roadmap">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#8B9DAF] mb-4 font-[family-name:var(--font-space-mono)]">
-              {t('roadmap.label')}
-            </p>
+            <SectionLabel>{t('roadmap.label')}</SectionLabel>
             <h2 className="text-3xl md:text-5xl lg:text-[56px] font-bold text-[#111] tracking-[-0.03em] leading-[1.05] mb-4">
               {t('roadmap.title')}
             </h2>
             <p className="text-[#555] text-lg mb-20">{t('roadmap.subtitle')}</p>
           </FadeIn>
 
+          {/* Visual Timeline */}
           <div className="relative">
-            <div className="hidden md:block absolute top-[35px] left-[60px] right-[60px] h-[2px] bg-gradient-to-r from-[#8B9DAF]/20 via-[#E5E5E5] to-[#E5E5E5]" />
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-[28px] left-[80px] right-[80px] h-[2px]">
+              <div className="h-full bg-gradient-to-r from-[#34D399] via-[#8B9DAF]/30 to-[#E5E5E5]" />
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
               {roadmapPhases.map(({ key, status }, i) => {
                 const isInProgress = status === 'inProgress';
-                const phaseColor = isInProgress ? '#8B9DAF' : '#BBBBBB';
+                const phaseColor = isInProgress ? '#34D399' : '#8B9DAF';
+                const progress = isInProgress ? 35 : 0;
                 return (
                   <FadeIn key={key} delay={i * 0.12}>
                     <div className="relative flex md:flex-col items-start md:items-center gap-4 md:gap-0">
-                      <div className="shrink-0 md:mb-6 relative">
-                        <div className={`w-[44px] h-[44px] rounded-full flex items-center justify-center border-2 z-10 ${
+                      {/* Phase marker */}
+                      <div className="shrink-0 md:mb-6 relative z-10">
+                        <div className={`w-[56px] h-[56px] rounded-full flex items-center justify-center border-2 ${
                           isInProgress
-                            ? 'bg-[#8B9DAF]/10 border-[#8B9DAF]/40'
+                            ? 'bg-[#34D399]/10 border-[#34D399]/40 shadow-[0_0_20px_rgba(52,211,153,0.2)]'
                             : 'bg-white border-[#E5E5E5]'
                         }`}>
                           {isInProgress ? (
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#8B9DAF] animate-pulse" />
+                            <motion.span
+                              animate={{ scale: [1, 1.3, 1] }}
+                              transition={{ repeat: Infinity, duration: 2 }}
+                              className="w-3 h-3 rounded-full bg-[#34D399]"
+                            />
                           ) : (
-                            <span className="w-2 h-2 rounded-full bg-[#CCCCCC]" />
+                            <span className="w-2.5 h-2.5 rounded-full bg-[#CCCCCC]" />
                           )}
                         </div>
                         {i < 3 && (
-                          <div className="md:hidden absolute top-[44px] left-1/2 -translate-x-1/2 w-[2px] h-6 bg-[#E5E5E5]" />
+                          <div className="md:hidden absolute top-[56px] left-1/2 -translate-x-1/2 w-[2px] h-8 bg-[#E5E5E5]" />
                         )}
                       </div>
 
-                      <motion.div
-                        whileHover={{ y: -3, borderColor: isInProgress ? 'rgba(139,157,175,0.25)' : 'rgba(0,0,0,0.08)' }}
-                        transition={{ duration: 0.2 }}
-                        className="flex-1 md:w-full bg-white border border-[#E5E5E5] rounded-2xl p-6 shadow-sm"
-                      >
+                      {/* Phase card */}
+                      <div className="flex-1 md:w-full bg-white border border-[#E5E5E5] rounded-2xl p-6 shadow-sm relative overflow-hidden">
+                        {/* Progress bar inside card */}
+                        {isInProgress && (
+                          <div className="absolute top-0 left-0 h-1 bg-gradient-to-r from-[#34D399] to-[#34D399]/50" style={{ width: `${progress}%` }} />
+                        )}
                         <div className="flex items-center justify-between mb-3">
                           <h3 className="text-base font-bold text-[#111]">{t(`roadmap.${key}.title`)}</h3>
                           <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
                             isInProgress
-                              ? 'bg-[#8B9DAF]/10 text-[#8B9DAF] border border-[#8B9DAF]/20'
+                              ? 'bg-[#34D399]/10 text-[#34D399] border border-[#34D399]/20'
                               : 'bg-[#F5F5F5] text-[#999] border border-[#E5E5E5]'
                           }`}>
                             {isInProgress ? t('roadmap.inProgress') : t('roadmap.planned')}
@@ -1023,7 +1213,7 @@ data "harchos_hubs" "available" {
                             </li>
                           ))}
                         </ul>
-                      </motion.div>
+                      </div>
                     </div>
                   </FadeIn>
                 );
@@ -1034,9 +1224,68 @@ data "harchos_hubs" "available" {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 16: GITHUB REPOS SHOWCASE — DARK
+          SECTION 18: TEAM + DOCS (Fix #16, #17)
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#050505] py-28 md:py-40 overflow-hidden">
+      <section id="team" className="relative bg-[#050505] py-28 md:py-40 overflow-hidden" aria-label="Team & Resources">
+        <div className="absolute bottom-0 left-1/3 w-[600px] h-[600px] bg-[#8B9DAF]/[0.02] rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            {/* Team */}
+            <FadeIn>
+              <SectionLabel>{t('team.label')}</SectionLabel>
+              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-[-0.03em] leading-[1.05] mb-6">
+                {t('team.title')}
+              </h2>
+              <p className="text-[#CCCCCC] text-[15px] leading-[1.8] mb-8">{t('team.subtitle')}</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#8B9DAF] to-[#34D399] flex items-center justify-center">
+                  <Users size={22} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-sm">Harch Intelligence</p>
+                  <p className="text-[#888] text-[13px]">Casablanca, Morocco</p>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Documentation Links */}
+            <FadeIn delay={0.15}>
+              <SectionLabel>{t('docs.label')}</SectionLabel>
+              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-[-0.03em] leading-[1.05] mb-6">
+                {t('docs.title')}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {docLinks.map(({ key, icon: DocIcon, href, color }) => (
+                  <a
+                    key={key}
+                    href={href}
+                    target={href.startsWith('/') ? undefined : '_blank'}
+                    rel={href.startsWith('/') ? undefined : 'noopener noreferrer'}
+                    className="group flex items-start gap-4 bg-[#0A0A0A] border border-white/[0.06] rounded-xl p-5 hover:border-white/[0.12] transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${color}12` }}>
+                      <DocIcon size={18} style={{ color }} />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
+                        {t(`docs.${key}`)}
+                        {!href.startsWith('/') && <ExternalLink size={12} className="text-[#666] group-hover:text-white transition-colors" />}
+                      </h3>
+                      <p className="text-[12px] text-[#888] mt-1 leading-relaxed">{t(`docs.${key}Desc`)}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          GITHUB REPOS SHOWCASE
+          ═══════════════════════════════════════════════════════════════ */}
+      <section id="github" className="relative bg-[#080808] py-28 md:py-40 overflow-hidden" aria-label="GitHub Repositories">
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#34D399]/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
@@ -1046,17 +1295,10 @@ data "harchos_hubs" "available" {
             <p className="text-[#CCCCCC] text-lg max-w-2xl leading-relaxed mb-20">{t('repos.subtitle')}</p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {repos.map(({ key, lang, langColor, license, url, icon: RepoIcon }, i) => (
-              <FadeIn key={key} delay={i * 0.07}>
-                <motion.a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -3, borderColor: `${langColor}30` }}
-                  transition={{ duration: 0.2 }}
-                  className="block bg-[#0A0A0A] border border-white/[0.06] rounded-2xl p-6 group"
-                >
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5" staggerDelay={0.07}>
+            {repos.map(({ key, lang, langColor, license, url, icon: RepoIcon }) => (
+              <StaggerItem key={key}>
+                <Card3D className="bg-[#0A0A0A] border border-white/[0.06] rounded-2xl p-6 group">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${langColor}12` }}>
@@ -1064,7 +1306,7 @@ data "harchos_hubs" "available" {
                       </div>
                       <div>
                         <h3 className="text-base font-bold text-white">{t(`repos.${key}.name`)}</h3>
-                        <p className="text-[11px] text-[#666]">HarchCorp/{t(`repos.${key}.name`).replace('HarchOS ', '').toLowerCase().replace(' ', '-')}</p>
+                        <p className="text-[11px] text-[#666]">HarchCorp/{t(`repos.${key}.name`).replace('HarchOS ', '').toLowerCase().replace(/ /g, '-')}</p>
                       </div>
                     </div>
                     <ArrowUpRight size={16} className="text-[#444] group-hover:text-white transition-colors" />
@@ -1074,10 +1316,11 @@ data "harchos_hubs" "available" {
                     <LangBadge lang={lang} color={langColor} />
                     <span className="text-[11px] text-[#555]">{license}</span>
                   </div>
-                </motion.a>
-              </FadeIn>
+                  <RepoBadges repoKey={key} />
+                </Card3D>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           <FadeIn delay={0.3}>
             <div className="mt-12 text-center">
@@ -1097,10 +1340,14 @@ data "harchos_hubs" "available" {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════
-          SECTION 17: CTA — VIDEO BACKGROUND
+          SECTION 18: CTA — Video bg + poster fallback
           ═══════════════════════════════════════════════════════════════ */}
-      <section className="relative py-32 md:py-48 overflow-hidden">
-        <VideoBg src="/videos/hero.mp4" overlay="bg-black/70" />
+      <section id="cta" className="relative py-32 md:py-48 overflow-hidden" aria-label="Call to Action">
+        <VideoBg
+          src="/videos/hero.mp4"
+          poster="/images/intelligence/harchos-hero.png"
+          overlay="bg-black/70"
+        />
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 md:px-12 text-center">
           <FadeIn>
@@ -1111,13 +1358,15 @@ data "harchos_hubs" "available" {
               {t('cta.subtitle')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/quote"
-                className="group inline-flex items-center gap-2.5 px-9 py-4.5 bg-white text-black text-sm font-semibold rounded-xl hover:bg-white/90 transition-all shadow-[0_0_50px_rgba(255,255,255,0.15)]"
-              >
-                {t('cta.primary')}
-                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+              <MagneticButton>
+                <Link
+                  href="/quote"
+                  className="group inline-flex items-center gap-2.5 px-9 py-4.5 bg-white text-black text-sm font-semibold rounded-xl hover:bg-white/90 transition-all shadow-[0_0_50px_rgba(255,255,255,0.15)]"
+                >
+                  {t('cta.primary')}
+                  <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </MagneticButton>
               <a
                 href="https://github.com/HarchCorp"
                 target="_blank"

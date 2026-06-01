@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicDrift</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- ====================================================
+       TITLE SCREEN
+       ==================================================== -->
+  <div id="title-screen" class="screen active">
+    <canvas class="title-bg" id="title-canvas"></canvas>
+    <div class="title-content">
+      <div class="game-title">CosmicDrift</div>
+      <div class="game-subtitle">Meridian Colonization Protocol</div>
+      <div class="title-divider"></div>
+
+      <div class="menu-section">
+        <label>Difficulty</label>
+        <select id="difficulty-select">
+          <option value="easy">Settler - Relaxed</option>
+          <option value="normal" selected>Colonist - Standard</option>
+          <option value="hard">Survivor - Harsh</option>
+        </select>
+      </div>
+
+      <div class="menu-section">
+        <label>Map Size</label>
+        <select id="mapsize-select">
+          <option value="small">Small (30x20)</option>
+          <option value="medium" selected>Medium (40x30)</option>
+          <option value="large">Large (50x40)</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary btn-block" id="new-game-btn">New Game</button>
+      <button class="btn btn-block" id="load-game-btn">Load Game</button>
+
+      <div style="margin-top: 24px; font-size: 11px; color: var(--text-dim);">
+        WASD / Arrows: Pan &middot; Scroll: Zoom &middot; Space: End Turn
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       GAME SCREEN
+       ==================================================== -->
+  <div id="game-screen" class="screen">
+
+    <!-- Map View -->
+    <div id="map-container">
+      <canvas id="map-canvas"></canvas>
+
+      <!-- Map Overlay UI -->
+      <div id="map-overlay">
+        <div id="turn-indicator">
+          Turn <span class="turn-num" id="turn-num">1</span>
+        </div>
+        <div id="minimap-container">
+          <canvas id="minimap-canvas"></canvas>
+        </div>
+      </div>
+
+      <!-- Notification Container -->
+      <div id="notification-container"></div>
+
+      <!-- Tutorial Box -->
+      <div id="tutorial-box">
+        <div class="tutorial-text" id="tutorial-text"></div>
+        <button class="btn btn-sm" id="tutorial-dismiss">Understood</button>
+        <div class="tutorial-step" id="tutorial-step"></div>
+      </div>
+
+      <!-- Context Menu -->
+      <div id="context-menu"></div>
+
+      <!-- Action Bar -->
+      <div id="action-bar">
+        <div class="resource-item" id="res-minerals">
+          <span class="res-icon" style="color:#8a8a8a;">&#9670;</span>
+          <span class="res-value" id="res-minerals-val">0</span>
+          <span class="res-delta" id="res-minerals-delta"></span>
+        </div>
+        <div class="resource-item" id="res-energy">
+          <span class="res-icon" style="color:#c9a84c;">&#9733;</span>
+          <span class="res-value" id="res-energy-val">0</span>
+          <span class="res-delta" id="res-energy-delta"></span>
+        </div>
+        <div class="resource-item" id="res-biomass">
+          <span class="res-icon" style="color:#5b9e7a;">&#9650;</span>
+          <span class="res-value" id="res-biomass-val">0</span>
+          <span class="res-delta" id="res-biomass-delta"></span>
+        </div>
+        <div class="resource-item" id="res-water">
+          <span class="res-icon" style="color:#5b8fb9;">&#9679;</span>
+          <span class="res-value" id="res-water-val">0</span>
+          <span class="res-delta" id="res-water-delta"></span>
+        </div>
+        <div class="resource-item" id="res-credits">
+          <span class="res-icon" style="color:#c9a84c;">&#9632;</span>
+          <span class="res-value" id="res-credits-val">0</span>
+          <span class="res-delta" id="res-credits-delta"></span>
+        </div>
+        <div id="oxygen-bar">
+          <span class="o2-label">O2</span>
+          <div class="o2-track">
+            <div class="o2-fill safe" id="o2-fill" style="width:100%"></div>
+          </div>
+          <span class="res-value" id="res-oxygen-val" style="font-size:11px;">72h</span>
+        </div>
+        <div class="spacer"></div>
+        <button class="btn btn-sm" id="tech-tree-btn">Tech</button>
+        <button class="btn btn-sm" id="diplomacy-btn">Factions</button>
+        <button class="btn btn-sm" id="cloning-btn">Clones</button>
+        <button id="end-turn-btn">End Turn</button>
+      </div>
+    </div>
+
+    <!-- Info Panel (Right Sidebar) -->
+    <div id="info-panel">
+      <div class="panel-header">
+        <span id="panel-title">Overview</span>
+        <button class="close-btn" id="panel-close">&times;</button>
+      </div>
+      <div class="panel-body" id="panel-body">
+        <!-- Dynamic content inserted by ui.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       TECH TREE OVERLAY
+       ==================================================== -->
+  <div id="tech-tree-overlay" class="overlay">
+    <div class="overlay-content" style="max-width:1000px;">
+      <div class="overlay-header">
+        <h2>Technology Tree</h2>
+        <button class="btn btn-sm" id="tech-close-btn">Close</button>
+      </div>
+      <div class="overlay-body" id="tech-tree-body">
+        <!-- Dynamic tech tree content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       DIPLOMACY OVERLAY
+       ==================================================== -->
+  <div id="diplomacy-overlay" class="overlay">
+    <div class="overlay-content" style="max-width:700px;">
+      <div class="overlay-header">
+        <h2>Faction Diplomacy</h2>
+        <button class="btn btn-sm" id="diplo-close-btn">Close</button>
+      </div>
+      <div class="overlay-body" id="diplomacy-body">
+        <!-- Dynamic diplomacy content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       CLONING OVERLAY
+       ==================================================== -->
+  <div id="cloning-overlay" class="overlay">
+    <div class="overlay-content" style="max-width:600px;">
+      <div class="overlay-header">
+        <h2>Clone Management</h2>
+        <button class="btn btn-sm" id="clone-close-btn">Close</button>
+      </div>
+      <div class="overlay-body" id="cloning-body">
+        <!-- Dynamic cloning content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       LOAD GAME MODAL
+       ==================================================== -->
+  <div id="load-modal">
+    <div class="modal-content">
+      <div class="modal-header">Load Game</div>
+      <div class="modal-body" id="load-modal-body">
+        <!-- Save slots inserted dynamically -->
+      </div>
+      <div style="padding: 12px 20px; border-top: 1px solid var(--border); text-align: right;">
+        <button class="btn btn-sm" id="load-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       SCRIPTS - loaded in dependency order
+       ==================================================== -->
+  <script src="js/game.js"></script>
+  <script src="js/starmap.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/units.js"></script>
+  <script src="js/techtree.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/cloning.js"></script>
+  <script src="js/oxygen.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/save.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

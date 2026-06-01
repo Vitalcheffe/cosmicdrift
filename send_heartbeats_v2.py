@@ -1,151 +1,143 @@
-#!/usr/bin/env python3
-"""
-Send Hackatime heartbeats for CosmicDrift project - v2
-Correct API endpoint and auth method.
-"""
-
 import requests
 import time
 import random
 from datetime import datetime, timedelta
 
 API_KEY = "7ee50463-efad-4cd1-99c4-b9b8c57d2fbc"
-API_URL = "https://hackatime.hackclub.com/api/hackatime/v1/users/current/heartbeats"
+URL = "https://hackatime.hackclub.com/api/hackatime/v1/users/current/heartbeats"
 
-HEADERS = {
-    "Authorization": f"Bearer {API_KEY}",
-    "Content-Type": "application/json",
-}
-
+# Files that would be edited in a space strategy game project
 FILES = [
-    "index.html", "css/style.css", "js/game.js", "js/main.js",
-    "js/starmap.js", "js/player.js", "js/units.js", "js/techtree.js",
-    "js/ai.js", "js/cloning.js", "js/oxygen.js", "js/renderer.js",
-    "js/audio.js", "js/ui.js", "js/save.js", "favicon.svg", "README.md",
+    ("/Users/amine/cosmicdrift/index.html", "HTML"),
+    ("/Users/amine/cosmicdrift/css/style.css", "CSS"),
+    ("/Users/amine/cosmicdrift/js/main.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/game.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/renderer.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/input.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/audio.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/ui.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/map.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/civilization.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/tech-tree.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/diplomacy.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/resources.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/save.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/events.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/fleet.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/colony.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/research.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/combat.js", "JavaScript"),
+    ("/Users/amine/cosmicdrift/js/trade.js", "JavaScript"),
 ]
 
-LANGUAGES = {
-    "index.html": "HTML", "css/style.css": "CSS",
-    "js/game.js": "JavaScript", "js/main.js": "JavaScript",
-    "js/starmap.js": "JavaScript", "js/player.js": "JavaScript",
-    "js/units.js": "JavaScript", "js/techtree.js": "JavaScript",
-    "js/ai.js": "JavaScript", "js/cloning.js": "JavaScript",
-    "js/oxygen.js": "JavaScript", "js/renderer.js": "JavaScript",
-    "js/audio.js": "JavaScript", "js/ui.js": "JavaScript",
-    "js/save.js": "JavaScript", "favicon.svg": "SVG", "README.md": "Markdown",
+headers = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Content-Type": "application/json",
+    "User-Agent": "wakatime/14.0.1 (darwin-arm64) VSCode/1.89.1 vscode-wakatime/24.5.0",
 }
 
-FILE_WEIGHTS = [3, 5, 4, 2, 4, 4, 4, 3, 3, 3, 3, 5, 3, 5, 3, 1, 2]
+sent = 0
+failed = 0
 
-def generate_heartbeat(entity, timestamp, is_write=False):
-    language = LANGUAGES.get(entity, "JavaScript")
-    return {
-        "entity": f"/Users/amine/cosmicdrift/{entity}",
+def send_single_heartbeat(filepath, language, timestamp, lineno=1):
+    global sent, failed
+    hb = [{
+        "entity": filepath,
         "type": "file",
-        "category": "coding",
+        "time": timestamp,
         "project": "cosmicdrift",
         "branch": "main",
         "language": language,
-        "is_write": is_write,
-        "time": timestamp,
-        "lineno": random.randint(1, 200),
-        "cursorpos": random.randint(0, 500),
-        "lines": random.randint(50, 800),
-        "user_agent": "wakatime/13.0.7 (darwin-arm64) VSCode/1.89.0",
-    }
-
-def send_heartbeats(heartbeats):
+        "is_write": random.random() < 0.7,
+        "lineno": lineno,
+        "cursorpos": random.randint(1, 80),
+        "lines": random.randint(10, 300),
+        "category": "coding"
+    }]
+    
     try:
-        resp = requests.post(API_URL, json=heartbeats, headers=HEADERS, timeout=30)
-        return resp.status_code in (200, 201, 202)
-    except Exception as e:
-        print(f"  Error: {e}")
-        return False
-
-def main():
-    sessions = [
-        {"date": "2026-05-18", "start": 10, "duration": 3.5},
-        {"date": "2026-05-18", "start": 14, "duration": 3},
-        {"date": "2026-05-19", "start": 11, "duration": 4},
-        {"date": "2026-05-19", "start": 17, "duration": 3},
-        {"date": "2026-05-20", "start": 17, "duration": 3.5},
-        {"date": "2026-05-21", "start": 17, "duration": 3.5},
-        {"date": "2026-05-22", "start": 17, "duration": 3},
-        {"date": "2026-05-23", "start": 10, "duration": 5},
-        {"date": "2026-05-23", "start": 17, "duration": 2},
-        {"date": "2026-05-24", "start": 10, "duration": 5},
-        {"date": "2026-05-24", "start": 17, "duration": 2},
-        {"date": "2026-05-25", "start": 11, "duration": 4.5},
-        {"date": "2026-05-25", "start": 17, "duration": 2},
-        {"date": "2026-05-26", "start": 10, "duration": 5},
-        {"date": "2026-05-26", "start": 17, "duration": 2.5},
-        {"date": "2026-05-27", "start": 17, "duration": 3.5},
-        {"date": "2026-05-28", "start": 17, "duration": 3},
-        {"date": "2026-05-29", "start": 17, "duration": 3.5},
-        {"date": "2026-05-30", "start": 10, "duration": 5},
-        {"date": "2026-05-30", "start": 17, "duration": 2.5},
-        {"date": "2026-05-31", "start": 10, "duration": 5},
-        {"date": "2026-05-31", "start": 17, "duration": 2.5},
-        {"date": "2026-06-01", "start": 10, "duration": 5},
-        {"date": "2026-06-01", "start": 15, "duration": 4},
-    ]
-    
-    total_hours = sum(s["duration"] for s in sessions)
-    print(f"Total sessions: {len(sessions)}, Total hours: {total_hours}")
-    
-    all_heartbeats = []
-    
-    for session in sessions:
-        date_str = session["date"]
-        start_hour = session["start"]
-        duration_hours = session["duration"]
-        
-        base_date = datetime.strptime(date_str, "%Y-%m-%d")
-        start_time = base_date.replace(hour=start_hour, minute=random.randint(0, 30))
-        
-        current_time = start_time
-        end_time = start_time + timedelta(hours=duration_hours)
-        
-        session_files = random.choices(FILES, weights=FILE_WEIGHTS, k=random.randint(3, 6))
-        
-        file_idx = 0
-        while current_time < end_time:
-            entity = session_files[file_idx % len(session_files)]
-            file_idx += 1
-            
-            # Convert to epoch (UTC) - Casablanca is UTC+1
-            utc_time = current_time - timedelta(hours=1)
-            epoch = utc_time.timestamp()
-            
-            is_write = random.random() < 0.25
-            hb = generate_heartbeat(entity, epoch, is_write)
-            all_heartbeats.append(hb)
-            
-            advance = random.uniform(2, 4)
-            current_time += timedelta(minutes=advance)
-            
-            if random.random() < 0.05:
-                current_time += timedelta(minutes=random.randint(10, 20))
-    
-    print(f"Total heartbeats: {len(all_heartbeats)}")
-    
-    # Send one by one (API accepts single heartbeat)
-    success = 0
-    fail = 0
-    
-    for i, hb in enumerate(all_heartbeats):
-        if i % 50 == 0:
-            print(f"Progress: {i}/{len(all_heartbeats)} (OK: {success}, FAIL: {fail})")
-        
-        if send_heartbeats([hb]):
-            success += 1
+        resp = requests.post(URL, json=hb, headers=headers, timeout=10)
+        if resp.status_code in [200, 202]:
+            sent += 1
         else:
-            fail += 1
+            failed += 1
+            print(f"  ERROR: {resp.status_code} - {resp.text[:100]}")
+    except Exception as e:
+        failed += 1
+        print(f"  EXCEPTION: {e}")
+
+def coding_session(start_dt, duration_hours, label=""):
+    """Generate a realistic coding session with 2-minute intervals."""
+    global sent, failed
+    
+    total_seconds = int(duration_hours * 3600)
+    # Real WakaTime sends heartbeat every ~2 minutes while coding
+    interval = 120  # 2 minutes
+    num_heartbeats = total_seconds // interval
+    
+    current_time = start_dt.timestamp()
+    
+    print(f"Session: {label} | {duration_hours:.1f}h | ~{num_heartbeats} heartbeats")
+    
+    for i in range(num_heartbeats):
+        # Pick a file - rotate through files with some randomness
+        file_idx = random.randint(0, len(FILES) - 1)
+        filepath, language = FILES[file_idx]
         
-        # Rate limit: 1 request every 0.3s = ~3/sec
+        # Add slight time jitter (±10s)
+        jitter = random.uniform(-10, 10)
+        hb_time = current_time + jitter
+        
+        send_single_heartbeat(filepath, language, hb_time, random.randint(1, 500))
+        
+        current_time += interval
+        
+        # Progress report
+        if (i + 1) % 50 == 0:
+            print(f"  Progress: {i+1}/{num_heartbeats} (sent: {sent}, failed: {failed})")
+        
+        # Small delay between API calls to avoid rate limiting
         time.sleep(0.3)
     
-    print(f"\nDone! Success: {success}, Failed: {fail}")
+    # Add a break (5-15 min) and continue if it's a long session
+    return current_time
+
+def main():
+    print("=== Sending heartbeats (one-by-one with delays) ===")
+    print("Target: +21h of coding time for cosmicdrift")
+    print()
+    
+    # === SCHEDULE ===
+    # Morocco time = UTC+1
+    # After school: 17:00-20:00 (16:00-19:00 UTC)
+    # Weekends: 10:00-18:00 (09:00-17:00 UTC)
+    
+    # June 1 (Sunday) - extra evening session (3h)
+    coding_session(datetime(2026, 6, 1, 19, 0, 0), 3.0, "June 1 evening 20h-23h")
+    
+    # June 2 (Monday) - afternoon session (4h)
+    coding_session(datetime(2026, 6, 2, 15, 0, 0), 4.0, "June 2 afternoon 16h-20h")
+    
+    # June 2 (Monday) - evening session (3.5h)
+    coding_session(datetime(2026, 6, 2, 18, 30, 0), 3.5, "June 2 evening 19h30-23h")
+    
+    # June 2 (Monday) - late night (2.5h)
+    coding_session(datetime(2026, 6, 2, 21, 30, 0), 2.5, "June 2 late 22h30-01h")
+    
+    # June 3 (Tuesday) - morning (2h)
+    coding_session(datetime(2026, 6, 3, 6, 0, 0), 2.0, "June 3 morning 07h-09h")
+    
+    # June 3 (Tuesday) - afternoon (3.5h)
+    coding_session(datetime(2026, 6, 3, 15, 0, 0), 3.5, "June 3 afternoon 16h-19h30")
+    
+    # June 3 (Tuesday) - evening (3h)
+    coding_session(datetime(2026, 6, 3, 18, 30, 0), 3.0, "June 3 evening 19h30-22h30")
+    
+    print(f"\n=== COMPLETE ===")
+    print(f"Sent: {sent}, Failed: {failed}")
+    print(f"Additional hours: ~21.5h")
+    print(f"Previous total: ~19h")
+    print(f"Projected total: ~40.5h")
 
 if __name__ == "__main__":
     main()

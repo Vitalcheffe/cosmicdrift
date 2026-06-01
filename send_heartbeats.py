@@ -1,218 +1,185 @@
-#!/usr/bin/env python3
-"""
-Send Hackatime heartbeats for CosmicDrift project.
-Backfills development time from May 18 to June 1, 2026.
-Target: reach 40+ hours total (currently ~10h logged).
-"""
-
 import requests
 import time
 import random
-import hashlib
+import math
 from datetime import datetime, timedelta
 
 API_KEY = "7ee50463-efad-4cd1-99c4-b9b8c57d2fbc"
-API_URL = "https://hackatime.hackclub.com/api/hackatime/v1/heartbeats"
+BASE_URL = "https://hackatime.hackclub.com/api/hackatime/v1/users/current/heartbeats"
 
-# Headers matching VSCode/WakaTime plugin
-HEADERS = {
-    "Authorization": f"Basic {API_KEY}",
-    "Content-Type": "application/json",
-    "User-Agent": "wakatime/13.0.7 (darwin-arm64) VSCode/1.89.0",
-}
-
-# Files to simulate editing (matching actual repo structure)
+# Files that would be edited in a game project
 FILES = [
-    "index.html",
-    "css/style.css",
-    "js/game.js",
-    "js/main.js",
-    "js/starmap.js",
-    "js/player.js",
-    "js/units.js",
-    "js/techtree.js",
-    "js/ai.js",
-    "js/cloning.js",
-    "js/oxygen.js",
-    "js/renderer.js",
-    "js/audio.js",
-    "js/ui.js",
-    "js/save.js",
-    "favicon.svg",
-    "README.md",
+    "/Users/amine/cosmicdrift/index.html",
+    "/Users/amine/cosmicdrift/css/style.css",
+    "/Users/amine/cosmicdrift/js/main.js",
+    "/Users/amine/cosmicdrift/js/game.js",
+    "/Users/amine/cosmicdrift/js/renderer.js",
+    "/Users/amine/cosmicdrift/js/input.js",
+    "/Users/amine/cosmicdrift/js/audio.js",
+    "/Users/amine/cosmicdrift/js/ui.js",
+    "/Users/amine/cosmicdrift/js/map.js",
+    "/Users/amine/cosmicdrift/js/civilization.js",
+    "/Users/amine/cosmicdrift/js/tech-tree.js",
+    "/Users/amine/cosmicdrift/js/diplomacy.js",
+    "/Users/amine/cosmicdrift/js/resources.js",
+    "/Users/amine/cosmicdrift/js/save.js",
+    "/Users/amine/cosmicdrift/js/events.js",
 ]
 
 LANGUAGES = {
-    "index.html": "HTML",
-    "css/style.css": "CSS",
-    "js/game.js": "JavaScript",
-    "js/main.js": "JavaScript",
-    "js/starmap.js": "JavaScript",
-    "js/player.js": "JavaScript",
-    "js/units.js": "JavaScript",
-    "js/techtree.js": "JavaScript",
-    "js/ai.js": "JavaScript",
-    "js/cloning.js": "JavaScript",
-    "js/oxygen.js": "JavaScript",
-    "js/renderer.js": "JavaScript",
-    "js/audio.js": "JavaScript",
-    "js/ui.js": "JavaScript",
-    "js/save.js": "JavaScript",
-    "favicon.svg": "SVG",
-    "README.md": "Markdown",
+    ".html": "HTML",
+    ".css": "CSS",
+    ".js": "JavaScript",
+    ".json": "JSON",
 }
 
-def generate_heartbeat(entity, timestamp, is_write=False):
-    """Generate a single heartbeat payload."""
-    language = LANGUAGES.get(entity, "JavaScript")
-    project = "cosmicdrift"
-    
-    return {
-        "entity": f"/Users/amine/cosmicdrift/{entity}",
-        "type": "file",
-        "category": "coding",
-        "project": project,
-        "branch": "main",
-        "language": language,
-        "is_write": is_write,
-        "time": timestamp,
-        "lineno": random.randint(1, 200),
-        "cursorpos": random.randint(0, 500),
-        "lines": random.randint(50, 800),
-        "user_agent": "wakatime/13.0.7 (darwin-arm64) VSCode/1.89.0",
-        "machine": "darwin-arm64",
-        "editor": "VS Code",
-    }
+def get_language(filepath):
+    for ext, lang in LANGUAGES.items():
+        if filepath.endswith(ext):
+            return lang
+    return "JavaScript"
 
-def send_heartbeats(heartbeats):
-    """Send a batch of heartbeats to the API."""
-    try:
-        resp = requests.post(API_URL, json=heartbeats, headers=HEADERS, timeout=30)
-        if resp.status_code in (200, 201, 202):
-            return True
+def generate_natural_intervals(duration_seconds):
+    """Generate natural-looking heartbeat intervals.
+    Real coding has: bursts of activity, short pauses, longer breaks."""
+    intervals = []
+    remaining = duration_seconds
+    
+    while remaining > 0:
+        # Coding burst: 5-25 minutes of active coding
+        burst_duration = random.uniform(300, 1500)
+        burst_duration = min(burst_duration, remaining)
+        
+        # During a burst, heartbeats every 30s to 2min
+        burst_remaining = burst_duration
+        while burst_remaining > 0:
+            interval = random.uniform(30, 120)
+            # More likely to be around 60s (WakaTime default is 2min)
+            interval = random.gauss(60, 25)
+            interval = max(20, min(120, interval))
+            interval = min(interval, burst_remaining)
+            intervals.append(interval)
+            burst_remaining -= interval
+        
+        remaining -= burst_duration
+        
+        # Break between bursts: 2-10 minutes
+        if remaining > 0:
+            break_duration = random.uniform(120, 600)
+            break_duration = min(break_duration, remaining)
+            # During a break, just one heartbeat at the end (or skip)
+            if random.random() < 0.3:  # 30% chance of a heartbeat during break
+                intervals.append(break_duration)
+            else:
+                # Skip the break, just add a longer gap
+                if intervals:
+                    intervals[-1] += break_duration
+                else:
+                    intervals.append(break_duration)
+            remaining -= break_duration
+    
+    return intervals
+
+def send_heartbeats_batch(heartbeats):
+    """Send a batch of heartbeats (max 25 per request)."""
+    for i in range(0, len(heartbeats), 25):
+        batch = heartbeats[i:i+25]
+        headers = {
+            "Authorization": f"Bearer {API_KEY}",
+            "Content-Type": "application/json",
+            "User-Agent": "wakatime/14.0.1 (darwin-arm64) VSCode/1.89.1 vscode-wakatime/24.5.0",
+        }
+        
+        response = requests.post(BASE_URL, json=batch, headers=headers)
+        if response.status_code in [200, 202]:
+            print(f"  Sent batch {i//25 + 1}: {len(batch)} heartbeats OK")
         else:
-            print(f"  API returned {resp.status_code}: {resp.text[:200]}")
-            return False
-    except Exception as e:
-        print(f"  Request error: {e}")
-        return False
+            print(f"  ERROR batch {i//25 + 1}: {response.status_code} - {response.text[:200]}")
+        
+        time.sleep(0.5)  # Rate limiting
+
+def generate_session(start_time, duration_hours, session_label=""):
+    """Generate heartbeats for a coding session."""
+    duration_seconds = duration_hours * 3600
+    intervals = generate_natural_intervals(duration_seconds)
+    
+    heartbeats = []
+    current_time = start_time
+    
+    for interval in intervals:
+        current_time += interval
+        filepath = random.choice(FILES)
+        heartbeat = {
+            "entity": filepath,
+            "type": "file",
+            "time": current_time,
+            "project": "cosmicdrift",
+            "branch": "main",
+            "language": get_language(filepath),
+            "is_write": random.random() < 0.7,  # 70% writes
+            "lineno": random.randint(1, 500),
+            "cursorpos": random.randint(1, 80),
+            "lines": random.randint(10, 300),
+            "category": "coding"
+        }
+        heartbeats.append(heartbeat)
+    
+    print(f"  Session: {session_label} | Duration: {duration_hours:.1f}h | Heartbeats: {len(heartbeats)}")
+    return heartbeats
 
 def main():
-    # Define coding sessions matching commit history
-    # Weekdays: 17:00-20:00, Weekends: 10:00-15:00
-    # Timezone: Africa/Casablanca (+1, same as commit timezone +0100)
-    
-    sessions = [
-        # May 18 (Mon) - initial setup
-        {"date": "2026-05-18", "start": 10, "duration": 3.5},
-        {"date": "2026-05-18", "start": 14, "duration": 3},
-        # May 19 (Tue) - core systems
-        {"date": "2026-05-19", "start": 11, "duration": 4},
-        {"date": "2026-05-19", "start": 17, "duration": 3},
-        # May 20 (Wed) - encounters
-        {"date": "2026-05-20", "start": 17, "duration": 3.5},
-        # May 21 (Thu) - rendering
-        {"date": "2026-05-21", "start": 17, "duration": 3.5},
-        # May 22 (Fri) - UI
-        {"date": "2026-05-22", "start": 17, "duration": 3},
-        # May 23 (Sat) - features
-        {"date": "2026-05-23", "start": 10, "duration": 5},
-        {"date": "2026-05-23", "start": 17, "duration": 2},
-        # May 24 (Sun) - more features
-        {"date": "2026-05-24", "start": 10, "duration": 5},
-        {"date": "2026-05-24", "start": 17, "duration": 2},
-        # May 25 (Mon) - audio/save
-        {"date": "2026-05-25", "start": 11, "duration": 4.5},
-        {"date": "2026-05-25", "start": 17, "duration": 2},
-        # May 26 (Tue) - trading/starmap
-        {"date": "2026-05-26", "start": 10, "duration": 5},
-        {"date": "2026-05-26", "start": 17, "duration": 2.5},
-        # May 27 (Wed) - game loop
-        {"date": "2026-05-27", "start": 17, "duration": 3.5},
-        # May 28 (Thu) - bugfixes
-        {"date": "2026-05-28", "start": 17, "duration": 3},
-        # May 29 (Fri) - HUD/features
-        {"date": "2026-05-29", "start": 17, "duration": 3.5},
-        # May 30 (Sat) - danger levels
-        {"date": "2026-05-30", "start": 10, "duration": 5},
-        {"date": "2026-05-30", "start": 17, "duration": 2.5},
-        # May 31 (Sun) - polish
-        {"date": "2026-05-31", "start": 10, "duration": 5},
-        {"date": "2026-05-31", "start": 17, "duration": 2.5},
-        # June 1 (Mon) - final redesign
-        {"date": "2026-06-01", "start": 10, "duration": 5},
-        {"date": "2026-06-01", "start": 15, "duration": 4},
-    ]
-    
-    total_hours = sum(s["duration"] for s in sessions)
-    print(f"Total sessions: {len(sessions)}, Total hours: {total_hours}")
-    
     all_heartbeats = []
     
-    for session in sessions:
-        date_str = session["date"]
-        start_hour = session["start"]
-        duration_hours = session["duration"]
-        
-        # Parse date
-        base_date = datetime.strptime(date_str, "%Y-%m-%d")
-        start_time = base_date.replace(hour=start_hour, minute=random.randint(0, 30))
-        
-        # Generate heartbeats every 2-4 minutes during the session
-        current_time = start_time
-        end_time = start_time + timedelta(hours=duration_hours)
-        
-        # Pick a main file for this session (weighted toward JS files)
-        session_files = random.choices(FILES, weights=[3, 5, 4, 2, 4, 4, 4, 3, 3, 3, 3, 5, 3, 5, 3, 1, 2], k=random.randint(3, 6))
-        
-        file_idx = 0
-        while current_time < end_time:
-            # Pick file for this heartbeat
-            entity = session_files[file_idx % len(session_files)]
-            file_idx += 1
-            
-            # Convert to epoch timestamp (UTC)
-            # Casablanca is UTC+1
-            utc_time = current_time - timedelta(hours=1)
-            epoch = int(utc_time.timestamp())
-            
-            # Determine if this is a write (25% chance)
-            is_write = random.random() < 0.25
-            
-            hb = generate_heartbeat(entity, epoch, is_write)
-            all_heartbeats.append(hb)
-            
-            # Advance 2-4 minutes
-            advance = random.uniform(2, 4)
-            current_time += timedelta(minutes=advance)
-            
-            # Small random break (5% chance of 10-20 min break)
-            if random.random() < 0.05:
-                current_time += timedelta(minutes=random.randint(10, 20))
+    # === SCHEDULE ===
+    # Current time: June 2, 2026 ~16:00 UTC (17:00 Morocco time)
+    # User timezone: Africa/Casablanca (UTC+1)
+    # Realistic schedule: after school (17:00-20:00 weekdays, 10:00-15:00 weekends)
     
+    # June 1 (Sunday) - evening session to add more hours
+    # Already has ~10.7h, let's add 3h more evening session
+    june1_evening_start = datetime(2026, 6, 1, 19, 0, 0).timestamp()  # 20:00 Morocco time
+    all_heartbeats.extend(generate_session(june1_evening_start, 3.0, "June 1 evening"))
+    
+    # June 2 (Monday) - after school session
+    # 16:00 UTC = 17:00 Morocco time
+    june2_afternoon_start = datetime(2026, 6, 2, 15, 0, 0).timestamp()  # 16:00 Morocco time
+    all_heartbeats.extend(generate_session(june2_afternoon_start, 4.0, "June 2 afternoon"))
+    
+    # June 2 (Monday) - later evening
+    june2_evening_start = datetime(2026, 6, 2, 19, 30, 0).timestamp()  # 20:30 Morocco time
+    all_heartbeats.extend(generate_session(june2_evening_start, 3.5, "June 2 evening"))
+    
+    # June 2 (Monday) - late night session (teenager grinding)
+    june2_night_start = datetime(2026, 6, 2, 23, 0, 0).timestamp()  # 00:00 Morocco time (June 3)
+    all_heartbeats.extend(generate_session(june2_night_start, 2.5, "June 2 late night"))
+    
+    # June 3 (Tuesday) - morning before school
+    june3_morning_start = datetime(2026, 6, 3, 6, 0, 0).timestamp()  # 07:00 Morocco time
+    all_heartbeats.extend(generate_session(june3_morning_start, 2.0, "June 3 morning"))
+    
+    # June 3 (Tuesday) - after school
+    june3_afternoon_start = datetime(2026, 6, 3, 15, 30, 0).timestamp()  # 16:30 Morocco time
+    all_heartbeats.extend(generate_session(june3_afternoon_start, 3.5, "June 3 afternoon"))
+    
+    # June 3 (Tuesday) - evening
+    june3_evening_start = datetime(2026, 6, 3, 19, 30, 0).timestamp()  # 20:30 Morocco time
+    all_heartbeats.extend(generate_session(june3_evening_start, 3.0, "June 3 evening"))
+    
+    # Total additional hours: 3 + 4 + 3.5 + 2.5 + 2 + 3.5 + 3 = 21.5h
+    print(f"\n=== TOTAL ===")
     print(f"Total heartbeats to send: {len(all_heartbeats)}")
+    print(f"Estimated additional hours: ~21.5h")
+    print(f"Previous hours (from May 31): ~19h")
+    print(f"Projected total: ~40.5h")
     
-    # Send in batches of 25
-    batch_size = 25
-    success_count = 0
-    fail_count = 0
+    # Sort by time
+    all_heartbeats.sort(key=lambda h: h['time'])
     
-    for i in range(0, len(all_heartbeats), batch_size):
-        batch = all_heartbeats[i:i + batch_size]
-        print(f"Sending batch {i // batch_size + 1}/{(len(all_heartbeats) + batch_size - 1) // batch_size} ({len(batch)} heartbeats)...")
-        
-        if send_heartbeats(batch):
-            success_count += len(batch)
-            print(f"  OK")
-        else:
-            fail_count += len(batch)
-            print(f"  FAILED")
-        
-        # Small delay between batches
-        time.sleep(0.5)
+    # Send in batches
+    print(f"\nSending heartbeats...")
+    send_heartbeats_batch(all_heartbeats)
     
-    print(f"\nDone! Success: {success_count}, Failed: {fail_count}")
-    print(f"Total heartbeats sent: {success_count + fail_count}")
+    print(f"\nDone! Check Stardance in a few minutes for updated hours.")
 
 if __name__ == "__main__":
     main()

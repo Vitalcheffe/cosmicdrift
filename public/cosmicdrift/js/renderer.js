@@ -1,818 +1,484 @@
-/* ============================================================
-   CosmicDrift - renderer.js
-   Canvas rendering for the hex map, camera, units, buildings
-   ============================================================ */
+/* ============================================
+   CosmicDrift - Canvas Hex Map Renderer
+   ============================================ */
 
-const Renderer = (function () {
-  'use strict';
+class Renderer {
+  constructor(canvas, minimapCanvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.minimapCanvas = minimapCanvas;
+    this.minimapCtx = minimapCanvas.getContext('2d');
 
-  // ----------------------------------------------------------
-  // State
-  // ----------------------------------------------------------
-  let canvas = null;
-  let ctx = null;
-  let minimapCanvas = null;
-  let minimapCtx = null;
+    this.hexSize = 28; // Base hex radius
+    this.hexWidth = Math.sqrt(3) * this.hexSize;
+    this.hexHeight = 2 * this.hexSize;
 
-  const camera = { x: 0, y: 0, zoom: 1.0 };
-  const HEX_SIZE = 24;
-  const MIN_HEX_SIZE = 12;
-  const MAX_HEX_SIZE = 48;
+    // Camera
+    this.cameraX = 0; // pixel offset
+    this.cameraY = 0;
+    this.zoom = 1;
+    this.targetZoom = 1;
+    this.minZoom = 0.3;
+    this.maxZoom = 2.5;
 
-  let isDragging = false;
-  let didDrag = false;       // true if mouse actually moved during drag
-  let dragStart = { x: 0, y: 0 };
-  let cameraStart = { x: 0, y: 0 };
+    // Interaction
+    this.isDragging = false;
+    this.dragMoved = false; // Track if a real drag happened
+    this.dragStartX = 0;
+    this.dragStartY = 0;
+    this.dragCamStartX = 0;
+    this.dragCamStartY = 0;
 
-  let animFrame = null;
-  let lastRenderTime = 0;
+    // Animation
+    this.animationFrame = 0;
 
-  // Highlight state
-  let hoveredHex = null;
-  let moveRange = [];     // hexes the selected unit can move to
-  let attackTargets = []; // hexes the selected unit can attack
+    this.resize();
+    this.setupEvents();
+  }
 
-  // ----------------------------------------------------------
-  // Initialization
-  // ----------------------------------------------------------
-  function init() {
-    canvas = document.getElementById('map-canvas');
-    if (!canvas) return;
+  /* ---------- SIZING ---------- */
+  resize() {
+    const rect = this.canvas.parentElement.getBoundingClientRect();
+    this.canvas.width = rect.width * window.devicePixelRatio;
+    this.canvas.height = rect.height * window.devicePixelRatio;
+    this.canvas.style.width = rect.width + 'px';
+    this.canvas.style.height = rect.height + 'px';
+    this.ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+    this.screenW = rect.width;
+    this.screenH = rect.height;
+  }
 
-    ctx = canvas.getContext('2d');
-    resizeCanvas();
+  /* ---------- HEX MATH (pointy-top) ---------- */
+  hexToPixel(q, r) {
+    const size = this.hexSize * this.zoom;
+    const x = size * (Math.sqrt(3) * q + Math.sqrt(3) / 2 * r);
+    const y = size * (3 / 2 * r);
+    return { x: x + this.cameraX, y: y + this.cameraY };
+  }
 
-    // Minimap
-    minimapCanvas = document.getElementById('minimap-canvas');
-    if (minimapCanvas) {
-      minimapCtx = minimapCanvas.getContext('2d');
-      minimapCanvas.width = 160;
-      minimapCanvas.height = 120;
+  pixelToHex(px, py) {
+    const x = (px - this.cameraX) / this.zoom;
+    const y = (py - this.cameraY) / this.zoom;
+    const size = this.hexSize;
+
+    const q = (Math.sqrt(3) / 3 * x - 1 / 3 * y) / size;
+    const r = (2 / 3 * y) / size;
+
+    return this.hexRound(q, r);
+  }
+
+  hexRound(q, r) {
+    const s = -q - r;
+    let rq = Math.round(q);
+    let rr = Math.round(r);
+    let rs = Math.round(s);
+
+    const dq = Math.abs(rq - q);
+    const dr = Math.abs(rr - r);
+    const ds = Math.abs(rs - s);
+
+    if (dq > dr && dq > ds) {
+      rq = -rr - rs;
+    } else if (dr > ds) {
+      rr = -rq - rs;
     }
 
-    // Set initial camera to player start
-    const start = StarMap.getPlayerStart();
-    const pos = StarMap.hexToPixel(start.q, start.r, HEX_SIZE);
-    camera.x = -pos.x;
-    camera.y = -pos.y;
-    Game.STATE.camera = camera;
-
-    // Event listeners
-    setupInput();
-
-    // Listen for game events
-    Game.on('unit:moved', () => { updateMoveRange(); });
-    Game.on('unit:created', () => {});
-    Game.on('turn:start', () => { updateMoveRange(); });
-
-    // Start render loop
-    renderLoop();
+    return { q: rq, r: rr };
   }
 
-  function resizeCanvas() {
-    if (!canvas) return;
-    const container = document.getElementById('map-container');
-    if (!container) return;
-    canvas.width = container.clientWidth;
-    canvas.height = container.clientHeight;
+  /* ---------- CAMERA ---------- */
+  centerOnTile(q, r) {
+    const size = this.hexSize * this.zoom;
+    this.cameraX = this.screenW / 2 - size * (Math.sqrt(3) * q + Math.sqrt(3) / 2 * r);
+    this.cameraY = this.screenH / 2 - size * (3 / 2 * r);
   }
 
-  // ----------------------------------------------------------
-  // Input Handling
-  // ----------------------------------------------------------
-  function setupInput() {
-    // Mouse drag for panning
-    canvas.addEventListener('mousedown', (e) => {
-      if (e.button === 0) {
-        isDragging = true;
-        didDrag = false;
-        dragStart = { x: e.clientX, y: e.clientY };
-        cameraStart = { x: camera.x, y: camera.y };
-        canvas.classList.add('grabbing');
-      }
+  clampCamera() {
+    // Soft bounds so map doesn't go too far offscreen
+    const size = this.hexSize * this.zoom;
+    const mapPixelW = size * Math.sqrt(3) * game.mapCols;
+    const mapPixelH = size * 1.5 * game.mapRows;
+
+    const margin = 200;
+    const minX = -mapPixelW - margin;
+    const maxX = this.screenW + margin;
+    const minY = -mapPixelH - margin;
+    const maxY = this.screenH + margin;
+
+    this.cameraX = Math.max(minX, Math.min(maxX, this.cameraX));
+    this.cameraY = Math.max(minY, Math.min(maxY, this.cameraY));
+  }
+
+  /* ---------- EVENTS ---------- */
+  setupEvents() {
+    // Mouse drag
+    this.canvas.addEventListener('mousedown', (e) => {
+      this.isDragging = true;
+      this.dragMoved = false;
+      this.dragStartX = e.clientX;
+      this.dragStartY = e.clientY;
+      this.dragCamStartX = this.cameraX;
+      this.dragCamStartY = this.cameraY;
     });
 
     window.addEventListener('mousemove', (e) => {
-      if (isDragging) {
-        const dx = e.clientX - dragStart.x;
-        const dy = e.clientY - dragStart.y;
+      if (this.isDragging) {
+        const dx = e.clientX - this.dragStartX;
+        const dy = e.clientY - this.dragStartY;
         if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
-          didDrag = true;
+          this.dragMoved = true;
         }
-        camera.x = cameraStart.x + dx / camera.zoom;
-        camera.y = cameraStart.y + dy / camera.zoom;
-      }
-
-      // Update hovered hex
-      if (canvas) {
-        const rect = canvas.getBoundingClientRect();
-        const mx = e.clientX - rect.left;
-        const my = e.clientY - rect.top;
-        const worldPos = screenToWorld(mx, my);
-        const hex = StarMap.pixelToHex(worldPos.x, worldPos.y, HEX_SIZE);
-        const hexData = StarMap.getHex(hex.q, hex.r);
-        hoveredHex = hexData ? hex : null;
+        this.cameraX = this.dragCamStartX + dx;
+        this.cameraY = this.dragCamStartY + dy;
+        this.clampCamera();
       }
     });
 
     window.addEventListener('mouseup', () => {
-      isDragging = false;
-      if (canvas) canvas.classList.remove('grabbing');
+      this.isDragging = false;
     });
 
-    // Click to select hex/unit
-    canvas.addEventListener('click', (e) => {
-      if (didDrag) return;
-
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-      const worldPos = screenToWorld(mx, my);
-      const hex = StarMap.pixelToHex(worldPos.x, worldPos.y, HEX_SIZE);
-
-      handleHexClick(hex.q, hex.r, e.button);
-    });
-
-    // Right-click for context menu / movement
-    canvas.addEventListener('contextmenu', (e) => {
-      e.preventDefault();
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-      const worldPos = screenToWorld(mx, my);
-      const hex = StarMap.pixelToHex(worldPos.x, worldPos.y, HEX_SIZE);
-
-      handleHexRightClick(hex.q, hex.r, e.clientX, e.clientY);
-    });
-
-    // Zoom with scroll wheel
-    canvas.addEventListener('wheel', (e) => {
+    // Zoom
+    this.canvas.addEventListener('wheel', (e) => {
       e.preventDefault();
       const delta = e.deltaY > 0 ? -0.1 : 0.1;
-      camera.zoom = Math.max(0.5, Math.min(2.0, camera.zoom + delta));
+      const oldZoom = this.zoom;
+      this.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.zoom + delta));
+
+      // Zoom toward cursor
+      const rect = this.canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+
+      const scale = this.zoom / oldZoom;
+      this.cameraX = mx - (mx - this.cameraX) * scale;
+      this.cameraY = my - (my - this.cameraY) * scale;
+      this.clampCamera();
     }, { passive: false });
 
-    // Keyboard
-    const keysDown = {};
+    // Touch support
+    let touchStartX = 0, touchStartY = 0, touchCamX = 0, touchCamY = 0;
+    let lastTouchDist = 0;
+
+    this.canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchCamX = this.cameraX;
+        touchCamY = this.cameraY;
+      } else if (e.touches.length === 2) {
+        lastTouchDist = Math.hypot(
+          e.touches[1].clientX - e.touches[0].clientX,
+          e.touches[1].clientY - e.touches[0].clientY
+        );
+      }
+      e.preventDefault();
+    }, { passive: false });
+
+    this.canvas.addEventListener('touchmove', (e) => {
+      if (e.touches.length === 1) {
+        this.cameraX = touchCamX + (e.touches[0].clientX - touchStartX);
+        this.cameraY = touchCamY + (e.touches[0].clientY - touchStartY);
+        this.clampCamera();
+      } else if (e.touches.length === 2) {
+        const dist = Math.hypot(
+          e.touches[1].clientX - e.touches[0].clientX,
+          e.touches[1].clientY - e.touches[0].clientY
+        );
+        const scale = dist / lastTouchDist;
+        const oldZoom = this.zoom;
+        this.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.zoom * scale));
+        lastTouchDist = dist;
+      }
+      e.preventDefault();
+    }, { passive: false });
+
+    // Keyboard pan
+    this.keysDown = {};
     window.addEventListener('keydown', (e) => {
-      keysDown[e.key] = true;
-      handleKeyDown(e);
+      this.keysDown[e.key] = true;
     });
     window.addEventListener('keyup', (e) => {
-      keysDown[e.key] = false;
-    });
-
-    // Camera pan with keyboard (continuous)
-    setInterval(() => {
-      const panSpeed = 8 / camera.zoom;
-      if (keysDown['w'] || keysDown['W'] || keysDown['ArrowUp']) camera.y += panSpeed;
-      if (keysDown['s'] || keysDown['S'] || keysDown['ArrowDown']) camera.y -= panSpeed;
-      if (keysDown['a'] || keysDown['A'] || keysDown['ArrowLeft']) camera.x += panSpeed;
-      if (keysDown['d'] || keysDown['D'] || keysDown['ArrowRight']) camera.x -= panSpeed;
-    }, 16);
-
-    // Resize
-    window.addEventListener('resize', resizeCanvas);
-  }
-
-  function handleKeyDown(e) {
-    if (e.key === ' ' || e.code === 'Space') {
-      e.preventDefault();
-      Game.endTurn();
-    }
-    if (e.key === 'Escape') {
-      Game.STATE.selectedHex = null;
-      Game.STATE.selectedUnit = null;
-      moveRange = [];
-      attackTargets = [];
-      if (typeof UI !== 'undefined') UI.showOverview();
-    }
-  }
-
-  // ----------------------------------------------------------
-  // Hex Click Handling
-  // ----------------------------------------------------------
-  function handleHexClick(q, r) {
-    const hex = StarMap.getHex(q, r);
-    if (!hex || hex.visibility === 0) return;
-
-    // If we have a selected unit and clicking in move range, move it
-    if (Game.STATE.selectedUnit) {
-      const unit = Game.STATE.selectedUnit;
-
-      // Check if clicking on attack target
-      if (attackTargets.some(t => t.q === q && t.r === r)) {
-        const target = Units.getUnitAt(q, r);
-        if (target) {
-          Units.attackUnit(unit, target);
-          updateMoveRange();
-          Game.emit('selection:changed');
-          return;
-        }
-      }
-
-      // Check if clicking in move range
-      if (moveRange.some(t => t.q === q && t.r === r)) {
-        Units.moveUnit(unit, q, r);
-        updateMoveRange();
-        Game.emit('selection:changed');
-        return;
-      }
-    }
-
-    // Select the hex
-    Game.STATE.selectedHex = { q, r };
-
-    // Select unit on the hex if it's the player's
-    if (hex.unit && hex.unit.owner === 'player') {
-      Game.STATE.selectedUnit = hex.unit;
-      updateMoveRange();
-    } else {
-      Game.STATE.selectedUnit = null;
-      moveRange = [];
-      attackTargets = [];
-    }
-
-    Game.emit('selection:changed');
-  }
-
-  function handleHexRightClick(q, r, screenX, screenY) {
-    const hex = StarMap.getHex(q, r);
-    if (!hex || hex.visibility === 0) return;
-
-    // Show context menu
-    if (typeof UI !== 'undefined') {
-      UI.showContextMenu(screenX, screenY, hex);
-    }
-  }
-
-  // ----------------------------------------------------------
-  // Move Range Calculation
-  // ----------------------------------------------------------
-  function updateMoveRange() {
-    moveRange = [];
-    attackTargets = [];
-
-    const unit = Game.STATE.selectedUnit;
-    if (!unit || unit.hasMoved) return;
-
-    // Flood fill from unit position
-    const visited = new Map();
-    const queue = [{ q: unit.q, r: unit.r, moves: unit.movePoints }];
-    visited.set(StarMap.hexKey(unit.q, unit.r), unit.movePoints);
-
-    while (queue.length > 0) {
-      const current = queue.shift();
-      const neighbors = StarMap.getNeighbors(current.q, current.r);
-
-      for (const nb of neighbors) {
-        const nbHex = StarMap.getHex(nb.q, nb.r);
-        if (!nbHex || nbHex.visibility === 0) continue;
-
-        const biome = StarMap.BIOMES[nbHex.biome];
-        const cost = nbHex.road ? 0.5 : biome.moveCost;
-        const remaining = current.moves - cost;
-
-        if (remaining < 0) continue;
-
-        const key = StarMap.hexKey(nb.q, nb.r);
-        const prevRemaining = visited.get(key);
-
-        if (prevRemaining !== undefined && prevRemaining >= remaining) continue;
-
-        visited.set(key, remaining);
-
-        // If enemy unit, it's an attack target, not a move target
-        if (nbHex.unit && nbHex.unit.owner !== unit.owner) {
-          if (!attackTargets.some(t => t.q === nb.q && t.r === nb.r)) {
-            attackTargets.push({ q: nb.q, r: nb.r });
-          }
-          continue; // can't move through enemies
-        }
-
-        // If friendly unit, can't move there but can pass through
-        if (nbHex.unit && nbHex.unit.owner === unit.owner) {
-          continue;
-        }
-
-        moveRange.push({ q: nb.q, r: nb.r });
-        queue.push({ q: nb.q, r: nb.r, moves: remaining });
-      }
-    }
-
-    // Remove duplicates from moveRange
-    const seen = new Set();
-    moveRange = moveRange.filter(m => {
-      const key = StarMap.hexKey(m.q, m.r);
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
+      this.keysDown[e.key] = false;
     });
   }
 
-  // ----------------------------------------------------------
-  // Coordinate Transforms
-  // ----------------------------------------------------------
-  function worldToScreen(wx, wy) {
-    return {
-      x: (wx + camera.x) * camera.zoom + canvas.width / 2,
-      y: (wy + camera.y) * camera.zoom + canvas.height / 2
-    };
+  updateKeyboardPan() {
+    const speed = 8;
+    if (this.keysDown['w'] || this.keysDown['W'] || this.keysDown['ArrowUp']) this.cameraY += speed;
+    if (this.keysDown['s'] || this.keysDown['S'] || this.keysDown['ArrowDown']) this.cameraY -= speed;
+    if (this.keysDown['a'] || this.keysDown['A'] || this.keysDown['ArrowLeft']) this.cameraX += speed;
+    if (this.keysDown['d'] || this.keysDown['D'] || this.keysDown['ArrowRight']) this.cameraX -= speed;
+    this.clampCamera();
   }
 
-  function screenToWorld(sx, sy) {
-    return {
-      x: (sx - canvas.width / 2) / camera.zoom - camera.x,
-      y: (sy - canvas.height / 2) / camera.zoom - camera.y
-    };
-  }
+  /* ---------- DRAWING ---------- */
+  draw() {
+    this.updateKeyboardPan();
+    this.animationFrame++;
 
-  // ----------------------------------------------------------
-  // Render Loop
-  // ----------------------------------------------------------
-  function renderLoop(time) {
-    animFrame = requestAnimationFrame(renderLoop);
-
-    // Throttle to ~30fps for performance
-    if (time - lastRenderTime < 33) return;
-    lastRenderTime = time;
-
-    if (!ctx || !canvas) return;
-    if (Game.STATE.phase !== 'playing') return;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const ctx = this.ctx;
+    ctx.clearRect(0, 0, this.screenW, this.screenH);
 
     // Background
-    ctx.fillStyle = '#0a0a0c';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#0e0e10';
+    ctx.fillRect(0, 0, this.screenW, this.screenH);
 
-    drawHexGrid();
-    drawMoveHighlights();
-    drawBuildings();
-    drawUnits();
-    drawSelection();
-    drawMinimap();
-  }
-
-  // ----------------------------------------------------------
-  // Draw Hex Grid
-  // ----------------------------------------------------------
-  function drawHexGrid() {
-    const mapData = StarMap.getMapData();
-    if (!mapData) return;
-
-    for (const [key, hex] of mapData.hexes) {
-      // Only render hexes that might be visible on screen
-      const pos = StarMap.hexToPixel(hex.q, hex.r, HEX_SIZE);
-      const screen = worldToScreen(pos.x, pos.y);
-      const screenRadius = HEX_SIZE * camera.zoom;
-
-      // Culling: skip hexes off screen
-      if (screen.x < -screenRadius * 2 || screen.x > canvas.width + screenRadius * 2) continue;
-      if (screen.y < -screenRadius * 2 || screen.y > canvas.height + screenRadius * 2) continue;
-
-      drawHex(hex, screen.x, screen.y, screenRadius);
+    // Draw grid
+    for (const key in game.map) {
+      const tile = game.map[key];
+      this.drawHex(tile);
     }
+
+    // Draw grid lines
+    for (const key in game.map) {
+      const tile = game.map[key];
+      if (tile.visible || tile.explored) {
+        this.drawHexOutline(tile);
+      }
+    }
+
+    // Draw selection
+    if (game.selectedTile) {
+      this.drawHexHighlight(game.selectedTile, '#4d8bce', 3);
+    }
+
+    // Draw hover
+    if (game.hoveredTile && game.hoveredTile !== game.selectedTile) {
+      this.drawHexHighlight(game.hoveredTile, '#8888aa', 1.5);
+    }
+
+    // Draw colonies
+    for (const col of game.colonies) {
+      const tile = game.getTile(col.q, col.r);
+      if (tile && tile.visible) {
+        this.drawColonyMarker(tile);
+      }
+    }
+
+    // Draw clones
+    for (const clone of game.clones) {
+      const tile = game.getTile(clone.q, clone.r);
+      if (tile && tile.visible) {
+        this.drawCloneMarker(tile, clone);
+      }
+    }
+
+    // Draw minimap
+    this.drawMinimap();
   }
 
-  function drawHex(hex, cx, cy, radius) {
-    const biome = StarMap.BIOMES[hex.biome];
+  drawHex(tile) {
+    const ctx = this.ctx;
+    const pos = this.hexToPixel(tile.q, tile.r);
+    const size = this.hexSize * this.zoom;
+
+    // Frustum culling
+    if (pos.x < -size * 2 || pos.x > this.screenW + size * 2 ||
+        pos.y < -size * 2 || pos.y > this.screenH + size * 2) {
+      return;
+    }
+
+    const biome = BIOMES[tile.biome];
+    if (!biome) return;
+
+    // Determine color based on visibility
     let fillColor;
-
-    if (hex.visibility === 0) {
-      fillColor = '#0a0a0c';
-    } else if (hex.visibility === 1) {
-      // Fog of war - dimmed version
-      fillColor = dimColor(biome.color, 0.5);
-    } else {
+    if (tile.visible) {
       fillColor = biome.color;
+    } else if (tile.explored) {
+      fillColor = biome.colorDark;
+    } else {
+      fillColor = '#111114';
     }
 
-    // Draw flat-top hex shape (offset by 30° from pointy-top)
+    // Draw hex shape
     ctx.beginPath();
     for (let i = 0; i < 6; i++) {
-      const angle = Math.PI / 3 * i + Math.PI / 6;
-      const hx = cx + radius * Math.cos(angle);
-      const hy = cy + radius * Math.sin(angle);
+      const angle = Math.PI / 180 * (60 * i - 30);
+      const hx = pos.x + size * Math.cos(angle);
+      const hy = pos.y + size * Math.sin(angle);
       if (i === 0) ctx.moveTo(hx, hy);
       else ctx.lineTo(hx, hy);
     }
     ctx.closePath();
-
     ctx.fillStyle = fillColor;
     ctx.fill();
 
-    // Border
-    ctx.strokeStyle = hex.visibility === 0 ? '#08080a' :
-                      hex.visibility === 1 ? '#1a1a20' : '#2a2a32';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-
-    // Territory border
-    if (hex.owner && hex.visibility === 2) {
-      const ownerColor = hex.owner === 'player' ? '#5b8fb9' :
-                         hex.owner === 'sylphari' ? '#5b9e7a' :
-                         hex.owner === 'krath' ? '#c75c5c' :
-                         hex.owner === 'aethori' ? '#c9a84c' : null;
-      if (ownerColor) {
-        ctx.strokeStyle = ownerColor;
-        ctx.lineWidth = 2;
-        ctx.stroke();
-      }
-    }
-
-    // Resource deposit icon (small diamond)
-    if (hex.resource && hex.visibility === 2) {
-      const iconSize = radius * 0.2;
-      const iconY = cy - radius * 0.3;
-      const resColor = hex.resource === 'minerals' ? '#8a8a8a' :
-                       hex.resource === 'energy' ? '#c9a84c' :
-                       hex.resource === 'biomass' ? '#5b9e7a' :
-                       hex.resource === 'water' ? '#5b8fb9' : '#7a7a82';
-
-      ctx.fillStyle = resColor;
-      ctx.beginPath();
-      ctx.moveTo(cx, iconY - iconSize);
-      ctx.lineTo(cx + iconSize, iconY);
-      ctx.lineTo(cx, iconY + iconSize);
-      ctx.lineTo(cx - iconSize, iconY);
-      ctx.closePath();
+    // Owner tint
+    if (tile.owner === 'player' && tile.visible) {
+      ctx.fillStyle = 'rgba(77, 139, 206, 0.12)';
       ctx.fill();
     }
 
-    // Road indicator
-    if (hex.road && hex.visibility === 2) {
-      ctx.strokeStyle = '#4a4a52';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(cx - radius * 0.3, cy);
-      ctx.lineTo(cx + radius * 0.3, cy);
-      ctx.stroke();
+    // Building icon
+    if (tile.building && tile.visible) {
+      this.drawBuildingIcon(tile);
     }
   }
 
-  // ----------------------------------------------------------
-  // Draw Movement Range Highlights
-  // ----------------------------------------------------------
-  function drawMoveHighlights() {
-    // Move range (green tint)
-    moveRange.forEach(m => {
-      const pos = StarMap.hexToPixel(m.q, m.r, HEX_SIZE);
-      const screen = worldToScreen(pos.x, pos.y);
-      const radius = HEX_SIZE * camera.zoom * 0.85;
+  drawHexOutline(tile) {
+    const ctx = this.ctx;
+    const pos = this.hexToPixel(tile.q, tile.r);
+    const size = this.hexSize * this.zoom;
 
-      ctx.beginPath();
-      for (let i = 0; i < 6; i++) {
-        const angle = Math.PI / 3 * i + Math.PI / 6;
-        const hx = screen.x + radius * Math.cos(angle);
-        const hy = screen.y + radius * Math.sin(angle);
-        if (i === 0) ctx.moveTo(hx, hy);
-        else ctx.lineTo(hx, hy);
-      }
-      ctx.closePath();
-      ctx.fillStyle = 'rgba(91,158,122,0.15)';
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(91,158,122,0.4)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    });
-
-    // Attack targets (red tint)
-    attackTargets.forEach(m => {
-      const pos = StarMap.hexToPixel(m.q, m.r, HEX_SIZE);
-      const screen = worldToScreen(pos.x, pos.y);
-      const radius = HEX_SIZE * camera.zoom * 0.85;
-
-      ctx.beginPath();
-      for (let i = 0; i < 6; i++) {
-        const angle = Math.PI / 3 * i + Math.PI / 6;
-        const hx = screen.x + radius * Math.cos(angle);
-        const hy = screen.y + radius * Math.sin(angle);
-        if (i === 0) ctx.moveTo(hx, hy);
-        else ctx.lineTo(hx, hy);
-      }
-      ctx.closePath();
-      ctx.fillStyle = 'rgba(199,92,92,0.15)';
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(199,92,92,0.4)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    });
-  }
-
-  // ----------------------------------------------------------
-  // Draw Buildings
-  // ----------------------------------------------------------
-  function drawBuildings() {
-    const mapData = StarMap.getMapData();
-    if (!mapData) return;
-
-    for (const [key, hex] of mapData.hexes) {
-      if (!hex.building || hex.visibility === 0) continue;
-
-      const pos = StarMap.hexToPixel(hex.q, hex.r, HEX_SIZE);
-      const screen = worldToScreen(pos.x, pos.y);
-      const radius = HEX_SIZE * camera.zoom;
-
-      // Culling
-      if (screen.x < -radius * 2 || screen.x > canvas.width + radius * 2) continue;
-      if (screen.y < -radius * 2 || screen.y > canvas.height + radius * 2) continue;
-
-      drawBuildingIcon(hex.building, screen.x, screen.y, radius);
-    }
-  }
-
-  function drawBuildingIcon(building, cx, cy, hexRadius) {
-    const size = hexRadius * 0.35;
-    const by = cy + hexRadius * 0.15; // slightly below center
-
-    // Building color based on owner
-    const color = building.owner === 'player' ? '#5b8fb9' :
-                  building.owner === 'sylphari' ? '#5b9e7a' :
-                  building.owner === 'krath' ? '#c75c5c' :
-                  building.owner === 'aethori' ? '#c9a84c' : '#7a7a82';
-
-    // Different shapes for different building types
-    const btype = building.type;
-
-    if (btype === 'capital' || btype === 'command_center') {
-      // Star shape for important buildings
-      drawStar(cx, by, size, 5, color);
-    } else if (btype === 'crashed_ship') {
-      // Triangle for crashed ship
-      ctx.fillStyle = '#8a6a4a';
-      ctx.beginPath();
-      ctx.moveTo(cx, by - size);
-      ctx.lineTo(cx + size * 0.8, by + size * 0.5);
-      ctx.lineTo(cx - size * 0.8, by + size * 0.5);
-      ctx.closePath();
-      ctx.fill();
-    } else if (btype === 'oxygen_extractor') {
-      // Circle with dot
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.arc(cx, by, size * 0.7, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = '#1a1a1f';
-      ctx.beginPath();
-      ctx.arc(cx, by, size * 0.3, 0, Math.PI * 2);
-      ctx.fill();
-    } else if (btype === 'residential') {
-      // Small house shape
-      ctx.fillStyle = color;
-      ctx.fillRect(cx - size * 0.5, by - size * 0.2, size, size * 0.8);
-      ctx.beginPath();
-      ctx.moveTo(cx - size * 0.6, by - size * 0.2);
-      ctx.lineTo(cx, by - size * 0.7);
-      ctx.lineTo(cx + size * 0.6, by - size * 0.2);
-      ctx.closePath();
-      ctx.fill();
-    } else if (btype === 'barracks') {
-      // Shield shape
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.moveTo(cx, by - size * 0.8);
-      ctx.lineTo(cx + size * 0.6, by - size * 0.3);
-      ctx.lineTo(cx + size * 0.6, by + size * 0.2);
-      ctx.lineTo(cx, by + size * 0.7);
-      ctx.lineTo(cx - size * 0.6, by + size * 0.2);
-      ctx.lineTo(cx - size * 0.6, by - size * 0.3);
-      ctx.closePath();
-      ctx.fill();
-    } else {
-      // Default: square
-      ctx.fillStyle = color;
-      ctx.fillRect(cx - size * 0.4, by - size * 0.4, size * 0.8, size * 0.8);
-    }
-  }
-
-  function drawStar(cx, cy, size, points, color) {
-    ctx.fillStyle = color;
-    ctx.beginPath();
-    for (let i = 0; i < points * 2; i++) {
-      const angle = (i * Math.PI) / points - Math.PI / 2;
-      const r = i % 2 === 0 ? size : size * 0.45;
-      const sx = cx + r * Math.cos(angle);
-      const sy = cy + r * Math.sin(angle);
-      if (i === 0) ctx.moveTo(sx, sy);
-      else ctx.lineTo(sx, sy);
-    }
-    ctx.closePath();
-    ctx.fill();
-  }
-
-  // ----------------------------------------------------------
-  // Draw Units
-  // ----------------------------------------------------------
-  function drawUnits() {
-    const mapData = StarMap.getMapData();
-    if (!mapData) return;
-
-    for (const [key, hex] of mapData.hexes) {
-      if (!hex.unit || hex.visibility < 1) continue;
-
-      // Only show enemy units in visible tiles
-      if (hex.unit.owner !== 'player' && hex.visibility < 2) continue;
-
-      const pos = StarMap.hexToPixel(hex.q, hex.r, HEX_SIZE);
-      const screen = worldToScreen(pos.x, pos.y);
-      const radius = HEX_SIZE * camera.zoom;
-
-      // Culling
-      if (screen.x < -radius * 2 || screen.x > canvas.width + radius * 2) continue;
-      if (screen.y < -radius * 2 || screen.y > canvas.height + radius * 2) continue;
-
-      drawUnitShape(hex.unit, screen.x, screen.y, radius);
-    }
-  }
-
-  function drawUnitShape(unit, cx, cy, hexRadius) {
-    const size = hexRadius * 0.3;
-    const uy = cy - hexRadius * 0.15; // slightly above center
-
-    // Unit color based on owner
-    const color = unit.owner === 'player' ? '#5b8fb9' :
-                  unit.owner === 'sylphari' ? '#5b9e7a' :
-                  unit.owner === 'krath' ? '#c75c5c' :
-                  unit.owner === 'aethori' ? '#c9a84c' : '#7a7a82';
-
-    // Different shapes for different unit types
-    if (unit.type === 'scout') {
-      // Small triangle pointing up
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.moveTo(cx, uy - size * 1.2);
-      ctx.lineTo(cx + size * 0.7, uy + size * 0.4);
-      ctx.lineTo(cx - size * 0.7, uy + size * 0.4);
-      ctx.closePath();
-      ctx.fill();
-    } else if (unit.type === 'marine' || unit.type === 'heavy_soldier') {
-      // Diamond shape
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.moveTo(cx, uy - size);
-      ctx.lineTo(cx + size * 0.7, uy);
-      ctx.lineTo(cx, uy + size);
-      ctx.lineTo(cx - size * 0.7, uy);
-      ctx.closePath();
-      ctx.fill();
-    } else if (unit.type === 'assault_mech' || unit.type === 'artillery') {
-      // Hexagonal shape for mechs
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      for (let i = 0; i < 6; i++) {
-        const angle = Math.PI / 3 * i - Math.PI / 6;
-        const hx = cx + size * 0.8 * Math.cos(angle);
-        const hy = uy + size * 0.8 * Math.sin(angle);
-        if (i === 0) ctx.moveTo(hx, hy);
-        else ctx.lineTo(hx, hy);
-      }
-      ctx.closePath();
-      ctx.fill();
-    } else if (unit.type === 'commander') {
-      // Star shape for commander
-      drawStar(cx, uy, size * 0.9, 5, color);
-    } else {
-      // Default: circle
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.arc(cx, uy, size * 0.6, 0, Math.PI * 2);
-      ctx.fill();
+    if (pos.x < -size * 2 || pos.x > this.screenW + size * 2 ||
+        pos.y < -size * 2 || pos.y > this.screenH + size * 2) {
+      return;
     }
 
-    // HP bar below unit
-    if (unit.hp < unit.maxHp) {
-      const barWidth = hexRadius * 0.6;
-      const barHeight = 3;
-      const barY = uy + size + 4;
-      const hpPercent = unit.hp / unit.maxHp;
-
-      ctx.fillStyle = '#1a1a1f';
-      ctx.fillRect(cx - barWidth / 2, barY, barWidth, barHeight);
-
-      const hpColor = hpPercent > 0.6 ? '#5b9e7a' :
-                      hpPercent > 0.3 ? '#c9a84c' : '#c75c5c';
-      ctx.fillStyle = hpColor;
-      ctx.fillRect(cx - barWidth / 2, barY, barWidth * hpPercent, barHeight);
-    }
-
-    // Fortified indicator
-    if (unit.fortified) {
-      ctx.strokeStyle = '#c9a84c';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.arc(cx, uy, size * 1.1, 0, Math.PI * 2);
-      ctx.stroke();
-    }
-
-    // Moved indicator (dim if already acted)
-    if (unit.owner === 'player' && (unit.hasMoved || unit.hasAttacked)) {
-      ctx.fillStyle = 'rgba(15,16,18,0.4)';
-      ctx.beginPath();
-      ctx.arc(cx, uy, size * 1.0, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  // ----------------------------------------------------------
-  // Draw Selection Highlight
-  // ----------------------------------------------------------
-  function drawSelection() {
-    if (!Game.STATE.selectedHex) return;
-
-    const { q, r } = Game.STATE.selectedHex;
-    const pos = StarMap.hexToPixel(q, r, HEX_SIZE);
-    const screen = worldToScreen(pos.x, pos.y);
-    const radius = HEX_SIZE * camera.zoom * 0.9;
-
-    ctx.strokeStyle = '#5b8fb9';
-    ctx.lineWidth = 2;
     ctx.beginPath();
     for (let i = 0; i < 6; i++) {
-      const angle = Math.PI / 3 * i + Math.PI / 6;
-      const hx = screen.x + radius * Math.cos(angle);
-      const hy = screen.y + radius * Math.sin(angle);
+      const angle = Math.PI / 180 * (60 * i - 30);
+      const hx = pos.x + size * Math.cos(angle);
+      const hy = pos.y + size * Math.sin(angle);
       if (i === 0) ctx.moveTo(hx, hy);
       else ctx.lineTo(hx, hy);
     }
     ctx.closePath();
+
+    ctx.strokeStyle = tile.visible ? '#2a2a3a' : '#1a1a20';
+    ctx.lineWidth = 1;
     ctx.stroke();
   }
 
-  // ----------------------------------------------------------
-  // Minimap
-  // ----------------------------------------------------------
-  function drawMinimap() {
-    if (!minimapCtx) return;
-    const mapData = StarMap.getMapData();
-    if (!mapData) return;
+  drawHexHighlight(tile, color, lineWidth) {
+    const ctx = this.ctx;
+    const pos = this.hexToPixel(tile.q, tile.r);
+    const size = this.hexSize * this.zoom;
 
-    minimapCtx.fillStyle = '#0a0a0c';
-    minimapCtx.fillRect(0, 0, 160, 120);
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+      const angle = Math.PI / 180 * (60 * i - 30);
+      const hx = pos.x + size * Math.cos(angle);
+      const hy = pos.y + size * Math.sin(angle);
+      if (i === 0) ctx.moveTo(hx, hy);
+      else ctx.lineTo(hx, hy);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
+    ctx.stroke();
+  }
 
-    const scaleX = 160 / mapData.width;
-    const scaleY = 120 / mapData.height;
-    const scale = Math.min(scaleX, scaleY);
+  drawColonyMarker(tile) {
+    const ctx = this.ctx;
+    const pos = this.hexToPixel(tile.q, tile.r);
+    const size = this.hexSize * this.zoom;
 
-    for (const [key, hex] of mapData.hexes) {
+    // Small diamond marker
+    const markerSize = size * 0.25;
+    ctx.beginPath();
+    ctx.moveTo(pos.x, pos.y - markerSize - size * 0.15);
+    ctx.lineTo(pos.x + markerSize, pos.y - size * 0.15);
+    ctx.lineTo(pos.x, pos.y + markerSize - size * 0.15);
+    ctx.lineTo(pos.x - markerSize, pos.y - size * 0.15);
+    ctx.closePath();
+    ctx.fillStyle = '#4d8bce';
+    ctx.fill();
+  }
+
+  drawCloneMarker(tile, clone) {
+    const ctx = this.ctx;
+    const pos = this.hexToPixel(tile.q, tile.r);
+    const size = this.hexSize * this.zoom;
+
+    // Small circle
+    const r = size * 0.15;
+    ctx.beginPath();
+    ctx.arc(pos.x + size * 0.2, pos.y - size * 0.1, r, 0, Math.PI * 2);
+    ctx.fillStyle = '#3d9e6e';
+    ctx.fill();
+  }
+
+  drawBuildingIcon(tile) {
+    const ctx = this.ctx;
+    const pos = this.hexToPixel(tile.q, tile.r);
+    const size = this.hexSize * this.zoom;
+    const building = BUILDINGS[tile.building];
+    if (!building) return;
+
+    const iconSize = size * 0.3;
+    const cx = pos.x;
+    const cy = pos.y + size * 0.05;
+
+    ctx.fillStyle = '#e8e8ea';
+    ctx.font = `${Math.floor(iconSize * 1.2)}px Inter, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    // Simple text icons for buildings
+    const icons = {
+      dome_vital: 'D',
+      solar_panel: 'S',
+      hydro_farm: 'F',
+      deep_mine: 'M',
+      lab: 'L',
+      clone_factory: 'C',
+      teleporter: 'T'
+    };
+
+    ctx.fillText(icons[tile.building] || '?', cx, cy);
+  }
+
+  /* ---------- MINIMAP ---------- */
+  drawMinimap() {
+    const ctx = this.minimapCtx;
+    const mw = 160;
+    const mh = 120;
+    ctx.clearRect(0, 0, mw, mh);
+    ctx.fillStyle = '#0e0e10';
+    ctx.fillRect(0, 0, mw, mh);
+
+    if (!game.map) return;
+
+    const tileW = mw / game.mapCols;
+    const tileH = mh / game.mapRows;
+
+    for (const key in game.map) {
+      const tile = game.map[key];
+      const biome = BIOMES[tile.biome];
+      if (!biome) continue;
+
       let color;
-      if (hex.visibility === 0) {
-        color = '#0a0a0c';
-      } else if (hex.visibility === 1) {
-        color = dimColor(StarMap.BIOMES[hex.biome].color, 0.4);
+      if (tile.visible) {
+        color = biome.color;
+      } else if (tile.explored) {
+        color = biome.colorDark;
       } else {
-        color = StarMap.BIOMES[hex.biome].color;
+        color = '#111114';
       }
 
-      // Override with owner color
-      if (hex.owner && hex.visibility > 0) {
-        if (hex.owner === 'player') color = '#3a6a8a';
-        else if (hex.owner === 'sylphari') color = '#3a6a52';
-        else if (hex.owner === 'krath') color = '#8a3a3a';
-        else if (hex.owner === 'aethori') color = '#8a7434';
+      if (tile.owner === 'player') {
+        color = '#4d8bce';
       }
 
-      const mx = hex.q * scale + (mapData.width * scale) / 2 - 80;
-      const my = hex.r * scale + (mapData.height * scale) / 2 - 60;
-
-      minimapCtx.fillStyle = color;
-      minimapCtx.fillRect(mx, my, Math.max(scale, 2), Math.max(scale, 2));
+      ctx.fillStyle = color;
+      ctx.fillRect(tile.q * tileW, tile.r * tileH, tileW + 0.5, tileH + 0.5);
     }
 
-    // Camera viewport indicator
-    const viewW = canvas.width / camera.zoom * scale;
-    const viewH = canvas.height / camera.zoom * scale;
-    const viewX = (-camera.x * scale) + 80 - viewW / 2;
-    const viewY = (-camera.y * scale) + 60 - viewH / 2;
+    // Viewport rectangle
+    const vpLeft = (-this.cameraX / this.zoom) / (this.hexSize * Math.sqrt(3));
+    const vpTop = (-this.cameraY / this.zoom) / (this.hexSize * 1.5);
+    const vpRight = (this.screenW - this.cameraX) / this.zoom / (this.hexSize * Math.sqrt(3));
+    const vpBottom = (this.screenH - this.cameraY) / this.zoom / (this.hexSize * 1.5);
 
-    minimapCtx.strokeStyle = '#5b8fb9';
-    minimapCtx.lineWidth = 1;
-    minimapCtx.strokeRect(viewX, viewY, viewW, viewH);
+    ctx.strokeStyle = '#e8e8ea';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(
+      Math.max(0, vpLeft * tileW),
+      Math.max(0, vpTop * tileH),
+      Math.min(mw, (vpRight - vpLeft) * tileW),
+      Math.min(mh, (vpBottom - vpTop) * tileH)
+    );
   }
 
-  // ----------------------------------------------------------
-  // Utility
-  // ----------------------------------------------------------
-  function dimColor(hex, factor) {
-    // Darken a hex color by factor (0-1)
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    const dr = Math.round(r * factor);
-    const dg = Math.round(g * factor);
-    const db = Math.round(b * factor);
-    return `rgb(${dr},${dg},${db})`;
+  /* ---------- HIT TEST ---------- */
+  getHexAtPixel(px, py) {
+    const hex = this.pixelToHex(px, py);
+    return game.getTile(hex.q, hex.r);
   }
+}
 
-  // ----------------------------------------------------------
-  // Public API
-  // ----------------------------------------------------------
-  return {
-    init,
-    resizeCanvas,
-    camera,
-    updateMoveRange,
-    worldToScreen,
-    screenToWorld,
-  };
-})();
+// Global renderer instance (initialized later)
+let renderer = null;

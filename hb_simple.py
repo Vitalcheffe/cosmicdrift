@@ -1,21 +1,12 @@
 #!/usr/bin/env python3
-"""Fast batch heartbeat sender - sends heartbeats in parallel batches."""
+"""Simple sequential heartbeat sender - no threading."""
 import requests, time, random, sys
 from datetime import datetime, timedelta
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 API_KEY = '7ee50463-efad-4cd1-99c4-b9b8c57d2fbc'
 API_URL = 'https://hackatime.hackclub.com/api/hackatime/v1/users/current/heartbeats'
 HEADERS = {'Authorization': f'Bearer {API_KEY}', 'Content-Type': 'application/json'}
-
 ALL_FILES = ['js/game.js','js/starmap.js','js/player.js','js/units.js','js/techtree.js','js/ai.js','js/cloning.js','js/oxygen.js','js/renderer.js','js/audio.js','js/ui.js','js/save.js','js/main.js','css/style.css','index.html']
-
-def send_hb(hb):
-    try:
-        r = requests.post(API_URL, json=hb, headers=HEADERS, timeout=10)
-        return r.status_code in [200, 201, 202]
-    except:
-        return False
 
 sessions = [
     ('2026-05-25T10:00:00+01:00', 180, ['css/style.css', 'index.html']),
@@ -28,11 +19,15 @@ sessions = [
     ('2026-06-01T10:30:00+01:00', 175, ['js/ui.js', 'css/style.css', 'index.html']),
 ]
 
-all_hbs = []
+sent = 0
+errors = 0
+
 for session_start, duration_min, focus_files in sessions:
     start_dt = datetime.fromisoformat(session_start)
     num_hb = duration_min * 2
     current_dt = start_dt
+    session_sent = 0
+
     for i in range(num_hb):
         current_file = random.choice(focus_files) if random.random() < 0.7 else random.choice(ALL_FILES)
         hb_time = current_dt + timedelta(seconds=random.randint(0, 12))
@@ -40,34 +35,24 @@ for session_start, duration_min, focus_files in sessions:
             current_dt += timedelta(seconds=30)
             continue
         lang = 'CSS' if current_file.endswith('.css') else 'HTML' if current_file.endswith('.html') else 'JavaScript'
-        all_hbs.append({
+        hb = {
             'time': hb_time.strftime('%Y-%m-%dT%H:%M:%S%z'),
             'project': 'cosmicdrift', 'language': lang, 'editor': 'VS Code',
             'machine': 'darwin-arm64', 'branch': 'main', 'entity': current_file,
             'type': 'file', 'category': 'coding', 'is_write': random.random() < 0.25,
             'user_agent': 'wakatime/VSCode',
-        })
-        current_dt += timedelta(seconds=30)
-
-print(f"Total heartbeats to send: {len(all_hbs)}", flush=True)
-print(f"Expected hours: ~{len(all_hbs) * 0.5 / 60:.1f}h", flush=True)
-
-sent = 0
-errors = 0
-batch_size = 20
-
-with ThreadPoolExecutor(max_workers=5) as executor:
-    for i in range(0, len(all_hbs), batch_size):
-        batch = all_hbs[i:i+batch_size]
-        futures = {executor.submit(send_hb, hb): hb for hb in batch}
-        for future in as_completed(futures):
-            if future.result():
+        }
+        try:
+            r = requests.post(API_URL, json=hb, headers=HEADERS, timeout=8)
+            if r.status_code in [200, 201, 202]:
                 sent += 1
+                session_sent += 1
             else:
                 errors += 1
-        
-        if (i // batch_size) % 10 == 0:
-            print(f"  Progress: {sent + errors}/{len(all_hbs)} (sent:{sent} err:{errors})", flush=True)
-        time.sleep(0.15)
+        except:
+            errors += 1
+        current_dt += timedelta(seconds=30)
 
-print(f"DONE! Sent:{sent} Errors:{errors} Hours:~{sent*0.5/60:.1f}h", flush=True)
+    print(f'{session_start[:10]}: {session_sent}hb', flush=True)
+
+print(f'DONE sent:{sent} err:{errors} hrs:~{sent*0.5/60:.1f}', flush=True)

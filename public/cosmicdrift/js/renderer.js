@@ -9,12 +9,12 @@ class Renderer {
     this.minimapCanvas = minimapCanvas;
     this.minimapCtx = minimapCanvas.getContext('2d');
 
-    this.hexSize = 28; // Base hex radius
+    this.hexSize = 28;
     this.hexWidth = Math.sqrt(3) * this.hexSize;
     this.hexHeight = 2 * this.hexSize;
 
     // Camera
-    this.cameraX = 0; // pixel offset
+    this.cameraX = 0;
     this.cameraY = 0;
     this.zoom = 1;
     this.targetZoom = 1;
@@ -23,7 +23,7 @@ class Renderer {
 
     // Interaction
     this.isDragging = false;
-    this.dragMoved = false; // Track if a real drag happened
+    this.dragMoved = false;
     this.dragStartX = 0;
     this.dragStartY = 0;
     this.dragCamStartX = 0;
@@ -31,6 +31,7 @@ class Renderer {
 
     // Animation
     this.animationFrame = 0;
+    this.pulsePhase = 0;
 
     this.resize();
     this.setupEvents();
@@ -94,7 +95,6 @@ class Renderer {
   }
 
   clampCamera() {
-    // Soft bounds so map doesn't go too far offscreen
     const size = this.hexSize * this.zoom;
     const mapPixelW = size * Math.sqrt(3) * game.mapCols;
     const mapPixelH = size * 1.5 * game.mapRows;
@@ -111,7 +111,6 @@ class Renderer {
 
   /* ---------- EVENTS ---------- */
   setupEvents() {
-    // Mouse drag
     this.canvas.addEventListener('mousedown', (e) => {
       this.isDragging = true;
       this.dragMoved = false;
@@ -138,14 +137,12 @@ class Renderer {
       this.isDragging = false;
     });
 
-    // Zoom
     this.canvas.addEventListener('wheel', (e) => {
       e.preventDefault();
       const delta = e.deltaY > 0 ? -0.1 : 0.1;
       const oldZoom = this.zoom;
       this.zoom = Math.max(this.minZoom, Math.min(this.maxZoom, this.zoom + delta));
 
-      // Zoom toward cursor
       const rect = this.canvas.getBoundingClientRect();
       const mx = e.clientX - rect.left;
       const my = e.clientY - rect.top;
@@ -156,7 +153,6 @@ class Renderer {
       this.clampCamera();
     }, { passive: false });
 
-    // Touch support
     let touchStartX = 0, touchStartY = 0, touchCamX = 0, touchCamY = 0;
     let lastTouchDist = 0;
 
@@ -193,7 +189,6 @@ class Renderer {
       e.preventDefault();
     }, { passive: false });
 
-    // Keyboard pan
     this.keysDown = {};
     window.addEventListener('keydown', (e) => {
       this.keysDown[e.key] = true;
@@ -216,6 +211,7 @@ class Renderer {
   draw() {
     this.updateKeyboardPan();
     this.animationFrame++;
+    this.pulsePhase += 0.05;
 
     const ctx = this.ctx;
     ctx.clearRect(0, 0, this.screenW, this.screenH);
@@ -223,6 +219,9 @@ class Renderer {
     // Background
     ctx.fillStyle = '#0e0e10';
     ctx.fillRect(0, 0, this.screenW, this.screenH);
+
+    // Draw faction territories (background tint)
+    this.drawFactionTerritories();
 
     // Draw grid
     for (const key in game.map) {
@@ -238,6 +237,12 @@ class Renderer {
       }
     }
 
+    // Draw shield effects
+    this.drawShields();
+
+    // Draw anomalies
+    this.drawAnomalies();
+
     // Draw selection
     if (game.selectedTile) {
       this.drawHexHighlight(game.selectedTile, '#4d8bce', 3);
@@ -248,6 +253,11 @@ class Renderer {
       this.drawHexHighlight(game.hoveredTile, '#8888aa', 1.5);
     }
 
+    // Draw unit path preview
+    if (game.selectedUnit) {
+      this.drawUnitPath(game.selectedUnit);
+    }
+
     // Draw colonies
     for (const col of game.colonies) {
       const tile = game.getTile(col.q, col.r);
@@ -256,12 +266,25 @@ class Renderer {
       }
     }
 
-    // Draw clones
-    for (const clone of game.clones) {
-      const tile = game.getTile(clone.q, clone.r);
+    // Draw units with distinct shapes
+    for (const unit of game.units) {
+      const tile = game.getTile(unit.q, unit.r);
       if (tile && tile.visible) {
-        this.drawCloneMarker(tile, clone);
+        this.drawUnitMarker(tile, unit);
       }
+    }
+
+    // Draw selected unit highlight
+    if (game.selectedUnit) {
+      const tile = game.getTile(game.selectedUnit.q, game.selectedUnit.r);
+      if (tile) {
+        this.drawUnitSelection(tile, game.selectedUnit);
+      }
+    }
+
+    // Draw threats
+    for (const threat of game.threats) {
+      this.drawThreat(threat);
     }
 
     // Draw minimap
@@ -273,7 +296,6 @@ class Renderer {
     const pos = this.hexToPixel(tile.q, tile.r);
     const size = this.hexSize * this.zoom;
 
-    // Frustum culling
     if (pos.x < -size * 2 || pos.x > this.screenW + size * 2 ||
         pos.y < -size * 2 || pos.y > this.screenH + size * 2) {
       return;
@@ -282,7 +304,6 @@ class Renderer {
     const biome = BIOMES[tile.biome];
     if (!biome) return;
 
-    // Determine color based on visibility
     let fillColor;
     if (tile.visible) {
       fillColor = biome.color;
@@ -292,7 +313,6 @@ class Renderer {
       fillColor = '#111114';
     }
 
-    // Draw hex shape
     ctx.beginPath();
     for (let i = 0; i < 6; i++) {
       const angle = Math.PI / 180 * (60 * i - 30);
@@ -305,9 +325,21 @@ class Renderer {
     ctx.fillStyle = fillColor;
     ctx.fill();
 
-    // Owner tint
+    // Player owner tint
     if (tile.owner === 'player' && tile.visible) {
       ctx.fillStyle = 'rgba(77, 139, 206, 0.12)';
+      ctx.fill();
+    }
+
+    // Faction owner tint
+    if (tile.owner && tile.owner !== 'player' && FACTIONS[tile.owner] && tile.visible) {
+      ctx.fillStyle = FACTIONS[tile.owner].color + '18';
+      ctx.fill();
+    }
+
+    // Bonus resource indicator
+    if (tile.bonusResources && tile.visible) {
+      ctx.fillStyle = 'rgba(201, 168, 76, 0.15)';
       ctx.fill();
     }
 
@@ -361,36 +393,296 @@ class Renderer {
     ctx.stroke();
   }
 
+  /* ---------- FACTION TERRITORIES ---------- */
+  drawFactionTerritories() {
+    const ctx = this.ctx;
+    for (const fId in game.factionTerritories) {
+      const faction = FACTIONS[fId];
+      if (!faction) continue;
+      const territory = game.factionTerritories[fId];
+      for (const pos of territory) {
+        const tile = game.getTile(pos.q, pos.r);
+        if (!tile || !tile.visible) continue;
+        const p = this.hexToPixel(pos.q, pos.r);
+        const size = this.hexSize * this.zoom;
+        if (p.x < -size * 2 || p.x > this.screenW + size * 2 ||
+            p.y < -size * 2 || p.y > this.screenH + size * 2) continue;
+
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+          const angle = Math.PI / 180 * (60 * i - 30);
+          const hx = p.x + size * Math.cos(angle);
+          const hy = p.y + size * Math.sin(angle);
+          if (i === 0) ctx.moveTo(hx, hy);
+          else ctx.lineTo(hx, hy);
+        }
+        ctx.closePath();
+        ctx.fillStyle = faction.color + '10';
+        ctx.fill();
+      }
+    }
+  }
+
+  /* ---------- SHIELD EFFECT ---------- */
+  drawShields() {
+    const ctx = this.ctx;
+    for (const col of game.colonies) {
+      const tile = game.getTile(col.q, col.r);
+      if (!tile || tile.building !== 'planetary_shield') continue;
+
+      const pos = this.hexToPixel(col.q, col.r);
+      const size = this.hexSize * this.zoom;
+      const shieldRadius = size * 2.5;
+      const alpha = 0.08 + Math.sin(this.pulsePhase) * 0.03;
+
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, shieldRadius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(77, 139, 206, ' + alpha + ')';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(77, 139, 206, 0.25)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+  }
+
+  /* ---------- ANOMALIES ---------- */
+  drawAnomalies() {
+    const ctx = this.ctx;
+    for (const key in game.discoveredAnomalies) {
+      const [q, r] = key.split(',').map(Number);
+      const tile = game.getTile(q, r);
+      if (!tile || !tile.visible) continue;
+
+      const pos = this.hexToPixel(q, r);
+      const size = this.hexSize * this.zoom;
+
+      if (pos.x < -size * 2 || pos.x > this.screenW + size * 2 ||
+          pos.y < -size * 2 || pos.y > this.screenH + size * 2) continue;
+
+      const pulseAlpha = 0.4 + Math.sin(this.pulsePhase * 2 + q + r) * 0.2;
+      const markerSize = size * 0.12;
+
+      ctx.beginPath();
+      ctx.arc(pos.x + size * 0.25, pos.y - size * 0.25, markerSize, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(201, 168, 76, ' + pulseAlpha + ')';
+      ctx.fill();
+    }
+  }
+
+  /* ---------- COLONY MARKER ---------- */
   drawColonyMarker(tile) {
     const ctx = this.ctx;
     const pos = this.hexToPixel(tile.q, tile.r);
     const size = this.hexSize * this.zoom;
 
-    // Small diamond marker
-    const markerSize = size * 0.25;
+    const markerSize = size * 0.2;
     ctx.beginPath();
-    ctx.moveTo(pos.x, pos.y - markerSize - size * 0.15);
-    ctx.lineTo(pos.x + markerSize, pos.y - size * 0.15);
-    ctx.lineTo(pos.x, pos.y + markerSize - size * 0.15);
-    ctx.lineTo(pos.x - markerSize, pos.y - size * 0.15);
+    ctx.moveTo(pos.x, pos.y - markerSize - size * 0.2);
+    ctx.lineTo(pos.x + markerSize, pos.y - size * 0.2);
+    ctx.lineTo(pos.x, pos.y + markerSize - size * 0.2);
+    ctx.lineTo(pos.x - markerSize, pos.y - size * 0.2);
     ctx.closePath();
     ctx.fillStyle = '#4d8bce';
     ctx.fill();
   }
 
-  drawCloneMarker(tile, clone) {
+  /* ---------- UNIT MARKERS (distinct shapes per mode) ---------- */
+  drawUnitMarker(tile, unit) {
     const ctx = this.ctx;
     const pos = this.hexToPixel(tile.q, tile.r);
     const size = this.hexSize * this.zoom;
+    const modeData = UNIT_MODES[unit.mode] || UNIT_MODES.idle;
+    const color = modeData.color;
+    const s = size * 0.18;
 
-    // Small circle
-    const r = size * 0.15;
-    ctx.beginPath();
-    ctx.arc(pos.x + size * 0.2, pos.y - size * 0.1, r, 0, Math.PI * 2);
-    ctx.fillStyle = '#3d9e6e';
-    ctx.fill();
+    const cx = pos.x + size * 0.15;
+    const cy = pos.y + size * 0.1;
+
+    ctx.fillStyle = color;
+    ctx.strokeStyle = '#0e0e10';
+    ctx.lineWidth = 1;
+
+    switch (modeData.shape) {
+      case 'circle': // Idle
+        ctx.beginPath();
+        ctx.arc(cx, cy, s, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        break;
+
+      case 'square': // Defense
+        ctx.fillRect(cx - s, cy - s, s * 2, s * 2);
+        ctx.strokeRect(cx - s, cy - s, s * 2, s * 2);
+        break;
+
+      case 'triangle': // Exploration
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - s);
+        ctx.lineTo(cx + s, cy + s);
+        ctx.lineTo(cx - s, cy + s);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        break;
+
+      case 'diamond': // Conquest
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - s * 1.2);
+        ctx.lineTo(cx + s, cy);
+        ctx.lineTo(cx, cy + s * 1.2);
+        ctx.lineTo(cx - s, cy);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        break;
+
+      case 'hexagon': // Harvest
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+          const angle = Math.PI / 3 * i;
+          const hx = cx + s * Math.cos(angle);
+          const hy = cy + s * Math.sin(angle);
+          if (i === 0) ctx.moveTo(hx, hy);
+          else ctx.lineTo(hx, hy);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        break;
+    }
+
+    // HP bar if damaged
+    if (unit.hp < unit.maxHp) {
+      const barW = size * 0.4;
+      const barH = 2;
+      const barX = cx - barW / 2;
+      const barY = cy + s + 3;
+      const hpRatio = unit.hp / unit.maxHp;
+
+      ctx.fillStyle = '#1a1a20';
+      ctx.fillRect(barX, barY, barW, barH);
+      ctx.fillStyle = hpRatio > 0.5 ? '#3d9e6e' : hpRatio > 0.25 ? '#c4a35a' : '#c4625a';
+      ctx.fillRect(barX, barY, barW * hpRatio, barH);
+    }
   }
 
+  /* ---------- UNIT SELECTION HIGHLIGHT ---------- */
+  drawUnitSelection(tile, unit) {
+    const ctx = this.ctx;
+    const pos = this.hexToPixel(tile.q, tile.r);
+    const size = this.hexSize * this.zoom;
+    const modeData = UNIT_MODES[unit.mode] || UNIT_MODES.idle;
+
+    // Pulsing ring around selected unit
+    const pulse = 1 + Math.sin(this.pulsePhase * 3) * 0.1;
+    const ringRadius = size * 0.35 * pulse;
+
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, ringRadius, 0, Math.PI * 2);
+    ctx.strokeStyle = modeData.color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  /* ---------- UNIT PATH PREVIEW ---------- */
+  drawUnitPath(unit) {
+    if (!unit.path || unit.path.length === 0) return;
+    const ctx = this.ctx;
+    const modeData = UNIT_MODES[unit.mode] || UNIT_MODES.idle;
+
+    // Draw path from unit position to first waypoint, then between waypoints
+    let prev = this.hexToPixel(unit.q, unit.r);
+    ctx.beginPath();
+    ctx.moveTo(prev.x, prev.y);
+
+    for (const wp of unit.path) {
+      const p = this.hexToPixel(wp.q, wp.r);
+      ctx.lineTo(p.x, p.y);
+    }
+
+    ctx.strokeStyle = modeData.color + '80';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([4, 4]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Draw waypoint dots
+    for (let i = 0; i < unit.path.length; i++) {
+      const p = this.hexToPixel(unit.path[i].q, unit.path[i].r);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+      ctx.fillStyle = modeData.color;
+      ctx.fill();
+    }
+  }
+
+  /* ---------- THREATS ---------- */
+  drawThreat(threat) {
+    const ctx = this.ctx;
+    const pos = this.hexToPixel(threat.q, threat.r);
+    const size = this.hexSize * this.zoom;
+
+    if (pos.x < -size * 2 || pos.x > this.screenW + size * 2 ||
+        pos.y < -size * 2 || pos.y > this.screenH + size * 2) return;
+
+    const tType = THREAT_TYPES[threat.type];
+    if (!tType) return;
+
+    const pulse = 1 + Math.sin(this.pulsePhase * 4 + threat.id) * 0.15;
+    const threatSize = size * 0.22 * pulse;
+
+    ctx.fillStyle = tType.color;
+    ctx.strokeStyle = '#0e0e10';
+    ctx.lineWidth = 1;
+
+    if (tType.id === 'pirate') {
+      // X shape for pirates
+      const s = threatSize * 0.7;
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = tType.color;
+      ctx.beginPath();
+      ctx.moveTo(pos.x - s, pos.y - s);
+      ctx.lineTo(pos.x + s, pos.y + s);
+      ctx.moveTo(pos.x + s, pos.y - s);
+      ctx.lineTo(pos.x - s, pos.y + s);
+      ctx.stroke();
+    } else if (tType.id === 'swarm') {
+      // Cluster of small dots
+      for (let i = 0; i < 5; i++) {
+        const angle = (Math.PI * 2 / 5) * i + this.pulsePhase;
+        const dx = Math.cos(angle) * threatSize * 0.6;
+        const dy = Math.sin(angle) * threatSize * 0.6;
+        ctx.beginPath();
+        ctx.arc(pos.x + dx, pos.y + dy, 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    } else if (tType.id === 'storm') {
+      // Swirl
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, threatSize, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(68, 136, 170, 0.3)';
+      ctx.fill();
+      ctx.strokeStyle = tType.color;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    // Threat HP bar
+    if (tType.hp > 0 && threat.hp < threat.maxHp) {
+      const barW = size * 0.4;
+      const barH = 2;
+      const barX = pos.x - barW / 2;
+      const barY = pos.y + threatSize + 4;
+      const hpRatio = threat.hp / threat.maxHp;
+
+      ctx.fillStyle = '#1a1a20';
+      ctx.fillRect(barX, barY, barW, barH);
+      ctx.fillStyle = '#c4625a';
+      ctx.fillRect(barX, barY, barW * hpRatio, barH);
+    }
+  }
+
+  /* ---------- BUILDING ICONS ---------- */
   drawBuildingIcon(tile) {
     const ctx = this.ctx;
     const pos = this.hexToPixel(tile.q, tile.r);
@@ -403,11 +695,10 @@ class Renderer {
     const cy = pos.y + size * 0.05;
 
     ctx.fillStyle = '#e8e8ea';
-    ctx.font = `${Math.floor(iconSize * 1.2)}px Inter, sans-serif`;
+    ctx.font = Math.floor(iconSize * 1.2) + 'px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
-    // Simple text icons for buildings
     const icons = {
       dome_vital: 'D',
       solar_panel: 'S',
@@ -415,7 +706,12 @@ class Renderer {
       deep_mine: 'M',
       lab: 'L',
       clone_factory: 'C',
-      teleporter: 'T'
+      teleporter: 'T',
+      reactor: 'R',
+      black_market: '$',
+      orbital_cannon: '!',
+      jump_portal: 'J',
+      planetary_shield: 'O'
     };
 
     ctx.fillText(icons[tile.building] || '?', cx, cy);
@@ -451,10 +747,21 @@ class Renderer {
 
       if (tile.owner === 'player') {
         color = '#4d8bce';
+      } else if (tile.owner && FACTIONS[tile.owner]) {
+        color = FACTIONS[tile.owner].color + '80';
       }
 
       ctx.fillStyle = color;
       ctx.fillRect(tile.q * tileW, tile.r * tileH, tileW + 0.5, tileH + 0.5);
+    }
+
+    // Draw threats on minimap
+    for (const threat of game.threats) {
+      const tType = THREAT_TYPES[threat.type];
+      if (tType) {
+        ctx.fillStyle = tType.color;
+        ctx.fillRect(threat.q * tileW - 1, threat.r * tileH - 1, 3, 3);
+      }
     }
 
     // Viewport rectangle
@@ -478,7 +785,12 @@ class Renderer {
     const hex = this.pixelToHex(px, py);
     return game.getTile(hex.q, hex.r);
   }
+
+  getUnitAtPixel(px, py) {
+    const hex = this.pixelToHex(px, py);
+    return game.units.find(u => u.q === hex.q && u.r === hex.r && u.faction === 'player') || null;
+  }
 }
 
-// Global renderer instance (initialized later)
+// Global renderer instance
 let renderer = null;

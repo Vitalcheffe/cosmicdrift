@@ -377,6 +377,22 @@ html, body {
 }
 
 /* ============================================
+   ERA DISPLAY
+   ============================================ */
+#era-display {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8888aa;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+}
+
+/* ============================================
    MINIMAP
    ============================================ */
 #minimap-container {
@@ -397,9 +413,9 @@ html, body {
 }
 
 /* ============================================
-   TILE INFO PANEL (Right)
+   PANELS (Right side)
    ============================================ */
-#tile-panel {
+#tile-panel, #unit-panel {
   position: absolute;
   top: 50px;
   right: 12px;
@@ -413,7 +429,7 @@ html, body {
   backdrop-filter: blur(8px);
 }
 
-#tile-panel.hidden {
+.panel.hidden {
   display: none;
 }
 
@@ -495,6 +511,19 @@ html, body {
 
 .panel-body .build-btn-row {
   margin-top: 8px;
+}
+
+/* ============================================
+   MODE BUTTONS (inside unit panel)
+   ============================================ */
+.mode-btn {
+  font-size: 11px !important;
+  padding: 3px 7px !important;
+  transition: all 200ms ease;
+}
+
+.mode-btn:hover {
+  transform: scale(1.05);
 }
 
 /* ============================================
@@ -770,7 +799,7 @@ html, body {
 }
 
 /* ============================================
-   CLONE PANEL
+   UNIT / CLONE PANEL
    ============================================ */
 .clone-item {
   background: var(--bg-card);
@@ -870,7 +899,7 @@ html, body {
     flex-direction: column;
   }
 
-  #tile-panel {
+  #tile-panel, #unit-panel {
     width: 200px;
     font-size: 11px;
   }

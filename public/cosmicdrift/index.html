@@ -94,6 +94,8 @@
           <span class="res-value" id="val-helium3">10</span>
           <span class="res-delta" id="delta-helium3">+0</span>
         </div>
+        <!-- ERA DISPLAY -->
+        <div id="era-display" style="margin-left:auto;font-size:11px;font-weight:600;color:#8888aa;padding:4px 8px;white-space:nowrap;">Ere 1: Survie</div>
       </div>
 
       <!-- MINIMAP -->
@@ -112,6 +114,17 @@
         <div class="panel-body" id="tile-panel-body"></div>
       </div>
 
+      <!-- UNIT INFO PANEL (right) -->
+      <div id="unit-panel" class="panel hidden">
+        <div class="panel-header">
+          <span id="unit-panel-title">Unite</span>
+          <button class="panel-close" id="unit-panel-close">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="panel-body" id="unit-panel-body"></div>
+      </div>
+
       <!-- BOTTOM BAR -->
       <div id="bottom-bar">
         <div id="turn-info">
@@ -123,8 +136,8 @@
           <button class="btn btn-sm" id="btn-build" title="Construire (2 PA)">Construire</button>
           <button class="btn btn-sm" id="btn-research" title="Rechercher (3 PA)">Recherche</button>
           <button class="btn btn-sm" id="btn-diplomacy" title="Factions">Factions</button>
-          <button class="btn btn-sm" id="btn-clone" title="Cloner (4 PA)">Cloner</button>
-          <button class="btn btn-sm" id="btn-teleport" title="Teleporter (10 He-3, 50 Energie)">TP</button>
+          <button class="btn btn-sm" id="btn-unit" title="Gerer les unites">Unites</button>
+          <button class="btn btn-sm" id="btn-move" title="Deplacer l'unite selectionnee">Deplacer</button>
         </div>
         <button class="btn btn-end-turn" id="btn-end-turn">Fin du Tour</button>
       </div>
@@ -156,14 +169,14 @@
     </div>
   </div>
 
-  <!-- CLONE OVERLAY -->
-  <div id="clone-overlay" class="overlay hidden">
+  <!-- UNIT MANAGEMENT OVERLAY -->
+  <div id="unit-overlay" class="overlay hidden">
     <div class="overlay-box">
       <div class="overlay-header">
-        <h2>Gestion des Clones</h2>
-        <button class="btn btn-sm" id="clone-close">Fermer</button>
+        <h2>Gestion des Unites</h2>
+        <button class="btn btn-sm" id="unit-overlay-close">Fermer</button>
       </div>
-      <div class="overlay-body" id="clone-body"></div>
+      <div class="overlay-body" id="unit-overlay-body"></div>
     </div>
   </div>
 
